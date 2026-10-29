@@ -383,5 +383,7 @@
         }
       ]
     }
-  ]
+  ],
+  "audio": "audio/2026-10-29.mp3",
+  "audio_engine": "microsoft"
 }
