@@ -270,7 +270,8 @@ footer p { margin: 0; max-width: 80ch; }
     var voiceWrap = document.getElementById("pl-voice-wrap");
     var chkSpunti = document.getElementById("pl-spunti");
     var status = document.getElementById("pl-status");
-    var queue = [], idx = 0, state = "idle", token = 0, voices = [], label = "";
+    var queue = [], idx = 0, state = "idle", token = 0, voices = [], label = "", forceDefault = false;
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
     function store(k, v) { try { localStorage.setItem("ilpunto-" + k, v); } catch (e) {} }
     function load(k) { try { return localStorage.getItem("ilpunto-" + k); } catch (e) { return null; } }
@@ -296,7 +297,8 @@ footer p { margin: 0; max-width: 80ch; }
 
     function score(v) {
       var n = (v.name || "").toLowerCase(), s = 0;
-      if (/natural|neural|online|premium|enhanced|siri/.test(n)) s += 50;
+      if (/natural|neural|online/.test(n)) s += 50;
+      if (!isIOS && /premium|enhanced/.test(n)) s += 40;
       if (/google/.test(n)) s += 30;
       if (/elsa|isabella|diego|giuseppe|alice|federica|luca|paola|emma|bianca/.test(n)) s += 10;
       if (v.localService === false) s += 5;
@@ -314,7 +316,14 @@ footer p { margin: 0; max-width: 80ch; }
       }).join("");
       voiceWrap.hidden = voices.length < 2;
     }
-    function voice() { return voices[parseInt(selVoice.value, 10)] || voices[0] || null; }
+    function voice() {
+      if (forceDefault) return null;
+      // On iPhone/iPad some listed voices are not usable from the browser and play silently:
+      // use the system default Italian voice unless the user picked one explicitly.
+      if (isIOS && !load("voice")) return null;
+      return voices[parseInt(selVoice.value, 10)] || voices[0] || null;
+    }
+    function hush() { if (synth.speaking || synth.pending) synth.cancel(); }
 
     function setUI() {
       btnPlay.innerHTML = state === "playing" ? icon("pause") + "Pausa" : icon("play") + (state === "paused" ? "Riprendi" : "Ascolta la rassegna");
@@ -343,7 +352,15 @@ footer p { margin: 0; max-width: 80ch; }
       u.lang = "it-IT";
       var v = voice(); if (v) u.voice = v;
       u.rate = parseFloat(selRate.value) || 1;
-      u.onend = function () { if (t !== token) return; idx++; setTimeout(function () { speakNext(t); }, 120); };
+      u.volume = 1;
+      var began = false, t0 = Date.now();
+      u.onstart = function () { began = true; };
+      u.onend = function () {
+        if (t !== token) return;
+        // A chosen voice that never starts and ends instantly is unusable here: retry with the default voice.
+        if (!began && v && !forceDefault && Date.now() - t0 < 400) { forceDefault = true; speakNext(t); return; }
+        idx++; setTimeout(function () { speakNext(t); }, 120);
+      };
       u.onerror = function (e) { if (t !== token) return; if (e.error === "interrupted" || e.error === "canceled") return; idx++; speakNext(t); };
       synth.speak(u);
     }
@@ -373,12 +390,12 @@ footer p { margin: 0; max-width: 80ch; }
       push("Fine della rassegna. Buona giornata.", null, "Fine");
     }
 
-    function start() { token++; idx = 0; state = "playing"; synth.cancel(); speakNext(token); }
-    function pause() { state = "paused"; token++; synth.cancel(); setUI(); }
-    function resume() { state = "playing"; token++; synth.cancel(); speakNext(token); }
+    function start() { token++; idx = 0; state = "playing"; hush(); speakNext(token); }
+    function pause() { state = "paused"; token++; hush(); setUI(); }
+    function resume() { state = "playing"; token++; hush(); speakNext(token); }
     function stop() {
       token++; state = "idle"; queue = []; idx = 0;
-      if (supported) synth.cancel();
+      if (supported) hush();
       var prev = document.querySelector(".card.speaking"); if (prev) prev.classList.remove("speaking");
       if (supported) setUI();
     }
@@ -390,7 +407,7 @@ footer p { margin: 0; max-width: 80ch; }
       var r = load("rate"); if (r) selRate.value = r;
       chkSpunti.checked = load("spunti") === "1";
       selRate.addEventListener("change", function () { store("rate", selRate.value); if (state === "playing") resume(); });
-      selVoice.addEventListener("change", function () { var v = voice(); if (v) store("voice", v.name); if (state === "playing") resume(); });
+      selVoice.addEventListener("change", function () { forceDefault = false; var v = voices[parseInt(selVoice.value, 10)]; if (v) store("voice", v.name); if (state === "playing") resume(); });
       chkSpunti.addEventListener("change", function () { store("spunti", chkSpunti.checked ? "1" : "0"); });
       btnPlay.addEventListener("click", function () {
         if (!currentEd) return;
