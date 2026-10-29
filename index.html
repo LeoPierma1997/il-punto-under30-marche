@@ -146,6 +146,12 @@ section { scroll-margin-top: 72px; }
 #pl-status { font-family: var(--mono); font-size: .75rem; color: var(--mast-muted); min-width: 0; }
 .listen { font: 600 .85rem/1 var(--body); display: inline-flex; align-items: center; gap: 5px; padding: 0; border: 0; background: none; color: var(--muted); cursor: pointer; }
 .listen .ico { width: 16px; height: 16px; }
+.pl-tts { display: contents; }
+.pl-tts[hidden] { display: none !important; }
+.pl-audio { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; width: 100%; }
+.pl-audio-lbl { font-family: var(--display); font-style: italic; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; font-size: .95rem; }
+#pl-audio { width: min(100%, 560px); height: 44px; }
+body.has-audio .listen { display: none; }
 .card.speaking { box-shadow: 0 0 0 3px var(--tone), 0 8px 22px rgba(44,47,124,.12); }
 footer { background: var(--mast); color: var(--mast-muted); font-size: .85rem; }
 footer .wrap { padding-block: 22px 34px; display: grid; gap: 8px; }
@@ -164,6 +170,11 @@ footer p { margin: 0; max-width: 80ch; }
       <p id="ed-intro">Caricamento dell'edizione…</p>
     </div>
     <div class="player" id="player" hidden>
+      <div class="pl-audio" id="pl-audio-wrap" hidden>
+        <span class="pl-audio-lbl">Ascolta la rassegna</span>
+        <audio id="pl-audio" controls preload="none"></audio>
+      </div>
+      <span class="pl-tts" id="pl-tts">
       <button class="pl-btn primary" id="pl-play" type="button"></button>
       <button class="pl-btn" id="pl-stop" type="button" hidden>Stop</button>
       <label class="pl-opt" for="pl-rate">Velocità
@@ -174,6 +185,7 @@ footer p { margin: 0; max-width: 80ch; }
       </label>
       <label class="pl-opt" for="pl-spunti"><input type="checkbox" id="pl-spunti"> Leggi anche gli spunti</label>
       <span id="pl-status" aria-live="polite"></span>
+      </span>
     </div>
   </div>
 </header>
@@ -435,7 +447,14 @@ footer p { margin: 0; max-width: 80ch; }
   function renderEdition(ed) {
     currentEd = ed;
     player.stop();
-    playerEl.hidden = !player.supported;
+    var audioWrap = document.getElementById("pl-audio-wrap"), audioEl = document.getElementById("pl-audio");
+    var hasAudio = /^audio\/[0-9-]+\.mp3$/.test(ed.audio || "");
+    audioWrap.hidden = !hasAudio;
+    document.getElementById("pl-tts").hidden = hasAudio;
+    document.body.classList.toggle("has-audio", hasAudio);
+    if (hasAudio) { if (audioEl.getAttribute("src") !== ed.audio) audioEl.setAttribute("src", ed.audio); }
+    else { audioEl.pause(); audioEl.removeAttribute("src"); }
+    playerEl.hidden = !(hasAudio || player.supported);
     document.getElementById("ed-date").textContent = ed.label;
     document.getElementById("ed-intro").textContent = ed.intro || "";
     bar.innerHTML = ed.sections.map(function (s) {
@@ -451,6 +470,7 @@ footer p { margin: 0; max-width: 80ch; }
   function renderArchive() {
     currentEd = null;
     player.stop();
+    document.getElementById("pl-audio").pause();
     playerEl.hidden = true;
     document.getElementById("ed-date").textContent = "Archivio";
     document.getElementById("ed-intro").textContent = "Tutte le edizioni pubblicate, dalla più recente.";

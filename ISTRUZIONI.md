@@ -69,6 +69,11 @@ Ogni elemento di `items`:
 ```
 Il primo tag compare nella fascia colorata della scheda: deve essere breve (1-2 parole).
 
+## Audio
+- L'audio MP3 dell'edizione viene generato in automatico da GitHub Actions (`.github/workflows/audio.yml`) dopo il push: aggiunge `audio/AAAA-MM-GG.mp3` e i campi `audio` e `audio_engine` al file dell'edizione.
+- Chi prepara l'edizione non deve scrivere questi campi né toccare la cartella `audio/`.
+- Voce: Microsoft "it-IT-DiegoNeural" (gratuita). Se nei Secrets del repository c'è `ELEVENLABS_API_KEY`, si usa ElevenLabs (voce in `ELEVENLABS_VOICE_ID` tra le Variables, facoltativa). Con la variabile `AUDIO_SPUNTI` = `1` l'audio legge anche gli spunti.
+
 ## Pubblicazione
 1. Creare `data/AAAA-MM-GG.json` con la data di oggi.
 2. Aggiungere in testa a `data/index.json` la voce `{"date": "AAAA-MM-GG", "label": "..."}`. Non cancellare le edizioni precedenti.
