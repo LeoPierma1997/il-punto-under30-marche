@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<style>body{margin:0} img{max-width:100%} [hidden]{display:none!important} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>Il Punto Under 30 - Marche</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Rassegna stampa politica quotidiana di Azione Under 30 Marche: internazionale, nazionale, Marche.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: navy masthead with logo, Azione-blue page with a sticky section bar, then three sections of white cards; each card opens with a one-line colored band carrying the theme icon. */
+:root {
+  --page: #E9EBF8;
+  --page-glow: #F6F7FD;
+  --mast: #2C2F7C;
+  --mast-ink: #FFFFFF;
+  --mast-muted: #CDD0F3;
+  --on-page: #2C2F7C;
+  --on-page-muted: #5D6190;
+  --surface: #FFFFFF;
+  --fg: #16183A;
+  --muted: #585C86;
+  --line: #E0E2F2;
+  --int: #2C2F7C;
+  --naz: #4650CC;
+  --mar: #2470B8;
+  --int-plate: #2C2F7C;
+  --naz-plate: #4650CC;
+  --mar-plate: #2470B8;
+  --spunto-bg: #EDEFFC;
+  --spunto-line: #2C2F7C;
+  --spunto-fg: #1F2263;
+  --focus: #4650CC;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Public Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #14163C; --page-glow: #1C1F4C; --mast: #0D0F2C; --mast-ink: #FFFFFF; --mast-muted: #B4B7DE; --on-page: #FFFFFF; --on-page-muted: #B4B7DE;
+    --surface: #1E2150; --fg: #EEEFFA; --muted: #ADB0D6; --line: #33377C;
+    --int: #A9AEFF; --naz: #939BFF; --mar: #82C2F2;
+    --int-plate: #2C2F7C; --naz-plate: #3F48B6; --mar-plate: #1F64A8;
+    --spunto-bg: #272B68; --spunto-line: #A9AEFF; --spunto-fg: #E4E6FF; --focus: #A9AEFF;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #14163C; --page-glow: #1C1F4C; --mast: #0D0F2C; --mast-ink: #FFFFFF; --mast-muted: #B4B7DE; --on-page: #FFFFFF; --on-page-muted: #B4B7DE;
+  --surface: #1E2150; --fg: #EEEFFA; --muted: #ADB0D6; --line: #33377C;
+  --int: #A9AEFF; --naz: #939BFF; --mar: #82C2F2;
+  --int-plate: #2C2F7C; --naz-plate: #3F48B6; --mar-plate: #1F64A8;
+  --spunto-bg: #272B68; --spunto-line: #A9AEFF; --spunto-fg: #E4E6FF; --focus: #A9AEFF;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background-color: var(--page); background-image: radial-gradient(1200px 600px at 10% 0%, var(--page-glow), transparent 70%); background-attachment: fixed; color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.ico { width: 1.15em; height: 1.15em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Masthead */
+.mast { background: var(--mast); color: var(--mast-ink); position: relative; overflow: hidden; }
+.mast::after { content: ""; position: absolute; right: -60px; top: -40px; width: 340px; height: 340px; border-radius: 50%; border: 28px solid rgba(255,255,255,.05); pointer-events: none; }
+.mast .wrap { position: relative; z-index: 1; padding-block: 28px 30px; display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; }
+.mast img { width: 96px; height: 96px; border-radius: 50%; display: block; background: #FFFFFF; box-shadow: 0 0 0 3px #FFFFFF; }
+.mast h1 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 900; font-size: clamp(2.3rem, 6vw, 4.2rem); line-height: .92; letter-spacing: -.015em; text-transform: uppercase; text-wrap: balance; }
+.mast h1 span { font-weight: 700; font-size: .36em; letter-spacing: .04em; display: block; margin-top: 10px; color: var(--mast-muted); }
+.edition { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; border-top: 1px solid rgba(255,255,255,.22); padding-top: 14px; }
+.edition time { font-family: var(--display); font-style: italic; font-weight: 800; font-size: .95rem; letter-spacing: .04em; text-transform: uppercase; background: var(--mast-ink); color: var(--mast); padding: 4px 10px; border-radius: 4px; }
+.edition p { margin: 0; flex: 1 1 420px; min-width: 0; font-size: 1.02rem; max-width: 72ch; }
+
+/* Sticky section bar */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--page); }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--page); border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; gap: 8px; align-items: center; padding-block: 10px; overflow-x: auto; }
+.chip { flex: none; font: 700 .86rem/1 var(--body); padding: 9px 13px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; display: inline-flex; gap: 8px; align-items: center; text-decoration: none; }
+.chip b { font-family: var(--mono); font-weight: 500; color: var(--muted); }
+.chip .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--plate); }
+.bar .spacer { flex: 1; }
+.chip.arch { background: transparent; color: var(--on-page); box-shadow: inset 0 0 0 1.5px var(--on-page); }
+
+/* Sections */
+main .wrap { padding-block: 30px 44px; display: grid; gap: 52px; }
+section { scroll-margin-top: 72px; }
+.sec-head { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; color: var(--on-page); }
+.sec-head h2 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 900; font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1; text-transform: uppercase; letter-spacing: -.01em; }
+.sec-head .rule { flex: 1; height: 3px; background: linear-gradient(90deg, var(--on-page), transparent); opacity: .5; }
+.sec-head span { font-family: var(--mono); font-size: .8rem; color: var(--on-page-muted); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 18px; align-items: start; }
+
+/* Cards */
+.card { background: var(--surface); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; box-shadow: 0 1px 2px rgba(44,47,124,.08), 0 8px 22px rgba(44,47,124,.07); }
+.plate { background-color: var(--plate); color: #FFFFFF; padding: 0 14px; height: 46px; display: flex; align-items: center; gap: 10px; white-space: nowrap; min-width: 0;
+  background-image: repeating-linear-gradient(-55deg, rgba(255,255,255,.07) 0 2px, transparent 2px 9px); }
+.plate .ico { width: 22px; height: 22px; }
+.plate .theme { font-family: var(--display); font-style: italic; font-weight: 800; font-size: .95rem; text-transform: uppercase; letter-spacing: .02em; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 1; }
+.plate .meta { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; opacity: .9; flex: none; }
+.card-body { padding: 16px 18px 18px; display: grid; gap: 10px; min-width: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font: 500 .7rem/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--tone); border: 1px solid currentColor; padding: 4px 6px; border-radius: 4px; }
+.card h3 { margin: 0; font-family: var(--display); font-weight: 800; font-size: 1.2rem; line-height: 1.18; letter-spacing: -.005em; text-wrap: balance; }
+.card p.sum { margin: 0; font-size: .96rem; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .9rem; }
+.links a { font-weight: 700; color: var(--tone); text-underline-offset: 3px; }
+.links a.sec { font-weight: 600; color: var(--muted); }
+.spunto { background: var(--spunto-bg); color: var(--spunto-fg); border-left: 4px solid var(--spunto-line); border-radius: 0 8px 8px 0; padding: 11px 13px; font-size: .92rem; display: grid; gap: 6px; }
+.spunto .lbl { font-family: var(--display); font-style: italic; font-weight: 800; font-size: .78rem; letter-spacing: .05em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
+.spunto p { margin: 0; }
+.spunto .refs { font-size: .82rem; display: flex; flex-direction: column; gap: 2px; }
+.spunto .refs a { text-underline-offset: 2px; }
+
+/* Opener card */
+.card.lead { grid-column: 1 / -1; }
+.card.lead .plate { height: 58px; padding: 0 20px; }
+.card.lead .plate .ico { width: 28px; height: 28px; }
+.card.lead .plate .theme { font-size: 1.25rem; }
+.card.lead .card-body { padding: 20px 22px 22px; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); column-gap: 28px; align-items: start; }
+.card.lead .main { display: grid; gap: 10px; min-width: 0; }
+.card.lead h3 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
+.card.lead p.sum { font-size: 1.02rem; }
+.card.lead .spunto { align-self: start; }
+@media (max-width: 760px) { .card.lead .card-body { grid-template-columns: 1fr; row-gap: 12px; } }
+.card:not(.lead) .main { display: contents; }
+
+/* Archive */
+.archive h2 { font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: 2.4rem; margin: 0 0 14px; color: var(--on-page); }
+.archive ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; max-width: 640px; }
+.archive a { display: flex; justify-content: space-between; gap: 12px; padding: 14px 16px; background: var(--surface); border-radius: 8px; text-decoration: none; font-weight: 700; }
+.archive a span { font-family: var(--mono); font-weight: 400; color: var(--muted); font-size: .85rem; }
+.notice { padding: 20px; background: var(--surface); border-radius: 8px; }
+
+footer { background: var(--mast); color: var(--mast-muted); font-size: .85rem; }
+footer .wrap { padding-block: 22px 34px; display: grid; gap: 8px; }
+footer p { margin: 0; max-width: 80ch; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+@media (max-width: 520px) { .mast img { width: 70px; height: 70px; } .mast .wrap { gap: 16px; } .plate .meta { font-size: .66rem; } }
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="wrap">
+    <img src="assets/logo.png" alt="Logo Azione Under 30 Marche" width="96" height="96">
+    <h1>Il Punto<span>Under 30 Marche · La rassegna stampa delle 8:00</span></h1>
+    <div class="edition">
+      <time id="ed-date"></time>
+      <p id="ed-intro">Caricamento dell'edizione…</p>
+    </div>
+  </div>
+</header>
+
+<nav class="bar" aria-label="Sezioni">
+  <div class="wrap" id="bar"></div>
+</nav>
+
+<main>
+  <div class="wrap" id="content"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Sintesi originali scritte a partire dagli articoli citati: ogni notizia rimanda alla testata che l'ha pubblicata. Gli spunti di riflessione sono proposte per i contenuti social; quando richiamano le posizioni di Azione, linkano le dichiarazioni recenti di Carlo Calenda e degli esponenti del partito da cui sono tratti.</p>
+    <p>Il Punto Under 30 – Marche · uso interno per staff e militanti.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var SECTIONS = {
+    internazionale: "--tone:var(--int);--plate:var(--int-plate)",
+    nazionale: "--tone:var(--naz);--plate:var(--naz-plate)",
+    marche: "--tone:var(--mar);--plate:var(--mar-plate)"
+  };
+  var DEF = SECTIONS.internazionale;
+  var ICONS = {
+    globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>',
+    ballot: '<rect x="4" y="11" width="16" height="9" rx="1"/><path d="M8 11V4h8v7M10 7.5h4"/>',
+    talks: '<path d="M4 5h11v8H8l-4 3z"/><path d="M15 9h5v8l-3-2h-6v-2"/>',
+    scale: '<path d="M12 4v16M7 20h10M5 8h14M5 8l-3 6h6zM19 8l-3 6h6z"/>',
+    bolt: '<path d="M13 3L5 14h6l-1 7 8-11h-6z"/>',
+    euro: '<path d="M17 6.5A6.5 6.5 0 1 0 17 17.5M4 10h9M4 14h9"/>',
+    hourglass: '<path d="M7 3h10M7 21h10M8 3c0 5 8 5 8 9s-8 4-8 9M16 3c0 5-8 5-8 9s8 4 8 9"/>',
+    youth: '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5"/>',
+    megaphone: '<path d="M3 10v4h3l8 5V5L6 10z"/><path d="M18 9a4 4 0 0 1 0 6"/>',
+    columns: '<path d="M3 9l9-5 9 5M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 20h18"/>',
+    helmet: '<path d="M4 16a8 8 0 0 1 16 0z"/><path d="M2 16h20v2.5H2zM10 8.5V5h4v3.5"/>',
+    mountain: '<path d="M2 20l7-12 4 6 3-4 6 10z"/>',
+    health: '<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>',
+    factory: '<path d="M3 20V10l6 4v-4l6 4V5h4v15z"/><path d="M2 20h20"/>',
+    shield: '<path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/>',
+    idea: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>'
+  };
+  var MONTHS = ["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic"];
+  var content = document.getElementById("content");
+  var bar = document.getElementById("bar");
+  var editions = [];
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function icon(name) {
+    return '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[name] || ICONS.globe) + "</svg>";
+  }
+  function shortDate(iso) {
+    var p = String(iso || "").split("-");
+    if (p.length !== 3) return "";
+    return parseInt(p[2], 10) + " " + MONTHS[parseInt(p[1], 10) - 1];
+  }
+  function safeUrl(u) { return /^https:\/\//.test(u || "") ? u : "#"; }
+
+  function card(item, tone, lead) {
+    var also = (item.also || []).map(function (a) {
+      return '<a class="sec" href="' + esc(safeUrl(a.url)) + '" target="_blank" rel="noopener">Anche su ' + esc(a.source) + " ↗</a>";
+    }).join("");
+    var refs = (item.spunto && item.spunto.refs || []).map(function (r) {
+      return '<a href="' + esc(safeUrl(r.url)) + '" target="_blank" rel="noopener">' + esc(r.label) + " ↗</a>";
+    }).join("");
+    var sp = item.spunto ? '<div class="spunto"><span class="lbl">' + icon("idea") + "Spunto di riflessione</span><p>" + esc(item.spunto.text) + "</p>" + (refs ? '<div class="refs">' + refs + "</div>" : "") + "</div>" : "";
+    var tags = (item.tags || []).map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("");
+    var plate = '<div class="plate">' + icon(item.icon) + '<span class="theme">' + esc((item.tags || [""])[0]) + '</span><span class="meta">' + esc(item.source) + " · " + esc(shortDate(item.published)) + "</span></div>";
+    return '<article class="card' + (lead ? " lead" : "") + '" style="' + tone + '">' + plate +
+      '<div class="card-body"><div class="main"><div class="tags">' + tags + "</div><h3>" + esc(item.title) + '</h3><p class="sum">' + esc(item.summary) + "</p>" +
+      '<div class="links"><a href="' + esc(safeUrl(item.url)) + '" target="_blank" rel="noopener">Leggi su ' + esc(item.source) + " ↗</a>" + also + "</div></div>" + sp + "</div></article>";
+  }
+
+  function renderEdition(ed) {
+    document.getElementById("ed-date").textContent = ed.label;
+    document.getElementById("ed-intro").textContent = ed.intro || "";
+    bar.innerHTML = ed.sections.map(function (s) {
+      return '<button class="chip" type="button" style="' + (SECTIONS[s.id] || DEF) + '" data-target="sec-' + esc(s.id) + '"><span class="dot"></span>' + esc(s.title) + " <b>" + s.items.length + "</b></button>";
+    }).join("") + '<span class="spacer"></span><a class="chip arch" href="#archivio">Archivio</a>';
+    content.innerHTML = ed.sections.map(function (s) {
+      var tone = SECTIONS[s.id] || DEF;
+      return '<section id="sec-' + esc(s.id) + '" style="' + tone + '"><div class="sec-head"><h2>' + esc(s.title) + '</h2><div class="rule"></div><span>' + s.items.length + " notizie</span></div>" +
+        '<div class="grid">' + s.items.map(function (it, i) { return card(it, tone, i === 0); }).join("") + "</div></section>";
+    }).join("");
+  }
+
+  function renderArchive() {
+    document.getElementById("ed-date").textContent = "Archivio";
+    document.getElementById("ed-intro").textContent = "Tutte le edizioni pubblicate, dalla più recente.";
+    bar.innerHTML = editions.length ? '<a class="chip" href="#' + esc(editions[0].date) + '">← Edizione di oggi</a>' : "";
+    content.innerHTML = '<div class="archive"><h2>Archivio</h2><ul>' + editions.map(function (e) {
+      return '<li><a href="#' + esc(e.date) + '">' + esc(e.label) + "<span>" + esc(e.date) + "</span></a></li>";
+    }).join("") + "</ul></div>";
+  }
+
+  function showError(msg) { content.innerHTML = '<div class="notice">' + esc(msg) + "</div>"; }
+
+  function route() {
+    var h = (location.hash || "").slice(1);
+    if (h === "archivio") { renderArchive(); window.scrollTo(0, 0); return; }
+    var target = editions.filter(function (e) { return e.date === h; })[0] || editions[0];
+    if (!target) { showError("Nessuna edizione disponibile."); return; }
+    fetch("data/" + target.date + ".json", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+      .then(function (ed) { renderEdition(ed); if (h) window.scrollTo(0, 0); })
+      .catch(function () { showError("Non riesco a caricare l'edizione del " + target.label + ". Ricarica la pagina tra qualche minuto."); });
+  }
+
+  bar.addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-target]");
+    if (!b) return;
+    var el = document.getElementById(b.getAttribute("data-target"));
+    if (el) el.scrollIntoView({ block: "start" });
+  });
+
+  fetch("data/index.json", { cache: "no-cache" })
+    .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+    .then(function (idx) {
+      editions = (idx.editions || []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+      route();
+      window.addEventListener("hashchange", route);
+    })
+    .catch(function () { showError("Non riesco a caricare l'elenco delle edizioni. Ricarica la pagina tra qualche minuto."); });
+})();
+</script>
+</body>
+</html>

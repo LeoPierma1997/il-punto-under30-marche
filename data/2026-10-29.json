@@ -1,0 +1,387 @@
+{
+  "date": "2026-10-29",
+  "label": "Giovedì 29 ottobre 2026",
+  "intro": "Manovra da 26 miliardi approvata dal Consiglio dei ministri, Israele senza maggioranza dopo il voto, e nelle Marche il decennale del sisma segnato dall'inchiesta sugli appalti della ricostruzione.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Israele senza un vincitore: il blocco di Netanyahu a 53 seggi, ora decide Herzog",
+          "summary": "Con l'86% delle schede scrutinate, la coalizione di Netanyahu ha 53 seggi su 120, il blocco guidato dall'ex capo di stato maggiore Gadi Eisenkot 48 e i partiti arabi 19. Il Likud resta il primo partito con 26 seggi. Il presidente Herzog incontrerà separatamente Netanyahu ed Eisenkot per verificare la strada di un governo di unità nazionale ed evitare un nuovo voto.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/mondo/2026/10/28/elezioni-in-israele-il-blocco-di-netanyahu-avanti-di-5-seggi.-la-palla-nelle-mani-di-herzog_61d49ed4-29f3-40c8-abb7-de226e1432dc.html",
+          "published": "2026-10-28",
+          "tags": [
+            "Medio Oriente",
+            "Elezioni"
+          ],
+          "spunto": {
+            "text": "Il voto consegna un Paese diviso a metà. Un governo di unità nazionale può riaprire un percorso politico con i palestinesi, o servirà soprattutto a gestire il confronto con l'Iran?",
+            "refs": []
+          },
+          "icon": "ballot"
+        },
+        {
+          "title": "Ucraina, regge la tregua umanitaria a Oleshky. Trump: «Presto un incontro Putin-Zelensky»",
+          "summary": "Nella cittadina di Oleshky, nella regione di Kherson occupata dalla Russia, è in vigore da martedì notte una tregua per evacuare circa 2.000 civili rimasti senza cibo, acqua e medicine; la Casa Bianca attribuisce la mediazione a Melania Trump, mentre la Santa Sede ha inviato aiuti. Trump parla di molti progressi e annuncia un vertice tra i due presidenti, senza indicare data né luogo. Zelensky indica colloqui a tre con Usa e Russia ad Abu Dhabi, forse il 10 novembre.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/mondo/2026/10/28/ucraina-la-tregua-tiene-si-prepara-levacuazione-da-oleshky_27be0948-eae6-4740-9dbe-9e6bded4fcd0.html",
+          "also": [
+            {
+              "source": "Il Fatto Quotidiano",
+              "url": "https://www.ilfattoquotidiano.it/2026/10/28/trump-negoziati-russia-ucraina-putin-zelensky-notizie/8552199/"
+            }
+          ],
+          "published": "2026-10-28",
+          "tags": [
+            "Ucraina",
+            "Negoziati"
+          ],
+          "spunto": {
+            "text": "Calenda accusa il governo di «mollare Kiev» per calcoli elettorali: per lui Meloni dice le cose giuste ma rinvia gli aiuti. Mentre Washington e Mosca preparano il vertice, cosa deve chiedere l'Italia perché l'Europa non resti fuori dal tavolo?",
+            "refs": [
+              {
+                "label": "Calenda: «il governo molla Kiev» – Repubblica, 28 ottobre (ripreso da La Voce di Venezia)",
+                "url": "https://www.lavocedivenezia.it/calenda-il-governo-molla-kiev-per-calcoli-elettorali-meloni-rimanda-gli-aiuti/"
+              }
+            ]
+          },
+          "icon": "talks"
+        },
+        {
+          "title": "Brasile, Flávio Bolsonaro lascia il Paese dopo la sconfitta e arriva negli Stati Uniti",
+          "summary": "Sconfitto da Lula al ballottaggio, Flávio Bolsonaro è atterrato a Miami dopo essere passato per l'Argentina. È coinvolto in inchieste per corruzione e riciclaggio e la Corte suprema gli aveva annullato il passaporto per rischio di fuga. Trump ha detto di aver approvato il suo arrivo. Bolsonaro ha anche la cittadinanza italiana dal 2023.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/10/28/flavio-bolsonaro-fuggito-stati-uniti/",
+          "published": "2026-10-28",
+          "tags": [
+            "America Latina",
+            "Stato di diritto"
+          ],
+          "spunto": {
+            "text": "Un candidato sconfitto che non riconosce il voto e lascia il Paese mentre è indagato pone un problema di stato di diritto, con un risvolto italiano per la sua cittadinanza. Come cambiano i rapporti tra Europa e Brasile se Washington lo accoglie?",
+            "refs": []
+          },
+          "icon": "scale"
+        },
+        {
+          "title": "Iran, lettera di Vance a Teheran per riaprire i negoziati, nucleare compreso",
+          "summary": "Il vicepresidente JD Vance ha scritto a Mohsen Rezaei, segretario del Consiglio supremo per la sicurezza nazionale iraniano, per far ripartire il dialogo; secondo il Wall Street Journal, su indicazione di Trump. Axios riferisce che per Washington i colloqui devono includere il programma nucleare. Sullo sfondo, il Wsj scrive che gli Usa hanno chiesto ai Paesi del Golfo di prepararsi a una breve campagna militare dopo le elezioni di metà mandato del 3 novembre.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/topnews/2026/10/28/vance-ha-scritto-a-esponente-linea-dura-delliran-per-riavviare-i-colloqui_d51d23df-2bb1-42d1-9453-5f0297fa327e.html",
+          "also": [
+            {
+              "source": "Axios",
+              "url": "https://www.axios.com/2026/10/28/vance-iran-nuclear-talks-letter"
+            }
+          ],
+          "published": "2026-10-28",
+          "tags": [
+            "Iran",
+            "Usa"
+          ],
+          "spunto": {
+            "text": "Diplomazia e minaccia militare procedono insieme, e l'Europa resta spettatrice. Che peso potrebbe avere un'Unione capace di parlare con una sola voce in politica estera?",
+            "refs": []
+          },
+          "icon": "globe"
+        },
+        {
+          "title": "Ue, parte il dialogo sulle raffinerie: più diesel e carburante per aerei contro la crisi dei prezzi",
+          "summary": "La Commissione ha riunito per la prima volta industria, associazioni e Nato attorno ai commissari Jørgensen (Energia) e Kubilius (Difesa). L'obiettivo è aumentare la produzione dei carburanti più urgenti e tenerne i prezzi accessibili, mentre i costi crescono in tutta l'Unione. In vent'anni ha chiuso circa un quarto delle raffinerie europee; la prossima riunione è prevista a inizio 2027.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/10/28/si-dialogo-europeo-raffinerie-jorgensen/",
+          "published": "2026-10-28",
+          "tags": [
+            "Ue",
+            "Energia"
+          ],
+          "spunto": {
+            "text": "Bruxelles punta ad aumentare la produzione di carburanti. Calenda propone invece di finanziare il taglio delle accise con un euro in più sulle sigarette, un intervento da 3 miliardi che a suo dire Forza Italia ha bloccato. Quale leva abbassa davvero i prezzi alla pompa?",
+            "refs": [
+              {
+                "label": "Calenda a Vibo Valentia su carburanti e autotrasporto – ANSA, 23 ottobre",
+                "url": "https://www.ansa.it/calabria/notizie/2026/10/23/autotrasporto-calenda-aiuti-governo-insufficienti-e-arrivati-tardi_5db4a9dd-472e-4acb-a995-bea9fee8ce55.html"
+              }
+            ]
+          },
+          "icon": "bolt"
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Via libera del Cdm alla manovra da 26 miliardi: taglio Irpef per il ceto medio, 5,5 miliardi da banche e assicurazioni",
+          "summary": "Il Consiglio dei ministri ha approvato la legge di bilancio. Contiene un nuovo taglio dell'Irpef per il ceto medio e la flat tax per le partite Iva estesa fino a 100mila euro di ricavi. A banche e assicurazioni si chiedono 5,5 miliardi tra Ires, Irap e Tobin tax, e altri 700 milioni a testa a società energetiche e giochi. Meloni dice che la manovra «non è contro qualcuno»; le opposizioni parlano di «manovrina di fine legislatura». L'esame parte dalla Camera, con audizioni dal 9 novembre.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/10/28/via-libera-del-consiglio-dei-ministri-alla-manovra.-meloni-vale_a800dc0a-5e17-4252-b135-567ad9587d2b.html",
+          "published": "2026-10-28",
+          "tags": [
+            "Manovra",
+            "Fisco"
+          ],
+          "spunto": {
+            "text": "Calenda avverte che i margini concessi dall'Europa rischiano di finire in bonus invece che in misure strutturali sull'energia, e dice di aver mandato al governo una lista di proposte. In questa manovra pesano di più gli interventi strutturali o le misure di consenso a fine legislatura?",
+            "refs": [
+              {
+                "label": "Calenda dopo il voto sulla legge elettorale – Radio Radicale, 8 ottobre",
+                "url": "https://www.radioradicale.it/scheda/800852/dopo-il-voto-sulla-riforma-della-legge-elettorale-intervista-a-carlo-calenda"
+              },
+              {
+                "label": "Calenda a Vibo Valentia su carburanti e autotrasporto – ANSA, 23 ottobre",
+                "url": "https://www.ansa.it/calabria/notizie/2026/10/23/autotrasporto-calenda-aiuti-governo-insufficienti-e-arrivati-tardi_5db4a9dd-472e-4acb-a995-bea9fee8ce55.html"
+              }
+            ]
+          },
+          "icon": "euro"
+        },
+        {
+          "title": "Pensioni, salta l'uscita a 64 anni chiesta dalla Lega: arriva un fondo da 850 milioni per la flessibilità",
+          "summary": "Non passa la proposta leghista di anticipare la pensione a 64 anni, che sarebbe costata 1,6 miliardi. Al suo posto nasce un fondo per la flessibilità in uscita, i cui dettagli saranno decisi in Parlamento. Come contropartita, la Lega ottiene la riapertura delle rottamazioni quater e quinquies.",
+          "source": "Il Foglio",
+          "url": "https://www.ilfoglio.it/economia/2026/10/28/news/manovra-oggi-il-cdm-salta-la-proposta-della-lega-sulle-pensioni-a-64-anni-intesa-sui-5-miliardi-dalle-banche--411909",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/sito/notizie/politica/2026/10/28/via-libera-del-consiglio-dei-ministri-alla-manovra.-meloni-vale_a800dc0a-5e17-4252-b135-567ad9587d2b.html"
+            }
+          ],
+          "published": "2026-10-28",
+          "tags": [
+            "Pensioni",
+            "Manovra"
+          ],
+          "spunto": {
+            "text": "Ogni anticipo pensionistico ricade sui contributi di chi oggi ha vent'anni. Quanto costa questa flessibilità alle nuove generazioni, e chi lo spiega ai ragazzi?",
+            "refs": []
+          },
+          "icon": "hourglass"
+        },
+        {
+          "title": "Manovra e giovani: mini Irpef per gli under 30 e flat tax al 5% per i neoassunti under 35",
+          "summary": "Tra le misure allo studio ci sono una riduzione dell'Irpef per gli under 30 con redditi bassi e una tassa piatta al 5% per chi viene assunto prima dei 35 anni. Nel testo approvato compaiono anche un premio per i lavoratori under 30, un congedo parentale più forte e un «salvadanaio» previdenziale per i nuovi nati. Soglie e costi non sono ancora definiti.",
+          "source": "AGI",
+          "url": "https://www.agi.it/economia/news/2026-10-28/manovra-pensioni-irpef-giovani-39736716/",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/sito/notizie/politica/2026/10/28/via-libera-del-consiglio-dei-ministri-alla-manovra.-meloni-vale_a800dc0a-5e17-4252-b135-567ad9587d2b.html"
+            }
+          ],
+          "published": "2026-10-28",
+          "tags": [
+            "Giovani",
+            "Lavoro"
+          ],
+          "spunto": {
+            "text": "Mini Irpef e flat tax per i giovani: misure strutturali o bonus a tempo? Quando saranno note soglie e costi, conviene fare i conti su un caso concreto, per esempio un neoassunto di 25 anni nelle Marche.",
+            "refs": []
+          },
+          "icon": "youth"
+        },
+        {
+          "title": "Legge elettorale, ricorsi in 25 tribunali: nel mirino premio di maggioranza e candidato premier sulla scheda",
+          "summary": "Oltre 300 cittadini riuniti nella Rete per un voto libero e uguale, coordinata da Roberto Zaccaria, contestano la nuova legge elettorale; tra i ricorrenti ci sono Prodi, Bersani e D'Alema. Sono contestati il premio di maggioranza, l'indicazione del candidato premier, i capilista bloccati e l'aumento delle firme per presentare le liste, da cui sono esentati i gruppi formati entro il 2025. Prima udienza il 16 dicembre a Trento; l'obiettivo è arrivare alla Consulta prima del voto.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/10/26/depositati-i-ricorsi-in-25-tribunali-contro-la-legge-elettorale_4798eaca-c8b8-4a6f-a88d-3fb2ee3b0327.html",
+          "published": "2026-10-26",
+          "tags": [
+            "Riforme",
+            "Legge elettorale"
+          ],
+          "spunto": {
+            "text": "Per Calenda la nuova legge non garantisce la stabilità promessa, perché nessuna coalizione raggiungerebbe la soglia, e ridurrà le donne in Parlamento; giudica però «immaturi» anche i toni delle opposizioni. Come si racconta un centro indipendente dentro una legge pensata per due coalizioni?",
+            "refs": [
+              {
+                "label": "Calenda dopo il voto sulla legge elettorale – Radio Radicale, 8 ottobre",
+                "url": "https://www.radioradicale.it/scheda/800852/dopo-il-voto-sulla-riforma-della-legge-elettorale-intervista-a-carlo-calenda"
+              },
+              {
+                "label": "Calenda a Matera sul centro indipendente – ANSA, 24 ottobre",
+                "url": "https://www.ansa.it/basilicata/notizie/2026/10/24/azione-calenda-il-nostro-rappresentante-lucano-in-parlamento-sara-marcello-pittella_3686913a-b032-4c97-bc4c-e100e988c398.html"
+              }
+            ]
+          },
+          "icon": "ballot"
+        },
+        {
+          "title": "Sciopero generale del 30 ottobre: Salvini precetta i trasporti, l'Usb conferma. Piantedosi: «Attenzione alta»",
+          "summary": "L'Usb ha convocato per venerdì cortei a Roma, Milano, Bologna, Napoli e Torino contro quella che chiama economia di guerra, il carovita e la repressione delle proteste. Il ministro dei Trasporti ha chiesto il rinvio dello sciopero nei trasporti per la commemorazione dei defunti; il sindacato disobbedirà e accetterà le sanzioni. Il Viminale resta in allerta dopo le devastazioni del 17 ottobre.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/10/27/piantedosi-sugli-scontri-non-e-finita-attenzione-alta-per-venerdi_f453532f-bbda-4ca2-a09a-2831b65ca114.html",
+          "published": "2026-10-27",
+          "tags": [
+            "Lavoro",
+            "Sicurezza"
+          ],
+          "spunto": {
+            "text": "Sulle proteste degli autotrasportatori Calenda si è detto contrario ai blocchi, che colpiscono soprattutto i più fragili, pur riconoscendo che nascono da ragioni fondate. Vale anche per venerdì: come si tengono insieme diritto di protesta, servizi essenziali e risposte sul carovita?",
+            "refs": [
+              {
+                "label": "Calenda a Vibo Valentia su carburanti e autotrasporto – ANSA, 23 ottobre",
+                "url": "https://www.ansa.it/calabria/notizie/2026/10/23/autotrasporto-calenda-aiuti-governo-insufficienti-e-arrivati-tardi_5db4a9dd-472e-4acb-a995-bea9fee8ce55.html"
+              }
+            ]
+          },
+          "icon": "megaphone"
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta sugli appalti della ricostruzione: otto arresti e 51 indagati, in carcere l'ex capo di gabinetto di Acquaroli",
+          "summary": "La Procura e la Direzione antimafia di Ancona indagano su appalti del sisma 2016, della Regione, dell'Erdis e dell'Università di Camerino. Le ipotesi sono corruzione, turbativa d'asta e truffa, con l'aggravante delle infiltrazioni di clan camorristici e 'ndrine; i sequestri arrivano a 57 milioni. Tra gli arrestati ci sono l'ex capo di gabinetto Fabio Pistarelli e il costruttore Enrico Crucianelli, presidente di Ance, che si è autosospeso. Sono accuse ancora da verificare in giudizio.",
+          "source": "Il Resto del Carlino",
+          "url": "https://www.ilrestodelcarlino.it/macerata/cronaca/sisma-ricostruzione-nelle-marche-inchiesta-70cb7235",
+          "published": "2026-10-23",
+          "tags": [
+            "Ricostruzione",
+            "Legalità"
+          ],
+          "spunto": {
+            "text": "Garantismo verso gli indagati e responsabilità politica di chi li ha nominati sono due piani distinti. Quali controlli sugli appalti della ricostruzione chiedere alla Regione e alla struttura commissariale?",
+            "refs": []
+          },
+          "icon": "shield"
+        },
+        {
+          "title": "Consiglio regionale a Muccia sul decennale del sisma, le opposizioni lasciano l'aula",
+          "summary": "Durante la seduta aperta sulla ricostruzione, il commissario Guido Castelli ha respinto l'accusa di una gestione politica e ha citato l'ex sindaco e oggi consigliere Pd Leonardo Catena. Le minoranze hanno protestato e sono uscite; è rimasta solo la capogruppo Pd Valeria Mancinelli. La maggioranza aveva respinto la richiesta di un dibattito sulle comunicazioni del presidente.",
+          "source": "ANSA",
+          "url": "https://ansa.it/marche/notizie/2026/10/28/consiglio-marche-sulla-ricostruzione-i-consiglieri-di-minoranza-lasciano-laula_3ed74d9d-bb75-4076-96c2-89c948bf834f.html",
+          "published": "2026-10-28",
+          "tags": [
+            "Consiglio regionale",
+            "Sisma 2016"
+          ],
+          "spunto": {
+            "text": "Calenda sostiene che molti italiani sono stanchi del continuo conflitto ideologico. Il decennale del sisma doveva essere un bilancio sulla ricostruzione ed è finito in uno scontro tra schieramenti: cosa chiedono davvero le famiglie del cratere?",
+            "refs": [
+              {
+                "label": "Calenda a Matera sul centro indipendente – ANSA, 24 ottobre",
+                "url": "https://www.ansa.it/basilicata/notizie/2026/10/24/azione-calenda-il-nostro-rappresentante-lucano-in-parlamento-sara-marcello-pittella_3686913a-b032-4c97-bc4c-e100e988c398.html"
+              }
+            ]
+          },
+          "icon": "columns"
+        },
+        {
+          "title": "Acquaroli in aula: «Ho sbagliato la persona». Castelli: «Non sono Belzebù»",
+          "summary": "Il presidente della Regione ha detto di aver chiesto a Pistarelli le dimissioni il 2 dicembre 2025 e che, per quanto gli risulta, non ci sono indagati tra giunta, consiglieri e dirigenti. Ha ammesso fragilità nella ricostruzione privata e nella catena dei subappalti. Castelli ha difeso le misure adottate, come il badge di cantiere e lo stop al subappalto a cascata, e ha ricordato 9mila cantieri conclusi nelle Marche.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/28/il-decennale-del-sisma-macchiato-dal-terremoto-giudiziario-bufera-in-consiglio-regionale/2120828/",
+          "published": "2026-10-28",
+          "tags": [
+            "Regione",
+            "Ricostruzione"
+          ],
+          "spunto": {
+            "text": "L'ammissione di un errore di nomina basta a chiudere la questione politica? Una proposta concreta sulla trasparenza delle nomine fiduciarie in Regione può distinguere una forza riformista dal semplice coro delle dimissioni.",
+            "refs": []
+          },
+          "icon": "columns"
+        },
+        {
+          "title": "Le opposizioni incalzano: il Pd chiede ad Acquaroli di riferire, il M5S chiama in causa Meloni",
+          "summary": "Per la capogruppo Pd Valeria Mancinelli il presidente deve spiegare se fosse al corrente delle presunte ingerenze del suo ex capo di gabinetto; solo dopo si valuterà se chiederne il passo indietro. Il deputato M5S Giorgio Fede chiede invece alla premier di riferire in Parlamento, ricordando i legami politici con il governatore e con il commissario Castelli.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/28/consigliera-regionale-pd-acquaroli-risponda-poi-vedremo-sul-passo-indietro_a54103ef-b3ef-47d3-8c3e-02ca130f4c90.html",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://ansa.it/marche/notizie/2026/10/28/inchiesta-sisma-fede-m5s-meloni-smetta-di-fare-la-gnorri_b6dbc942-4581-4d3b-bd34-39f4335902cc.html"
+            }
+          ],
+          "published": "2026-10-28",
+          "tags": [
+            "Opposizioni",
+            "Ricostruzione"
+          ],
+          "spunto": {
+            "text": "Pd e M5S portano la vicenda sul piano nazionale. Per un'area di centro la sfida è restare nel merito, su controlli, appalti e tempi della ricostruzione, senza farsi schiacciare dalla polarizzazione.",
+            "refs": []
+          },
+          "icon": "megaphone"
+        },
+        {
+          "title": "Cisl: «Un tavolo in Prefettura per tutelare mille lavoratori dei cantieri»",
+          "summary": "Il segretario Marco Ferracuti chiede un tavolo urgente con Prefettura e Ufficio ricostruzione per garantire la continuità dei cantieri coinvolti dall'inchiesta. L'impresa Crucianelli Rest Edile, che ha centinaia di cantieri aperti nella ricostruzione privata, ha un nuovo amministratore. A Tolentino alcuni operai di un subappaltatore sono saliti su una gru per chiedere gli stipendi arretrati.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/27/maxi-inchiesta-ricostruzione-cisl-tutelare-oltre-mille-lavoratori-urgente-un-tavolo-in-prefettura/2120237/",
+          "published": "2026-10-27",
+          "tags": [
+            "Lavoro",
+            "Ricostruzione"
+          ],
+          "spunto": {
+            "text": "L'inchiesta rischia di fermare cantieri e salari di chi non ha colpe. Quali strumenti servono perché la ricostruzione non si blocchi e le famiglie del cratere tornino a casa?",
+            "refs": []
+          },
+          "icon": "helmet"
+        },
+        {
+          "title": "Decennale del sisma, a Pieve Torina si inaugurano due nuove opere",
+          "summary": "Il presidente della Provincia di Macerata e sindaco di Pieve Torina Alessandro Gentilucci inaugura venerdì un ristorante panoramico e una vasca riscaldata per il percorso kneipp. In serata un documentario raccoglie le voci di chi è tornato a casa e di chi vive ancora nelle soluzioni abitative d'emergenza.",
+          "source": "Cronache Maceratesi",
+          "url": "https://cronachemaceratesi.it/2026/10/28/decennale-dal-sisma-gentilucci-noi-festeggiamo-con-due-nuove-opere/2120870",
+          "published": "2026-10-28",
+          "tags": [
+            "Entroterra",
+            "Sisma 2016"
+          ],
+          "spunto": {
+            "text": "C'è anche una ricostruzione che funziona, e raccontarla è utile quanto denunciare ciò che non va. Una storia di rinascita dell'entroterra è un buon contenuto social in positivo.",
+            "refs": []
+          },
+          "icon": "mountain"
+        },
+        {
+          "title": "Liste d'attesa nelle Marche: tempi rispettati sulla carta, ma un marchigiano su dieci rinuncia alle cure",
+          "summary": "Per Agenas le Marche rispettano i tempi delle prime visite nel 94,7% dei casi. I dati della Corte dei conti raccontano altro: nel 2025 solo il 57,8% di chi è entrato in lista ha ottenuto una prenotazione e la lista d'attesa è cresciuta del 33%. Secondo Gimbe il 10,6% dei marchigiani ha rinunciato ad almeno una prestazione, contro il 9,9% nazionale, e la spesa sanitaria privata è salita del 13,2% in un anno.",
+          "source": "Il Ducato",
+          "url": "https://www.ilducato.it/2026/10/23/sanita-il-limbo-delle-liste-dattesa-marche-tempi-delle-visite-ok-ma-i-piu-rinunciano-o-scelgono-il-privato/",
+          "published": "2026-10-23",
+          "tags": [
+            "Sanità",
+            "Regione"
+          ],
+          "spunto": {
+            "text": "Per i cittadini conta chi riesce a curarsi, più dei tempi medi. Quali proposte concrete per assumere personale e recuperare chi oggi rinuncia alle cure o paga il privato?",
+            "refs": []
+          },
+          "icon": "health"
+        },
+        {
+          "title": "Beko, a Fabriano stabilimento fermo questa settimana e investimenti in ritardo",
+          "summary": "Lo stabilimento di Melano è chiuso dal 26 al 30 ottobre, con parte del personale in cassa integrazione per tutto il mese. Al ministero delle Imprese risultano realizzati 101,5 dei 300 milioni di investimenti concordati, e Melano rischia di chiudere l'anno sotto il budget del 13%. Fim, Fiom e Uilm sono pronte alla mobilitazione e chiedono al governo di far rispettare gli impegni sulla produzione in Italia.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/07/fiom-a-beko-fabriano-cassa-integrazione-quotidiana-e-26-30-giorni-di-chiusura_88843089-2d32-4fa1-868d-ae9eeb857521.html",
+          "also": [
+            {
+              "source": "Centropagina",
+              "url": "https://www.centropagina.it/jesi/tavolo-beko-sito-melano-si-rischia-meno-13-budget-a-fine-anno/"
+            }
+          ],
+          "published": "2026-10-08",
+          "tags": [
+            "Industria",
+            "Lavoro"
+          ],
+          "spunto": {
+            "text": "Il distretto fabrianese dell'elettrodomestico rischia la desertificazione industriale. Cosa serve per tenere manifattura e lavoro nell'entroterra: incentivi agli investimenti, pressione sulla proprietà turca, una politica industriale europea?",
+            "refs": []
+          },
+          "icon": "factory"
+        }
+      ]
+    }
+  ]
+}
