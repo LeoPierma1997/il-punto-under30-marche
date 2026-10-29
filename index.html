@@ -135,6 +135,18 @@ section { scroll-margin-top: 72px; }
 .archive a span { font-family: var(--mono); font-weight: 400; color: var(--muted); font-size: .85rem; }
 .notice { padding: 20px; background: var(--surface); border-radius: 8px; }
 
+/* Voice player */
+.player { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.pl-btn { font: 700 .92rem/1 var(--body); display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; border: 1.5px solid var(--mast-ink); background: transparent; color: var(--mast-ink); cursor: pointer; }
+.pl-btn.primary { background: var(--mast-ink); color: var(--mast); }
+.pl-btn .ico { width: 18px; height: 18px; }
+.pl-opt { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--mast-muted); }
+.pl-opt select { font: inherit; color: var(--fg); background: var(--surface); border: 0; border-radius: 6px; padding: 5px 6px; max-width: 220px; }
+.pl-opt input { width: 16px; height: 16px; accent-color: var(--mast-ink); }
+#pl-status { font-family: var(--mono); font-size: .75rem; color: var(--mast-muted); min-width: 0; }
+.listen { font: 600 .85rem/1 var(--body); display: inline-flex; align-items: center; gap: 5px; padding: 0; border: 0; background: none; color: var(--muted); cursor: pointer; }
+.listen .ico { width: 16px; height: 16px; }
+.card.speaking { box-shadow: 0 0 0 3px var(--tone), 0 8px 22px rgba(44,47,124,.12); }
 footer { background: var(--mast); color: var(--mast-muted); font-size: .85rem; }
 footer .wrap { padding-block: 22px 34px; display: grid; gap: 8px; }
 footer p { margin: 0; max-width: 80ch; }
@@ -150,6 +162,18 @@ footer p { margin: 0; max-width: 80ch; }
     <div class="edition">
       <time id="ed-date"></time>
       <p id="ed-intro">Caricamento dell'edizione…</p>
+    </div>
+    <div class="player" id="player" hidden>
+      <button class="pl-btn primary" id="pl-play" type="button"></button>
+      <button class="pl-btn" id="pl-stop" type="button" hidden>Stop</button>
+      <label class="pl-opt" for="pl-rate">Velocità
+        <select id="pl-rate"><option value="0.9">0,9×</option><option value="1" selected>1×</option><option value="1.1">1,1×</option><option value="1.25">1,25×</option></select>
+      </label>
+      <label class="pl-opt" for="pl-voice" id="pl-voice-wrap" hidden>Voce
+        <select id="pl-voice"></select>
+      </label>
+      <label class="pl-opt" for="pl-spunti"><input type="checkbox" id="pl-spunti"> Leggi anche gli spunti</label>
+      <span id="pl-status" aria-live="polite"></span>
     </div>
   </div>
 </header>
@@ -193,12 +217,17 @@ footer p { margin: 0; max-width: 80ch; }
     health: '<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>',
     factory: '<path d="M3 20V10l6 4v-4l6 4V5h4v15z"/><path d="M2 20h20"/>',
     shield: '<path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/>',
+    play: '<path d="M7 4l13 8-13 8z"/>',
+    pause: '<path d="M8 4v16M16 4v16"/>',
+    speaker: '<path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/>',
     idea: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>'
   };
   var MONTHS = ["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic"];
   var content = document.getElementById("content");
   var bar = document.getElementById("bar");
   var editions = [];
+  var currentEd = null;
+  var playerEl = document.getElementById("player");
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -227,10 +256,169 @@ footer p { margin: 0; max-width: 80ch; }
     var plate = '<div class="plate">' + icon(item.icon) + '<span class="theme">' + esc((item.tags || [""])[0]) + '</span><span class="meta">' + esc(item.source) + " · " + esc(shortDate(item.published)) + "</span></div>";
     return '<article class="card' + (lead ? " lead" : "") + '" style="' + tone + '">' + plate +
       '<div class="card-body"><div class="main"><div class="tags">' + tags + "</div><h3>" + esc(item.title) + '</h3><p class="sum">' + esc(item.summary) + "</p>" +
-      '<div class="links"><a href="' + esc(safeUrl(item.url)) + '" target="_blank" rel="noopener">Leggi su ' + esc(item.source) + " ↗</a>" + also + "</div></div>" + sp + "</div></article>";
+      '<div class="links"><a href="' + esc(safeUrl(item.url)) + '" target="_blank" rel="noopener">Leggi su ' + esc(item.source) + " ↗</a>" + also + '<button class="listen" type="button" data-listen>' + icon("speaker") + "Ascolta</button></div></div>" + sp + "</div></article>";
   }
 
+  /* ---------- Voice reader (Web Speech API) ---------- */
+  var player = (function () {
+    var synth = window.speechSynthesis;
+    var supported = !!(synth && window.SpeechSynthesisUtterance);
+    var btnPlay = document.getElementById("pl-play");
+    var btnStop = document.getElementById("pl-stop");
+    var selRate = document.getElementById("pl-rate");
+    var selVoice = document.getElementById("pl-voice");
+    var voiceWrap = document.getElementById("pl-voice-wrap");
+    var chkSpunti = document.getElementById("pl-spunti");
+    var status = document.getElementById("pl-status");
+    var queue = [], idx = 0, state = "idle", token = 0, voices = [], label = "";
+
+    function store(k, v) { try { localStorage.setItem("ilpunto-" + k, v); } catch (e) {} }
+    function load(k) { try { return localStorage.getItem("ilpunto-" + k); } catch (e) { return null; } }
+
+    var DICT = [
+      [/\bM5s\b/gi, "Movimento 5 Stelle"], [/\bFdI\b/g, "Fratelli d'Italia"], [/\bPd\b/g, "Pi Di"],
+      [/\bCdm\b/gi, "Consiglio dei ministri"], [/\bUe\b/g, "Unione europea"], [/\bUsa\b/g, "Stati Uniti"],
+      [/\bWsj\b/gi, "Wall Street Journal"], [/\bDda\b/g, "Direzione distrettuale antimafia"],
+      [/\bMimit\b/g, "ministero delle Imprese"], [/\bSAE\b/g, "soluzioni abitative d'emergenza"],
+      [/[«»“”]/g, ""], [/\s+–\s+/g, ", "], [/(\d+),(\d+)%/g, "$1 virgola $2 per cento"], [/(\d+)%/g, "$1 per cento"]
+    ];
+    function clean(t) { t = String(t || ""); DICT.forEach(function (d) { t = t.replace(d[0], d[1]); }); return t.replace(/\s+/g, " ").trim(); }
+    function chunks(text) {
+      var parts = clean(text).match(/[^.!?;]+[.!?;]*\s*/g) || [];
+      var out = [], cur = "";
+      parts.forEach(function (s) {
+        if ((cur + s).length > 220 && cur) { out.push(cur.trim()); cur = ""; }
+        cur += s;
+      });
+      if (cur.trim()) out.push(cur.trim());
+      return out;
+    }
+
+    function score(v) {
+      var n = (v.name || "").toLowerCase(), s = 0;
+      if (/natural|neural|online|premium|enhanced|siri/.test(n)) s += 50;
+      if (/google/.test(n)) s += 30;
+      if (/elsa|isabella|diego|giuseppe|alice|federica|luca|paola|emma|bianca/.test(n)) s += 10;
+      if (v.localService === false) s += 5;
+      if (/it-it/i.test(v.lang)) s += 3;
+      if (/compact|espeak/.test(n)) s -= 40;
+      return s;
+    }
+    function loadVoices() {
+      voices = synth.getVoices().filter(function (v) { return /^it/i.test(v.lang); }).sort(function (a, b) { return score(b) - score(a); });
+      if (!voices.length) { voiceWrap.hidden = true; return; }
+      var saved = load("voice");
+      selVoice.innerHTML = voices.map(function (v, i) {
+        var name = v.name.replace(/Microsoft |Google |\(Italy\)|Online \(Natural\) - /g, "").trim();
+        return '<option value="' + i + '"' + (v.name === saved ? " selected" : "") + ">" + esc(name + (score(v) >= 50 ? " · naturale" : "")) + "</option>";
+      }).join("");
+      voiceWrap.hidden = voices.length < 2;
+    }
+    function voice() { return voices[parseInt(selVoice.value, 10)] || voices[0] || null; }
+
+    function setUI() {
+      btnPlay.innerHTML = state === "playing" ? icon("pause") + "Pausa" : icon("play") + (state === "paused" ? "Riprendi" : "Ascolta la rassegna");
+      btnStop.hidden = state === "idle";
+      status.textContent = state === "idle" ? "" : label;
+    }
+    function mark(el) {
+      var prev = document.querySelector(".card.speaking");
+      if (prev && prev !== el) prev.classList.remove("speaking");
+      if (el && !el.classList.contains("speaking")) {
+        el.classList.add("speaking");
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        el.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" });
+      }
+    }
+
+    function speakNext(t) {
+      if (t !== token || state !== "playing") return;
+      if (idx >= queue.length) { stop(); return; }
+      var q = queue[idx];
+      if (q.label) label = q.label;
+      mark(q.card);
+      setUI();
+      if (q.pause) { setTimeout(function () { if (t !== token) return; idx++; speakNext(t); }, q.pause); return; }
+      var u = new SpeechSynthesisUtterance(q.text);
+      u.lang = "it-IT";
+      var v = voice(); if (v) u.voice = v;
+      u.rate = parseFloat(selRate.value) || 1;
+      u.onend = function () { if (t !== token) return; idx++; setTimeout(function () { speakNext(t); }, 120); };
+      u.onerror = function (e) { if (t !== token) return; if (e.error === "interrupted" || e.error === "canceled") return; idx++; speakNext(t); };
+      synth.speak(u);
+    }
+
+    function push(text, card, lbl) { chunks(text).forEach(function (c) { queue.push({ text: c, card: card, label: lbl }); }); }
+    function itemQueue(item, card, lbl, withSpunto) {
+      push(item.title + ".", card, lbl);
+      queue.push({ pause: 250, card: card, label: lbl });
+      push(item.summary, card, lbl);
+      if (withSpunto && item.spunto && item.spunto.text) {
+        queue.push({ pause: 300, card: card, label: lbl });
+        push("Spunto di riflessione. " + item.spunto.text, card, lbl);
+      }
+      queue.push({ pause: 700, card: card, label: lbl });
+    }
+    function buildAll() {
+      queue = [];
+      var cards = content.querySelectorAll(".card"), k = 0;
+      push("Il Punto, Under 30 Marche. Edizione di " + currentEd.label + ".", null, "Introduzione");
+      if (currentEd.intro) push(currentEd.intro, null, "Introduzione");
+      queue.push({ pause: 800 });
+      currentEd.sections.forEach(function (s) {
+        push(s.title + ".", null, s.title);
+        queue.push({ pause: 500 });
+        s.items.forEach(function (it, i) { itemQueue(it, cards[k++], s.title + " · " + (i + 1) + " di " + s.items.length, chkSpunti.checked); });
+      });
+      push("Fine della rassegna. Buona giornata.", null, "Fine");
+    }
+
+    function start() { token++; idx = 0; state = "playing"; synth.cancel(); speakNext(token); }
+    function pause() { state = "paused"; token++; synth.cancel(); setUI(); }
+    function resume() { state = "playing"; token++; synth.cancel(); speakNext(token); }
+    function stop() {
+      token++; state = "idle"; queue = []; idx = 0;
+      if (supported) synth.cancel();
+      var prev = document.querySelector(".card.speaking"); if (prev) prev.classList.remove("speaking");
+      if (supported) setUI();
+    }
+
+    if (supported) {
+      loadVoices();
+      if (typeof synth.addEventListener === "function") synth.addEventListener("voiceschanged", loadVoices);
+      else synth.onvoiceschanged = loadVoices;
+      var r = load("rate"); if (r) selRate.value = r;
+      chkSpunti.checked = load("spunti") === "1";
+      selRate.addEventListener("change", function () { store("rate", selRate.value); if (state === "playing") resume(); });
+      selVoice.addEventListener("change", function () { var v = voice(); if (v) store("voice", v.name); if (state === "playing") resume(); });
+      chkSpunti.addEventListener("change", function () { store("spunti", chkSpunti.checked ? "1" : "0"); });
+      btnPlay.addEventListener("click", function () {
+        if (!currentEd) return;
+        if (state === "playing") pause();
+        else if (state === "paused") resume();
+        else { buildAll(); start(); }
+      });
+      btnStop.addEventListener("click", stop);
+      content.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-listen]");
+        if (!b || !currentEd) return;
+        var card = b.closest(".card");
+        var cards = Array.prototype.slice.call(content.querySelectorAll(".card"));
+        var n = cards.indexOf(card), k = 0, found = null, lbl = "";
+        currentEd.sections.forEach(function (s) { s.items.forEach(function (it, i) { if (k++ === n) { found = it; lbl = s.title + " · " + (i + 1) + " di " + s.items.length; } }); });
+        if (!found) return;
+        queue = []; itemQueue(found, card, lbl, chkSpunti.checked); start();
+      });
+      window.addEventListener("pagehide", stop);
+      setUI();
+    }
+    return { supported: supported, stop: stop };
+  })();
+
   function renderEdition(ed) {
+    currentEd = ed;
+    player.stop();
+    playerEl.hidden = !player.supported;
     document.getElementById("ed-date").textContent = ed.label;
     document.getElementById("ed-intro").textContent = ed.intro || "";
     bar.innerHTML = ed.sections.map(function (s) {
@@ -244,6 +432,9 @@ footer p { margin: 0; max-width: 80ch; }
   }
 
   function renderArchive() {
+    currentEd = null;
+    player.stop();
+    playerEl.hidden = true;
     document.getElementById("ed-date").textContent = "Archivio";
     document.getElementById("ed-intro").textContent = "Tutte le edizioni pubblicate, dalla più recente.";
     bar.innerHTML = editions.length ? '<a class="chip" href="#' + esc(editions[0].date) + '">← Edizione di oggi</a>' : "";
