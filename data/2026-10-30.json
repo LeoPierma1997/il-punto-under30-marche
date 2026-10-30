@@ -1,0 +1,373 @@
+{
+  "date": "2026-10-30",
+  "label": "Venerdì 30 ottobre 2026",
+  "intro": "Lagarde annuncia l'addio anticipato alla Bce, quattro militari italiani muoiono in Bosnia in un incidente d'elicottero, e nelle Marche il commissario Castelli rivela che tre imprese dell'inchiesta sulla ricostruzione erano già colpite da misure antimafia.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Lagarde lascerà la Bce il 7 febbraio 2027: si apre la corsa alla successione",
+          "summary": "Christine Lagarde ha annunciato che lascerà la presidenza della Banca centrale europea con oltre un anno di anticipo sulla scadenza del mandato. Ad anticiparlo è stato il presidente del Consiglio europeo António Costa. Secondo Bloomberg, Lagarde vuole avere le mani libere in vista delle presidenziali francesi di aprile. Il successore sarà nominato dal Consiglio europeo secondo l'articolo 283 dei Trattati; da von der Leyen, Merz e Macron sono arrivati ringraziamenti.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/economia/2026/10/29/lagarde-si-dimette-dalla-bce-dal-7-febbraio-2027_3100c924-edf9-44a1-9175-21f84dd04681.html",
+          "published": "2026-10-29",
+          "tags": [
+            "Bce",
+            "Ue"
+          ],
+          "spunto": {
+            "text": "La guida della Bce pesa sui tassi e quindi su mutui, debito pubblico e investimenti. Che profilo serve all'Italia e all'Europa per il dopo Lagarde, e quanto conta che la scelta resti fuori dalle trattative tra governi?",
+            "refs": []
+          },
+          "icon": "euro"
+        },
+        {
+          "title": "Ucraina, partita la missione umanitaria a Oleshky. A Dnipro un drone colpisce la stazione: almeno 14 morti",
+          "summary": "È iniziata una tregua di sei giorni nella zona di Kherson per portare cibo e medicine a Oleshky ed evacuare parte dei circa 1.500 civili rimasti, con la mediazione degli Stati Uniti. Nelle stesse ore un drone russo ha centrato un binario affollato della stazione di Dnipro; Zelensky conta 19 vittime in tutto il Paese nella serata e chiede a Ue, Usa e G7 sanzioni più dure. Mosca avverte che attacchi ucraini il 4 novembre potrebbero compromettere il vertice previsto ad Abu Dhabi.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/mondo/2026/10/29/al-via-missione-umanitaria-ad-oleshky-ma-a-dnipro-e-strage_b0af0cc5-930d-4f46-815b-d49c726710bc.html",
+          "also": [
+            {
+              "source": "Il Post",
+              "url": "https://www.ilpost.it/2026/10/29/dnipro-stazione-ferroviaria-drone-morti/"
+            }
+          ],
+          "published": "2026-10-29",
+          "tags": [
+            "Ucraina",
+            "Russia"
+          ],
+          "spunto": {
+            "text": "Calenda ha aderito allo sciopero della fame per Oleshky definendolo «un'azione diplomatica». La tregua umanitaria è un primo risultato: come tenere alta l'attenzione sui civili senza abbassare la pressione delle sanzioni su Mosca?",
+            "refs": [
+              {
+                "label": "Calenda aderisce allo sciopero della fame per Oleshky – Open, 21 ottobre",
+                "url": "https://www.open.online/2026/10/21/ucraina-calenda-sciopero-fame-oleshky/"
+              }
+            ]
+          },
+          "icon": "talks"
+        },
+        {
+          "title": "Israele, inchiesta su presunta corruzione elettorale legata al Qatar. Herzog: «Evitare il ritorno alle urne»",
+          "summary": "Con lo spoglio ancora da chiudere, il blocco di Netanyahu è a 53 seggi e l'opposizione guidata da Eisenkot a 48, lontani entrambi dalla maggioranza di 61. Il presidente della Commissione elettorale ha chiesto allo Shin Bet di indagare su presunti fondi per gonfiare l'affluenza araba: quattro persone sono state arrestate e il partito Ra'am respinge le accuse, che restano da accertare. Herzog chiede ai partiti consultazioni «con mente aperta» per scongiurare nuove elezioni.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/mondo/2026/10/29/israele-quattro-arresti-per-presunta-corruzione-elettorale-_44945242-6c9e-4c60-adc4-8ae1b7e7b2a1.html",
+          "also": [
+            {
+              "source": "LaPresse",
+              "url": "https://www.lapresse.it/esteri/2026/10/29/elezioni-in-israele-2026-netanyahu-in-vantaggio-su-eisenkot-herzog-evitare-il-ritorno-alle-urne/"
+            }
+          ],
+          "published": "2026-10-29",
+          "tags": [
+            "Israele",
+            "Elezioni"
+          ],
+          "spunto": {
+            "text": "Il Likud parla di elezioni «rubate», mentre polizia e Commissione respingono le accuse di brogli. Quanto pesa la fiducia nelle istituzioni elettorali per la stabilità di una democrazia sotto pressione?",
+            "refs": []
+          },
+          "icon": "ballot"
+        },
+        {
+          "title": "Cisgiordania, fermati cinque attivisti italiani durante la raccolta delle olive. La Farnesina chiede il rilascio",
+          "summary": "Cinque attivisti italiani sono stati fermati vicino al villaggio di Al Lubban al-Gharbiyye, dove accompagnavano contadini palestinesi nella raccolta delle olive. Secondo la Farnesina il fermo rientra in un'operazione che ha coinvolto anche altri stranieri; i cinque si trovano in una stazione di polizia. Ambasciata e consolato sono in contatto con le autorità israeliane e il ministero chiede il rilascio immediato. È il secondo caso in pochi giorni, dopo quello delle attiviste rientrate in Italia il 24 ottobre.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/topnews/2026/10/29/farnesina-5-attivisti-italiani-fermati-in-cisgiordania-chiesto-rilascio-immediato_1aa9dbc8-87a3-4d84-afca-41d7b4b60b45.html",
+          "published": "2026-10-29",
+          "tags": [
+            "Medio Oriente",
+            "Farnesina"
+          ],
+          "spunto": {
+            "text": "La tutela consolare dei cittadini italiani all'estero e la situazione dei civili in Cisgiordania sono temi che toccano molti giovani. Cosa può fare concretamente il governo italiano, anche in sede Ue?",
+            "refs": []
+          },
+          "icon": "globe"
+        },
+        {
+          "title": "Vertice Ue-Canada a Bruxelles, Costa: «Oltre una semplice associazione, ma non piena adesione»",
+          "summary": "Al vertice di Bruxelles l'Unione europea e il Canada lanciano un'«Alleanza per il futuro» per legami sempre più stretti. Il presidente del Consiglio europeo Costa condivide l'idea di von der Leyen di fare del Canada un «membro associato», ma precisa che non si tratta di adesione. Costa sottolinea anche che i rapporti tra Ue e Canada non hanno bisogno della mediazione degli Stati Uniti.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/europa/notizie/rubriche/altrenews/2026/10/29/costa-canada-oltre-una-semplice-associazione-allue-ma-non-e-piena-adesione_6ee0e6ab-fc9f-4524-8ebb-012fedc6cf82.html",
+          "published": "2026-10-29",
+          "tags": [
+            "Ue",
+            "Canada"
+          ],
+          "spunto": {
+            "text": "Un'Europa che stringe alleanze con democrazie affini è una risposta all'incertezza nei rapporti con Washington. Lo status di «membro associato» può diventare un modello anche per altri partner, dal Regno Unito ai Paesi candidati?",
+            "refs": []
+          },
+          "icon": "talks"
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Elicottero dell'Esercito precipita in Bosnia durante la missione Eufor: quattro morti e undici feriti",
+          "summary": "Un CH-47 Chinook dell'Esercito italiano impegnato nella missione europea Eufor Althea è caduto poco dopo il decollo nella zona di Brčko, in una zona disabitata. Sono morti due sergenti dell'Aviazione dell'Esercito e due militari della Croce Rossa; a bordo c'erano 15 persone. Mattarella e Meloni hanno espresso cordoglio, Crosetto andrà in Bosnia per visitare i feriti. Le cause non sono ancora accertate.",
+          "source": "Quotidiano.net",
+          "url": "https://www.quotidiano.net/esteri/elicottero-militare-italiano-precipita-in-bosnia-hsuhzyon",
+          "also": [
+            {
+              "source": "Il Fatto Quotidiano",
+              "url": "https://www.ilfattoquotidiano.it/2026/10/29/elicottero-militare-italiano-precipitato-bosnia-notizie/8554703/"
+            }
+          ],
+          "published": "2026-10-29",
+          "tags": [
+            "Difesa",
+            "Missioni"
+          ],
+          "spunto": {
+            "text": "Le missioni internazionali come Eufor sono una parte poco raccontata dell'impegno italiano per la stabilità dei Balcani. Come ricordare le vittime spiegando ai più giovani perché l'Italia è lì da vent'anni?",
+            "refs": []
+          },
+          "icon": "shield"
+        },
+        {
+          "title": "Caso Siher, il tribunale di Milano risponde a Meloni e Tajani: dichiarazioni «irricevibili»",
+          "summary": "La gip di Milano ha scarcerato Youssef Siher, indagato per l'attività sui social dopo i disordini del 17 e 18 ottobre, ritenendo che mancassero i presupposti per la custodia. Meloni ha definito la decisione «vergognosa» e Tajani lo ha indicato tra i principali istigatori, ma secondo Il Post gli inquirenti non lo ritengono responsabile diretto delle violenze. La presidenza del tribunale ha replicato con una nota insolitamente dura; anche l'Anm ha parlato di intimidazione verso i magistrati.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/10/28/tribunale-milano-critiche-meloni-tajani-youssef-siher/",
+          "also": [
+            {
+              "source": "Avvenire",
+              "url": "https://www.avvenire.it/politica/la-scarcerazione-di-siher-e-il-nuovo-scontro-fra-la-premier-e-lanm_114962"
+            }
+          ],
+          "published": "2026-10-28",
+          "tags": [
+            "Giustizia",
+            "Governo"
+          ],
+          "spunto": {
+            "text": "Le decisioni dei giudici si possono criticare, ma con i ricorsi e nel merito. Dove passa il confine tra critica legittima e delegittimazione della magistratura da parte di chi governa?",
+            "refs": []
+          },
+          "icon": "scale"
+        },
+        {
+          "title": "Aiuti all'Ucraina, Tajani: «Il nuovo pacchetto è quasi pronto». Calenda accusa il governo di rinviare per calcolo elettorale",
+          "summary": "Il ministro degli Esteri ha detto che il nuovo pacchetto di aiuti a Kiev è in preparazione alla Difesa e sarà firmato con Crosetto e Giorgetti dopo il passaggio al Copasir. Il giorno prima, in un'intervista a Repubblica, Carlo Calenda aveva accusato Meloni di rinviare il pacchetto perché impopolare e utile a Vannacci, definendo un eventuale stop agli aiuti militari «un tradimento verso l'Ucraina».",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/mondo/europa/2026/10/29/tajani-il-prossimo-pacchetto-di-aiuti-allucraina-e-quasi-pronto_7ae7e593-27c0-43ad-9a61-e249f75e0e58.html",
+          "also": [
+            {
+              "source": "GEA",
+              "url": "https://geagency.it/breaking-news/ucraina-calenda-il-governo-molla-kiev-per-calcolo-elettorale/"
+            }
+          ],
+          "published": "2026-10-29",
+          "tags": [
+            "Ucraina",
+            "Difesa"
+          ],
+          "spunto": {
+            "text": "Calenda sostiene che «la sopravvivenza dell'Europa è legata a Kiev» e che il sostegno del governo, oltre la retorica, si stia indebolendo. Un contenuto può mettere a confronto gli annunci e i tempi effettivi degli aiuti.",
+            "refs": [
+              {
+                "label": "Calenda a Repubblica sugli aiuti a Kiev – GEA, 28 ottobre",
+                "url": "https://geagency.it/breaking-news/ucraina-calenda-il-governo-molla-kiev-per-calcolo-elettorale/"
+              },
+              {
+                "label": "Calenda sul governo che «molla Kiev» e sul campo largo – La Voce di Venezia, 29 ottobre",
+                "url": "https://www.lavocedivenezia.it/calenda-il-governo-molla-kiev-per-calcoli-elettorali-meloni-rimanda-gli-aiuti/"
+              }
+            ]
+          },
+          "icon": "shield"
+        },
+        {
+          "title": "Manovra, scintille Fdi-Lega sulla legge Fornero. La Cgil: con il fisco favoriti gli autonomi sui dipendenti",
+          "summary": "Nella maggioranza la Lega rivendica di aver superato la Fornero, mentre Fdi frena e propone di usare il fondo da 850 milioni per i lavori gravosi. Secondo i calcoli della Cgil, con la flat tax estesa un autonomo da 100mila euro risparmierebbe circa 10mila euro l'anno, un dipendente da 51mila circa 100. Landini conferma lo sciopero generale del 20 novembre; in Parlamento le audizioni sono fissate dal 5 al 12 novembre.",
+          "source": "ANSA",
+          "url": "https://ansa.it/sito/notizie/politica/2026/10/29/scintille-fdi-lega-sulla-fornero.-il-fisco-divide-autonomi-e-dipendenti_b2dabd79-7a26-4357-8767-9d6e322c5baf.html",
+          "published": "2026-10-29",
+          "tags": [
+            "Manovra",
+            "Pensioni"
+          ],
+          "spunto": {
+            "text": "Equità tra lavoratori dipendenti e autonomi e sostenibilità delle pensioni per chi oggi ha vent'anni sono due nodi della manovra. Chi paga il conto delle uscite anticipate e delle flat tax?",
+            "refs": []
+          },
+          "icon": "hourglass"
+        },
+        {
+          "title": "Campo largo, prima riunione dei leader per la roadmap verso il 2027: manovra, primarie e perimetro",
+          "summary": "Schlein, Conte, Bonelli e Fratoianni si sono collegati per un confronto informale sulla strada verso le politiche del 2027, a partire da un'opposizione comune alla manovra. Sul tavolo programma, regole delle primarie e coinvolgimento dei centristi, con Conte e Avs contrari a Italia Viva. Restano distanti le posizioni sull'Ucraina e sulla patrimoniale.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/10/29/riunione-dei-leader-di-campo-largo-confronto-su-manovra-e-roadmap_73fbff9b-6580-46d7-9c40-6988a42843cc.html",
+          "published": "2026-10-29",
+          "tags": [
+            "Opposizioni",
+            "Elezioni 2027"
+          ],
+          "spunto": {
+            "text": "Calenda ha definito «indegno» il dibattito nel campo largo e prevede che alla fine prevarrà Conte. Una coalizione divisa sull'Ucraina può offrire un'alternativa di governo credibile?",
+            "refs": [
+              {
+                "label": "Calenda sul governo che «molla Kiev» e sul campo largo – La Voce di Venezia, 29 ottobre",
+                "url": "https://www.lavocedivenezia.it/calenda-il-governo-molla-kiev-per-calcoli-elettorali-meloni-rimanda-gli-aiuti/"
+              }
+            ]
+          },
+          "icon": "ballot"
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Ricostruzione, Castelli dal prefetto antimafia: tre imprese dell'inchiesta erano già state colpite da misure antimafia",
+          "summary": "Il commissario alla ricostruzione Guido Castelli ha incontrato il prefetto Stefano Gambacurta, che dirige la struttura di prevenzione antimafia del sisma. Castelli riferisce che tre delle imprese coinvolte nell'inchiesta della Dda erano già destinatarie di misure antimafia, segno a suo dire che i controlli funzionano; ora si verifica se siano stati aggirati. Chiede di proseguire gli accertamenti senza fermare in blocco i cantieri. Le accuse dell'inchiesta restano da accertare.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/29/castelli-dal-prefetto-gambacurta-tre-imprese-coinvolte-nellinchiesta-oggetto-di-misure-antimafia/2121142/",
+          "published": "2026-10-29",
+          "tags": [
+            "Ricostruzione",
+            "Legalità"
+          ],
+          "spunto": {
+            "text": "Se tre imprese erano già segnalate, la domanda è come abbiano continuato a lavorare nel cratere. Quali controlli rendere più rapidi e trasparenti senza bloccare chi aspetta ancora di tornare a casa?",
+            "refs": []
+          },
+          "icon": "shield"
+        },
+        {
+          "title": "Inchiesta ricostruzione, la memoria di Pistarelli: «Acquaroli non mi ha mai parlato di indagini»",
+          "summary": "L'ex capo di gabinetto della Regione, in carcere da circa una settimana, prepara una memoria in cui nega che il presidente gli abbia mai parlato delle indagini e si dice amareggiato per essere stato scaricato. Il suo legale lavora al ricorso al Riesame. Intanto il deputato M5S Giorgio Fede accusa Meloni e i vertici di Fdi di aver «mollato» Acquaroli e Castelli. Le accuse sono ipotesi investigative non accertate.",
+          "source": "Il Resto del Carlino",
+          "url": "https://www.ilrestodelcarlino.it/marche/cronaca/inchiesta-ricostruzione-pistarelli-acquaroli-cx6nsr7e",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/marche/notizie/2026/10/29/inchiesta-sisma-fede-m5s-meloni-ha-mollato-acquaroli-e-castelli_465dcd46-0436-4f6b-89dd-865058949065.html"
+            }
+          ],
+          "published": "2026-10-30",
+          "tags": [
+            "Ricostruzione",
+            "Regione"
+          ],
+          "spunto": {
+            "text": "Garantismo per gli indagati e trasparenza della Regione possono stare insieme. Quali risposte deve dare la giunta al Consiglio regionale su come sono stati scelti e controllati i suoi collaboratori?",
+            "refs": []
+          },
+          "icon": "columns"
+        },
+        {
+          "title": "Povertà nelle Marche, il rischio sale al 13,9%: 177mila rinunciano alle cure e gli sfratti crescono del 66%",
+          "summary": "Il report dell'Osservatorio sulle vulnerabilità, presentato ad Ancona dall'Alleanza contro la povertà, segnala nel 2025 un aumento del rischio di povertà o esclusione sociale dall'11,8 al 13,9%. Gli occupati crescono, ma tra i 15 e i 34 anni si perdono quasi 7.900 posti; i Neet sono il 10,8%. Il 12% dei marchigiani dichiara di aver rinunciato a prestazioni sanitarie, contro il 9,6% nazionale. L'Alleanza chiede un protocollo nazionale sull'emergenza casa.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/29/ancona-marche-report-poverta-2026/2121255/",
+          "published": "2026-10-29",
+          "tags": [
+            "Sociale",
+            "Giovani"
+          ],
+          "spunto": {
+            "text": "Il calo dell'occupazione tra i giovani e la rinuncia alle cure sono due dati che parlano direttamente agli under 30. Quali misure regionali su casa, lavoro e liste d'attesa chiedere alla giunta?",
+            "refs": []
+          },
+          "icon": "youth"
+        },
+        {
+          "title": "Fincantieri Ancona, morto il secondo operaio ustionato nell'incendio di settembre. La Uil: «Omicidio sul lavoro»",
+          "summary": "Kabir Mohidul, 29 anni, è morto al centro grandi ustionati di Pisa a un mese dall'incendio del 29 settembre nel cantiere navale di Ancona, in cui era già morto un collega di 55 anni. I due lavoravano per una ditta in appalto in uno spazio stretto, senza via di fuga. La segretaria della Uil Marche chiede una procura speciale e il riconoscimento del reato di omicidio sul lavoro, insieme a più controlli sugli appalti.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/28/fincantieri-ancona-morto-secondo-operaio-kabir-mohidul/2120901/",
+          "published": "2026-10-28",
+          "tags": [
+            "Lavoro",
+            "Sicurezza"
+          ],
+          "spunto": {
+            "text": "La catena degli appalti e subappalti è uno dei punti deboli della sicurezza nei grandi cantieri. Quali controlli e quali responsabilità per il committente servono perché non si ripeta?",
+            "refs": []
+          },
+          "icon": "helmet"
+        },
+        {
+          "title": "Aree idonee per le rinnovabili, il piano della giunta all'esame della commissione: voto atteso a novembre",
+          "summary": "La commissione Ambiente del Consiglio regionale ha avviato l'esame della proposta di legge sulle nuove aree idonee per gli impianti da fonti rinnovabili, illustrata dall'assessore Giacomo Bugaro. Il presidente Luca Marconi ha fissato un calendario con tre audizioni settimanali di agricoltori, imprese, ambientalisti e tutela del paesaggio, puntando al voto finale entro novembre.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/29/aree-idonee-per-fonti-rinnovabili-nelle-marche-via-allesame-in-commisione_70236aa6-2a57-4f32-baf0-f4ad86e9c68b.html",
+          "published": "2026-10-29",
+          "tags": [
+            "Energia",
+            "Regione"
+          ],
+          "spunto": {
+            "text": "Con i prezzi dell'energia in crescita, produrre energia pulita sul territorio è anche una questione di bollette. Come bilanciare tutela del paesaggio e tempi certi per chi vuole investire?",
+            "refs": []
+          },
+          "icon": "bolt"
+        },
+        {
+          "title": "Marche giovani, finanziati 17 progetti per assunzioni qualificate di laureati under 36",
+          "summary": "La Regione ha approvato la graduatoria del bando che incentiva l'occupazione qualificata dei giovani laureati: 475mila euro, l'intera dotazione, per 13 nuove assunzioni e 4 stabilizzazioni. Acquaroli parla di un legame più forte tra formazione e imprese; l'assessore al Lavoro Tiziano Consoli di opportunità per restare a lavorare nelle Marche.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/29/bando-marche-giovani-finanziati-17-progetti-con-475mila-euro_e9972ffa-868f-4afb-a4f6-d50149d4db45.html",
+          "published": "2026-10-29",
+          "tags": [
+            "Giovani",
+            "Lavoro"
+          ],
+          "spunto": {
+            "text": "Diciassette posti sono un segnale, ma il report sulla povertà indica quasi 7.900 posti persi tra i giovani in un anno. Basta un bando o serve una strategia per trattenere i laureati nella regione?",
+            "refs": []
+          },
+          "icon": "youth"
+        },
+        {
+          "title": "Sciopero generale dell'Usb, oggi corteo ad Ancona con delegazioni da tutta la regione",
+          "summary": "Il sindacato di base Usb sciopera oggi contro il carovita e i costi dell'energia e chiede salari più alti, con iniziative in oltre 50 città. Ad Ancona il concentramento è alle 10.30 in piazza Ugo Bassi, con partenze organizzate da Fano, Senigallia, Jesi, Fabriano, Macerata, Civitanova e Porto San Giorgio. Dopo l'ordinanza di precettazione del ministero, l'azienda dei trasporti della provincia di Ancona ha rinviato lo sciopero e i bus circolano regolarmente.",
+          "source": "eTv Marche",
+          "url": "https://etvmarche.it/29/10/2026/lo-sciopero-del-30-ottobre-disagi-in-vista-la-manifestazione-ad-ancona-con-delegazioni-in-arrivo-da-tutte-le-marche/",
+          "published": "2026-10-29",
+          "tags": [
+            "Sindacati",
+            "Lavoro"
+          ],
+          "spunto": {
+            "text": "Calenda ha definito insufficienti e tardivi gli aiuti del governo contro il caro carburanti. Salari e costo dell'energia sono temi reali: quali risposte dare senza rinunciare a una critica alle piazze più radicali?",
+            "refs": [
+              {
+                "label": "Calenda a Vibo Valentia su carburanti e autotrasporto – ANSA, 23 ottobre",
+                "url": "https://www.ansa.it/calabria/notizie/2026/10/23/autotrasporto-calenda-aiuti-governo-insufficienti-e-arrivati-tardi_5db4a9dd-472e-4acb-a995-bea9fee8ce55.html"
+              }
+            ]
+          },
+          "icon": "megaphone"
+        },
+        {
+          "title": "Pesaro, il caro energia pesa sul bilancio: dal 2027 possibili orari ridotti negli edifici comunali",
+          "summary": "Il consiglio comunale ha approvato il bilancio consolidato 2025. Il sindaco Andrea Biancani ha spiegato che l'aumento dei costi energetici vale circa 2,8 milioni in più tra 2025 e 2027 e che la spesa annua per luce e gas potrebbe passare da 5 a quasi 8 milioni. Per questo si valuta, dal 1° gennaio 2027, di ridurre gli orari di parte dei 130 edifici comunali, da uffici di quartiere a musei, dopo un confronto con i sindacati.",
+          "source": "CentroPagina",
+          "url": "https://www.centropagina.it/pesaro/attualita-consiglio-bilancio-consolidato-caro-energia-tagli-orari-palestre-uffici/",
+          "published": "2026-10-28",
+          "tags": [
+            "Comuni",
+            "Energia"
+          ],
+          "spunto": {
+            "text": "Il caro energia si scarica anche sui servizi dei Comuni. Efficientamento degli edifici pubblici e autoproduzione possono essere un'alternativa ai tagli di orario?",
+            "refs": []
+          },
+          "icon": "euro"
+        }
+      ]
+    }
+  ]
+}
