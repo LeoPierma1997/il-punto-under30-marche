@@ -1,0 +1,404 @@
+{
+  "date": "2026-10-31",
+  "label": "Sabato 31 ottobre 2026",
+  "intro": "L'Istat stima l'inflazione di ottobre al 5,4% con il Pil fermo, mentre la manovra arriva alle Camere; al G20 di Atlanta gli europei prendono le distanze da Lavrov. Nelle Marche, nel decennale della scossa del 2016, Castelli indica il 2027 per il ritorno a casa degli sfollati e l'inchiesta sulla ricostruzione continua a pesare sulla Regione.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "G20 di Atlanta, Lavrov al tavolo divide gli alleati: gli europei rifiutano la foto, Rubio la cancella",
+          "summary": "Alla riunione dei ministri degli Esteri del G20 ad Atlanta, gli Stati Uniti, presidenti di turno, hanno voluto anche il russo Sergej Lavrov, mentre l'Ucraina non è stata invitata. Diversi diplomatici europei hanno rifiutato la tradizionale foto di gruppo con lui e il segretario di Stato Marco Rubio ha deciso di annullarla. Il tedesco Wadephul ha ribadito che con Mosca non c'è normalità, il polacco Sikorski ha definito la scelta giusta e l'Alta rappresentante Ue Kaja Kallas ha detto di non aver visto alcuna apertura da Lavrov. Per l'Italia era presente la sottosegretaria Maria Tripodi; il vertice dei leader è previsto a Miami il 14 e 15 dicembre.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/mondo/2026/10/30/lavrov-sbarca-al-g20-negli-usa-e-spacca-gli-alleati_f89dd372-fa3e-456d-9d3f-ace295b2e601.html",
+          "also": [
+            {
+              "source": "Euronews",
+              "url": "https://www.euronews.com/2026/10/30/eu-diplomats-object-to-g20-photo-with-lavrov-prompting-us-cancellation"
+            }
+          ],
+          "published": "2026-10-30",
+          "tags": [
+            "G20",
+            "Russia",
+            "Ue-Usa"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Gli europei hanno mostrato una linea comune sulla Russia, ma al G20 l'Ucraina non c'era. Come può l'Ue farsi sentire quando Washington sceglie di trattare direttamente con Mosca?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Hormuz, petroliere in fiamme e accuse incrociate mentre i mediatori del Qatar tornano a Teheran",
+          "summary": "I Pasdaran iraniani sostengono che due petroliere abbiano avuto incidenti nello Stretto di Hormuz mentre usavano rotte non autorizzate da Teheran; le affermazioni non sono verificate e non indicano navi né cause. Il giorno prima una petroliera era stata danneggiata da ordigni applicati allo scafo, secondo l'agenzia britannica UKMTO, senza un responsabile accertato. Il comando Usa afferma che le rotte principali sono sgombre da mine, mentre i mediatori del Qatar sono tornati a Teheran; secondo Axios, Usa e Israele valutano nuovi attacchi all'Iran dopo il voto americano del 3 novembre.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/10/30/irans-revolutionary-guard-reports-two-tankers-on-fire-in-strait-of-hormuz-as-talks-continu",
+          "published": "2026-10-30",
+          "tags": [
+            "Iran",
+            "Energia"
+          ],
+          "icon": "bolt",
+          "spunto": {
+            "text": "Da Hormuz passa una parte decisiva del petrolio mondiale e le tensioni pesano sui prezzi dell'energia anche in Italia. Quale ruolo dovrebbe avere l'Europa per proteggere le rotte commerciali e sostenere la mediazione?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ucraina, la Commissione Ue propone di sbloccare 45 miliardi di prestito per il 2027",
+          "summary": "La Commissione europea ha approvato una proposta, ora all'esame del Consiglio, per sbloccare la seconda metà del prestito Ue da 90 miliardi all'Ucraina. Dei 45 miliardi previsti, 13,3 andrebbero al sostegno del bilancio e 31,7 all'industria della difesa ucraina, con erogazioni dall'inizio del 2027. I fondi per il bilancio saranno legati a condizioni su Stato di diritto e lotta alla corruzione. Per Ursula von der Leyen la misura dà a Kiev una prevedibilità «quanto mai necessaria».",
+          "source": "ANSA Europa",
+          "url": "https://ansa.it/europa/notizie/rubriche/altrenews/2026/10/30/via-libera-della-commissione-ue-a-tranche-da-45-miliardi-per-kiev-2_a4c62cd5-adf1-4be7-810d-31e4d46556f7.html",
+          "published": "2026-10-30",
+          "tags": [
+            "Ucraina",
+            "Ue"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Calenda ha aderito allo sciopero della fame per i civili di Oleshky definendolo «un'azione diplomatica». Mentre gli Usa sembrano meno presenti, il sostegno finanziario europeo diventa decisivo: come spiegare ai giovani perché questi fondi riguardano anche la sicurezza dell'Europa?",
+            "refs": [
+              {
+                "label": "Calenda aderisce allo sciopero della fame per Oleshky – Il Foglio, 21 ottobre 2026",
+                "url": "https://www.ilfoglio.it/politica/2026/10/21/news/calenda-annuncia-lo-sciopero-della-fame-per-lucraina-vediamo-quanti-si-uniranno--411230"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Polonia, sospeso il presidente della Corte costituzionale: polizia davanti alla sede e proteste del PiS",
+          "summary": "In Polonia il presidente del Tribunale costituzionale Bogdan Święczkowski è stato sospeso dalle funzioni e la polizia in tenuta antisommossa è stata schierata davanti all'edificio. La Corte ha parlato su X di «colpo di stato», accusa che resta una sua lettura dei fatti, mentre il ministro della Giustizia Żurek ha chiesto di revocare l'immunità a Święczkowski e al suo vice. Il presidente Nawrocki ha interrotto in volo un viaggio in Senegal per rientrare a Varsavia; Kaczyński è intervenuto alla protesta dei sostenitori del PiS. Il governo Tusk punta da settimane a rimuovere i giudici nominati durante i governi PiS.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/10/30/polish-president-turns-back-mid-flight-amid-coup-detat-allegations",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/sito/notizie/topnews/2026/10/31/tensioni-e-proteste-in-polonia-dopo-la-sospensione-del-presidente-corte-costituzionale_0f35a3af-265e-4f32-b650-9941730f20c2.html"
+            }
+          ],
+          "published": "2026-10-30",
+          "tags": [
+            "Polonia",
+            "Stato di diritto"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Ripristinare lo Stato di diritto dopo anni di nomine politiche è necessario, ma il metodo conta quanto l'obiettivo. Come si riforma una Corte senza dare l'impressione di forzare le regole?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Midterm Usa, a quattro giorni dal voto i democratici avanti anche in stati repubblicani",
+          "summary": "Il 3 novembre negli Stati Uniti si rinnovano tra l'altro 35 dei 100 seggi del Senato. Secondo i sondaggi i democratici sono in vantaggio o alla pari in stati tradizionalmente conservatori come Texas, Kansas, Alaska e Ohio, mentre il gradimento di Trump è intorno al 37%. Nel voto generico per il Congresso i democratici sono avanti di quasi 9 punti, un margine che non si vedeva dal 2006. Tra i fattori citati ci sono dazi e caro carburante, aumentato anche per la guerra in Medio Oriente.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/10/30/stati-in-bilico-elezioni-di-meta-mandato/",
+          "published": "2026-10-30",
+          "tags": [
+            "Usa",
+            "Elezioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "In molti stati in bilico avanzano candidati moderati che parlano di costo della vita più che di ideologia. Cosa può insegnare questa tendenza a chi in Europa prova a costruire un'offerta di centro?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Inflazione al 5,4% a ottobre e Pil fermo nel terzo trimestre: il caro energia frena l'economia",
+          "summary": "Secondo le stime preliminari dell'Istat, a ottobre i prezzi al consumo sono saliti del 5,4% su base annua (dal 4,2% di settembre), trainati dall'energia: +31,4%, con le bollette del mercato tutelato a +59,5%. Nel terzo trimestre il Pil è rimasto invariato sul trimestre precedente, mettendo a rischio l'obiettivo di crescita dell'1% del governo, mentre i salari contrattuali crescono meno dei prezzi. Giorgetti attribuisce il rialzo allo shock energetico legato alle guerre; Meloni ha annunciato un decreto energia atteso la prossima settimana. Il presidente Mattarella, nel messaggio per la Giornata del risparmio, ha parlato di un tenore di vita «aggredito» da inflazione e salari fermi.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/economia/2026/10/30/il-caro-energia-fa-danni-vola-linflazione-e-la-crescita-si-ferma_6ea6c523-9671-4e3d-b1df-e2cfbfa1e6fd.html",
+          "also": [
+            {
+              "source": "ANSA (Mattarella)",
+              "url": "https://www.ansa.it/sito/notizie/topnews/2026/10/30/mattarella-tenore-di-vita-cittadini-aggredito-da-inflazione-e-salari-che-non-crescono_26e04532-6ade-45be-ae51-c16c82bf0ab8.html"
+            }
+          ],
+          "published": "2026-10-30",
+          "tags": [
+            "Inflazione",
+            "Energia",
+            "Salari"
+          ],
+          "icon": "bolt",
+          "spunto": {
+            "text": "Con l'energia che pesa più di tutto il resto sui prezzi, la risposta può limitarsi a bonus temporanei o servono scelte strutturali su mix energetico, reti e mercato elettrico? E come si difende il potere d'acquisto di chi ha appena iniziato a lavorare con salari d'ingresso già bassi?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Manovra, via libera della Ragioneria al testo da 157 articoli: dalle banche 5,8 miliardi, scontro aperto con l'Abi",
+          "summary": "Il disegno di legge di bilancio ha ottenuto la bollinatura della Ragioneria e Mattarella ne ha autorizzato la presentazione alle Camere; la sessione di bilancio si apre la prossima settimana. Il testo conta 157 articoli e prevede dal settore finanziario circa 5,8 miliardi nel 2027, tra addizionale Ires di 3 punti e raddoppio della Tobin tax, oltre a un aumento dell'Irap per le imprese energetiche. Alla Giornata del risparmio il presidente dell'Abi Patuelli ha definito «preoccupante» il quadro e Intesa Sanpaolo ha lamentato il mancato rispetto dell'accordo dell'anno scorso; Giorgetti ha replicato che gli oneri sono «assorbibili» e che tutti devono contribuire.",
+          "source": "ANSA",
+          "url": "https://ansa.it/sito/notizie/economia/2026/10/30/manovra-giu-lirpef-per-32-milioni-di-persone-dalle-banche-58-miliardi_a2553a3a-6200-46b4-bebd-ed940ffd56e8.html",
+          "also": [
+            {
+              "source": "ANSA (scontro governo-banche)",
+              "url": "https://www.ansa.it/sito/notizie/economia/2026/10/30/scontro-aperto-fra-governo-e-banche-sulle-tasse-in-manovra_b8e528d1-757f-407a-a8e6-28d1bea461ad.html"
+            },
+            {
+              "source": "AGI",
+              "url": "https://www.agi.it/economia/news/2026-10-30/manovra-irpef-bonus-misure-39795215/"
+            }
+          ],
+          "published": "2026-10-30",
+          "tags": [
+            "Manovra",
+            "Banche",
+            "Fisco"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Calenda si dice deluso da una manovra che non contiene il «patto generazionale» che si aspettava e rilancia la tassazione al 5% per gli under 30 contro la fuga dei laureati. Lo spunto per un contenuto: confrontare dove va il gettito chiesto alle banche e quanto di quelle risorse arriva davvero ai giovani.",
+            "refs": [
+              {
+                "label": "Calenda in tv sulla manovra, ripreso da Il Riformista – 30 ottobre 2026",
+                "url": "https://www.ilriformista.it/manovra-la-critica-del-campo-largo-e-laccusa-di-marchette-elettorali-calenda-voleva-un-patto-generazionale-536369/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Sciopero generale Usb: cortei in oltre sessanta piazze, tangenziali bloccate e scontri a Roma e Torino",
+          "summary": "Lo sciopero generale dell'Usb contro carovita, bassi salari e riarmo si è svolto per l'intera giornata nonostante la precettazione dei trasporti firmata da Salvini, che il sindacato ha definito illegittima. I cortei, in gran parte pacifici, hanno bloccato la tangenziale Est a Milano (circa 30mila persone secondo la polizia) e quella di Bologna; l'Usb rivendica oltre un milione di partecipanti, cifra non verificata. In serata ci sono state tensioni a Roma, dove un gruppo staccatosi dal corteo ha incendiato cassonetti vicino al Colosseo, e a Torino, con cariche in piazza Castello; agenti feriti a Mestre e Vicenza. Salvini ha richiamato il nuovo decreto sicurezza, mentre la Cgil ha confermato il proprio sciopero generale del 20 novembre.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/cronaca/2026/10/30/sciopero-generale-e-cortei-in-tutta-italia-tensioni-a-roma-e-torino.-la-cronaca-della_a6c5a68a-dc6a-450e-9dac-8c7c47dc898a.html",
+          "also": [
+            {
+              "source": "Dire",
+              "url": "https://www.dire.it/30-10-2026/1282634-litalia-in-piazza-per-lo-sciopero-generale-cortei-milano-bologna-roma-palermo/"
+            },
+            {
+              "source": "Tgcom24",
+              "url": "https://www.tgcom24.mediaset.it/cronaca/sciopero-generale-30-ottobre-cortei-trasporti_118332719-202602k.shtml"
+            }
+          ],
+          "published": "2026-10-30",
+          "tags": [
+            "Sciopero",
+            "Lavoro",
+            "Sicurezza"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Il carovita è un problema reale che riguarda molti giovani, ma i blocchi e le violenze rischiano di oscurarlo. Come si distingue tra il diritto di sciopero, il rispetto delle regole sulla precettazione e la risposta dello Stato a chi devasta, senza cadere né nella criminalizzazione né nella giustificazione?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Meloni chiude a Vannacci: «Non ero ricattabile prima». Il generale: alleanze decise a ridosso del voto",
+          "summary": "In un'intervista per il nuovo libro di Bruno Vespa, la presidente del Consiglio ha escluso un'alleanza con Futuro nazionale di Roberto Vannacci, dicendo di voler tornare al governo con l'attuale centrodestra rafforzato da nuove liste civiche. Vannacci ha risposto che le parole di Meloni gli interessano solo fino a un certo punto e che le scelte sulle alleanze arriveranno a ridosso delle elezioni, attaccando esponenti di Forza Italia e Fratelli d'Italia. Il confronto si inserisce nella costruzione delle coalizioni in vista del voto del 2027.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/10/30/meloni-chiude-a-vannacci-chiedero-agli-italiani-di-governare-senza-ricatti_56e01653-b4ce-40aa-a3f8-78a42410105a.html",
+          "published": "2026-10-30",
+          "tags": [
+            "Centrodestra",
+            "Elezioni 2027"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Ad agosto Calenda ha definito il campo largo «un'accozzaglia» e un bis di Meloni altrettanto pericoloso, tenendo Azione fuori da entrambi i poli. Con il centrodestra che fa i conti con Vannacci e il centrosinistra con i suoi alleati, c'è spazio per raccontare un'offerta riformista che non dipenda dalle estreme?",
+            "refs": [
+              {
+                "label": "Calenda a Repubblica, ripreso da Linkiesta – 10 agosto 2026",
+                "url": "https://www.linkiesta.it/2026/08/carlo-calenda-intervista-repubblica-voto-azione/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Sanità, medici e Regioni contro la manovra: 3,4 miliardi in più non bastano",
+          "summary": "Per il presidente dell'Ordine dei medici (Fnomceo) Filippo Anelli la manovra dà risposte ancora insufficienti su personale e sanità territoriale: le Regioni avevano chiesto 18 miliardi in più nel triennio, mentre i 3,4 miliardi previsti per il 2027 copriranno soprattutto i rincari energetici, senza margini per esempio sulle liste d'attesa. Restano aperti i nodi di assunzioni e stipendi, che i professionisti chiedono di allineare alla media europea. Il presidente dell'Emilia-Romagna Michele de Pascale ha chiesto di correggere la legge di bilancio, avvertendo del rischio di uno scontro tra Regioni del Nord e del Sud.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/canale_saluteebenessere/notizie/sanita/2026/10/30/anelli-ordine-medici-dalla-manovra-risposte-ancora-insufficienti_fa7d4506-581e-4486-80e4-b617e4c28b55.html",
+          "also": [
+            {
+              "source": "ANSA Emilia-Romagna",
+              "url": "https://www.ansa.it/emiliaromagna/notizie/2026/10/30/de-pascale-la-manovra-va-corretta-servono-le-risorse-sulla-sanita_eb4d6853-bc8a-4ead-ba60-531960a81630.html"
+            }
+          ],
+          "published": "2026-10-30",
+          "tags": [
+            "Sanità",
+            "Manovra",
+            "Regioni"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Se l'aumento del Fondo sanitario viene assorbito dalle bollette di ospedali e Asl, cosa resta per liste d'attesa e medici giovani che scelgono l'estero? Quali riforme organizzative potrebbero liberare risorse oltre alla semplice richiesta di più fondi?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta ricostruzione, Avs chiede gli atti delle verifiche interne su Pistarelli. M5S: «Muccia, teatrino»",
+          "summary": "Il capogruppo Avs in Consiglio regionale Andrea Nobili ha presentato un'interrogazione a risposta immediata e una richiesta di accesso agli atti dopo che Acquaroli, nella seduta di Muccia, aveva riferito di segnalazioni sull'interessamento dell'ex capo di gabinetto ad alcune pratiche e di verifiche affidate a segretario generale, Avvocatura e uno studio legale esterno. Nobili chiede segnalazioni, relazioni, pareri e costi dell'incarico esterno. Il M5S maceratese accusa Acquaroli di non essersi rivolto subito alla procura e chiede controlli tecnici sui cantieri. Le accuse dell'inchiesta restano ipotesi da accertare.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/30/nobili-avs-acquaroli-chiarisca-le-sue-azioni-dopo-voci-su-pistarelli_b88222bc-40da-4ec8-8216-3f1f4d3f034c.html",
+          "also": [
+            {
+              "source": "Cronache Maceratesi",
+              "url": "https://www.cronachemaceratesi.it/2026/10/30/m5s-contro-acquaroli-e-castelli-il-consiglio-a-muccia-un-teatrino-di-regime-per-la-destra/2121355/"
+            }
+          ],
+          "published": "2026-10-30",
+          "tags": [
+            "Ricostruzione",
+            "Regione",
+            "Opposizioni"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Se la Regione ha fatto verifiche interne, renderne pubblici tempi ed esiti è il modo più semplice per chiudere i sospetti. Quali regole di trasparenza dovrebbero valere sempre per gli staff fiduciari dei presidenti?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Dieci anni dalla scossa del 30 ottobre, Castelli: «Obiettivo ritorno a casa nel 2027»",
+          "summary": "Nel decennale della scossa di magnitudo 6.5 del 2016, il commissario Guido Castelli ha indicato da Camerino il 2027 come l'anno del rientro nelle prime case, stimando altri tre-sei anni per completare il centro storico. Rivendica pagamenti alle imprese saliti da 800 milioni (2022) a 2 miliardi (2025) e il 98% delle circa 3.300 opere pubbliche in progettazione o in corso. Restano indietro Castelsantangelo, Visso, Ussita e Pieve Torina; circa 8mila nuclei ricevono ancora il contributo di autonoma sistemazione. L'intervista è stata registrata prima dell'inchiesta.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/30/camerino-dieci-anni-dopo-castelli-obiettivo-il-ritorno-a-casa-per-il-2027-video/2121635/",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/umbria/notizie/2026/10/30/castelli-sulla-ricostruzione-post-sisma-ce-stato-un-cambio-di-passo_da6ab67c-e546-4435-a11c-386248563b49.html"
+            }
+          ],
+          "published": "2026-10-30",
+          "tags": [
+            "Sisma 2016",
+            "Ricostruzione",
+            "Entroterra"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Dieci anni dopo migliaia di famiglie vivono ancora fuori casa. Come accelerare i cantieri nei comuni più colpiti senza allentare i controlli, proprio mentre un'inchiesta scuote il sistema degli appalti?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Rest Edile, sbloccati i conti della società di Crucianelli. I sindacati: «Ancora nessuna certezza sugli stipendi»",
+          "summary": "Sono stati dissequestrati i conti correnti della Rest Edile di Tolentino, bloccati per circa 38 milioni nell'ambito dell'inchiesta, ma servono tempi tecnici e lo stipendio di ottobre, atteso entro il 15 novembre, non è garantito. All'assemblea con oltre 150 dei circa 270 dipendenti i sindacati edili hanno chiesto continuità e pagamenti; lunedì è previsto un incontro in prefettura anche sull'indotto. L'azienda ha 412 cantieri di ricostruzione privata, circa il 10% di quelli attivi nelle Marche. Le accuse all'ex titolare Enrico Crucianelli restano da accertare.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/30/rest-edile-assemblea-coi-lavoratori-sbloccati-i-conti-correnti-aspettiamo-certezze-sugli-stipendi/2121637/",
+          "published": "2026-10-30",
+          "tags": [
+            "Lavoro",
+            "Ricostruzione"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Gli operai e le famiglie in attesa della casa non devono pagare le colpe eventuali di chi guidava l'impresa. Quali strumenti (amministrazione giudiziaria, garanzie sui pagamenti, subentro nei cantieri) servono per separare l'azienda dalle responsabilità penali?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ancona Servizi, pranzi con la carta aziendale: Silvetti avvia la revoca dell'amministratore Ciccarelli",
+          "summary": "Il sindaco di Ancona ha avviato la revoca anticipata di Andrea Ciccarelli, amministratore unico della partecipata comunale, dopo che un accesso agli atti del consigliere Pd Giacomo Petrelli ha fatto emergere circa 6.600 euro di pranzi pagati con la carta aziendale dall'inizio dell'anno. Il Comune presenterà un esposto alla Corte dei Conti e alla Procura; Ciccarelli ha dieci giorni per controdedurre o dimettersi e non aveva ancora replicato. Il Pd chiede a Silvetti di assumersi la responsabilità politica della nomina. Eventuali irregolarità sono da accertare.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/30/spese-eccessive-per-i-pranzi-amministratore-di-ancona-servizi-nel-mirino_c44c8317-9e53-4f1f-baac-11d0368f7670.html",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/marche/notizie/2026/10/30/spese-eccessive-ancona-servizi-pd-silvetti-si-assuma-le-responsabilita_2df60eed-e301-437b-a197-4ce39ed83174.html"
+            }
+          ],
+          "published": "2026-10-30",
+          "tags": [
+            "Ancona",
+            "Partecipate",
+            "Trasparenza"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Il caso riapre il tema di come si scelgono e si controllano gli amministratori delle società comunali. Nomine per competenza, spese pubblicate online e controlli periodici: quali regole minime proporre per tutte le partecipate?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sciopero generale, migliaia in corteo ad Ancona contro carovita e riarmo",
+          "summary": "Il corteo promosso dall'Usb per lo sciopero generale ha attraversato il centro di Ancona con delegazioni da tutta la regione, molti studenti e i portuali che hanno aderito allo stop internazionale contro il carico di armi. Al centro della protesta carovita, bollette, spese militari e tagli a sanità e scuola; un minuto di silenzio è stato dedicato ai due operai morti alla Fincantieri. La manifestazione è stata pacifica, salvo il lancio di uova e vernice contro la sede della Banca d'Italia.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/30/sciopero-ancona-corteo-partito-piazza-ugo-bassi-carovita/2121448/",
+          "also": [
+            {
+              "source": "EspansioneTv",
+              "url": "https://www.espansionetv.it/2026/10/30/sciopero-ad-ancona-in-piazza-dagli-studenti-ai-portuali/"
+            }
+          ],
+          "published": "2026-10-30",
+          "tags": [
+            "Sindacati",
+            "Carovita"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Il carovita colpisce soprattutto giovani e redditi bassi, ma la risposta non può essere la contrapposizione tra sicurezza europea e welfare. Quali misure concrete su salari ed energia rispondono al disagio senza rinunciare alla difesa comune?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta ricostruzione, Libera Marche: «Terremoti corruttivi», servono tracciabilità e monitoraggio civico",
+          "summary": "Dopo l'indagine della Dda di Ancona, l'associazione antimafia Libera parla di infiltrazioni di 'ndrangheta e camorra nella spesa per la ricostruzione del Centro Italia e chiede un cambio di passo. Propone la digitalizzazione dell'intera filiera di ogni procedura e cantiere, un monitoraggio aperto a cittadini e associazioni e una presa di responsabilità della politica, garantendo continuità ai cantieri e ai lavoratori. Le accuse dell'inchiesta sono ancora da accertare.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/30/inchiesta-ricostruzione-libera-non-piu-campanelli-dallarme-ma-terremoti-corruttivi/2121619/",
+          "published": "2026-10-30",
+          "tags": [
+            "Legalità",
+            "Ricostruzione"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Dati aperti e tracciabili su ogni cantiere finanziato con soldi pubblici sono una proposta concreta e riformista. Le Marche potrebbero diventare un modello di trasparenza digitale nella ricostruzione?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ricostruzione, la Cna difende l'anticipo «Sal 0»: ridurre il tetto ma non abolirlo",
+          "summary": "Dopo l'inchiesta, sotto osservazione è finito anche il Sal 0, l'anticipo sul contributo concesso alle imprese prima dei normali stati di avanzamento, dietro garanzia fideiussoria. Il presidente della Cna di Macerata Simone Giglietti sostiene che senza questo strumento la ricostruzione resterebbe alle grandi imprese, perché le piccole non reggerebbero mesi di costi senza incassi. Propone di ridurre il tetto massimo, oggi al 20%, e di rafforzare i controlli su avanzamento lavori, capacità delle imprese e subappalti.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/30/senza-il-sal-0-la-ricostruzione-sarebbe-appannaggio-esclusivo-delle-grandi-imprese/2121336/",
+          "published": "2026-10-30",
+          "tags": [
+            "Imprese",
+            "Ricostruzione"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Abolire uno strumento per l'abuso di pochi rischia di punire le piccole imprese oneste. Meglio controlli mirati sulla capacità reale delle aziende e sui subappalti: come si costruisce un sistema di verifiche rapido ed efficace?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Acquaroli a Confcommercio: «Il commercio è un presidio per i borghi», servono servizi contro lo spopolamento",
+          "summary": "Intervenendo in collegamento all'evento nazionale di Confcommercio a Bari, il presidente della Regione ha definito i negozi un presidio essenziale per la vita dei piccoli centri. Per frenare lo spopolamento delle aree interne, ha detto, servono lavoro ma anche scuole, trasporti e servizi, oltre alla digitalizzazione delle imprese. Ha ricordato i 110 milioni investiti nella rigenerazione dei borghi con la scorsa programmazione europea, senza annunciare nuove misure.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/30/acquaroli-commercio-presidio-fondamentale-per-la-vita-dei-borghi_92ab22a5-cbf9-4910-8658-d5119ff3ccfc.html",
+          "published": "2026-10-30",
+          "tags": [
+            "Aree interne",
+            "Commercio"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "I giovani lasciano l'entroterra quando mancano lavoro qualificato, connessione e servizi. Quali incentivi (fiscalità di vantaggio, smart working, trasporti) proporre per chi sceglie di restare o tornare nei borghi?",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
