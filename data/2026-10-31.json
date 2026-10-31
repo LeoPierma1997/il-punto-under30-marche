@@ -400,5 +400,7 @@
         }
       ]
     }
-  ]
+  ],
+  "audio": "audio/2026-10-31.mp3",
+  "audio_engine": "microsoft"
 }
