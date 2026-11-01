@@ -1,0 +1,367 @@
+{
+  "date": "2026-11-01",
+  "label": "Domenica 1 novembre 2026",
+  "intro": "Alla vigilia delle midterm i repubblicani temono la sconfitta, mentre in Polonia lo scontro sulla Corte costituzionale mette alla prova lo stato di diritto. In Italia la manovra arriva alle Camere tra i tagli alla scuola e lo sciopero generale annunciato dalla Cgil per il 20 novembre. Nelle Marche si chiede che Acquaroli riferisca in Aula sull'inchiesta sulla ricostruzione, mentre il Papa riceve i sindaci del cratere.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Midterm Usa, a due giorni dal voto Trump teme l'ondata democratica: gradimento al 37%",
+          "summary": "Secondo l'ANSA i repubblicani temono di perdere la Camera e forse anche il Senato, con il gradimento del presidente sceso al 37%. La campagna si chiude tra accuse di frode in Alaska, un ricorso del Dipartimento di Giustizia respinto in California sui voti di presunti non cittadini e una «war room» legale dei democratici per il dopo-voto. Trump chiude i comizi in Iowa e Kansas.",
+          "source": "ANSA",
+          "url": "https://ansa.it/sito/notizie/mondo/speciali/usa-midterm-2026/2026/10/31/trump-in-calo-nei-sondaggi-il-tasso-di-approvazione-scende-al-37_288d891f-ad1f-4645-a886-37370d72fb4c.html",
+          "published": "2026-10-31",
+          "tags": [
+            "Usa",
+            "Midterm"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Calenda, il 14 ottobre, indicava il disimpegno americano dalla Nato dopo le midterm come un rischio da non sottovalutare. Il risultato del 3 novembre pesa sulla difesa europea: quale autonomia strategica serve all'Ue, a prescindere da chi vince?",
+            "refs": [
+              {
+                "label": "Calenda su comunicazioni di Meloni al Consiglio Ue – Radio Radicale, 14 ottobre",
+                "url": "https://www.radioradicale.it/scheda/801268/dichiarazioni-di-carlo-calenda-su-comunicazioni-meloni-su-consiglio-ue"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Ucraina, rientrati gli sfollati di Oleshky nella tregua locale; Zelensky: sui Patriot consegne tra anni, servono soluzioni subito",
+          "summary": "Gli sfollati di Oleshky hanno attraversato il confine nella regione di Chernihiv grazie a una tregua umanitaria mediata dagli Usa, ma Mosca accusa Kiev di averla violata e Kiev respinge l'accusa. Zelensky ha accolto l'ok di Washington all'acquisto di 500 Patriot, ricordando però che le consegne richiederanno anni, e chiede intercettori subito per l'inverno. Nelle ultime due settimane di ottobre ci sono stati oltre 30 attacchi alle infrastrutture energetiche ucraine.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/mondo/2026/10/31/rientrati-in-ucraina-gli-sfollati-oleshky.-ma-mosca-accusa-kiev-ha-violato-la-tregua_bae448a2-c0d3-44e5-9cdd-029b563447d2.html",
+          "published": "2026-10-31",
+          "tags": [
+            "Ucraina",
+            "Difesa"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Il tema è la distanza tra gli annunci e le consegne reali. Calenda il 14 ottobre lamentava di non avere più notizie del pacchetto di armi per Kiev: quanto tempo può permettersi l'Europa prima di produrre da sola la difesa aerea che serve?",
+            "refs": [
+              {
+                "label": "Calenda su comunicazioni di Meloni al Consiglio Ue – Radio Radicale, 14 ottobre",
+                "url": "https://www.radioradicale.it/scheda/801268/dichiarazioni-di-carlo-calenda-su-comunicazioni-meloni-su-consiglio-ue"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Polonia, scontro Nawrocki-Tusk sulla Corte costituzionale: polizia alla sede, il presidente convoca colloqui",
+          "summary": "Dopo la sospensione del presidente della Corte, Bogdan Swieczkowski, polizia e manifestanti del PiS si sono fronteggiati davanti alla sede; tre persone sono state arrestate. Il presidente Nawrocki ha interrotto la visita in Senegal, è andato alla Corte e ha convocato colloqui con i partiti. Tusk accusa il PiS di violare lo stato di diritto, mentre la Commissione europea chiede di convalidare i nuovi giudici.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/nuova_europa/it/notizie/nazioni/polonia/2026/10/31/presidente-polacco-convoca-colloqui-per-calmare-crisi-su-corte-costituzionale_64c71c62-cd35-4b3d-ad6f-ae709561cf7c.html",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/sito/notizie/mondo/2026/10/31/tensioni-e-proteste-in-polonia-dopo-la-sospensione-del-presidente-corte-costituzionale_630b4c01-47af-4b69-b140-f20f02ecdc20.html"
+            }
+          ],
+          "published": "2026-10-31",
+          "tags": [
+            "Polonia",
+            "Stato di diritto"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Uno scontro tra poteri in uno Stato membro riguarda tutti gli europei: indipendenza dei giudici e rispetto delle regole comuni valgono anche quando a invocarle è il governo di turno. Come si difende lo stato di diritto senza che la soluzione appaia una prevaricazione?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Iran, Khamenei avverte gli Usa: «risposta senza limiti geografici». Il Gnl da Hormuz resta sotto un terzo del livello pre-guerra",
+          "summary": "La Guida Suprema iraniana ha ordinato ai comandanti una risposta immediata a ogni minaccia, senza restrizioni geografiche, e ha invitato gli Usa a non riprendere gli attacchi. Intanto, secondo dati Kpler e Bloomberg ripresi dall'ANSA, le esportazioni di Gnl dallo Stretto di Hormuz restano sotto un terzo dei livelli prebellici, con circa 27 metaniere transitate in ottobre, quasi tutte senza trasmettere la posizione.",
+          "source": "ANSA",
+          "url": "https://ansa.it/sito/notizie/topnews/2026/10/31/layatollah-khamenei-agli-usa-risponderemo-a-ogni-minaccia_ba174af9-1830-4256-b308-6b7d4f7930f6.html",
+          "also": [
+            {
+              "source": "ANSA (Gnl)",
+              "url": "https://www.ansa.it/sito/notizie/topnews/2026/10/31/lexport-di-gnl-attraverso-hormuz-ancora-ad-un-terzo-dai-livelli-pre-guerra_ba2927e2-cce7-4756-943f-9189d8277379.html"
+            }
+          ],
+          "published": "2026-10-31",
+          "tags": [
+            "Medio Oriente",
+            "Energia"
+          ],
+          "icon": "bolt",
+          "spunto": {
+            "text": "Il Gnl che non passa da Hormuz si traduce in bollette e costi per le imprese italiane. Calenda il 14 ottobre denunciava prezzi dell'energia fuori controllo e chiusura di imprese: quali scelte europee sul gas servono prima dell'inverno?",
+            "refs": [
+              {
+                "label": "Calenda su comunicazioni di Meloni al Consiglio Ue – Radio Radicale, 14 ottobre",
+                "url": "https://www.radioradicale.it/scheda/801268/dichiarazioni-di-carlo-calenda-su-comunicazioni-meloni-su-consiglio-ue"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Francia, Fitch conferma A+ ma porta l'outlook a negativo: debito verso il 124% del Pil nel 2028",
+          "summary": "Fitch non ha declassato Parigi, ma ha portato l'outlook da stabile a negativo citando crescita debole, deficit più ampio, tassi più alti e difficoltà politiche nel consolidare i conti. Prevede un deficit al 5,5% nel 2027 contro l'obiettivo governativo del 5%. Il ministro Lescure avverte: senza la svolta del bilancio «dritti contro un muro». Il Pil del terzo trimestre è calato dello 0,1%.",
+          "source": "Diario del Web",
+          "url": "https://diariodelweb.it/economia/fitch-francia-outlook-negativo",
+          "also": [
+            {
+              "source": "The Local",
+              "url": "https://www.thelocal.fr/20261031/fitch-downgrades-frances-economic-outlook-from-stable-to-negative"
+            }
+          ],
+          "published": "2026-10-30",
+          "tags": [
+            "Francia",
+            "Conti pubblici"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "I conti francesi mostrano cosa succede quando la politica non riesce a rendere duraturo il risanamento. Con il debito italiano ancora più alto, quali riforme possono evitare all'Italia lo stesso destino?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, tagli per circa 7mila posti tra docenti e Ata e nuovo riparto dei fondi per gli asili nido",
+          "summary": "La legge di Bilancio riduce di circa 7mila unità l'organico della scuola (4.925 docenti nell'organico dell'autonomia e 2.049 Ata), con risparmi di 83,9 milioni nel 2027 e circa 252 milioni annui dal 2028. Per gli asili nido l'obiettivo del 33% di copertura per comune va raggiunto con risorse inferiori a quelle stanziate. Opposizioni e sindacati protestano.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/economia/2026/10/31/manovra-si-rivede-il-riparto-dei-fondi-per-gli-asili-nido-per_288a80c7-5d31-4a62-8ccf-5fea05f53bf7.html",
+          "published": "2026-10-31",
+          "tags": [
+            "Manovra",
+            "Scuola"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Il calo demografico giustifica una riorganizzazione, ma i risparmi non dovrebbero ricadere su qualità dell'istruzione e servizi per l'infanzia. Come si tiene insieme un organico più snello con più sostegno, recupero e nidi dove servono davvero?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Manovra, la Cgil annuncia lo sciopero generale il 20 novembre; la Cisl chiede il ritiro dei tagli alla scuola",
+          "summary": "La Cgil giudica la manovra «scritta dal governo di un altro paese» e annuncia lo sciopero generale per il 20 novembre, contestando tagli alla rivalutazione delle pensioni, sanità sottofinanziata, scuola statale e +14,4 miliardi di spese militari. La Cisl di Daniela Fumarola chiede il ritiro dei tagli agli organici e un confronto immediato. L'articolo non riporta repliche del governo.",
+          "source": "Adnkronos",
+          "url": "https://www.adnkronos.com/economia/manovra-legge-di-bilancio-scontro-su-scuola_647Qs3LMDTMabGSNGjZwkA",
+          "published": "2026-10-31",
+          "tags": [
+            "Manovra",
+            "Sindacati"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Il confronto con le parti sociali manca proprio mentre il testo arriva alle Camere. Quale metodo di dialogo serve per distinguere le richieste di merito dallo scontro di piazza?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sondaggio Pagnoncelli: FdI al 26,7%, Pd al 19,9%, Vannacci cala al 7,9%; Azione stabile al 3%",
+          "summary": "Nel sondaggio di Nando Pagnoncelli per il Corriere della Sera di ottobre, Fratelli d'Italia è al 26,7%, il Pd al 19,9% e il M5S al 14,9%. Futuro Nazionale di Vannacci scende dall'8,8 al 7,9%, la Lega risale al 5,6%, Azione resta al 3%. Con l'alleanza con Vannacci il centrodestra arriverebbe al 47,3% e otterrebbe il premio di maggioranza; senza, lo otterrebbe il campo largo (44,9%).",
+          "source": "Open",
+          "url": "https://www.open.online/2026/10/31/sondaggi-politici-pagnoncelli-fdi-meloni-pd-vannacci-lega/",
+          "published": "2026-10-31",
+          "tags": [
+            "Sondaggi",
+            "Legge elettorale"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Con questa legge elettorale i due poli si giocano la maggioranza sull'alleanza con le ali. Calenda il 14 ottobre non condivideva le premesse del campo largo, che a suo giudizio esprime cinque o sei posizioni diverse: serve un'offerta riformista autonoma?",
+            "refs": [
+              {
+                "label": "Calenda su comunicazioni di Meloni al Consiglio Ue – Radio Radicale, 14 ottobre",
+                "url": "https://www.radioradicale.it/scheda/801268/dichiarazioni-di-carlo-calenda-su-comunicazioni-meloni-su-consiglio-ue"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Politica estera, Ucraina e rapporti con Trump dividono maggioranza e opposizione e attraversano i partiti",
+          "summary": "Un'analisi di LaC News24 osserva che su Kiev, sanzioni, difesa europea e Trump le linee non coincidono né nel centrodestra (Meloni e Tajani per l'impegno atlantico ed europeo, Salvini contrario a nuovi aiuti militari) né nel centrosinistra (Schlein per Kiev, Conte e Avs per lo stop alle forniture). Secondo l'articolo le differenze restano sotto traccia in campagna elettorale, ma pesano sui dossier decisivi.",
+          "source": "LaC News24",
+          "url": "https://www.lacnews24.it/politica/da-meloni-a-schlein-la-politica-estera-divide-le-coalizioni-e-attraversa-i-partiti-litalia-sospesa-tra-washington-bruxelles-e-mosca-brj2dioa",
+          "published": "2026-11-01",
+          "tags": [
+            "Politica estera",
+            "Coalizioni"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Calenda il 14 ottobre sosteneva che Meloni riconosce i limiti dell'Europa ma non ne trae la conclusione, cioè un'Europa federale che agisce unita. Quale posizione chiara su Ucraina e difesa comune può chiedere agli elettori chi non cambia linea a seconda dell'alleato?",
+            "refs": [
+              {
+                "label": "Calenda su comunicazioni di Meloni al Consiglio Ue – Radio Radicale, 14 ottobre",
+                "url": "https://www.radioradicale.it/scheda/801268/dichiarazioni-di-carlo-calenda-su-comunicazioni-meloni-su-consiglio-ue"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Manovra, payback sui dispositivi medici: Confindustria Dispositivi Medici minaccia azioni legali",
+          "summary": "L'articolo 73 conferma il payback per il ripiano degli sforamenti regionali 2019-2023 e porta dal 2027 il tetto nazionale al 4,7% del fondo sanitario, con un onere di 146 milioni annui per le aziende. Il presidente Fabio Faltoni minaccia azioni legali e proteste senza correttivi; Conflavoro Pmi Sanità parla di danno per i fornitori, mentre Egualia valuta positivi ma insufficienti gli incentivi per i farmaci equivalenti.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/economia/2026/10/31/manovra-si-rivede-il-riparto-dei-fondi-per-gli-asili-nido-per_288a80c7-5d31-4a62-8ccf-5fea05f53bf7.html",
+          "published": "2026-10-31",
+          "tags": [
+            "Sanità",
+            "Imprese"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Un meccanismo che scarica sulle imprese gli sforamenti delle Regioni punisce chi fornisce il servizio e non chi governa la spesa. Come si responsabilizzano le Regioni sui conti sanitari senza mettere in difficoltà il tessuto produttivo?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta ricostruzione, Cesetti (Pd) chiede che Acquaroli riferisca in Consiglio regionale già la prossima settimana",
+          "summary": "Il consigliere Pd Fabrizio Cesetti chiede una seduta straordinaria e un'informativa urgente del presidente sugli aspetti politico-istituzionali dell'inchiesta della Dda e della Guardia di Finanza (otto arresti, 51 indagati), sostenendo che a Muccia la maggioranza abbia perso l'occasione di chiarire. I gruppi di minoranza hanno già preparato «10 domande» al presidente. Le accuse restano ipotesi da accertare.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/31/cesetti-pd-si-convochi-consiglio-regionale-su-inchiesta-sisma_1591e31d-309e-4028-83f8-e778d2a8697c.html",
+          "also": [
+            {
+              "source": "CentroPagina",
+              "url": "https://www.centropagina.it/ancona/inchiesta-ricostruzione-post-sisma-cesetti-acquaroli-riferisca-in-consiglio-regionale/"
+            }
+          ],
+          "published": "2026-10-31",
+          "tags": [
+            "Ricostruzione",
+            "Consiglio regionale"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Il controllo dell'Aula sulla Giunta è il cuore della democrazia regionale. Ma un'informativa serve se è seguita da risposte puntuali e da regole di trasparenza su incarichi e pratiche: quali dovrebbero essere?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Papa Leone XIV riceve i sindaci del cratere: «ricostruire in sicurezza e con trasparenza»",
+          "summary": "Nel decennale del sisma il Papa ha ricevuto in Vaticano una delegazione di sindaci e amministratori guidata dal commissario Castelli e dal presidente Acquaroli. Ha chiesto di completare la ricostruzione materiale nel minor tempo possibile, «in sicurezza e in modo trasparente». Castelli ha parlato di rendere possibile vivere, lavorare e crescere nei paesi; il sindaco di Castelraimondo Leonelli ha ricordato il tessuto sociale ed economico.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/31/la-benedizione-del-papa-sulla-ricostruzione-servono-risposte-tangibili-e-urgenti-ma-con-sicurezza-e-trasparenza/2121880/",
+          "published": "2026-10-31",
+          "tags": [
+            "Ricostruzione",
+            "Entroterra"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Rapidità e trasparenza non sono alternative: sono la condizione perché i paesi del cratere non si svuotino. Cosa serve ai giovani per restare, oltre alla casa: lavoro, servizi, connessioni?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Civitanova, Azione e Riformatori bocciano la candidatura di Foglia a sindaco del centrosinistra",
+          "summary": "Azione e Riformatori, con una nota firmata dal presidente provinciale di Azione Ivo Costamagna, giudicano Foglia «una brava persona» che deve ancora dimostrare di poter essere il candidato della coalizione. Contestano il programma, guardato al 2037 mentre la città vive una «battaglia di sopravvivenza quotidiana», e chiedono chiarezza su alcuni rapporti. Costamagna dice che altri soggetti la pensano allo stesso modo.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/31/foglia-candidato-sindaco-arriva-la-bocciatura-di-costamagna/2121842/",
+          "published": "2026-10-31",
+          "tags": [
+            "Civitanova",
+            "Amministrative"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "La posizione locale di Azione è nella nota di Costamagna: giudizio sul metodo e sul programma prima che sul nome. Come si costruisce una coalizione sui contenuti, partendo dai problemi quotidiani della città?",
+            "refs": [
+              {
+                "label": "Costamagna (Azione Macerata) e Riformatori, nota – Cronache Maceratesi, 31 ottobre",
+                "url": "https://www.cronachemaceratesi.it/2026/10/31/foglia-candidato-sindaco-arriva-la-bocciatura-di-costamagna/2121842/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Pd Marche, Braconi presenta la nuova segreteria: priorità territorio e campo largo, con Civitanova, Jesi e Fabriano decisive",
+          "summary": "Il segretario regionale Thomas Braconi ha presentato la nuova squadra ad Ancona, criticando il centrodestra sulla ricostruzione e sulla seduta di Muccia. Ha indicato le provinciali tra novembre e dicembre e le amministrative, di data ancora ignota, e ha detto di aver convocato gli alleati per un eventuale «campo largo» soprattutto nei comuni maggiori.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/31/il-nuovo-pd-marche-punta-sul-territorio-su-marte-ci-vanno-gli-altri-noi-in-mezzo-ai-problemi-reali-foto-video/2121799/",
+          "published": "2026-10-31",
+          "tags": [
+            "Pd",
+            "Amministrative"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Nelle città al voto si decide se i poli si ricompongono o se c'è spazio per proposte riformiste e civiche autonome. Quale programma è riconoscibile per un elettore che non si riconosce nei blocchi?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ricostruzione, Sciapichetti (Pd Macerata): «Nel 1997 nessun avviso di garanzia»; Muccia «distrazione di massa»",
+          "summary": "Il segretario provinciale del Pd Angelo Sciapichetti sostiene che nella gestione di centrosinistra della ricostruzione del 1997 e delle casette non ci siano stati avvisi di garanzia e attribuisce la responsabilità politica del periodo successivo al centrodestra. Il Pd chiede di non fermare i cantieri Rest Edile (oltre 400) e di chiarire il futuro degli appalti. Sulle responsabilità penali, dice, deciderà la magistratura.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/31/ricostruzione-del-97-e-casette-nella-gestione-del-centrosinistra-nessun-avviso-di-garanzia/2121967/",
+          "published": "2026-10-31",
+          "tags": [
+            "Ricostruzione",
+            "Pd"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Lo scambio di responsabilità tra schieramenti non aiuta chi aspetta la casa. Meglio chiedere a tutti controlli antimafia, tracciabilità degli appalti e continuità dei cantieri: quali strumenti rendono la ricostruzione a prova di infiltrazioni?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Liste d'attesa nelle Marche: tempi delle prime visite ok, ma 157mila rinunciano e la lista di fine anno cresce del 33%",
+          "summary": "Secondo il Ducato (23 ottobre), che riprende dati Agenas, Corte dei conti e Gimbe, nelle Marche il 94,7% delle prime visite rispetta i tempi, ma oltre l'11% delle richieste resta in lista senza appuntamento. La lista d'attesa a fine 2025 è cresciuta del 33%, per alcune prestazioni si superano i 400 giorni e 157mila persone (10,6%) hanno rinunciato ad almeno una prestazione. Il saldo della mobilità sanitaria è negativo per quasi 53 milioni.",
+          "source": "Il Ducato",
+          "url": "https://www.ilducato.it/2026/10/23/sanita-il-limbo-delle-liste-dattesa-marche-tempi-delle-visite-ok-ma-i-piu-rinunciano-o-scelgono-il-privato/",
+          "published": "2026-10-23",
+          "tags": [
+            "Sanità",
+            "Liste d'attesa"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Il dato sui tempi rischia di nascondere chi non entra nemmeno in agenda: le prestazioni vanno misurate dal bisogno del paziente. Quali indicatori e quali risorse per ridurre rinunce e spesa privata?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Civitanova, la giunta approva oltre 1,2 milioni per la manutenzione straordinaria delle strade",
+          "summary": "Il piano prevede interventi in via Regina Elena (211mila euro), via Bixio (210mila), via Einaudi (150mila), corso Umberto I (150mila) e altre strade, oltre al tratto già concluso di via Dante Alighieri (204.600 euro). Il sindaco Ciarapica parla di attenzione a tutto il territorio, dal centro alle periferie; l'assessore Carassai di sicurezza e funzionalità della rete stradale.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/31/asfalti-oltre-12-milioni-per-le-strade-ecco-dove-si-interverra/2121779/",
+          "published": "2026-10-31",
+          "tags": [
+            "Civitanova",
+            "Infrastrutture"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Le strade sono il servizio che i cittadini vedono ogni giorno. Un piano di manutenzione è credibile se ha cronoprogramma pubblico, controlli sui lavori e priorità motivate: come si rende verificabile?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Civitanova, FdI chiede di tagliare le spese «effimere» nella variazione di bilancio e puntare su asfalti e sicurezza",
+          "summary": "Il capogruppo FdI Andrea Ruffini chiede di destinare la prossima variazione di bilancio, probabilmente l'ultima prima del voto, a strade, opere pubbliche e polizia locale, con guardie giurate, escludendo luminarie ed eventi per i commercianti. Il partito aveva evitato la sfiducia al sindaco Ciarapica con l'astensione, pur criticandone l'operato.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/30/fdi-tira-il-freno-sulleffimero-prima-asfaltature-e-sicurezza/2121600/",
+          "published": "2026-10-30",
+          "tags": [
+            "Civitanova",
+            "Bilancio"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Che la maggioranza si divida sul bilancio a pochi mesi dal voto dice molto sulla tenuta dell'amministrazione. Quali priorità di spesa motivano davvero le scelte: servizi e sicurezza o consenso immediato?",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
