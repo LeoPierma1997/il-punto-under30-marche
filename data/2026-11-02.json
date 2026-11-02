@@ -1,0 +1,379 @@
+{
+  "date": "2026-11-02",
+  "label": "Lunedì 2 novembre 2026",
+  "intro": "Domani si vota per le midterm americane mentre l'Iran minaccia una risposta «senza limiti geografici» e l'Ucraina affronta i blackout dopo i raid sulla rete elettrica. In Italia la manovra divide sindacati e opposizioni su sanità e pensioni; nelle Marche il dibattito sull'inchiesta sulla ricostruzione si sposta sulle responsabilità politiche.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Ucraina, raid russi sulla rete elettrica: blackout in 650 località. Zelensky lavora a un vertice Usa-Russia-Ucraina in Turchia",
+          "summary": "Nella notte l'attacco russo ha colpito la rete elettrica: interruzioni in oltre 650 località della regione di Zhytomyr, quasi 100mila utenze senza corrente a Dnipropetrovsk e tagli d'emergenza a Kyiv. Droni ucraini hanno a loro volta colpito la raffineria Lukoil di Kstovo, in Russia. Dopo i colloqui con Erdoğan, Zelensky ha annunciato che si prepara un formato trilaterale con Usa e Russia per la prima metà di novembre, forse in Turchia.",
+          "source": "Vatican News",
+          "url": "https://www.vaticannews.va/it/mondo/news/2026-11/ucraina-russia-kyiv-mosca-attacchi-guerra-vittime-zelensky.html",
+          "published": "2026-11-01",
+          "tags": [
+            "Ucraina",
+            "Energia"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Calenda sostiene che «la sopravvivenza dell'Europa è legata a Kiev» e che il sostegno del governo, oltre la retorica, si stia indebolendo. Con l'inverno alle porte e la rete elettrica sotto attacco, un contenuto può chiedere che aiuti e difesa aerea arrivino in tempi utili e non solo come annunci.",
+            "refs": [
+              {
+                "label": "Calenda a Repubblica sugli aiuti a Kiev – GEA, 28 ottobre",
+                "url": "https://geagency.it/breaking-news/ucraina-calenda-il-governo-molla-kiev-per-calcolo-elettorale/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Iran, Khamenei minaccia una risposta «geograficamente illimitata» ma Teheran apre al canale negoziale",
+          "summary": "La Guida suprema Mojtaba Khamenei avverte che ogni minaccia riceverà una risposta senza limiti geografici, che potrebbe toccare anche Europa e Caucaso meridionale, e ha chiesto un elenco aggiornato di obiettivi statunitensi e israeliani. Gli Usa hanno preannunciato una campagna «breve ma intensa» dopo le midterm. Al tempo stesso il ministro degli Esteri Araghchi dice che Hormuz potrebbe riaprire in due giorni e non in sette, nei colloqui mediati dal Qatar, e Rezaei definisce «un segnale molto positivo» la lettera con cui il vicepresidente Vance propone negoziati.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/01/iran-la-guida-suprema-minaccia-una-risposta-globale-se-gli-usa-attaccano-ancora",
+          "published": "2026-11-01",
+          "tags": [
+            "Iran",
+            "Hormuz"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Se anche l'Europa rientra tra i possibili bersagli, il tema non è lontano: Hormuz significa gas, bollette e costi per le imprese. Calenda il 14 ottobre denunciava prezzi dell'energia fuori controllo e imprese che chiudono: quali scelte europee servono prima dell'inverno?",
+            "refs": [
+              {
+                "label": "Calenda su comunicazioni di Meloni al Consiglio Ue – Radio Radicale, 14 ottobre",
+                "url": "https://www.radioradicale.it/scheda/801268/dichiarazioni-di-carlo-calenda-su-comunicazioni-meloni-su-consiglio-ue"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Midterm Usa, si vota domani: in gioco Camera, Senato e il giudizio su Trump",
+          "summary": "Il 3 novembre gli americani rinnovano la Camera, un terzo del Senato e 39 governatori. Secondo la spiegazione di Reuters, i repubblicani hanno 218 seggi contro 214 alla Camera e 53 contro 47 al Senato, e ai democratici servono quattro seggi netti in ciascuna camera. Un sondaggio Reuters/Ipsos di settembre dava il gradimento di Trump al 32%, minimo storico; la spesa pubblicitaria ha già toccato il record di 3,8 miliardi di dollari.",
+          "source": "Reuters (via Devdiscourse)",
+          "url": "https://www.devdiscourse.com/article/international/3994635-explainer-what-you-need-to-know-about-the-2026-us-midterm-elections",
+          "published": "2026-10-19",
+          "tags": [
+            "Usa",
+            "Elezioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Calenda, il 14 ottobre, indicava il disimpegno americano dalla Nato dopo le midterm come un rischio da non sottovalutare. Chiunque vinca, la domanda per l'Europa resta: quale autonomia strategica serve a difendersi senza dipendere dagli umori di Washington?",
+            "refs": [
+              {
+                "label": "Calenda su comunicazioni di Meloni al Consiglio Ue – Radio Radicale, 14 ottobre",
+                "url": "https://www.radioradicale.it/scheda/801268/dichiarazioni-di-carlo-calenda-su-comunicazioni-meloni-su-consiglio-ue"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Ue, settimana di dialoghi su difesa e allargamento mentre il bilancio 2028-2034 aspetta il vertice del 26 novembre",
+          "summary": "Oggi a Bruxelles l'Alta rappresentante Kallas riceve il ministro della Difesa britannico per il dialogo Ue-Regno Unito su sicurezza e difesa; domani il presidente del Consiglio europeo Costa vede i leader di Macedonia del Nord, Albania, Armenia e Croazia e interviene a un vertice sull'allargamento. Resta aperta la partita del bilancio 2028-2034: il Consiglio europeo di metà ottobre non ha trovato l'accordo, la proposta della presidenza è di circa 1.620 miliardi e Costa ha convocato un vertice straordinario il 26 novembre.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/europa/notizie/rubriche/altrenews/2026/10/31/euroagenda-avvenimenti-dal-2-all8-novembre_82fbe4a9-24a6-41e4-a5a0-2366621d4549.html",
+          "also": [
+            {
+              "source": "Linkiesta",
+              "url": "https://www.linkiesta.it/2026/10/bilancio-ue-2028-2034-vertice-costa-accordo-novembre/"
+            }
+          ],
+          "published": "2026-10-31",
+          "tags": [
+            "Ue",
+            "Bilancio"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Calenda il 14 ottobre sosteneva che Meloni riconosce i limiti dell'Europa ma non ne trae la conclusione, cioè un'Europa federale che agisce unita. Un bilancio Ue con fondi per difesa e competitività, discusso in vertici che slittano, è il banco di prova: come si spiega ai giovani che le risorse comuni sono una scelta di sicurezza?",
+            "refs": [
+              {
+                "label": "Calenda su comunicazioni di Meloni al Consiglio Ue – Radio Radicale, 14 ottobre",
+                "url": "https://www.radioradicale.it/scheda/801268/dichiarazioni-di-carlo-calenda-su-comunicazioni-meloni-su-consiglio-ue"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Israele, il blocco di Netanyahu in testa ma senza maggioranza: ora le consultazioni di Herzog",
+          "summary": "Secondo i risultati riportati da Euronews, il Likud è primo partito con 27 seggi e il blocco di Netanyahu arriva a 53, contro i 48 dell'opposizione guidata dal centrista Eisenkot; i partiti arabi ottengono un record di 19 seggi e nessuno raggiunge quota 61. Netanyahu parla di elezioni «rubate» dai partiti arabi e chiede un'indagine su presunti brogli, accuse che Ra'am respinge. Il presidente Herzog consulterà i leader e affiderà l'incarico a chi ha più probabilità di una maggioranza: il primo incaricato ha 28 giorni, prorogabili di 14.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/10/30/elezioni-in-israele-blocco-di-netanyahu-avanti-ma-non-ha-la-maggioranza",
+          "published": "2026-10-30",
+          "tags": [
+            "Israele",
+            "Elezioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Un sistema che consegna il governo ai partiti più piccoli rischia stallo e ricatti incrociati. Cosa insegna questo voto sul rapporto tra legge elettorale, stabilità e rappresentanza anche in casa nostra?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, proteste e aperture: la Cgil verso lo sciopero del 20 novembre, la Cisl tratta con il governo",
+          "summary": "Dopo il via libera del Consiglio dei ministri, i sindacati e il terzo settore criticano la legge di bilancio da 26 miliardi: la Cgil la giudica scritta dal governo «di un altro pianeta» e conferma lo sciopero generale del 20 novembre, la Caritas parla di risorse disperse in interventi frammentati. La Cisl, invece, ha aperto un canale: Tajani ha telefonato alla segretaria Fumarola e fissato un incontro sugli emendamenti, mentre per ora non è previsto alcuno sciopero. Le opposizioni accusano il governo di impoverire i servizi pubblici.",
+          "source": "Il Fatto Quotidiano",
+          "url": "https://www.ilfattoquotidiano.it/2026/11/01/manovra-legge-di-bilancio-sindacati-caritas-critiche-sanita-scuola-pensioni-notizie/8556881/",
+          "published": "2026-11-01",
+          "tags": [
+            "Manovra",
+            "Sindacati"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Il confronto sulla manovra si sta già polarizzando tra scioperi e bonus. Un contenuto può chiedere un metodo diverso: quali spese si tagliano davvero, quali riforme si fanno e quanto del conto lo pagano i più giovani?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sanità e manovra: il governo rivendica 5 miliardi, i critici parlano di fondi insufficienti e di favori al privato",
+          "summary": "Palazzo Chigi presenta un aumento di 3,4 miliardi del Fondo sanitario (a 146,3 miliardi nel 2027) più 1,6 miliardi per un voucher da 300 euro per le spese mediche degli over 75 con pensione fino a 28mila euro. Per i critici l'incremento effettivo è di circa 2,4 miliardi, molto sotto le richieste del ministro della Salute e delle Regioni; Rosy Bindi, a La7, definisce la manovra «una tomba» per il servizio sanitario pubblico e il voucher un regalo alla sanità privata. Restano irrisolte liste d'attesa e carenza di personale.",
+          "source": "Il Fatto Quotidiano",
+          "url": "https://www.ilfattoquotidiano.it/2026/11/01/bindi-meloni-sanita-fisco-manovra/8557068/",
+          "also": [
+            {
+              "source": "Quotidiano Sanità",
+              "url": "https://www.quotidianosanita.it/governo-e-parlamento/manovra-via-libera-dal-consiglio-dei-ministri-meloni-5-miliardi-per-la-salute-fondo-sanitario-sale-di-34-mld-e-poi-16-mld-per-voucher-da-300-euro-per-le-spese-mediche-degli-ov/"
+            }
+          ],
+          "published": "2026-11-01",
+          "tags": [
+            "Sanità",
+            "Manovra"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "La differenza tra «risorse in più» e «sanità pubblica che funziona» passa dalle liste d'attesa e dal personale, non dai voucher. Un contenuto può confrontare quanto arriva ai reparti e quanto in bonus alle famiglie: serve un piano per assumere e ridurre le attese?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Pensioni, la manovra frena la rivalutazione sugli assegni alti e apre un fondo da 850 milioni per l'uscita anticipata",
+          "summary": "Resta piena la rivalutazione per gli assegni fino a quattro volte il minimo Inps (circa 2.447 euro lordi al mese); oltre questa soglia l'adeguamento all'inflazione scende fino al 32% per le pensioni sopra dieci volte il minimo. Il risparmio per lo Stato è stimato in 1,48 miliardi nel 2027 e 14,2 miliardi in dieci anni. Il governo stanzia inoltre 850 milioni per la flessibilità in uscita: Salvini parla di pensione a 64 anni, ma i dettagli saranno definiti in Parlamento.",
+          "source": "LaC News24",
+          "url": "https://www.lacnews24.it/italia-mondo/curarsi-sara-un-lusso-scuola-e-pensioni-sotto-pressione-il-conto-salato-della-manovra-del-governo-meloni-qsxy4x1y",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/sito/notizie/politica/2026/10/28/via-libera-del-consiglio-dei-ministri-alla-manovra.-meloni-vale_a800dc0a-5e17-4252-b135-567ad9587d2b.html"
+            }
+          ],
+          "published": "2026-11-02",
+          "tags": [
+            "Pensioni",
+            "Manovra"
+          ],
+          "icon": "hourglass",
+          "spunto": {
+            "text": "Il taglio alla rivalutazione fa risparmiare lo Stato oggi ma è un tema di equità tra generazioni: chi oggi ha 25 anni si ritroverà un sistema previdenziale sempre più sbilanciato. Quale riforma strutturale, e non un fondo temporaneo, garantirebbe pensioni future ai giovani?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Manovra e giovani: premio da 2.500 euro tassato all'1% per gli under 30, cedolare all'1% sugli affitti per gli under 35",
+          "summary": "Nella legge di bilancio i giovani trovano un premio di 2.500 euro per gli under 30 tassato all'1% e la cedolare secca all'1% sugli affitti a canone concordato per gli inquilini under 35. Alle famiglie vanno 100 euro di «benvenuto» previdenziale per ogni nuovo nato e un congedo parentale pagato all'80% per 4-6 mesi. Calenda, in tv, si è detto deluso: si aspettava un «patto generazionale» con aliquota al 5% per gli under 30 contro la fuga dei laureati.",
+          "source": "Adnkronos",
+          "url": "https://www.adnkronos.com/politica/manovra-2026-meloni_5wZmgDFyvGiLENVYZoCkCg",
+          "also": [
+            {
+              "source": "Il Riformista",
+              "url": "https://www.ilriformista.it/manovra-la-critica-del-campo-largo-e-laccusa-di-marchette-elettorali-calenda-voleva-un-patto-generazionale-536369/"
+            }
+          ],
+          "published": "2026-10-29",
+          "tags": [
+            "Giovani",
+            "Lavoro"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Calenda si dice deluso da una manovra senza il «patto generazionale» che si aspettava e rilancia la tassazione al 5% per gli under 30 contro la fuga dei laureati. Un contenuto può confrontare i bonus una tantum con una misura strutturale: quale dei due trattiene davvero un giovane laureato nelle Marche?",
+            "refs": [
+              {
+                "label": "Calenda in tv sulla manovra, ripreso da Il Riformista – 30 ottobre 2026",
+                "url": "https://www.ilriformista.it/manovra-la-critica-del-campo-largo-e-laccusa-di-marchette-elettorali-calenda-voleva-un-patto-generazionale-536369/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Fisco, Irpef al 33% fino a 55mila euro, flat tax a 100mila e Tobin tax raddoppiata: il conto a banche e assicurazioni",
+          "summary": "La manovra allarga fino a 55mila euro il secondo scaglione Irpef al 33%, con un beneficio massimo di circa 500 euro l'anno, e porta da 85mila a 100mila euro il tetto del regime forfettario per gli autonomi. Tra le coperture, circa 14,4 miliardi di deficit chiesti a Bruxelles e un contributo di 5-5,5 miliardi da banche e assicurazioni (le cifre variano tra le fonti), oltre a 700 milioni da energia e 700 da giochi; la Tobin tax sulle transazioni azionarie raddoppia dal 2027 e frutterebbe circa 1,7 miliardi. Gli operatori temono che l'Italia diventi il Paese più penalizzato in Europa per chi investe in Borsa.",
+          "source": "Milano Finanza",
+          "url": "https://www.milanofinanza.it/news/manovra-la-premier-meloni-legge-di-bilancio-da-26-miliardi-di-euro-la-tobin-tax-raddoppia-202610281847576607",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/sito/notizie/politica/2026/10/28/via-libera-del-consiglio-dei-ministri-alla-manovra.-meloni-vale_a800dc0a-5e17-4252-b135-567ad9587d2b.html"
+            }
+          ],
+          "published": "2026-10-28",
+          "tags": [
+            "Fisco",
+            "Manovra"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Meno tasse per il ceto medio sono un obiettivo condivisibile, ma finanziarle con più deficit e una Tobin tax sui mercati ha un costo per risparmiatori e imprese. Una domanda utile per un contenuto: chi paga davvero, e quali spese pubbliche si possono riformare al posto di nuove imposte?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta ricostruzione, Morgoni: «Assordante il silenzio dei sindaci»",
+          "summary": "L'ex senatore Mario Morgoni giudica incomprensibile il silenzio della maggior parte di sindaci e amministratori locali sull'inchiesta della Dda di Ancona sulle presunte infiltrazioni criminali nella ricostruzione post-sisma, e si chiede se dipenda da soggezione al potere o da timore di penalizzazioni. Distingue le responsabilità penali, di competenza della magistratura, da quelle politiche di chi doveva vigilare. Le accuse dell'inchiesta restano da accertare e vale la presunzione di innocenza per gli indagati.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/01/sullinchiesta-della-dda-assordante-silenzio-dei-sindaci/2122054",
+          "published": "2026-11-01",
+          "tags": [
+            "Ricostruzione",
+            "Legalità"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Il punto politico non riguarda solo i processi: è chi controlla gli appalti e come. Una domanda per un contenuto: quali regole di tracciabilità e trasparenza su incarichi e cantieri sarebbero state più forti di qualsiasi appello ai sindaci?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Macerata, rinviato al 9 novembre l'ordine del giorno del Pd sui cantieri dell'inchiesta",
+          "summary": "Nella seduta del 27 ottobre il Consiglio comunale ha rimandato al 9 novembre la discussione sull'ordine del giorno del Pd, che chiedeva al sindaco di attivarsi con il commissario Castelli per far proseguire i cantieri coinvolti nell'indagine e tutelare i pagamenti a subappaltatrici, lavoratori e posti di lavoro. Fratelli d'Italia si è opposta alla discussione immediata, sostenendo che non ci fosse tempo per un confronto adeguato. Nella stessa seduta è stato approvato con 21 sì e 11 astenuti il regolamento sugli impianti sportivi.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/27/cantieri-crucianelli-rinviata-la-discussione-approvato-il-regolamento-per-la-gestione-degli-impianti-sportivi/2120382",
+          "published": "2026-10-27",
+          "tags": [
+            "Lavoro",
+            "Cantieri"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Dietro le inchieste ci sono imprese sane e lavoratori che rischiano di restare senza stipendio. Come si separa la risposta giudiziaria dalla tutela dei cantieri legittimi e dei pagamenti ai subappaltatori, senza lasciare nulla al caso?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sanità, la Giunta alza di 2 milioni il tetto di spesa per il personale: oltre 16 milioni in più nel 2026",
+          "summary": "Il 20 ottobre la Giunta regionale ha approvato due milioni in più per il tetto di spesa del personale di aziende sanitarie e ospedali, portando l'aumento complessivo del 2026 a oltre 16 milioni e il tetto del servizio sanitario regionale sopra i 970 milioni. Circa 1,4 milioni vanno alle cinque Ast, 250mila all'Azienda ospedaliero-universitaria e 50mila all'Inrca; 100mila euro per ogni Casa della Comunità aggiuntiva. È il terzo aumento dell'anno dopo i 9,5 milioni di gennaio e i 4,6 di giugno, secondo l'assessore Calcinaro.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/20/giunta-marche-due-milioni-in-piu-per-assunzioni-in-sanita-e-rafforzamento-servizi_2260f40f-ec45-444a-9fa1-48e87c7adc02.html",
+          "published": "2026-10-20",
+          "tags": [
+            "Sanità",
+            "Personale"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Assumere serve, ma conta anche dove e come: le Case della Comunità funzionano solo se hanno medici, infermieri e orari reali. Una domanda per un contenuto: come si misura se questi fondi riducono davvero le attese per i cittadini?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Liste d'attesa, visite ed esami anche nel weekend fino al 29 novembre: la delibera in corso",
+          "summary": "La delibera regionale, pubblicata a gennaio, consente alle Ast di programmare visite specialistiche ed esami diagnostici di sabato, domenica e nei prefestivi, con partecipazione volontaria e retribuita del personale. Dopo la prima fase, la seconda finestra va dal 3 ottobre al 29 novembre 2026, con l'obiettivo di aumentare di almeno il 3% le prestazioni prioritarie. Le agende non utilizzate tornano al Cup, così che tutti i cittadini possano prenotarle.",
+          "source": "Quotidiano Sanità",
+          "url": "https://www.quotidianosanita.it/?p=148223",
+          "published": "2026-01-14",
+          "tags": [
+            "Sanità",
+            "Liste d'attesa"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Aprire gli ambulatori nel fine settimana è un rimedio che si può verificare nei numeri. Un contenuto può chiedere alla Regione i dati a fine novembre: quante prestazioni in più, e quali tempi in meno, rispetto a quanto promesso?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Rendiconto 2025 approvato dal Consiglio regionale: il disavanzo sale a 64 milioni",
+          "summary": "Il 6 ottobre il Consiglio regionale ha approvato il Rendiconto 2025 con 18 voti favorevoli e 10 contrari: risultato di amministrazione di 879,9 milioni, disavanzo disponibile di 64 milioni (14,3 in più rispetto ai 49,7 del 2024), entrate accertate per 5,7 miliardi e spese impegnate per 5,67 miliardi. La Corte dei conti, con la parifica del 30 luglio, aveva dato il via libera con richiami su liste d'attesa e mobilità sanitaria.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/06/il-consiglio-regionale-marche-approva-il-rendiconto-del-2025_81e48ebe-45f0-4ce9-98a6-81902469ff42.html",
+          "published": "2026-10-06",
+          "tags": [
+            "Bilancio",
+            "Regione"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Un disavanzo che cresce mentre i richiami della Corte dei conti puntano su liste d'attesa e mobilità sanitaria è una buona domanda di trasparenza: dove vanno, in concreto, i soldi di bilancio, e quali sprechi si possono tagliare prima di chiedere più risorse?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Civitanova, la sfiducia a Ciarapica non passa: 11 sì, 7 no e 6 astenuti",
+          "summary": "Nella notte tra il 14 e il 15 ottobre il Consiglio comunale ha respinto la mozione di sfiducia presentata dal Pd contro il sindaco Fabrizio Ciarapica, passato a Futuro Nazionale, il movimento di Vannacci. Fratelli d'Italia, pur attaccandolo duramente, si è astenuta; decisivo il voto contrario di Silvia Squadroni (Siamo Civitanova). Il sindaco resta in carica ma la maggioranza appare fragile in vista dei voti su varianti e bilancio.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/15/salvato-il-soldato-ciarapica-fratelli-ditalia-lo-bombarda-a-parole-ma-lo-lascia-al-comando-foto/2115602/",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/marche/notizie/2026/09/19/sindaco-del-maceratese-passato-a-futuro-nazionale-mozione-fdi-per-la-sfiducia_fa204fd4-20b2-4672-8d59-2af22e6db5bc.html"
+            }
+          ],
+          "published": "2026-10-15",
+          "tags": [
+            "Civitanova",
+            "Maggioranza"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Una maggioranza che si regge su astensioni e accordi di corridoio non governa, galleggia. Una domanda per un contenuto: quali priorità concrete sono ferme a Civitanova mentre i partiti si contano?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Civitanova, Foglia lancia «Progetto Civitanova» e si candida a sindaco per il 2027",
+          "summary": "Il fisioterapista Andrea Foglia ha presentato l'associazione «Progetto Civitanova» e la disponibilità a candidarsi alle amministrative del 2027, escludendo accordi con i partiti. Il «Manifesto» fissa un orizzonte al 2037 con tre priorità: sanità, sicurezza e sviluppo. Il centrodestra non ha ancora un candidato ufficiale e il centrosinistra è diviso.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/26/andrea-foglia-rompe-gli-indugi-e-lancia-il-suo-progetto-civitanova-sono-a-disposizione-per-la-candidatura/2119685/",
+          "published": "2026-10-26",
+          "tags": [
+            "Civitanova",
+            "Amministrative"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "La posizione locale di Azione è nella nota di Costamagna: giudizio sul metodo e sul programma prima che sul nome. Come si costruisce una coalizione sui contenuti, partendo dai problemi quotidiani della città?",
+            "refs": [
+              {
+                "label": "Costamagna (Azione Macerata) e Riformatori, nota – Cronache Maceratesi, 31 ottobre",
+                "url": "https://www.cronachemaceratesi.it/2026/10/31/foglia-candidato-sindaco-arriva-la-bocciatura-di-costamagna/2121842/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Sanità e welfare, tavolo permanente tra Regione e Cgil, Cisl, Uil: il protocollo 2026-2030 alla prova",
+          "summary": "A inizio agosto Regione e sindacati hanno firmato un protocollo che regola le relazioni sindacali fino al 2030 e istituisce un tavolo permanente di confronto e monitoraggio. Il tavolo seguirà reti territoriali e ospedaliere, emergenza-urgenza, liste d'attesa, personale, non autosufficienza e programmazione sociale. L'annuncio è stato dato dal presidente Acquaroli e dall'assessore Calcinaro con i segretari regionali dei tre sindacati.",
+          "source": "Regione Marche",
+          "url": "https://www.regione.marche.it/Regione-Utile/Sociale/News-ed-eventi/post/117998",
+          "published": "2026-08-03",
+          "tags": [
+            "Sanità",
+            "Sindacati"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Un tavolo permanente vale quanto i risultati che produce. Una domanda per un contenuto: quali indicatori pubblici (attese, personale, rinunce alle cure) permetterebbero ai cittadini di verificarlo?",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
