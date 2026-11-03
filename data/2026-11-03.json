@@ -1,0 +1,328 @@
+{
+  "date": "2026-11-03",
+  "label": "Martedì 3 novembre 2026",
+  "intro": "Oggi si vota per le midterm americane mentre l'Iran resta in bilico tra nuovi raid e diplomazia e gli Usa preparano i colloqui trilaterali sull'Ucraina del 10-11 novembre. In Italia la manovra arriva alla Camera tra le critiche dei sindacati e Calenda annuncia che Azione correrà da sola; nelle Marche l'inchiesta sulla ricostruzione si sposta su cantieri e lavoratori.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Midterm Usa, oggi si vota: democratici favoriti alla Camera, Senato in bilico",
+          "summary": "Gli americani eleggono tutti i 435 deputati, 35 senatori su 100 e 36 governatori. I sondaggi danno i democratici avanti alla Camera, mentre al Senato i repubblicani (53 seggi contro 47) rischiano solo se i rivali ne strappano almeno quattro senza perderne nessuno. Il gradimento di Trump è attorno al 33% e il voto è anche un giudizio su economia e guerra in Iran. I primi risultati in Italia attorno all'una-tre di notte.",
+          "source": "Il Fatto Quotidiano",
+          "url": "https://www.ilfattoquotidiano.it/2026/11/02/elezioni-midterm-2026-trump-congresso-stati-orari-cosa-sapere-notizie/8556987/",
+          "published": "2026-11-02",
+          "tags": [
+            "Usa",
+            "Elezioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Un Congresso diviso a Washington cambia anche i rapporti con l'Europa su Ucraina, dazi e difesa. Spunto per un contenuto: perché all'Ue serve una politica estera e di difesa comune che non dipenda dagli umori elettorali americani?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ucraina, il 10-11 novembre colloqui trilaterali Usa-Russia-Ucraina ad Abu Dhabi",
+          "summary": "Secondo un funzionario americano citato da Reuters, Washington riunirà le delegazioni di Kiev e Mosca negli Emirati; per gli Usa ci saranno Witkoff e Kushner. Si parlerà di fine della guerra, garanzie di sicurezza post-belliche, de-escalation e misure umanitarie. In settimana a Bruxelles incontro tecnico con Francia, Germania, Regno Unito, Ue e Nato su garanzie e ricostruzione. Le parti restano distanti sulle condizioni di pace.",
+          "source": "Internazionale (Reuters)",
+          "url": "https://www.internazionale.it/ultime-notizie-reuters/2026/11/03/us-to-hold-trilateral-talks-with-ukraine-russia-in-abu-dhabi-next-week-us-official",
+          "published": "2026-11-03",
+          "tags": [
+            "Ucraina",
+            "Negoziati"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Un negoziato tra Washington, Mosca e Kiev rischia di lasciare l'Europa a pagare il conto senza sedere al tavolo. Domanda per un contenuto: quali garanzie di sicurezza può offrire l'Ue, e con quali strumenti comuni?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Iran, Trump rilancia la minaccia di nuovi raid dopo il voto ma la diplomazia resta aperta",
+          "summary": "Trump ha ripetuto che i bombardamenti potrebbero ripartire dopo le midterm, indicando «uno o due siti» ancora da colpire; Rubio però dice che non ha deciso e preferisce la via diplomatica. Teheran si dice pronta a difendersi e a trattare, con la mediazione del Qatar, mentre la Guida suprema avrebbe ordinato una risposta senza limiti geografici. Secondo il Washington Post nell'amministrazione Usa c'è chi lavora a un'intesa e chi spinge per riprendere le ostilità.",
+          "source": "AGI",
+          "url": "https://www.agi.it/estero/news/2026-11-01/iran-usa-guerra-midterm-39810082/",
+          "published": "2026-11-01",
+          "tags": [
+            "Iran",
+            "Medio Oriente"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "La crisi iraniana pesa su carburanti e bollette degli europei. Domanda di riflessione: l'Italia e l'Ue hanno un ruolo diplomatico autonomo o restano spettatrici?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Israele, i partiti arabi indicheranno Eisenkot a Herzog: Netanyahu senza maggioranza",
+          "summary": "Lista Unita (11 seggi) e Ra'am (8) raccomanderanno Gadi Eisenkot come premier al presidente Herzog, le cui consultazioni iniziano mercoledì. Secondo Ynet, Eisenkot valuta un governo di minoranza con appoggio esterno di Ra'am e dei partiti ultraortodossi di Ebraismo Unito (7 seggi), che starebbero pensando di rompere con Netanyahu. Senza di loro la coalizione uscente scende a 46 seggi.",
+          "source": "laRegione",
+          "url": "https://www.laregione.ch/estero/estero/1960367/ra-am-eisenkot-consultazioni-seggi-lista-israele-premier-gadi",
+          "published": "2026-11-01",
+          "tags": [
+            "Israele",
+            "Governo"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Un governo israeliano nuovo potrebbe cambiare i tempi di Gaza e dell'Iran. Spunto: quale ruolo per l'Ue nel sostenere una soluzione politica e nel dialogo con i partner arabi?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ue, Costa incontra i leader dei Balcani e dell'Armenia mentre Kallas vede Londra sulla difesa",
+          "summary": "Nell'agenda europea di inizio settimana, il presidente del Consiglio Ue Costa vede i leader di Macedonia del Nord, Albania, Armenia e Croazia e interviene al vertice Euronews sull'allargamento. A Bruxelles l'Alta rappresentante Kallas ha un dialogo su sicurezza e difesa con il ministro della Difesa britannico. In agenda anche il Parlamento europeo, con la settimana sulla parità di genere.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/europa/notizie/rubriche/altrenews/2026/10/31/euroagenda-avvenimenti-dal-2-all8-novembre_82fbe4a9-24a6-41e4-a5a0-2366621d4549.html",
+          "published": "2026-11-03",
+          "tags": [
+            "Ue",
+            "Allargamento"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "L'allargamento e la difesa comune sono due facce della stessa sicurezza europea. Domanda per un contenuto: con quali riforme (voto a maggioranza, bilancio comune) l'Ue può allargarsi senza paralizzarsi?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra 2027, tutti contro il governo: sindacati, Caritas e opposizioni criticano pensioni, sanità e scuola",
+          "summary": "La Cgil definisce la manovra «scritta da un governo di un altro pianeta» e conferma lo sciopero generale del 20 novembre; la Cisl critica ma rivendica il dialogo e vede lo sciopero come ultima istanza. Caritas segnala risorse frammentate e il rischio di favorire il privato in sanità. Le opposizioni contestano il taglio alla rivalutazione delle pensioni e i risparmi su scuola; il governo difende l'impianto della legge.",
+          "source": "Il Fatto Quotidiano",
+          "url": "https://www.ilfattoquotidiano.it/2026/11/01/manovra-legge-di-bilancio-sindacati-caritas-critiche-sanita-scuola-pensioni-notizie/8556881/",
+          "published": "2026-11-01",
+          "tags": [
+            "Manovra",
+            "Pensioni"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Calenda ha definito la manovra «la più debole degli ultimi anni». Il punto per un contenuto: meno mance e bonus, più riforme strutturali su produttività, salari e giovani.",
+            "refs": [
+              {
+                "label": "Calenda al Corriere della Sera (ripreso da Adnkronos) – 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Manovra alla Camera: audizioni dal 9 novembre, emendamenti entro il 17, ma solo 120 milioni per le modifiche",
+          "summary": "La legge di bilancio, approvata dal Consiglio dei ministri il 28 ottobre, è alla Camera: possibile stralcio di norme estranee già oggi, audizioni ipotizzate dal 9 al 12 novembre con Giorgetti in chiusura, termine emendamenti verso il 17. Il fondo per i ritocchi vale 120 milioni nel 2027 e altrettanti nel 2028. Nella maggioranza restano distanze su pensioni e contributi delle banche; le opposizioni preparano proposte alternative.",
+          "source": "Juorno.it",
+          "url": "https://www.juorno.it/manovra-2027-alla-camera-tempi-stretti-e-120-milioni-lanno-per-le-modifiche/",
+          "published": "2026-11-01",
+          "tags": [
+            "Manovra",
+            "Parlamento"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Con 120 milioni a disposizione il Parlamento ha margini minimi. Domanda per un contenuto: perché ogni anno la manovra è una trattativa tra micro-misure e non una riforma del fisco e della spesa?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Calenda: «Azione correrà da sola, serve una lista di centro decisiva dopo il voto»",
+          "summary": "In un'intervista al Corriere della Sera, rilanciata da Adnkronos, il leader di Azione esclude alleanze con centrodestra e Campo largo e parla di «bipolarismo immorale». Giudica «la più debole degli ultimi anni» la manovra e chiede al governo di approvare gli aiuti a Kiev entro un mese, altrimenti «l'agenda la detta Salvini». Definisce «folle» la linea del Campo largo sullo stop agli aiuti.",
+          "source": "Adnkronos",
+          "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh",
+          "published": "2026-11-02",
+          "tags": [
+            "Azione",
+            "Elezioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "La linea è dichiarata: terzo polo di centro, liberale ed europeista, alternativo a entrambi i blocchi. Spunto: come spiegare ai giovani marchigiani che votare un centro riformista non è «voto sprecato» ma voto decisivo?",
+            "refs": [
+              {
+                "label": "Calenda al Corriere della Sera (ripreso da Adnkronos) – 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Aiuti a Kiev, lo scontro Meloni-Salvini e il decreto da rinnovare entro fine anno",
+          "summary": "Dopo che Salvini, rieletto segretario della Lega, ha detto il 25 ottobre che il partito non deve più inviare armi e denaro a Kiev, Meloni lo avrebbe rimproverato in privato e Tajani ha ribadito la linea di sostegno. Il decreto sugli aiuti scade a fine 2026 e va rinnovato dal Parlamento; si parla anche di elezioni anticipate a marzo 2027. Calenda ha chiesto che Meloni allontani Salvini dal governo.",
+          "source": "Quotidiano.net",
+          "url": "https://www.quotidiano.net/politica/meloni-salvini-lo-scontro-sugli-aiuti-a-kiev-e-la-tregua-di-facciata-8b8c373b",
+          "published": "2026-10-26",
+          "tags": [
+            "Ucraina",
+            "Governo"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Su Ucraina la maggioranza è divisa e il voto sul decreto sarà un test. Domanda per un contenuto: può un governo avere una politica estera credibile se un vicepremier la contesta in pubblico?",
+            "refs": [
+              {
+                "label": "Calenda contro Salvini, chiede a Meloni di allontanarlo – Quotidiano.net, 26 ottobre 2026",
+                "url": "https://www.quotidiano.net/politica/meloni-salvini-lo-scontro-sugli-aiuti-a-kiev-e-la-tregua-di-facciata-8b8c373b"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Scuola e sanità nella manovra: 14mila posti in meno in tre anni e fondi ai privati, denunciano i sindacati",
+          "summary": "Secondo la Flc Cgil, tra docenti e Ata si perdono oltre 14mila posti in tre anni, con altri 4.925 docenti e 2.049 Ata in meno dal 2027-28; contestato anche il buono da 1.500 euro per le paritarie. Sulla sanità la Cgil contesta che 2,4 miliardi di nuove risorse vadano in gran parte al privato accreditato; il deputato Bonelli (Avs) parla di appena 138 milioni non vincolati alle Regioni. Sono tesi di parte, non verifiche indipendenti.",
+          "source": "Il Fatto Quotidiano",
+          "url": "https://www.ilfattoquotidiano.it/2026/11/01/manovra-legge-di-bilancio-sindacati-caritas-critiche-sanita-scuola-pensioni-notizie/8556881/",
+          "published": "2026-11-01",
+          "tags": [
+            "Scuola",
+            "Sanità"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Spunto per un contenuto: come tenere insieme conti pubblici e investimento in scuola e sanità pubbliche? Una domanda utile per i giovani che vivono liste d'attesa e classi sovraffollate.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Rest Edile, i sindacati dal prefetto di Macerata: «Mappare subito lo stato dei cantieri»",
+          "summary": "Cgil, Cisl e Uil hanno portato al prefetto Signer un documento unitario: tavolo di crisi con Ufficio speciale ricostruzione e commissario, badge di cantiere, verifiche preventive su imprese e subappalti, garanzia degli stipendi anche con intervento sostitutivo. Non risultano sospensioni ufficiali, ma alcuni lavoratori non sono rientrati. Il caso nasce dalla maxi inchiesta sulla ricostruzione, con accuse non ancora accertate.",
+          "source": "Cronache Maceratesi",
+          "url": "https://cronachemaceratesi.it/2026/11/02/rest-edile-sindacati-dal-prefetto-mappare-subito-il-territorio-sullo-stato-dei-cantieri-di-crucianelli-video/2122474",
+          "published": "2026-11-02",
+          "tags": [
+            "Ricostruzione",
+            "Lavoro"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Dietro l'inchiesta ci sono lavoratori che rischiano lo stipendio. Una domanda per un contenuto: quali controlli su appalti e subappalti proteggono davvero chi lavora nei cantieri?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta sulla ricostruzione: 51 indagati, cinque filoni e interrogatori il 4 novembre",
+          "summary": "L'indagine della Dda di Ancona conta 51 indagati e cinque filoni: reati tributari, truffa sui contributi, trasferimento fraudolento di valori, corruzione sull'ex monastero delle Monachette e gare dell'Università di Camerino. Otto arresti il 22 ottobre; domani interrogatori preventivi per cinque indagati, poi il Gip deciderà sulle misure. I 23 cantieri citati valgono circa 24 milioni in 12 comuni. Tutte le accuse sono da accertare.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/01/il-sistema-dei-cantieri-i-rallentamenti-i-prossimi-step-e-i-5-filoni/2122047/",
+          "published": "2026-11-01",
+          "tags": [
+            "Ricostruzione",
+            "Legalità"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Spunto: la legalità si difende con regole preventive, non solo con le indagini. Domanda per un contenuto: white list, tracciabilità e trasparenza sugli incarichi sono abbastanza forti nella ricostruzione?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Consiglio regionale a Muccia sulla ricostruzione: Castelli replica, la minoranza lascia l'aula",
+          "summary": "Nella seduta aperta del 28 ottobre il commissario Castelli ha respinto l'idea di una gestione politica della ricostruzione («non ci sono stati sindaci genuflessi») e ha citato il consigliere Pd Catena. Le opposizioni hanno contestato il riferimento e, tranne la capogruppo Mancinelli, sono uscite. Il tema divide maggioranza e centrosinistra mentre l'inchiesta è in corso.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/28/consiglio-marche-sulla-ricostruzione-i-consiglieri-di-minoranza-lasciano-laula_3ed74d9d-bb75-4076-96c2-89c948bf834f.html",
+          "published": "2026-10-28",
+          "tags": [
+            "Regione",
+            "Ricostruzione"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Il confronto sulla ricostruzione è diventato scontro di schieramento. Domanda per un contenuto: non servirebbe un'autorità terza e trasparente che renda pubblici dati e controlli sui cantieri?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Castelli sulle intercettazioni dell'inchiesta: «Mai pensato a un incarico per Pistarelli»",
+          "summary": "Il commissario alla ricostruzione, non indagato, risponde alle intercettazioni in cui due indagati parlano di rapporti con l'avvocato Pistarelli, ex capo di gabinetto di Acquaroli. Spiega che l'incontro riguardava una norma sui contributi per gli immobili passati a enti pubblici, nega un incarico e definisce «millanterie» le affermazioni degli indagati. Le accuse dell'inchiesta restano da accertare.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/25/castelli-sulle-intercettazioni-della-dda-mai-pensato-a-un-incarico-per-pistarelli-commenti-degli-indagati-senza-fondamento/2119368/",
+          "published": "2026-10-25",
+          "tags": [
+            "Ricostruzione",
+            "Istituzioni"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Chi ricopre incarichi pubblici risponde anche sul piano dell'opportunità. Domanda per un contenuto: quali regole sui rapporti tra struttura commissariale, enti e professionisti darebbero certezze ai cittadini?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Macerata, Parcaroli: «Nessun cantiere affidato a Crucianelli dal Comune»",
+          "summary": "Il sindaco precisa che il Comune non ha affidato appalti pubblici all'impresa, che non risulta subappaltatrice di lavori pubblici, e richiama la presunzione di innocenza. Fornisce i dati delle 485 pratiche sisma dal 2016 (132 con lavori iniziati, 54 in istruttoria) e annuncia l'impegno con la struttura commissariale per far proseguire i cantieri privati coinvolti.",
+          "source": "Radio Nuova",
+          "url": "https://www.radionuova.com/2026/10/28/142159/",
+          "published": "2026-10-28",
+          "tags": [
+            "Macerata",
+            "Ricostruzione"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Per chi vive nel cratere conta soprattutto che i cantieri ripartano. Domanda per un contenuto: come garantire ai privati con lavori fermi tempi certi, senza abbassare i controlli?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ancona, approvato il piano di alienazioni per «Capitale della cultura 2028» tra polemiche in aula",
+          "summary": "Il Consiglio comunale ha approvato con 21 sì e 10 astenuti la modifica al piano di alienazioni e valorizzazioni immobiliari collegato al dossier Capitale della cultura 2028. Le opposizioni lamentano risorse mancanti per alcune opere; la seduta è stata sospesa dopo una replica scomposta dell'assessore Tombolini, poi condannata nei toni dal sindaco Silvetti.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/28/nuovo-piano-opere-verso-ancona-2028-ok-del-consiglio-dopo-le-polemiche_02f72dbc-7d0e-42dd-8a8c-0f143a6fe18e.html",
+          "published": "2026-10-28",
+          "tags": [
+            "Ancona",
+            "Infrastrutture"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Un titolo come Capitale della cultura è un'occasione per i giovani se diventa investimento stabile e non solo eventi. Domanda per un contenuto: quali opere e servizi culturali resteranno ai ventenni di Ancona dopo il 2028?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Liste d'attesa nelle Marche: tempi rispettati al 94,7% ma 157mila cittadini rinunciano alle cure",
+          "summary": "Secondo dati Agenas, Corte dei conti e Gimbe riportati da Il Ducato, nelle Marche il 94,7% delle prime visite monitorate rispetta i tempi, ma solo il 37,7% delle richieste diventa una visita. La Corte dei conti registra una lista di presa in carico cresciuta del 33% nel 2025; il 10,6% dei marchigiani ha rinunciato ad almeno una prestazione. Casi critici: mammografie con attese medie di circa 250 giorni a Pesaro-Urbino.",
+          "source": "Il Ducato",
+          "url": "https://www.ilducato.it/2026/10/23/sanita-il-limbo-delle-liste-dattesa-marche-tempi-delle-visite-ok-ma-i-piu-rinunciano-o-scelgono-il-privato/",
+          "published": "2026-10-23",
+          "tags": [
+            "Sanità",
+            "Liste d'attesa"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Quando chi rinuncia alle cure è uno su dieci, il dato sui tempi «rispettati» non basta. Domanda per un contenuto: come misurare l'efficacia del sistema dal punto di vista del paziente e non solo dell'indicatore?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sanità, Calcinaro: un radiologo in più in ogni ospedale e filtri di appropriatezza per ridurre le attese",
+          "summary": "L'assessore regionale alla Sanità prevede un radiologo aggiuntivo nei 13 ospedali di primo livello e a Torrette, più telerefertazione e filtri sulle richieste di risonanze e Tac, in confronto con i medici di base. Le prestazioni sono cresciute del 9% tra marzo e settembre (circa 95mila visite in più) ma ne servirebbero circa mezzo milione. Si ipotizza di vincolare 1,4 milioni, con avvio nei primi mesi del 2027 e assunzioni ancora da realizzare.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/20/calcinaro-potenziare-le-radiologie-per-appropriatezza-e-abbattimento-liste-attesa_72af129b-2415-4059-a335-2d2306f2f718.html",
+          "published": "2026-10-20",
+          "tags": [
+            "Sanità",
+            "Regione"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Gli stessi numeri della Regione mostrano che il gap resta enorme: +95mila visite contro mezzo milione necessarie. Domanda per un contenuto: bastano più radiologi o serve riorganizzare il rapporto pubblico-privato e la medicina territoriale?",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
