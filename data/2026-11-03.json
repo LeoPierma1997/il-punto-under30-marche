@@ -324,5 +324,7 @@
         }
       ]
     }
-  ]
+  ],
+  "audio": "audio/2026-11-03.mp3",
+  "audio_engine": "microsoft"
 }
