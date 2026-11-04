@@ -1,0 +1,330 @@
+{
+  "date": "2026-11-04",
+  "label": "Mercoledì 4 novembre 2026",
+  "intro": "Dopo il voto di midterm i democratici sono avanti alla Camera e il Senato è ancora in bilico, mentre Iran-Usa e Ucraina restano sospesi tra raid e negoziati. In Italia la manovra viene criticata da Pisauro e dal Post per le poche risorse ai giovani; nelle Marche la minoranza chiede che Acquaroli riferisca in Aula sull'inchiesta sisma.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Midterm Usa, i democratici in vantaggio alla Camera. Senato in bilico, ma altre testate parlano già di vittoria su entrambe le camere",
+          "summary": "Nelle prime ore del 4 novembre lo spoglio dà i democratici avanti alla Camera, in linea con i sondaggi, mentre per il Senato Fanpage parla di corsa ancora incerta con gli ultimi seggi (Alaska e Hawaii) in chiusura alle 6. Alcune testate italiane titolano già sulla conquista di entrambe le camere da parte dei democratici, dato da confermare con i risultati definitivi. Un Congresso a guida democratica limiterebbe l'agenda di Trump nella seconda metà del mandato.",
+          "source": "Fanpage",
+          "url": "https://www.fanpage.it/live/elezioni-midterm-usa-risultati-spoglio-stati-diretta-4-novembre/",
+          "published": "2026-11-04",
+          "tags": [
+            "Usa",
+            "Elezioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Il voto americano ricorda che anche i leader più forti trovano un contrappeso nelle urne. Una domanda per un contenuto: cosa cambia per l'Europa, su dazi, Ucraina e Nato, se Washington ha un Congresso che frena la Casa Bianca?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Iran-Usa, accordo ancora lontano: raid limitato su Qeshm e mediazione del Qatar",
+          "summary": "Secondo il WSJ, citato da Sky TG24, gli Stati Uniti hanno colpito l'isola iraniana di Qeshm, all'imbocco di Hormuz, con operazioni descritte come difensive. Reuters riferisce che Teheran chiede revoca delle sanzioni petrolifere, fine del blocco navale e sblocco dei fondi congelati, mentre una delegazione del Qatar ha fatto da mediatrice e le risposte sono attese entro circa 36 ore. Trump si dice pronto a un accordo ma non esclude nuovi attacchi.",
+          "source": "Sky TG24",
+          "url": "https://tg24.sky.it/mondo/2026/11/03/guerra-iran-usa-trump-news-diretta",
+          "also": [
+            {
+              "source": "Reuters (via Internazionale)",
+              "url": "https://www.internazionale.it/ultime-notizie-reuters/2026/11/04/iran-s-foreign-minister-says-talks-with-saudi-arabia-are-ongoing-yemen-fighting-intensifies"
+            }
+          ],
+          "published": "2026-11-03",
+          "tags": [
+            "Iran",
+            "Hormuz"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Il conflitto si riflette su energia e bollette europee. Una domanda per un contenuto: l'Italia e l'Ue hanno una voce comune nel negoziato o restano spettatori di una trattativa tra Washington, Teheran e mediatori regionali?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ucraina, il Cremlino conferma il trilaterale con Usa e Kiev ad Abu Dhabi il 10 e 11 novembre",
+          "summary": "Mosca ha confermato la partecipazione ai colloqui del 10-11 novembre, con una delegazione guidata da Medinsky. Secondo il racconto di Open, l'inviato Usa Witkoff parla di mediazione tecnica su sicurezza nel dopoguerra, de-escalation e questioni umanitarie. Intanto continuano i raid russi sulle centrali elettriche ucraine e, a Roma, il ministro Foti chiede un'azione europea per portare le parti al tavolo.",
+          "source": "Open",
+          "url": "https://www.open.online/2026/11/03/guerra-russia-ucraina-ultime-notizie-3-nov-diretta/",
+          "published": "2026-11-03",
+          "tags": [
+            "Ucraina",
+            "Negoziati"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "L'Europa rischia di essere assente dove si decide la sicurezza del proprio continente. Una domanda per un contenuto: chi rappresenta l'Ue al tavolo sulle garanzie per Kiev, e con quale mandato?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Von der Leyen: la chiusura di Hormuz è costata all'Ue 127 miliardi in più di importazioni fossili",
+          "summary": "Intervenendo a un summit sulle startup a Bruxelles, la presidente della Commissione ha detto che l'Ue ha speso 127 miliardi in più per petrolio e gas senza acquistarne di più. Ha rilanciato la transizione pulita come strumento di competitività e autonomia energetica, con la neutralità climatica al 2050 e il taglio del 90% delle emissioni al 2040.",
+          "source": "ANSA Europa",
+          "url": "https://www.ansa.it/europa/notizie/rubriche/altrenews/2026/11/03/von-der-leyen-la-chiusura-di-hormuz-e-costata-allue-127-miliardi-in-piu_c222a4c2-2710-4c26-b0c2-cc48343a83e0.html",
+          "published": "2026-11-03",
+          "tags": [
+            "Energia",
+            "Ue"
+          ],
+          "icon": "bolt",
+          "spunto": {
+            "text": "Il prezzo dell'import fossile ricade su famiglie e imprese, giovani compresi. Una domanda per un contenuto: quale mix di rinnovabili, reti e nucleare ci rende meno esposti alla prossima crisi?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Bilancio Ue 2028-2034: nessuna intesa al Consiglio europeo, nuovo round al vertice del 26 novembre",
+          "summary": "A metà ottobre i leader non hanno trovato un accordo sul quadro pluriennale, con una proposta di circa 1.620 miliardi che non avvicina frugali e «Amici della coesione», tra cui l'Italia. Si discutono nuove entrate comuni e il rinvio dell'ETS2, chiesto da Roma e altri quattro Paesi ma non accolto nel compromesso. Il prossimo passaggio è il vertice straordinario del 26 novembre (notizia del 16 ottobre, ancora in corso).",
+          "source": "Linkiesta",
+          "url": "https://www.linkiesta.it/2026/10/bilancio-ue-2028-2034-vertice-costa-accordo-novembre/",
+          "published": "2026-10-16",
+          "tags": [
+            "Bilancio Ue",
+            "Ue"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Il bilancio Ue decide quanto si investe in ricerca, difesa comune e coesione per sette anni. Una domanda per un contenuto: i fondi che arrivano alle Marche e ai giovani marchigiani sono una priorità italiana nel negoziato?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra 2027, per gli under 35 «ben meno di un miliardo» su 26: la flat tax sugli aumenti vale al massimo 500 euro l'anno",
+          "summary": "Secondo l'analisi del Post, le misure per i giovani (flat tax all'1% sugli aumenti per gli under 30 fino a 28mila euro, fringe benefit, cedolare all'1% per gli under 36) valgono meno di un miliardo. Il fondo per i prepensionamenti costa 850 milioni l'anno e la carta per gli over 75 1,6 miliardi nel 2027. Restano anche i tagli previsti a circa 5mila insegnanti dal 2027/28.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/03/legge-di-bilancio-giovani-pensionati/",
+          "published": "2026-11-03",
+          "tags": [
+            "Manovra",
+            "Giovani"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Calenda ha definito la manovra fatta di interventi a pioggia che danno qualche decina di euro a una platea ampia senza risolvere i problemi. Per i giovani è il caso da raccontare: poche risorse, poca durata e nessuna strategia sul lavoro qualificato.",
+            "refs": [
+              {
+                "label": "Calenda a Agenzia Vista – AGI, 3 novembre 2026",
+                "url": "https://www.agi.it/vista-tv/video/2026-11-03/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente-39861894/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Pisauro: «Manovra elettorale». Forfettario fino a 100mila euro e flat tax giovani sotto accusa",
+          "summary": "In un'intervista al Fatto, l'ex presidente dell'Upb Giuseppe Pisauro giudica la manovra frammentata, con oltre 5 miliardi di misure valide solo un anno. Critica la flat tax sugli aumenti per gli under 28, che per chi guadagna 20-28mila euro porta il prelievo effettivo al 10,15%, e il forfettario al 15% fino a 100mila euro. Segnala anche il fondo sanitario sotto il 6,2% del Pil e i voucher da 1,6 miliardi per gli over 75, che potrebbero finire alla sanità privata.",
+          "source": "Il Fatto Quotidiano",
+          "url": "https://www.ilfattoquotidiano.it/2026/11/03/legge-bilancio-pisauro-accontenta-lobby-flat-tax-giovani-cedolare-pensioni-sanita-bollo-analisi/8557952/",
+          "published": "2026-11-03",
+          "tags": [
+            "Fisco",
+            "Manovra"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Il costo delle misure di un anno ricade sul governo successivo, cioè sulle generazioni più giovani. Una domanda per un contenuto: possiamo permetterci una manovra elettorale se gli interessi sul debito li pagheranno gli under 30?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Tetto del 30% di alunni stranieri nelle classi: Bruxelles avverte l'Italia sulle discriminazioni",
+          "summary": "La commissaria Roxana Mînzatu ha ricordato che i trattati Ue vietano discriminazioni dirette e indirette per nazionalità e che la Commissione seguirà la conversione in legge del decreto, in vigore dal 1° ottobre. Il ministro Valditara replica che il problema non esiste e il governo va avanti, mentre la Lega parla di pressioni indebite. Pd, Avs, sindacati della scuola e Rete degli studenti chiedono il ritiro della norma.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/03/commissione-ue-richiama-meloni-sul-tetto-del-30-di-alunni-stranieri-nelle-classi",
+          "published": "2026-11-03",
+          "tags": [
+            "Scuola",
+            "Ue"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Il tema vero è la qualità dell'integrazione scolastica, non un tetto numerico. Una domanda per un contenuto: corsi di italiano, insegnanti e mediatori funzionano meglio di un limite che l'Ue considera potenzialmente discriminatorio?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Salvini sui tagli alla scuola in manovra: «Non ne sapevo niente», la Lega presenterà proposte",
+          "summary": "A margine di Eicma a Milano, il vicepremier ha detto di non essere stato informato dei tagli alla scuola previsti dalla legge di bilancio e che la Lega farà proposte in Parlamento. Le dichiarazioni arrivano dopo le critiche dei sindacati sul taglio di personale docente e Ata.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/03/salvini-dei-tagli-alla-scuola-non-sapevo-niente-ora-faremo_2efb7e04-432c-4fc0-9e02-df66ae981476.html",
+          "published": "2026-11-03",
+          "tags": [
+            "Scuola",
+            "Governo"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Un vicepremier che non conosce i contenuti della manovra approvata dal Consiglio dei ministri apre una questione di metodo. Una domanda per un contenuto: chi decide davvero le priorità del bilancio dello Stato?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sondaggio Ipsos: Fratelli d'Italia al 26,7%, Azione ferma al 3%, centrodestra 39,4% contro il 44,9% del campo largo",
+          "summary": "Nel sondaggio Ipsos per il Corriere, ripreso da Baritalia News, il Pd è al 19,9% e il M5s al 14,9%. Futuro Nazionale di Vannacci scende al 7,9% dall'8,8% di settembre. Il governo ha il 41% di giudizi favorevoli e l'astensione o incertezza si attesta intorno al 41%.",
+          "source": "Baritalia News",
+          "url": "https://www.baritalianews.it/151793/2026/11/03/sondaggi-2026-meloni-sempre-piu-su-vannacci-perde-terreno-m5s-e-pd-in-recupero/",
+          "published": "2026-11-03",
+          "tags": [
+            "Sondaggi",
+            "Elezioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Con il 41% tra astenuti e indecisi, lo spazio per una proposta riformista esiste. Una domanda per un contenuto: come si parla a chi non vota più, soprattutto tra i giovani?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta sisma, le opposizioni chiedono che Acquaroli riferisca in Consiglio il 10 novembre",
+          "summary": "I cinque gruppi di minoranza (Pd, M5s, Avs, Lista Ricci e Progetto Marche Vive) hanno chiesto al presidente Pasqui di aprire la seduta del 10 novembre con le comunicazioni del presidente della Giunta sull'inchiesta sulla ricostruzione. La decisione spetta alla conferenza dei capigruppo, convocata per il 4 novembre alle 12. Le opposizioni vogliono accertare eventuali responsabilità politiche, al di là dell'indagine giudiziaria.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/03/inchiesta-sisma-su-comunicazioni-in-aula-di-acquaroli-decide-la-capigruppo_0c811aba-0656-45b4-b4f5-895a54f08f77.html",
+          "also": [
+            {
+              "source": "CentroPagina",
+              "url": "https://www.centropagina.it/ancona/inchiesta-marche-ricostruzione-opposizioni-insistono-acquaroli-riferisca-aula/"
+            }
+          ],
+          "published": "2026-11-03",
+          "tags": [
+            "Regione",
+            "Ricostruzione"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Una domanda per un contenuto: quando un'inchiesta tocca la ricostruzione, il presidente della Regione deve riferire in Aula subito, a prescindere dai tempi della magistratura?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta Ricostruzione, oggi gli interrogatori preventivi di cinque indagati: i cinque filoni",
+          "summary": "Il 4 novembre il gip ascolta cinque indagati, tra cui Intermesoli e Pompili, per i quali erano state chieste misure cautelari, mentre le difese degli otto arrestati preparano i ricorsi al Riesame. Cronache Maceratesi ricostruisce cinque filoni: reati tributari, truffa aggravata, trasferimento fraudolento di valori, corruzione su un immobile di Macerata e gare legate all'Università di Camerino. Sono ipotesi d'accusa non accertate e gli indagati sono presunti innocenti.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/01/il-sistema-dei-cantieri-i-rallentamenti-i-prossimi-step-e-i-5-filoni/2122047/",
+          "published": "2026-11-01",
+          "tags": [
+            "Inchiesta",
+            "Legalità"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Una domanda per un contenuto: quali controlli preventivi su appalti e subappalti servono perché la ricostruzione non diventi terreno di infiltrazioni?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sisma 2016, la manovra proroga personale e agevolazioni; Castelli: «Nessuno resterà indietro»",
+          "summary": "Il commissario Castelli rivendica nella legge di bilancio la proroga al 2029 dei contratti del personale della ricostruzione e al 2027 delle esenzioni sulle utenze nelle zone rosse, oltre alla sospensione delle rate dei mutui per gli immobili inagibili. Cita il badge di cantiere, operativo da aprile 2026, tra gli strumenti antimafia. Il comunicato arriva dopo l'operazione della Dda del 22 ottobre, con otto misure cautelari e sequestri per oltre 57 milioni, accuse ancora da accertare.",
+          "source": "Riviera Oggi",
+          "url": "https://www.rivieraoggi.it/2026/11/04/445573/sisma-2016-la-manovra-conferma-gli-aiuti-castelli-nessuno-restera-indietro-dopo-lo-scandalo-sugli-appalti/",
+          "published": "2026-11-04",
+          "tags": [
+            "Ricostruzione",
+            "Manovra"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Una domanda per un contenuto: dopo dieci anni, la fine dello stato di emergenza basta a chiudere la ricostruzione o servono tempi certi e verifiche indipendenti sui cantieri?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Fincantieri Ancona, presidio per i due operai morti: «Fermiamo le stragi sul lavoro»",
+          "summary": "Il 2 novembre Fiom Cgil e Udu hanno ricordato davanti ai cancelli i due operai morti in un incidente poco più di un mese fa. I sindacati denunciano condizioni di lavoro inaccettabili negli appalti, chiedono un tavolo sulla sicurezza in Prefettura e più ispezioni, e attendono l'incontro con l'azienda del 18 novembre.",
+          "source": "Il Resto del Carlino",
+          "url": "https://www.ilrestodelcarlino.it/ancona/cronaca/-presidio-operai-morti-vwbv9e3e",
+          "published": "2026-11-02",
+          "tags": [
+            "Lavoro",
+            "Sicurezza"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Una domanda per un contenuto: nei cantieri navali con catene di subappalti, chi risponde davvero della sicurezza di chi lavora a pochi euro l'ora?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Porto di Ancona, Cgil Cisl e Uil dopo la visita della Commissione d'inchiesta: «Controlli sugli appalti e tavolo permanente»",
+          "summary": "Dopo la visita della Commissione parlamentare d'inchiesta sul lavoro all'Autorità di sistema portuale, i sindacati chiedono verifiche sulla filiera di appalti e subappalti, non solo formali. Propongono un tavolo stabile con istituzioni, Autorità portuale e imprese e una raccolta condivisa dei dati su infortuni e malattie professionali.",
+          "source": "UIL Marche",
+          "url": "https://www.uil-marche.it/2026/11/03/sicurezza-porto-commissione-parlamentare-ancona/",
+          "published": "2026-11-03",
+          "tags": [
+            "Porto",
+            "Sicurezza"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Una domanda per un contenuto: i dati sugli infortuni nel porto di Ancona sono pubblici e confrontabili, o servono per prevenire solo dopo l'incidente?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sanità, la Giunta istituisce la Rete urologica regionale con il modello «Web-Hub»",
+          "summary": "La Regione crea una rete con centri ad alta specializzazione per i casi complessi e servizi territoriali per controlli e attività meno complesse, collegati da teleconsulto e percorsi comuni. Nel 2024 i ricoveri urologici sono stati 11.677 e nel 2025 il 69% delle prostatectomie per tumore è stato robotico. L'assessore Calcinaro parla di qualità delle cure uniforme sul territorio.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/03/via-a-rete-urologica-delle-marche-per-collegare-le-nostre-eccellenze_c4eb816d-5c18-4694-8ee2-d773e6a1558b.html",
+          "published": "2026-11-03",
+          "tags": [
+            "Sanità",
+            "Regione"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Una domanda per un contenuto: una rete sulla carta migliora l'accesso alle cure nell'entroterra se mancano personale e liste d'attesa più brevi?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Energia, la Giunta propone la legge sulle aree idonee: 868 MW ancora da realizzare entro il 2030",
+          "summary": "La proposta punta a 2,3 GW di rinnovabili aggiuntive al 2030 rispetto al 2020, privilegiando aree già urbanizzate come coperture, aree produttive, cave e discariche dismesse. Esclude aree protette, Natura 2000 e Unesco e limita le aree agricole idonee tra lo 0,8% e il 3% della superficie agricola. Il testo, approvato dalla Giunta il 20 ottobre, passa ora al Consiglio regionale.",
+          "source": "CentroPagina",
+          "url": "https://www.centropagina.it/ancona/attualita-energie-rinnovabili-marche-giunta-regionale-approva-legge-aree-idonee/",
+          "published": "2026-10-20",
+          "tags": [
+            "Energia",
+            "Regione"
+          ],
+          "icon": "bolt",
+          "spunto": {
+            "text": "Una domanda per un contenuto: come si accelerano le rinnovabili senza consumare suolo agricolo e senza bloccare i progetti per anni?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Consiglio regionale, scontro sulla conduzione dei lavori: la minoranza accusa il presidente Pasqui di parzialità",
+          "summary": "Dopo la seduta del 28 ottobre a Muccia, la minoranza contesta la bocciatura in capigruppo della modifica dell'ordine del giorno sull'inchiesta sisma e accusa il presidente dell'Assemblea di non essere imparziale. Pasqui nega di decidere in modo discrezionale e spiega di aver dato per primo la parola al capogruppo Pd, Mancinelli, per consentire alle opposizioni di intervenire subito.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/03/inchiesta-sisma-minoranza-acquaroli-venga-a-chiarire-in-consiglio_62ba3ab4-e10d-4c35-9f22-82fdb35e5336.html",
+          "published": "2026-11-03",
+          "tags": [
+            "Consiglio",
+            "Opposizione"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Una domanda per un contenuto: come si tutelano i diritti delle minoranze in un'Assemblea legislativa, soprattutto quando il tema è l'inchiesta più delicata della legislatura?",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
