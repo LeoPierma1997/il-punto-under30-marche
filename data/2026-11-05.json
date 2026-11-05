@@ -1,0 +1,360 @@
+{
+  "date": "2026-11-05",
+  "label": "Giovedì 5 novembre 2026",
+  "intro": "I democratici vincono le elezioni di midterm e Trump parla di veto e trattative, mentre Teheran apre al negoziato su Hormuz. In Italia la manovra divide la maggioranza tra tesoretti, sanità e uscite anticipate; nelle Marche il 10 novembre il Consiglio regionale discute l'inchiesta sul sisma.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Midterm Usa, i democratici conquistano la Camera e (secondo le proiezioni) anche il Senato. Trump: «Userò il veto»",
+          "summary": "Secondo le proiezioni di Sky TG24 i democratici arrivano a 258 seggi alla Camera e a 54 al Senato, con l'Alaska ancora incerta; Hakeem Jeffries dovrebbe diventare speaker a gennaio. Trump ha ammesso che «gran parte» della sconfitta dipende dalla guerra in Iran, ha annunciato che userà il potere di veto ma anche che probabilmente tratterà con i democratici. Il dato sul Senato resta basato su proiezioni, in attesa dei risultati definitivi.",
+          "source": "Sky TG24",
+          "url": "https://tg24.sky.it/mondo/2026/11/04/risultati-elezioni-midterm-2026-usa-diretta",
+          "also": [
+            {
+              "source": "Il Fatto Quotidiano",
+              "url": "https://www.ilfattoquotidiano.it/2026/11/04/midterm-trump-guerra-iran-prezzi-notizie/8559990/"
+            }
+          ],
+          "published": "2026-11-04",
+          "tags": [
+            "Usa",
+            "Elezioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Un Congresso a maggioranza democratica cambia i rapporti di forza su dazi, Ucraina e Nato. Una domanda per un contenuto: l'Europa è pronta a parlare con una voce sola a un interlocutore americano meno unito, o continuerà a sperare nelle sue scelte?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Iran-Usa, Teheran apre alla trattativa: Hormuz riaperto in due giorni se Washington accetta le condizioni",
+          "summary": "Il presidente iraniano Pezeshkian ha riferito che la Guida suprema ha dato al governo margini per trattare. Teheran chiede cessate il fuoco su tutti i fronti, sblocco dei fondi all'estero, stop alle sanzioni petrolifere e fine del blocco navale Usa; il nucleare verrebbe dopo. Trump, in un'intervista a Fox News, parla di «ottime» probabilità di accordo ma avverte che la situazione potrebbe degenerare; il petrolio è sceso sensibilmente.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/topnews/2026/11/03/trump-con-iran-sorta-di-guerra-che-puo-degenerare-ottime-probabilita_f281f837-4e98-4019-a415-b8a83b9d15ef.html",
+          "also": [
+            {
+              "source": "ANSA (2 novembre)",
+              "url": "https://ansa.it/sito/notizie/mondo/2026/11/02/iran-pronti-a-riaprire-hormuz-in-due-giorni-se-gli-usa-accettano-le-condizioni_f5315141-c840-4f45-89ca-066c867cee06.html"
+            }
+          ],
+          "published": "2026-11-03",
+          "tags": [
+            "Iran",
+            "Hormuz"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "La riapertura di Hormuz incide direttamente su bollette e carburanti degli italiani. Una domanda per un contenuto: nel negoziato tra Washington, Teheran e i mediatori di Qatar e Pakistan, chi rappresenta gli interessi energetici dell'Europa?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ucraina, raid russo su un centro di aiuti a Komyshuvakha: 33 morti e oltre 50 sotto le macerie",
+          "summary": "Secondo Zelensky un attacco aereo russo ha colpito un ex edificio scolastico usato per distribuire aiuti umanitari nel villaggio di Komyshuvakha, nel sud-est: 33 vittime accertate e più di 50 persone potrebbero essere ancora sotto le macerie. La missione Onu per i diritti umani ha condannato l'attacco. Il raid arriva a pochi giorni dai colloqui trilaterali Usa-Ucraina-Russia di Abu Dhabi del 10-11 novembre, mentre Merz dice di non vedere segnali di una reale disponibilità di Mosca a negoziare.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/04/more-than-50-trapped-under-rubble-after-russian-strike-on-school-turned-aid-centre-zelensk",
+          "published": "2026-11-04",
+          "tags": [
+            "Ucraina",
+            "Guerra"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Ogni colloquio di pace si apre mentre le bombe continuano a cadere sui civili. Calenda ha chiesto al governo di approvare entro un mese il pacchetto di aiuti a Kiev: un punto di partenza per un contenuto su come sostenere l'Ucraina senza lasciare l'agenda a chi vuole ridurre il sostegno.",
+            "refs": [
+              {
+                "label": "Calenda, intervista al Corriere della Sera ripresa da Adnkronos, 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Bruxelles riunisce Ucraina, Usa e partner per preparare la ricostruzione: l'Ue ha già fornito 231,5 miliardi",
+          "summary": "La Commissione europea ha ospitato un incontro con delegazioni di Germania, Francia, Regno Unito, Ucraina e Stati Uniti, con Nato e Banca mondiale, per definire gli scenari di crescita dell'Ucraina nel dopoguerra. Bruxelles lega il programma di riforme di Kiev al percorso di adesione all'Ue e ricorda che dall'inizio dell'invasione ha fornito 231,5 miliardi di euro. I lavori proseguono sul quadro per la prosperità elaborato con Kiev e Washington.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/04/ucraina-ue-partner-politica-estera/",
+          "published": "2026-11-04",
+          "tags": [
+            "Ue",
+            "Ricostruzione"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Chi ricostruisce l'Ucraina avrà un peso nell'assetto europeo del dopoguerra. Una domanda per un contenuto: l'Italia può giocare un ruolo da protagonista nella ricostruzione e nel percorso di adesione di Kiev, o resterà a guardare gli altri grandi Paesi?",
+            "refs": []
+          }
+        },
+        {
+          "title": "La Cina conferma i contatti per un possibile vertice Xi-Putin-Trump a Shenzhen, a margine dell'Apec",
+          "summary": "La portavoce del ministero degli Esteri cinese Mao Ning ha detto che Pechino è in contatto con le parti su un possibile incontro tra i tre leader, per la prima volta riconosciuto pubblicamente. L'ipotesi è un faccia a faccia a Shenzhen il 18-19 novembre, a margine dell'Apec; il Cremlino spera di chiudere «nei prossimi giorni», mentre la Casa Bianca non commenta. Il ministro degli Esteri ucraino avverte che un formato senza Kiev avrebbe l'effetto opposto a quello di un trilaterale Usa-Ucraina-Russia.",
+          "source": "Notizie Geopolitiche",
+          "url": "https://www.notiziegeopolitiche.net/la-cina-ammette-per-la-prima-volta-i-contatti-per-un-vertice-xi-putin-trump-a-shenzhen-il-18-novembre/",
+          "published": "2026-11-04",
+          "tags": [
+            "Cina",
+            "Vertice"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Un vertice tra Usa, Russia e Cina su armi e denuclearizzazione si discuterebbe senza l'Europa al tavolo. Una domanda per un contenuto: quali strumenti ha l'Ue per non restare spettatrice delle decisioni sulla sicurezza del continente?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, Lega e Forza Italia premono su Giorgetti: nel mirino un «tesoretto» da oltre 1,5 miliardi",
+          "summary": "Secondo l'AGI, Lega e Forza Italia chiedono al ministro dell'Economia modifiche alla legge di bilancio, mentre Fratelli d'Italia frena e ricorda che le risorse sono limitate. Forza Italia sospetta un accantonamento superiore a 1,5 miliardi, la Lega non cede sull'uscita anticipata dal lavoro. Il calendario prevede audizioni dal 9 al 12 novembre, emendamenti entro il 17 e verifica di ammissibilità il 23-24.",
+          "source": "AGI",
+          "url": "https://agi.it/politica/news/2026-11-05/manovra-giorgetti-pressing-governo-39885613",
+          "published": "2026-11-05",
+          "tags": [
+            "Manovra",
+            "Maggioranza"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Una maggioranza che discute di tesoretti e uscite anticipate conferma il quadro descritto da Calenda: misure a pioggia e poche scelte strutturali. Spunto per un contenuto: cosa servirebbe davvero a chi ha meno di 35 anni, al posto dei piccoli bonus?",
+            "refs": [
+              {
+                "label": "Calenda sulla manovra – AGI/Agenzia Vista, 3 novembre 2026",
+                "url": "https://www.agi.it/vista-tv/video/2026-11-03/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente-39861894/"
+              },
+              {
+                "label": "Calenda, intervista al Corriere della Sera ripresa da Adnkronos, 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Sanità e manovra: le Regioni chiedono più fondi, il governo non esclude i poteri sostitutivi sul riparto",
+          "summary": "Le Regioni sollecitano ulteriori risorse per il Fondo sanitario nazionale, mentre il capogruppo FdI al Senato Malan sostiene che i fondi sono limitati e non si tratta di tagli. Secondo l'AGI il governo non esclude di usare i poteri sostitutivi previsti dalla Costituzione per il riparto del fondo se non ci sarà accordo con le Regioni. Tra le richieste di FdI figurano anche il payback sanitario e la rivalutazione delle pensioni.",
+          "source": "AGI",
+          "url": "https://agi.it/politica/news/2026-11-05/manovra-giorgetti-pressing-governo-39885613",
+          "published": "2026-11-05",
+          "tags": [
+            "Sanità",
+            "Regioni"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Il braccio di ferro tra Stato e Regioni sul fondo sanitario si traduce in liste d'attesa e rinunce alle cure. Una domanda per un contenuto: quanto dipende la qualità della sanità dal riparto dei fondi e quanto da come vengono spesi?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Meloni incontra Orsini: Confindustria chiede l'iperammortamento fino al 2029 e un percorso veloce per il fotovoltaico",
+          "summary": "Dopo l'incontro a Palazzo Chigi, il presidente di Confindustria ha descritto un confronto franco e costruttivo sulla manovra. Gli industriali chiedono di estendere l'iperammortamento dal 2028 al 2029 (secondo Orsini è costato finora 2 miliardi a fronte di oltre 8 miliardi di investimenti), semplificazioni per i contratti di sviluppo e una procedura rapida per impianti fotovoltaici nella Zes unica. Orsini segnala anche che il testo è arrivato alle imprese solo il 3 novembre.",
+          "source": "Milano Finanza",
+          "url": "https://www.milanofinanza.it/news/manovra-vertice-meloni-orsini-a-palazzo-chigi-confindustria-chiede-l-iperammortamento-al-2029-202611041356524699",
+          "published": "2026-11-04",
+          "tags": [
+            "Imprese",
+            "Manovra"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Gli incentivi agli investimenti sono una misura per la crescita. Una domanda per un contenuto: perché la manovra investe di più in bonus distribuiti a pioggia che in misure che aumentano produttività e salari?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Manovra, la commissione Bilancio della Camera chiede di stralciare tre norme: anche i libri scolastici digitali",
+          "summary": "La commissione Bilancio ha chiesto di espungere dal testo tre disposizioni perché di natura ordinamentale: le regole sulle versioni digitali stampabili dei libri scolastici e universitari a prezzo ridotto, l'obbligo di consegnare ai pazienti un riepilogo di prestazioni e tariffe e una norma sul personale a supporto dei commissari alla ricostruzione. Fissato anche il calendario: emendamenti entro il 17 novembre alle 18, ammissibilità il 23 o 24.",
+          "source": "ANSA",
+          "url": "https://ansa.it/sito/notizie/politica/2026/11/04/manovra-la-commissione-bilancio-chiede-di-stralciare-3-norme-anche-i-libri-digitali_5b85877c-31e0-4b3a-a53c-052dc7d7b8da.html",
+          "published": "2026-11-04",
+          "tags": [
+            "Manovra",
+            "Parlamento"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Tra le norme a rischio c'è una misura sul costo dei libri per studenti e universitari. Una domanda per un contenuto: perché le misure concrete per i giovani vengono più facilmente tagliate di quelle simboliche?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Calenda: «Azione correrà da sola», critica la manovra «più debole degli ultimi anni» e chiede gli aiuti a Kiev entro un mese",
+          "summary": "In un'intervista al Corriere della Sera, ripresa dall'Adnkronos, il leader di Azione esclude alleanze con centrodestra e Campo largo e punta a un polo di centro che possa pesare nella formazione del prossimo governo. Definisce il confronto politico un «bipolarismo immorale» e giudica «folle» la linea di Conte su energia e aiuti all'Ucraina. Al governo chiede di approvare entro un mese il pacchetto per Kiev, avvertendo che altrimenti l'agenda sarebbe dettata da Salvini.",
+          "source": "Adnkronos",
+          "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh",
+          "published": "2026-11-02",
+          "tags": [
+            "Azione",
+            "Centro"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Posizione di riferimento per i contenuti di questi giorni: Azione si presenta autonoma, europeista e atlantista, contro quello che Calenda chiama «bipolarismo immorale». Spunto: come spiegare ai giovani elettori perché un voto al centro può essere decisivo.",
+            "refs": [
+              {
+                "label": "Calenda, intervista al Corriere della Sera ripresa da Adnkronos, 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              },
+              {
+                "label": "Calenda sulla manovra – AGI/Agenzia Vista, 3 novembre 2026",
+                "url": "https://www.agi.it/vista-tv/video/2026-11-03/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente-39861894/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta sisma, il 10 novembre dibattito in Consiglio: i capigruppo respingono le comunicazioni di Acquaroli in apertura",
+          "summary": "La conferenza dei capigruppo ha respinto la richiesta di cinque gruppi di minoranza (Pd, M5s, Avs, Lista Ricci e Progetto Marche vive) di far aprire la seduta del 10 novembre con una comunicazione di Acquaroli. L'Aula discuterà invece le parole pronunciate dal presidente al termine della seduta aperta del 28 ottobre a Muccia, e Acquaroli potrà intervenire nel dibattito. La vicenda riguarda un'inchiesta della magistratura sulla ricostruzione: al momento non risultano responsabilità accertate.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/04/inchiesta-sisma-martedi-prossimo-dibattito-in-consiglio-regionale_9cd9b0d9-c660-4d89-9cca-848e89d22185.html",
+          "published": "2026-11-04",
+          "tags": [
+            "Sisma",
+            "Consiglio"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Il confronto in Aula è il luogo in cui maggioranza e opposizione devono rispondere ai cittadini sulla ricostruzione. Una domanda per un contenuto: come si tutela la trasparenza degli appalti senza fermare i cantieri nelle aree colpite dal sisma?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta ricostruzione, FdI propone un «Tavolo permanente sulla legalità» in Regione; la Lega accusa le opposizioni di «teatrino»",
+          "summary": "Fratelli d'Italia ha presentato una mozione per istituire un tavolo con consiglieri di maggioranza e minoranza, forze dell'ordine, prefetture, categorie e sindacati su appalti, subappalti della ricostruzione e rischi legati al Superbonus. I proponenti precisano che non sarebbe un organo investigativo e che nessun esponente di FdI è indagato. Tre consiglieri della Lega accusano le opposizioni di aver lasciato l'Aula a Muccia; le minoranze avevano chiesto con insistenza il dibattito.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/04/lopposizione-la-spunta-martedi-il-dibattito-sulla-maxi-inchiesta-in-consiglio-regionale/2123042/",
+          "also": [
+            {
+              "source": "ANSA Marche",
+              "url": "https://www.ansa.it/marche/notizie/2026/11/04/inchiesta-sisma-martedi-prossimo-dibattito-in-consiglio-regionale_9cd9b0d9-c660-4d89-9cca-848e89d22185.html"
+            }
+          ],
+          "published": "2026-11-04",
+          "tags": [
+            "Legalità",
+            "Appalti"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Un tavolo sulla legalità può essere utile se ha poteri e tempi chiari. Una domanda per un contenuto: quali strumenti concreti, come tracciabilità e controlli sui subappalti, servono davvero oltre alle mozioni?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ricostruzione, Castelli incontra professionisti e Ance: «Legalità e trasparenza senza fermare i cantieri»",
+          "summary": "Il commissario alla ricostruzione Guido Castelli ha incontrato la Rete delle professioni tecniche, gli ordini professionali e l'Ance Marche dopo gli sviluppi giudiziari. Si propone di incrociare i dati di Casse edili, professionisti, imprese e struttura commissariale per verificare l'affidabilità di chi opera nei cantieri e segnalare anomalie. Prossimi passi: il 9 novembre un tavolo permanente alla Prefettura di Macerata, poi incontri con sindacati, Casse edili e task force antimafia.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/04/inchiesta-ricostruzione-castelli-incontra-i-professionisti-e-lance-marche_b134ee87-39f5-4b70-bbdb-34d32b3b74e1.html",
+          "published": "2026-11-04",
+          "tags": [
+            "Ricostruzione",
+            "Controlli"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Incrociare banche dati e controlli è una risposta concreta se funziona davvero. Una domanda per un contenuto: i controlli annunciati bastano a ridare fiducia nei tempi e nella correttezza della ricostruzione?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Lavoro nelle Marche, Cgil e Uil: tra gli under 30 solo il 4% dei contratti è a tempo indeterminato",
+          "summary": "Su dati Inps elaborati dall'Ires Cgil, nel primo semestre 2026 le assunzioni nelle Marche sono state 119.461 (-1,4%), con i contratti a tempo indeterminato al 10% e il lavoro intermittente al 21,8% contro l'11,2% nazionale. Tra i giovani under 30 la quota di stabili scende al 4%, mentre le ore di cassa integrazione e altri ammortizzatori sono aumentate del 20,1% nei primi nove mesi. Cgil e Uil chiedono alla Regione di avviare subito la programmazione 2027 e un confronto con imprese e istituzioni.",
+          "source": "CentroPagina",
+          "url": "https://www.centropagina.it/attualita/precariato-cgil-uil-regione/",
+          "published": "2026-11-03",
+          "tags": [
+            "Lavoro",
+            "Giovani"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Il dato sugli under 30 è il più forte per un contenuto rivolto ai giovani marchigiani. Una domanda: quali politiche regionali, dalla formazione agli incentivi alla stabilizzazione, possono invertire il trend senza scaricare il costo sulle imprese?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inail Marche: infortuni stabili, ma le malattie professionali crescono del 19%",
+          "summary": "Nei primi nove mesi del 2026 le denunce di infortunio sono 12.603 (+1,23%), con 17 casi mortali contro 19 dell'anno scorso, mentre le malattie professionali salgono da 5.960 a 7.106 (+19,23%). Aumentano molto gli infortuni nella sanità e assistenza sociale (da 469 a 859), calano agricoltura e costruzioni. Il rappresentante Inail di Ascoli Piceno chiede più investimenti in prevenzione ergonomica, sorveglianza sanitaria e formazione.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/04/marche-infortuni-sul-lavoro-stabili-ma-le-malattie-professionali-aumentano-del-19_d522c02c-d4a8-4bdd-9697-e6efd860b673.html",
+          "published": "2026-11-04",
+          "tags": [
+            "Sicurezza lavoro",
+            "Inail"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Il dato sulla sanità mostra che la pressione sul personale ha un costo anche in infortuni. Una domanda per un contenuto: la prevenzione sul lavoro si fa solo dopo le tragedie o ci sono investimenti strutturali che mancano?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Consiglio regionale del 10 novembre: in agenda salario minimo a 9 euro negli appalti, sede Dia nelle Marche e limiti ai social per i minori",
+          "summary": "L'ordine del giorno della seduta prevede, oltre al dibattito sulle comunicazioni di Acquaroli, la sessione europea con il rapporto 2025 sulle politiche comunitarie e diverse proposte di legge, tra cui nidi e servizi per l'infanzia e un servizio di sollievo per la salute mentale. Tra le mozioni figurano il salario minimo di 9 euro l'ora negli appalti regionali, la richiesta di una sede della Dia, i limiti ai social media per i minori e la commissione di verifica sull'Aou delle Marche. L'inserimento in agenda non anticipa l'esito dei voti.",
+          "source": "Riviera Oggi",
+          "url": "https://www.rivieraoggi.it/2026/11/04/445622/consiglio-regionale-marche-tutti-i-punti-allordine-del-giorno/",
+          "published": "2026-11-04",
+          "tags": [
+            "Consiglio",
+            "Agenda"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Salario minimo negli appalti e social per i minori sono temi che parlano ai giovani. Una domanda per un contenuto: quali di queste mozioni cambierebbero davvero la vita di un under 30 marchigiano?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sarnano, bando deserto per la quota comunale delle terme: nessuna offerta per l'87,29% di Terzo Millennio",
+          "summary": "L'avviso del Comune per cedere la quota nella società che gestisce le terme non ha ricevuto offerte. L'amministrazione dice di aver accantonato risorse per coprire la fideiussione e di aver esplorato soluzioni come la composizione negoziata della crisi, senza esito. Le terme operano a spazi ridotti per la mancanza della certificazione antincendio; il sindaco Fantegrossi convocherà capigruppo e forze politiche per discutere il futuro.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/04/sarnano-terzo-millennio-il-bando-va-deserto-ora-confronto-con-tutte-le-forze-politiche/2122847",
+          "published": "2026-11-04",
+          "tags": [
+            "Entroterra",
+            "Terme"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Il caso delle terme è un test su come si tengono vive le aree interne. Una domanda per un contenuto: un'infrastruttura turistica in crisi si salva con soldi pubblici o con un piano industriale credibile?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Civitanova, il 9 novembre in Consiglio una variazione da 800 mila euro; scontro Lega-Vince nella maggioranza",
+          "summary": "Il Consiglio comunale di lunedì 9 novembre voterà una variazione al bilancio da circa 800 mila euro: oltre 600 mila per gli asfalti, 90 mila per gli edifici pubblici e 30 mila per l'illuminazione. Nella maggioranza è polemica tra la Lega e la lista Vince Civitanova, che accusa il sindaco Ciarapica di aver cambiato linea politica; la lista afferma che il patto di coalizione «non era un assegno in bianco». Nella seduta precedente la sfiducia al sindaco era stata respinta.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/04/bilancio-in-consiglio-comunale-la-variazione-da-800mila-euro/2122800/",
+          "also": [
+            {
+              "source": "Cronache Maceratesi",
+              "url": "https://www.cronachemaceratesi.it/2026/11/04/vince-civitanova-alla-lega-e-ciarapica-ad-aver-cambiato-linea-politica/2123161/"
+            }
+          ],
+          "published": "2026-11-04",
+          "tags": [
+            "Comuni",
+            "Bilancio"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Le tensioni di maggioranza si riflettono sulle priorità di spesa del Comune. Una domanda per un contenuto: i cittadini sono più interessati agli asfalti o a un progetto per i giovani della città?",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
