@@ -1,0 +1,340 @@
+{
+  "date": "2026-11-06",
+  "label": "Venerdì 6 novembre 2026",
+  "intro": "A Washington e Abu Dhabi si prepara il tavolo sull'Ucraina mentre a Hormuz la Casa Bianca resta indecisa. In Italia la manovra tra sindacati, pensioni e sanità; nelle Marche lunedì il vertice in prefettura sulle imprese dell'inchiesta ricostruzione e martedì il dibattito in Consiglio.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Ucraina, la Casa Bianca prepara i colloqui di Abu Dhabi: Melania Trump riceverà funzionari russi e ucraini",
+          "summary": "Prima dei colloqui di Abu Dhabi, i primi a tre tra Ucraina, Russia e Stati Uniti da febbraio, la First Lady Melania Trump riceverà alla Casa Bianca rappresentanti dei due Paesi. Zelensky ha parlato a lungo con gli inviati Witkoff e Kushner e ha annunciato un vertice di lavoro trilaterale entro una settimana, chiedendo garanzie di sicurezza solide e più difesa aerea. Dall'Europa si teme che l'avvicinamento Trump-Putin lasci Kiev in secondo piano.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/05/us-first-lady-melania-trump-to-host-ukrainian-and-russian-officials-at-white-house",
+          "also": [
+            {
+              "source": "La Voce di Venezia",
+              "url": "https://www.lavocedivenezia.it/raffineria-in-fiamme-a-rjazan-dopo-attacco-di-droni-zelensky-annuncia-vertice-trilaterale-con-usa-e-russia/"
+            }
+          ],
+          "published": "2026-11-05",
+          "tags": [
+            "Ucraina",
+            "Negoziati"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Se il tavolo si sposta tra Washington e Abu Dhabi, l'Europa rischia di restare spettatrice di un accordo che la riguarda. Calenda ha chiesto di decidere gli aiuti a Kiev entro un mese: un contenuto social può chiedere perché l'Ue non siede al tavolo con una voce sola.",
+            "refs": [
+              {
+                "label": "Calenda: «Azione correrà da sola», aiuti a Kiev entro un mese – Adnkronos, 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Hormuz, tre navi in fiamme dopo l'impatto con mine; la Casa Bianca è indecisa tra nuovi attacchi, trattativa e pressione",
+          "summary": "Secondo i Pasdaran due petroliere e un rimorchiatore hanno preso fuoco urtando mine mentre usavano rotte non autorizzate. Axios riferisce che Washington non ha ancora scelto tra nuovi raid, ritorno al negoziato o sanzioni e blocco navale. Nel frattempo il Brent scende a circa 94 dollari e il gas europeo cala di quasi il 7%.",
+          "source": "Domani",
+          "url": "https://www.editorialedomani.it/politica/mondo/guerra-stati-uniti-iran-ultime-notizie-oggi-5-novembre-swzi1wmr",
+          "published": "2026-11-05",
+          "tags": [
+            "Iran",
+            "Energia"
+          ],
+          "icon": "bolt",
+          "spunto": {
+            "text": "Lo Stretto di Hormuz incide sulle bollette di famiglie e imprese italiane. Una domanda utile per i social: quale strategia energetica europea ci rende meno esposti alle crisi nel Golfo?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Midterm Usa, l'Europa si chiede se un Trump indebolito sia più imprevedibile",
+          "summary": "Dopo la vittoria dei democratici alle elezioni di metà mandato, a Bruxelles si discute se Trump punterà di più sulla politica estera. Un Congresso democratico potrebbe invece spingere a mantenere il sostegno militare a Kiev, inclusi sistemi di difesa aerea. Euronews segnala anche la riunione NATO tecnica di oggi a Bruxelles e i colloqui di Abu Dhabi della prossima settimana, con attese basse.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/05/europe-weighs-implications-of-trumps-midterm-setback",
+          "published": "2026-11-05",
+          "tags": [
+            "Usa",
+            "Europa"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Qualunque sia l'umore di Washington, l'Europa non può delegare la propria difesa alla politica interna americana. Spunto di riflessione: quali passi concreti verso una difesa comune europea servono ora?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Auto, la commissione Ambiente del Parlamento europeo vota l'allentamento del target 2035: -87,5% invece del 100%",
+          "summary": "Un compromesso tra tre grandi gruppi, approvato in commissione il 4 novembre, supera l'obbligo di vendere solo auto a emissioni zero dal 2035. Il target diventa una riduzione dell'87,5%, con un ulteriore 7,5% ottenibile usando acciaio a basse emissioni prodotto nell'Ue. La plenaria voterà a dicembre; poi si apre il negoziato con il Consiglio, che non ha ancora una posizione.",
+          "source": "TimesLIVE",
+          "url": "https://www.timeslive.co.za/motoring/2026-11-05-eu-lawmakers-back-easing-of-2035-car-emissions-targets/",
+          "published": "2026-11-05",
+          "tags": [
+            "Auto",
+            "Ue"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "La transizione dell'auto è una questione di industria, lavoro e clima insieme. Domanda per un contenuto: come si tiene l'obiettivo climatico senza perdere competitività e posti di lavoro?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Eurozona, l'inflazione sale al 4% a ottobre: massimo da tre anni",
+          "summary": "Secondo Euronews l'inflazione dell'area euro a ottobre è salita al 4%, il livello più alto da tre anni. Il dato pesa sul costo della vita. Per i giovani significa meno potere d'acquisto su affitti, bollette e spesa.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/05/europe-weighs-implications-of-trumps-midterm-setback",
+          "published": "2026-11-05",
+          "tags": [
+            "Inflazione",
+            "Bce"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Una domanda per i social: con prezzi in crescita e salari fermi, quali misure proteggono davvero il potere d'acquisto dei più giovani?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra sotto attacco: sindacati della scuola in piazza, polizia pronta a protestare, Regioni chiedono più fondi per la sanità",
+          "summary": "Cisl, Uil, Snals e Anief manifestano l'11 novembre, il 13 il governo ha convocato i sindacati a Palazzo Chigi e il 20 la Flc Cgil sciopera. Le Regioni chiedono 6,5 miliardi in più per la sanità nel 2027 a fronte di 2,4 previsti, e i sindacati di polizia minacciano proteste sulla previdenza dedicata. Milex stima spese militari oltre i 40 miliardi nel 2027, e Bonelli, Schlein e Conte contestano le priorità.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/05/manovra-sotto-attacco.-in-piazza-i-sindacati-della-scuola-anche-la-polizia-pronta_7136b486-1b4a-422b-b16f-d6d38f61c9b5.html",
+          "published": "2026-11-05",
+          "tags": [
+            "Manovra",
+            "Scuola"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Calenda ha definito la manovra fatta di interventi a pioggia che non risolvono i problemi: un contenuto social può contrapporre le priorità vere (sanità, scuola, giovani) ai micro-interventi.",
+            "refs": [
+              {
+                "label": "Calenda a Libero Quotidiano (video-intervista) – Libero, 3 novembre 2026",
+                "url": "https://www.liberoquotidiano.it/news/video-news-by-vista/49523046/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Pensioni in manovra: Tajani apre a miglioramenti, la Lega vuole l'uscita a 64 anni",
+          "summary": "Dopo l'incontro con la Confsal il 4 novembre, Tajani ha detto che Forza Italia è disponibile a migliorare il testo su pensioni e scuola e che seguirà una riunione per quantificare le misure. Il Parlamento ha però solo 240 milioni di margine e ogni modifica deve avere copertura. Il fondo da 850 milioni annui per la flessibilità non ha ancora regole; la Lega propone 64 anni con 36 di contributi, FI punta su minime e previdenza per la sicurezza.",
+          "source": "ANSA",
+          "url": "https://ansa.it/sito/notizie/topnews/2026/11/04/tajani-impegno-per-migliorare-su-pensioni-scuola-ora-valutiamo-come-concretizzare_b67da774-60ac-44ca-993a-f870dab4dd1f.html",
+          "also": [
+            {
+              "source": "La Nazione",
+              "url": "https://www.lanazione.it/cronaca/manovra-al-via-i-ritocchi-tajani-apre-sulle-pensioni-ma-niente-stravolgimenti-kgy4m48f"
+            }
+          ],
+          "published": "2026-11-04",
+          "tags": [
+            "Pensioni",
+            "Manovra"
+          ],
+          "icon": "hourglass",
+          "spunto": {
+            "text": "Con 240 milioni di margine e coperture da trovare, la domanda per i giovani è chi pagherà le uscite anticipate: un contenuto sul patto tra generazioni può partire da qui.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Fine vita, il governo impugna la legge del Veneto davanti alla Consulta; maggioranza divisa in Consiglio dei ministri",
+          "summary": "La Presidenza del Consiglio ha impugnato la legge regionale veneta n. 17/2026 sostenendo che invade la competenza statale sull'ordinamento civile. Nel voto Giorgetti e Locatelli non hanno partecipato, Salvini si è astenuto e Calderoli ha votato contro. Tajani chiede un quadro nazionale per evitare un «far west normativo», ma il ddl è fermo al Senato dal giugno scorso.",
+          "source": "Quotidiano Nazionale",
+          "url": "https://www.quotidiano.net/politica/fine-vita-e-scontro-il-governo-impugna-la-legge-del-veneto-lega-in-trincea-e-salvini-non-vota-ky28mlc3",
+          "published": "2026-11-05",
+          "tags": [
+            "Fine vita",
+            "Consulta"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Il tema è etico e istituzionale insieme: senza una legge nazionale le Regioni legiferano in ordine sparso. Una domanda per i social: perché il Parlamento non decide?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sanità e manovra: Fondo a 146,3 miliardi nel 2027, ma solo 2,37 sono risorse aggiuntive; per Gimbe il peso sul Pil scende",
+          "summary": "Secondo il quadro riportato il 2 novembre dalla stampa, il Fondo sanitario cresce di circa 3,4 miliardi sul 2026, ma solo 2,37 miliardi sono risorse nuove della manovra. La Fondazione Gimbe calcola che il peso sul Pil scenda dal 6,14% del 2026 al 5,87% nel 2029. Anche Regioni di centrodestra chiedono più margini. Notizia di contesto ancora attuale nel dibattito.",
+          "source": "La Nazione",
+          "url": "https://www.lanazione.it/cronaca/manovra-al-via-i-ritocchi-tajani-apre-sulle-pensioni-ma-niente-stravolgimenti-kgy4m48f",
+          "published": "2026-11-02",
+          "tags": [
+            "Sanità",
+            "Fondi"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Meno spesa sanitaria in rapporto al Pil significa più attese per chi non può pagare il privato. Domanda per un contenuto: quali tagli accettiamo e quali servizi no?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Calenda: la manovra è «malfatta», interventi a pioggia che non risolvono i problemi",
+          "summary": "In un'intervista nella sede di Azione, Carlo Calenda ha giudicato la legge di bilancio composta da piccoli interventi che distribuiscono somme modeste a una platea ampia, senza risolvere i problemi di fondo. Il leader di Azione ha parlato di una manovra fatta per accontentare tutti.",
+          "source": "Libero Quotidiano",
+          "url": "https://www.liberoquotidiano.it/news/video-news-by-vista/49523046/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente/",
+          "published": "2026-11-03",
+          "tags": [
+            "Azione",
+            "Manovra"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Posizione utile per un contenuto social: meno bonus diffusi, più risorse concentrate su sanità, scuola e giovani.",
+            "refs": [
+              {
+                "label": "Calenda a Libero Quotidiano (video-intervista) – Libero, 3 novembre 2026",
+                "url": "https://www.liberoquotidiano.it/news/video-news-by-vista/49523046/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta ricostruzione, lunedì vertice in prefettura per i 1.500 operai dei subappalti Rest Edile; martedì il Riesame",
+          "summary": "Lunedì il prefetto Signer e il commissario Castelli incontrano i sindacati per capire se Rest Edile abbia liquidità per pagare circa 1.500 operai in subappalto; l'impresa ha circa 400 cantieri in provincia e 39 milioni sono bloccati. Secondo i sindacati 50 dipendenti di Edilnova sono senza stipendio. Le accuse (corruzione, truffa, turbativa d'asta) sono da verificare in giudizio, e il gip ha escluso l'aggravante mafiosa, contro cui la Dda ha fatto ricorso.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/05/crucianelli-lunedi-vertice-col-prefetto-per-i-1-500-operai-dei-subappalti-martedi-il-riesame-per-gli-arrestati/2123539/",
+          "published": "2026-11-05",
+          "tags": [
+            "Ricostruzione",
+            "Lavoro"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Legalità e cantieri devono andare insieme: i lavoratori non possono pagare per le colpe di altri. Domanda per i social: come garantire stipendi e controlli antimafia efficaci nei subappalti?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta sisma, Progetto Marche vive: «La Regione fa finta di niente»; critiche al «tavolo sulla legalità» di FdI",
+          "summary": "Il capogruppo Giulio Argalia chiede alla Regione di assumersi responsabilità politiche e di spiegare i controlli mancati, definendo tardiva la proposta di FdI di un tavolo regionale sulla legalità. Chiede anche verifiche sulla qualità dei lavori già fatti o in corso. Le accuse citate nella nota non sono accertate, e Argalia e i consiglieri Caporossi e Seri porteranno la questione in Aula.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/05/progetto-marche-vive-regione-fa-finta-di-niente-sullinchiesta-sisma_94a66287-0e0f-48bc-86d5-3bd7cb61a2df.html",
+          "published": "2026-11-05",
+          "tags": [
+            "Sisma",
+            "Regione"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Un confronto sereno sui controlli negli appalti serve più di uno scontro di slogan. Una domanda per i social: quali controlli preventivi servono davvero sulla ricostruzione?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ex Monachette, l'ex deputata Morani chiede perché nessuno abbia controllato lo studentato da 3 milioni",
+          "summary": "Alessia Morani contesta come siano passati i controlli preventivi sull'acquisto dell'ex convento da parte di Erdis per 3 milioni, prezzo che per gli inquirenti sarebbe superiore al valore reale. La Dda indaga su ipotesi di corruzione che coinvolgono l'ex capo di gabinetto di Acquaroli, Pistarelli, che le contesta e presenterà una memoria. Il commissario Castelli, non indagato, dice di aver agito su richiesta di Erdis. Vale la presunzione di innocenza.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/05/corruzione-sulle-ex-monachette-lo-studentato-un-affare-doro-perche-nessuno-ha-controllato/2123471/",
+          "published": "2026-11-05",
+          "tags": [
+            "Studentato",
+            "Appalti"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Uno studentato è un servizio per i giovani universitari: la domanda per un contenuto è come si garantisce che i soldi pubblici per le residenze studentesche vadano al valore reale.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Electrolux, intesa al Mimit: evitata la chiusura immediata di Cerreto d'Esi, ma restano fino a 902 esuberi",
+          "summary": "L'accordo, raggiunto dopo una lunga trattativa al ministero, evita la chiusura immediata dello stabilimento marchigiano e riduce gli esuberi. Restano però fino a 902 licenziamenti complessivi, con uscite volontarie incentivate e ammortizzatori. La capogruppo M5s Ruggeri avverte che uscite incontrollate potrebbero svuotare il sito prima dell'arrivo di un nuovo soggetto industriale.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/05/ruggeri-m5s-bene-accordo-electrolux-ma-attenzione-a-uscite-volontarie_92b33540-39b3-4e72-87a4-7126c2be29a1.html",
+          "published": "2026-11-05",
+          "tags": [
+            "Electrolux",
+            "Industria"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Il rischio è che gli esperti più qualificati vadano via prima che arrivi un piano industriale. Domanda per i social: quale politica industriale tiene i giovani nel territorio?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Scuola, la Uil Marche: a rischio 400 posti con i tagli di organico; lunedì la riunione sul dimensionamento",
+          "summary": "La Uil Scuola e la Uil Marche denunciano che circa 400 posti nella scuola marchigiana sono a rischio per i tagli previsti dalla manovra 2027, soprattutto nelle aree interne e montane. Lunedì 9 novembre è prevista una riunione sulla programmazione della rete scolastica 2027/28, in cui i sindacati chiederanno di considerare le specificità territoriali.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/05/allarme-uil-marche-sulla-scuola-a-rischio-400-posti-di-lavoro_b2f79ab9-ed98-4119-baf0-a6a03068bbee.html",
+          "published": "2026-11-05",
+          "tags": [
+            "Scuola",
+            "Entroterra"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Meno scuole nell'entroterra accelera lo spopolamento. Domanda per un contenuto: come si tengono aperti i servizi per i giovani nelle aree interne con meno studenti?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Forza Italia: confermato per il 2027 il credito d'imposta per le imprese tramite la ZES",
+          "summary": "Il segretario regionale Battistoni e la capogruppo Marcozzi annunciano che il credito d'imposta per le imprese viene rinnovato per il 2027 con il rifinanziamento della Zes, previsto dalla legge di bilancio. Per FI è un risultato importante che dà certezza agli investimenti delle imprese marchigiane. Forza Italia ricorda di aver sostenuto l'estensione della Zes alle Marche dal 2021.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/05/battistoni-marcozzi-fi-confermato-credito-dimposta-per-le-imprese_0ce3428e-c448-468a-a1ba-8490978243af.html",
+          "published": "2026-11-05",
+          "tags": [
+            "Zes",
+            "Imprese"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Il credito d'imposta aiuta se arriva presto e senza burocrazia. Domanda per i social: le imprese marchigiane assumeranno più giovani grazie a questi incentivi?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Consiglio regionale del 10 novembre: sessione europea, dibattito sull'inchiesta, nidi, salute mentale e piano dipendenze",
+          "summary": "Martedì alle 10 l'Aula parte con la sessione europea sul rapporto 2025 (relatori Battistoni e Mastrovincenzo), poi interrogazioni su ambulanze, stazione di Fano, granchio blu e carceri. Al punto 6 il dibattito sulle comunicazioni di Acquaroli per l'inchiesta sulla ricostruzione. In esame anche proposte di legge su nidi d'infanzia e servizio di sollievo per la salute mentale e il Piano regionale sulle dipendenze.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/04/il-consiglio-regionale-delle-marche-si-riunira-martedi-10-novembre_56522822-f4ca-40b2-ad9f-166fe335a691.html",
+          "published": "2026-11-04",
+          "tags": [
+            "Consiglio",
+            "Agenda"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Nidi e salute mentale incidono sulla vita dei giovani. Domanda per un contenuto: quali servizi servono davvero a famiglie e giovani dalla Regione?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ex Monachette, Fiorenzo Principi ascoltato dagli inquirenti: la difesa lo dice «estraneo a condotte illecite»",
+          "summary": "L'avvocato Fiorenzo Principi, tra i 51 indagati della Dda di Ancona, ha risposto alle domande degli inquirenti, che ipotizzano un suo ruolo nel dare una veste giuridica ai pagamenti sull'immobile. I difensori sostengono che abbia solo fatto consulenza e che nessuno degli schemi risulti usato. Sono ipotesi investigative e non risultano pronunce giudiziarie.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/05/fiorenzo-principi-davanti-agli-inquirenti-la-difesa-estraneo-a-condotte-illecite/2123558/",
+          "published": "2026-11-05",
+          "tags": [
+            "Inchiesta",
+            "Garanzie"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Garantismo e trasparenza possono stare insieme: la domanda per un contenuto è come si informa il pubblico senza processi mediatici.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
