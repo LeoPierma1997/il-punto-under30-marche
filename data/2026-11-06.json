@@ -336,5 +336,7 @@
         }
       ]
     }
-  ]
+  ],
+  "audio": "audio/2026-11-06.mp3",
+  "audio_engine": "microsoft"
 }
