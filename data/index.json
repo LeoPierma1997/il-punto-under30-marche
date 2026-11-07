@@ -1,6 +1,10 @@
 {
   "editions": [
     {
+      "date": "2026-11-07",
+      "label": "Sabato 7 novembre 2026"
+    },
+    {
       "date": "2026-11-06",
       "label": "Venerdì 6 novembre 2026"
     },

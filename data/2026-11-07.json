@@ -1,0 +1,365 @@
+{
+  "date": "2026-11-07",
+  "label": "Sabato 7 novembre 2026",
+  "intro": "Trump riceve l'inviato di Putin e parla di accordo vicino sull'Ucraina, mentre sull'Iran valuta tre opzioni. In Italia scontro sulla nomina leghista all'Anac e nuovo rinvio del decreto bollette; nelle Marche martedì 10 il Consiglio regionale e il Riesame sull'inchiesta ricostruzione.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Ucraina, Trump riceve l'inviato di Putin Dmitriev: «Vicini a un accordo» che coinvolgerebbe anche l'Europa",
+          "summary": "Il 5 novembre Trump ha incontrato alla Casa Bianca Kirill Dmitriev, inviato speciale di Putin, e ha detto di ritenere l'intesa tra Russia e Ucraina molto vicina, con un accordo che riguarderebbe anche l'Europa; non ha però reso noti dettagli né ha visto la delegazione ucraina. Lo stesso giorno Melania Trump ha ospitato funzionari russi e ucraini, sulla scia della tregua locale di Oleshky (27 ottobre-1 novembre), che ha permesso di evacuare circa 800 civili. Al Jazeera ricorda che Trump aveva già annunciato in passato accordi imminenti.",
+          "source": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/11/6/trump-met-russian-envoy-after-he-appeared-with-melania-trump-and-ukrainians",
+          "published": "2026-11-06",
+          "tags": [
+            "Ucraina",
+            "Diplomazia"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Un accordo che «riguarda tutta l'Europa» non può essere scritto senza l'Europa e senza Kyiv: spunto per un contenuto sulla necessità di una voce e di una difesa comuni europee. Calenda ha sostenuto in questi giorni che, finché Trump è, nelle sue parole, «un asset di Putin a tutti gli effetti», lo stallo non si sblocca.",
+            "refs": [
+              {
+                "label": "Calenda ad Agenzia Vista – Libero Quotidiano, 6 novembre 2026",
+                "url": "https://www.liberoquotidiano.it/news/video-news-by-vista/49539147/calenda-trump-e-un-asset-di-putin-a-tutti-gli-effetti-cosi-la-situazione-in-ucraina-non-si-sblocca/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Iran e Hormuz, Trump valuta tre opzioni: nuovi attacchi, pressione economica o accordo",
+          "summary": "Secondo Axios, ripreso dall'ANSA, dopo la riunione con i consiglieri per la sicurezza nazionale del 5 novembre Trump non ha ancora deciso tra ripresa dei raid, prosecuzione della pressione economica o un'intesa con concessioni a Teheran. Intanto il Qatar lavorerebbe a una bozza in due giorni: prima revoca del blocco navale, sblocco di parte dei fondi congelati e invito all'Aiea; poi riapertura di Hormuz e ripresa dei colloqui sul nucleare. La bozza è in discussione, non un accordo raggiunto.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/mondo/mediooriente/2026/11/06/media-trump-ha-incontrato-team-sicurezza-nazionale-3-opzioni-su-iran_f8ff13ee-6679-44f6-9d67-047f78255450.html",
+          "published": "2026-11-06",
+          "tags": [
+            "Iran",
+            "Energia"
+          ],
+          "icon": "bolt",
+          "spunto": {
+            "text": "Hormuz non è lontano dalle bollette degli italiani: ogni escalation si scarica su prezzi dell'energia e inflazione. Domanda per i social: quanto conta l'Europa quando le scelte decisive sul Golfo si prendono a Washington, e cosa servirebbe per una politica estera ed energetica comune?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Bilancio Ue 2028-2034, Bonaccini: «Inaccettabili i tagli alla Pac»",
+          "summary": "L'eurodeputato Bonaccini, relatore per la commissione Agricoltura del Parlamento europeo, giudica inaccettabile la proposta della Commissione sul prossimo bilancio pluriennale: il taglio del 20% alla nuova Pac varrebbe circa 9 miliardi per l'Italia. Propone di indicizzare i fondi all'inflazione (ipotesi 2,5%) e un nuovo pilastro di gestione del rischio con 1,8 miliardi pubblici. Secondo lui la posizione è passata in commissione con circa l'80% dei voti favorevoli e i Socialisti avvertono che potrebbero non sostenere il bilancio senza modifiche.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/06/intervista-bonaccini-inaccettabili-tagli-pac/",
+          "published": "2026-11-06",
+          "tags": [
+            "Bilancio Ue",
+            "Agricoltura"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Il bilancio Ue deve scegliere tra difesa, competitività e agricoltura: domanda per i social su come si finanziano le priorità senza lasciare indietro le imprese agricole, anche in una regione come le Marche con un forte entroterra rurale.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Allargamento, l'Ue chiude altri due capitoli con il Montenegro: sono 23 su 33",
+          "summary": "Il 6 novembre, alla trentesima conferenza intergovernativa a Bruxelles, sono stati chiusi provvisoriamente i capitoli sulla libera circolazione delle merci e sulla sicurezza alimentare e veterinaria. Il Montenegro, candidato più avanti, arriva a 23 capitoli chiusi sui 33. La Commissione indica che il trattato di adesione potrebbe essere firmato già a giugno 2027 se proseguiranno le riforme; serviranno poi le ratifiche di tutti gli Stati membri. La presidenza irlandese parla dell'allargamento come di una necessità geopolitica.",
+          "source": "ANSA Nuova Europa",
+          "url": "https://www.ansa.it/nuova_europa/it/notizie/rubriche/altrenews/2026/11/06/lue-chiude-altri-due-capitoli-negoziali-di-adesione-del-montenegro_b62f4c0a-6aaa-448f-a65e-576460bea3a5.html",
+          "published": "2026-11-06",
+          "tags": [
+            "Allargamento",
+            "Balcani"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "L'allargamento è una questione di sicurezza oltre che di mercato: domanda per i social su come l'Ue possa accogliere nuovi Paesi mantenendo regole e capacità di decidere, e cosa significhi per i giovani europei un'Unione più ampia.",
+            "refs": []
+          }
+        },
+        {
+          "title": "COP31, l'Ue punta sull'attuazione: stop ai fossili, rinnovabili triplicate, ma niente nuovi impegni finanziari",
+          "summary": "La COP31 si terrà ad Antalya, in Turchia, dal 9 al 20 novembre. Secondo Eunews l'Ue vuole una conferenza «dell'attuazione» più che della rivoluzione: accelerare l'uscita dai fossili, triplicare le rinnovabili e raddoppiare l'efficienza energetica. Sostiene il triplicamento dei fondi per l'adattamento entro il 2035 ma non intende assumere impegni economici nuovi oltre l'intesa di Baku, e considera probabile un superamento temporaneo della soglia di 1,5 gradi.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/06/ue-cop31-obiettivi-climatici-fossili/",
+          "published": "2026-11-06",
+          "tags": [
+            "Clima",
+            "COP31"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Transizione e costo dell'energia vanno insieme: domanda per i social su come tenere obiettivi climatici credibili senza scaricare i costi su famiglie e imprese, e che ruolo possa avere il nucleare o altre fonti nel mix europeo.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Anac, il governo indica il leghista Altieri alla presidenza; le opposizioni chiedono di ritirare la nomina",
+          "summary": "Il Consiglio dei ministri ha avviato la procedura per nominare Trifone (Nuccio) Altieri, esponente della Lega, alla guida dell'Autorità anticorruzione, su proposta del ministro Zangrillo; secondo fonti leghiste Salvini ottiene anche Giulio Centemero alla Consob. Pd e M5s parlano di occupazione politica e di controllore messo sotto tutela, mentre Meloni ha risposto che la scelta rientra nelle competenze del governo. Un decreto proroga di 45 giorni il mandato del presidente uscente Busia.",
+          "source": "LaPresse",
+          "url": "https://www.lapresse.it/politica/2026/11/06/anac-il-cdm-nomina-il-leghista-altieri-nuovo-presidente-opposizioni-allattacco/",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://ansa.it/sito/notizie/politica/2026/11/06/opposizioni-allattacco-su-altieri-allanac-meloni-era-nelle-nostre-competenze_213db7a9-2dd1-48af-8305-c65f12fa1116.html"
+            }
+          ],
+          "published": "2026-11-06",
+          "tags": [
+            "Anac",
+            "Nomine"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Chi vigila su appalti e trasparenza deve essere, e sembrare, indipendente dalla politica che controlla. Calenda ha commentato la scelta su X con parole nette («Oltre la lottizzazione. Ma molto oltre. Che vergogna»): spunto per un contenuto su legalità nella pubblica amministrazione e autorità indipendenti.",
+            "refs": [
+              {
+                "label": "Calenda su X, ripreso da LaPresse, 6 novembre 2026",
+                "url": "https://www.lapresse.it/politica/2026/11/06/anac-il-cdm-nomina-il-leghista-altieri-nuovo-presidente-opposizioni-allattacco/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Manovra, Salvini schiera Gusmeroli come relatore e rilancia l'uscita a 64 anni; aperta la partita sulla rivalutazione delle pensioni",
+          "summary": "La Lega ha indicato Alberto Gusmeroli come relatore in commissione Bilancio alla Camera: Pd, Azione e M5s parlano di operazione anomala. Un fondo da 850 milioni l'anno serve per l'uscita a 64 anni senza penalizzazioni, che Salvini vuole stabilizzare, mentre FdI e Forza Italia valutano tagli alla rivalutazione degli assegni, che per la Uilp varrebbero tra 145 e 1.300 euro l'anno. Audizioni dal 9 novembre (Giorgetti il 12), emendamenti entro il 17.",
+          "source": "Adnkronos",
+          "url": "https://www.adnkronos.com/economia/manovra-2027-gusmeroli-salvini-scontro-pensioni-64-anni_32m8FRvr3rEeF9c6NvV5Uu",
+          "published": "2026-11-05",
+          "tags": [
+            "Manovra",
+            "Pensioni"
+          ],
+          "icon": "hourglass",
+          "spunto": {
+            "text": "Pensioni anticipate per alcuni e tagli alla rivalutazione per altri: per i giovani il conto lo paga chi lavora oggi. Calenda ha criticato la manovra come fatta di «interventi a pioggia» e ha rivendicato la richiesta di un patto generazionale: spunto per un contenuto sull'equità tra generazioni.",
+            "refs": [
+              {
+                "label": "Calenda ad Agenzia Vista – Libero Quotidiano, 3 novembre 2026",
+                "url": "https://www.liberoquotidiano.it/news/video-news-by-vista/49523046/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente/"
+              },
+              {
+                "label": "Calenda in tv sulla manovra, ripreso da Il Riformista, 30 ottobre 2026",
+                "url": "https://www.ilriformista.it/manovra-la-critica-del-campo-largo-e-laccusa-di-marchette-elettorali-calenda-voleva-un-patto-generazionale-536369/"
+              },
+              {
+                "label": "Bonetti (Azione) sul relatore Gusmeroli – Adnkronos, 5 novembre 2026",
+                "url": "https://www.adnkronos.com/economia/manovra-2027-gusmeroli-salvini-scontro-pensioni-64-anni_32m8FRvr3rEeF9c6NvV5Uu"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Decreto bollette, slitta ancora l'esame in Cdm: serve «ulteriore interlocuzione» con l'Ue",
+          "summary": "Il Consiglio dei ministri del 5 novembre ha rinviato il decreto che introduce un tetto al prezzo del gas per ridurre i costi di luce e gas. Palazzo Chigi parla di confronto con l'Ue e verifiche del Mef; secondo l'ANSA la Ragioneria ha chiesto chiarimenti sui tempi di risorse e utilizzo. In manovra si chiede alle società energetiche un contributo di 700 milioni; il via libera potrebbe arrivare lunedì 9 insieme a un decreto Infrastrutture. Orsini (Confindustria) lo definisce «un primo passo».",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/05/in-cdm-slitta-ancora-lapprovazione-del-decreto-bollette_8d67ddb9-4bd5-4ec2-bcd1-c3d360b2e537.html",
+          "also": [
+            {
+              "source": "Prima Pagina News",
+              "url": "https://www.primapaginanews.it/adi-news/dl-bollette-il-consiglio-dei-ministri-rinvia-lesame-per-un-nuovo-confronto-con-lue-19619/"
+            }
+          ],
+          "published": "2026-11-06",
+          "tags": [
+            "Energia",
+            "Bollette"
+          ],
+          "icon": "bolt",
+          "spunto": {
+            "text": "Famiglie e imprese aspettano mentre il governo rimanda. Calenda ha invitato le opposizioni a non attaccare l'esecutivo su questo decreto ma ad aiutarlo: spunto per un contenuto su un'opposizione che giudica nel merito, chiedendo però tempi certi.",
+            "refs": [
+              {
+                "label": "Calenda a San Marino RTV – 6 novembre 2026",
+                "url": "https://www.sanmarinortv.sm/news/italia-c7/slitta-il-decreto-bollette-calenda-azione-l-opposizione-non-sbraiti-su-questo-piuttosto-aiuti-il-governo-a298159"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Manovra, sindacati convocati a Palazzo Chigi il 13 novembre; scuola e polizia in protesta, Regioni chiedono 6,5 miliardi per la sanità",
+          "summary": "Il governo ha convocato i sindacati il 13 novembre. I sindacati della scuola hanno in programma un sit-in l'11 e uno sciopero Flc Cgil il 20, mentre il Siulp rivendica una previdenza dedicata alla polizia. Le Regioni chiedono 6,5 miliardi aggiuntivi per la sanità nel 2027 contro i 2,4 previsti. Secondo l'Osservatorio Milex la spesa militare supererebbe per la prima volta i 40 miliardi, e le opposizioni contestano le priorità.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/05/manovra-sotto-attacco.-in-piazza-i-sindacati-della-scuola-anche-la-polizia-pronta_7136b486-1b4a-422b-b16f-d6d38f61c9b5.html",
+          "published": "2026-11-05",
+          "tags": [
+            "Manovra",
+            "Sindacati"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Tutti chiedono più risorse e le risorse sono poche: domanda per i social su quali priorità finanziare per prime tra sanità, scuola, difesa e giovani, e con quali coperture.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Liste d'attesa, Schillaci alla Camera: due milioni di prestazioni in più nei primi nove mesi; mammografia estesa a 45-74 anni",
+          "summary": "Rispondendo il 4 novembre a un'interrogazione, il ministro della Salute ha detto che nei primi nove mesi del 2026 sono state erogate circa due milioni di prestazioni in più rispetto al 2025, monitorate dalla piattaforma Agenas. Lo screening mammografico è stato esteso alla fascia 45-49 anni e fino a 74, con 240 milioni l'anno per i programmi di prevenzione. Schillaci difende anche il ricorso al privato accreditato dove il pubblico è in difficoltà.",
+          "source": "Quotidiano Sanità",
+          "url": "https://www.quotidianosanita.it/governo-e-parlamento/liste-dattesa-schillaci-due-milioni-di-prestazioni-in-piu-nei-primi-9-mesi-del-2026-e-screening-mammografico-esteso-dai-45-ai-49-anni/",
+          "published": "2026-11-04",
+          "tags": [
+            "Sanità",
+            "Liste d'attesa"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Contano le prestazioni erogate o i tempi reali di attesa? Domanda per i social: come misurare se un giovane riesce davvero a prenotare una visita in tempi ragionevoli, e quale ruolo debba avere il privato accreditato.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta ricostruzione, le opposizioni presentano dieci interrogazioni ad Acquaroli per il question time del 10 novembre",
+          "summary": "Pd, M5s, Avs, Lista Ricci e Progetto Marche chiedono chiarimenti su tempi e motivi della rimozione dell'ex capo di gabinetto Pistarelli (a metà dicembre 2025), sui controlli su cantieri e appalti, anche degli ospedali, e sui rapporti con il commissario Castelli; una undicesima interrogazione, di Cesetti (Pd), riguarda l'autorevolezza del presidente. Acquaroli non è indagato. La maggioranza ha respinto l'informativa e propone un dibattito sulle parole di Muccia e una mozione FdI per un tavolo sulla legalità. Le accuse nell'inchiesta restano ipotesi da accertare.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/06/inchiesta-dda-in-consiglio-regionale-undici-interrogazioni-ad-acquaroli-troppi-punti-dombra/2123638",
+          "also": [
+            {
+              "source": "ANSA Marche",
+              "url": "https://www.ansa.it/marche/notizie/2026/11/06/inchiesta-sisma-dieci-interrogazioni-della-minoranza-ad-acquaroli_cc0b3d69-66fa-48f3-96f4-75d98b611ffb.html"
+            }
+          ],
+          "published": "2026-11-06",
+          "tags": [
+            "Consiglio regionale",
+            "Ricostruzione"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Trasparenza e responsabilità politica non coincidono con la responsabilità penale. Domanda per i social: quali controlli e quali verifiche sui cantieri pubblici servono perché la ricostruzione torni a essere credibile per i cittadini?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta sisma, il 10 novembre il Riesame per Pistarelli, Crucianelli e Cervigni",
+          "summary": "Il Tribunale del Riesame di Ancona ha fissato per martedì 10 novembre le udienze sulle richieste di revoca della custodia in carcere per l'ex capo di gabinetto regionale Fabio Pistarelli, l'imprenditore Enrico Crucianelli (Rest Edile) e Antonio Cervigni. L'inchiesta della Dda coinvolge 51 indagati, con otto misure cautelari e sequestri per 57 milioni. Le accuse (corruzione, turbativa d'asta, truffa, associazione per delinquere) sono ipotesi non accertate; per Crucianelli il gip non ha riconosciuto l'aggravante mafiosa.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/06/inchiesta-sisma-il-10-novembre-udienze-di-riesame-per-pistarelli-e-crucianelli_44097882-079b-4b4f-a96f-bb098f08d107.html",
+          "published": "2026-11-06",
+          "tags": [
+            "Giustizia",
+            "Inchiesta sisma"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Presunzione di innocenza e piena trasparenza sulle responsabilità politiche possono stare insieme. Domanda per i social: come si evita che i tempi della giustizia e quelli della politica scarichino i costi su lavoratori e territori colpiti dal sisma?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Rest Edile, rassicurazioni ai 200 dipendenti: stipendi di ottobre entro il 15 novembre e tavolo sui subappalti",
+          "summary": "Nell'incontro del 6 novembre a Tolentino l'amministratore unico Luca Mira, subentrato dopo l'arresto di Enrico Crucianelli, ha confermato ai sindacati che gli stipendi di ottobre saranno pagati entro il 15 novembre, che l'azienda è solvibile e che sarà istituito un tavolo di monitoraggio sui pagamenti alle ditte in subappalto. Restano le preoccupazioni per circa 1.500 lavoratori dei subappalti e per una cinquantina di dipendenti Edilnova senza stipendio. Lunedì è previsto il vertice in prefettura.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/06/crucianelli-sollievo-per-200-operai-temevamo-che-chiudesse-ora-siamo-piu-sereni-i-video/2123774",
+          "published": "2026-11-06",
+          "tags": [
+            "Lavoro",
+            "Ricostruzione"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Garantire gli stipendi e insieme i controlli antimafia: i lavoratori non devono pagare le colpe di altri. Domanda per i social: come rendere più trasparente e tracciabile la catena dei subappalti nei cantieri pubblici?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Porto di Ancona, il presidente di Assoporti in visita: piano triennale da oltre 308 milioni, quasi 218 per le Marche",
+          "summary": "Il presidente di Assoporti Roberto Petri è stato accolto dal presidente dell'Autorità portuale Mirco Carloni, con un sopralluogo ai cantieri delle banchine 23 e 27. Il Piano operativo triennale prevede oltre 308 milioni, di cui quasi 218 nelle Marche, per dragaggi, cantieristica Fincantieri, arretramento del Molo Nord, riqualificazione del Porto Storico e ammodernamento dei terminal. Petri ha chiesto investimenti in tempi certi, superando gli ostacoli amministrativi e semplificando le procedure nel rispetto di legalità e trasparenza.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/06/il-presidente-assoporti-petri-in-visita-ad-ancona-focus-sullo-sviluppo-dello-scalo_f8001116-3bcf-40d0-b26e-a6942c08cbfe.html",
+          "published": "2026-11-06",
+          "tags": [
+            "Infrastrutture",
+            "Porto"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Il porto è una leva di lavoro e di industria per le Marche, ma servono tempi certi. Domanda per i social: come velocizzare le opere pubbliche senza abbassare i controlli su legalità e trasparenza?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Operazione Marche Sicure: 1,2 milioni ai Comuni per videosorveglianza, 37 interventi finanziati",
+          "summary": "La Regione ha approvato le graduatorie dell'Operazione Marche Sicure: 1,2 milioni per telecamere, sale di controllo anche condivise tra più Comuni e sistemi di rilevazione automatica di anomalie, con intelligenza artificiale dove prevista. Gli interventi finanziati sono 37, 19 nel cratere del sisma e 18 fuori; tutte le domande regolari sono state ammesse e le prefetture hanno contribuito alla valutazione. I beneficiari possono chiedere un anticipo del 50% tramite Sigef.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/06/operazione-marche-sicure-dalla-regione-12-milioni-per-la-sicurezza_bccd93b3-128c-4f0d-9eea-8de76b9d82d8.html",
+          "also": [
+            {
+              "source": "Cronache Maceratesi",
+              "url": "https://www.cronachemaceratesi.it/2026/11/06/operazione-marche-sicure-sul-piatto-12-milioni-ai-comuni-per-la-videosorveglianza/2123739"
+            }
+          ],
+          "published": "2026-11-06",
+          "tags": [
+            "Sicurezza",
+            "Comuni"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "La videosorveglianza è uno strumento, non una strategia. Domanda per i social: quanto incide sulla sicurezza reale rispetto a presidio, illuminazione e servizi, e come si tutelano privacy e uso dei dati quando entra l'intelligenza artificiale?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Fermo, corteo di studenti: «Stanchi di non essere ascoltati», chiesto un tavolo permanente",
+          "summary": "Il 6 novembre gli studenti sono sfilati dal Terminal bus alla sede della Provincia. Tra i temi nazionali, il costo di energia e carburanti e i tagli alla scuola; tra quelli locali, costo e servizi del trasporto pubblico e condizioni degli istituti. La Rete degli Studenti Medi chiede un tavolo permanente con Provincia, Comune e rappresentanti degli studenti. Sinistra Italiana-Avs sostiene la protesta e cita l'esempio umbro, dove secondo il partito il trasporto pubblico costa 70 euro l'anno.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/06/stanchi-di-non-essere-ascoltati-corteo-di-studenti-a-fermo_63c9fb8d-6f76-456a-bb03-ac41cddf6833.html",
+          "published": "2026-11-06",
+          "tags": [
+            "Giovani",
+            "Scuola"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Gli studenti chiedono ascolto su trasporti e scuole: domanda per i social su come costruire un confronto stabile tra istituzioni e giovani e su quali servizi (trasporto, edilizia scolastica) siano prioritari nell'entroterra.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Consiglio regionale del 10 novembre: oltre all'inchiesta, nidi, salute mentale, dipendenze e mozione sul salario minimo di 9 euro",
+          "summary": "Martedì 10 novembre il Consiglio affronta la sessione europea e vota le proposte di legge sui nidi d'infanzia e sul servizio di sollievo per la salute mentale, oltre al piano regionale dipendenze 2026-2028. All'ordine del giorno anche interrogazioni a risposta immediata e le comunicazioni del presidente Acquaroli del 28 ottobre con dibattito. Tra le mozioni, quella per un salario minimo di 9 euro l'ora negli appalti regionali e quella sui ritardi negli esami istologici. Pubblicata il 4 novembre.",
+          "source": "Riviera Oggi",
+          "url": "https://www.rivieraoggi.it/2026/11/04/445622/consiglio-regionale-marche-tutti-i-punti-allordine-del-giorno/",
+          "published": "2026-11-04",
+          "tags": [
+            "Consiglio regionale",
+            "Agenda"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Accanto all'inchiesta, il Consiglio decide su nidi, salute mentale e lavoro negli appalti. Domanda per i social: quali di questi temi cambiano davvero la vita dei giovani marchigiani e delle famiglie?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Electrolux, la sindaca di Fabriano teme lo svuotamento di Cerreto d'Esi: «Non accada come con Beko»",
+          "summary": "Daniela Ghergo, sindaca di Fabriano, esprime preoccupazione per l'intesa sulla vertenza Electrolux raggiunta al Mimit e ancora soggetta al voto dei lavoratori: senza certezze su tempi e impegni economici per la reindustrializzazione, gli incentivi all'esodo potrebbero svuotare lo stabilimento di Cerreto d'Esi. Richiama l'accordo Beko del 14 aprile 2025, rimasto non attuato, e chiede un impegno del Mimit sugli investitori, il ruolo della Zes e un'unità di crisi per l'intero distretto.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/05/sindaca-fabriano-preoccupata-per-electrolux-non-accada-come-con-beko_eef4a598-b9ac-4ef4-a6a9-6db48479661d.html",
+          "published": "2026-11-05",
+          "tags": [
+            "Industria",
+            "Lavoro"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Gli accordi valgono se vengono attuati. Domanda per i social: quali strumenti (Zes, incentivi, formazione) servono per dare una prospettiva stabile ai giovani del distretto del bianco, oltre alle uscite volontarie?",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
