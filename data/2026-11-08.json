@@ -1,0 +1,351 @@
+{
+  "date": "2026-11-08",
+  "label": "Domenica 8 novembre 2026",
+  "intro": "Ucraina, delegazioni ad Abu Dhabi il 10 e 11 novembre mentre l'Ue cerca 70 miliardi per Kiev; in Italia Altieri rinuncia all'Anac e la manovra divide sulle pensioni. Nelle Marche si avvicina il Consiglio regionale del 10 novembre con l'inchiesta sul sisma al centro dello scontro politico.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Ucraina, delegazioni ad Abu Dhabi il 10 e 11 novembre; Zelensky: «Nessuna Yalta 2», pronto a incontrare Putin ovunque tranne Mosca",
+          "summary": "Dopo l'incontro alla Casa Bianca con l'inviato di Putin Dmitriev, Trump parla di progressi e di un'intesa che coinvolgerebbe l'Europa. Delegazioni russa e ucraina si vedranno ad Abu Dhabi martedì 10 e mercoledì 11 con mediazione Usa (Witkoff e Kushner); resta aperto il nodo di territori, sanzioni, truppe straniere e controlli sul cessate il fuoco. Zelensky alla Cnn ha escluso una «Yalta 2» e definito «potenzialmente pericolosa» la bozza di garanzie di sicurezza esaminata a Washington. Nella notte nuovo attacco missilistico russo su Kiev; l'Ucraina ha colpito raffinerie e siti militari in territorio russo.",
+          "source": "Tgcom24",
+          "url": "https://www.tgcom24.mediaset.it/mondo/guerra-ucraina-russia-ultime-notizie-7-novembre_118687282-202602k.shtml",
+          "also": [
+            {
+              "source": "Sbircia la Notizia",
+              "url": "https://www.sbircialanotizia.it/articoli/2026/11/07/ucraina-abu-dhabi-452yy/"
+            }
+          ],
+          "published": "2026-11-07",
+          "tags": [
+            "Ucraina",
+            "Negoziati"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Un accordo che riguarda la sicurezza europea non si scrive senza l'Europa e senza Kyiv: spunto per un contenuto sulla necessità di un posto al tavolo e di una difesa comune. Calenda ha detto che Meloni sarebbe «un'ottima mediatrice europea in Ucraina», mentre il senatore Lombardo ha indicato come contraddizione della maggioranza la linea di Salvini sullo stop agli aiuti a Kyiv.",
+            "refs": [
+              {
+                "label": "Calenda a Il Foglio (settimana del 24-30 ottobre, riportato) – Il Foglio, 31 ottobre 2026",
+                "url": "https://www.ilfoglio.it/politica/2026/10/31/news/le-armi-di-meloni-vuole-approvare-il-pacchetto-per-kyiv-lontani-dalle-urne-anche-per-tentare-i-centristi--412310"
+              },
+              {
+                "label": "Lombardo (senatore Azione) – Il Foglio, 31 ottobre 2026",
+                "url": "https://www.ilfoglio.it/politica/2026/10/31/news/le-linee-rosse-di-azione-su-forza-italia--412251"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Ucraina, 70 miliardi in più per il 2027: Costa propone 46,7 miliardi a carico dell'Ue, frenano Ungheria, Slovacchia, Cechia e Bulgaria",
+          "summary": "L'Ue dovrà trovare circa 70 miliardi aggiuntivi per Kiev nel 2027; il presidente del Consiglio europeo Costa ha ipotizzato che l'Unione ne copra due terzi (46,7 miliardi), il resto da altri partner. Secondo indiscrezioni riportate da Agenparl, quattro Paesi sarebbero contrari a nuovi obblighi finanziari e il Belgio ha dubbi sull'uso degli asset russi congelati. Il passaggio chiave è il Consiglio europeo del 26-27 novembre, dove si potrebbe ripiegare su una partecipazione differenziata. Si tratta di una proposta negoziale, non di una decisione.",
+          "source": "Agenparl",
+          "url": "https://agenparl.eu/2026/11/05/ucraina-prestito-ue-70-miliardi-paesi-contrari/",
+          "published": "2026-11-05",
+          "tags": [
+            "Ue",
+            "Bilancio"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Se i Paesi disposti a sostenere Kyiv vanno avanti da soli, l'Europa è davvero un'unione o un club a geometria variabile? Domanda per un contenuto sul costo di non decidere insieme: il voto all'unanimità frena proprio quando serve rapidità.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Israele, Herzog sceglie il candidato premier: 67 deputati per Eisenkot, 46 per Netanyahu",
+          "summary": "Dopo le consultazioni, 67 dei 120 deputati della Knesset hanno indicato l'ex capo di stato maggiore Gadi Eisenkot e 46 Benjamin Netanyahu; gli ultraortodossi di Torah Unita non hanno indicato nessuno. Il presidente Herzog ha detto che nominerà il candidato entro domenica 8 novembre, dopo colloqui con i leader. Chi riceve l'incarico ha 28 giorni (prorogabili di 14) per formare il governo; Eisenkot ha escluso di governare con i partiti arabi. Netanyahu resta premier in carica fino alla formazione di un nuovo esecutivo o a nuove elezioni.",
+          "source": "Al Jazeera",
+          "url": "https://aljazeera.com/news/2026/11/6/israels-herzog-to-name-a-candidate-to-form-government-on-sunday",
+          "published": "2026-11-06",
+          "tags": [
+            "Israele",
+            "Elezioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Un'investitura senza maggioranza politica chiara mostra la fragilità dei sistemi proporzionali senza correttivi. Domanda per i social: quali regole servono perché il voto produca governi stabili e non coalizioni di veti incrociati?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Iran, Trump: gli Usa «potrebbero essere un occupante»; Teheran: Hormuz chiuso finché non saranno accolte le sue condizioni",
+          "summary": "Parlando ai giornalisti in Florida, Trump ha detto che gli Stati Uniti potrebbero essere «un occupante» in Iran, sostenendo di controllare lo Stretto di Hormuz; ha ammesso raid limitati su un sito di difesa aerea a Qeshm e ha minimizzato il conflitto, ormai al nono mese. L'Iran respinge questa versione e parla di controllo strategico dello Stretto. Al Jazeera ricorda (4 novembre) che il Qatar continua a mediare indirettamente, che Teheran giudica «non convincente» la risposta Usa alle sue sette condizioni e che le incursioni contro le petroliere non sono state verificate in modo indipendente.",
+          "source": "Sardegnagol",
+          "url": "https://www.sardegnagol.eu/trump-gli-usa-potrebbero-essere-un-occupante-in-iran/",
+          "also": [
+            {
+              "source": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/2026/11/4/iran-says-us-reply-to-hormuz-plan-unconvincing-trump-confirms-strikes"
+            }
+          ],
+          "published": "2026-11-07",
+          "tags": [
+            "Iran",
+            "Energia"
+          ],
+          "icon": "bolt",
+          "spunto": {
+            "text": "La crisi di Hormuz pesa su bollette e inflazione italiane ed europee: spunto per ricordare che la sicurezza energetica non si garantisce con la diplomazia degli altri ma con diversificazione e investimenti comuni. Domanda: quante crisi servono prima di decidere davvero un mercato europeo dell'energia?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Allargamento Ue, la Commissione indica il 2028 come traguardo per Ucraina e Moldova; Montenegro a 21 capitoli chiusi",
+          "summary": "Il 4 novembre la Commissione ha adottato il pacchetto allargamento 2026 con tabelle di marcia indicative. Per l'Ucraina, che ha aperto quattro cluster in un anno, l'obiettivo è chiudere i negoziati entro fine 2028 e Bruxelles ritiene soddisfatte le condizioni per aprire tutti i cluster rimanenti; per la Moldova l'obiettivo è inizio 2028; il Montenegro potrebbe chiudere i capitoli rimasti entro fine 2026 se gli Stati membri sono d'accordo. L'Albania ha aperto l'ultimo cluster. Le tappe dovranno ora essere esaminate dal Consiglio.",
+          "source": "AgenSIR",
+          "url": "https://www.agensir.it/quotidiano/2026/11/4/commissione-ue-pacchetto-allargamento-passi-avanti-verso-ladesione-da-parte-di-montenegro-albania-moldavia-e-ucraina/",
+          "published": "2026-11-04",
+          "tags": [
+            "Allargamento",
+            "Ue"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "L'allargamento è la risposta più concreta alla sicurezza del continente, ma richiede un'Unione capace di decidere: spunto per sostenere insieme allargamento e riforma dei Trattati, con il superamento dei veti. Nessuna posizione recente di Azione specifica su questo pacchetto: resta una domanda per il pubblico.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Anac, Altieri rinuncia alla presidenza dopo le critiche sull'incompatibilità con gli incarichi nella Lega",
+          "summary": "Designato dal Consiglio dei ministri il 5 novembre, Trifone Altieri è stato contestato perché il decreto 150/2009 esclude per la presidenza chi ha ricoperto cariche di partito nei tre anni precedenti: dal settembre 2024 era responsabile Difesa della Lega. Le opposizioni avevano scritto a Meloni chiedendo il ritiro; Conte sottolineava che servono i due terzi nelle commissioni parlamentari. Nella serata del 6 novembre Altieri ha rinunciato, secondo quanto riferito dalle testate; per il Fatto era in discussione anche il rapporto con società come Leonardo e Fincantieri Infrastructure.",
+          "source": "Il Fatto Quotidiano",
+          "url": "https://www.ilfattoquotidiano.it/2026/11/06/anac-altieri-incompatibile-lega-notizie/8563505/",
+          "also": [
+            {
+              "source": "Metrotoday",
+              "url": "https://metrotoday.it/allarmi-nei-cieli-europei-e-governo-metrozibaldonedel-7-novembre"
+            }
+          ],
+          "published": "2026-11-06",
+          "tags": [
+            "Anac",
+            "Legalità"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Un'autorità anticorruzione deve essere e apparire indipendente dai partiti, e la rinuncia non cancella il metodo: la domanda è come si scelgono i vertici delle autorità di garanzia. Spunto per chiedere criteri trasparenti e competenze verificabili, non appartenenze.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Caso Almasri, la Consulta: la Procura di Roma può procedere contro Bartolozzi per false dichiarazioni",
+          "summary": "La Corte costituzionale ha accolto solo in parte il conflitto di attribuzione sollevato dalla Camera: ha escluso che per procedere contro Giusi Bartolozzi, ex capo di gabinetto di Nordio, serva l'autorizzazione parlamentare prevista per i reati ministeriali. Ha invece ritenuto che il Tribunale dei ministri dovesse motivare perché non la considerava concorrente nei reati attribuiti al ministro. Le Procure possono quindi proseguire sull'ipotesi di false informazioni ai pm; è una fase iniziale e vale la presunzione di innocenza.",
+          "source": "Domani",
+          "url": "https://www.editorialedomani.it/politica/italia/bartolozzi-consulta-ricorso-parzialmente-ammissibile-camera-roma-procura-go9f5je1",
+          "also": [
+            {
+              "source": "Metrotoday",
+              "url": "https://metrotoday.it/allarmi-nei-cieli-europei-e-governo-metrozibaldonedel-7-novembre"
+            }
+          ],
+          "published": "2026-11-06",
+          "tags": [
+            "Giustizia",
+            "Almasri"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Spunto di domanda: in uno Stato di diritto il potere politico può scegliere da solo quando i propri collaboratori sono processabili? Un contenuto sul rispetto delle decisioni delle corti, senza processi sommari e nel rispetto della presunzione di innocenza.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Manovra, pensioni: la Lega difende quota 64, Bertolaso contrario; Forza Italia propone una previdenza speciale per la Difesa (48 milioni l'anno)",
+          "summary": "Sulla manovra la Lega insiste per mantenere l'uscita a 64 anni; l'assessore al Welfare lombardo Bertolaso si dice contrario e suggerisce di destinare quelle risorse agli ospedali. Forza Italia lavora a una misura previdenziale per il comparto difesa, stimata in 48 milioni l'anno, con la Ragioneria al lavoro su una soluzione; Fratelli d'Italia sarebbe meno aperta a un cambio di rotta. Il governo ha convocato i sindacati a Palazzo Chigi il 13 novembre.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/05/manovra-sotto-attacco.-in-piazza-i-sindacati-della-scuola-anche-la-polizia-pronta_7136b486-1b4a-422b-b16f-d6d38f61c9b5.html",
+          "published": "2026-11-05",
+          "tags": [
+            "Pensioni",
+            "Manovra"
+          ],
+          "icon": "hourglass",
+          "spunto": {
+            "text": "Una manovra che tratta le pensioni come merce di scambio tra categorie e partiti ignora chi oggi ha meno di 30 anni e pagherà il conto: spunto per un contenuto sull'equità generazionale e sulla sostenibilità del sistema contributivo. Domanda: chi parla dei giovani nel confronto del 13 novembre?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Manovra, Regioni chiedono 6,5 miliardi per la sanità, la manovra ne prevede 2,4; spesa militare oltre i 40 miliardi (Milex)",
+          "summary": "Le Regioni hanno chiesto 6,5 miliardi aggiuntivi per la sanità 2027; il testo ne prevede 2,4 oltre a un miliardo già previsto, e il governatore del Lazio Rocca parla di risorse risicate. Secondo Milex la spesa militare supererebbe per la prima volta i 40 miliardi, con 17,2 miliardi per gli armamenti. Opposizioni (Bonelli, Schlein, Conte) criticano la priorità data alle armi rispetto alla salute; Forza Italia propone inoltre di restringere l'exit tax ai soli capital gain maturati in Italia. Sulle scuole, mobilitazione l'11 novembre e sciopero Flc Cgil il 20.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/05/manovra-sotto-attacco.-in-piazza-i-sindacati-della-scuola-anche-la-polizia-pronta_7136b486-1b4a-422b-b16f-d6d38f61c9b5.html",
+          "published": "2026-11-05",
+          "tags": [
+            "Sanità",
+            "Manovra"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Liste d'attesa e personale non si risolvono a colpi di annunci: serve certezza di risorse e capacità di spesa, e un confronto serio su difesa e sanità senza contrapporle in modo ideologico. Domanda: quali sono le priorità per chi ha meno di 30 anni, che deve curarsi e vuole lavorare nella sanità pubblica?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Tajani nel mirino dei filorussi: sul dark web un «tribunale» contro di lui; Meloni: solidarietà, la Farnesina porta il caso al G7 di Parigi",
+          "summary": "Un sito sul dark web, attribuito al gruppo filorusso NoName057(16), mette Tajani e altre 17 persone sotto «processo» come «nemici della Federazione Russa», pubblicando dati privati e contatti anche dei familiari. Tajani dice di non farsi intimidire e collega le minacce al sostegno italiano all'Ucraina; la Farnesina ha chiesto alla presidenza G7 di sollevare il tema alla riunione di Parigi del 9-10 novembre. Meloni ha espresso solidarietà e preoccupazione. Secondo Quotidiano.net, tra gli elencati ci sono anche magistrati e vertici della Polizia postale che hanno partecipato all'operazione «Eastwood».",
+          "source": "Quotidiano.net",
+          "url": "https://quotidiano.net/politica/i-mille-volti-della-guerra-ibrida-gli-hacker-mettono-una-taglia-su-tajani-non-mi-faccio-intimidire-sdrkjer4",
+          "published": "2026-11-07",
+          "tags": [
+            "Sicurezza",
+            "Guerra ibrida"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "La guerra ibrida russa colpisce direttamente le istituzioni e i cittadini italiani: spunto per ricordare che difendere l'Ucraina significa anche difendere noi stessi, con più cybersicurezza e coordinamento europeo. Lombardo ha indicato come contraddizione della maggioranza lo stop agli aiuti a Kyiv chiesto da Salvini.",
+            "refs": [
+              {
+                "label": "Lombardo (senatore Azione) – Il Foglio, 31 ottobre 2026",
+                "url": "https://www.ilfoglio.it/politica/2026/10/31/news/le-linee-rosse-di-azione-su-forza-italia--412251"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta sisma, Musumeci ad Arquata: «Adottato ogni provvedimento» contro le infiltrazioni; «le mele marce possono esserci»",
+          "summary": "Il ministro per la Protezione civile Nello Musumeci, ad Arquata del Tronto per i dieci anni dal sisma, ha commentato l'inchiesta sugli appalti della ricostruzione difendendo i controlli: protocolli di legalità, iniziative antimafia e organi di vigilanza. Ha riconosciuto che episodi di corruzione possono verificarsi e che l'obiettivo è individuarli subito e impedire il contagio. Ha insistito sulla prevenzione come priorità e sull'idea di far tornare i giovani dopo un periodo di formazione fuori. Le accuse dell'inchiesta restano ipotesi da accertare.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/06/inchiesta-sisma-musumeci-adottate-le-misure-per-evitare-infiltrazioni_1b01615b-f6b2-4950-8f4a-f9addba2f230.html",
+          "published": "2026-11-06",
+          "tags": [
+            "Ricostruzione",
+            "Legalità"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Dire che i controlli ci sono non basta se un'inchiesta racconta cantieri finiti nel mirino: spunto per un contenuto che chieda trasparenza sulle verifiche, tracciabilità dei flussi e dati pubblici sui cantieri. Le accuse sono ancora da accertare.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Dieci anni dal sisma, Acquaroli: «Un modello istituzionale da continuare», la ricostruzione deve attrarre giovani e imprese",
+          "summary": "Intervenendo ad Arquata del Tronto all'incontro promosso dalle quattro Anci regionali, il presidente Acquaroli ha parlato di un valore istituzionale costruito negli ultimi anni e della vicinanza del governo nazionale come modello da tramandare. Ha detto che la priorità è che la ricostruzione non si limiti a riparare le case ma diventi sviluppo, con infrastrutture e valorizzazione dell'Appennino per contrastare lo spopolamento e attrarre giovani e imprese. Ha attribuito crescente competenza ai Comuni e agli Uffici speciali per la ricostruzione.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/06/sisma-acquaroli-un-modello-istituzionale-per-il-rilancio-dei-territori_20f59675-8203-496e-a128-5b40c5d3672a.html",
+          "published": "2026-11-06",
+          "tags": [
+            "Ricostruzione",
+            "Giovani"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Attrarre giovani nell'entroterra richiede lavoro, servizi e connessioni, non solo case ricostruite. Domanda per i social: quali strumenti concreti (fisco di vantaggio, banda larga, trasporti, scuole) servono perché un under 30 scelga di restare o tornare?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Post sisma, le quattro Anci: «Dalla ricostruzione alla rinascita», fermare lo spopolamento con servizi e lavoro",
+          "summary": "All'incontro «Centro Italia 2016-2026» il presidente di Anci Marche Fioravanti ha detto che ricostruire significa pensare a persone e comunità e ha indicato lo spopolamento come problema da affrontare. Dal Lazio Sinibaldi ha chiesto di aggiungere alla ricostruzione materiale una strategia di sviluppo con servizi e occasioni di lavoro; dall'Umbria Gori ha chiesto investimenti in sanità, scuola, trasporti ed economia e ha detto che il successo si misura nel ritorno di famiglie e giovani. Al convegno hanno partecipato Musumeci, il commissario Castelli e i presidenti di Marche e Abruzzo.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/06/post-sisma-anci-regionali-passare-dalla-ricostruzione-alla-rinascita-dei_79c60596-46c4-45ae-a1ea-8891260f3ccb.html",
+          "published": "2026-11-06",
+          "tags": [
+            "Territorio",
+            "Spopolamento"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Il vero test della ricostruzione è se i ragazzi del cratere restano. Spunto per un contenuto sulle aree interne: scuole, sanità di prossimità, lavoro e connettività come condizioni di cittadinanza.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta sisma, botta e risposta Cesetti-Luconi: «Acquaroli ha ancora l'autorevolezza?» – «Non si strumentalizzino i terremotati»",
+          "summary": "Il consigliere Pd Fabrizio Cesetti ha presentato un'interrogazione a risposta immediata chiedendo se il presidente Acquaroli abbia ancora l'autorevolezza politica e istituzionale per esercitare i suoi poteri: per Cesetti il giudizio politico non può attendere la fine dell'inchiesta. La sottosegretaria Silvia Luconi (FdI) ha risposto che l'opposizione ha lasciato il Consiglio di Muccia prima di sentire il presidente e che chiedere un giudizio sommario prima della sentenza indebolisce le istituzioni. Acquaroli non è indagato; le accuse restano ipotesi da accertare.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/07/inchiesta-sisma-botta-e-risposta-cesetti-luconi-su-responsabilita-politiche_9d625636-a2e6-483d-a151-bab6c7ac11ca.html",
+          "published": "2026-11-07",
+          "tags": [
+            "Consiglio regionale",
+            "Responsabilità"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Responsabilità politica e responsabilità penale non coincidono, ma la trasparenza sì deve essere immediata: spunto per un contenuto sul controllo degli atti, sulla pubblicazione dei verbali di verifica e sul dibattito in Consiglio il 10 novembre, senza processi sommari.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Mafia nelle Marche, FdI propone un tavolo tecnico permanente: voto al Consiglio del 10 novembre",
+          "summary": "Il gruppo di Fratelli d'Italia in Consiglio regionale, primo firmatario Corrado Canafoglia, propone un tavolo permanente con consiglieri di maggioranza e minoranza, forze dell'ordine, prefetture, Camere di commercio, ordini professionali ed esperti per monitorare le infiltrazioni criminali in istituzioni ed economia, oltre il solo caso della ricostruzione. Il tavolo dovrebbe proporre misure su trasparenza e tracciabilità dei flussi, formazione e denuncia di intimidazioni, con una prima relazione al Consiglio entro sei mesi. La maggioranza intende trasformarla in ordine del giorno da votare il 10 novembre.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/04/mozione-fdi-contro-la-mafia-nelle-marche-fenomeno-si-combatte-insieme_cf808239-7ad9-444b-8702-96902de1a058.html",
+          "published": "2026-11-04",
+          "tags": [
+            "Legalità",
+            "Consiglio regionale"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Un tavolo senza poteri né dati pubblici rischia di restare un segnale: domanda per un contenuto sulle misure davvero efficaci (tracciabilità degli appalti, banche dati aperte, controlli antimafia sui subappalti) e sul ruolo delle opposizioni.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Stazione marittima di Ancona, Nobili (Avs) chiede alla Giunta passi e fondi: l'investimento stimato da Rfi è di almeno 30 milioni",
+          "summary": "Il capogruppo Avs Andrea Nobili ha presentato un'interrogazione sulla riattivazione della stazione marittima di Ancona: la Regione l'ha inserita tra le priorità del Def 2026-2028, con ricerca di fondi, progettazione e tavolo con Ministero, Rfi, Comune e Autorità portuale. Rfi studia un tratto ferroviario in galleria vicino a Porta Pia, con costo stimato di almeno 30 milioni; il sindaco Silvetti punta a progetto esecutivo e fondi entro il 2028. Nobili chiede copertura finanziaria, impegni regionali e «tempi certi».",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/03/nobili-avs-regione-spieghi-i-passi-compiuti-per-stazione-marittima-ancona_f7d01032-9e1e-408d-b989-ebe78f409f6a.html",
+          "published": "2026-11-03",
+          "tags": [
+            "Infrastrutture",
+            "Ancona"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Il collegamento ferroviario con il porto è un tema di mobilità e di competitività del territorio: spunto per una domanda sui tempi (2028?) e sulla copertura finanziaria di un'opera che serve anche a pendolari e studenti.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sanità, Regione e sindacati: +9,7 milioni al tetto di spesa per il personale, la Cisl Fp teme assunzioni più negli ospedali che sul territorio",
+          "summary": "Il tetto di spesa per il personale sanitario marchigiano sale di circa 9,7 milioni nel 2026, compresa una quota finale di 2 milioni (1,7 alle cinque Ast, 250mila all'Aou, 50mila all'Inrca) in attesa di approvazione della Giunta. Cisl Fp definisce l'aumento reale ma parziale, pari a circa l'1% del tetto, e teme che parte delle assunzioni sia finita negli ospedali anziché nei servizi territoriali; ha chiesto i dati sulle assunzioni già fatte. Notizia del 14 ottobre, riportata come contesto per la sanità regionale ancora in discussione.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/14/cisl-fp-marche-da-regione-97-milioni-in-piu-per-assunzioni-in-sanita_304f2b2e-fb40-40e8-87ac-9dcdffa727b5.html",
+          "published": "2026-10-14",
+          "tags": [
+            "Sanità",
+            "Personale"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Un aumento dell'1% basta per medici, infermieri e case di comunità? Domanda per i social: quali dati pubblici sulle assunzioni e sulle liste d'attesa servono per verificare se la sanità territoriale sta davvero migliorando, soprattutto per i giovani professionisti.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Osservatorio olivicolo marchigiano: Forza Italia presenta la proposta di legge",
+          "summary": "Forza Italia ha presentato in Consiglio regionale (capogruppo Marcozzi) una proposta di legge per istituire un Osservatorio olivicolo marchigiano. Dovrebbe monitorare il patrimonio olivicolo, raccogliere dati su superfici e produzione, controllare lo stato fitosanitario e individuare criticità della filiera, con attenzione a bio, Dop e Igp, all'abbandono e al recupero degli oliveti degradati. Il testo andrà prima in commissione, poi in Aula.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/06/un-osservatorio-sullolio-nelle-marche-proposta-di-legge-di-forza-italia_3b6be2d8-4e84-4f2d-870f-63edf90727d9.html",
+          "published": "2026-11-06",
+          "tags": [
+            "Agricoltura",
+            "Regione"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Un osservatorio serve se produce dati e risorse per i giovani agricoltori, non solo studi: spunto per un contenuto su ricambio generazionale in agricoltura e recupero dei terreni abbandonati nell'entroterra.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
