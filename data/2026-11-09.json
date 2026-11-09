@@ -1,0 +1,350 @@
+{
+  "date": "2026-11-09",
+  "label": "Lunedì 9 novembre 2026",
+  "intro": "Domani e dopodomani il negoziato tecnico di Abu Dhabi sull'Ucraina, con l'Europa fuori dal tavolo; in Italia la manovra tra sindacati, sanità e fisco e, nelle Marche, il Consiglio regionale del 10 novembre sull'inchiesta ricostruzione.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Ucraina, il 10 e 11 novembre il negoziato tecnico di Abu Dhabi tra Usa, Russia e Kiev: l'Europa resta fuori dal tavolo",
+          "summary": "Domani e dopodomani si riuniscono ad Abu Dhabi le delegazioni di Stati Uniti, Russia e Ucraina, a livello tecnico, con sicurezza del dopoguerra, riduzione delle ostilità e questioni umanitarie in agenda. Secondo il consigliere del Cremlino Ushakov, citato dalla Tass, non sono previsti inviti a rappresentanti europei. Un confronto separato a Bruxelles riguarderà garanzie di sicurezza e ricostruzione con Francia, Germania, Regno Unito, Ue e Nato. Restano distanze su territori e garanzie.",
+          "source": "Agenparl",
+          "url": "https://agenparl.eu/2026/11/03/ucraina-negoziati-abu-dhabi-russia-europa/",
+          "published": "2026-11-03",
+          "tags": [
+            "Ucraina",
+            "Negoziati"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "L'Europa è chiamata a pagare e a garantire la pace, ma non siede dove si decidono le condizioni: spunto per un contenuto sul peso politico dell'Ue e sulla necessità di parlare con una voce sola. Dal fronte di Azione, Daniela Ruffino ha chiesto al centrodestra di mettere da parte Salvini sulla linea ucraina.",
+            "refs": [
+              {
+                "label": "Ruffino (Azione) sulla linea del centrodestra – Il Foglio, 27 ottobre 2026",
+                "url": "https://www.ilfoglio.it/en/politics/2026/10/27/news/azione-reaches-out-to-forza-italia-cirios-appeal-is-welcome-we-need-courage-and-dialogue--411695"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Iran, nuovi raid Usa su Qeshm mentre Trump parla di «molti progressi» nei negoziati mediati dal Qatar",
+          "summary": "Nella notte del 6 novembre le forze Usa hanno colpito di nuovo il sud dell'Iran; Trump parla di difese aeree distrutte a Qeshm e di azione «minore». Parallelamente il Qatar media e Teheran esamina nuove proposte sul nucleare, ma pone come condizioni la fine del blocco navale, la revoca delle sanzioni e lo scongelamento dei beni. Il conflitto dura da oltre otto mesi.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/07/usa-colpiscono-obiettivi-in-iran-meridionale-trump-parla-di-progressi-nei-negoziati",
+          "published": "2026-11-07",
+          "tags": [
+            "Iran",
+            "Medio Oriente"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Un conflitto che dura da otto mesi pesa su energia, prezzi e rotte commerciali di cui pagano il conto famiglie e imprese europee. Domanda per un contenuto: quale ruolo vuole e può avere l'Europa nella mediazione, oltre al Qatar?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Israele, Herzog affida a Eisenkot l'incarico di formare il governo: senza i partiti arabi non ha i numeri",
+          "summary": "Il 7 novembre il presidente Herzog ha incaricato Gadi Eisenkot, capo dell'opposizione, dopo un voto senza maggioranza chiara: il blocco di Netanyahu si ferma a 53 seggi su 120, quello di Eisenkot a 48. Per arrivare alla maggioranza servirebbero i partiti arabi, che lo hanno indicato come possibile premier. Eisenkot pone condizioni, tra cui il servizio obbligatorio anche per gli ultraortodossi.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/07/isaac-herzog-nomina-gadi-eisenkot-incarico-formare-governo/",
+          "published": "2026-11-07",
+          "tags": [
+            "Israele",
+            "Governo"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Un possibile cambio di governo a Gerusalemme riapre il tema del ruolo dell'Ue in Medio Oriente. Spunto: come costruire un contenuto sul riconoscimento reciproco e sulla necessità di una politica estera europea credibile, senza prendere partito per una coalizione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ucraina, la Commissione eroga 4,36 miliardi: 3,7 al bilancio di Kiev dopo 12 riforme, 658 milioni per la difesa",
+          "summary": "Il 5 novembre la Commissione europea ha versato 4,36 miliardi di euro all'Ucraina dal prestito Ue da 90 miliardi. L'importo comprende 3,7 miliardi di assistenza macrofinanziaria, sbloccati dopo l'attuazione di 12 condizioni su fisco e conti pubblici, e 658 milioni per droni, radar e munizioni, spesi in gran parte presso aziende ucraine. Dall'inizio dell'invasione, Ue e Stati membri hanno fornito 235,9 miliardi.",
+          "source": "Eunews",
+          "url": "https://eunews.it/2026/11/05/commissione-ue-eroga-436miliardi-kiev",
+          "published": "2026-11-05",
+          "tags": [
+            "Ucraina",
+            "Bilancio Ue"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Il sostegno Ue è legato a riforme verificabili: un esempio concreto di «aiuti in cambio di risultati» da raccontare ai giovani, che spesso sentono solo cifre astratte. Si può chiedere la stessa trasparenza sui fondi spesi in Italia.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Tik Tok, la Commissione: il feed «Per te» viola preliminarmente il Digital Services Act",
+          "summary": "La Commissione ha comunicato il 6 novembre una violazione preliminare del DSA da parte di TikTok: gli algoritmi del feed possono creare un effetto «tana del coniglio» su contenuti sensibili, con rischi per la salute mentale. Secondo Bruxelles le misure attuali sono inefficaci (la funzione «non mi interessa» è usata da appena lo 0,2% degli utenti). Se confermata, la multa può arrivare al 6% del fatturato mondiale. TikTok può ancora rispondere.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/06/primo-verdetto-della-commissione-ue-il-feed-per-te-di-tik-tok-viola-la-legge-sui-servizi-digitali-dsa/",
+          "published": "2026-11-06",
+          "tags": [
+            "Ue",
+            "Social"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Il tema riguarda direttamente i giovani e il tempo passato sui social: spunto per un contenuto che chieda regole europee chiare sulle piattaforme, senza scaricare tutto su famiglie e scuole. Le accuse sono preliminari e non ancora accertate.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, sindacati a Palazzo Chigi il 13 novembre; scuola in piazza l'11, Cgil il 20; emendamenti entro il 17",
+          "summary": "Il governo ha convocato i sindacati per il pomeriggio del 13 novembre, secondo fonti sindacali; il termine per gli emendamenti alla legge di bilancio è il 17. Intanto il 12 è atteso un incontro con i sindacati di polizia e sono previste proteste della scuola (11 novembre) e della Cgil (20). Sulle pensioni la Lega insiste sull'uscita a 64 anni, ma Bertolaso la contesta e propone di usare le risorse per gli ospedali.",
+          "source": "VentidiNews",
+          "url": "https://ventidinews.it/2026/politica/manovra-ancora-tensioni-sindacati-convocati-a-palazzo-chigi-il-13-novembre/",
+          "published": "2026-11-06",
+          "tags": [
+            "Manovra",
+            "Sindacati"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Tre piazze in dieci giorni e una maggioranza divisa su pensioni e uscite anticipate: spunto per un contenuto sul costo, per i più giovani, delle misure a favore di chi esce prima dal lavoro. Una domanda utile: chi paga queste uscite nel lungo periodo?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Manovra, sanità e scuola: 3,4 miliardi stanziati ma ne servirebbero 5,5; previsti 7mila posti in meno tra docenti e Ata",
+          "summary": "Secondo QuiFinanza, la sanità riceve 3,4 miliardi contro i 5,5 ritenuti necessari, e sette governatori protestano. Pesa la card over 75 da 300 euro, che sottrae 1,6 miliardi al Servizio sanitario. Per la scuola sono previsti 7mila posti in meno; il ministro Valditara si dice aperto al dialogo. Schlein, l'8 novembre, ha attaccato la scelta di aumentare la spesa militare mentre si taglia la sanità.",
+          "source": "QuiFinanza",
+          "url": "https://quifinanza.it/economia/emendamenti-manovra-2027/1023235/amp/",
+          "also": [
+            {
+              "source": "LaPresse",
+              "url": "https://lapresse.it/video/2026/11/08/manovra-2027-schlein-aumenta-spesa-militare-ma-taglia-sanita"
+            }
+          ],
+          "published": "2026-11-06",
+          "tags": [
+            "Sanità",
+            "Scuola"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Il confronto sulle priorità (difesa, sanità, scuola) è ineludibile: spunto per un contenuto che chieda numeri chiari e una scelta trasparente su dove vanno le risorse, evitando bonus a pioggia. Nessuna posizione di Azione su questo punto è stata verificata.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Manovra, fisco: Forza Italia vuole l'aliquota al 33% fino a 60mila euro; flat tax a 100mila per le partite Iva",
+          "summary": "Nel confronto sugli emendamenti Forza Italia chiede di estendere l'aliquota del 33% fino a 60mila euro (il testo prevede 55mila), con un costo aggiuntivo di 1,2 miliardi. Il tesoretto disponibile è di 120 milioni. Tra le misure in discussione, la soglia di ricavi per le partite Iva in flat tax sale da 85mila a 100mila euro e l'imposta al 5% sugli aumenti da rinnovi contrattuali è confermata.",
+          "source": "QuiFinanza",
+          "url": "https://quifinanza.it/economia/emendamenti-manovra-2027/1023235/amp/",
+          "also": [
+            {
+              "source": "Open",
+              "url": "https://www.open.online/2026/10/27/manovra-2027-mini-irpef-under-30-pensioni-flat-tax/"
+            }
+          ],
+          "published": "2026-11-06",
+          "tags": [
+            "Fisco",
+            "Irpef"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Tra le tante richieste, quanto resta per lavoro giovanile e redditi bassi? Spunto: una domanda su chi beneficia davvero degli interventi sul ceto medio e delle soglie per le partite Iva.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Calenda: «Con Renzi il Terzo polo è impossibile»; Azione lavora con Picierno a Bologna",
+          "summary": "In un'intervista a Rai Radio 1 (Ping Pong), riportata dal Foglio il 19 ottobre, Calenda ha escluso un nuovo Terzo polo con Renzi, accusato di cambiare alleati secondo il momento. Ha definito la strategia di Italia Viva e Marattin «un po' una barzelletta» e ha confermato l'evento con Pina Picierno a Bologna il 7 novembre. Notizia di ottobre, ancora attuale nel dibattito sul centro.",
+          "source": "Il Foglio",
+          "url": "https://www.ilfoglio.it/en/politics/2026/10/19/news/calenda-con-renzi-il-terzo-polo-e-impossibile-marattin-risponde-con-un-indovinello--410976",
+          "published": "2026-10-19",
+          "tags": [
+            "Azione",
+            "Centro"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Contenuto utile per spiegare ai giovani la linea di Azione: nessuna ambiguità tra destra e sinistra, ricerca di un centro riformista con interlocutori coerenti.",
+            "refs": [
+              {
+                "label": "Calenda a Rai Radio 1 (Ping Pong) – Il Foglio, 19 ottobre 2026",
+                "url": "https://www.ilfoglio.it/en/politics/2026/10/19/news/calenda-con-renzi-il-terzo-polo-e-impossibile-marattin-risponde-con-un-indovinello--410976"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Azione e centrodestra: Lombardo apre a Forza Italia su concorrenza, imprese e nucleare, ma chiede coerenza su Ucraina e diritti",
+          "summary": "Il Foglio (31 ottobre) riporta il senatore Marco Lombardo: Forza Italia è il partito più vicino ai temi di Azione, ma dovrebbe superare la prudenza sui diritti civili. Lombardo chiede se una coalizione debba nascere per governare o solo per vincere e critica le contraddizioni della maggioranza sulla linea ucraina. Secondo il quotidiano, per Calenda un centrodestra senza Salvini ne uscirebbe rafforzato.",
+          "source": "Il Foglio",
+          "url": "https://www.ilfoglio.it/politica/2026/10/31/news/le-linee-rosse-di-azione-su-forza-italia--412251",
+          "published": "2026-10-31",
+          "tags": [
+            "Azione",
+            "Coalizioni"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Spunto per spiegare che Azione dialoga con tutti ma sui contenuti: concorrenza, impresa, energia e coerenza sull'Ucraina, non su poltrone o schieramenti.",
+            "refs": [
+              {
+                "label": "Lombardo (Azione) – Il Foglio, 31 ottobre 2026",
+                "url": "https://www.ilfoglio.it/politica/2026/10/31/news/le-linee-rosse-di-azione-su-forza-italia--412251"
+              },
+              {
+                "label": "Ruffino (Azione) – Il Foglio, 27 ottobre 2026",
+                "url": "https://www.ilfoglio.it/en/politics/2026/10/27/news/azione-reaches-out-to-forza-italia-cirios-appeal-is-welcome-we-need-courage-and-dialogue--411695"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Consiglio regionale, martedì 10 novembre il dibattito sull'inchiesta ricostruzione: al punto 6 le comunicazioni di Acquaroli",
+          "summary": "Il Consiglio si riunisce martedì alle 10 ad Ancona. L'ordine del giorno comprende il dibattito sulle comunicazioni del presidente della Giunta sull'inchiesta della ricostruzione e la sessione europea con il rapporto 2025 sull'attuazione delle politiche Ue (relatori Battistoni, FdI, e Mastrovincenzo, Pd). L'opposizione aveva chiesto che il tema fosse trattato in aula; le accuse dell'inchiesta restano da accertare.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/04/il-consiglio-regionale-delle-marche-si-riunira-martedi-10-novembre_56522822-f4ca-40b2-ad9f-166fe335a691.html",
+          "also": [
+            {
+              "source": "CentroPagina",
+              "url": "https://www.centropagina.it/ancona/inchiesta-marche-ricostruzione-opposizioni-insistono-acquaroli-riferisca-aula/"
+            }
+          ],
+          "published": "2026-11-04",
+          "tags": [
+            "Consiglio regionale",
+            "Ricostruzione"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Una seduta è utile se produce risposte e atti concreti, non solo botta e risposta: spunto per chiedere trasparenza su controlli e appalti e una sessione europea che porti nelle Marche risorse e progetti Ue.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta sisma, la Lega parla di «teatrino» dell'opposizione; FdI propone un tavolo permanente sulla legalità",
+          "summary": "Dopo la conferenza dei capigruppo, la Lega ha accusato le minoranze di «teatrino politico» e ha ricordato che Acquaroli ha escluso coinvolgimenti della Giunta. L'opposizione chiede invece chiarezza sulle responsabilità politiche. FdI ha presentato una mozione per un tavolo permanente su appalti, tracciabilità dei flussi e tutela di chi denuncia estorsioni. Le contestazioni giudiziarie sono ancora da accertare.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/04/lopposizione-la-spunta-martedi-il-dibattito-sulla-maxi-inchiesta-in-consiglio-regionale/2123042/",
+          "published": "2026-11-04",
+          "tags": [
+            "Legalità",
+            "Maggioranza"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Un tavolo sulla legalità ha senso se ha poteri, dati pubblici e scadenze: spunto per un contenuto che chieda tracciabilità dei fondi della ricostruzione e verifiche indipendenti.",
+            "refs": []
+          }
+        },
+        {
+          "title": "«Marche sicure», 1,2 milioni ai Comuni per la videosorveglianza: 37 interventi finanziati, 19 nel cratere",
+          "summary": "La Regione ha approvato le graduatorie del bando per videosorveglianza, control room e sistemi integrati di rilevamento delle anomalie, anche con intelligenza artificiale. Dei 37 interventi, 19 sono nell'area sisma e 18 fuori; tutte le domande presentate sono state ammesse. I beneficiari possono chiedere un'anticipazione del 50%.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/06/operazione-marche-sicure-sul-piatto-12-milioni-ai-comuni-per-la-videosorveglianza/2123739",
+          "published": "2026-11-06",
+          "tags": [
+            "Sicurezza",
+            "Comuni"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Le telecamere sono uno strumento, non una strategia: spunto per un contenuto su prevenzione, presidio del territorio e uso trasparente dei dati, con una domanda su come verranno misurati i risultati.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Consiglio regionale, in aula carceri e ambulanze: Camerino, sanità penitenziaria e autisti interinali all'Ast di Pesaro Urbino",
+          "summary": "Tra le interrogazioni all'ordine del giorno del 10 novembre figurano il sovraffollamento carcerario e la sanità penitenziaria, compreso il nuovo istituto di Camerino, gli autisti di ambulanza interinali all'Ast di Pesaro Urbino, l'accessibilità della stazione di Fano e il granchio blu. In calendario anche tre proposte di legge su nidi d'infanzia, servizio di sollievo per la salute mentale e Passione di Cristo, oltre al Piano regionale sulle dipendenze.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/04/il-consiglio-regionale-delle-marche-si-riunira-martedi-10-novembre_56522822-f4ca-40b2-ad9f-166fe335a691.html",
+          "published": "2026-11-04",
+          "tags": [
+            "Sanità",
+            "Welfare"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Nidi, salute mentale e dipendenze toccano la vita di giovani e famiglie: spunto per verificare se le proposte hanno risorse e tempi certi, oppure restano annunci.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Fine vita, i Radicali raccolgono firme a Macerata, Ancona e Pesaro: ferma in aula la proposta di legge sul suicidio assistito",
+          "summary": "Il 7 novembre banchetti dei Radicali Marche, con la Cellula Coscioni di Pesaro, hanno chiesto al Consiglio regionale di discutere la proposta di legge 8/2025 sull'assistenza sanitaria al suicidio medicalmente assistito, depositata il 21 novembre 2025 con prima firma Mangialardi (Pd). Il testo applica le sentenze della Consulta 242/2019 e 135/2024. Emilia-Romagna, Veneto e Umbria hanno già una legge.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/08/legge-sul-fine-vita-raccolta-firma-dei-radicali-non-e-una-questione-di-schieramento/2124100",
+          "published": "2026-11-08",
+          "tags": [
+            "Fine vita",
+            "Diritti"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Tema da trattare con rispetto e senza bandiere di schieramento: spunto per una domanda sul perché una legge che attua le sentenze della Consulta resti ferma a un anno dal deposito.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Pd Marche, nuova squadra con Braconi: provinciali tra novembre e dicembre e tavolo sul «campo largo» per le amministrative",
+          "summary": "Il 31 ottobre il Pd Marche ha presentato ad Ancona la nuova squadra regionale guidata dal segretario Thomas Braconi, che ha attaccato il centrodestra su sisma e inchiesta ricostruzione. Sono previste le elezioni provinciali tra novembre e dicembre e le amministrative (tra i comuni citati Civitanova, Jesi e Fabriano). Braconi ha convocato gli alleati per discutere un possibile campo largo. Notizia del 31 ottobre, ancora attuale in vista delle prossime scadenze.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/10/31/il-nuovo-pd-marche-punta-sul-territorio-su-marte-ci-vanno-gli-altri-noi-in-mezzo-ai-problemi-reali-foto-video/2121799",
+          "published": "2026-10-31",
+          "tags": [
+            "Pd",
+            "Elezioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Alle amministrative contano programmi e candidati più delle sigle: spunto per un contenuto su giovani candidati, competenze e alternative civiche e riformiste ai due poli.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Fabriano, Fim Cisl: rischio «desertificazione industriale» tra Beko, Electrolux e chiusura Whirlpool Technologies",
+          "summary": "Il report Fim Cisl sul primo semestre 2026, presentato il 13 ottobre, segnala che nelle Marche le aziende in crisi sono meno che altrove ma le ricadute nel Fabrianese sono pesanti: quasi mille dipendenti Beko, incertezza a Electrolux di Cerreto d'Esi e chiusura di Whirlpool Technologies. Il sindacato chiede una strategia industriale di lungo periodo. Notizia di ottobre, vertenza ancora aperta.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/13/fim-cisl-marche-a-fabriano-il-rischio-e-la-desertificazione-industriale_e229b543-6ddc-4cd6-9a31-7b1692702541.html",
+          "published": "2026-10-13",
+          "tags": [
+            "Lavoro",
+            "Industria"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Senza lavoro qualificato i giovani del Fabrianese se ne vanno: spunto per un contenuto su politiche industriali, formazione e attrazione di investimenti, con una domanda sulle garanzie degli impegni già assunti.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Aree interne, Baldelli: «1,7 miliardi e un patto con i sindaci» tra strade, ospedali, borghi e ricostruzione",
+          "summary": "Il 16 ottobre, a Fonte Avellana, l'assessore Baldelli ha indicato 1,7 miliardi per i territori interni: 1 miliardo per strade, 130 milioni per ospedali, 250 milioni per borghi e patrimonio dei Comuni e 400 milioni del Governo per la ricostruzione dopo l'alluvione del 2022. Ha proposto un patto tra Giunta, Assemblea legislativa e sindaci contro lo spopolamento. Notizia di ottobre, utile come contesto.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/16/baldelli-17-miliardi-e-un-patto-con-i-sindaci-per-il-rilancio-dei-territori-interni_912d4552-3120-474c-b064-25ccf3d2ec87.html",
+          "published": "2026-10-16",
+          "tags": [
+            "Aree interne",
+            "Infrastrutture"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Le cifre contano se diventano cantieri e servizi: spunto per chiedere un cronoprogramma pubblico e indicatori su spopolamento, trasporti e presenza dei giovani.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
