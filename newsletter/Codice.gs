@@ -1,8 +1,8 @@
 /**
  * Newsletter Azione Under 30 Marche – riceve le iscrizioni dal sito e le aggiunge al foglio Google.
  *
- * Si installa DAL FOGLIO della newsletter: Estensioni > Apps Script, incolla questo file, salva,
- * poi Esegui il deployment > Nuovo deployment > App web (istruzioni complete in NEWSLETTER.md).
+ * Si installa da script.google.com (Nuovo progetto) oppure dal foglio con Estensioni > Apps Script:
+ * incolla questo file, salva, poi Esegui il deployment > Nuovo deployment > App web (vedi NEWSLETTER.md).
  *
  * Cosa fa:
  * - accetta solo email valide e con il consenso spuntato;
@@ -11,6 +11,10 @@
  *   "data"/"iscrizione", "fonte", "consenso" le compila, le altre restano vuote;
  * - se il foglio è vuoto crea le intestazioni: Email | Data iscrizione | Fonte | Consenso.
  */
+
+// Codice del foglio della newsletter (la parte dell'indirizzo tra /d/ e /edit).
+// Così lo script funziona sia aperto dal foglio sia creato a parte su script.google.com.
+var ID_FOGLIO = "1uJL3ZzBKbPhN3CSlAAG-gYsAlBU9xyV08TNRIkZxiAo";
 
 // Nome della scheda (in basso nel foglio) dove salvare. Vuoto = la prima scheda.
 var NOME_SCHEDA = "";
@@ -30,7 +34,7 @@ function doPost(e) {
   var lock = LockService.getScriptLock();
   lock.waitLock(15000); // due iscrizioni nello stesso istante non creano doppioni
   try {
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var ss = ID_FOGLIO ? SpreadsheetApp.openById(ID_FOGLIO) : SpreadsheetApp.getActiveSpreadsheet();
     var sh = NOME_SCHEDA ? ss.getSheetByName(NOME_SCHEDA) : ss.getSheets()[0];
     if (!sh) return risposta_({ ok: false, error: "scheda" });
 
