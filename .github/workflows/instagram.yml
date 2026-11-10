@@ -1,0 +1,51 @@
+name: Post e reel da Instagram
+
+# Ogni due ore copia sul sito gli ultimi post e reel di @azioneunder30marche.
+# Si può lanciare a mano da Actions → «Run workflow». Configurazione in INSTAGRAM.md.
+
+on:
+  schedule:
+    - cron: "17 */2 * * *"
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: "Rinnova subito il token (1 = sì)"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram
+  cancel-in-progress: false
+
+jobs:
+  instagram:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installa Pillow
+        run: pip install pillow
+
+      - name: Scarica post e copertine
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          FORCE_REFRESH: ${{ github.event.inputs.refresh }}
+        run: python scripts/instagram.py
+
+      - name: Pubblica
+        run: |
+          git config user.name "il-punto-bot"
+          git config user.email "il-punto-bot@users.noreply.github.com"
+          git add data/social.json assets/social 2>/dev/null || true
+          if git diff --cached --quiet; then echo "Niente di nuovo"; exit 0; fi
+          git commit -m "Nuovi post da Instagram"
+          git pull --rebase origin main
+          git push origin HEAD:main

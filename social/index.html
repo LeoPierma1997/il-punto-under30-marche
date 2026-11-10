@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Social · Azione Under 30 Marche</title>
+<meta name="description" content="Gli ultimi post e reel di Azione Under 30 Marche su Instagram.">
+<meta property="og:title" content="Social · Azione Under 30 Marche">
+<meta property="og:description" content="Gli ultimi post e reel dal nostro Instagram.">
+<meta property="og:image" content="https://leopierma1997.github.io/il-punto-under30-marche/assets/foto/copertina-reel.jpg">
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="social.css">
+<style>
+/* Social: griglia di post e reel copiati dal profilo Instagram (le immagini sono sul sito,
+   Instagram si apre solo al clic). Stessa identità di home ed Eventi. */
+:root {
+  --page: #F3F3FA; --surface: #FFFFFF; --fg: #14123A; --muted: #5A5784; --line: #E1E0F0; --soft: #E9E8F7;
+  --blue: #312781; --blue-deep: #0C1467; --accent: #312781; --accent-ink: #FFFFFF; --title: #312781;
+  --yellow: #FCCA00; --em-fg: #312781; --em-mark: #FCCA00;
+  --az-grad: linear-gradient(100deg, #0C1467 0%, #312781 100%); --focus: #312781;
+  --display: "Gotham", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --body: "Gotham", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #0B0E38; --surface: #171A55; --fg: #F1F1FA; --muted: #B5B3DA; --line: #2C2B72; --soft: #1F2363;
+    --accent: #BDB7FF; --accent-ink: #14123A; --title: #FFFFFF; --em-fg: #FCCA00; --em-mark: transparent; --focus: #BDB7FF; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #0B0E38; --surface: #171A55; --fg: #F1F1FA; --muted: #B5B3DA; --line: #2C2B72; --soft: #1F2363;
+  --accent: #BDB7FF; --accent-ink: #14123A; --title: #FFFFFF; --em-fg: #FCCA00; --em-mark: transparent; --focus: #BDB7FF; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.55;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-underline-offset: 3px; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.ico { width: 1.15em; height: 1.15em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.eyebrow { font: 600 .76rem/1.3 var(--body); letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.btn { font: 700 .95rem/1 var(--body); letter-spacing: -.01em; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 20px; border-radius: 999px;
+  border: 2px solid var(--accent); background: transparent; color: var(--accent); text-decoration: none; cursor: pointer; white-space: nowrap; }
+.btn.solid { background: var(--accent); color: var(--accent-ink); }
+.btn .ico { width: 18px; height: 18px; }
+.demo-bar { background: #FFF1B8; color: #3A2E00; font-size: .86rem; }
+.demo-bar .wrap { padding-block: 8px; display: flex; gap: 6px 12px; flex-wrap: wrap; }
+.az-line { height: 5px; background: var(--az-grad); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; padding-block: 16px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--title); }
+.brand img { width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 0 0 2px #FFFFFF, 0 2px 8px rgba(27,30,87,.18); }
+.brand b { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 1.02rem; line-height: 1.1; letter-spacing: -.02em; }
+.brand b span { display: block; font-weight: 700; font-size: .78rem; letter-spacing: .1em; color: var(--muted); }
+.top nav { display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; }
+.top nav a { font-weight: 700; font-size: .92rem; text-decoration: none; color: var(--fg); padding: 9px 12px; border-radius: 999px; }
+.top nav a[aria-current="page"] { background: var(--surface); color: var(--title); box-shadow: inset 0 0 0 1px var(--line); }
+.top nav a.btn { color: var(--accent-ink); padding: 10px 16px; }
+@media (max-width: 760px) { .top nav a:not(.btn) { display: none; } .top nav a.btn { padding: 9px 14px; font-size: .86rem; } }
+@media (max-width: 400px) { .brand img { width: 40px; height: 40px; } .brand b { font-size: .95rem; } }
+
+.head { padding-block: 14px 24px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 28px; }
+.head h1 { margin: 8px 0 0; font-family: var(--display); font-weight: 800; color: var(--title); font-size: clamp(2.4rem, 5.6vw, 4.2rem); line-height: .98; letter-spacing: -.045em; }
+.head h1 em { font-style: normal; color: var(--em-fg); background: linear-gradient(transparent 60%, var(--em-mark) 60%, var(--em-mark) 92%, transparent 92%); padding: 0 .06em; }
+.head p { margin: 14px 0 0; font-size: 1.08rem; max-width: 52ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.chips button { font: 700 .86rem/1 var(--body); padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+.chips button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+.feed { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; padding-bottom: 56px; }
+.empty { background: var(--surface); border: 1px dashed var(--line); border-radius: 18px; padding: 28px 22px; color: var(--muted); margin: 0 0 56px; }
+.empty b { color: var(--fg); display: block; font-size: 1.1rem; margin-bottom: 4px; }
+.follow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; background: var(--az-grad); color: #FFFFFF; border-radius: 20px; padding: 22px 24px; margin-bottom: 56px; }
+.follow b { font-family: var(--display); font-size: 1.3rem; letter-spacing: -.03em; }
+.follow p { margin: 4px 0 0; color: #DCDAFF; }
+.follow .btn { background: #FFFFFF; color: #312781; border-color: #FFFFFF; }
+.note { color: var(--muted); font-size: .84rem; margin: -40px 0 46px; }
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 26px 34px; display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; color: var(--muted); font-size: .9rem; }
+footer nav { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="demo-bar" id="demo-bar" hidden><div class="wrap"><strong>Prototipo</strong><span>Post di esempio: quando Instagram è collegato qui compaiono da soli i vostri post e reel.</span></div></div>
+<div class="az-line" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="48" height="48"><b>Azione Under 30<span>Marche</span></b></a>
+    <nav aria-label="Menu principale">
+      <a href="../rassegna/">Il Punto</a>
+      <a href="../eventi/">Eventi</a>
+      <a href="./" aria-current="page">Social</a>
+      <a href="../avamposto/">Avamposto</a>
+      <a class="btn solid" href="../#unisciti">Unisciti a noi</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap head">
+    <div><span class="eyebrow">Social · @azioneunder30marche</span>
+      <h1>Quello che <em>pubblichiamo.</em></h1>
+      <p>Gli ultimi post e reel dal nostro Instagram, aggiornati in automatico. Tocca un contenuto per aprirlo su Instagram.</p></div>
+    <a class="btn" href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>Seguici</a>
+  </div>
+  <div class="wrap">
+    <div class="chips" role="group" aria-label="Filtra i contenuti" id="chips" hidden>
+      <button type="button" data-f="" aria-pressed="true">Tutti</button>
+      <button type="button" data-f="reel" aria-pressed="false">Reel</button>
+      <button type="button" data-f="post" aria-pressed="false">Post</button>
+    </div>
+    <div class="feed" id="feed" aria-live="polite"></div>
+    <div class="follow"><div><b>Non perderti il prossimo reel</b><p>Seguici su Instagram e entra nel nostro Discord.</p></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener">Instagram</a><a class="btn" href="https://discord.gg/SZbnaCjrV" target="_blank" rel="noopener">Discord</a></div></div>
+    <p class="note" id="updated"></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Azione Under 30 Marche · i giovani di <a href="https://www.azione.it/" target="_blank" rel="noopener">Azione</a> nelle Marche</span>
+    <nav aria-label="Collegamenti"><a href="../">Home</a><a href="../rassegna/">Il Punto</a><a href="../eventi/">Eventi</a><a href="../avamposto/">Avamposto</a><a href="../avamposto/privacy.html">Privacy</a></nav>
+  </div>
+</footer>
+
+<script src="social.js"></script>
+<script>
+SocialFeed.render({ base: "../", box: document.getElementById("feed"), chips: document.getElementById("chips"), updated: document.getElementById("updated"), demoBar: document.getElementById("demo-bar") });
+</script>
+</body>
+</html>
