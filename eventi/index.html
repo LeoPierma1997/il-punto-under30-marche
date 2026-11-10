@@ -247,6 +247,35 @@ footer .wrap { padding-block: 26px 34px; display: flex; flex-wrap: wrap; gap: 10
 footer nav { display: flex; flex-wrap: wrap; gap: 6px 16px; }
 footer a { color: var(--muted); }
 .toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); background: #0C1467; color: #FFFFFF; padding: 12px 18px; border-radius: 12px; font-weight: 600; z-index: 20; box-shadow: 0 10px 30px rgba(0,0,0,.25); max-width: calc(100% - 32px); }
+
+/* rifiniture */
+.tag { white-space: nowrap; }
+.tag.count { background: transparent; color: var(--accent); padding-left: 2px; }
+.where { align-items: flex-start; }
+.where .ico { margin-top: 3px; }
+.card .poster, .feature .poster { position: relative; }
+.card .poster img, .feature .poster img { position: absolute; inset: 0; }
+.cta { align-items: center; }
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; gap: 12px; }
+  .card { display: grid; grid-template-columns: 108px minmax(0, 1fr); border-radius: 14px; }
+  .card .poster, .past .card .poster { aspect-ratio: auto; min-height: 132px; }
+  .card .datebadge { left: 6px; top: 6px; min-width: 40px; padding: 5px 6px 4px; border-radius: 9px; }
+  .card .datebadge b { font-size: 1.1rem; }
+  .card .datebadge span { font-size: .6rem; }
+  .card .body { padding: 12px 14px; gap: 4px; }
+  .card h3 { font-size: 1.02rem; }
+  .card p { display: none; }
+  .rgrid { grid-template-columns: 1fr; gap: 10px; }
+  .rcard { display: grid; grid-template-columns: 116px minmax(0, 1fr); }
+  .rcard .thumb { aspect-ratio: auto; min-height: 100%; }
+  .rcard .thumb .play span { width: 40px; height: 40px; }
+  .rcard .thumb .play .ico { width: 16px; height: 16px; }
+  .rcard .body { padding: 12px 14px; }
+  .rcard p { display: none; }
+  .feature .poster { aspect-ratio: 16 / 11; }
+  .cta .btn.small { flex: 1 1 auto; }
+}
 </style>
 </head>
 <body>
@@ -319,7 +348,7 @@ footer a { color: var(--muted); }
   function handsTag(ev) {
     if (!ev.needs_hands || isPast(ev)) return "";
     var n = COUNTS[ev.id] || 0;
-    return '<span class="tag hands">Serve una mano' + (n ? " · " + n + (n === 1 ? " c'è già" : " ci sono già") : "") + "</span>";
+    return '<span class="tag hands">Serve una mano</span>' + (n ? '<span class="tag count">' + n + (n === 1 ? " c'è già" : " ci sono già") + "</span>" : "");
   }
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
@@ -535,9 +564,9 @@ footer a { color: var(--muted); }
       (ev.description ? '<div class="prose">' + prose(ev.description) + "</div>" : "") +
       '<div class="cta">' +
         (link && !past ? '<a class="btn solid" href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(ev.link_label || "Partecipa") + " " + icon("ext") + "</a>" : "") +
-        (!past ? '<a class="btn" href="' + esc(gcal(ev)) + '" target="_blank" rel="noopener">' + icon("plus") + "Google Calendar</a>" +
-                 '<button class="btn" type="button" data-ics="' + esc(ev.id) + '">' + icon("cal") + "Calendario del telefono</button>" : "") +
-        '<button class="btn" type="button" data-share="' + esc(ev.id) + '">' + icon("share") + "Condividi</button>" +
+        (!past ? '<a class="btn small" href="' + esc(gcal(ev)) + '" target="_blank" rel="noopener">' + icon("plus") + "Google Calendar</a>" +
+                 '<button class="btn small" type="button" data-ics="' + esc(ev.id) + '">' + icon("cal") + "Calendario del telefono</button>" : "") +
+        '<button class="btn small" type="button" data-share="' + esc(ev.id) + '">' + icon("share") + "Condividi</button>" +
       "</div>" +
       (ev.needs_hands && !past ? '<div class="hands-box"><span class="tag hands" style="justify-self:start">Serve una mano</span><b>Ci dai una mano?</b>' +
         "<p>Scegli il turno che preferisci: nell'Avamposto trovi orari, punto d'incontro e materiali. " +

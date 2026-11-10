@@ -706,17 +706,18 @@
     var ev = EV.events.filter(function (x) { return x.id === r.event_id; })[0];
     var href = safeHref(r.video_url), em = href ? embedUrl(href) : "";
     var dd = r.recorded_on ? fmtDate(r.recorded_on) : "";
-    return '<article class="mat replay" id="r-' + esc(r.id) + '"><div class="mat-ico">' + icon("video") + "</div>" +
-      '<div class="mat-kind">Replica' + (dd ? " · " + esc(dd) : "") + (r.published === false ? ' <span class="pill draft">Nascosta</span>' : "") + "</div>" +
+    var poster = ev ? posterSrc(ev) : "";
+    var media = em ? videoFrame(em, r.title)
+      : href ? '<a class="rp-ph" href="' + esc(href) + '" target="_blank" rel="noopener">' + (poster ? '<img src="' + esc(poster) + '" alt="">' : "") + '<span class="vg-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span><b>Guarda la replica ↗</b></a>'
+      : '<div class="rp-ph">' + (poster ? '<img src="' + esc(poster) + '" alt="">' : "") + "<b>Video di esempio</b><small>Qui comparirà la registrazione</small></div>";
+    return '<article class="rp-card" id="r-' + esc(r.id) + '">' + media +
+      '<div class="rp-body"><span class="rp-date">' + esc(dd) + (r.published === false ? ' <span class="pill draft">Nascosta</span>' : "") + "</span>" +
       "<h3>" + esc(r.title) + "</h3>" +
-      '<div class="mat-content">' +
-        (em ? videoFrame(em, r.title)
-          : href ? '<div class="btn-row"><a class="btn primary" href="' + esc(href) + '" target="_blank" rel="noopener">' + icon("video") + "Guarda la replica</a></div>"
-          : '<div class="video-placeholder">Video di esempio: qui comparirà la registrazione.</div>') +
-        (r.description ? "<p>" + esc(r.description) + "</p>" : "") +
-        (ev ? '<p class="replay-ev">Dall\'evento <a href="../eventi/#evento-' + esc(ev.id) + '">' + esc(ev.title) + "</a></p>" : "") +
+      (r.description ? "<p>" + esc(r.description) + "</p>" : "") +
+      (ev ? '<a class="rp-ev" href="../eventi/#evento-' + esc(ev.id) + '">' + icon("evento") + esc(ev.title) + "</a>" : "") +
       "</div></article>";
   }
+
   function viewAgenda(focus) {
     setMain('<div class="page-head"><span class="eyebrow">Avamposto Under 30</span><h1>Agenda</h1>' +
       '<p>Dove serve una mano nei prossimi giorni e le repliche delle dirette. Il calendario completo è nella <a href="../eventi/">pagina Eventi</a>.</p>' +
@@ -738,7 +739,7 @@
             '<span><small>' + esc(fmtWhen(ev.starts_at)) + "</small><b>" + esc(ev.title) + "</b>" + (evWhere(ev) ? "<em>" + esc(evWhere(ev)) + "</em>" : "") + "</span></a>";
         }).join("") + "</div></section>" : "") +
         '<section class="block" id="repliche"><div class="block-head"><h2>Repliche</h2><span class="note">Le registrazioni delle dirette e degli incontri</span></div>' +
-          (EV.replays.length ? '<div class="mats">' + EV.replays.map(replayCard).join("") + "</div>" : '<p class="empty">Ancora nessuna replica. Le registrazioni arriveranno qui dopo le dirette.</p>') +
+          (EV.replays.length ? '<div class="rp-grid">' + EV.replays.map(replayCard).join("") + "</div>" : '<p class="empty">Ancora nessuna replica. Le registrazioni arriveranno qui dopo le dirette.</p>') +
         "</section>";
       var target = focus && document.getElementById(focus);
       if (target) { target.scrollIntoView({ block: "start" }); target.classList.add("flash"); }
@@ -776,7 +777,8 @@
   }
   function replayForm(r) {
     var x = r || { title: "", recorded_on: new Date().toISOString().slice(0, 10), video_url: "", description: "", published: true }, id = esc(r ? r.id : "new");
-    return '<section class="panel"><form data-form="replay" data-id="' + (r ? id : "") + '" novalidate><h3>' + (r ? esc(r.title) : "Nuova replica") + '</h3><div class="grid-2">' +
+    var head = r ? '<summary><span><b>' + esc(r.title) + "</b><small>" + esc(r.recorded_on ? fmtDate(r.recorded_on) : "") + (r.published === false ? " · nascosta" : "") + (r.video_url ? "" : " · manca il link") + '</small></span><span class="btn small">Modifica</span></summary>' : "";
+    return (r ? '<details class="panel rp-edit">' + head : '<section class="panel">') + '<form data-form="replay" data-id="' + (r ? id : "") + '" novalidate>' + (r ? "" : "<h3>Nuova replica</h3>") + '<div class="grid-2">' +
       '<label class="field" for="rt-' + id + '"><span>Titolo</span><input type="text" id="rt-' + id + '" name="title" value="' + esc(x.title) + '"></label>' +
       '<label class="field" for="rv-' + id + '"><span>Link al video</span><input type="url" id="rv-' + id + '" name="video_url" placeholder="https://youtu.be/…" value="' + esc(x.video_url) + '"></label>' +
       '<label class="field" for="rd-' + id + '"><span>Registrata il</span><input type="date" id="rd-' + id + '" name="recorded_on" value="' + esc(x.recorded_on || "") + '"></label>' +
@@ -784,7 +786,7 @@
       '<label class="field" for="rs-' + id + '" style="grid-column:1/-1"><span>Descrizione breve</span><input type="text" id="rs-' + id + '" name="description" value="' + esc(x.description || "") + '"></label>' +
       '</div><label class="check" for="rp-' + id + '"><input type="checkbox" id="rp-' + id + '" name="published"' + (x.published !== false ? " checked" : "") + "> <span><b>Pubblicata</b> per gli iscritti</span></label>" +
       '<div class="btn-row"><button class="btn small primary" type="submit">' + (r ? "Salva" : "Aggiungi replica") + "</button>" +
-      (r ? '<button class="btn small danger" type="button" data-action="rp-del" data-id="' + id + '">' + icon("trash") + "Elimina</button>" : "") + "</div></form></section>";
+      (r ? '<button class="btn small danger" type="button" data-action="rp-del" data-id="' + id + '">' + icon("trash") + "Elimina</button>" : "") + "</div></form>" + (r ? "</details>" : "</section>");
   }
   function currentEvent() { var h = location.hash.slice(1); return h.indexOf("g-ev-") === 0 ? EV.events.filter(function (e) { return e.id === h.slice(5); })[0] : null; }
   function viewEditEvent(id) {
