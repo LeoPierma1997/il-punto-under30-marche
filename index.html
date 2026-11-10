@@ -164,23 +164,23 @@ h1, h2, h3 { text-wrap: balance; }
 .about h2 { margin: 8px 0 18px; font-family: var(--display); font-weight: 800; color: var(--title); font-size: clamp(2.1rem, 4.6vw, 3.2rem); line-height: 1; letter-spacing: -.045em; }
 .about p { margin: 0 0 14px; font-size: 1.05rem; max-width: 58ch; }
 .socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-.reel { position: relative; display: block; border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 5; max-width: 100%; background: var(--blue-deep); text-decoration: none; color: #FFFFFF;
+.reel { position: relative; display: block; border-radius: 22px; overflow: hidden; aspect-ratio: 3 / 4; max-width: 100%; background: var(--blue-deep); text-decoration: none; color: #FFFFFF;
   box-shadow: 0 18px 48px rgba(27,30,87,.22); }
 .reel img { width: 100%; height: 100%; object-fit: cover; }
-.reel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,20,103,0) 40%, rgba(12,20,103,.85) 100%); }
-.reel .play { position: absolute; z-index: 1; left: 50%; top: 46%; transform: translate(-50%, -50%); width: 84px; height: 84px; border-radius: 50%; background: rgba(255,255,255,.94); color: #1B1E57; display: grid; place-items: center; box-shadow: 0 8px 26px rgba(0,0,0,.3); }
-.reel .play .ico { width: 34px; height: 34px; fill: currentColor; stroke: none; margin-left: 4px; }
-.reel .cap { position: absolute; z-index: 1; left: 22px; right: 22px; bottom: 20px; display: grid; gap: 4px; }
+.reel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,20,103,0) 58%, rgba(12,20,103,.9) 100%); }
+.reel .play { position: absolute; z-index: 1; right: 20px; bottom: 18px; width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,.94); color: #1B1E57; display: grid; place-items: center; box-shadow: 0 8px 26px rgba(0,0,0,.3); }
+.reel .play .ico { width: 28px; height: 28px; fill: currentColor; stroke: none; margin-left: 4px; }
+.reel .cap { position: absolute; z-index: 1; left: 22px; right: 100px; bottom: 20px; display: grid; gap: 4px; }
 .reel .cap b { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 1.5rem; line-height: 1; letter-spacing: -.03em; }
 .reel .cap span { font-size: .9rem; color: #D5D7F5; }
-@media (prefers-reduced-motion: no-preference) { .reel .play { transition: transform .2s ease; } .reel:hover .play { transform: translate(-50%, -50%) scale(1.06); } }
+@media (prefers-reduced-motion: no-preference) { .reel .play { transition: transform .2s ease; } .reel:hover .play { transform: scale(1.08); } }
 .strip { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .strip figure { margin: 0; border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 3; position: relative; background: var(--blue); }
 .strip img { width: 100%; height: 100%; object-fit: cover; }
 .strip figcaption { position: absolute; left: 10px; bottom: 10px; font: 600 .7rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: #FFFFFF; background: rgba(12,20,103,.62); padding: 6px 8px; border-radius: 6px; }
 @media (max-width: 860px) {
   .about .wrap { grid-template-columns: 1fr; padding-block: 44px; }
-  .reel { aspect-ratio: 4 / 3; }
+  .reel { aspect-ratio: 4 / 5; }
   .strip { grid-template-columns: 1fr 1fr; } .strip figure:last-child { grid-column: span 2; aspect-ratio: 16 / 9; }
 }
 
@@ -315,7 +315,7 @@ footer a { color: #E4E6FF; }
       </div>
     </div>
     <a class="reel" href="https://www.instagram.com/reel/DXPXZmQjT95/" target="_blank" rel="noopener">
-      <img src="assets/foto/centro-storico.jpg" alt="" loading="lazy" width="1050" height="1400" style="object-position:center 45%">
+      <img src="assets/foto/copertina-reel.jpg" alt="" loading="lazy" width="900" height="1600" style="object-position:center 22%">
       <span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span>
       <span class="cap"><b>Guarda il video</b><span>Il nostro reel su Instagram ↗</span></span>
     </a>
