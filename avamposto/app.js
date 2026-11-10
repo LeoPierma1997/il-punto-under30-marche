@@ -7,7 +7,7 @@
   var toastEl = document.getElementById("toast");
   var INVITE_KEY = "avamposto-invito";
 
-  var S = { me: null, admin: false, profile: null, inits: [], mine: {}, ready: false };
+  var S = { me: null, admin: false, profile: null, inits: [], mine: {}, amats: [], views: {}, ready: false };
   var A = { enrollments: [], profiles: [], invites: {} }; // dati di gestione
 
   /* ---------------- utilità ---------------- */
@@ -109,7 +109,9 @@
       tasks.push(D.myEnrollments().then(function (r) {
         S.mine = {}; (r || []).forEach(function (e) { S.mine[e.initiative_id] = e; });
       }));
-    } else { S.admin = false; S.profile = null; S.mine = {}; }
+      tasks.push(D.accessibleMaterials().then(function (r) { S.amats = r || []; }));
+      tasks.push(D.myViews().then(function (r) { S.views = {}; (r || []).forEach(function (v) { S.views[v.material_id] = true; }); }));
+    } else { S.admin = false; S.profile = null; S.mine = {}; S.amats = []; S.views = {}; }
     return Promise.all(tasks).then(function () {
       if (!S.admin) return;
       return Promise.all([D.allEnrollments(), D.allProfiles(), D.invites()]).then(function (r) {
@@ -130,9 +132,9 @@
       (S.admin ? '<a class="staff" href="#gestione"' + (active === "gestione" ? ' aria-current="page"' : "") + ">" + icon("shield") + "Gestione" +
         (pending ? ' <span class="count" aria-label="' + pending + ' richieste">' + pending + "</span>" : "") + "</a>" : "");
   }
-  function setMain(html, active) {
+  function setMain(html, active, bare) {
     renderNav(active);
-    main.innerHTML = '<div class="wrap page">' + html + "</div>";
+    main.innerHTML = bare ? html : '<div class="wrap page">' + html + "</div>";
   }
 
   /* ---------------- router ---------------- */
@@ -178,9 +180,32 @@
     return '<div class="init-band k-' + esc(it.kind) + '">' + icon(it.kind) + '<span class="kind">' + esc(KIND[it.kind] || "Iniziativa") + "</span>" +
       (when ? '<span class="when">' + esc(when) + "</span>" : "") + "</div>";
   }
+  function coverHtml(it, cls) {
+    var u = it.cover_path ? D.coverUrl(it.cover_path) : "";
+    if (u) return '<div class="cover ' + (cls || "") + '"><img src="' + esc(u) + '" alt="" loading="lazy"></div>';
+    return '<div class="cover auto k-' + esc(it.kind) + " " + (cls || "") + '" aria-hidden="true"><span class="cover-ico">' + icon(it.kind) +
+      '</span><span class="cover-title">' + esc(it.title) + '</span><span class="cover-mark">Avamposto</span></div>';
+  }
+  function progressOf(it) {
+    var list = S.amats.filter(function (m) { return m.initiative_id === it.id && m.published !== false; });
+    var seen = list.filter(function (m) { return S.views[m.id]; }).length;
+    return { total: list.length, seen: seen, unseen: list.length - seen };
+  }
+  function progressBar(pr, big) {
+    if (!pr.total) return "";
+    var pct = Math.round(pr.seen / pr.total * 100);
+    return '<div class="progress' + (big ? " big" : "") + '"><div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="' + pr.total + '" aria-valuenow="' + pr.seen + '" aria-label="Materiali visti">' +
+      '<span style="width:' + pct + '%"></span></div><span class="progress-txt">' + (pr.seen === pr.total ? "Tutto visto" : pr.seen + " di " + pr.total + " visti") + "</span></div>";
+  }
   function initCard(it) {
-    return '<article class="init">' + band(it) + '<div class="init-body"><h3><a href="#i-' + esc(it.slug) + '">' + esc(it.title) + "</a></h3>" +
+    var access = hasAccess(it), pr = access ? progressOf(it) : { total: 0, seen: 0, unseen: 0 };
+    var when = it.starts_on ? "Dal " + fmtShort(it.starts_on) : "";
+    return '<article class="init"><a class="init-cover" href="#i-' + esc(it.slug) + '" tabindex="-1" aria-hidden="true">' + coverHtml(it) +
+      '<span class="cover-kind">' + icon(it.kind) + esc(KIND[it.kind] || "Iniziativa") + (when ? " · " + esc(when) : "") + "</span>" +
+      (access && pr.unseen ? '<span class="badge-new">' + pr.unseen + (pr.unseen === 1 ? " nuovo" : " nuovi") + "</span>" : "") + "</a>" +
+      '<div class="init-body"><h3><a href="#i-' + esc(it.slug) + '">' + esc(it.title) + "</a></h3>" +
       (it.summary ? "<p>" + esc(it.summary) + "</p>" : "") +
+      (access ? progressBar(pr) : "") +
       '<div class="init-foot">' + statusPill(it) + actionFor(it) + "</div></div></article>";
   }
 
@@ -189,25 +214,26 @@
     var invite = pendingInvite();
     var catalog = S.inits.filter(function (i) { return i.published; });
     setMain(
-      '<section class="hero">' +
-        '<div class="hero-copy">' +
-          '<span class="eyebrow">Azione Under 30 Marche</span>' +
-          "<h1>Benvenuto nell'Avamposto</h1>" +
-          "<p>L'area riservata a tesserati e simpatizzanti: corsi di formazione, dirette con ospiti e contenuti che non trovi altrove. L'iscrizione è libera e gratuita.</p>" +
-          '<ul class="points">' +
-            "<li>" + icon("corso") + "<span><b>Corsi e formazione</b>: video registrati, dirette su Meet, slide e materiali.</span></li>" +
-            "<li>" + icon("contenuti") + "<span><b>Contenuti speciali</b> aperti a tutti gli iscritti.</span></li>" +
-            "<li>" + icon("mail") + "<span><b>Niente password</b>: entri con un link che ti arriva per mail.</span></li>" +
-          "</ul>" +
-        "</div>" +
-        '<div class="panel" id="auth-panel">' +
-          (invite ? '<p class="form-msg ok">Hai un link d\'invito. Iscriviti o entra: il corso si sbloccherà in automatico.</p>' : "") +
-          authForms() +
-        "</div>" +
-      "</section>" +
-      '<section class="block"><div class="block-head"><h2>Cosa trovi dentro</h2><span class="note">I corsi «su richiesta» si sbloccano dopo l\'approvazione dello staff.</span></div>' +
+      '<section class="ava-hero"><div class="ava-hero-bg" aria-hidden="true"><img src="../assets/foto/evento-roma-platea.jpg" alt=""></div>' +
+        '<div class="wrap ava-hero-in">' +
+          '<div class="hero-copy">' +
+            '<span class="eyebrow">Avamposto Under 30 · Marche</span>' +
+            "<h1>Qui si impara a <em>fare politica.</em></h1>" +
+            "<p>Corsi pratici, dirette con ospiti e materiali che non trovi altrove, riservati a tesserati e simpatizzanti. Entri gratis, con la tua mail e senza password.</p>" +
+            '<ul class="points">' +
+              "<li>" + icon("corso") + "<span><b>Corsi</b> con video, slide ed esercitazioni</span></li>" +
+              "<li>" + icon("diretta") + "<span><b>Dirette su Meet</b> con ospiti e domande dal vivo</span></li>" +
+              "<li>" + icon("check") + "<span><b>Segni cosa hai visto</b> e riprendi da dove eri rimasto</span></li>" +
+            "</ul>" +
+          "</div>" +
+          '<div class="panel" id="auth-panel">' +
+            (invite ? '<p class="form-msg ok">Hai un link d\'invito. Iscriviti o entra: il corso si sbloccherà in automatico.</p>' : "") +
+            authForms() +
+          "</div>" +
+        "</div></section>" +
+      '<div class="wrap page"><section class="block"><div class="block-head"><h2>Cosa trovi dentro</h2><span class="note">I corsi «su richiesta» si sbloccano dopo l\'approvazione dello staff.</span></div>' +
       (catalog.length ? '<div class="inits">' + catalog.map(initCard).join("") + "</div>" : '<p class="empty">Le prime iniziative sono in arrivo.</p>') +
-      "</section>", "home");
+      "</section></div>", "home", true);
     bindAuth();
   }
   function authForms() {
@@ -321,14 +347,34 @@
     var mine = visible.filter(function (i) { return i.access === "aperta" || (S.mine[i.id] && S.mine[i.id].status === "attiva"); });
     var others = visible.filter(function (i) { return mine.indexOf(i) < 0; });
     var first = (S.profile.full_name || "").split(" ")[0];
+    var unseen = mine.reduce(function (n, it) { return n + progressOf(it).unseen; }, 0);
     setMain(
-      '<div class="page-head"><span class="eyebrow">Avamposto Under 30</span><h1>Ciao ' + esc(first) + "</h1><p>Qui trovi i percorsi a cui hai accesso. Dal catalogo puoi chiedere di partecipare agli altri.</p></div>" +
+      '<div class="page-head"><span class="eyebrow">Avamposto Under 30</span><h1>Ciao ' + esc(first) + "!</h1><p>" +
+        (unseen ? "Hai <b>" + unseen + (unseen === 1 ? " materiale nuovo" : " materiali nuovi") + "</b> da vedere nei tuoi percorsi." : "Sei in pari con tutti i tuoi percorsi.") + "</p></div>" +
+      nextLiveCard() +
       '<section class="block"><div class="block-head"><h2>I miei percorsi</h2></div>' +
         (mine.length ? '<div class="inits">' + mine.map(initCard).join("") + "</div>" : '<p class="empty">Non hai ancora corsi attivi. Scegline uno qui sotto.</p>') +
       "</section>" +
       '<section class="block"><div class="block-head"><h2>Catalogo</h2><span class="note">Lo staff riceve la tua richiesta e ti abilita.</span></div>' +
         (others.length ? '<div class="inits">' + others.map(initCard).join("") + "</div>" : '<p class="empty">Sei già dentro a tutte le iniziative disponibili.</p>') +
       "</section>", "home");
+  }
+
+  function nextLiveCard() {
+    var now = Date.now();
+    var lives = S.amats.filter(function (m) {
+      var t = d(m.live_at); return m.kind === "diretta" && m.published !== false && t && t.getTime() + 3 * 3600000 >= now;
+    }).sort(function (a, b) { return a.live_at < b.live_at ? -1 : 1; });
+    if (!lives.length) return "";
+    var m = lives[0], it = initById(m.initiative_id), st = liveState(m), href = safeHref(m.url);
+    return '<section class="next-live" aria-label="Prossima diretta"><div class="next-live-ico">' + icon("diretta") + "</div>" +
+      '<div class="next-live-txt"><span class="eyebrow">' + (st === "live" ? "In diretta ora" : "Prossima diretta") + "</span>" +
+      "<h2>" + esc(m.title) + "</h2><p>" + esc(fmtWhen(m.live_at)) + (it ? " · " + esc(it.title) : "") + "</p></div>" +
+      '<div class="btn-row">' +
+        (st === "live" && href ? '<a class="btn yellow" href="' + esc(href) + '" target="_blank" rel="noopener" data-mid="' + esc(m.id) + '">' + icon("diretta") + "Entra ora</a>"
+          : '<a class="btn on-dark" href="' + esc(gcalLink(m)) + '" target="_blank" rel="noopener">Aggiungi al calendario</a>') +
+        (it ? '<a class="btn on-dark quiet" href="#i-' + esc(it.slug) + '">Vai al corso</a>' : "") +
+      "</div></section>";
   }
 
   function viewProfile() {
@@ -343,11 +389,15 @@
     var it = initBySlug(slug);
     if (!it) { setMain('<a class="back" href="#home">← Torna ai percorsi</a><p class="empty">Questa iniziativa non esiste o non è più disponibile.</p>', "home"); return; }
     var access = hasAccess(it);
+    var pr = access ? progressOf(it) : { total: 0 };
     setMain(
       '<a class="back" href="#home">← ' + (S.me ? "I miei percorsi" : "Avamposto") + "</a>" +
-      '<header class="init-head">' + band(it) + '<div class="init-head-body">' +
+      '<header class="init-head"><div class="course-cover">' + coverHtml(it, "big") +
+        '<span class="cover-kind">' + icon(it.kind) + esc(KIND[it.kind] || "Iniziativa") + (it.starts_on ? " · dal " + esc(fmtShort(it.starts_on)) : "") + "</span></div>" +
+        '<div class="init-head-body">' +
         '<div class="btn-row">' + statusPill(it) + (S.admin ? '<a class="btn small quiet" href="#g-' + esc(it.slug) + '">' + icon("edit") + "Gestisci</a>" : "") + "</div>" +
         "<h1>" + esc(it.title) + "</h1>" +
+        (access ? '<div id="course-progress">' + progressBar(pr, true) + "</div>" : "") +
         (it.description ? '<div class="prose">' + prose(it.description) + "</div>" : it.summary ? "<p>" + esc(it.summary) + "</p>" : "") +
         (access ? "" : '<div class="btn-row">' + actionFor(it) + "</div>") +
       "</div></header>" +
@@ -356,7 +406,7 @@
       "home");
     if (access) D.materials(it.id).then(function (list) {
       var box = document.getElementById("mats"); if (!box) return;
-      box.innerHTML = list.length ? list.map(materialCard).join("") : '<p class="empty">Lo staff non ha ancora pubblicato materiali. Torna presto.</p>';
+      box.innerHTML = list.length ? list.map(function (m, i) { return materialCard(m, i + 1); }).join("") : '<p class="empty">Lo staff non ha ancora pubblicato materiali. Torna presto.</p>';
     }).catch(function (e) { var box = document.getElementById("mats"); if (box) box.innerHTML = '<p class="form-msg err">' + esc(e.message) + "</p>"; });
   }
 
@@ -381,8 +431,8 @@
     return "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(m.title) +
       "&dates=" + f(t) + "/" + f(end) + "&details=" + encodeURIComponent("Avamposto Under 30 – link alla diretta nella pagina del corso.");
   }
-  function materialCard(m) {
-    var c = "", href = safeHref(m.url);
+  function materialCard(m, n) {
+    var c = "", href = safeHref(m.url), seen = !!S.views[m.id];
     if (m.kind === "video") {
       var em = href ? embedUrl(href) : "";
       c = em ? '<div class="video"><iframe src="' + esc(em) + '" title="' + esc(m.title) + '" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>'
@@ -401,8 +451,10 @@
       c = href ? '<div class="btn-row"><a class="btn primary" href="' + esc(href) + '" target="_blank" rel="noopener">' + icon("link") + "Apri il link</a></div>" : "";
     }
     var body = m.body ? (m.kind === "testo" ? '<div class="prose">' + prose(m.body) + "</div>" : "<p>" + esc(m.body) + "</p>") : "";
-    return '<article class="mat"><div class="mat-ico">' + icon(m.kind) + "</div>" +
-      '<div class="mat-kind">' + esc(MAT[m.kind] || "") + (m.published === false ? ' <span class="pill draft">Nascosto</span>' : "") + "</div>" +
+    var seenBtn = S.me ? '<button class="seen-btn" type="button" data-action="seen" data-mid="' + esc(m.id) + '" aria-pressed="' + seen + '">' +
+      (seen ? icon("check") + "Visto" : "Segna come visto") + "</button>" : "";
+    return '<article class="mat' + (seen ? " seen" : "") + '" data-mid="' + esc(m.id) + '"><div class="mat-ico">' + (seen ? icon("check") : icon(m.kind)) + "</div>" +
+      '<div class="mat-kind">' + (n ? '<span class="mat-num">' + n + "</span>" : "") + esc(MAT[m.kind] || "") + (m.published === false ? ' <span class="pill draft">Nascosto</span>' : "") + seenBtn + "</div>" +
       "<h3>" + esc(m.title) + "</h3>" +
       '<div class="mat-content">' + (m.kind === "testo" ? body : c + body) + "</div></article>";
   }
@@ -516,7 +568,7 @@
         '<div class="btn-row"><button class="btn primary" type="submit">' + (it ? "Salva le modifiche" : "Crea iniziativa") + "</button>" +
         (it ? '<button class="btn danger small" type="button" data-action="del-init" data-id="' + esc(it.id) + '">' + icon("trash") + "Elimina iniziativa</button>" : "") + "</div>" +
       "</form></section>" +
-      (it ? inviteSection(it) + participantsSection(it) + '<section class="panel" id="mat-panel"><div class="block-head"><h2>Materiali</h2>' +
+      (it ? coverSection(it) + inviteSection(it) + participantsSection(it) + '<section class="panel" id="mat-panel"><div class="block-head"><h2>Materiali</h2>' +
         '<button class="btn small primary" type="button" data-action="mat-new">' + icon("plus") + 'Aggiungi materiale</button></div><div id="mat-form-slot"></div><div class="mat-admin" id="mat-list"><p class="loading">Caricamento…</p></div></section>' : ""),
       "gestione");
 
@@ -540,6 +592,42 @@
     });
     if (it) loadAdminMaterials(it);
   }
+
+  function coverSection(it) {
+    return '<section class="panel"><h2>Copertina</h2>' +
+      '<div class="cover-admin"><div class="cover-admin-prev">' + coverHtml(it) + "</div>" +
+      '<div class="cover-admin-txt"><p style="margin:0;color:var(--muted)">' +
+        (it.cover_path ? "Questa è la copertina caricata da voi." : "Ora c'è la copertina automatica, con titolo e icona. Puoi sostituirla con una grafica o una foto.") +
+        " Formato consigliato: orizzontale 16:9, per esempio 1600×900 (Canva: «Presentazione 16:9»). JPG o PNG fino a 5 MB.</p>" +
+      '<label class="btn small primary" for="cv-file" style="align-self:flex-start">' + icon("plus") + (it.cover_path ? "Sostituisci copertina" : "Carica copertina") + "</label>" +
+      '<input type="file" id="cv-file" accept="image/jpeg,image/png,image/webp" class="visually-hidden">' +
+      (it.cover_path ? '<button class="btn small danger" type="button" data-action="cover-remove" style="align-self:flex-start">' + icon("trash") + "Usa quella automatica</button>" : "") +
+      '<p class="form-msg err" id="cv-err" hidden></p></div></div></section>';
+  }
+  function shrinkImage(file) {
+    return new Promise(function (res, rej) {
+      if (!/^image\/(jpeg|png|webp)$/.test(file.type)) return rej(new Error("Scegli un'immagine JPG o PNG."));
+      if (file.size > 15 * 1024 * 1024) return rej(new Error("L'immagine è troppo pesante: massimo 15 MB prima del caricamento."));
+      var img = new Image(), url = URL.createObjectURL(file);
+      img.onload = function () {
+        var w = img.naturalWidth, h = img.naturalHeight, k = Math.min(1, 1600 / w);
+        var c = document.createElement("canvas"); c.width = Math.round(w * k); c.height = Math.round(h * k);
+        c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        c.toBlob(function (b) { b ? res(b) : rej(new Error("Non riesco a leggere l'immagine.")); }, "image/jpeg", 0.85);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); rej(new Error("Non riesco a leggere l'immagine.")); };
+      img.src = url;
+    });
+  }
+  document.addEventListener("change", function (e) {
+    if (e.target.id !== "cv-file" || !e.target.files[0]) return;
+    var it = currentInit(), err = document.getElementById("cv-err"); if (!it) return;
+    err.hidden = true; toast("Carico la copertina…");
+    shrinkImage(e.target.files[0]).then(function (blob) { return D.setCover(it, blob); })
+      .then(function () { toast("Copertina aggiornata"); return reload(); })
+      .catch(function (x) { err.textContent = x.message; err.hidden = false; });
+  });
 
   function inviteUrl(c) { return location.origin + location.pathname + "?invito=" + encodeURIComponent(c); }
   function inviteSection(it) {
@@ -675,6 +763,37 @@
   }
   function currentInit() { var h = location.hash.slice(1); return h.indexOf("g-") === 0 ? initBySlug(h.slice(2)) : null; }
 
+  function setSeen(mid, on) {
+    if (!S.me || !mid || !!S.views[mid] === on) return Promise.resolve();
+    if (on) S.views[mid] = true; else delete S.views[mid];
+    refreshSeenUI(mid);
+    return D.markViewed(mid, on).catch(function (x) {
+      if (on) delete S.views[mid]; else S.views[mid] = true;
+      refreshSeenUI(mid); toast(x.message, true);
+    });
+  }
+  function refreshSeenUI(mid) {
+    var card = document.querySelector('.mat[data-mid="' + mid + '"]'), on = !!S.views[mid];
+    if (card) {
+      card.classList.toggle("seen", on);
+      var btn = card.querySelector(".seen-btn");
+      if (btn) { btn.setAttribute("aria-pressed", on); btn.innerHTML = on ? icon("check") + "Visto" : "Segna come visto"; }
+      var mi = card.querySelector(".mat-ico"), m = S.amats.filter(function (x) { return x.id === mid; })[0];
+      if (mi) mi.innerHTML = on ? icon("check") : icon(m ? m.kind : "testo");
+    }
+    var it = initBySlug((location.hash.match(/^#i-(.+)$/) || [])[1] || "");
+    var box = document.getElementById("course-progress");
+    if (it && box) box.innerHTML = progressBar(progressOf(it), true);
+  }
+  // Aprire un PDF, un link, un video esterno o entrare in diretta conta come "visto"
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest(".mat a[href], .mat [data-action='open-file'], .next-live a[data-mid]");
+    if (!a) return;
+    var host = a.closest("[data-mid]");
+    var mid = a.getAttribute("data-mid") || (host && host.getAttribute("data-mid"));
+    if (mid) setSeen(mid, true);
+  }, true);
+
   document.addEventListener("click", function (e) {
     var b = e.target.closest("[data-action]"); if (!b) return;
     var act = b.getAttribute("data-action"), id = b.getAttribute("data-id"), mail = b.getAttribute("data-email");
@@ -690,6 +809,13 @@
     if (act === "request") { busy(b, true); D.requestAccess(id).then(function () { toast("Richiesta inviata allo staff"); return reload(); }).catch(function (x) { toast(x.message, true); busy(b, false); }); return; }
     if (act === "cancel") { busy(b, true); D.cancelRequest(id).then(function () { toast("Richiesta annullata"); return reload(); }).catch(function (x) { toast(x.message, true); busy(b, false); }); return; }
 
+    if (act === "seen") { setSeen(b.getAttribute("data-mid"), b.getAttribute("aria-pressed") !== "true"); return; }
+    if (act === "cover-remove") {
+      if (needsConfirm(b, "Conferma: togli la copertina")) return;
+      var itc = currentInit(); if (!itc) return;
+      busy(b, true); D.setCover(itc, null).then(function () { toast("Copertina tolta: torna quella automatica"); return reload(); }).catch(function (x) { toast(x.message, true); busy(b, false); });
+      return;
+    }
     if (act === "open-file") {
       var path = b.getAttribute("data-path"); if (!path) return;
       var w = null; try { w = window.open("", "_blank"); } catch (x) {}

@@ -98,6 +98,28 @@
       fileUrl: function (path) {
         return q(sb.storage.from("materiali").createSignedUrl(path, 3600)).then(function (d) { return d.signedUrl; });
       },
+      coverUrl: function (path) {
+        if (!path) return "";
+        if (/^(data:|blob:|\.\.\/|https?:)/.test(path)) return path;
+        return cfg.supabaseUrl.replace(/\/$/, "") + "/storage/v1/object/public/copertine/" + path.split("/").map(encodeURIComponent).join("/");
+      },
+      accessibleMaterials: function () {
+        return session ? q(sb.from("materials").select("id,initiative_id,kind,title,live_at,url,published,created_at")) : Promise.resolve([]);
+      },
+      myViews: function () { return session ? q(sb.from("material_views").select("material_id")) : Promise.resolve([]); },
+      markViewed: function (materialId, on) {
+        return on ? q(sb.from("material_views").upsert({ user_id: session.user.id, material_id: materialId }, { onConflict: "user_id,material_id", ignoreDuplicates: true }))
+                  : q(sb.from("material_views").delete().eq("user_id", session.user.id).eq("material_id", materialId));
+      },
+      setCover: function (it, blob) {
+        var old = it.cover_path;
+        var removeOld = function () { return old && !/^(data:|blob:|\.\.\/|https?:)/.test(old) ? q(sb.storage.from("copertine").remove([old])).catch(function () { return null; }) : null; };
+        if (!blob) return q(sb.from("initiatives").update({ cover_path: null }).eq("id", it.id)).then(removeOld);
+        var path = it.id + "/" + Date.now() + ".jpg";
+        return q(sb.storage.from("copertine").upload(path, blob, { contentType: "image/jpeg", upsert: false }))
+          .then(function () { return q(sb.from("initiatives").update({ cover_path: path }).eq("id", it.id)); })
+          .then(removeOld).then(function () { return path; });
+      },
 
       /* --- gestione --- */
       allEnrollments: function () { return q(sb.from("enrollments").select("*").order("created_at", { ascending: false })); },
@@ -114,6 +136,11 @@
           var paths = (files || []).map(function (f) { return id + "/" + f.name; });
           return paths.length ? q(sb.storage.from("materiali").remove(paths)) : null;
         }).catch(function () { return null; }).then(function () {
+          return q(sb.storage.from("copertine").list(id, { limit: 100 })).then(function (files) {
+            var paths = (files || []).map(function (f) { return id + "/" + f.name; });
+            return paths.length ? q(sb.storage.from("copertine").remove(paths)) : null;
+          }).catch(function () { return null; });
+        }).then(function () {
           return q(sb.from("initiatives").delete().eq("id", id));
         });
       },
@@ -153,7 +180,7 @@
   /* ================================================================
      Motore dimostrativo (dati di esempio nel browser)
      ================================================================ */
-  var DEMO_KEY = "avamposto-demo-v1";
+  var DEMO_KEY = "avamposto-demo-v2";
   var DEMO_ADMIN = "staff@esempio.it";
 
   function seed() {
@@ -164,6 +191,7 @@
     };
     return {
       session: null,
+      views: { "mario.rossi@esempio.it": { "demo-m1": iso(-6) } },
       admins: [DEMO_ADMIN],
       users: {
         "mario.rossi@esempio.it": { full_name: "Mario Rossi (esempio)", membership: "tesserato", privacy_at: iso(-20), created_at: iso(-20) },
@@ -172,7 +200,7 @@
         "staff@esempio.it": { full_name: "Staff Under 30 Marche", membership: "tesserato", privacy_at: iso(-30), created_at: iso(-30) }
       },
       initiatives: [
-        { id: I.com, slug: "comunicazione-politica", title: "Corso di comunicazione politica", kind: "corso", access: "su_richiesta", published: true, position: 1,
+        { id: I.com, slug: "comunicazione-politica", title: "Corso di comunicazione politica", kind: "corso", access: "su_richiesta", published: true, position: 1, cover_path: "../assets/foto/evento-roma-platea.jpg",
           starts_on: iso(-7).slice(0, 10), created_at: iso(-25),
           summary: "Scrivere per i social, parlare in pubblico, gestire un'intervista. Quattro incontri con esercitazioni.",
           description: "Un percorso pratico per chi cura i canali social del gruppo o interviene in pubblico.\n\nOgni incontro ha una parte teorica breve e un'esercitazione su casi reali della settimana." },
@@ -180,7 +208,7 @@
           starts_on: iso(5).slice(0, 10), created_at: iso(-15),
           summary: "Come funzionano Commissione, Parlamento e Consiglio, e perché contano per le Marche.",
           description: "Ciclo di tre dirette con ospiti, seguite da materiali di approfondimento." },
-        { id: I.spec, slug: "contenuti-speciali", title: "Contenuti speciali", kind: "contenuti", access: "aperta", published: true, position: 3,
+        { id: I.spec, slug: "contenuti-speciali", title: "Contenuti speciali", kind: "contenuti", access: "aperta", published: true, position: 3, cover_path: "../assets/foto/piazza-bandiere.jpg",
           created_at: iso(-30),
           summary: "Approfondimenti e materiali riservati a tutti gli iscritti all'Avamposto.",
           description: "Qui trovi i contenuti extra pubblicati dallo staff: schede, dossier e registrazioni degli eventi." },
@@ -197,7 +225,7 @@
         { initiative_id: I.eu, email: "luca.verdi@esempio.it", status: "attiva", source: "invito", created_at: iso(-3), decided_at: iso(-3) }
       ],
       materials: [
-        { id: uid(), initiative_id: I.com, kind: "video", title: "Lezione 1 – Scrivere un post che si fa leggere", url: "", body: "Durata 25 minuti. Guardala prima della diretta di giovedì.", position: 1, published: true, created_at: iso(-7) },
+        { id: "demo-m1", initiative_id: I.com, kind: "video", title: "Lezione 1 – Scrivere un post che si fa leggere", url: "", body: "Durata 25 minuti. Guardala prima della diretta di giovedì.", position: 1, published: true, created_at: iso(-7) },
         { id: uid(), initiative_id: I.com, kind: "pdf", title: "Slide della lezione 1", file_path: "", body: "PDF di esempio.", position: 2, published: true, created_at: iso(-7) },
         { id: uid(), initiative_id: I.com, kind: "diretta", title: "Lezione 2 – Parlare in pubblico (diretta)", url: "https://meet.google.com/", live_at: iso(2, 18, 30), body: "Porta un intervento di due minuti su un tema della rassegna.", position: 3, published: true, created_at: iso(-6) },
         { id: uid(), initiative_id: I.com, kind: "testo", title: "Esercitazione della settimana", body: "Prendi una notizia dalla rassegna di oggi e scrivi:\n\n**1.** un post di massimo 600 caratteri;\n**2.** tre titoli alternativi per una storia Instagram.\n\nCarica il lavoro nel gruppo del corso entro venerdì.", position: 4, published: true, created_at: iso(-5) },
@@ -292,6 +320,31 @@
         if (!hasAccess(id)) return delay([]);
         return delay(clone(S.materials.filter(function (m) { return m.initiative_id === id && (m.published || admin()); })
           .sort(function (a, b) { return (a.position - b.position) || (a.created_at < b.created_at ? -1 : 1); })));
+      },
+      coverUrl: function (path) { return path || ""; },
+      accessibleMaterials: function () {
+        if (!me()) return delay([]);
+        return delay(clone(S.materials.filter(function (m) { return hasAccess(m.initiative_id) && (m.published || admin()); })));
+      },
+      myViews: function () {
+        var v = (S.views || {})[me()] || {};
+        return delay(Object.keys(v).map(function (k) { return { material_id: k }; }));
+      },
+      markViewed: function (id, on) {
+        if (!me()) return deny();
+        S.views = S.views || {}; var v = S.views[me()] = S.views[me()] || {};
+        if (on) v[id] = nowIso(); else delete v[id];
+        save(); return delay({});
+      },
+      setCover: function (it, blob) {
+        if (!admin()) return deny();
+        var row = initById(it.id);
+        if (!blob) { row.cover_path = null; save(); return delay(null); }
+        return new Promise(function (res) {
+          var fr = new FileReader();
+          fr.onload = function () { row.cover_path = fr.result; save(); res(fr.result); };
+          fr.readAsDataURL(blob);
+        });
       },
       fileUrl: function (path) {
         if (path && path.indexOf("blob:") === 0) return delay(path);

@@ -278,6 +278,52 @@ create policy materiali_admin_delete on storage.objects for delete to authentica
   using (bucket_id = 'materiali' and public.is_admin());
 
 -- ---------------------------------------------------------------------
+-- Copertine delle iniziative (cartella pubblica: le vede anche il catalogo)
+-- ---------------------------------------------------------------------
+
+alter table public.initiatives add column if not exists cover_path text;
+
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('copertine', 'copertine', true, 5242880, array['image/jpeg', 'image/png', 'image/webp'])
+on conflict (id) do update set public = true, file_size_limit = 5242880,
+  allowed_mime_types = array['image/jpeg', 'image/png', 'image/webp'];
+
+drop policy if exists copertine_admin_insert on storage.objects;
+create policy copertine_admin_insert on storage.objects for insert to authenticated
+  with check (bucket_id = 'copertine' and public.is_admin());
+drop policy if exists copertine_admin_update on storage.objects;
+create policy copertine_admin_update on storage.objects for update to authenticated
+  using (bucket_id = 'copertine' and public.is_admin());
+drop policy if exists copertine_admin_delete on storage.objects;
+create policy copertine_admin_delete on storage.objects for delete to authenticated
+  using (bucket_id = 'copertine' and public.is_admin());
+
+-- ---------------------------------------------------------------------
+-- Materiali visti: ognuno segna i propri, nessun altro li vede
+-- ---------------------------------------------------------------------
+
+create table if not exists public.material_views (
+  user_id     uuid not null references auth.users (id) on delete cascade,
+  material_id uuid not null references public.materials (id) on delete cascade,
+  viewed_at   timestamptz not null default now(),
+  primary key (user_id, material_id)
+);
+alter table public.material_views enable row level security;
+
+drop policy if exists views_own_read on public.material_views;
+create policy views_own_read on public.material_views for select to authenticated
+  using (user_id = auth.uid());
+drop policy if exists views_own_insert on public.material_views;
+create policy views_own_insert on public.material_views for insert to authenticated
+  with check (user_id = auth.uid()
+              and exists (select 1 from public.materials m
+                          where m.id = material_id and public.has_access(m.initiative_id)));
+drop policy if exists views_own_delete on public.material_views;
+create policy views_own_delete on public.material_views for delete to authenticated
+  using (user_id = auth.uid());
+grant select, insert, delete on public.material_views to authenticated;
+
+-- ---------------------------------------------------------------------
 -- Ultimo passo (una volta sola): la mail condivisa dello staff diventa amministratore.
 -- Sostituisci l'indirizzo e togli i due trattini iniziali prima di eseguire.
 -- ---------------------------------------------------------------------
