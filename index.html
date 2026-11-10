@@ -30,6 +30,11 @@
   --accent-ink: #FFFFFF;
   --green: #1E9E7A;
   --title: #2C2F7C;
+  --az-blue: #253A94;
+  --az-teal: #1F96A0;
+  --az-green: #3FAE6A;
+  --az-grad: linear-gradient(100deg, #253A94 0%, #1F7FB0 45%, #1F9E8A 75%, #3FAE6A 100%);
+  --text-grad: linear-gradient(100deg, #2C3FA8 0%, #1F86A8 55%, #2E9F6A 100%);
   --ok-bg: #E3F4EA; --ok: #1E7A4F; --no-bg: #FBE4E5; --no: #A3282F;
   --focus: #4650CC;
   --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
@@ -39,14 +44,14 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --page: #11132F; --surface: #1C1F4B; --fg: #EEEFFA; --muted: #AEB1D8; --line: #2F3378;
+    --text-grad: linear-gradient(100deg, #9AA6FF 0%, #6FD0E0 55%, #7FE3A8 100%); --page: #11132F; --surface: #1C1F4B; --fg: #EEEFFA; --muted: #AEB1D8; --line: #2F3378;
     --blue: #262A75; --blue-deep: #0C0E28; --accent: #939BFF; --accent-ink: #12143A; --green: #4FD1A5; --title: #FFFFFF;
     --ok-bg: #173A2C; --ok: #7FD6A6; --no-bg: #43191D; --no: #F3A0A5; --focus: #A9AEFF;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --page: #11132F; --surface: #1C1F4B; --fg: #EEEFFA; --muted: #AEB1D8; --line: #2F3378;
+  --text-grad: linear-gradient(100deg, #9AA6FF 0%, #6FD0E0 55%, #7FE3A8 100%); --page: #11132F; --surface: #1C1F4B; --fg: #EEEFFA; --muted: #AEB1D8; --line: #2F3378;
   --blue: #262A75; --blue-deep: #0C0E28; --accent: #939BFF; --accent-ink: #12143A; --green: #4FD1A5; --title: #FFFFFF;
   --ok-bg: #173A2C; --ok: #7FD6A6; --no-bg: #43191D; --no: #F3A0A5; --focus: #A9AEFF;
   color-scheme: dark;
@@ -76,6 +81,7 @@ h1, h2, h3 { text-wrap: balance; }
 }
 
 /* Testata */
+.az-line { height: 5px; background: var(--az-grad); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; padding-block: 16px; flex-wrap: wrap; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--title); }
 .brand img { width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 0 0 2px #FFFFFF, 0 2px 8px rgba(27,30,87,.18); }
@@ -92,10 +98,11 @@ h1, h2, h3 { text-wrap: balance; }
 .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: 36px; align-items: center; padding-block: 18px 56px; }
 .hero h1 { margin: 10px 0 0; font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; color: var(--title);
   font-size: clamp(2.6rem, 6.2vw, 5rem); line-height: .9; letter-spacing: -.02em; }
-.hero h1 em { font-style: italic; display: block; color: var(--accent); }
+.hero h1 em { font-style: italic; display: block; color: var(--accent); background: var(--text-grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; padding-right: .08em; }
 .hero .lede { font-size: 1.12rem; max-width: 50ch; margin: 22px 0 0; }
 .hero .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
 .values { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; padding: 0; list-style: none; }
+.values li:first-child { background: var(--az-grad); color: #FFFFFF; border-color: transparent; }
 .values li { font: 500 .74rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; padding: 8px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); color: var(--fg); }
 .mosaic { display: grid; grid-template-columns: 1.15fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; height: clamp(380px, 46vw, 560px); }
 .mosaic figure { margin: 0; border-radius: 18px; overflow: hidden; position: relative; background: var(--blue); min-height: 0; }
@@ -114,6 +121,7 @@ h1, h2, h3 { text-wrap: balance; }
 /* Porte */
 .doors .wrap { padding-block: 10px 64px; display: grid; gap: 18px; }
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.section-head h2::after { content: ""; display: block; width: 64px; height: 5px; border-radius: 3px; margin-top: 10px; background: var(--az-grad); }
 .section-head h2 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; color: var(--title); font-size: clamp(1.7rem, 3.6vw, 2.4rem); line-height: 1; letter-spacing: -.01em; }
 .door-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 @media (max-width: 860px) { .door-grid { grid-template-columns: 1fr; } }
@@ -127,7 +135,7 @@ h1, h2, h3 { text-wrap: balance; }
 .door.punto { background: var(--surface); border: 1px solid var(--line); box-shadow: 0 14px 40px rgba(27,30,87,.08); }
 .door.punto h3 { color: var(--title); }
 .door.punto .tag { color: var(--muted); }
-.door.punto .rule { height: 0; border-top: 3px solid var(--title); border-bottom: 1px solid var(--title); padding-top: 3px; }
+.door.punto .rule { height: 5px; border-radius: 3px; background: var(--az-grad); }
 .today { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
 .today li { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
 .today li:last-child { border-bottom: 0; }
@@ -176,11 +184,11 @@ h1, h2, h3 { text-wrap: balance; }
 }
 
 /* Unisciti */
-.join { background: var(--blue); color: #FFFFFF; position: relative; overflow: hidden; }
+.join { background: linear-gradient(120deg, #1E2470 0%, #253A94 45%, #1A7E8E 85%, #2E9F6A 100%); color: #FFFFFF; position: relative; overflow: hidden; }
 .join::before { content: ""; position: absolute; right: -120px; top: -140px; width: 420px; height: 420px; border-radius: 50%; border: 34px solid rgba(255,255,255,.05); }
 .join .wrap { position: relative; padding-block: 64px; display: grid; gap: 28px; }
 .join h2 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: .92; letter-spacing: -.015em; }
-.join h2 span { color: #8FE3C6; }
+.join h2 span { color: #A8F0C8; }
 .join-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 960px) { .join-grid { grid-template-columns: 1fr; } }
 .card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.18); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
@@ -212,6 +220,7 @@ footer a { color: #E4E6FF; }
 </head>
 <body>
 
+<div class="az-line" aria-hidden="true"></div>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="./">
@@ -231,12 +240,12 @@ footer a { color: #E4E6FF; }
 <section class="hero">
   <div class="wrap">
     <div>
-      <span class="eyebrow">I giovani di Azione nelle Marche</span>
+      <span class="eyebrow">I giovani di <a href="https://www.azione.it/" target="_blank" rel="noopener" style="color:inherit">Azione ↗</a> nelle Marche</span>
       <h1>Liberali, europeisti, <em>mai noiosi.</em></h1>
-      <p class="lede">Studiamo i dossier, scendiamo in piazza, andiamo agli eventi nazionali e restiamo a cena fino a tardi a discutere di Europa. Facciamo politica sul serio, senza prenderci troppo sul serio: se pensi che la politica si cambi stando dentro, c'è un posto per te.</p>
+      <p class="lede">A un certo punto abbiamo smesso di lamentarci della politica e abbiamo iniziato a farla. Ci trovi ai banchetti in centro, in viaggio verso Roma per un evento, a discutere di Europa fino a mezzanotte e poi a cena, tutti insieme. Se sei stanco di guardare da fuori, vieni a conoscerci.</p>
       <div class="actions">
         <a class="btn solid" href="#unisciti">Unisciti a noi</a>
-        <a class="btn" href="#chi-siamo">Guarda chi siamo</a>
+        <a class="btn" href="#chi-siamo">Chi siamo</a>
       </div>
       <ul class="values" aria-label="I nostri valori">
         <li>Riformisti</li><li>Pragmatici</li><li>Renew Europe</li>
@@ -252,14 +261,14 @@ footer a { color: #E4E6FF; }
 
 <section class="doors" aria-labelledby="doors-title">
   <div class="wrap">
-    <div class="section-head"><h2 id="doors-title">Da dove vuoi partire?</h2></div>
+    <div class="section-head"><h2 id="doors-title">Da dove cominci?</h2></div>
     <div class="door-grid">
       <article class="door punto">
         <div class="door-body">
           <span class="tag" id="punto-date">La rassegna stampa delle 8:00</span>
           <h3>Il Punto</h3>
           <div class="rule" aria-hidden="true"></div>
-          <p>Ogni mattina le notizie politiche che contano: esteri, Italia e Marche, con uno spunto per i tuoi contenuti social. Da leggere o da ascoltare.</p>
+          <p>Ogni mattina alle 8 ti raccontiamo cosa è successo nel mondo, in Italia e nelle Marche, con un'idea pronta per il tuo prossimo post. Se vai di fretta, ascoltala mentre vai a lezione o al lavoro.</p>
           <ul class="today loading" id="punto-today" aria-live="polite">
             <li><span class="sec">Oggi</span><span class="t">Carico i titoli d'apertura…</span></li>
           </ul>
@@ -276,7 +285,7 @@ footer a { color: #E4E6FF; }
           <span class="lock"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Area riservata</span>
           <span class="tag">Iscrizione libera e gratuita</span>
           <h3>Avamposto</h3>
-          <p>Il posto dove ci formiamo: corsi, dirette con ospiti e contenuti speciali per tesserati e simpatizzanti.</p>
+          <p>Qui impariamo a fare politica bene: scrivere un post che funziona, parlare in pubblico, capire come si decide davvero in Europa. Corsi, dirette con ospiti e materiali riservati a chi è dei nostri.</p>
           <ul class="inside" id="ava-list">
             <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5"/></svg><div><b>Corsi</b><span>Comunicazione, istituzioni, Europa: video e materiali.</span></div></li>
             <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M8.5 15.5a5 5 0 0 1 0-7M15.5 8.5a5 5 0 0 1 0 7M5.6 18.4a9 9 0 0 1 0-12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></svg><div><b>Dirette</b><span>Incontri su Meet con ospiti e domande dal vivo.</span></div></li>
@@ -296,9 +305,9 @@ footer a { color: #E4E6FF; }
   <div class="wrap">
     <div>
       <span class="eyebrow">Chi siamo</span>
-      <h2 id="about-title">Un gruppo, prima ancora che un'organizzazione</h2>
-      <p>Siamo i ragazzi e le ragazze di Azione nelle Marche. Facciamo banchetti nelle piazze, organizziamo fiaccolate per l'Ucraina, partiamo insieme per gli eventi nazionali e ci formiamo su istituzioni, economia ed Europa.</p>
-      <p>Crediamo in una politica che parte dai fatti, guarda all'Europa e non urla. E crediamo che farla insieme sia molto più divertente.</p>
+      <h2 id="about-title">Prima di tutto, una squadra</h2>
+      <p>Studenti, lavoratori, qualcuno ancora indeciso su cosa fare da grande. Ci siamo conosciuti a un banchetto, a una fiaccolata per l'Ucraina, a un evento a Roma, e da lì non ci siamo più persi di vista.</p>
+      <p>Non urliamo e non promettiamo miracoli. Preferiamo studiare, proporre e metterci la faccia. Ed è molto più divertente di quanto pensi.</p>
       <div class="socials">
         <a class="btn solid" href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>Seguici su Instagram</a>
         <a class="btn" href="https://discord.gg/SZbnaCjrV" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M9 10h.01M15 10h.01"/></svg>Entra nel Discord</a>
@@ -307,7 +316,7 @@ footer a { color: #E4E6FF; }
     <a class="reel" href="https://www.instagram.com/reel/DXPXZmQjT95/" target="_blank" rel="noopener">
       <img src="assets/foto/centro-storico.jpg" alt="" loading="lazy" width="1050" height="1400" style="object-position:center 45%">
       <span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span>
-      <span class="cap"><b>Guarda il video</b><span>Chi siamo, in un minuto · su Instagram ↗</span></span>
+      <span class="cap"><b>Guarda il video</b><span>Il nostro reel su Instagram ↗</span></span>
     </a>
     <div class="strip">
       <figure><img src="assets/foto/fiaccolata-ucraina.jpg" alt="Fiaccolata per l'Ucraina con le bandiere ucraina e di Azione" loading="lazy" width="787" height="1400" style="object-position:center 30%"><figcaption>Per l'Ucraina</figcaption></figure>
@@ -321,19 +330,19 @@ footer a { color: #E4E6FF; }
   <div class="wrap">
     <div>
       <span class="eyebrow" style="color:#C9CCF5">Unisciti a noi</span>
-      <h2 id="join-title">C'è posto <span>anche per te</span></h2>
+      <h2 id="join-title">Manchi <span>solo tu</span></h2>
     </div>
     <div class="join-grid">
       <div class="card">
         <span class="ico-big"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span>
         <h3>Prendi la tessera</h3>
-        <p>Il tesseramento si fa sul sito nazionale di Azione. Poi scrivici: ti aggiungiamo al gruppo delle Marche.</p>
+        <p>Ti iscrivi online sul sito di Azione. Poi scrivici e ti presentiamo al resto del gruppo.</p>
         <div class="actions"><a class="btn white" href="https://noi.azione.it/primo-tesseramento/" target="_blank" rel="noopener">Tesserati ad Azione ↗</a></div>
       </div>
       <div class="card">
         <span class="ico-big"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
         <h3>Iscriviti alla newsletter</h3>
-        <p>Eventi, iniziative e appuntamenti nelle Marche, direttamente nella tua casella.</p>
+        <p>Solo quando c'è qualcosa da non perdere: eventi, cene e iniziative vicino a te.</p>
         <form class="nl-form" id="nl-form" novalidate>
           <label class="hp" for="nl-web">Lascia vuoto questo campo<input type="text" id="nl-web" tabindex="-1" autocomplete="off"></label>
           <div class="nl-row">
@@ -348,7 +357,7 @@ footer a { color: #E4E6FF; }
       <div class="card">
         <span class="ico-big"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></span>
         <h3>Scrivici</h3>
-        <p>Domande, idee, voglia di dare una mano: rispondiamo a tutti.</p>
+        <p>Hai un'idea, un dubbio o vuoi solo capire chi siamo? Scrivici, ti rispondiamo noi.</p>
         <div class="mail"><code id="mail-addr">azioneunder30marche@gmail.com</code></div>
         <div class="actions">
           <a class="btn white" href="mailto:azioneunder30marche@gmail.com">Mandaci una mail</a>
@@ -362,7 +371,7 @@ footer a { color: #E4E6FF; }
 
 <footer>
   <div class="wrap">
-    <span>Azione Under 30 Marche</span>
+    <span>Azione Under 30 Marche · i giovani di <a href="https://www.azione.it/" target="_blank" rel="noopener">Azione</a> nelle Marche</span>
     <nav aria-label="Collegamenti">
       <a href="rassegna/">Il Punto</a>
       <a href="avamposto/">Avamposto</a>
