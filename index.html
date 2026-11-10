@@ -158,6 +158,9 @@ footer .wrap { padding-block: 22px 34px; display: grid; gap: 8px; }
 footer p { margin: 0; max-width: 80ch; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 @media (max-width: 520px) { .mast img { width: 70px; height: 70px; } .mast .wrap { gap: 16px; } .plate .meta { font-size: .66rem; } }
+.to-avamposto { grid-column: 1 / -1; justify-self: start; display: inline-flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--mast); background: var(--mast-ink); padding: 9px 14px; border-radius: 999px; font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; letter-spacing: .02em; }
+.to-avamposto span { font-family: var(--body); font-style: normal; font-weight: 700; text-transform: none; letter-spacing: 0; font-size: .85rem; }
+@media (min-width: 760px) { .mast .wrap { grid-template-columns: auto 1fr auto; } .to-avamposto { grid-column: 3; grid-row: 1; justify-self: end; align-self: start; } }
 </style>
 </head>
 <body>
@@ -165,6 +168,7 @@ footer p { margin: 0; max-width: 80ch; }
   <div class="wrap">
     <img src="assets/logo.png" alt="Logo Azione Under 30 Marche" width="96" height="96">
     <h1>Il Punto<span>Under 30 Marche · La rassegna stampa delle 8:00</span></h1>
+    <a class="to-avamposto" href="avamposto/">Avamposto <span>Area riservata →</span></a>
     <div class="edition">
       <time id="ed-date"></time>
       <p id="ed-intro">Caricamento dell'edizione…</p>
@@ -201,7 +205,7 @@ footer p { margin: 0; max-width: 80ch; }
 <footer>
   <div class="wrap">
     <p>Sintesi originali scritte a partire dagli articoli citati: ogni notizia rimanda alla testata che l'ha pubblicata. Gli spunti di riflessione sono proposte per i contenuti social; quando richiamano le posizioni di Azione, linkano le dichiarazioni recenti di Carlo Calenda e degli esponenti del partito da cui sono tratti.</p>
-    <p>Il Punto Under 30 – Marche · uso interno per staff e militanti.</p>
+    <p>Il Punto Under 30 – Marche · uso interno per staff e militanti. · <a href="avamposto/">Avamposto Under 30, l'area riservata</a></p>
   </div>
 </footer>
 
