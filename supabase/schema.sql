@@ -324,6 +324,64 @@ create policy views_own_delete on public.material_views for delete to authentica
 grant select, insert, delete on public.material_views to authenticated;
 
 -- ---------------------------------------------------------------------
+-- La squadra: organigramma riservato agli iscritti all'Avamposto
+-- ---------------------------------------------------------------------
+
+create table if not exists public.org_units (
+  id           uuid primary key default gen_random_uuid(),
+  parent_id    uuid references public.org_units (id) on delete set null,
+  name         text not null,
+  kind         text not null default 'gruppo' check (kind in ('coordinamento', 'area', 'gruppo', 'provincia')),
+  description  text,
+  whatsapp_url text check (whatsapp_url is null or whatsapp_url ~ '^https://(chat\.whatsapp\.com|(www\.)?whatsapp\.com/channel|wa\.me)/'),
+  position     int not null default 0,
+  created_at   timestamptz not null default now()
+);
+
+create table if not exists public.org_people (
+  id         uuid primary key default gen_random_uuid(),
+  unit_id    uuid not null references public.org_units (id) on delete cascade,
+  full_name  text not null,
+  role       text,
+  instagram  text,
+  photo_path text,
+  position   int not null default 0,
+  created_at timestamptz not null default now()
+);
+
+alter table public.org_units  enable row level security;
+alter table public.org_people enable row level security;
+
+-- Solo chi è entrato nell'Avamposto vede la squadra e i link ai canali WhatsApp
+drop policy if exists org_units_read on public.org_units;
+create policy org_units_read on public.org_units for select to authenticated using (auth.uid() is not null);
+drop policy if exists org_units_admin on public.org_units;
+create policy org_units_admin on public.org_units for all to authenticated using (public.is_admin()) with check (public.is_admin());
+drop policy if exists org_people_read on public.org_people;
+create policy org_people_read on public.org_people for select to authenticated using (auth.uid() is not null);
+drop policy if exists org_people_admin on public.org_people;
+create policy org_people_admin on public.org_people for all to authenticated using (public.is_admin()) with check (public.is_admin());
+grant select, insert, update, delete on public.org_units, public.org_people to authenticated;
+
+-- Foto della squadra: cartella privata, visibile solo agli iscritti
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('squadra', 'squadra', false, 5242880, array['image/jpeg', 'image/png', 'image/webp'])
+on conflict (id) do update set public = false, file_size_limit = 5242880,
+  allowed_mime_types = array['image/jpeg', 'image/png', 'image/webp'];
+drop policy if exists squadra_read on storage.objects;
+create policy squadra_read on storage.objects for select to authenticated
+  using (bucket_id = 'squadra' and auth.uid() is not null);
+drop policy if exists squadra_admin_insert on storage.objects;
+create policy squadra_admin_insert on storage.objects for insert to authenticated
+  with check (bucket_id = 'squadra' and public.is_admin());
+drop policy if exists squadra_admin_update on storage.objects;
+create policy squadra_admin_update on storage.objects for update to authenticated
+  using (bucket_id = 'squadra' and public.is_admin());
+drop policy if exists squadra_admin_delete on storage.objects;
+create policy squadra_admin_delete on storage.objects for delete to authenticated
+  using (bucket_id = 'squadra' and public.is_admin());
+
+-- ---------------------------------------------------------------------
 -- Ultimo passo (una volta sola): la mail condivisa dello staff diventa amministratore.
 -- Sostituisci l'indirizzo e togli i due trattini iniziali prima di eseguire.
 -- ---------------------------------------------------------------------

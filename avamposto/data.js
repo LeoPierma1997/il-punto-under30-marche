@@ -19,6 +19,7 @@
     [/invalid.*email|Unable to validate email/i, "L'indirizzo email non sembra valido. Controllalo e riprova."],
     [/Invito non valido/i, "Questo link d'invito non è valido o è stato disattivato. Chiedi allo staff un link nuovo."],
     [/row-level security|permission denied|Solo gli amministratori/i, "Non hai i permessi per questa operazione."],
+    [/whatsapp_url_check/i, "Il link deve essere un link WhatsApp (chat.whatsapp.com o whatsapp.com/channel)."],
     [/duplicate key.*slug|initiatives_slug_key/i, "Esiste già un'iniziativa con questo indirizzo breve. Cambialo."],
     [/Failed to fetch|NetworkError|Load failed/i, "Connessione assente o lenta. Controlla la rete e riprova."],
     [/Payload too large|exceeded the maximum allowed size/i, "Il file è troppo grande: il limite è 50 MB."]
@@ -111,6 +112,36 @@
         return on ? q(sb.from("material_views").upsert({ user_id: session.user.id, material_id: materialId }, { onConflict: "user_id,material_id", ignoreDuplicates: true }))
                   : q(sb.from("material_views").delete().eq("user_id", session.user.id).eq("material_id", materialId));
       },
+      orgUnits: function () { return q(sb.from("org_units").select("*").order("position").order("created_at")); },
+      orgPeople: function () { return q(sb.from("org_people").select("*").order("position").order("created_at")); },
+      orgPhotoUrls: function (paths) {
+        paths = (paths || []).filter(Boolean);
+        if (!paths.length) return Promise.resolve({});
+        return q(sb.storage.from("squadra").createSignedUrls(paths, 3600)).then(function (list) {
+          var o = {}; (list || []).forEach(function (x) { if (x.signedUrl) o[x.path] = x.signedUrl; }); return o;
+        });
+      },
+      saveUnit: function (u) {
+        var row = { parent_id: u.parent_id || null, name: u.name, kind: u.kind, description: u.description || null, whatsapp_url: u.whatsapp_url || null, position: u.position || 0 };
+        return u.id ? q(sb.from("org_units").update(row).eq("id", u.id).select().single()) : q(sb.from("org_units").insert(row).select().single());
+      },
+      deleteUnit: function (id) { return q(sb.from("org_units").delete().eq("id", id)); },
+      savePerson: function (pp) {
+        var row = { unit_id: pp.unit_id, full_name: pp.full_name, role: pp.role || null, instagram: pp.instagram || null, position: pp.position || 0 };
+        return pp.id ? q(sb.from("org_people").update(row).eq("id", pp.id).select().single()) : q(sb.from("org_people").insert(row).select().single());
+      },
+      deletePerson: function (pp) {
+        var rm = pp.photo_path ? q(sb.storage.from("squadra").remove([pp.photo_path])).catch(function () { return null; }) : Promise.resolve();
+        return rm.then(function () { return q(sb.from("org_people").delete().eq("id", pp.id)); });
+      },
+      setPersonPhoto: function (pp, blob) {
+        var old = pp.photo_path;
+        var removeOld = function () { return old ? q(sb.storage.from("squadra").remove([old])).catch(function () { return null; }) : null; };
+        if (!blob) return q(sb.from("org_people").update({ photo_path: null }).eq("id", pp.id)).then(removeOld);
+        var path = pp.id + "/" + Date.now() + ".jpg";
+        return q(sb.storage.from("squadra").upload(path, blob, { contentType: "image/jpeg" }))
+          .then(function () { return q(sb.from("org_people").update({ photo_path: path }).eq("id", pp.id)); }).then(removeOld);
+      },
       setCover: function (it, blob) {
         var old = it.cover_path;
         var removeOld = function () { return old && !/^(data:|blob:|\.\.\/|https?:)/.test(old) ? q(sb.storage.from("copertine").remove([old])).catch(function () { return null; }) : null; };
@@ -180,7 +211,7 @@
   /* ================================================================
      Motore dimostrativo (dati di esempio nel browser)
      ================================================================ */
-  var DEMO_KEY = "avamposto-demo-v2";
+  var DEMO_KEY = "avamposto-demo-v3";
   var DEMO_ADMIN = "staff@esempio.it";
 
   function seed() {
@@ -217,6 +248,30 @@
           summary: "Bozza: non ancora visibile agli iscritti.",
           description: "Iniziativa in preparazione." }
       ],
+      org: (function () {
+        var U = function (id, parent, name, kind, desc, pos) { return { id: id, parent_id: parent, name: name, kind: kind, description: desc, whatsapp_url: null, position: pos }; };
+        var P = function (id, unit, name, role, pos) { return { id: id, unit_id: unit, full_name: name, role: role, instagram: null, photo_path: null, position: pos }; };
+        return {
+          units: [U("u-reg", null, "Coordinamento Regionale Marche", "coordinamento", null, 1),
+            U("u-gdl", "u-reg", "Gruppi di Lavoro", "area", "Coordinamento Gruppi di Lavoro", 2),
+            U("u-prov", "u-reg", "Coordinamenti Provinciali", "area", "Rete Provinciali", 3),
+            U("u-com", "u-gdl", "GdL Comunicazione & Social", "gruppo", null, 1),
+            U("u-org", "u-gdl", "GdL Organizzazione & Logistica", "gruppo", null, 2),
+            U("u-tes", "u-gdl", "GdL Tesoreria & Radicamento", "gruppo", null, 3),
+            U("u-pu", "u-prov", "Provincia di Pesaro-Urbino", "provincia", "Referente PU", 1),
+            U("u-an", "u-prov", "Provincia di Ancona", "provincia", "Referente AN", 2),
+            U("u-mc", "u-prov", "Provincia di Macerata", "provincia", "Referente MC", 3),
+            U("u-fm", "u-prov", "Provincia di Fermo", "provincia", "Referente FM", 4),
+            U("u-ap", "u-prov", "Provincia di Ascoli Piceno", "provincia", "Referente AP", 5)],
+          people: [P("p1", "u-reg", "Nome Cognome (esempio)", "Coordinatore Regionale", 1),
+            P("p2", "u-gdl", "Nome Cognome (esempio)", "Coordinamento Gruppi di Lavoro", 1),
+            P("p3", "u-prov", "Nome Cognome (esempio)", "Rete Provinciali", 1),
+            P("p4", "u-com", "Nome Cognome (esempio)", "Referente Comunicazione", 1),
+            P("p5", "u-org", "Nome Cognome (esempio)", "Referente Eventi", 1),
+            P("p6", "u-tes", "Nome Cognome (esempio)", "Tesoriere & Referente Radicamento", 1),
+            P("p7", "u-tes", "Nome Cognome (esempio)", "Tesoriere & Referente Radicamento", 2)]
+        };
+      })(),
       invites: (function () { var o = {}; [I.com, I.eu, I.spec, I.social].forEach(function (id) { o[id] = { initiative_id: id, code: code(), active: true }; }); return o; })(),
       enrollments: [
         { initiative_id: I.com, email: "mario.rossi@esempio.it", status: "attiva", source: "manuale", created_at: iso(-18), decided_at: iso(-18) },
@@ -322,6 +377,38 @@
           .sort(function (a, b) { return (a.position - b.position) || (a.created_at < b.created_at ? -1 : 1); })));
       },
       coverUrl: function (path) { return path || ""; },
+      orgUnits: function () { return me() ? delay(clone(S.org.units).sort(function (a, b) { return a.position - b.position; })) : deny(); },
+      orgPeople: function () { return me() ? delay(clone(S.org.people).sort(function (a, b) { return a.position - b.position; })) : deny(); },
+      orgPhotoUrls: function (paths) { var o = {}; (paths || []).forEach(function (p) { if (p) o[p] = p; }); return delay(o); },
+      saveUnit: function (u) {
+        if (!admin()) return deny();
+        if (u.whatsapp_url && !/^https:\/\/(chat\.whatsapp\.com|(www\.)?whatsapp\.com\/channel|wa\.me)\//.test(u.whatsapp_url)) return Promise.reject(new Error("Il link deve essere un link WhatsApp (chat.whatsapp.com o whatsapp.com/channel)."));
+        var row;
+        if (u.id) { row = S.org.units.filter(function (x) { return x.id === u.id; })[0]; Object.assign(row, u); }
+        else { var f = Object.assign({}, u); delete f.id; row = Object.assign({ id: uid() }, f); S.org.units.push(row); }
+        save(); return delay(clone(row));
+      },
+      deleteUnit: function (id) {
+        if (!admin()) return deny();
+        S.org.units = S.org.units.filter(function (x) { return x.id !== id; });
+        S.org.units.forEach(function (x) { if (x.parent_id === id) x.parent_id = null; });
+        S.org.people = S.org.people.filter(function (x) { return x.unit_id !== id; });
+        save(); return delay({});
+      },
+      savePerson: function (pp) {
+        if (!admin()) return deny();
+        var row;
+        if (pp.id) { row = S.org.people.filter(function (x) { return x.id === pp.id; })[0]; Object.assign(row, pp); }
+        else { var f = Object.assign({}, pp); delete f.id; row = Object.assign({ id: uid(), photo_path: null }, f); S.org.people.push(row); }
+        save(); return delay(clone(row));
+      },
+      deletePerson: function (pp) { if (!admin()) return deny(); S.org.people = S.org.people.filter(function (x) { return x.id !== pp.id; }); save(); return delay({}); },
+      setPersonPhoto: function (pp, blob) {
+        if (!admin()) return deny();
+        var row = S.org.people.filter(function (x) { return x.id === pp.id; })[0];
+        if (!blob) { row.photo_path = null; save(); return delay({}); }
+        return new Promise(function (res) { var fr = new FileReader(); fr.onload = function () { row.photo_path = fr.result; save(); res({}); }; fr.readAsDataURL(blob); });
+      },
       accessibleMaterials: function () {
         if (!me()) return delay([]);
         return delay(clone(S.materials.filter(function (m) { return hasAccess(m.initiative_id) && (m.published || admin()); })));

@@ -12,6 +12,7 @@ Pagina: `avamposto/` del sito. Finché `avamposto/config.js` è vuoto, gira in *
   2. lo staff incolla una o più email in «Aggiungi persone a mano» (vale anche per chi non si è ancora iscritto);
   3. lo staff manda il **link d'invito** dell'iniziativa: chi lo apre e si iscrive o entra ha subito accesso. Il link si può disattivare o rigenerare.
 - **Materiali**: video (YouTube anche non in elenco, Vimeo, Google Drive), dirette Meet con data e ora (il pulsante compare 15 minuti prima), PDF fino a 50 MB, testi, link.
+- **La squadra**: organigramma con persone, ruoli, foto e link ai canali WhatsApp, visibile solo agli iscritti. Si modifica da Gestione → La squadra. I nomi reali si caricano con il file SQL riservato consegnato a parte (non è in questo repository).
 - **Gestione** (solo per la mail amministratore): richieste, iniziative, partecipanti, materiali, elenco iscritti con esportazione CSV.
 
 La protezione è sul server: le regole del database (`supabase/schema.sql`) impediscono di leggere materiali e PDF di iniziative a cui non si è abilitati, di approvarsi da soli e di diventare amministratori.

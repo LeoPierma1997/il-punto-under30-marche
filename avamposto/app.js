@@ -47,6 +47,9 @@
     eyeoff: '<path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3 3.9M6.6 6.6C3.8 8.4 2 12 2 12s3.5 7 10 7a9.6 9.6 0 0 0 4.3-1"/>',
     users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6"/>',
     shield: '<path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/>',
+    team: '<circle cx="12" cy="7" r="3"/><circle cx="5" cy="10" r="2.2"/><circle cx="19" cy="10" r="2.2"/><path d="M7 20a5 5 0 0 1 10 0M1.5 19a3.5 3.5 0 0 1 5-3.2M22.5 19a3.5 3.5 0 0 0-5-3.2"/>',
+    chat: '<path d="M4 20l1.4-4A8 8 0 1 1 8 18.6z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/>',
+    insta: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/>',
     download: '<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>'
   };
   function icon(n) { return '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n] || ICONS.testo) + "</svg>"; }
@@ -136,6 +139,7 @@
     var pending = S.admin ? A.enrollments.filter(function (e) { return e.status === "richiesta"; }).length : 0;
     nav.innerHTML =
       '<a href="#home"' + (active === "home" ? ' aria-current="page"' : "") + ">I miei percorsi</a>" +
+      '<a href="#squadra"' + (active === "squadra" ? ' aria-current="page"' : "") + ">La squadra</a>" +
       '<a href="#profilo"' + (active === "profilo" ? ' aria-current="page"' : "") + ">Profilo</a>" +
       (S.admin ? '<a class="staff" href="#gestione"' + (active === "gestione" ? ' aria-current="page"' : "") + ">" + icon("shield") + "Gestione" +
         (pending ? ' <span class="count" aria-label="' + pending + ' richieste">' + pending + "</span>" : "") + "</a>" : "");
@@ -156,11 +160,13 @@
     }
     if (S.profile === null || !S.profile.full_name || !S.profile.membership || !S.profile.privacy_at) return viewCompleteProfile();
     if (h === "profilo") return viewProfile();
+    if (h === "squadra") return viewTeam();
     if (h.indexOf("i-") === 0) return viewInitiative(h.slice(2));
     if (S.admin) {
       if (h === "gestione") return viewAdmin();
       if (h === "g-iscritti") return viewMembers();
       if (h === "g-nuova") return viewEditInitiative(null);
+      if (h === "g-squadra") return viewEditTeam();
       if (h.indexOf("g-") === 0) return viewEditInitiative(h.slice(2));
     }
     return viewHome();
@@ -472,6 +478,149 @@
       '<div class="mat-content">' + (m.kind === "testo" ? body : c + body) + "</div></article>";
   }
 
+
+  /* ---------------- la squadra ---------------- */
+  var T = { units: [], people: [], photos: {} };
+  function loadTeam() {
+    return Promise.all([D.orgUnits(), D.orgPeople()]).then(function (r) {
+      T.units = r[0] || []; T.people = r[1] || [];
+      return D.orgPhotoUrls(T.people.map(function (pp) { return pp.photo_path; }));
+    }).then(function (urls) { T.photos = urls || {}; });
+  }
+  function isNA(name) { return !name || /^\s*(n\/?a|da nominare|-+)\s*$/i.test(name); }
+  function initials(name) {
+    return String(name || "?").replace(/\(.*?\)/g, "").trim().split(/\s+/).slice(0, 2).map(function (w) { return w.charAt(0).toUpperCase(); }).join("") || "?";
+  }
+  function avatar(pp, big) {
+    var u = pp.photo_path && T.photos[pp.photo_path];
+    return '<span class="avatar' + (big ? " big" : "") + '">' + (u ? '<img src="' + esc(u) + '" alt="">' : esc(initials(pp.full_name))) + "</span>";
+  }
+  function igLink(h) {
+    h = String(h || "").trim().replace(/^@/, "").replace(/^https?:\/\/(www\.)?instagram\.com\//, "").replace(/\/.*$/, "");
+    return /^[\w.]{1,30}$/.test(h) ? '<a class="ig" href="https://www.instagram.com/' + esc(h) + '/" target="_blank" rel="noopener">' + icon("insta") + "@" + esc(h) + "</a>" : "";
+  }
+  function waButton(u, label) {
+    return u ? '<a class="btn small wa" href="' + esc(u) + '" target="_blank" rel="noopener">' + icon("chat") + esc(label || "Entra nel canale WhatsApp") + "</a>" : "";
+  }
+  function peopleOf(id) { return T.people.filter(function (pp) { return pp.unit_id === id && !isNA(pp.full_name); }); }
+  function childrenOf(id) { return T.units.filter(function (u) { return (u.parent_id || null) === id; }); }
+  function personRow(pp, big) {
+    return '<li class="person">' + avatar(pp, big) + '<span class="who"><b>' + esc(pp.full_name) + "</b>" + (pp.role ? "<span>" + esc(pp.role) + "</span>" : "") + igLink(pp.instagram) + "</span></li>";
+  }
+  function unitCard(u) {
+    var pp = peopleOf(u.id);
+    return '<article class="unit k-' + esc(u.kind) + '"><h3>' + esc(u.name) + "</h3>" +
+      (pp.length ? '<ul class="people">' + pp.map(function (x) { return personRow(x); }).join("") + "</ul>"
+        : '<p class="vacant">' + icon("team") + esc(u.description ? u.description + ": da nominare" : "Referente da nominare") + "</p>") +
+      waButton(u.whatsapp_url) + "</article>";
+  }
+  function viewTeam() {
+    setMain('<div class="page-head"><span class="eyebrow">Avamposto Under 30</span><h1>La squadra</h1><p>Chi coordina Azione Under 30 nelle Marche, i gruppi di lavoro e i referenti provinciali. Entra nei canali WhatsApp della tua zona e del tuo gruppo.</p></div><div id="team"><p class="loading">Caricamento…</p></div>', "squadra");
+    loadTeam().then(function () {
+      var box = document.getElementById("team"); if (!box) return;
+      var roots = childrenOf(null);
+      if (!roots.length) { box.innerHTML = '<p class="empty">La squadra sarà pubblicata a breve.</p>'; return; }
+      box.innerHTML = roots.map(function (r) {
+        var lead = peopleOf(r.id);
+        return '<section class="team-root"><div class="team-lead"><span class="eyebrow">' + esc(r.name) + "</span>" +
+          (lead.length ? '<ul class="people lead">' + lead.map(function (x) { return personRow(x, true); }).join("") + "</ul>" : '<p class="vacant">Da nominare</p>') +
+          waButton(r.whatsapp_url, "Canale WhatsApp regionale") + "</div>" +
+          childrenOf(r.id).map(function (a) {
+            var coord = peopleOf(a.id), kids = childrenOf(a.id);
+            return '<section class="team-area"><div class="area-head"><div><h2>' + esc(a.name) + "</h2>" +
+              (coord.length ? '<p class="coord">Coordina ' + coord.map(function (x) { return "<b>" + esc(x.full_name) + "</b>"; }).join(" e ") + "</p>" : "") + "</div>" +
+              waButton(a.whatsapp_url, "Canale WhatsApp") + "</div>" +
+              (kids.length ? '<div class="units">' + kids.map(unitCard).join("") + "</div>" : "") + "</section>";
+          }).join("") + "</section>";
+      }).join("");
+    }).catch(function (e) { var box = document.getElementById("team"); if (box) box.innerHTML = '<p class="form-msg err">' + esc(e.message) + "</p>"; });
+  }
+
+  /* gestione della squadra */
+  var KINDS = { coordinamento: "Coordinamento", area: "Area", gruppo: "Gruppo di lavoro", provincia: "Provincia" };
+  function orderedUnits() {
+    var out = [];
+    (function walk(parent, depth) { childrenOf(parent).forEach(function (u) { out.push({ u: u, depth: depth }); walk(u.id, depth + 1); }); })(null, 0);
+    T.units.forEach(function (u) { if (!out.some(function (o) { return o.u.id === u.id; })) out.push({ u: u, depth: 0 }); });
+    return out;
+  }
+  function parentOptions(sel, self) {
+    return '<option value="">— nessuna (livello più alto) —</option>' + orderedUnits().filter(function (o) { return o.u.id !== self; }).map(function (o) {
+      return '<option value="' + esc(o.u.id) + '"' + (o.u.id === sel ? " selected" : "") + ">" + " ".repeat(o.depth) + esc(o.u.name) + "</option>";
+    }).join("");
+  }
+  function kindOptions(sel) { return Object.keys(KINDS).map(function (k) { return '<option value="' + k + '"' + (k === sel ? " selected" : "") + ">" + KINDS[k] + "</option>"; }).join(""); }
+  function personAdmin(pp) {
+    var id = esc(pp.id);
+    return '<form class="person-edit" data-form="person" data-id="' + id + '" data-unit="' + esc(pp.unit_id) + '" novalidate>' + avatar(pp) +
+      '<label class="field" for="pn-' + id + '"><span>Nome e cognome</span><input type="text" id="pn-' + id + '" name="full_name" value="' + esc(pp.full_name) + '"></label>' +
+      '<label class="field" for="pr-' + id + '"><span>Ruolo</span><input type="text" id="pr-' + id + '" name="role" value="' + esc(pp.role || "") + '"></label>' +
+      '<label class="field" for="pi-' + id + '"><span>Instagram (facoltativo)</span><input type="text" id="pi-' + id + '" name="instagram" placeholder="@nome" value="' + esc(pp.instagram || "") + '"></label>' +
+      '<div class="btn-row"><button class="btn small primary" type="submit">Salva</button>' +
+      '<label class="btn small quiet" for="pf-' + id + '">' + (pp.photo_path ? "Cambia foto" : "Aggiungi foto") + '</label><input type="file" id="pf-' + id + '" class="visually-hidden" accept="image/jpeg,image/png,image/webp" data-photo="' + id + '">' +
+      (pp.photo_path ? '<button class="btn small quiet" type="button" data-action="t-photo-del" data-id="' + id + '">Togli foto</button>' : "") +
+      '<button class="btn small danger" type="button" data-action="t-person-del" data-id="' + id + '">' + icon("trash") + "Togli</button></div></form>";
+  }
+  function unitAdmin(o) {
+    var u = o.u, id = esc(u.id), pp = T.people.filter(function (x) { return x.unit_id === u.id; });
+    return '<section class="panel unit-admin" style="margin-left:' + Math.min(o.depth, 3) * 18 + 'px">' +
+      '<form data-form="unit" data-id="' + id + '" novalidate><h3>' + esc(u.name) + '</h3><div class="grid-2">' +
+        '<label class="field" for="un-' + id + '"><span>Nome</span><input type="text" id="un-' + id + '" name="name" value="' + esc(u.name) + '"></label>' +
+        '<label class="field" for="ud-' + id + '"><span>Descrizione / ruolo</span><input type="text" id="ud-' + id + '" name="description" value="' + esc(u.description || "") + '"></label>' +
+        '<label class="field" for="uw-' + id + '"><span>Link canale WhatsApp</span><input type="url" id="uw-' + id + '" name="whatsapp_url" placeholder="https://chat.whatsapp.com/…" value="' + esc(u.whatsapp_url || "") + '"></label>' +
+        '<label class="field" for="uk-' + id + '"><span>Tipo</span><select id="uk-' + id + '" name="kind">' + kindOptions(u.kind) + "</select></label>" +
+        '<label class="field" for="up-' + id + '"><span>Fa parte di</span><select id="up-' + id + '" name="parent_id">' + parentOptions(u.parent_id, u.id) + "</select></label>" +
+        '<label class="field" for="uo-' + id + '"><span>Ordine</span><input type="number" id="uo-' + id + '" name="position" value="' + esc(u.position || 0) + '"></label>' +
+      '</div><div class="btn-row"><button class="btn small primary" type="submit">Salva struttura</button>' +
+      '<button class="btn small danger" type="button" data-action="t-unit-del" data-id="' + id + '">' + icon("trash") + "Elimina struttura</button></div></form>" +
+      '<div class="people-admin">' + pp.map(personAdmin).join("") +
+      '<button class="btn small" type="button" data-action="t-person-new" data-unit="' + id + '">' + icon("plus") + "Aggiungi persona</button></div></section>";
+  }
+  function viewEditTeam() {
+    setMain('<a class="back" href="#gestione">← Gestione</a><div class="page-head"><span class="eyebrow">Area staff</span><h1>La squadra</h1>' +
+      '<p>Modifica strutture, persone, foto e link dei canali WhatsApp. La pagina «La squadra» è visibile solo agli iscritti all\'Avamposto. <a href="#squadra">Vedi come la vedono →</a></p></div>' +
+      '<div id="team-admin"><p class="loading">Caricamento…</p></div>', "gestione");
+    loadTeam().then(function () {
+      var box = document.getElementById("team-admin"); if (!box) return;
+      box.innerHTML = '<div class="team-admin">' + orderedUnits().map(unitAdmin).join("") +
+        '<section class="panel"><h3>Nuova struttura</h3><form data-form="unit" data-id="" novalidate><div class="grid-2">' +
+        '<label class="field" for="un-new"><span>Nome</span><input type="text" id="un-new" name="name" placeholder="Es. GdL Formazione"></label>' +
+        '<label class="field" for="uk-new"><span>Tipo</span><select id="uk-new" name="kind">' + kindOptions("gruppo") + "</select></label>" +
+        '<label class="field" for="up-new"><span>Fa parte di</span><select id="up-new" name="parent_id">' + parentOptions(null, "") + "</select></label>" +
+        '<label class="field" for="uw-new"><span>Link canale WhatsApp</span><input type="url" id="uw-new" name="whatsapp_url" placeholder="https://chat.whatsapp.com/…"></label>' +
+        '</div><div class="btn-row"><button class="btn small primary" type="submit">' + icon("plus") + "Aggiungi struttura</button></div></form></section></div>";
+    }).catch(function (e) { toast(e.message, true); });
+  }
+  document.addEventListener("submit", function (e) {
+    var f = e.target, kind = f.getAttribute && f.getAttribute("data-form");
+    if (kind !== "unit" && kind !== "person") return;
+    e.preventDefault();
+    var val = function (n) { var el = f.elements[n]; return el ? el.value.trim() : ""; };
+    var btn = f.querySelector("button[type=submit]"); busy(btn, true);
+    var job;
+    if (kind === "unit") {
+      if (!val("name")) { toast("Scrivi il nome della struttura.", true); busy(btn, false); return; }
+      var wa = val("whatsapp_url");
+      if (wa && !/^https:\/\/(chat\.whatsapp\.com|(www\.)?whatsapp\.com\/channel|wa\.me)\//.test(wa)) { toast("Il link deve essere un link WhatsApp (chat.whatsapp.com o whatsapp.com/channel).", true); busy(btn, false); return; }
+      var cur = T.units.filter(function (u) { return u.id === f.getAttribute("data-id"); })[0] || {};
+      job = D.saveUnit({ id: cur.id, name: val("name"), description: val("description") || cur.description || null, whatsapp_url: wa || null,
+        kind: val("kind") || "gruppo", parent_id: val("parent_id") || null, position: parseInt(val("position"), 10) || cur.position || childrenOf(val("parent_id") || null).length + 1 });
+    } else {
+      if (!val("full_name")) { toast("Scrivi nome e cognome.", true); busy(btn, false); return; }
+      var pid = f.getAttribute("data-id");
+      var pp = T.people.filter(function (x) { return x.id === pid; })[0] || {};
+      job = D.savePerson({ id: pp.id, unit_id: f.getAttribute("data-unit"), full_name: val("full_name"), role: val("role"), instagram: val("instagram"), position: pp.position || 99 });
+    }
+    job.then(function () { toast("Salvato"); viewEditTeam(); }).catch(function (x) { toast(x.message, true); busy(btn, false); });
+  });
+  document.addEventListener("change", function (e) {
+    var id = e.target.getAttribute && e.target.getAttribute("data-photo"); if (!id || !e.target.files[0]) return;
+    var pp = T.people.filter(function (x) { return x.id === id; })[0]; if (!pp) return;
+    toast("Carico la foto…");
+    shrinkImage(e.target.files[0]).then(function (b) { return D.setPersonPhoto(pp, b); }).then(function () { toast("Foto aggiornata"); viewEditTeam(); })
+      .catch(function (x) { toast(x.message, true); });
+  });
+
   /* ---------------- gestione ---------------- */
   function profileByEmail(mail) { return A.profiles.filter(function (p) { return p.email === mail; })[0]; }
   function personCell(mail) {
@@ -491,6 +640,7 @@
         '<a class="stat' + (reqs.length ? " alert" : "") + '" href="#richieste"><b>' + reqs.length + "</b><span>Richieste da approvare</span></a>" +
         '<div class="stat"><b>' + pub.length + "</b><span>Iniziative pubblicate</span></div>" +
         '<div class="stat"><b>' + active.length + "</b><span>Accessi attivi ai corsi</span></div>" +
+        '<a class="stat" href="#g-squadra"><b>' + icon("team") + "</b><span>Gestisci la squadra e i canali WhatsApp</span></a>" +
       "</div>" +
       '<section class="block" id="richieste"><div class="block-head"><h2>Richieste da approvare</h2></div>' +
         (reqs.length ? '<div class="table-wrap"><table><thead><tr><th>Persona</th><th>Iniziativa</th><th>Richiesta il</th><th></th></tr></thead><tbody>' +
@@ -822,6 +972,27 @@
     if (act === "request") { busy(b, true); D.requestAccess(id).then(function () { toast("Richiesta inviata allo staff"); return reload(); }).catch(function (x) { toast(x.message, true); busy(b, false); }); return; }
     if (act === "cancel") { busy(b, true); D.cancelRequest(id).then(function () { toast("Richiesta annullata"); return reload(); }).catch(function (x) { toast(x.message, true); busy(b, false); }); return; }
 
+    if (act === "t-person-new") {
+      var unit = b.getAttribute("data-unit");
+      busy(b, true); D.savePerson({ unit_id: unit, full_name: "Nuova persona", role: "", position: 99 }).then(function () { viewEditTeam(); }).catch(function (x) { toast(x.message, true); busy(b, false); });
+      return;
+    }
+    if (act === "t-person-del") {
+      if (needsConfirm(b, "Conferma: togli")) return;
+      var pd = T.people.filter(function (x) { return x.id === id; })[0];
+      busy(b, true); D.deletePerson(pd).then(function () { toast("Persona tolta"); viewEditTeam(); }).catch(function (x) { toast(x.message, true); busy(b, false); });
+      return;
+    }
+    if (act === "t-photo-del") {
+      var ph = T.people.filter(function (x) { return x.id === id; })[0];
+      busy(b, true); D.setPersonPhoto(ph, null).then(function () { toast("Foto tolta"); viewEditTeam(); }).catch(function (x) { toast(x.message, true); busy(b, false); });
+      return;
+    }
+    if (act === "t-unit-del") {
+      if (needsConfirm(b, "Conferma: elimina struttura e persone")) return;
+      busy(b, true); D.deleteUnit(id).then(function () { toast("Struttura eliminata"); viewEditTeam(); }).catch(function (x) { toast(x.message, true); busy(b, false); });
+      return;
+    }
     if (act === "seen") { setSeen(b.getAttribute("data-mid"), b.getAttribute("aria-pressed") !== "true"); return; }
     if (act === "cover-remove") {
       if (needsConfirm(b, "Conferma: togli la copertina")) return;
