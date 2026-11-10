@@ -3,515 +3,469 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Azione Under 30 Marche</title>
+<meta name="description" content="I giovani di Azione nelle Marche: la rassegna stampa delle 8, l'Avamposto per formarsi e un gruppo con cui fare politica e divertirsi.">
+<meta property="og:title" content="Azione Under 30 Marche">
+<meta property="og:description" content="Facciamo politica sul serio, senza prenderci troppo sul serio. Unisciti a noi.">
+<meta property="og:image" content="https://leopierma1997.github.io/il-punto-under30-marche/assets/foto/corso-magliette.jpg">
+<meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="assets/logo.png">
-<style>body{margin:0} img{max-width:100%} [hidden]{display:none!important} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<title>Il Punto Under 30 - Marche</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Rassegna stampa politica quotidiana di Azione Under 30 Marche: internazionale, nazionale, Marche.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: navy masthead with logo, Azione-blue page with a sticky section bar, then three sections of white cards; each card opens with a one-line colored band carrying the theme icon. */
+/* Layout: testata leggera; apertura con frase e mosaico di foto; due "porte" affiancate
+   (Il Punto chiaro come un quotidiano, Avamposto scuro sopra una foto); chi siamo con video e social;
+   fascia blu "unisciti a noi" con tessera, newsletter e contatti. */
 :root {
-  --page: #E9EBF8;
-  --page-glow: #F6F7FD;
-  --mast: #2C2F7C;
-  --mast-ink: #FFFFFF;
-  --mast-muted: #CDD0F3;
-  --on-page: #2C2F7C;
-  --on-page-muted: #5D6190;
+  --page: #EEF0FA;
   --surface: #FFFFFF;
-  --fg: #16183A;
-  --muted: #585C86;
-  --line: #E0E2F2;
-  --int: #2C2F7C;
-  --naz: #4650CC;
-  --mar: #2470B8;
-  --int-plate: #2C2F7C;
-  --naz-plate: #4650CC;
-  --mar-plate: #2470B8;
-  --spunto-bg: #EDEFFC;
-  --spunto-line: #2C2F7C;
-  --spunto-fg: #1F2263;
+  --fg: #15173A;
+  --muted: #565A84;
+  --line: #DDE0F0;
+  --blue: #2C2F7C;
+  --blue-deep: #1B1E57;
+  --blue-ink: #FFFFFF;
+  --accent: #4650CC;
+  --accent-ink: #FFFFFF;
+  --green: #1E9E7A;
+  --title: #2C2F7C;
+  --ok-bg: #E3F4EA; --ok: #1E7A4F; --no-bg: #FBE4E5; --no: #A3282F;
   --focus: #4650CC;
   --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --body: "Public Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --page: #14163C; --page-glow: #1C1F4C; --mast: #0D0F2C; --mast-ink: #FFFFFF; --mast-muted: #B4B7DE; --on-page: #FFFFFF; --on-page-muted: #B4B7DE;
-    --surface: #1E2150; --fg: #EEEFFA; --muted: #ADB0D6; --line: #33377C;
-    --int: #A9AEFF; --naz: #939BFF; --mar: #82C2F2;
-    --int-plate: #2C2F7C; --naz-plate: #3F48B6; --mar-plate: #1F64A8;
-    --spunto-bg: #272B68; --spunto-line: #A9AEFF; --spunto-fg: #E4E6FF; --focus: #A9AEFF;
+    --page: #11132F; --surface: #1C1F4B; --fg: #EEEFFA; --muted: #AEB1D8; --line: #2F3378;
+    --blue: #262A75; --blue-deep: #0C0E28; --accent: #939BFF; --accent-ink: #12143A; --green: #4FD1A5; --title: #FFFFFF;
+    --ok-bg: #173A2C; --ok: #7FD6A6; --no-bg: #43191D; --no: #F3A0A5; --focus: #A9AEFF;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --page: #14163C; --page-glow: #1C1F4C; --mast: #0D0F2C; --mast-ink: #FFFFFF; --mast-muted: #B4B7DE; --on-page: #FFFFFF; --on-page-muted: #B4B7DE;
-  --surface: #1E2150; --fg: #EEEFFA; --muted: #ADB0D6; --line: #33377C;
-  --int: #A9AEFF; --naz: #939BFF; --mar: #82C2F2;
-  --int-plate: #2C2F7C; --naz-plate: #3F48B6; --mar-plate: #1F64A8;
-  --spunto-bg: #272B68; --spunto-line: #A9AEFF; --spunto-fg: #E4E6FF; --focus: #A9AEFF;
+  --page: #11132F; --surface: #1C1F4B; --fg: #EEEFFA; --muted: #AEB1D8; --line: #2F3378;
+  --blue: #262A75; --blue-deep: #0C0E28; --accent: #939BFF; --accent-ink: #12143A; --green: #4FD1A5; --title: #FFFFFF;
+  --ok-bg: #173A2C; --ok: #7FD6A6; --no-bg: #43191D; --no: #F3A0A5; --focus: #A9AEFF;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
-body { background-color: var(--page); background-image: radial-gradient(1200px 600px at 10% 0%, var(--page-glow), transparent 70%); background-attachment: fixed; color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.55; }
-a { color: inherit; }
-:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
-.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.55;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-underline-offset: 3px; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 .ico { width: 1.15em; height: 1.15em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+h1, h2, h3 { text-wrap: balance; }
+.eyebrow { font: 500 .76rem/1.3 var(--mono); letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
 
-/* Masthead */
-.mast { background: var(--mast); color: var(--mast-ink); position: relative; overflow: hidden; }
-.mast::after { content: ""; position: absolute; right: -60px; top: -40px; width: 340px; height: 340px; border-radius: 50%; border: 28px solid rgba(255,255,255,.05); pointer-events: none; }
-.mast .wrap { position: relative; z-index: 1; padding-block: 28px 30px; display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; }
-.mast img { width: 96px; height: 96px; border-radius: 50%; display: block; background: #FFFFFF; box-shadow: 0 0 0 3px #FFFFFF; }
-.mast h1 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 900; font-size: clamp(2.3rem, 6vw, 4.2rem); line-height: .92; letter-spacing: -.015em; text-transform: uppercase; text-wrap: balance; }
-.mast h1 span { font-weight: 700; font-size: .36em; letter-spacing: .04em; display: block; margin-top: 10px; color: var(--mast-muted); }
-.edition { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; border-top: 1px solid rgba(255,255,255,.22); padding-top: 14px; }
-.edition time { font-family: var(--display); font-style: italic; font-weight: 800; font-size: .95rem; letter-spacing: .04em; text-transform: uppercase; background: var(--mast-ink); color: var(--mast); padding: 4px 10px; border-radius: 4px; }
-.edition p { margin: 0; flex: 1 1 420px; min-width: 0; font-size: 1.02rem; max-width: 72ch; }
+/* Pulsanti */
+.btn { font: 700 .95rem/1 var(--body); display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 20px; border-radius: 999px;
+  border: 2px solid var(--accent); background: transparent; color: var(--accent); text-decoration: none; cursor: pointer; white-space: nowrap; }
+.btn.solid { background: var(--accent); color: var(--accent-ink); }
+.btn.white { background: #FFFFFF; border-color: #FFFFFF; color: #1B1E57; }
+.btn.ghost-white { border-color: rgba(255,255,255,.7); color: #FFFFFF; }
+.btn .ico { width: 18px; height: 18px; }
+@media (prefers-reduced-motion: no-preference) {
+  .btn { transition: transform .15s ease; } .btn:hover { transform: translateY(-1px); }
+}
 
-/* Sticky section bar */
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--page); }
-.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--page); border-bottom: 1px solid var(--line); }
-.bar .wrap { display: flex; gap: 8px; align-items: center; padding-block: 10px; overflow-x: auto; }
-.chip { flex: none; font: 700 .86rem/1 var(--body); padding: 9px 13px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; display: inline-flex; gap: 8px; align-items: center; text-decoration: none; }
-.chip b { font-family: var(--mono); font-weight: 500; color: var(--muted); }
-.chip .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--plate); }
-.bar .spacer { flex: 1; }
-.chip.arch { background: transparent; color: var(--on-page); box-shadow: inset 0 0 0 1.5px var(--on-page); }
+/* Testata */
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; padding-block: 16px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--title); }
+.brand img { width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 0 0 2px #FFFFFF, 0 2px 8px rgba(27,30,87,.18); }
+.brand b { font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: 1.08rem; line-height: 1.05; letter-spacing: .005em; }
+.brand b span { display: block; font-weight: 700; font-size: .78rem; letter-spacing: .1em; color: var(--muted); }
+.top nav { display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; }
+.top nav a { font-weight: 700; font-size: .92rem; text-decoration: none; color: var(--fg); padding: 9px 12px; border-radius: 999px; }
+.top nav a:hover { background: var(--surface); }
+.top nav a.btn { color: var(--accent-ink); padding: 10px 16px; }
+@media (max-width: 760px) { .top nav a:not(.btn) { display: none; } .top .wrap { flex-wrap: nowrap; } .top nav a.btn { padding: 9px 14px; font-size: .86rem; } }
+@media (max-width: 400px) { .brand img { width: 40px; height: 40px; } .brand b { font-size: .95rem; } }
 
-/* Sections */
-main .wrap { padding-block: 30px 44px; display: grid; gap: 52px; }
-section { scroll-margin-top: 72px; }
-.sec-head { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; color: var(--on-page); }
-.sec-head h2 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 900; font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1; text-transform: uppercase; letter-spacing: -.01em; }
-.sec-head .rule { flex: 1; height: 3px; background: linear-gradient(90deg, var(--on-page), transparent); opacity: .5; }
-.sec-head span { font-family: var(--mono); font-size: .8rem; color: var(--on-page-muted); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 18px; align-items: start; }
+/* Apertura */
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: 36px; align-items: center; padding-block: 18px 56px; }
+.hero h1 { margin: 10px 0 0; font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; color: var(--title);
+  font-size: clamp(2.3rem, 5.4vw, 4.3rem); line-height: .9; letter-spacing: -.02em; }
+.hero h1 em { font-style: italic; display: block; color: var(--accent); }
+.hero .lede { font-size: 1.12rem; max-width: 50ch; margin: 22px 0 0; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.values { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; padding: 0; list-style: none; }
+.values li { font: 500 .74rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; padding: 8px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); color: var(--fg); }
+.mosaic { display: grid; grid-template-columns: 1.15fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; height: clamp(380px, 46vw, 560px); }
+.mosaic figure { margin: 0; border-radius: 18px; overflow: hidden; position: relative; background: var(--blue); min-height: 0; }
+.mosaic figure:first-child { grid-row: span 2; }
+.mosaic img { width: 100%; height: 100%; object-fit: cover; }
+.mosaic figcaption { position: absolute; left: 10px; bottom: 10px; font: 500 .7rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: #FFFFFF;
+  background: rgba(12,14,40,.62); padding: 6px 8px; border-radius: 6px; backdrop-filter: blur(4px); }
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; gap: 28px; padding-block: 8px 44px; }
+  .hero .lede { font-size: 1.04rem; }
+  .mosaic { height: auto; grid-template-rows: 220px 160px; grid-template-columns: 1fr 1fr; }
+  .mosaic figure:first-child { grid-row: span 1; grid-column: span 2; }
+  .mosaic figure:first-child img { object-position: center 35%; }
+}
 
-/* Cards */
-.card { background: var(--surface); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; box-shadow: 0 1px 2px rgba(44,47,124,.08), 0 8px 22px rgba(44,47,124,.07); }
-.plate { background-color: var(--plate); color: #FFFFFF; padding: 0 14px; height: 46px; display: flex; align-items: center; gap: 10px; white-space: nowrap; min-width: 0;
-  background-image: repeating-linear-gradient(-55deg, rgba(255,255,255,.07) 0 2px, transparent 2px 9px); }
-.plate .ico { width: 22px; height: 22px; }
-.plate .theme { font-family: var(--display); font-style: italic; font-weight: 800; font-size: .95rem; text-transform: uppercase; letter-spacing: .02em; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 1; }
-.plate .meta { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; opacity: .9; flex: none; }
-.card-body { padding: 16px 18px 18px; display: grid; gap: 10px; min-width: 0; }
-.tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.tag { font: 500 .7rem/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--tone); border: 1px solid currentColor; padding: 4px 6px; border-radius: 4px; }
-.card h3 { margin: 0; font-family: var(--display); font-weight: 800; font-size: 1.2rem; line-height: 1.18; letter-spacing: -.005em; text-wrap: balance; }
-.card p.sum { margin: 0; font-size: .96rem; }
-.links { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .9rem; }
-.links a { font-weight: 700; color: var(--tone); text-underline-offset: 3px; }
-.links a.sec { font-weight: 600; color: var(--muted); }
-.spunto { background: var(--spunto-bg); color: var(--spunto-fg); border-left: 4px solid var(--spunto-line); border-radius: 0 8px 8px 0; padding: 11px 13px; font-size: .92rem; display: grid; gap: 6px; }
-.spunto .lbl { font-family: var(--display); font-style: italic; font-weight: 800; font-size: .78rem; letter-spacing: .05em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
-.spunto p { margin: 0; }
-.spunto .refs { font-size: .82rem; display: flex; flex-direction: column; gap: 2px; }
-.spunto .refs a { text-underline-offset: 2px; }
+/* Porte */
+.doors .wrap { padding-block: 10px 64px; display: grid; gap: 18px; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.section-head h2 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; color: var(--title); font-size: clamp(1.7rem, 3.6vw, 2.4rem); line-height: 1; letter-spacing: -.01em; }
+.door-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 860px) { .door-grid { grid-template-columns: 1fr; } }
+.door { border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; position: relative; }
+.door-body { padding: 26px 26px 28px; display: flex; flex-direction: column; gap: 16px; flex: 1; position: relative; z-index: 1; }
+.door h3 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: clamp(2.3rem, 5vw, 3.3rem); line-height: .9; letter-spacing: -.015em; }
+.door .tag { font: 500 .76rem/1.3 var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+.door p { margin: 0; }
+.door .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 6px; }
 
-/* Opener card */
-.card.lead { grid-column: 1 / -1; }
-.card.lead .plate { height: 58px; padding: 0 20px; }
-.card.lead .plate .ico { width: 28px; height: 28px; }
-.card.lead .plate .theme { font-size: 1.25rem; }
-.card.lead .card-body { padding: 20px 22px 22px; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); column-gap: 28px; align-items: start; }
-.card.lead .main { display: grid; gap: 10px; min-width: 0; }
-.card.lead h3 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
-.card.lead p.sum { font-size: 1.02rem; }
-.card.lead .spunto { align-self: start; }
-@media (max-width: 760px) { .card.lead .card-body { grid-template-columns: 1fr; row-gap: 12px; } }
-.card:not(.lead) .main { display: contents; }
+.door.punto { background: var(--surface); border: 1px solid var(--line); box-shadow: 0 14px 40px rgba(27,30,87,.08); }
+.door.punto h3 { color: var(--title); }
+.door.punto .tag { color: var(--muted); }
+.door.punto .rule { height: 0; border-top: 3px solid var(--title); border-bottom: 1px solid var(--title); padding-top: 3px; }
+.today { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.today li { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.today li:last-child { border-bottom: 0; }
+.today .sec { font: 500 .7rem/1.3 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: var(--accent); }
+.today .t { font-family: var(--display); font-weight: 750; font-size: 1.02rem; line-height: 1.25; }
+.today.loading .t { color: var(--muted); font-weight: 500; }
+@media (max-width: 460px) { .today li { grid-template-columns: 1fr; gap: 2px; } }
 
-/* Archive */
-.archive h2 { font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: 2.4rem; margin: 0 0 14px; color: var(--on-page); }
-.archive ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; max-width: 640px; }
-.archive a { display: flex; justify-content: space-between; gap: 12px; padding: 14px 16px; background: var(--surface); border-radius: 8px; text-decoration: none; font-weight: 700; }
-.archive a span { font-family: var(--mono); font-weight: 400; color: var(--muted); font-size: .85rem; }
-.notice { padding: 20px; background: var(--surface); border-radius: 8px; }
+.door.avamposto { background: #0C0E28; color: #FFFFFF; min-height: 100%; }
+.door.avamposto .bg { position: absolute; inset: 0; z-index: 0; }
+.door.avamposto .bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: .55; }
+.door.avamposto .bg::after { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(12,14,40,.55) 0%, rgba(20,23,72,.86) 45%, rgba(12,14,40,.97) 100%); }
+.door.avamposto .tag { color: #C9CCF5; }
+.door.avamposto .lock { display: inline-flex; align-items: center; gap: 6px; font: 500 .72rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); padding: 7px 10px; border-radius: 999px; align-self: flex-start; }
+.inside { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.inside li { display: flex; gap: 12px; align-items: flex-start; }
+.inside .ico { width: 22px; height: 22px; color: #8FE3C6; margin-top: 2px; }
+.inside b { display: block; }
+.inside span { color: #D5D7F5; font-size: .94rem; }
 
-/* Voice player */
-.player { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
-.pl-btn { font: 700 .92rem/1 var(--body); display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; border: 1.5px solid var(--mast-ink); background: transparent; color: var(--mast-ink); cursor: pointer; }
-.pl-btn.primary { background: var(--mast-ink); color: var(--mast); }
-.pl-btn .ico { width: 18px; height: 18px; }
-.pl-opt { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--mast-muted); }
-.pl-opt select { font: inherit; color: var(--fg); background: var(--surface); border: 0; border-radius: 6px; padding: 5px 6px; max-width: 220px; }
-.pl-opt input { width: 16px; height: 16px; accent-color: var(--mast-ink); }
-#pl-status { font-family: var(--mono); font-size: .75rem; color: var(--mast-muted); min-width: 0; }
-.listen { font: 600 .85rem/1 var(--body); display: inline-flex; align-items: center; gap: 5px; padding: 0; border: 0; background: none; color: var(--muted); cursor: pointer; }
-.listen .ico { width: 16px; height: 16px; }
-.pl-tts { display: contents; }
-.pl-tts[hidden] { display: none !important; }
-.pl-audio { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; width: 100%; }
-.pl-audio-lbl { font-family: var(--display); font-style: italic; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; font-size: .95rem; }
-#pl-audio { width: min(100%, 560px); height: 44px; }
-body.has-audio .listen { display: none; }
-.card.speaking { box-shadow: 0 0 0 3px var(--tone), 0 8px 22px rgba(44,47,124,.12); }
-footer { background: var(--mast); color: var(--mast-muted); font-size: .85rem; }
-footer .wrap { padding-block: 22px 34px; display: grid; gap: 8px; }
-footer p { margin: 0; max-width: 80ch; }
+/* Chi siamo */
+.about .wrap { padding-block: 64px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: 40px; align-items: center; }
+.about h2 { margin: 8px 0 18px; font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; color: var(--title); font-size: clamp(2rem, 4.5vw, 3.1rem); line-height: .95; letter-spacing: -.015em; }
+.about p { margin: 0 0 14px; font-size: 1.05rem; max-width: 58ch; }
+.socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.reel { position: relative; display: block; border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 5; max-width: 100%; background: var(--blue-deep); text-decoration: none; color: #FFFFFF;
+  box-shadow: 0 18px 48px rgba(27,30,87,.22); }
+.reel img { width: 100%; height: 100%; object-fit: cover; }
+.reel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,14,40,0) 40%, rgba(12,14,40,.85) 100%); }
+.reel .play { position: absolute; z-index: 1; left: 50%; top: 46%; transform: translate(-50%, -50%); width: 84px; height: 84px; border-radius: 50%; background: rgba(255,255,255,.94); color: #1B1E57; display: grid; place-items: center; box-shadow: 0 8px 26px rgba(0,0,0,.3); }
+.reel .play .ico { width: 34px; height: 34px; fill: currentColor; stroke: none; margin-left: 4px; }
+.reel .cap { position: absolute; z-index: 1; left: 22px; right: 22px; bottom: 20px; display: grid; gap: 4px; }
+.reel .cap b { font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: 1.5rem; line-height: 1; }
+.reel .cap span { font-size: .9rem; color: #D5D7F5; }
+@media (prefers-reduced-motion: no-preference) { .reel .play { transition: transform .2s ease; } .reel:hover .play { transform: translate(-50%, -50%) scale(1.06); } }
+.strip { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.strip figure { margin: 0; border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 3; position: relative; background: var(--blue); }
+.strip img { width: 100%; height: 100%; object-fit: cover; }
+.strip figcaption { position: absolute; left: 10px; bottom: 10px; font: 500 .7rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: #FFFFFF; background: rgba(12,14,40,.62); padding: 6px 8px; border-radius: 6px; }
+@media (max-width: 860px) {
+  .about .wrap { grid-template-columns: 1fr; padding-block: 44px; }
+  .reel { aspect-ratio: 4 / 3; }
+  .strip { grid-template-columns: 1fr 1fr; } .strip figure:last-child { grid-column: span 2; aspect-ratio: 16 / 9; }
+}
+
+/* Unisciti */
+.join { background: var(--blue); color: #FFFFFF; position: relative; overflow: hidden; }
+.join::before { content: ""; position: absolute; right: -120px; top: -140px; width: 420px; height: 420px; border-radius: 50%; border: 34px solid rgba(255,255,255,.05); }
+.join .wrap { position: relative; padding-block: 64px; display: grid; gap: 28px; }
+.join h2 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: .92; letter-spacing: -.015em; }
+.join h2 span { color: #8FE3C6; }
+.join-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 960px) { .join-grid { grid-template-columns: 1fr; } }
+.card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.18); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.card h3 { margin: 0; font-family: var(--display); font-weight: 850; font-size: 1.3rem; line-height: 1.15; }
+.card p { margin: 0; color: #D5D7F5; font-size: .96rem; }
+.card .ico-big { width: 40px; height: 40px; border-radius: 12px; background: rgba(255,255,255,.12); display: grid; place-items: center; color: #8FE3C6; }
+.card .ico-big .ico { width: 22px; height: 22px; }
+.card .actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px; }
+.nl-form { display: grid; gap: 10px; margin-top: auto; }
+.nl-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.nl-row input { flex: 1 1 200px; min-width: 0; font: inherit; color: #15173A; background: #FFFFFF; border: 2px solid #FFFFFF; border-radius: 999px; padding: 12px 16px; }
+.nl-row input:focus { outline: none; border-color: #8FE3C6; }
+.nl-check { display: flex; gap: 10px; align-items: flex-start; font-size: .84rem; color: #D5D7F5; }
+.nl-check input { width: 18px; height: 18px; margin-top: 2px; accent-color: #8FE3C6; flex: none; }
+.nl-check a { color: #FFFFFF; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.msg { margin: 0; font-size: .9rem; padding: 10px 12px; border-radius: 10px; }
+.msg.ok { background: #DDF5EA; color: #145C3B; }
+.msg.err { background: #FDE2E3; color: #8A1F25; }
+.mail { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.mail code { font: 600 .95rem/1.3 var(--mono); background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); padding: 10px 12px; border-radius: 10px; overflow-wrap: anywhere; min-width: 0; user-select: all; }
+
+footer { background: var(--blue-deep); color: #B9BCE6; font-size: .88rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; padding-block: 24px 30px; align-items: center; justify-content: space-between; }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+footer a { color: #E4E6FF; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-@media (max-width: 520px) { .mast img { width: 70px; height: 70px; } .mast .wrap { gap: 16px; } .plate .meta { font-size: .66rem; } }
-.to-avamposto { grid-column: 1 / -1; justify-self: start; display: inline-flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--mast); background: var(--mast-ink); padding: 9px 14px; border-radius: 999px; font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; letter-spacing: .02em; }
-.to-avamposto span { font-family: var(--body); font-style: normal; font-weight: 700; text-transform: none; letter-spacing: 0; font-size: .85rem; }
-@media (min-width: 760px) { .mast .wrap { grid-template-columns: auto 1fr auto; } .to-avamposto { grid-column: 3; grid-row: 1; justify-self: end; align-self: start; } }
 </style>
 </head>
 <body>
-<header class="mast">
+
+<header class="top">
   <div class="wrap">
-    <img src="assets/logo.png" alt="Logo Azione Under 30 Marche" width="96" height="96">
-    <h1>Il Punto<span>Under 30 Marche · La rassegna stampa delle 8:00</span></h1>
-    <a class="to-avamposto" href="avamposto/">Avamposto <span>Area riservata →</span></a>
-    <div class="edition">
-      <time id="ed-date"></time>
-      <p id="ed-intro">Caricamento dell'edizione…</p>
-    </div>
-    <div class="player" id="player" hidden>
-      <div class="pl-audio" id="pl-audio-wrap" hidden>
-        <span class="pl-audio-lbl">Ascolta la rassegna</span>
-        <audio id="pl-audio" controls preload="none"></audio>
-      </div>
-      <span class="pl-tts" id="pl-tts">
-      <button class="pl-btn primary" id="pl-play" type="button"></button>
-      <button class="pl-btn" id="pl-stop" type="button" hidden>Stop</button>
-      <label class="pl-opt" for="pl-rate">Velocità
-        <select id="pl-rate"><option value="0.9">0,9×</option><option value="1" selected>1×</option><option value="1.1">1,1×</option><option value="1.25">1,25×</option></select>
-      </label>
-      <label class="pl-opt" for="pl-voice" id="pl-voice-wrap" hidden>Voce
-        <select id="pl-voice"></select>
-      </label>
-      <label class="pl-opt" for="pl-spunti"><input type="checkbox" id="pl-spunti"> Leggi anche gli spunti</label>
-      <span id="pl-status" aria-live="polite"></span>
-      </span>
-    </div>
+    <a class="brand" href="./">
+      <img src="assets/logo.png" alt="" width="48" height="48">
+      <b>Azione Under 30<span>Marche</span></b>
+    </a>
+    <nav aria-label="Menu principale">
+      <a href="rassegna/">Il Punto</a>
+      <a href="avamposto/">Avamposto</a>
+      <a href="#chi-siamo">Chi siamo</a>
+      <a class="btn solid" href="#unisciti">Unisciti a noi</a>
+    </nav>
   </div>
 </header>
 
-<nav class="bar" aria-label="Sezioni">
-  <div class="wrap" id="bar"></div>
-</nav>
-
 <main>
-  <div class="wrap" id="content"></div>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">I giovani di Azione nelle Marche</span>
+      <h1>Facciamo politica sul serio. <em>Senza prenderci troppo sul serio.</em></h1>
+      <p class="lede">Studiamo i dossier, scendiamo in piazza, andiamo agli eventi nazionali e restiamo a cena fino a tardi a discutere di Europa. Liberali, riformisti e con tanta voglia di fare: se pensi che la politica si cambi stando dentro, c'è un posto per te.</p>
+      <div class="actions">
+        <a class="btn solid" href="#unisciti">Unisciti a noi</a>
+        <a class="btn" href="#chi-siamo">Guarda chi siamo</a>
+      </div>
+      <ul class="values" aria-label="I nostri valori">
+        <li>Liberali</li><li>Europeisti</li><li>Riformisti</li><li>Pragmatici</li>
+      </ul>
+    </div>
+    <div class="mosaic">
+      <figure><img src="assets/foto/corso-magliette.jpg" alt="Un gruppo di ragazzi e ragazze con la maglietta di Azione sorride in una via del centro" width="1050" height="1400" fetchpriority="high"><figcaption>In centro, per strada</figcaption></figure>
+      <figure><img src="assets/foto/cena.jpg" alt="Il gruppo riunito sotto una volta in mattoni durante una cena" width="1050" height="1400" style="object-position:center 60%"><figcaption>Le cene</figcaption></figure>
+      <figure><img src="assets/foto/centro-storico.jpg" alt="Ragazzi che ridono e chiacchierano camminando in un borgo storico" width="1050" height="1400" style="object-position:center 55%"><figcaption>In giro per le Marche</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="doors" aria-labelledby="doors-title">
+  <div class="wrap">
+    <div class="section-head"><h2 id="doors-title">Da dove vuoi partire?</h2></div>
+    <div class="door-grid">
+      <article class="door punto">
+        <div class="door-body">
+          <span class="tag" id="punto-date">La rassegna stampa delle 8:00</span>
+          <h3>Il Punto</h3>
+          <div class="rule" aria-hidden="true"></div>
+          <p>Ogni mattina le notizie politiche che contano: esteri, Italia e Marche, con uno spunto per i tuoi contenuti social. Da leggere o da ascoltare.</p>
+          <ul class="today loading" id="punto-today" aria-live="polite">
+            <li><span class="sec">Oggi</span><span class="t">Carico i titoli d'apertura…</span></li>
+          </ul>
+          <div class="actions">
+            <a class="btn solid" href="rassegna/">Leggi la rassegna</a>
+            <a class="btn" href="rassegna/" id="punto-audio" hidden><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>Ascolta</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="door avamposto">
+        <div class="bg" aria-hidden="true"><img src="assets/foto/evento-roma-platea.jpg" alt="" loading="lazy" width="787" height="1400"></div>
+        <div class="door-body">
+          <span class="lock"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Area riservata</span>
+          <span class="tag">Iscrizione libera e gratuita</span>
+          <h3>Avamposto</h3>
+          <p>Il posto dove ci formiamo: corsi, dirette con ospiti e contenuti speciali per tesserati e simpatizzanti.</p>
+          <ul class="inside" id="ava-list">
+            <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5"/></svg><div><b>Corsi</b><span>Comunicazione, istituzioni, Europa: video e materiali.</span></div></li>
+            <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M8.5 15.5a5 5 0 0 1 0-7M15.5 8.5a5 5 0 0 1 0 7M5.6 18.4a9 9 0 0 1 0-12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></svg><div><b>Dirette</b><span>Incontri su Meet con ospiti e domande dal vivo.</span></div></li>
+            <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg><div><b>Contenuti speciali</b><span>Dossier e registrazioni riservati agli iscritti.</span></div></li>
+          </ul>
+          <div class="actions" id="ava-actions">
+            <a class="btn white" href="avamposto/">Iscriviti</a>
+            <a class="btn ghost-white" href="avamposto/">Entra</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="chi-siamo" aria-labelledby="about-title">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Chi siamo</span>
+      <h2 id="about-title">Un gruppo, prima ancora che un'organizzazione</h2>
+      <p>Siamo i ragazzi e le ragazze di Azione nelle Marche. Facciamo banchetti nelle piazze, organizziamo fiaccolate per l'Ucraina, partiamo insieme per gli eventi nazionali e ci formiamo su istituzioni, economia ed Europa.</p>
+      <p>Crediamo in una politica che parte dai fatti, guarda all'Europa e non urla. E crediamo che farla insieme sia molto più divertente.</p>
+      <div class="socials">
+        <a class="btn solid" href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>Seguici su Instagram</a>
+        <a class="btn" href="https://discord.gg/SZbnaCjrV" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M9 10h.01M15 10h.01"/></svg>Entra nel Discord</a>
+      </div>
+    </div>
+    <a class="reel" href="https://www.instagram.com/reel/DXPXZmQjT95/" target="_blank" rel="noopener">
+      <img src="assets/foto/centro-storico.jpg" alt="" loading="lazy" width="1050" height="1400" style="object-position:center 45%">
+      <span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span>
+      <span class="cap"><b>Guarda il video</b><span>Chi siamo, in un minuto · su Instagram ↗</span></span>
+    </a>
+    <div class="strip">
+      <figure><img src="assets/foto/fiaccolata-ucraina.jpg" alt="Fiaccolata per l'Ucraina con le bandiere ucraina e di Azione" loading="lazy" width="787" height="1400" style="object-position:center 30%"><figcaption>Per l'Ucraina</figcaption></figure>
+      <figure><img src="assets/foto/evento-roma-gruppo.jpg" alt="Il gruppo davanti al pannello di un evento nazionale di Azione" loading="lazy" width="1050" height="1400" style="object-position:center 70%"><figcaption>Agli eventi nazionali</figcaption></figure>
+      <figure><img src="assets/foto/piazza-bandiere.jpg" alt="Il gruppo in piazza di sera con le bandiere dell'Europa, dell'Ucraina e di Azione" loading="lazy" width="1400" height="1051"><figcaption>In piazza, con l'Europa</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="join" id="unisciti" aria-labelledby="join-title">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" style="color:#C9CCF5">Unisciti a noi</span>
+      <h2 id="join-title">C'è posto <span>anche per te</span></h2>
+    </div>
+    <div class="join-grid">
+      <div class="card">
+        <span class="ico-big"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span>
+        <h3>Prendi la tessera</h3>
+        <p>Il tesseramento si fa sul sito nazionale di Azione. Poi scrivici: ti aggiungiamo al gruppo delle Marche.</p>
+        <div class="actions"><a class="btn white" href="https://noi.azione.it/primo-tesseramento/" target="_blank" rel="noopener">Tesserati ad Azione ↗</a></div>
+      </div>
+      <div class="card">
+        <span class="ico-big"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+        <h3>Iscriviti alla newsletter</h3>
+        <p>Eventi, iniziative e appuntamenti nelle Marche, direttamente nella tua casella.</p>
+        <form class="nl-form" id="nl-form" novalidate>
+          <label class="hp" for="nl-web">Lascia vuoto questo campo<input type="text" id="nl-web" tabindex="-1" autocomplete="off"></label>
+          <div class="nl-row">
+            <label class="hp" for="nl-email">Email</label>
+            <input type="email" id="nl-email" placeholder="La tua email" autocomplete="email" inputmode="email" required>
+            <button class="btn white" type="submit">Iscriviti</button>
+          </div>
+          <label class="nl-check" for="nl-ok"><input type="checkbox" id="nl-ok"><span>Voglio ricevere la newsletter di Azione Under 30 Marche. Ho letto l'<a href="avamposto/privacy.html" target="_blank">informativa privacy</a>.</span></label>
+          <p class="msg" id="nl-msg" role="status" hidden></p>
+        </form>
+      </div>
+      <div class="card">
+        <span class="ico-big"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></span>
+        <h3>Scrivici</h3>
+        <p>Domande, idee, voglia di dare una mano: rispondiamo a tutti.</p>
+        <div class="mail"><code id="mail-addr">azioneunder30marche@gmail.com</code></div>
+        <div class="actions">
+          <a class="btn white" href="mailto:azioneunder30marche@gmail.com">Mandaci una mail</a>
+          <button class="btn ghost-white" type="button" id="mail-copy">Copia indirizzo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
   <div class="wrap">
-    <p>Sintesi originali scritte a partire dagli articoli citati: ogni notizia rimanda alla testata che l'ha pubblicata. Gli spunti di riflessione sono proposte per i contenuti social; quando richiamano le posizioni di Azione, linkano le dichiarazioni recenti di Carlo Calenda e degli esponenti del partito da cui sono tratti.</p>
-    <p>Il Punto Under 30 – Marche · uso interno per staff e militanti. · <a href="avamposto/">Avamposto Under 30, l'area riservata</a></p>
+    <span>Azione Under 30 Marche</span>
+    <nav aria-label="Collegamenti">
+      <a href="rassegna/">Il Punto</a>
+      <a href="avamposto/">Avamposto</a>
+      <a href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://discord.gg/SZbnaCjrV" target="_blank" rel="noopener">Discord</a>
+      <a href="https://www.azione.it/" target="_blank" rel="noopener">Azione nazionale</a>
+      <a href="avamposto/privacy.html">Privacy</a>
+    </nav>
   </div>
 </footer>
 
+<script src="sito-config.js"></script>
+<script src="avamposto/config.js"></script>
 <script>
 (function () {
-  var SECTIONS = {
-    internazionale: "--tone:var(--int);--plate:var(--int-plate)",
-    nazionale: "--tone:var(--naz);--plate:var(--naz-plate)",
-    marche: "--tone:var(--mar);--plate:var(--mar-plate)"
-  };
-  var DEF = SECTIONS.internazionale;
-  var ICONS = {
-    globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>',
-    ballot: '<rect x="4" y="11" width="16" height="9" rx="1"/><path d="M8 11V4h8v7M10 7.5h4"/>',
-    talks: '<path d="M4 5h11v8H8l-4 3z"/><path d="M15 9h5v8l-3-2h-6v-2"/>',
-    scale: '<path d="M12 4v16M7 20h10M5 8h14M5 8l-3 6h6zM19 8l-3 6h6z"/>',
-    bolt: '<path d="M13 3L5 14h6l-1 7 8-11h-6z"/>',
-    euro: '<path d="M17 6.5A6.5 6.5 0 1 0 17 17.5M4 10h9M4 14h9"/>',
-    hourglass: '<path d="M7 3h10M7 21h10M8 3c0 5 8 5 8 9s-8 4-8 9M16 3c0 5-8 5-8 9s8 4 8 9"/>',
-    youth: '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5"/>',
-    megaphone: '<path d="M3 10v4h3l8 5V5L6 10z"/><path d="M18 9a4 4 0 0 1 0 6"/>',
-    columns: '<path d="M3 9l9-5 9 5M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 20h18"/>',
-    helmet: '<path d="M4 16a8 8 0 0 1 16 0z"/><path d="M2 16h20v2.5H2zM10 8.5V5h4v3.5"/>',
-    mountain: '<path d="M2 20l7-12 4 6 3-4 6 10z"/>',
-    health: '<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>',
-    factory: '<path d="M3 20V10l6 4v-4l6 4V5h4v15z"/><path d="M2 20h20"/>',
-    shield: '<path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/>',
-    play: '<path d="M7 4l13 8-13 8z"/>',
-    pause: '<path d="M8 4v16M16 4v16"/>',
-    speaker: '<path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/>',
-    idea: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>'
-  };
-  var MONTHS = ["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic"];
-  var content = document.getElementById("content");
-  var bar = document.getElementById("bar");
-  var editions = [];
-  var currentEd = null;
-  var playerEl = document.getElementById("player");
+  "use strict";
+  var MONTHS = ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function getJSON(u, opt) { return fetch(u, opt || { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }); }
 
-  function esc(s) {
-    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
-    });
-  }
-  function icon(name) {
-    return '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[name] || ICONS.globe) + "</svg>";
-  }
-  function shortDate(iso) {
-    var p = String(iso || "").split("-");
-    if (p.length !== 3) return "";
-    return parseInt(p[2], 10) + " " + MONTHS[parseInt(p[1], 10) - 1];
-  }
-  function safeUrl(u) { return /^https:\/\//.test(u || "") ? u : "#"; }
-
-  function card(item, tone, lead) {
-    var also = (item.also || []).map(function (a) {
-      return '<a class="sec" href="' + esc(safeUrl(a.url)) + '" target="_blank" rel="noopener">Anche su ' + esc(a.source) + " ↗</a>";
+  /* Il Punto: titoli d'apertura dell'ultima edizione */
+  var list = document.getElementById("punto-today");
+  getJSON("data/index.json").then(function (idx) {
+    var eds = (idx.editions || []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    if (!eds.length) throw new Error("vuoto");
+    return getJSON("data/" + eds[0].date + ".json");
+  }).then(function (ed) {
+    document.getElementById("punto-date").textContent = "Rassegna delle 8:00 · " + ed.label;
+    list.classList.remove("loading");
+    list.innerHTML = (ed.sections || []).map(function (s) {
+      var it = s.items && s.items[0]; if (!it) return "";
+      return '<li><span class="sec">' + esc(s.title) + '</span><span class="t">' + esc(it.title) + "</span></li>";
     }).join("");
-    var refs = (item.spunto && item.spunto.refs || []).map(function (r) {
-      return '<a href="' + esc(safeUrl(r.url)) + '" target="_blank" rel="noopener">' + esc(r.label) + " ↗</a>";
-    }).join("");
-    var sp = item.spunto ? '<div class="spunto"><span class="lbl">' + icon("idea") + "Spunto di riflessione</span><p>" + esc(item.spunto.text) + "</p>" + (refs ? '<div class="refs">' + refs + "</div>" : "") + "</div>" : "";
-    var tags = (item.tags || []).map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("");
-    var plate = '<div class="plate">' + icon(item.icon) + '<span class="theme">' + esc((item.tags || [""])[0]) + '</span><span class="meta">' + esc(item.source) + " · " + esc(shortDate(item.published)) + "</span></div>";
-    return '<article class="card' + (lead ? " lead" : "") + '" style="' + tone + '">' + plate +
-      '<div class="card-body"><div class="main"><div class="tags">' + tags + "</div><h3>" + esc(item.title) + '</h3><p class="sum">' + esc(item.summary) + "</p>" +
-      '<div class="links"><a href="' + esc(safeUrl(item.url)) + '" target="_blank" rel="noopener">Leggi su ' + esc(item.source) + " ↗</a>" + also + '<button class="listen" type="button" data-listen>' + icon("speaker") + "Ascolta</button></div></div>" + sp + "</div></article>";
-  }
-
-  /* ---------- Voice reader (Web Speech API) ---------- */
-  var player = (function () {
-    var synth = window.speechSynthesis;
-    var supported = !!(synth && window.SpeechSynthesisUtterance);
-    var btnPlay = document.getElementById("pl-play");
-    var btnStop = document.getElementById("pl-stop");
-    var selRate = document.getElementById("pl-rate");
-    var selVoice = document.getElementById("pl-voice");
-    var voiceWrap = document.getElementById("pl-voice-wrap");
-    var chkSpunti = document.getElementById("pl-spunti");
-    var status = document.getElementById("pl-status");
-    var queue = [], idx = 0, state = "idle", token = 0, voices = [], label = "", forceDefault = false;
-    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-
-    function store(k, v) { try { localStorage.setItem("ilpunto-" + k, v); } catch (e) {} }
-    function load(k) { try { return localStorage.getItem("ilpunto-" + k); } catch (e) { return null; } }
-
-    var DICT = [
-      [/\bM5s\b/gi, "Movimento 5 Stelle"], [/\bFdI\b/g, "Fratelli d'Italia"], [/\bPd\b/g, "Pi Di"],
-      [/\bCdm\b/gi, "Consiglio dei ministri"], [/\bUe\b/g, "Unione europea"], [/\bUsa\b/g, "Stati Uniti"],
-      [/\bWsj\b/gi, "Wall Street Journal"], [/\bDda\b/g, "Direzione distrettuale antimafia"],
-      [/\bMimit\b/g, "ministero delle Imprese"], [/\bSAE\b/g, "soluzioni abitative d'emergenza"],
-      [/[«»“”]/g, ""], [/\s+–\s+/g, ", "], [/(\d+),(\d+)%/g, "$1 virgola $2 per cento"], [/(\d+)%/g, "$1 per cento"]
-    ];
-    function clean(t) { t = String(t || ""); DICT.forEach(function (d) { t = t.replace(d[0], d[1]); }); return t.replace(/\s+/g, " ").trim(); }
-    function chunks(text) {
-      var parts = clean(text).match(/[^.!?;]+[.!?;]*\s*/g) || [];
-      var out = [], cur = "";
-      parts.forEach(function (s) {
-        if ((cur + s).length > 220 && cur) { out.push(cur.trim()); cur = ""; }
-        cur += s;
-      });
-      if (cur.trim()) out.push(cur.trim());
-      return out;
+    if (/^audio\/[0-9-]+\.mp3$/.test(ed.audio || "")) {
+      var a = document.getElementById("punto-audio"); a.href = ed.audio; a.hidden = false;
     }
-
-    function score(v) {
-      var n = (v.name || "").toLowerCase(), s = 0;
-      if (/natural|neural|online/.test(n)) s += 50;
-      if (!isIOS && /premium|enhanced/.test(n)) s += 40;
-      if (/google/.test(n)) s += 30;
-      if (/elsa|isabella|diego|giuseppe|alice|federica|luca|paola|emma|bianca/.test(n)) s += 10;
-      if (v.localService === false) s += 5;
-      if (/it-it/i.test(v.lang)) s += 3;
-      if (/compact|espeak/.test(n)) s -= 40;
-      return s;
-    }
-    function loadVoices() {
-      voices = synth.getVoices().filter(function (v) { return /^it/i.test(v.lang); }).sort(function (a, b) { return score(b) - score(a); });
-      if (!voices.length) { voiceWrap.hidden = true; return; }
-      var saved = load("voice");
-      selVoice.innerHTML = voices.map(function (v, i) {
-        var name = v.name.replace(/Microsoft |Google |\(Italy\)|Online \(Natural\) - /g, "").trim();
-        return '<option value="' + i + '"' + (v.name === saved ? " selected" : "") + ">" + esc(name + (score(v) >= 50 ? " · naturale" : "")) + "</option>";
-      }).join("");
-      voiceWrap.hidden = voices.length < 2;
-    }
-    function voice() {
-      if (forceDefault) return null;
-      // On iPhone/iPad some listed voices are not usable from the browser and play silently:
-      // use the system default Italian voice unless the user picked one explicitly.
-      if (isIOS && !load("voice")) return null;
-      return voices[parseInt(selVoice.value, 10)] || voices[0] || null;
-    }
-    function hush() { if (synth.speaking || synth.pending) synth.cancel(); }
-
-    function setUI() {
-      btnPlay.innerHTML = state === "playing" ? icon("pause") + "Pausa" : icon("play") + (state === "paused" ? "Riprendi" : "Ascolta la rassegna");
-      btnStop.hidden = state === "idle";
-      status.textContent = state === "idle" ? "" : label;
-    }
-    function mark(el) {
-      var prev = document.querySelector(".card.speaking");
-      if (prev && prev !== el) prev.classList.remove("speaking");
-      if (el && !el.classList.contains("speaking")) {
-        el.classList.add("speaking");
-        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        el.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" });
-      }
-    }
-
-    function speakNext(t) {
-      if (t !== token || state !== "playing") return;
-      if (idx >= queue.length) { stop(); return; }
-      var q = queue[idx];
-      if (q.label) label = q.label;
-      mark(q.card);
-      setUI();
-      if (q.pause) { setTimeout(function () { if (t !== token) return; idx++; speakNext(t); }, q.pause); return; }
-      var u = new SpeechSynthesisUtterance(q.text);
-      u.lang = "it-IT";
-      var v = voice(); if (v) u.voice = v;
-      u.rate = parseFloat(selRate.value) || 1;
-      u.volume = 1;
-      var began = false, t0 = Date.now();
-      u.onstart = function () { began = true; };
-      u.onend = function () {
-        if (t !== token) return;
-        // A chosen voice that never starts and ends instantly is unusable here: retry with the default voice.
-        if (!began && v && !forceDefault && Date.now() - t0 < 400) { forceDefault = true; speakNext(t); return; }
-        idx++; setTimeout(function () { speakNext(t); }, 120);
-      };
-      u.onerror = function (e) { if (t !== token) return; if (e.error === "interrupted" || e.error === "canceled") return; idx++; speakNext(t); };
-      synth.speak(u);
-    }
-
-    function push(text, card, lbl) { chunks(text).forEach(function (c) { queue.push({ text: c, card: card, label: lbl }); }); }
-    function itemQueue(item, card, lbl, withSpunto) {
-      push(item.title + ".", card, lbl);
-      queue.push({ pause: 250, card: card, label: lbl });
-      push(item.summary, card, lbl);
-      if (withSpunto && item.spunto && item.spunto.text) {
-        queue.push({ pause: 300, card: card, label: lbl });
-        push("Spunto di riflessione. " + item.spunto.text, card, lbl);
-      }
-      queue.push({ pause: 700, card: card, label: lbl });
-    }
-    function buildAll() {
-      queue = [];
-      var cards = content.querySelectorAll(".card"), k = 0;
-      push("Il Punto, Under 30 Marche. Edizione di " + currentEd.label + ".", null, "Introduzione");
-      if (currentEd.intro) push(currentEd.intro, null, "Introduzione");
-      queue.push({ pause: 800 });
-      currentEd.sections.forEach(function (s) {
-        push(s.title + ".", null, s.title);
-        queue.push({ pause: 500 });
-        s.items.forEach(function (it, i) { itemQueue(it, cards[k++], s.title + " · " + (i + 1) + " di " + s.items.length, chkSpunti.checked); });
-      });
-      push("Fine della rassegna. Buona giornata.", null, "Fine");
-    }
-
-    function start() { token++; idx = 0; state = "playing"; hush(); speakNext(token); }
-    function pause() { state = "paused"; token++; hush(); setUI(); }
-    function resume() { state = "playing"; token++; hush(); speakNext(token); }
-    function stop() {
-      token++; state = "idle"; queue = []; idx = 0;
-      if (supported) hush();
-      var prev = document.querySelector(".card.speaking"); if (prev) prev.classList.remove("speaking");
-      if (supported) setUI();
-    }
-
-    if (supported) {
-      loadVoices();
-      if (typeof synth.addEventListener === "function") synth.addEventListener("voiceschanged", loadVoices);
-      else synth.onvoiceschanged = loadVoices;
-      var r = load("rate"); if (r) selRate.value = r;
-      chkSpunti.checked = load("spunti") === "1";
-      selRate.addEventListener("change", function () { store("rate", selRate.value); if (state === "playing") resume(); });
-      selVoice.addEventListener("change", function () { forceDefault = false; var v = voices[parseInt(selVoice.value, 10)]; if (v) store("voice", v.name); if (state === "playing") resume(); });
-      chkSpunti.addEventListener("change", function () { store("spunti", chkSpunti.checked ? "1" : "0"); });
-      btnPlay.addEventListener("click", function () {
-        if (!currentEd) return;
-        if (state === "playing") pause();
-        else if (state === "paused") resume();
-        else { buildAll(); start(); }
-      });
-      btnStop.addEventListener("click", stop);
-      content.addEventListener("click", function (e) {
-        var b = e.target.closest("[data-listen]");
-        if (!b || !currentEd) return;
-        var card = b.closest(".card");
-        var cards = Array.prototype.slice.call(content.querySelectorAll(".card"));
-        var n = cards.indexOf(card), k = 0, found = null, lbl = "";
-        currentEd.sections.forEach(function (s) { s.items.forEach(function (it, i) { if (k++ === n) { found = it; lbl = s.title + " · " + (i + 1) + " di " + s.items.length; } }); });
-        if (!found) return;
-        queue = []; itemQueue(found, card, lbl, chkSpunti.checked); start();
-      });
-      window.addEventListener("pagehide", stop);
-      setUI();
-    }
-    return { supported: supported, stop: stop };
-  })();
-
-  function renderEdition(ed) {
-    currentEd = ed;
-    player.stop();
-    var audioWrap = document.getElementById("pl-audio-wrap"), audioEl = document.getElementById("pl-audio");
-    var hasAudio = /^audio\/[0-9-]+\.mp3$/.test(ed.audio || "");
-    audioWrap.hidden = !hasAudio;
-    document.getElementById("pl-tts").hidden = hasAudio;
-    document.body.classList.toggle("has-audio", hasAudio);
-    if (hasAudio) { if (audioEl.getAttribute("src") !== ed.audio) audioEl.setAttribute("src", ed.audio); }
-    else { audioEl.pause(); audioEl.removeAttribute("src"); }
-    playerEl.hidden = !(hasAudio || player.supported);
-    document.getElementById("ed-date").textContent = ed.label;
-    document.getElementById("ed-intro").textContent = ed.intro || "";
-    bar.innerHTML = ed.sections.map(function (s) {
-      return '<button class="chip" type="button" style="' + (SECTIONS[s.id] || DEF) + '" data-target="sec-' + esc(s.id) + '"><span class="dot"></span>' + esc(s.title) + " <b>" + s.items.length + "</b></button>";
-    }).join("") + '<span class="spacer"></span><a class="chip arch" href="#archivio">Archivio</a>';
-    content.innerHTML = ed.sections.map(function (s) {
-      var tone = SECTIONS[s.id] || DEF;
-      return '<section id="sec-' + esc(s.id) + '" style="' + tone + '"><div class="sec-head"><h2>' + esc(s.title) + '</h2><div class="rule"></div><span>' + s.items.length + " notizie</span></div>" +
-        '<div class="grid">' + s.items.map(function (it, i) { return card(it, tone, i === 0); }).join("") + "</div></section>";
-    }).join("");
-  }
-
-  function renderArchive() {
-    currentEd = null;
-    player.stop();
-    document.getElementById("pl-audio").pause();
-    playerEl.hidden = true;
-    document.getElementById("ed-date").textContent = "Archivio";
-    document.getElementById("ed-intro").textContent = "Tutte le edizioni pubblicate, dalla più recente.";
-    bar.innerHTML = editions.length ? '<a class="chip" href="#' + esc(editions[0].date) + '">← Edizione di oggi</a>' : "";
-    content.innerHTML = '<div class="archive"><h2>Archivio</h2><ul>' + editions.map(function (e) {
-      return '<li><a href="#' + esc(e.date) + '">' + esc(e.label) + "<span>" + esc(e.date) + "</span></a></li>";
-    }).join("") + "</ul></div>";
-  }
-
-  function showError(msg) { content.innerHTML = '<div class="notice">' + esc(msg) + "</div>"; }
-
-  function route() {
-    var h = (location.hash || "").slice(1);
-    if (h === "archivio") { renderArchive(); window.scrollTo(0, 0); return; }
-    var target = editions.filter(function (e) { return e.date === h; })[0] || editions[0];
-    if (!target) { showError("Nessuna edizione disponibile."); return; }
-    fetch("data/" + target.date + ".json", { cache: "no-cache" })
-      .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
-      .then(function (ed) { renderEdition(ed); if (h) window.scrollTo(0, 0); })
-      .catch(function () { showError("Non riesco a caricare l'edizione del " + target.label + ". Ricarica la pagina tra qualche minuto."); });
-  }
-
-  bar.addEventListener("click", function (e) {
-    var b = e.target.closest("button[data-target]");
-    if (!b) return;
-    var el = document.getElementById(b.getAttribute("data-target"));
-    if (el) el.scrollIntoView({ block: "start" });
+  }).catch(function () {
+    list.classList.remove("loading");
+    list.innerHTML = '<li><span class="sec">Oggi</span><span class="t">La nuova edizione esce ogni mattina alle 8.</span></li>';
   });
 
-  fetch("data/index.json", { cache: "no-cache" })
-    .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
-    .then(function (idx) {
-      editions = (idx.editions || []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
-      route();
-      window.addEventListener("hashchange", route);
-    })
-    .catch(function () { showError("Non riesco a caricare l'elenco delle edizioni. Ricarica la pagina tra qualche minuto."); });
+  /* Avamposto: già collegato? prossime iniziative pubbliche */
+  function signedIn() {
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (/^sb-.*-auth-token$/.test(k)) return true;
+      }
+      var demo = JSON.parse(localStorage.getItem("avamposto-demo-v1") || "null");
+      return !!(demo && demo.session);
+    } catch (e) { return false; }
+  }
+  if (signedIn()) {
+    document.getElementById("ava-actions").innerHTML = '<a class="btn white" href="avamposto/">I miei percorsi →</a>';
+  }
+  var cfg = window.AVAMPOSTO_CONFIG || {};
+  if (cfg.supabaseUrl && cfg.supabaseAnonKey) {
+    var KIND = { corso: "Corso", formazione: "Formazione", contenuti: "Contenuti speciali", evento: "Evento" };
+    getJSON(cfg.supabaseUrl.replace(/\/$/, "") + "/rest/v1/initiatives?select=slug,title,kind,starts_on&published=eq.true&order=position.asc&limit=3",
+      { headers: { apikey: cfg.supabaseAnonKey, Authorization: "Bearer " + cfg.supabaseAnonKey } })
+      .then(function (rows) {
+        if (!rows || !rows.length) return;
+        var cap = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5"/></svg>';
+        document.getElementById("ava-list").innerHTML = rows.map(function (r) {
+          var d = r.starts_on ? new Date(r.starts_on + "T12:00:00") : null;
+          var when = d ? " · dal " + d.getDate() + " " + MONTHS[d.getMonth()] : "";
+          return "<li>" + cap + '<div><b><a href="avamposto/#i-' + esc(r.slug) + '" style="color:#FFFFFF">' + esc(r.title) + "</a></b><span>" + esc(KIND[r.kind] || "Iniziativa") + esc(when) + "</span></div></li>";
+        }).join("");
+      }).catch(function () {});
+  }
+
+  /* Copia indirizzo email */
+  document.getElementById("mail-copy").addEventListener("click", function (e) {
+    var btn = e.currentTarget, text = document.getElementById("mail-addr").textContent;
+    function done() { btn.textContent = "Copiato"; setTimeout(function () { btn.textContent = "Copia indirizzo"; }, 2000); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, select); else select();
+    function select() { var r = document.createRange(); r.selectNodeContents(document.getElementById("mail-addr")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  });
+
+  /* Newsletter */
+  var form = document.getElementById("nl-form"), msg = document.getElementById("nl-msg");
+  function say(text, ok) { msg.textContent = text; msg.className = "msg " + (ok ? "ok" : "err"); msg.hidden = false; }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = document.getElementById("nl-email").value.trim().toLowerCase();
+    var btn = form.querySelector("button[type=submit]");
+    if (document.getElementById("nl-web").value) return; // compilato solo dai programmi automatici
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) return say("Scrivi un indirizzo email valido.", false);
+    if (!document.getElementById("nl-ok").checked) return say("Per iscriverti serve la spunta sul consenso.", false);
+    var url = (window.SITO_CONFIG || {}).newsletterUrl;
+    if (!url) return say("La newsletter non è ancora attiva: riprova tra qualche giorno.", false);
+    btn.disabled = true; btn.textContent = "Invio…";
+    fetch(url, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ email: email, consenso: true, fonte: "sito" }) })
+      .then(function (r) { return r.json().catch(function () { return { ok: true }; }); })
+      .then(function (res) {
+        if (res && res.ok === false) throw new Error(res.error || "errore");
+        form.reset();
+        say(res && res.duplicate ? "Sei già iscritto: non ti manderemo doppioni." : "Fatto! Sei iscritto alla newsletter.", true);
+      })
+      .catch(function () { say("Non sono riuscito a iscriverti. Controlla la connessione e riprova.", false); })
+      .then(function () { btn.disabled = false; btn.textContent = "Iscriviti"; });
+  });
 })();
 </script>
 </body>

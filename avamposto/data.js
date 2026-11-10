@@ -203,7 +203,7 @@
         { id: uid(), initiative_id: I.com, kind: "testo", title: "Esercitazione della settimana", body: "Prendi una notizia dalla rassegna di oggi e scrivi:\n\n**1.** un post di massimo 600 caratteri;\n**2.** tre titoli alternativi per una storia Instagram.\n\nCarica il lavoro nel gruppo del corso entro venerdì.", position: 4, published: true, created_at: iso(-5) },
         { id: uid(), initiative_id: I.eu, kind: "diretta", title: "Primo incontro: come nasce una legge europea", url: "https://meet.google.com/", live_at: iso(5, 21, 0), body: "Diretta su Meet, durata circa un'ora.", position: 1, published: true, created_at: iso(-10) },
         { id: uid(), initiative_id: I.spec, kind: "testo", title: "Benvenuto nell'Avamposto", body: "Questa è l'area riservata di Azione Under 30 Marche.\n\nIn **Contenuti speciali** trovi i materiali aperti a tutti gli iscritti. Dal **catalogo** puoi chiedere di partecipare ai corsi: lo staff approva le richieste.", position: 1, published: true, created_at: iso(-30) },
-        { id: uid(), initiative_id: I.spec, kind: "link", title: "La rassegna stampa di oggi", url: "../", body: "Il Punto Under 30 – Marche, ogni mattina alle 8.", position: 2, published: true, created_at: iso(-30) }
+        { id: uid(), initiative_id: I.spec, kind: "link", title: "La rassegna stampa di oggi", url: "../rassegna/", body: "Il Punto Under 30 – Marche, ogni mattina alle 8.", position: 2, published: true, created_at: iso(-30) }
       ]
     };
   }

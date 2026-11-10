@@ -6,7 +6,11 @@ Il sito è statico e pubblicato con GitHub Pages.
 
 ## Struttura
 
-- `index.html` – la pagina (grafica e logica di visualizzazione)
+- `index.html` – pagina d'ingresso di Azione Under 30 Marche (sceglie tra rassegna e Avamposto)
+- `rassegna/index.html` – la rassegna Il Punto
+- `avamposto/` – l'area riservata (vedi AVAMPOSTO.md)
+- `assets/foto/` – foto del gruppo per la pagina d'ingresso
+- `newsletter/Codice.gs` – collegamento del modulo newsletter al foglio Google (vedi NEWSLETTER.md)
 - `data/index.json` – elenco delle edizioni pubblicate, usato per l'archivio
 - `data/AAAA-MM-GG.json` – una edizione per giorno
 - `assets/logo.png` – logo Azione Under 30 Marche
