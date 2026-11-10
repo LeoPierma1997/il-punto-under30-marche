@@ -507,15 +507,16 @@
   function personRow(pp, big) {
     return '<li class="person">' + avatar(pp, big) + '<span class="who"><b>' + esc(pp.full_name) + "</b>" + (pp.role ? "<span>" + esc(pp.role) + "</span>" : "") + igLink(pp.instagram) + "</span></li>";
   }
+  /* nella pagina pubblica una struttura compare solo se ha almeno una persona o un canale WhatsApp */
+  function unitVisible(u) { return peopleOf(u.id).length > 0 || !!u.whatsapp_url || childrenOf(u.id).some(unitVisible); }
   function unitCard(u) {
     var pp = peopleOf(u.id);
     return '<article class="unit k-' + esc(u.kind) + '"><h3>' + esc(u.name) + "</h3>" +
-      (pp.length ? '<ul class="people">' + pp.map(function (x) { return personRow(x); }).join("") + "</ul>"
-        : '<p class="vacant">' + icon("team") + esc(u.description ? u.description + ": da nominare" : "Referente da nominare") + "</p>") +
+      (pp.length ? '<ul class="people">' + pp.map(function (x) { return personRow(x); }).join("") + "</ul>" : "") +
       waButton(u.whatsapp_url) + "</article>";
   }
   function viewTeam() {
-    setMain('<div class="page-head"><span class="eyebrow">Avamposto Under 30</span><h1>La squadra</h1><p>Chi coordina Azione Under 30 nelle Marche, i gruppi di lavoro e i referenti provinciali. Entra nei canali WhatsApp della tua zona e del tuo gruppo.</p></div><div id="team"><p class="loading">Caricamento…</p></div>', "squadra");
+    setMain('<div class="page-head"><span class="eyebrow">Avamposto Under 30</span><h1>La squadra</h1><p>Chi coordina Azione Under 30 nelle Marche e chi segue i gruppi di lavoro. Entra nei canali WhatsApp del tuo gruppo e della tua zona.</p></div><div id="team"><p class="loading">Caricamento…</p></div>', "squadra");
     loadTeam().then(function () {
       var box = document.getElementById("team"); if (!box) return;
       var roots = childrenOf(null);
@@ -523,12 +524,12 @@
       box.innerHTML = roots.map(function (r) {
         var lead = peopleOf(r.id);
         return '<section class="team-root"><div class="team-lead"><span class="eyebrow">' + esc(r.name) + "</span>" +
-          (lead.length ? '<ul class="people lead">' + lead.map(function (x) { return personRow(x, true); }).join("") + "</ul>" : '<p class="vacant">Da nominare</p>') +
+          (lead.length ? '<ul class="people lead">' + lead.map(function (x) { return personRow(x, true); }).join("") + "</ul>" : "") +
           waButton(r.whatsapp_url, "Canale WhatsApp regionale") + "</div>" +
-          childrenOf(r.id).map(function (a) {
-            var coord = peopleOf(a.id), kids = childrenOf(a.id);
+          childrenOf(r.id).filter(unitVisible).map(function (a) {
+            var coord = peopleOf(a.id), kids = childrenOf(a.id).filter(unitVisible);
             return '<section class="team-area"><div class="area-head"><div><h2>' + esc(a.name) + "</h2>" +
-              (coord.length ? '<p class="coord">Coordina ' + coord.map(function (x) { return "<b>" + esc(x.full_name) + "</b>"; }).join(" e ") + "</p>" : "") + "</div>" +
+              (coord.length ? '<p class="coord">' + coord.map(function (x) { return "<b>" + esc(x.full_name) + "</b>" + (x.role ? " · " + esc(x.role) : ""); }).join("<br>") + "</p>" : "") + "</div>" +
               waButton(a.whatsapp_url, "Canale WhatsApp") + "</div>" +
               (kids.length ? '<div class="units">' + kids.map(unitCard).join("") + "</div>" : "") + "</section>";
           }).join("") + "</section>";
@@ -564,7 +565,8 @@
   function unitAdmin(o) {
     var u = o.u, id = esc(u.id), pp = T.people.filter(function (x) { return x.unit_id === u.id; });
     return '<section class="panel unit-admin" style="margin-left:' + Math.min(o.depth, 3) * 18 + 'px">' +
-      '<form data-form="unit" data-id="' + id + '" novalidate><h3>' + esc(u.name) + '</h3><div class="grid-2">' +
+      '<form data-form="unit" data-id="' + id + '" novalidate><h3>' + esc(u.name) + '</h3>' +
+        (unitVisible(u) ? "" : '<p class="vacant">Nascosta agli iscritti finché non aggiungi una persona o un link WhatsApp.</p>') + '<div class="grid-2">' +
         '<label class="field" for="un-' + id + '"><span>Nome</span><input type="text" id="un-' + id + '" name="name" value="' + esc(u.name) + '"></label>' +
         '<label class="field" for="ud-' + id + '"><span>Descrizione / ruolo</span><input type="text" id="ud-' + id + '" name="description" value="' + esc(u.description || "") + '"></label>' +
         '<label class="field" for="uw-' + id + '"><span>Link canale WhatsApp</span><input type="url" id="uw-' + id + '" name="whatsapp_url" placeholder="https://chat.whatsapp.com/…" value="' + esc(u.whatsapp_url || "") + '"></label>' +
