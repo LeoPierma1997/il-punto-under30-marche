@@ -6,6 +6,14 @@
   var nav = document.getElementById("mast-nav");
   var toastEl = document.getElementById("toast");
   var INVITE_KEY = "avamposto-invito";
+  var DEMO = false;
+  try {
+    if (/[?&]demo=1\b/.test(location.search)) sessionStorage.setItem("avamposto-demo", "1");
+    if (/[?&]demo=0\b/.test(location.search)) sessionStorage.removeItem("avamposto-demo");
+    DEMO = sessionStorage.getItem("avamposto-demo") === "1";
+  } catch (e) { DEMO = /[?&]demo=1\b/.test(location.search); }
+  // Finché Supabase non è collegato, il pubblico vede solo l'anteprima: niente dati di esempio, niente iscrizioni finte.
+  var PREVIEW = !D.live && !DEMO;
 
   var S = { me: null, admin: false, profile: null, inits: [], mine: {}, amats: [], views: {}, ready: false };
   var A = { enrollments: [], profiles: [], invites: {} }; // dati di gestione
@@ -140,6 +148,7 @@
   /* ---------------- router ---------------- */
   function route() {
     if (!S.ready) return;
+    if (PREVIEW) return viewWelcome();
     var h = (location.hash || "#home").slice(1);
     if (!S.me) {
       if (h.indexOf("i-") === 0) return viewInitiative(h.slice(2));
@@ -212,7 +221,7 @@
   /* ---------------- benvenuto e accesso ---------------- */
   function viewWelcome() {
     var invite = pendingInvite();
-    var catalog = S.inits.filter(function (i) { return i.published; });
+    var catalog = PREVIEW ? [] : S.inits.filter(function (i) { return i.published; });
     setMain(
       '<section class="ava-hero"><div class="ava-hero-bg" aria-hidden="true"><img src="../assets/foto/evento-roma-platea.jpg" alt=""></div>' +
         '<div class="wrap ava-hero-in">' +
@@ -226,13 +235,16 @@
               "<li>" + icon("check") + "<span><b>Segni cosa hai visto</b> e riprendi da dove eri rimasto</span></li>" +
             "</ul>" +
           "</div>" +
-          '<div class="panel" id="auth-panel">' +
-            (invite ? '<p class="form-msg ok">Hai un link d\'invito. Iscriviti o entra: il corso si sbloccherà in automatico.</p>' : "") +
-            authForms() +
-          "</div>" +
+          (PREVIEW ? '<div class="panel soon-panel"><span class="eyebrow">Iscrizioni in arrivo</span><h2>L\'Avamposto apre a breve</h2>' +
+              "<p>Stiamo preparando i primi percorsi. Iscriviti alla newsletter o seguici su Instagram: ti avvisiamo appena si parte.</p>" +
+              '<div class="btn-row"><a class="btn primary" href="../#unisciti">Avvisami</a><a class="btn quiet" href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener">Instagram</a></div></div>'
+            : '<div class="panel" id="auth-panel">' +
+              (invite ? '<p class="form-msg ok">Hai un link d\'invito. Iscriviti o entra: il corso si sbloccherà in automatico.</p>' : "") +
+              authForms() +
+            "</div>") +
         "</div></section>" +
       '<div class="wrap page"><section class="block"><div class="block-head"><h2>Cosa trovi dentro</h2><span class="note">I corsi «su richiesta» si sbloccano dopo l\'approvazione dello staff.</span></div>' +
-      (catalog.length ? '<div class="inits">' + catalog.map(initCard).join("") + "</div>" : '<p class="empty">Le prime iniziative sono in arrivo.</p>') +
+      (catalog.length ? '<div class="inits">' + catalog.map(initCard).join("") + "</div>" : '<p class="empty soon">Presto ci saranno nuove iniziative per i corsi.</p>') +
       "</section></div>", "home", true);
     bindAuth();
   }
@@ -352,12 +364,13 @@
       '<div class="page-head"><span class="eyebrow">Avamposto Under 30</span><h1>Ciao ' + esc(first) + "!</h1><p>" +
         (unseen ? "Hai <b>" + unseen + (unseen === 1 ? " materiale nuovo" : " materiali nuovi") + "</b> da vedere nei tuoi percorsi." : "Sei in pari con tutti i tuoi percorsi.") + "</p></div>" +
       nextLiveCard() +
-      '<section class="block"><div class="block-head"><h2>I miei percorsi</h2></div>' +
+      (!visible.length ? '<p class="empty soon">Presto ci saranno nuove iniziative per i corsi.</p>' : "") +
+      (visible.length ? '<section class="block"><div class="block-head"><h2>I miei percorsi</h2></div>' +
         (mine.length ? '<div class="inits">' + mine.map(initCard).join("") + "</div>" : '<p class="empty">Non hai ancora corsi attivi. Scegline uno qui sotto.</p>') +
       "</section>" +
       '<section class="block"><div class="block-head"><h2>Catalogo</h2><span class="note">Lo staff riceve la tua richiesta e ti abilita.</span></div>' +
         (others.length ? '<div class="inits">' + others.map(initCard).join("") + "</div>" : '<p class="empty">Sei già dentro a tutte le iniziative disponibili.</p>') +
-      "</section>", "home");
+      "</section>" : ""), "home");
   }
 
   function nextLiveCard() {
@@ -915,7 +928,8 @@
       setPendingInvite(params.get("invito"));
       history.replaceState(null, "", location.pathname + location.hash);
     }
-    if (!D.live) document.getElementById("demo-bar").hidden = false;
+    if (!D.live && DEMO) document.getElementById("demo-bar").hidden = false;
+    if (PREVIEW) { S.ready = true; renderNav = function () { nav.innerHTML = ""; }; viewWelcome(); return; }
     D.init().then(refresh).then(function () { S.ready = true; return handleInvite(); }).then(route)
       .catch(function (e) { S.ready = true; main.innerHTML = '<div class="wrap page"><p class="form-msg err">' + esc(D.friendly(e)) + "</p></div>"; });
     D.onAuthChange(function () {

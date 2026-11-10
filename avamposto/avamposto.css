@@ -336,3 +336,12 @@ td.num { font-variant-numeric: tabular-nums; }
 .init-head { overflow: hidden; }
 
 .video, .video-placeholder { max-width: 760px; }
+
+/* Anteprima pubblica e messaggio "presto" */
+.soon-panel { gap: 12px; }
+.soon-panel h2 { font-size: 1.6rem !important; letter-spacing: -.04em; color: var(--mast); }
+:root[data-theme="dark"] .soon-panel h2 { color: var(--fg); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .soon-panel h2 { color: var(--fg); } }
+.soon-panel p { margin: 0; color: var(--muted); }
+.empty.soon { font-size: 1.05rem; font-weight: 600; color: var(--fg); border-style: solid; border-left: 4px solid var(--yellow); border-radius: 0 12px 12px 0; }
+.ava-hero .soon-panel .eyebrow { color: var(--muted); }
