@@ -518,6 +518,67 @@ create policy locandine_admin_delete on storage.objects for delete to authentica
   using (bucket_id = 'locandine' and public.is_admin());
 
 -- ---------------------------------------------------------------------
+-- Privacy: cancellazione dell'account e pulizia automatica
+-- ---------------------------------------------------------------------
+-- Cancella tutto ciò che riguarda una persona (account, profilo, accessi, «visto», adesioni).
+create or replace function public.erase_user(p_user uuid)
+returns void language plpgsql security definer set search_path = public as $$
+declare v_email text;
+begin
+  select lower(email) into v_email from auth.users where id = p_user;
+  delete from public.event_signups where user_id = p_user;
+  delete from public.material_views where user_id = p_user;
+  if v_email is not null then delete from public.enrollments where email = v_email; end if;
+  delete from public.profiles where id = p_user;
+  delete from auth.users where id = p_user;
+end;
+$$;
+revoke all on function public.erase_user(uuid) from public, anon, authenticated;
+
+-- «Cancella il mio account» dal profilo: ognuno può cancellare solo sé stesso.
+create or replace function public.delete_my_account()
+returns void language plpgsql security definer set search_path = public as $$
+begin
+  if auth.uid() is null then raise exception 'Devi essere collegato.'; end if;
+  perform public.erase_user(auth.uid());
+end;
+$$;
+revoke all on function public.delete_my_account() from public, anon;
+grant execute on function public.delete_my_account() to authenticated;
+
+-- Pulizia periodica: account non usati da 24 mesi (escluso lo staff)
+-- e adesioni ai turni di eventi finiti da più di 12 mesi.
+create or replace function public.purge_inactive_accounts()
+returns integer language plpgsql security definer set search_path = public as $$
+declare r record; n integer := 0;
+begin
+  for r in
+    select u.id from auth.users u
+    where coalesce(u.last_sign_in_at, u.created_at) < now() - interval '24 months'
+      and lower(coalesce(u.email, '')) not in (select email from public.admins)
+  loop
+    perform public.erase_user(r.id); n := n + 1;
+  end loop;
+  delete from public.event_signups s using public.events e
+  where e.id = s.event_id and coalesce(e.ends_at, e.starts_at) < now() - interval '12 months';
+  return n;
+end;
+$$;
+revoke all on function public.purge_inactive_accounts() from public, anon, authenticated;
+
+-- Programma la pulizia ogni lunedì alle 3 (serve l'estensione pg_cron, inclusa in Supabase).
+-- Se non è disponibile, lo script prosegue: la pulizia si può lanciare a mano con
+--   select public.purge_inactive_accounts();
+do $$
+begin
+  create extension if not exists pg_cron;
+  perform cron.unschedule(jobid) from cron.job where jobname = 'pulizia-privacy';
+  perform cron.schedule('pulizia-privacy', '0 3 * * 1', 'select public.purge_inactive_accounts()');
+exception when others then
+  raise notice 'Pulizia automatica non programmata (%). Attiva «Cron» in Supabase e riesegui questo blocco.', sqlerrm;
+end $$;
+
+-- ---------------------------------------------------------------------
 -- Ultimo passo (una volta sola): la mail condivisa dello staff diventa amministratore.
 -- Sostituisci l'indirizzo e togli i due trattini iniziali prima di eseguire.
 -- ---------------------------------------------------------------------

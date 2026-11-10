@@ -275,7 +275,7 @@
           '<label class="choice" for="su-t"><input type="radio" name="membership" id="su-t" value="tesserato"> Tesserato</label>' +
           '<label class="choice" for="su-s"><input type="radio" name="membership" id="su-s" value="simpatizzante"> Simpatizzante</label>' +
         "</div></fieldset>" +
-        '<label class="check" for="su-privacy"><input type="checkbox" id="su-privacy"> <span>Ho letto l\'<a href="privacy.html" target="_blank">informativa privacy</a> e acconsento al trattamento dei miei dati, compresa l\'indicazione di tesserato o simpatizzante.</span></label>' +
+        '<label class="check" for="su-privacy"><input type="checkbox" id="su-privacy"> <span>Ho almeno 14 anni, ho letto l\'<a href="privacy.html" target="_blank">informativa privacy</a> e acconsento al trattamento dei miei dati da parte di Azione, compresa l\'indicazione di tesserato o simpatizzante, che rivela un\'opinione politica.</span></label>' +
         '<p class="form-msg err" id="su-err" hidden></p>' +
         '<button class="btn primary" type="submit">' + icon("mail") + "Mandami il link per entrare</button>" +
       "</form>" +
@@ -346,7 +346,7 @@
         '<label class="choice" for="pf-t"><input type="radio" name="pf-m" id="pf-t" value="tesserato"' + (p.membership === "tesserato" ? " checked" : "") + "> Tesserato</label>" +
         '<label class="choice" for="pf-s"><input type="radio" name="pf-m" id="pf-s" value="simpatizzante"' + (p.membership === "simpatizzante" ? " checked" : "") + "> Simpatizzante</label>" +
       "</div></fieldset>" +
-      (first || !p.privacy_at ? '<label class="check" for="pf-privacy"><input type="checkbox" id="pf-privacy"' + (p.privacy_at ? " checked" : "") + '> <span>Ho letto l\'<a href="privacy.html" target="_blank">informativa privacy</a> e acconsento al trattamento dei miei dati.</span></label>' :
+      (first || !p.privacy_at ? '<label class="check" for="pf-privacy"><input type="checkbox" id="pf-privacy"' + (p.privacy_at ? " checked" : "") + '> <span>Ho almeno 14 anni, ho letto l\'<a href="privacy.html" target="_blank">informativa privacy</a> e acconsento al trattamento dei miei dati da parte di Azione, compresa l\'indicazione di tesserato o simpatizzante, che rivela un\'opinione politica.</span></label>' :
         '<p class="note" style="margin:0;color:var(--muted);font-size:.88rem">Consenso privacy dato il ' + esc(fmtDate(p.privacy_at)) + ".</p>") +
       '<p class="form-msg err" id="pf-err" hidden></p>' +
       '<div class="btn-row"><button class="btn primary" type="submit">' + (first ? "Entra nell'Avamposto" : "Salva") + "</button></div>" +
@@ -409,7 +409,15 @@
     setMain(
       '<div class="page-head"><span class="eyebrow">Il tuo account</span><h1>Profilo</h1></div>' +
       '<div class="panel" style="max-width:560px">' + profileForm(S.profile, false) + "</div>" +
-      '<div class="btn-row"><button class="btn quiet" type="button" data-action="signout">Esci dall\'Avamposto</button></div>', "profilo");
+      '<div class="btn-row"><button class="btn quiet" type="button" data-action="signout">Esci dall\'Avamposto</button></div>' +
+      '<section class="panel privacy-panel" style="max-width:560px;margin-top:28px"><h2>I tuoi dati</h2>' +
+        '<p>Puoi scaricare una copia dei dati che conserviamo su di te o cancellare l\'account. La cancellazione toglie profilo, accessi ai corsi, segni «visto» e adesioni ai turni, e non si può annullare. ' +
+        'Per la newsletter o per altre richieste scrivi a <a href="mailto:azioneunder30marche@gmail.com">azioneunder30marche@gmail.com</a>. <a href="privacy.html">Informativa privacy</a></p>' +
+        '<div class="btn-row"><button class="btn quiet" type="button" data-action="export-me">' + icon("download") + 'Scarica i miei dati</button>' +
+        '<button class="btn danger" type="button" data-action="delete-me">' + icon("trash") + 'Cancella il mio account</button></div>' +
+        '<div id="delete-confirm" hidden><p class="form-msg err" style="margin-top:14px">Confermi? L\'account e i tuoi dati nell\'Avamposto verranno cancellati subito.</p>' +
+        '<div class="btn-row"><button class="btn danger" type="button" data-action="delete-me-yes">Sì, cancella tutto</button><button class="btn quiet" type="button" data-action="delete-me-no">Annulla</button></div></div>' +
+      "</section>", "profilo");
     bindProfileForm(false);
   }
 
@@ -438,6 +446,14 @@
     }).catch(function (e) { var box = document.getElementById("mats"); if (box) box.innerHTML = '<p class="form-msg err">' + esc(e.message) + "</p>"; });
   }
 
+  /* Il player esterno (YouTube, Vimeo, Drive) si carica solo quando la persona preme «Guarda»:
+     prima del clic nessun dato parte verso quei servizi. */
+  function videoHost(u) { return /youtube/.test(u) ? "YouTube" : /vimeo/.test(u) ? "Vimeo" : /google/.test(u) ? "Google Drive" : "il servizio video"; }
+  function videoFrame(em, title) {
+    return '<div class="video video-gate"><button type="button" data-action="play-video" data-src="' + esc(em) + '" data-title="' + esc(title) + '">' +
+      '<span class="vg-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span>' +
+      '<span class="vg-txt"><b>Guarda il video</b><small>Si apre il player di ' + esc(videoHost(em)) + ", che può usare cookie propri.</small></span></button></div>";
+  }
   function embedUrl(u) {
     var m;
     if ((m = u.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|live\/|shorts\/)|youtu\.be\/)([\w-]{11})/))) return "https://www.youtube-nocookie.com/embed/" + m[1] + "?rel=0";
@@ -463,7 +479,7 @@
     var c = "", href = safeHref(m.url), seen = !!S.views[m.id];
     if (m.kind === "video") {
       var em = href ? embedUrl(href) : "";
-      c = em ? '<div class="video"><iframe src="' + esc(em) + '" title="' + esc(m.title) + '" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>'
+      c = em ? videoFrame(em, m.title)
         : href ? '<div class="btn-row"><a class="btn primary" href="' + esc(href) + '" target="_blank" rel="noopener">' + icon("video") + "Guarda il video</a></div>"
         : '<div class="video-placeholder">Video di esempio: qui comparirà il video registrato.</div>';
     } else if (m.kind === "diretta") {
@@ -675,7 +691,8 @@
           }).join("") + "</fieldset>" : "") +
           '<label class="field" for="sn-' + id + '"><span>Nota per lo staff <small>(facoltativa)</small></span><input type="text" id="sn-' + id + '" name="note" maxlength="300" placeholder="Es. arrivo con un amico, ho la macchina"></label>' +
           '<div class="btn-row"><button class="btn primary" type="submit">' + icon("check") + "Ci sono</button>" +
-          (kit ? '<a class="btn small quiet" href="' + esc(kit) + '" target="_blank" rel="noopener">Guarda il kit</a>' : "") + "</div></form>") +
+          (kit ? '<a class="btn small quiet" href="' + esc(kit) + '" target="_blank" rel="noopener">Guarda il kit</a>' : "") + "</div>" +
+          '<p class="fine">Lo staff vedrà nome, email, turno e nota per organizzarsi. Nella pagina pubblica compare solo il numero di adesioni.</p></form>') +
       "</div></article>";
   }
   function evGcal(ev) {
@@ -693,7 +710,7 @@
       '<div class="mat-kind">Replica' + (dd ? " · " + esc(dd) : "") + (r.published === false ? ' <span class="pill draft">Nascosta</span>' : "") + "</div>" +
       "<h3>" + esc(r.title) + "</h3>" +
       '<div class="mat-content">' +
-        (em ? '<div class="video"><iframe src="' + esc(em) + '" title="' + esc(r.title) + '" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>'
+        (em ? videoFrame(em, r.title)
           : href ? '<div class="btn-row"><a class="btn primary" href="' + esc(href) + '" target="_blank" rel="noopener">' + icon("video") + "Guarda la replica</a></div>"
           : '<div class="video-placeholder">Video di esempio: qui comparirà la registrazione.</div>') +
         (r.description ? "<p>" + esc(r.description) + "</p>" : "") +
@@ -1260,6 +1277,31 @@
     var act = b.getAttribute("data-action"), id = b.getAttribute("data-id"), mail = b.getAttribute("data-email");
     var it = currentInit();
 
+    if (act === "export-me") {
+      Promise.all([D.getProfile(), D.myEnrollments(), D.mySignups ? D.mySignups() : [], D.myViews()]).then(function (r) {
+        var dump = { esportato_il: new Date().toISOString(), titolare: "Azione", profilo: r[0], accessi_alle_iniziative: r[1], adesioni_ai_turni: r[2], materiali_segnati_come_visti: r[3] };
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(new Blob([JSON.stringify(dump, null, 2)], { type: "application/json" }));
+        a.download = "avamposto-i-miei-dati.json"; document.body.appendChild(a); a.click();
+        setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+      }).catch(function (x) { toast(x.message, true); });
+      return;
+    }
+    if (act === "delete-me") { document.getElementById("delete-confirm").hidden = false; return; }
+    if (act === "delete-me-no") { document.getElementById("delete-confirm").hidden = true; return; }
+    if (act === "delete-me-yes") {
+      busy(b, true);
+      D.deleteMyAccount().then(function () { toast("Account cancellato. Ci dispiace vederti andare."); location.hash = "#home"; })
+        .catch(function (x) { toast(x.message, true); busy(b, false); });
+      return;
+    }
+    if (act === "play-video") {
+      var src = b.getAttribute("data-src"); if (!/^https:\/\/(www\.youtube-nocookie\.com|player\.vimeo\.com|drive\.google\.com)\//.test(src)) return;
+      var fr = document.createElement("iframe");
+      fr.src = src + (src.indexOf("?") >= 0 ? "&" : "?") + "autoplay=1"; fr.title = b.getAttribute("data-title") || "Video";
+      fr.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; fr.allowFullscreen = true;
+      var box = b.parentNode; box.classList.remove("video-gate"); box.innerHTML = ""; box.appendChild(fr); return;
+    }
     if (act === "demo-as") { D.demoOpenLink(b.getAttribute("data-who") === "admin" ? D.demoAdmin : D.demoMember); location.hash = b.getAttribute("data-who") === "admin" ? "#gestione" : "#home"; return; }
     if (act === "demo-reset") { D.reset(); toast("Dati di esempio ripristinati"); location.hash = "#home"; return; }
     if (act === "demo-open") { D.demoOpenLink(mail); return; }

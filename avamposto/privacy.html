@@ -4,52 +4,180 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Informativa privacy – Azione Under 30 Marche</title>
-<meta name="robots" content="noindex">
+<meta name="description" content="Come Azione tratta i dati raccolti dal sito di Azione Under 30 Marche: newsletter, Avamposto, eventi e volontari.">
 <link rel="icon" type="image/png" href="../assets/logo.png">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&display=swap">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
 <link rel="stylesheet" href="avamposto.css">
+<style>
+.pv { max-width: 820px; }
+.pv h2 { margin: 34px 0 10px; font-size: clamp(1.3rem, 2.6vw, 1.6rem); letter-spacing: -.03em; line-height: 1.15; color: var(--fg); }
+.pv h2:first-child { margin-top: 0; }
+.pv p, .pv li { max-width: 70ch; }
+.pv ul { padding-left: 1.2em; margin: 0 0 .8em; }
+.pv li { margin-bottom: .35em; }
+.summary { background: var(--mast); color: #FFFFFF; border-radius: 16px; padding: 22px 24px; margin-bottom: 26px; }
+.summary h2 { color: #FFFFFF; margin: 0 0 10px; font-size: 1.2rem; }
+.summary ul { margin: 0; padding-left: 1.1em; }
+.summary li { margin-bottom: .4em; color: #E4E3FF; }
+.summary b { color: #FFFFFF; }
+.uses { display: grid; gap: 12px; margin: 14px 0 0; }
+.use { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+.use h3 { margin: 0 0 8px; font-size: 1.05rem; letter-spacing: -.02em; }
+.use dl { margin: 0; display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: 6px 14px; font-size: .93rem; }
+.use dt { color: var(--muted); font-weight: 600; }
+.use dd { margin: 0; }
+@media (max-width: 560px) { .use dl { grid-template-columns: 1fr; gap: 2px; } .use dd { margin-bottom: 8px; } }
+.updated { color: var(--muted); font-size: .88rem; margin-top: 26px; }
+</style>
 </head>
 <body>
 <header class="mast">
   <div class="wrap">
-    <a class="brand" href="./">
+    <a class="brand" href="../">
       <img src="../assets/logo.png" alt="" width="64" height="64">
-      <span class="brand-text"><span class="brand-name">Avamposto</span><span class="brand-sub">Informativa privacy</span></span>
+      <span class="brand-text"><span class="brand-name">Privacy</span><span class="brand-sub">Azione Under 30 Marche</span></span>
     </a>
   </div>
 </header>
 <main>
-  <div class="wrap page">
-    <p class="form-msg err"><b>Bozza da completare prima di aprire le iscrizioni.</b> Le parti tra parentesi quadre vanno compilate con il titolare del trattamento e verificate con il referente privacy del partito.</p>
-    <div class="page-head"><span class="eyebrow">Art. 13 Regolamento UE 2016/679</span><h1>Informativa privacy</h1></div>
-    <div class="panel prose">
-      <h2>Chi tratta i tuoi dati</h2>
-      <p>Titolare del trattamento: [denominazione, sede e codice fiscale del titolare]. Contatto per la privacy: [indirizzo email].</p>
+  <div class="wrap page pv">
+    <div class="page-head"><span class="eyebrow">Art. 13 e 14 del Regolamento UE 2016/679 (GDPR)</span><h1>Informativa privacy</h1>
+      <p>Questa pagina spiega quali dati raccoglie il sito di Azione Under 30 Marche, perché, per quanto tempo e come puoi esercitare i tuoi diritti. Vale per tutte le pagine: home, Il Punto, Eventi e Avamposto.</p></div>
 
-      <h2>Quali dati raccogliamo</h2>
-      <p>Nome e cognome, indirizzo email, l'indicazione di tesserato o simpatizzante di Azione, le iniziative a cui chiedi di partecipare o a cui sei abilitato, la data del consenso.</p>
-      <p>L'indicazione di tesserato o simpatizzante rivela un'opinione politica: è una categoria particolare di dati (art. 9 GDPR) e la trattiamo solo con il tuo consenso esplicito.</p>
+    <section class="summary" aria-labelledby="in-breve">
+      <h2 id="in-breve">In breve</h2>
+      <ul>
+        <li><b>Niente cookie di profilazione, niente statistiche, niente pubblicità.</b> Il sito non ti traccia.</li>
+        <li>Raccogliamo dati solo se ce li dai tu: <b>newsletter</b>, iscrizione all'<b>Avamposto</b>, adesione a un <b>turno da volontario</b>.</li>
+        <li>Il titolare è <b>Azione</b>; il gruppo Under 30 Marche gestisce il sito per suo conto.</li>
+        <li>Puoi <b>scaricare o cancellare</b> i tuoi dati da solo, dal Profilo dell'Avamposto, o scrivendoci.</li>
+      </ul>
+    </section>
 
-      <h2>Perché</h2>
-      <p>Per darti accesso all'area riservata Avamposto Under 30, gestire la partecipazione a corsi e iniziative di formazione e inviarti le comunicazioni necessarie al servizio, come il link per entrare.</p>
+    <div class="prose">
+      <h2>1. Chi tratta i tuoi dati</h2>
+      <p><b>Titolare del trattamento:</b> <span data-p="titolare">Azione</span>, partito politico<span data-p="sede-wrap" hidden>, con sede in <span data-p="sede"></span></span><span data-p="cf-wrap" hidden>, codice fiscale <span data-p="codiceFiscale"></span></span>.
+        <span data-p="no-dati">La sede legale e gli altri dati del titolare sono pubblicati nella <a href="https://www.azione.it/privacy-policy/" target="_blank" rel="noopener">privacy policy di azione.it</a>.</span></p>
+      <p>Il sito è gestito dal coordinamento regionale di <b>Azione Under 30 Marche</b>, che tratta i dati per conto di Azione e secondo le sue istruzioni.</p>
+      <p><b>Per qualsiasi richiesta sulla privacy</b> scrivi a <a href="mailto:azioneunder30marche@gmail.com">azioneunder30marche@gmail.com</a>.
+        <span data-p="dpo-wrap" hidden>Puoi contattare anche il Responsabile della protezione dei dati (DPO) di Azione: <a data-p="dpoEmail" href="#"></a>.</span>
+        <span data-p="no-dpo">Il Responsabile della protezione dei dati (DPO) di Azione si contatta all'indirizzo indicato nella <a href="https://www.azione.it/privacy-policy/" target="_blank" rel="noopener">privacy policy di azione.it</a>.</span></p>
 
-      <h2>Base giuridica</h2>
-      <p>Il tuo consenso (art. 6.1.a e 9.2.a GDPR), che puoi revocare in qualsiasi momento senza conseguenze sui trattamenti già svolti. [Da verificare con il titolare: eventuale base diversa per i tesserati, art. 9.2.d.]</p>
-
-      <h2>Newsletter</h2>
-      <p>Se ti iscrivi alla newsletter dalla pagina d'ingresso, conserviamo solo la tua email, la data e il consenso in un foglio Google dell'account azioneunder30marche@gmail.com, per mandarti aggiornamenti su eventi e iniziative. Puoi cancellarti in qualsiasi momento scrivendo a quell'indirizzo.</p>
-
-      <h2>Dove sono conservati e chi li vede</h2>
-      <p>I dati sono conservati su server nell'Unione europea del fornitore Supabase [regione da indicare], nominato responsabile del trattamento. Li vede solo lo staff di Azione Under 30 Marche autorizzato alla gestione dell'Avamposto. Non li cediamo a terzi.</p>
-
-      <h2>Per quanto tempo</h2>
-      <p>Finché resti iscritto all'Avamposto. Se chiedi la cancellazione, eliminiamo account e dati entro [30] giorni. [Da definire: cancellazione degli account inattivi da più di 24 mesi.]</p>
-
-      <h2>I tuoi diritti</h2>
-      <p>Puoi chiedere accesso, rettifica, cancellazione, limitazione e portabilità dei dati, opporti al trattamento e revocare il consenso scrivendo a [indirizzo email]. Puoi anche presentare reclamo al Garante per la protezione dei dati personali.</p>
+      <h2>2. Quali dati, perché e per quanto tempo</h2>
     </div>
-    <div class="btn-row"><a class="back" href="../">← Azione Under 30 Marche</a><a class="back" href="./">Avamposto</a></div>
+    <div class="uses">
+      <article class="use">
+        <h3>Visita del sito</h3>
+        <dl>
+          <dt>Dati</dt><dd>Dati tecnici che ogni browser invia (indirizzo IP, tipo di browser, pagina richiesta, ora), registrati dal servizio che ospita il sito.</dd>
+          <dt>Perché</dt><dd>Mostrarti le pagine e proteggere il servizio da abusi.</dd>
+          <dt>Base giuridica</dt><dd>Legittimo interesse a far funzionare il sito in sicurezza (art. 6.1.f).</dd>
+          <dt>Per quanto</dt><dd>Per il tempo stabilito dal fornitore di hosting, di norma pochi giorni.</dd>
+        </dl>
+      </article>
+      <article class="use">
+        <h3>Newsletter</h3>
+        <dl>
+          <dt>Dati</dt><dd>Indirizzo email, data di iscrizione, pagina da cui ti sei iscritto e consenso.</dd>
+          <dt>Perché</dt><dd>Avvisarti di eventi, cene e iniziative di Azione Under 30 Marche.</dd>
+          <dt>Base giuridica</dt><dd>Il tuo consenso (art. 6.1.a), che puoi revocare quando vuoi.</dd>
+          <dt>Per quanto</dt><dd>Finché non ti cancelli. Per cancellarti basta una mail a azioneunder30marche@gmail.com.</dd>
+        </dl>
+      </article>
+      <article class="use">
+        <h3>Avamposto (area riservata)</h3>
+        <dl>
+          <dt>Dati</dt><dd>Nome e cognome, email, se sei tesserato o simpatizzante, data del consenso, iniziative a cui chiedi di partecipare o a cui sei abilitato, materiali che segni come visti, data dell'ultimo accesso.</dd>
+          <dt>Perché</dt><dd>Darti accesso all'area riservata, gestire corsi e iniziative di formazione, mandarti il link per entrare e le comunicazioni del servizio.</dd>
+          <dt>Base giuridica</dt><dd>L'indicazione di tesserato o simpatizzante rivela un'opinione politica (dato «particolare», art. 9). La trattiamo con il tuo consenso esplicito (art. 6.1.a e 9.2.a), che dai al momento dell'iscrizione e puoi revocare cancellando l'account. Per tesserati e persone in contatto regolare con il partito vale anche l'art. 9.2.d (attività di un'organizzazione politica senza scopo di lucro, senza comunicazione all'esterno).</dd>
+          <dt>Per quanto</dt><dd>Finché resti iscritto. Se non entri nell'Avamposto per <b>24 mesi</b>, l'account viene cancellato in automatico. Se lo cancelli tu, i dati spariscono subito; le copie di sicurezza del fornitore si sovrascrivono entro pochi giorni.</dd>
+        </dl>
+      </article>
+      <article class="use">
+        <h3>Agenda e mobilitazione («Ci sono»)</h3>
+        <dl>
+          <dt>Dati</dt><dd>Nome, email, turno scelto ed eventuale nota per lo staff.</dd>
+          <dt>Perché</dt><dd>Organizzare i volontari per banchetti, volantinaggi ed eventi e scriverti gli ultimi dettagli.</dd>
+          <dt>Base giuridica</dt><dd>La tua richiesta di partecipare (art. 6.1.b) e il consenso dato all'iscrizione all'Avamposto (art. 9.2.a).</dd>
+          <dt>Per quanto</dt><dd>Fino a <b>12 mesi</b> dopo l'evento, poi l'adesione si cancella in automatico. Puoi ritirarla prima con «Non posso più». Nella pagina pubblica degli eventi compare solo il numero delle adesioni, mai i nomi.</dd>
+        </dl>
+      </article>
+      <article class="use">
+        <h3>La squadra</h3>
+        <dl>
+          <dt>Dati</dt><dd>Nome, ruolo e, se la persona lo desidera, foto e profilo Instagram di chi ha un incarico nel coordinamento.</dd>
+          <dt>Perché</dt><dd>Far conoscere agli iscritti chi coordina gruppi e territori.</dd>
+          <dt>Base giuridica</dt><dd>Il consenso della persona interessata (art. 6.1.a e 9.2.a). Visibile solo agli iscritti all'Avamposto.</dd>
+          <dt>Per quanto</dt><dd>Fino alla fine dell'incarico o fino a quando la persona chiede di essere tolta.</dd>
+        </dl>
+      </article>
+      <article class="use">
+        <h3>Eventi, dirette e repliche</h3>
+        <dl>
+          <dt>Dati</dt><dd>Immagine e voce di chi interviene durante una diretta o un incontro registrato.</dd>
+          <dt>Perché</dt><dd>Permettere agli iscritti all'Avamposto di rivedere gli incontri.</dd>
+          <dt>Base giuridica</dt><dd>Consenso di chi interviene, chiesto prima della registrazione (art. 6.1.a). Chi non vuole comparire può tenere spenta la telecamera o chiedere di essere tagliato.</dd>
+          <dt>Per quanto</dt><dd>Finché la replica resta utile alla formazione; puoi chiedere in ogni momento di togliere il tuo intervento.</dd>
+        </dl>
+      </article>
+      <article class="use">
+        <h3>Email che ci scrivi</h3>
+        <dl>
+          <dt>Dati</dt><dd>Indirizzo e contenuto del messaggio.</dd>
+          <dt>Perché</dt><dd>Risponderti.</dd>
+          <dt>Base giuridica</dt><dd>La tua richiesta (art. 6.1.b).</dd>
+          <dt>Per quanto</dt><dd>Il tempo necessario a gestire la richiesta.</dd>
+        </dl>
+      </article>
+    </div>
+
+    <div class="prose">
+      <h2>3. Memoria del browser e cookie</h2>
+      <p>Il sito <b>non usa cookie di profilazione né strumenti di statistica</b>, quindi non serve alcun banner. Salva nel tuo browser solo informazioni tecniche indispensabili: l'accesso all'Avamposto, la velocità di lettura scelta per l'audio della rassegna, un link d'invito in attesa. Puoi cancellarle quando vuoi dalle impostazioni del browser.</p>
+      <p>Font e librerie sono ospitati sul sito stesso: aprendo le pagine non vengono contattati Google Fonts o altri servizi esterni.</p>
+      <p><b>Video:</b> i video di YouTube, Vimeo o Google Drive nell'Avamposto si caricano solo quando premi «Guarda il video». Da quel momento si applica la privacy policy del servizio video, che può usare cookie propri. Lo stesso vale per i link a Google Maps, Google Calendar, Instagram, Discord e WhatsApp: sono semplici collegamenti e ogni servizio tratta i dati secondo le proprie regole.</p>
+
+      <h2>4. Chi vede i tuoi dati e a chi li affidiamo</h2>
+      <p>I dati li vede solo lo <b>staff autorizzato</b> del coordinamento regionale Azione Under 30 Marche, oltre ad Azione come titolare. <b>Non li vendiamo e non li cediamo a terzi</b> per fini commerciali. Non facciamo profilazione né decisioni automatizzate.</p>
+      <p>Per far funzionare il sito usiamo questi fornitori, che trattano i dati per nostro conto come responsabili del trattamento (art. 28):</p>
+      <ul>
+        <li><b>Supabase</b>: account, database e file dell'Avamposto, su server nell'Unione europea (Francoforte, Germania).</li>
+        <li><b>Google</b> (Gmail, Fogli Google e Apps Script): casella email del gruppo e elenco della newsletter.</li>
+        <li><b>GitHub</b> (Microsoft): ospita le pagine pubbliche del sito.</li>
+        <li>Il servizio di invio delle email con il link di accesso all'Avamposto, collegato a Supabase.</li>
+      </ul>
+      <p>Google e GitHub possono trattare dati negli Stati Uniti. Il trasferimento avviene sulla base della decisione di adeguatezza della Commissione europea sull'EU-US Data Privacy Framework o delle clausole contrattuali standard (art. 45 e 46).</p>
+
+      <h2>5. Devi darci per forza i dati?</h2>
+      <p>No, è tutto facoltativo. Senza email però non possiamo mandarti la newsletter né il link per entrare nell'Avamposto. Leggere Il Punto e la pagina Eventi non richiede alcun dato.</p>
+      <p>L'Avamposto è per chi ha <b>almeno 14 anni</b>. Sotto quell'età serve il consenso di chi esercita la responsabilità genitoriale: in quel caso scrivici prima di iscriverti.</p>
+
+      <h2>6. I tuoi diritti</h2>
+      <p>Puoi chiedere in ogni momento di <b>accedere</b> ai tuoi dati, <b>correggerli</b>, <b>cancellarli</b>, <b>limitarne</b> il trattamento, riceverli in un formato leggibile (<b>portabilità</b>), <b>opporti</b> al trattamento e <b>revocare il consenso</b>, senza che questo tocchi quanto fatto prima della revoca (art. 15–22).</p>
+      <ul>
+        <li><b>Da solo, subito:</b> nell'Avamposto vai su Profilo → «Scarica i miei dati» oppure «Cancella il mio account».</li>
+        <li><b>Per tutto il resto:</b> scrivi a <a href="mailto:azioneunder30marche@gmail.com">azioneunder30marche@gmail.com</a>. Rispondiamo entro un mese.</li>
+      </ul>
+      <p>Se pensi che i tuoi dati siano trattati in modo non corretto puoi presentare reclamo al <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a>.</p>
+
+      <h2>7. Modifiche</h2>
+      <p>Se cambiamo il modo in cui usiamo i dati aggiorniamo questa pagina. Se il cambiamento riguarda il tuo consenso te lo chiediamo di nuovo.</p>
+      <p class="updated">Ultimo aggiornamento: <span data-p="aggiornata">10 novembre 2026</span>.</p>
+    </div>
+    <div class="btn-row" style="margin-top:22px"><a class="back" href="../">← Azione Under 30 Marche</a><a class="back" href="./">Avamposto</a><a class="back" href="../eventi/">Eventi</a></div>
   </div>
 </main>
+<script src="../sito-config.js"></script>
+<script>
+(function () {
+  var p = (window.SITO_CONFIG || {}).privacy || {};
+  function el(k) { return document.querySelector('[data-p="' + k + '"]'); }
+  ["titolare", "sede", "codiceFiscale", "aggiornata"].forEach(function (k) { if (p[k] && el(k)) el(k).textContent = p[k]; });
+  if (p.sede) el("sede-wrap").hidden = false;
+  if (p.codiceFiscale) el("cf-wrap").hidden = false;
+  if (p.sede && p.codiceFiscale) el("no-dati").hidden = true;
+  if (p.dpoEmail) { var a = el("dpoEmail"); a.textContent = p.dpoEmail; a.href = "mailto:" + p.dpoEmail; el("dpo-wrap").hidden = false; el("no-dpo").hidden = true; }
+})();
+</script>
 </body>
 </html>

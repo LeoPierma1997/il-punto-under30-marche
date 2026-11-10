@@ -6,7 +6,10 @@
   "use strict";
   var cfg = window.AVAMPOSTO_CONFIG || {};
   var LIVE = !!(cfg.supabaseUrl && cfg.supabaseAnonKey);
-  var SUPABASE_JS = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js";
+  // Libreria Supabase ospitata sul sito (avamposto/vendor/). Il CDN serve solo di riserva se il file manca.
+  var HERE = (document.currentScript && document.currentScript.src) || location.href;
+  var SUPABASE_JS = new URL("vendor/supabase.js", HERE).href;
+  var SUPABASE_CDN = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js";
 
   function lower(s) { return String(s || "").trim().toLowerCase(); }
   function nowIso() { return new Date().toISOString(); }
@@ -54,7 +57,7 @@
     return {
       live: true,
       init: function () {
-        return loadScript(SUPABASE_JS).then(function () {
+        return loadScript(SUPABASE_JS).catch(function () { return loadScript(SUPABASE_CDN); }).then(function () {
           sb = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, {
             auth: { flowType: "implicit", persistSession: true, detectSessionInUrl: true, autoRefreshToken: true }
           });
@@ -79,6 +82,7 @@
       },
       signOut: function () { return sb.auth.signOut(); },
       isAdmin: function () { return session ? q(sb.rpc("is_admin")) : Promise.resolve(false); },
+      deleteMyAccount: function () { return q(sb.rpc("delete_my_account")).then(function () { return sb.auth.signOut(); }); },
 
       getProfile: function () { return q(sb.from("profiles").select("*").eq("id", session.user.id).maybeSingle()); },
       saveProfile: function (p) {
@@ -422,6 +426,14 @@
       demoOpenLink: function (mail) { setSession(mail); },
       signOut: function () { setSession(null); return Promise.resolve(); },
       isAdmin: function () { return delay(admin()); },
+      deleteMyAccount: function () {
+        var m = me(); if (!m) return deny();
+        delete S.users[m];
+        S.enrollments = S.enrollments.filter(function (e) { return e.email !== m; });
+        S.signups = (S.signups || []).filter(function (x) { return x.user_id !== m; });
+        if (S.views) delete S.views[m];
+        setSession(null); return delay({});
+      },
 
       getProfile: function () {
         var u = S.users[me()]; return delay(u ? Object.assign({ id: me(), email: me() }, clone(u)) : null);

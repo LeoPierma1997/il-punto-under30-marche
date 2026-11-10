@@ -1,0 +1,54 @@
+name: Font e librerie ospitati sul sito
+
+# Scarica una volta il font Montserrat e la libreria Supabase e li salva nel sito,
+# così le pagine non chiedono più nulla a Google Fonts o ad altri server esterni (privacy).
+# Si rilancia da sola solo se cambia questo file; a mano da Actions → «Run workflow».
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/librerie.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  librerie:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Scarica i pacchetti
+        run: |
+          mkdir -p /tmp/pk && cd /tmp/pk && npm init -y >/dev/null
+          npm i --no-audit --no-fund @fontsource-variable/montserrat@5 @supabase/supabase-js@2.45.4
+
+      - name: Copia font e libreria nel sito
+        run: |
+          F=/tmp/pk/node_modules/@fontsource-variable/montserrat
+          ls $F
+          rm -rf assets/fonts && mkdir -p assets/fonts avamposto/vendor
+          cp $F/files/*.woff2 assets/fonts/
+          cp $F/LICENSE assets/fonts/LICENSE-Montserrat-OFL.txt 2>/dev/null || true
+          {
+            echo "/* Montserrat (SIL Open Font License), ospitato sul sito: nessuna richiesta a Google Fonts. */"
+            for c in wght.css wght-italic.css; do [ -f $F/$c ] || c=index.css; cat $F/$c; done | sed -e 's#\./files/##g' -e "s/'Montserrat Variable'/'Montserrat'/g" -e 's/"Montserrat Variable"/"Montserrat"/g'
+          } > assets/fonts/fonts.css
+          cp /tmp/pk/node_modules/@supabase/supabase-js/dist/umd/supabase.js avamposto/vendor/supabase.js
+          ls -la assets/fonts avamposto/vendor
+
+      - name: Pubblica
+        run: |
+          git config user.name "il-punto-bot"
+          git config user.email "il-punto-bot@users.noreply.github.com"
+          git add assets/fonts avamposto/vendor
+          if git diff --cached --quiet; then echo "Niente da pubblicare"; exit 0; fi
+          git commit -m "Font e libreria Supabase ospitati sul sito"
+          git pull --rebase origin main
+          git push origin HEAD:main

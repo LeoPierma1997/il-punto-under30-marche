@@ -31,7 +31,7 @@ La protezione è sul server: le regole del database (`supabase/schema.sql`) impe
    - Redirect URLs: `https://leopierma1997.github.io/il-punto-under30-marche/avamposto/**`
 5. **Mail di accesso**: il servizio incluso manda pochissime mail all'ora. Collega un servizio di invio (per esempio Brevo, piano gratuito) in Authentication → Emails → SMTP Settings, e traduci in italiano il modello «Magic Link».
 6. **Collegamento**: Project Settings → API → copia *Project URL* e *anon / publishable key* in `avamposto/config.js`.
-7. **Privacy**: completa `avamposto/privacy.html` con il titolare del trattamento prima di aprire le iscrizioni.
+7. **Privacy**: il titolare è Azione. Quando il partito ti manda sede legale, codice fiscale e mail del DPO, scrivili in `sito-config.js` (sezione `privacy`): l'informativa si aggiorna da sola. Lo schema programma ogni lunedì la pulizia automatica (account fermi da 24 mesi, adesioni ai turni di eventi finiti da 12 mesi). Se Supabase segnala che manca `pg_cron`, attiva *Integrations → Cron* e riesegui l'ultimo blocco «Privacy» di `schema.sql`.
 
 ## Note
 - I progetti Supabase gratuiti vanno in pausa dopo 7 giorni senza attività: l'attività quotidiana della rassegna può tenerlo sveglio.
