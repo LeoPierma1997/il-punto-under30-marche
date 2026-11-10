@@ -1,0 +1,347 @@
+{
+  "date": "2026-11-10",
+  "label": "Martedì 10 novembre 2026",
+  "intro": "Si aprono ad Abu Dhabi i colloqui sull'Ucraina mentre Berlino minaccia il veto sul bilancio Ue; in Italia la manovra è sotto pressione di sindacati e categorie e, nelle Marche, il Consiglio regionale discute l'inchiesta sulla ricostruzione.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Ucraina, al via ad Abu Dhabi il negoziato Usa-Russia-Kiev: l'Ue manda un team congiunto, ma Mosca insiste sul formato trilaterale",
+          "summary": "Il 10 e 11 novembre ad Abu Dhabi si siedono Stati Uniti, Russia e Ucraina. Von der Leyen ha confermato che l'Ue «sarà presente insieme ai nostri partner»: Commissione e Consiglio inviano un gruppo guidato da Bjoern Seibert e Anna-Maria Boura, con Francia, Germania e Regno Unito. Il Cremlino ribadisce che il vertice è «esclusivamente trilaterale», quindi gli europei restano in incontri a parte con i mediatori americani.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/09/eu-to-send-joint-team-to-ukraine-russia-peace-talks-in-abu-dhabi",
+          "also": [
+            {
+              "source": "Open",
+              "url": "https://www.open.online/2026/11/09/abu-dhabi-colloqui-russia-ucraina-usa-ue-9-novembre/"
+            }
+          ],
+          "published": "2026-11-09",
+          "tags": [
+            "Ucraina",
+            "Ue"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Spunto per un contenuto sul rischio di un accordo deciso senza chi ne pagherà le conseguenze: un'Europa «presente» ma fuori dalla stanza può incidere sulle garanzie di sicurezza? Domanda aperta, utile per un post esplicativo.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ucraina, la Germania minaccia il veto sul bilancio Ue 2028-2034 senza un impegno di tutti i 27 sul sostegno a Kiev",
+          "summary": "Secondo il Financial Times, ripreso dall'ANSA, Merz ha scritto a Costa che Berlino bloccherà il prossimo bilancio pluriennale se tutti gli Stati membri non si impegneranno a finanziare l'Ucraina nel 2027 e oltre, «senza eccezioni». Il cancelliere lo indica come condizione per discutere qualsiasi altro dossier con impatto finanziario. L'articolo non indica cifre.",
+          "source": "ANSA Europa",
+          "url": "https://www.ansa.it/europa/notizie/rubriche/altrenews/2026/11/09/ft-veto-di-berlino-al-bilancio-ue-senza-unintesa-sul-sostegno-a-kiev_520aae36-fc8f-4712-8931-28d62a7fe909.html",
+          "published": "2026-11-09",
+          "tags": [
+            "Bilancio Ue",
+            "Ucraina"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Chi finanzia Kiev e con quali strumenti comuni? Si può costruire un contenuto che spieghi perché il sostegno all'Ucraina entra nella trattativa sul bilancio europeo e cosa cambierebbe per l'Italia.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ecofin, via libera alla clausola nazionale di salvaguardia per l'Italia: flessibilità su difesa ed energia",
+          "summary": "Il Consiglio Ue Economia e Finanza ha approvato lunedì 9 novembre l'attivazione della clausola per l'Italia, che consente maggiore flessibilità sulle regole di bilancio per spese straordinarie in difesa ed energia. Giorgetti assicura il rispetto del percorso di spesa netta raccomandato. Non è stata concessa un'esenzione per gli effetti dell'inflazione energetica.",
+          "source": "Euronews Italia",
+          "url": "https://it.euronews.com/2026/11/09/lue-ha-attivato-la-clausola-sulla-flessibilita-dellitalia",
+          "published": "2026-11-09",
+          "tags": [
+            "Conti pubblici",
+            "Difesa"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "La flessibilità è uno spazio di debito: spunto per chiedere che venga usata per spese produttive e di difesa comune europea, non per misure a pioggia. Domanda per la community: a chi toccherà ripagarla?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Iran, Trump: nuovi attacchi «altamente improbabili» se avanzano i colloqui su nucleare e Hormuz",
+          "summary": "Secondo l'analisi del New York Times ripresa dal Quotidiano del Sud, il presidente americano valuta opzioni che vanno da una breve campagna militare al blocco navale e alla via negoziale. Trump ha dichiarato alla Cnn che riprendere la guerra è «altamente improbabile» se i negoziati progrediscono. Intanto continuano gli attacchi a petroliere nel Golfo e il petrolio resta sensibile ai segnali di Washington.",
+          "source": "Il Quotidiano del Sud",
+          "url": "https://www.quotidianodelsud.it/2026/11/09/iran-le-opzioni-per-trump-dalla-piu-ambiziosa-alla-via-della-pazienza",
+          "published": "2026-11-09",
+          "tags": [
+            "Iran",
+            "Energia"
+          ],
+          "icon": "bolt",
+          "spunto": {
+            "text": "Hormuz riguarda direttamente le bollette italiane: spunto per un contenuto sul perché la dipendenza energetica rende l'Europa vulnerabile alle crisi del Golfo.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Digital Fairness Act, la bozza della Commissione vieta dieci «trappole» online; stop a loot box e pay-to-win per i minori",
+          "summary": "Secondo una bozza vista da Euronews, la proposta, attesa mercoledì 11 novembre, sostituirebbe la direttiva del 2005 con un regolamento valido in tutti i 27 Paesi. Sarebbero vietati in ogni caso, tra l'altro, disdette più difficili dell'iscrizione, prezzi nascosti e false scarsità. Per i minori vietati loot box a pagamento e pubblicità profilata. La Germania è contraria e chiede di modificare le norme esistenti.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/09/eu-to-blacklist-ten-manipulative-online-design-traps-leaked-draft-shows",
+          "published": "2026-11-09",
+          "tags": [
+            "Digitale",
+            "Giovani"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Tema molto vicino a un pubblico under 30: spunto per un contenuto che spieghi quali pratiche sarebbero vietate e se una regola europea unica tuteli meglio di 27 leggi diverse.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, il governo vuole solo piccole modifiche: emendamenti entro il 17 novembre, in audizione oltre trenta soggetti",
+          "summary": "Alla Camera la commissione Bilancio ascolta in un giorno più di trenta categorie. L'esecutivo punta a ritocchi che non cambino i saldi. Lo Spi-Cgil stima in 100 miliardi tra 2023 e 2036 il costo del mancato adeguamento delle pensioni; Schlein denuncia che per la sanità sono stati stanziati 2 miliardi contro i 5,5 chiesti dal ministro. Previsti circa 7mila tagli tra docenti e Ata.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/economia/2026/11/08/manovra-alla-camera-il-governo-vuole-solo-piccole-modifiche_7d9c1a4f-8dc8-4127-9d48-8261a159eb29.html",
+          "published": "2026-11-08",
+          "tags": [
+            "Manovra",
+            "Sanità"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Se il governo cambia poco, il confronto sarà su priorità: spunto per un contenuto che metta in fila sanità, pensioni e scuola e chieda dove sono le riforme strutturali.",
+            "refs": [
+              {
+                "label": "Calenda sulla manovra, intervista nella sede di Azione – Agenzia Vista/TgCal24, 3 novembre 2026",
+                "url": "https://www.tgcal24.it/video-agenzia-vista/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Manovra, Cisl contro flat tax al 15% per le partite Iva, stretta sulle pensioni e tagli alla scuola; Ania: «Dobbiamo andare in tribunale?»",
+          "summary": "La segretaria Cisl Fumarola definisce «davvero gravi» tre scelte: il 15% fino a 100mila euro per gli autonomi, la rivalutazione delle pensioni e quasi 7mila posti in meno nella scuola. Gli assicuratori contestano 1,4 miliardi di tasse in tre anni e l'Abi valuta consulenze legali. Landini sostiene che il governo ha «già deciso tutto»; i sindacati sono convocati a Palazzo Chigi il 13 novembre.",
+          "source": "ANSA",
+          "url": "https://ansa.it/sito/notizie/economia/2026/11/07/manovra-sotto-assedio.-anche-cisl-e-assicurazioni-contro_2efcbae9-1991-46ee-9bc2-974537302281.html",
+          "published": "2026-11-07",
+          "tags": [
+            "Fisco",
+            "Pensioni"
+          ],
+          "icon": "hourglass",
+          "spunto": {
+            "text": "Lavoratori dipendenti e autonomi pagano aliquote diverse sullo stesso reddito: spunto per un contenuto sull'equità fiscale tra generazioni, usando la critica di Calenda agli interventi «a pioggia».",
+            "refs": [
+              {
+                "label": "Calenda sulla manovra, intervista nella sede di Azione – Agenzia Vista/TgCal24, 3 novembre 2026",
+                "url": "https://www.tgcal24.it/video-agenzia-vista/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Aiuti militari a Kiev, caso sul 13° decreto: Tajani dice di aver firmato anche con Giorgetti, la Lega smentisce",
+          "summary": "Tajani ha annunciato la firma del tredicesimo pacchetto con Crosetto e Giorgetti; la Lega ha poi sostenuto che il ministro dell'Economia non aveva firmato, spiegando che era a Bruxelles. Il decreto è anche all'esame del Copasir e il Mef ha sollevato dubbi. L'articolo riporta la versione leghista come dichiarazione, non come fatto accertato.",
+          "source": "Quotidiano Nazionale",
+          "url": "https://quotidiano.net/esteri/anche-l-italia-al-vertice-su-8aaf1975",
+          "published": "2026-11-09",
+          "tags": [
+            "Ucraina",
+            "Governo"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Un governo con voci diverse sul sostegno a Kiev: spunto per una domanda su coerenza e affidabilità internazionale dell'Italia nel momento del negoziato.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Anac, slitta la nomina del presidente dopo il ritiro di Altieri; decreto per prorogare Busia e il collegio",
+          "summary": "Il governo non ha ancora indicato il nome per l'Autorità anticorruzione. Altieri (Lega) si è ritirato circa 24 ore dopo l'indicazione per le critiche delle opposizioni; ha poi pesato il dubbio su Storto, capo di gabinetto del Mit. Un decreto-legge mantiene Busia e il collegio per l'ordinaria amministrazione per non più di 45 giorni. Salvini: «l'importante è fare bene».",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/09/slitta-la-nomina-per-lanac-i-dubbi-sul-capo-di-gabinetto-del-mit_940196b9-abf0-4d14-95b6-27fc1005a9ae.html",
+          "published": "2026-11-09",
+          "tags": [
+            "Anac",
+            "Legalità"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Un'autorità di controllo credibile deve essere percepita come indipendente: spunto per un contenuto su criteri di nomina trasparenti e incompatibilità.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Scuola, sit-in a Roma l'11 novembre contro i tagli agli organici; assemblee il 16 e piazza Cgil il 20",
+          "summary": "Cisl Scuola, Uil Scuola Rua, Snals e Anief chiedono di cancellare dalla legge di bilancio il taglio degli organici di docenti e Ata, con un sit-in a Piazza Vidoni dalle 14 alle 17. Il 16 novembre sono previste assemblee in orario scolastico, mentre la Flc Cgil scende in piazza il 20. L'articolo non indica il numero di posti.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/topnews/2026/11/05/sindacati-della-scuola-lanciano-la-mobilitazione-sit-in-l11-novembre_ce814bf9-2c88-4eb7-b4a4-834a3e37c512.html",
+          "published": "2026-11-05",
+          "tags": [
+            "Scuola",
+            "Sindacati"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Meno organico con meno alunni è un calcolo di bilancio o una scelta educativa? Spunto per una domanda sul futuro della scuola e sulla qualità dell'istruzione per gli under 30.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Consiglio regionale, oggi il dibattito sull'inchiesta ricostruzione: dieci interrogazioni delle opposizioni e mozione FdI sul tavolo antimafia",
+          "summary": "Cinque gruppi di opposizione hanno depositato dieci interrogazioni a risposta immediata per Acquaroli sull'indagine della Dda (51 indagati, otto in carcere, tra cui l'ex capo di gabinetto Pistarelli). In aula il punto 6 riguarda le comunicazioni del presidente sul 28 ottobre. Fratelli d'Italia propone un tavolo tecnico permanente sulle infiltrazioni. Le contestazioni giudiziarie sono ancora da accertare.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/06/inchiesta-sisma-dieci-interrogazioni-della-minoranza-ad-acquaroli_cc0b3d69-66fa-48f3-96f4-75d98b611ffb.html",
+          "also": [
+            {
+              "source": "Il Resto del Carlino",
+              "url": "https://www.ilrestodelcarlino.it/marche/cronaca/maxi-inchiesta-sul-sisma-lopposizione-f38c3d7d"
+            }
+          ],
+          "published": "2026-11-06",
+          "tags": [
+            "Legalità",
+            "Regione"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Un tavolo sulla legalità funziona se ha dati pubblici, poteri e scadenze: spunto per chiedere trasparenza sui flussi della ricostruzione. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta sisma, Bonelli e Fratoianni ad Ancona: Avs chiede le dimissioni di Acquaroli e del commissario Castelli",
+          "summary": "Nella conferenza stampa del 9 novembre, i leader di Avs non commentano l'inchiesta giudiziaria ma parlano di inadeguatezza politica. Bonelli chiede perché la struttura commissariale non sia intervenuta su circa 800 cantieri riferiti a un solo imprenditore. Depositata un'interrogazione ai ministri competenti; chiesti interventi per non bloccare i cantieri e per le quasi 8mila famiglie ancora fuori casa.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/09/maxi-inchiesta-bonelli-e-fratoianni-massima-allerta-di-avs-sulle-possibili-infiltrazioni-mafiose-nelle-marche/2124506/",
+          "published": "2026-11-09",
+          "tags": [
+            "Ricostruzione",
+            "Opposizioni"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Il tema vero per i giovani del cratere è se la ricostruzione resta ferma: spunto per un contenuto che separi responsabilità giudiziarie e politiche e chieda controlli su subappalti e cantieri.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Electrolux, l'11 novembre il referendum dei lavoratori sull'ipotesi di accordo: a Cerreto d'Esi 149 addetti e incentivi fino a 95mila euro",
+          "summary": "L'ipotesi firmata il 3 novembre al Mimit sarà votata l'11 da tutti i lavoratori del gruppo e il risultato è vincolante. Per Cerreto d'Esi prevede produzione in linea con i volumi attuali fino a una soluzione di reindustrializzazione, un advisor per cercare investitori e uscite volontarie incentivate. La Fiom chiede che le istituzioni facciano da garanti.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/09/electrolux-l11-novembre-referendum-tra-i-lavoratori-sullipotesi-di-accordo_19360234-4890-4f4f-835a-01608db92d9b.html",
+          "published": "2026-11-09",
+          "tags": [
+            "Lavoro",
+            "Industria"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Un'uscita incentivata non è una politica industriale: spunto per un contenuto che chieda al Mimit tempi, investitori e garanzie per i giovani lavoratori del Fabrianese.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Fabriano, la sindaca Ghergo e la M5S Ruggeri temono lo svuotamento dello stabilimento: fino a 902 esuberi a livello nazionale",
+          "summary": "La sindaca ricorda che l'accordo Beko del 14 aprile 2025 «è rimasto del tutto inattuato» e teme che l'uscita di Electrolux lasci un sito smantellato. Ruggeri parla di una vittoria difficile da rivendicare e di rischio che le uscite volontarie svuotino la fabbrica. È previsto un tavolo nazionale sulla reindustrializzazione entro marzo 2027.",
+          "source": "CentroPagina",
+          "url": "https://www.centropagina.it/jesi/electrolux-preoccupazione-intesa-sindaco-fabriano-consigliere-regionale-m5s/",
+          "also": [
+            {
+              "source": "ANSA Marche",
+              "url": "https://www.ansa.it/marche/notizie/2026/11/05/sindaca-fabriano-preoccupata-per-electrolux-non-accada-come-con-beko_eef4a598-b9ac-4ef4-a6a9-6db48479661d.html"
+            }
+          ],
+          "published": "2026-11-05",
+          "tags": [
+            "Fabriano",
+            "Industria"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Il distretto del bianco rischia di perdere competenze: spunto per un contenuto sulle aree di crisi industriali e su incentivi legati a formazione e nuovi insediamenti.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Salario minimo a 9 euro negli appalti regionali: la mozione Vitri in discussione in Consiglio",
+          "summary": "Tra i punti all'ordine del giorno di oggi c'è la mozione n. 24, che propone un salario lordo minimo di 9 euro l'ora nei contratti pubblici regionali, richiamando la decisione di Pesaro e la sentenza 188/2025 della Consulta. Il calendario prevede anche la riforma dei servizi per l'infanzia e il piano regionale dipendenze 2026-2028. Il voto spetta all'aula.",
+          "source": "Riviera Oggi",
+          "url": "https://www.rivieraoggi.it/2026/11/04/445622/consiglio-regionale-marche-tutti-i-punti-allordine-del-giorno/",
+          "published": "2026-11-04",
+          "tags": [
+            "Lavoro",
+            "Appalti"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Il lavoro povero colpisce soprattutto i giovani: spunto per chiedere se un minimo negli appalti sia la risposta giusta o se serva intervenire sulla contrattazione. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sanità in aula: Casa della Comunità di Fano, autisti interinali all'Ast di Pesaro Urbino, ritardi sugli istologici e gruppo di lavoro sull'Azienda ospedaliera",
+          "summary": "L'ordine del giorno comprende interrogazioni sullo stato della Casa della Comunità di Fano, sull'uso di personale interinale per le ambulanze all'Ast Pesaro Urbino, sulla chiusura pomeridiana della sala gessi al Murri di Fermo e una mozione sui ritardi nei referti istologici. Si discute anche la proposta di un gruppo di lavoro sull'amministrazione dell'Azienda ospedaliero-universitaria.",
+          "source": "Riviera Oggi",
+          "url": "https://www.rivieraoggi.it/2026/11/04/445622/consiglio-regionale-marche-tutti-i-punti-allordine-del-giorno/",
+          "published": "2026-11-04",
+          "tags": [
+            "Sanità",
+            "Territorio"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Le Case della Comunità sono promesse del Pnrr: spunto per chiedere dove sono aperte, con quali medici e quali servizi. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "«Marche Giovani»: finanziati 17 progetti per 475mila euro, budget esaurito, per l'occupazione qualificata under 36",
+          "summary": "La Regione ha approvato la graduatoria del bando che incentiva l'assunzione di giovani laureati under 36: 13 progetti riguardano nuove assunzioni e 4 la stabilizzazione di contratti. Le risorse sono esaurite. Gli impegni di spesa verranno dopo accettazione dell'incentivo e verifica documentale.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/10/29/bando-marche-giovani-finanziati-17-progetti-con-475mila-euro_e9972ffa-868f-4afb-a4f6-d50149d4db45.html",
+          "also": [
+            {
+              "source": "Riviera Oggi",
+              "url": "https://www.rivieraoggi.it/2026/10/29/445358/marche-giovani-approvata-la-graduatoria-del-bando-destinato-alloccupazione-qualificata-under-36/"
+            }
+          ],
+          "published": "2026-10-29",
+          "tags": [
+            "Giovani",
+            "Lavoro"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Notizia di fine ottobre, riportata come misura ancora in corso: 475mila euro bastano contro lo spopolamento giovanile? Spunto per un contenuto che confronti risorse e domanda.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Social e minori: in Consiglio la mozione Rossi per limitare l'uso delle piattaforme",
+          "summary": "Tra le mozioni in calendario compare la n. 44, firmata da Rossi, che propone di restringere l'uso dei social da parte dei minori. Sul tema è attesa anche in Europa la proposta di Digital Fairness Act che vieterebbe alcune pratiche rivolte ai ragazzi. L'ordine del giorno non specifica il contenuto dettagliato dell'atto.",
+          "source": "Riviera Oggi",
+          "url": "https://www.rivieraoggi.it/2026/11/04/445622/consiglio-regionale-marche-tutti-i-punti-allordine-del-giorno/",
+          "published": "2026-11-04",
+          "tags": [
+            "Minori",
+            "Digitale"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Divieti regionali o regole europee? Spunto per una domanda su chi può davvero tutelare i minori online. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
