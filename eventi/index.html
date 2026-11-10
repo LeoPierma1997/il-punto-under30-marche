@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eventi · Azione Under 30 Marche</title>
+<meta name="description" content="Aperitivi, incontri, banchetti e dirette: tutti gli appuntamenti di Azione Under 30 nelle Marche.">
+<meta property="og:title" content="Eventi · Azione Under 30 Marche">
+<meta property="og:description" content="Ci vediamo dal vivo: tutti i prossimi appuntamenti nelle Marche.">
+<meta property="og:image" content="https://leopierma1997.github.io/il-punto-under30-marche/assets/foto/piazza-bandiere.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&display=swap">
+<style>
+/* Eventi: pagina pubblica. Prossimo appuntamento in evidenza, griglia di locandine,
+   calendario mensile con la locandina dentro il giorno, scheda evento, repliche riservate.
+   Stessa identità della home: blu #312781, blu notte #0C1467, bianco, giallo #FCCA00 solo come tocco. */
+:root {
+  --page: #F3F3FA; --surface: #FFFFFF; --fg: #14123A; --muted: #5A5784; --line: #E1E0F0;
+  --blue: #312781; --blue-deep: #0C1467; --accent: #312781; --accent-ink: #FFFFFF; --title: #312781;
+  --yellow: #FCCA00; --em-fg: #312781; --em-mark: #FCCA00; --soft: #E9E8F7;
+  --az-grad: linear-gradient(100deg, #0C1467 0%, #312781 100%);
+  --focus: #312781;
+  --display: "Gotham", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --body: "Gotham", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #0B0E38; --surface: #171A55; --fg: #F1F1FA; --muted: #B5B3DA; --line: #2C2B72; --soft: #1F2363;
+    --blue: #2A2378; --blue-deep: #070A33; --accent: #BDB7FF; --accent-ink: #14123A; --title: #FFFFFF;
+    --em-fg: #FCCA00; --em-mark: transparent; --focus: #BDB7FF; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #0B0E38; --surface: #171A55; --fg: #F1F1FA; --muted: #B5B3DA; --line: #2C2B72; --soft: #1F2363;
+  --blue: #2A2378; --blue-deep: #070A33; --accent: #BDB7FF; --accent-ink: #14123A; --title: #FFFFFF;
+  --em-fg: #FCCA00; --em-mark: transparent; --focus: #BDB7FF; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.55;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-underline-offset: 3px; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.ico { width: 1.15em; height: 1.15em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+h1, h2, h3 { text-wrap: balance; }
+.eyebrow { font: 600 .76rem/1.3 var(--body); letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.btn { font: 700 .95rem/1 var(--body); letter-spacing: -.01em; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 20px; border-radius: 999px;
+  border: 2px solid var(--accent); background: transparent; color: var(--accent); text-decoration: none; cursor: pointer; white-space: nowrap; }
+.btn.solid { background: var(--accent); color: var(--accent-ink); }
+.btn.white { background: #FFFFFF; border-color: #FFFFFF; color: #312781; }
+.btn.ghost-white { border-color: rgba(255,255,255,.7); color: #FFFFFF; }
+.btn.small { padding: 10px 14px; font-size: .88rem; }
+.btn .ico { width: 18px; height: 18px; }
+@media (prefers-reduced-motion: no-preference) { .btn { transition: transform .15s ease; } .btn:hover { transform: translateY(-1px); } }
+
+/* Barra prototipo */
+.demo-bar { background: #FFF1B8; color: #3A2E00; font-size: .86rem; }
+.demo-bar .wrap { padding-block: 8px; display: flex; gap: 6px 12px; flex-wrap: wrap; align-items: center; }
+
+/* Testata */
+.az-line { height: 5px; background: var(--az-grad); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; padding-block: 16px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--title); }
+.brand img { width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 0 0 2px #FFFFFF, 0 2px 8px rgba(27,30,87,.18); }
+.brand b { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 1.02rem; line-height: 1.1; letter-spacing: -.02em; }
+.brand b span { display: block; font-weight: 700; font-size: .78rem; letter-spacing: .1em; color: var(--muted); }
+.top nav { display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; }
+.top nav a { font-weight: 700; font-size: .92rem; text-decoration: none; color: var(--fg); padding: 9px 12px; border-radius: 999px; }
+.top nav a:hover { background: var(--surface); }
+.top nav a[aria-current="page"] { background: var(--surface); color: var(--title); box-shadow: inset 0 0 0 1px var(--line); }
+.top nav a.btn { color: var(--accent-ink); padding: 10px 16px; }
+@media (max-width: 760px) { .top nav a:not(.btn) { display: none; } .top .wrap { flex-wrap: nowrap; } .top nav a.btn { padding: 9px 14px; font-size: .86rem; } }
+@media (max-width: 400px) { .brand img { width: 40px; height: 40px; } .brand b { font-size: .95rem; } }
+
+/* Apertura */
+.head { padding-block: 14px 26px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 28px; }
+.head h1 { margin: 8px 0 0; font-family: var(--display); font-weight: 800; color: var(--title); font-size: clamp(2.4rem, 5.6vw, 4.2rem); line-height: .98; letter-spacing: -.045em; }
+.head h1 em { font-style: normal; color: var(--em-fg); background: linear-gradient(transparent 60%, var(--em-mark) 60%, var(--em-mark) 92%, transparent 92%); padding: 0 .06em; }
+.head p { margin: 14px 0 0; font-size: 1.08rem; max-width: 54ch; }
+.switch { display: inline-flex; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 4px; gap: 2px; }
+.switch a { display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: .92rem; text-decoration: none; color: var(--fg); padding: 9px 16px; border-radius: 999px; }
+.switch a[aria-current="page"] { background: var(--accent); color: var(--accent-ink); }
+
+.block { padding-block: 10px 46px; }
+.block-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; margin-bottom: 16px; }
+.block-head h2 { margin: 0; font-family: var(--display); font-weight: 800; color: var(--title); font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -.04em; line-height: 1.05; }
+.block-head h2::after { content: ""; display: block; width: 56px; height: 5px; border-radius: 3px; margin-top: 8px; background: var(--az-grad); }
+.note { color: var(--muted); font-size: .9rem; }
+.empty { background: var(--surface); border: 1px dashed var(--line); border-radius: 18px; padding: 28px 22px; color: var(--muted); margin: 0; }
+.empty b { color: var(--fg); display: block; font-size: 1.1rem; margin-bottom: 4px; }
+.loading { color: var(--muted); }
+
+/* Locandina e data */
+.poster { position: relative; background: var(--az-grad); overflow: hidden; }
+.poster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.poster.none { display: grid; place-items: center; color: rgba(255,255,255,.85); }
+.poster.none .ico { width: 44px; height: 44px; stroke-width: 1.5; }
+.datebadge { position: absolute; left: 12px; top: 12px; background: #FFFFFF; color: #0C1467; border-radius: 12px; padding: 7px 10px 6px; text-align: center; min-width: 54px;
+  box-shadow: 0 6px 18px rgba(12,20,103,.25); line-height: 1; }
+.datebadge b { display: block; font-family: var(--display); font-weight: 900; font-size: 1.55rem; letter-spacing: -.04em; }
+.datebadge span { display: block; font-weight: 700; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; margin-top: 3px; color: #312781; }
+.when { font-weight: 700; font-size: .84rem; letter-spacing: .02em; color: var(--accent); text-transform: capitalize; }
+.where { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: .92rem; }
+.where .ico { width: 16px; height: 16px; }
+
+/* Prossimo appuntamento */
+.feature { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1fr); background: var(--surface); border: 1px solid var(--line); border-radius: 24px; overflow: hidden;
+  text-decoration: none; color: inherit; box-shadow: 0 16px 44px rgba(27,30,87,.09); }
+.feature .poster { aspect-ratio: 4 / 5; }
+.feature .body { padding: 30px 30px 32px; display: flex; flex-direction: column; gap: 12px; justify-content: center; }
+.feature .eyebrow { color: var(--accent); }
+.feature h3 { margin: 0; font-family: var(--display); font-weight: 800; color: var(--title); font-size: clamp(1.8rem, 3.6vw, 2.7rem); line-height: 1; letter-spacing: -.045em; }
+.feature p { margin: 0; font-size: 1.04rem; }
+.feature .go { margin-top: 8px; }
+.countdown { display: inline-flex; align-self: flex-start; align-items: center; gap: 6px; background: var(--yellow); color: #0C1467; font-weight: 800; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; }
+@media (max-width: 760px) { .feature { grid-template-columns: 1fr; } .feature .poster { aspect-ratio: 4 / 4; } .feature .body { padding: 22px 20px 24px; } }
+
+/* Griglia locandine */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; }
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; text-decoration: none; color: inherit; min-width: 0; }
+.card .poster { aspect-ratio: 4 / 5; }
+.card .body { padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 6px; }
+.card h3 { margin: 0; font-family: var(--display); font-weight: 800; font-size: 1.12rem; line-height: 1.15; letter-spacing: -.025em; color: var(--fg); }
+.card p { margin: 0; color: var(--muted); font-size: .92rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+@media (prefers-reduced-motion: no-preference) {
+  .card, .feature { transition: transform .18s ease, box-shadow .18s ease; }
+  .card:hover, .feature:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(27,30,87,.14); }
+}
+.past .card .poster { aspect-ratio: 16 / 10; }
+.past .card .poster img { filter: saturate(.55); }
+.tag { display: inline-flex; align-items: center; gap: 5px; align-self: flex-start; font-weight: 700; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; padding: 5px 9px; border-radius: 999px; background: var(--soft); color: var(--accent); }
+.tag .ico { width: 14px; height: 14px; }
+
+/* Filtri */
+.filters { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin: 0 0 22px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 700 .84rem/1 var(--body); padding: 9px 13px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.zone { font: 600 .88rem/1 var(--body); padding: 9px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag.hands { background: var(--yellow); color: #0C1467; }
+.hands-box { margin-top: 26px; border: 2px solid var(--yellow); background: var(--surface); border-radius: 18px; padding: 20px 22px; display: grid; gap: 10px; }
+.hands-box b { font-size: 1.15rem; font-family: var(--display); font-weight: 800; letter-spacing: -.02em; }
+.hands-box p { margin: 0; color: var(--muted); }
+.hands-box .n { font-weight: 800; color: var(--accent); }
+.mob-strip { background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--yellow); border-radius: 18px; padding: 18px 20px; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; }
+.mob-strip b { display: block; font-family: var(--display); font-weight: 800; font-size: 1.15rem; letter-spacing: -.02em; }
+.mob-strip span { color: var(--muted); }
+
+/* Calendario */
+.cal { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 18px; }
+.cal-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+.cal-head h2 { margin: 0; font-family: var(--display); font-weight: 800; color: var(--title); font-size: clamp(1.4rem, 3vw, 1.9rem); letter-spacing: -.04em; text-transform: capitalize; }
+.cal-nav { display: flex; gap: 6px; }
+.icon-btn { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: var(--page); color: var(--fg); display: grid; place-items: center; cursor: pointer; }
+.icon-btn .ico { width: 20px; height: 20px; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
+.dow { font-weight: 700; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); text-align: center; padding-bottom: 4px; }
+.day { position: relative; aspect-ratio: 4 / 5; border-radius: 12px; background: var(--page); border: 1px solid transparent; overflow: hidden; min-width: 0; }
+.day.out { opacity: .35; }
+.day .n { position: absolute; left: 8px; top: 6px; font-weight: 800; font-size: .9rem; z-index: 2; color: var(--fg); }
+.day.today { border-color: var(--accent); }
+.day.today .n { background: var(--accent); color: var(--accent-ink); border-radius: 999px; padding: 1px 7px; left: 5px; top: 5px; }
+.day a.ev { position: absolute; inset: 0; display: block; color: #FFFFFF; text-decoration: none; }
+.day a.ev img { width: 100%; height: 100%; object-fit: cover; }
+.day a.ev.none { background: var(--az-grad); }
+.day a.ev::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,20,103,.55) 0%, rgba(12,20,103,0) 32%, rgba(12,20,103,0) 48%, rgba(12,20,103,.9) 100%); }
+.day.has .n { color: #FFFFFF; text-shadow: 0 1px 3px rgba(0,0,0,.5); }
+.day.has.today .n { text-shadow: none; }
+.day .cap { position: absolute; left: 8px; right: 8px; bottom: 7px; z-index: 2; font-weight: 700; font-size: .78rem; line-height: 1.15; letter-spacing: -.01em;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.day .cap small { display: block; font-weight: 600; font-size: .7rem; opacity: .85; margin-bottom: 2px; }
+.day .more { position: absolute; right: 6px; top: 6px; z-index: 2; background: var(--yellow); color: #0C1467; font-weight: 800; font-size: .7rem; border-radius: 999px; padding: 2px 7px; }
+.day.past-day a.ev img { filter: saturate(.5); }
+.day .n, .day .cap, .day .more { pointer-events: none; }
+.month-list { margin-top: 18px; display: grid; gap: 8px; }
+.row { display: grid; grid-template-columns: 56px 64px minmax(0, 1fr); gap: 14px; align-items: center; background: var(--page); border-radius: 14px; padding: 8px; text-decoration: none; color: inherit; }
+.row .poster { width: 56px; height: 70px; border-radius: 9px; }
+.row .poster.none .ico { width: 22px; height: 22px; }
+.row .d { text-align: center; line-height: 1; color: var(--accent); }
+.row .d b { display: block; font-family: var(--display); font-weight: 900; font-size: 1.5rem; letter-spacing: -.04em; }
+.row .d span { font-weight: 700; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
+.row h3 { margin: 0; font-size: 1rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; }
+.row .where { font-size: .84rem; }
+@media (max-width: 640px) {
+  .cal { padding: 12px 10px; border-radius: 18px; }
+  .cal-grid { gap: 4px; }
+  .day { aspect-ratio: 3 / 4; border-radius: 9px; }
+  .day .cap { display: none; }
+  .day .n { font-size: .78rem; left: 5px; top: 4px; }
+  .dow { font-size: .62rem; letter-spacing: .02em; }
+}
+
+/* Scheda evento */
+.back { display: inline-flex; gap: 6px; align-items: center; font-weight: 700; text-decoration: none; margin: 6px 0 18px; }
+.detail { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1fr); gap: 36px; align-items: start; padding-bottom: 56px; }
+.detail .poster-full { border-radius: 20px; overflow: hidden; background: var(--az-grad); box-shadow: 0 18px 48px rgba(27,30,87,.16); position: sticky; top: 16px; }
+.detail .poster-full img { width: 100%; height: auto; max-height: 82vh; object-fit: contain; background: #0C1467; }
+.detail .poster-full.none { aspect-ratio: 4 / 5; display: grid; place-items: center; color: rgba(255,255,255,.85); }
+.detail .poster-full.none .ico { width: 64px; height: 64px; stroke-width: 1.4; }
+.detail h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 800; color: var(--title); font-size: clamp(2.1rem, 4.6vw, 3.4rem); line-height: 1; letter-spacing: -.045em; }
+.facts { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 12px; }
+.facts li { display: flex; gap: 12px; align-items: flex-start; }
+.facts .ico { width: 22px; height: 22px; color: var(--accent); margin-top: 1px; }
+.facts b { display: block; }
+.facts span { color: var(--muted); font-size: .94rem; }
+.lead { font-size: 1.12rem; font-weight: 600; margin: 22px 0 0; }
+.prose p { margin: 12px 0 0; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.done { display: inline-flex; align-items: center; gap: 6px; background: var(--soft); color: var(--muted); font-weight: 700; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; margin-top: 4px; }
+.replay-box { margin-top: 26px; background: var(--az-grad); color: #FFFFFF; border-radius: 18px; padding: 20px 22px; display: grid; gap: 10px; }
+.replay-box b { font-size: 1.1rem; }
+.replay-box p { margin: 0; color: #DCDAFF; }
+@media (max-width: 820px) { .detail { grid-template-columns: 1fr; gap: 24px; } .detail .poster-full { position: static; } }
+
+/* Repliche */
+.replays { background-color: #0C1467; background-image: linear-gradient(135deg, transparent 0 55%, rgba(49,39,129,.7) 55% 72%, transparent 72%); color: #FFFFFF; }
+.replays .wrap { padding-block: 56px; }
+.replays .block-head h2 { color: #FFFFFF; }
+.replays .block-head h2::after { background: var(--yellow); }
+.replays .note { color: #C9CCF5; }
+.lockpill { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); padding: 7px 10px; border-radius: 999px; }
+.rgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.rcard { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; color: #FFFFFF; text-decoration: none; }
+.rcard .thumb { aspect-ratio: 16 / 9; position: relative; background: var(--az-grad); }
+.rcard .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55; }
+.rcard .thumb .play { position: absolute; inset: 0; display: grid; place-items: center; }
+.rcard .thumb .play span { width: 54px; height: 54px; border-radius: 50%; background: var(--yellow); color: #0C1467; display: grid; place-items: center; }
+.rcard .thumb .play .ico { width: 22px; height: 22px; fill: currentColor; stroke: none; margin-left: 3px; }
+.rcard .body { padding: 14px 16px 18px; display: grid; gap: 6px; }
+.rcard h3 { margin: 0; font-size: 1.05rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; }
+.rcard small { color: #C9CCF5; font-weight: 600; }
+.rcard p { margin: 0; color: #DCDAFF; font-size: .9rem; }
+.replays .empty { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.25); color: #DCDAFF; }
+.replays .empty b { color: #FFFFFF; }
+
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 26px 34px; display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; color: var(--muted); font-size: .9rem; }
+footer nav { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+footer a { color: var(--muted); }
+.toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); background: #0C1467; color: #FFFFFF; padding: 12px 18px; border-radius: 12px; font-weight: 600; z-index: 20; box-shadow: 0 10px 30px rgba(0,0,0,.25); max-width: calc(100% - 32px); }
+</style>
+</head>
+<body>
+<div class="demo-bar" id="demo-bar" hidden><div class="wrap"><strong>Prototipo</strong><span>Eventi di esempio. Si modificano dall'Avamposto, in Gestione → Eventi e repliche.</span></div></div>
+<div class="az-line" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <img src="../assets/logo.png" alt="" width="48" height="48">
+      <b>Azione Under 30<span>Marche</span></b>
+    </a>
+    <nav aria-label="Menu principale">
+      <a href="../rassegna/">Il Punto</a>
+      <a href="./" aria-current="page">Eventi</a>
+      <a href="../avamposto/">Avamposto</a>
+      <a class="btn solid" href="../#unisciti">Unisciti a noi</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main"><div class="wrap"><p class="loading">Carico gli eventi…</p></div></main>
+
+<footer>
+  <div class="wrap">
+    <span>Azione Under 30 Marche · i giovani di <a href="https://www.azione.it/" target="_blank" rel="noopener">Azione</a> nelle Marche</span>
+    <nav aria-label="Collegamenti">
+      <a href="../">Home</a>
+      <a href="../rassegna/">Il Punto</a>
+      <a href="../avamposto/">Avamposto</a>
+      <a href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener">Instagram</a>
+      <a href="../avamposto/privacy.html">Privacy</a>
+    </nav>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="../avamposto/config.js"></script>
+<script src="../avamposto/data.js"></script>
+<script>
+(function () {
+  "use strict";
+  var D = window.AvampostoData;
+  var main = document.getElementById("main");
+  var DEMO = false;
+  try {
+    if (/[?&]demo=1\b/.test(location.search)) sessionStorage.setItem("avamposto-demo", "1");
+    if (/[?&]demo=0\b/.test(location.search)) sessionStorage.removeItem("avamposto-demo");
+    DEMO = sessionStorage.getItem("avamposto-demo") === "1";
+  } catch (e) { DEMO = /[?&]demo=1\b/.test(location.search); }
+  var PREVIEW = !D.live && !DEMO;
+  var TZ = "Europe/Rome";
+  var E = { events: [], replays: [], ready: false };
+  var calMonth = null; // "AAAA-MM"
+  var F = { kind: "", area: "" };
+  var KINDS = { incontro: "Incontri", aperitivo: "Aperitivi", mobilitazione: "Mobilitazione", diretta: "Dirette", formazione: "Formazione" };
+  var KIND1 = { incontro: "Incontro", aperitivo: "Aperitivo", mobilitazione: "Mobilitazione", diretta: "Diretta", formazione: "Formazione" };
+  var AREAS = { marche: "Tutta la regione", pu: "Pesaro-Urbino", an: "Ancona", mc: "Macerata", fm: "Fermo", ap: "Ascoli Piceno", online: "Online", fuori: "Fuori regione" };
+  var COUNTS = {};
+  function shown(list) { return list.filter(function (e) { return (!F.kind || e.kind === F.kind) && (!F.area || e.area === F.area || (F.area !== "online" && e.area === "marche")); }); }
+  function filtersHtml() {
+    var kinds = Object.keys(KINDS).filter(function (k) { return E.events.some(function (e) { return e.kind === k; }); });
+    var areas = Object.keys(AREAS).filter(function (k) { return k !== "marche" && E.events.some(function (e) { return e.area === k; }); });
+    if (kinds.length < 2 && areas.length < 2) return "";
+    return '<div class="filters" role="group" aria-label="Filtra gli eventi"><div class="chips">' +
+      '<button class="chip" type="button" data-kind="" aria-pressed="' + (!F.kind) + '">Tutti</button>' +
+      kinds.map(function (k) { return '<button class="chip" type="button" data-kind="' + k + '" aria-pressed="' + (F.kind === k) + '">' + KINDS[k] + "</button>"; }).join("") + "</div>" +
+      (areas.length > 1 ? '<label class="visually-hidden" for="zone">Zona</label><select class="zone" id="zone"><option value="">Tutte le zone</option>' +
+        areas.map(function (k) { return '<option value="' + k + '"' + (F.area === k ? " selected" : "") + ">" + AREAS[k] + "</option>"; }).join("") + "</select>" : "") + "</div>";
+  }
+  function handsTag(ev) {
+    if (!ev.needs_hands || isPast(ev)) return "";
+    var n = COUNTS[ev.id] || 0;
+    return '<span class="tag hands">Serve una mano' + (n ? " · " + n + (n === 1 ? " c'è già" : " ci sono già") : "") + "</span>";
+  }
+
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  var ICONS = {
+    cal: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+    list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
+    pin: '<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+    play: '<path d="M7 4l13 8-13 8z"/>',
+    left: '<path d="M15 5l-7 7 7 7"/>', right: '<path d="M9 5l7 7-7 7"/>',
+    share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/>',
+    plus: '<path d="M12 5v14M5 12h14"/>', ext: '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
+    star: '<path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/>'
+  };
+  function icon(n) { return '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + ICONS[n] + "</svg>"; }
+  var MONTHS = ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+
+  /* date sempre nel fuso italiano, qualunque sia il telefono */
+  var fYmd = new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" });
+  var fTime = new Intl.DateTimeFormat("it-IT", { timeZone: TZ, hour: "2-digit", minute: "2-digit" });
+  var fWeek = new Intl.DateTimeFormat("it-IT", { timeZone: TZ, weekday: "long" });
+  function ymd(v) { return fYmd.format(new Date(v)); }
+  function parts(v) { var p = ymd(v).split("-"); return { y: +p[0], m: +p[1], d: +p[2] }; }
+  function time(v) { return fTime.format(new Date(v)); }
+  function longDate(v) { var p = parts(v); return fWeek.format(new Date(v)) + " " + p.d + " " + MONTHS[p.m - 1] + " " + p.y; }
+  function shortDate(v) { var p = parts(v); return fWeek.format(new Date(v)).slice(0, 3) + " " + p.d + " " + MONTHS[p.m - 1].slice(0, 3); }
+  function endOf(ev) { return new Date(ev.ends_at || new Date(new Date(ev.starts_at).getTime() + 2 * 3600000)); }
+  function isPast(ev) { return endOf(ev).getTime() < Date.now(); }
+  function todayYmd() { return ymd(new Date()); }
+  function daysTo(ev) {
+    var a = new Date(ymd(ev.starts_at) + "T12:00:00Z"), b = new Date(todayYmd() + "T12:00:00Z");
+    return Math.round((a - b) / 86400000);
+  }
+  function whereText(ev) { return [ev.place, ev.city].filter(Boolean).join(" · "); }
+  function safeHref(u) { return /^https?:\/\//i.test(u || "") ? u : ""; }
+  function prose(t) { return esc(t).split(/\n{2,}/).map(function (p) { return "<p>" + p.replace(/\n/g, "<br>") + "</p>"; }).join(""); }
+  function toast(m) { var t = document.getElementById("toast"); t.textContent = m; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(function () { t.hidden = true; }, 3000); }
+  function signedIn() {
+    try {
+      for (var i = 0; i < localStorage.length; i++) if (/^sb-.*-auth-token$/.test(localStorage.key(i))) return true;
+      var demo = JSON.parse(localStorage.getItem("avamposto-demo-v3") || "null"); return !!(demo && demo.session);
+    } catch (e) { return false; }
+  }
+
+  function posterBox(ev, cls, badge) {
+    var src = ev.poster_path ? D.posterUrl(ev.poster_path) : "";
+    var p = parts(ev.starts_at);
+    var b = badge ? '<span class="datebadge"><b>' + p.d + "</b><span>" + MONTHS[p.m - 1].slice(0, 3) + "</span></span>" : "";
+    return src ? '<div class="poster ' + (cls || "") + '"><img src="' + esc(src) + '" alt="Locandina: ' + esc(ev.title) + '" loading="lazy">' + b + "</div>"
+               : '<div class="poster none ' + (cls || "") + '">' + icon("cal") + b + "</div>";
+  }
+  function card(ev) {
+    var past = isPast(ev), rep = replayFor(ev);
+    return '<a class="card" href="#evento-' + esc(ev.id) + '">' + posterBox(ev, "", !past) +
+      '<div class="body"><span class="when">' + esc(shortDate(ev.starts_at)) + " · " + esc(time(ev.starts_at)) + "</span>" +
+      "<h3>" + esc(ev.title) + "</h3>" +
+      (whereText(ev) ? '<span class="where">' + icon("pin") + esc(whereText(ev)) + "</span>" : "") +
+      (!past && ev.summary ? "<p>" + esc(ev.summary) + "</p>" : "") +
+      '<span class="tags">' + (KIND1[ev.kind] ? '<span class="tag">' + KIND1[ev.kind] + "</span>" : "") + handsTag(ev) + "</span>" +
+      (past && rep ? '<span class="tag">' + icon("play") + "Replica disponibile</span>" : "") +
+      "</div></a>";
+  }
+  function replayFor(ev) { return E.replays.filter(function (r) { return r.event_id === ev.id; })[0]; }
+  function countdown(ev) {
+    var n = daysTo(ev);
+    return n <= 0 ? "Oggi" : n === 1 ? "Domani" : "Tra " + n + " giorni";
+  }
+
+  function headHtml(active) {
+    return '<div class="wrap head"><div><span class="eyebrow">Eventi · Azione Under 30 Marche</span>' +
+      "<h1>Ci vediamo <em>dal vivo.</em></h1>" +
+      "<p>Aperitivi, incontri, banchetti e dirette: qui trovi tutti i nostri appuntamenti nelle Marche. Tocca una locandina per i dettagli.</p></div>" +
+      '<nav class="switch" aria-label="Visualizzazione"><a href="#lista"' + (active === "lista" ? ' aria-current="page"' : "") + ">" + icon("list") + "Lista</a>" +
+      '<a href="#calendario"' + (active === "calendario" ? ' aria-current="page"' : "") + ">" + icon("cal") + "Calendario</a></nav></div>";
+  }
+
+  function replaysHtml() {
+    var inside = signedIn();
+    var body;
+    if (!E.replays.length) {
+      body = '<p class="empty"><b>Ancora nessuna replica.</b>Le registrazioni delle dirette compariranno qui, riservate a chi è iscritto all\'Avamposto.</p>';
+    } else {
+      body = '<div class="rgrid">' + E.replays.map(function (r) {
+        var ev = E.events.filter(function (x) { return x.id === r.event_id; })[0];
+        var src = ev && ev.poster_path ? D.posterUrl(ev.poster_path) : "";
+        var p = r.recorded_on ? r.recorded_on.split("-") : null;
+        return '<a class="rcard" href="../avamposto/#repliche"><div class="thumb">' + (src ? '<img src="' + esc(src) + '" alt="" loading="lazy">' : "") +
+          '<span class="play"><span>' + icon("play") + "</span></span></div>" +
+          '<div class="body"><small>' + (p ? +p[2] + " " + MONTHS[+p[1] - 1] + " " + p[0] : "") + "</small><h3>" + esc(r.title) + "</h3>" +
+          (r.description ? "<p>" + esc(r.description) + "</p>" : "") + "</div></a>";
+      }).join("") + "</div>";
+    }
+    return '<section class="replays" id="repliche" aria-labelledby="rep-title"><div class="wrap">' +
+      '<div class="block-head"><h2 id="rep-title">Repliche degli eventi</h2><span class="lockpill">' + icon("lock") + "Per gli iscritti all'Avamposto</span></div>" +
+      '<p class="note" style="margin:-4px 0 18px">Ti sei perso una diretta? Le registrazioni si guardano nell\'Avamposto. Iscriversi è gratis e basta la mail.</p>' +
+      body +
+      '<div class="cta">' + (inside ? '<a class="btn white" href="../avamposto/#repliche">' + icon("play") + "Guarda le repliche</a>"
+        : '<a class="btn white" href="../avamposto/#repliche">Iscriviti gratis</a><a class="btn ghost-white" href="../avamposto/#repliche">Entra</a>') + "</div>" +
+      "</div></section>";
+  }
+
+  /* ---------- vista lista ---------- */
+  function viewList() {
+    var upcoming = shown(E.events.filter(function (e) { return !isPast(e); }));
+    var hands = E.events.filter(function (e) { return e.needs_hands && !isPast(e); });
+    var past = shown(E.events.filter(isPast)).reverse();
+    var first = upcoming[0], rest = upcoming.slice(1);
+    var html = headHtml("lista") + '<div class="wrap">' + filtersHtml();
+    if (hands.length && !F.kind) html += '<section class="block" style="padding-bottom:30px"><div class="mob-strip"><div><b>' + hands.length + (hands.length === 1 ? " appuntamento cerca" : " appuntamenti cercano") + " volontari</b>" +
+      "<span>Banchetti e volantinaggi: scegli il turno che ti va e segna «Ci sono» nell'Avamposto.</span></div>" +
+      '<button class="btn solid small" type="button" data-kind="mobilitazione">Vedi dove serve una mano</button></div></section>';
+    if (!upcoming.length && E.events.some(function (e) { return !isPast(e); })) {
+      html += '<section class="block"><p class="empty"><b>Nessun evento con questi filtri.</b><a href="#lista" data-kind="">Mostra tutti gli eventi</a></p></section>';
+    } else if (!upcoming.length) {
+      html += '<section class="block"><p class="empty"><b>Stiamo preparando i prossimi appuntamenti.</b>' +
+        'Seguici su <a href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener">Instagram</a> o iscriviti alla <a href="../#unisciti">newsletter</a>: ti avvisiamo appena escono le date.</p></section>';
+    } else {
+      html += '<section class="block" aria-labelledby="next-title"><h2 class="visually-hidden" id="next-title">Il prossimo appuntamento</h2>' +
+        '<a class="feature" href="#evento-' + esc(first.id) + '">' + posterBox(first, "", true) +
+        '<div class="body"><span class="countdown">' + icon("clock") + esc(countdown(first)) + "</span>" +
+        '<span class="eyebrow">Il prossimo appuntamento</span><h3>' + esc(first.title) + "</h3>" +
+        '<span class="when">' + esc(longDate(first.starts_at)) + " · ore " + esc(time(first.starts_at)) + "</span>" +
+        (whereText(first) ? '<span class="where">' + icon("pin") + esc(whereText(first)) + "</span>" : "") +
+        (first.summary ? "<p>" + esc(first.summary) + "</p>" : "") +
+        (handsTag(first) ? '<span class="tags">' + handsTag(first) + "</span>" : "") +
+        '<span class="go"><span class="btn solid">Scopri di più</span></span></div></a></section>';
+      if (rest.length) html += '<section class="block"><div class="block-head"><h2>Prossimi eventi</h2><a href="#calendario">Vedi nel calendario →</a></div><div class="grid">' + rest.map(card).join("") + "</div></section>";
+    }
+    if (past.length) html += '<section class="block past"><div class="block-head"><h2>Già passati</h2><span class="note">Gli ultimi appuntamenti</span></div><div class="grid">' + past.slice(0, 8).map(card).join("") + "</div></section>";
+    html += "</div>" + replaysHtml();
+    main.innerHTML = html;
+  }
+
+  /* ---------- vista calendario ---------- */
+  function viewCalendar() {
+    if (!calMonth) {
+      var nx = E.events.filter(function (e) { return !isPast(e); })[0];
+      calMonth = (nx ? ymd(nx.starts_at) : todayYmd()).slice(0, 7);
+    }
+    var y = +calMonth.slice(0, 4), m = +calMonth.slice(5, 7);
+    var first = new Date(Date.UTC(y, m - 1, 1)), startDow = (first.getUTCDay() + 6) % 7; // lunedì = 0
+    var daysIn = new Date(Date.UTC(y, m, 0)).getUTCDate();
+    var byDay = {};
+    shown(E.events).forEach(function (ev) { var k = ymd(ev.starts_at); (byDay[k] = byDay[k] || []).push(ev); });
+    var today = todayYmd();
+    var cells = [];
+    var total = Math.ceil((startDow + daysIn) / 7) * 7;
+    for (var i = 0; i < total; i++) {
+      var dt = new Date(Date.UTC(y, m - 1, 1 + i - startDow));
+      var key = dt.toISOString().slice(0, 10), inMonth = dt.getUTCMonth() === m - 1;
+      var evs = byDay[key] || [];
+      var cls = "day" + (inMonth ? "" : " out") + (key === today ? " today" : "") + (evs.length ? " has" : "") + (key < today ? " past-day" : "");
+      var inner = '<span class="n">' + dt.getUTCDate() + "</span>";
+      if (evs.length) {
+        var ev = evs[0], src = ev.poster_path ? D.posterUrl(ev.poster_path) : "";
+        inner += '<a class="ev' + (src ? "" : " none") + '" href="#evento-' + esc(ev.id) + '" aria-label="' + esc(ev.title + ", " + longDate(ev.starts_at) + " ore " + time(ev.starts_at)) + '">' +
+          (src ? '<img src="' + esc(src) + '" alt="" loading="lazy">' : "") + "</a>" +
+          '<span class="cap" aria-hidden="true"><small>' + esc(time(ev.starts_at)) + "</small>" + esc(ev.title) + "</span>" +
+          (evs.length > 1 ? '<span class="more">+' + (evs.length - 1) + "</span>" : "");
+      }
+      cells.push('<div class="' + cls + '">' + inner + "</div>");
+    }
+    var monthEvents = shown(E.events).filter(function (ev) { return ymd(ev.starts_at).slice(0, 7) === calMonth; });
+    main.innerHTML = headHtml("calendario") + '<div class="wrap">' + filtersHtml() + '<section class="block"><div class="cal">' +
+      '<div class="cal-head"><h2 aria-live="polite">' + MONTHS[m - 1] + " " + y + "</h2>" +
+      '<div class="cal-nav"><button class="icon-btn" type="button" data-cal="-1" aria-label="Mese precedente">' + icon("left") + "</button>" +
+      '<button class="btn small" type="button" data-cal="0">Oggi</button>' +
+      '<button class="icon-btn" type="button" data-cal="1" aria-label="Mese successivo">' + icon("right") + "</button></div></div>" +
+      '<div class="cal-grid">' + ["Lun","Mar","Mer","Gio","Ven","Sab","Dom"].map(function (x) { return '<div class="dow">' + x + "</div>"; }).join("") + cells.join("") + "</div>" +
+      '<div class="month-list">' + (monthEvents.length ? monthEvents.map(function (ev) {
+        var p = parts(ev.starts_at);
+        return '<a class="row" href="#evento-' + esc(ev.id) + '">' + posterBox(ev) + '<span class="d"><b>' + p.d + "</b><span>" + esc(fWeek.format(new Date(ev.starts_at)).slice(0, 3)) + "</span></span>" +
+          "<span><h3>" + esc(ev.title) + '</h3><span class="where">' + icon("clock") + esc(time(ev.starts_at)) + (whereText(ev) ? " · " + esc(whereText(ev)) : "") + "</span></span></a>";
+      }).join("") : '<p class="note" style="margin:6px 4px 0">Nessun evento in questo mese.</p>') + "</div>" +
+      "</div></section></div>" + replaysHtml();
+  }
+
+  /* ---------- scheda evento ---------- */
+  function gcal(ev) {
+    var f = function (x) { return x.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""); };
+    return "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(ev.title) +
+      "&dates=" + f(new Date(ev.starts_at)) + "/" + f(endOf(ev)) +
+      "&location=" + encodeURIComponent(whereText(ev)) + "&details=" + encodeURIComponent((ev.summary || "") + "\n" + location.href);
+  }
+  function icsFile(ev) {
+    var f = function (x) { return x.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""); };
+    var t = function (s) { return String(s || "").replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/[,;]/g, function (c) { return "\\" + c; }); };
+    return ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Azione Under 30 Marche//Eventi//IT", "BEGIN:VEVENT",
+      "UID:" + ev.id + "@azioneunder30marche", "DTSTAMP:" + f(new Date()), "DTSTART:" + f(new Date(ev.starts_at)), "DTEND:" + f(endOf(ev)),
+      "SUMMARY:" + t(ev.title), "LOCATION:" + t(whereText(ev)), "DESCRIPTION:" + t((ev.summary || "") + "\n" + location.href), "URL:" + location.href,
+      "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+  }
+  function viewEvent(id) {
+    var ev = E.events.filter(function (x) { return x.id === id; })[0];
+    if (!ev) { main.innerHTML = '<div class="wrap" style="padding-block:30px 60px"><a class="back" href="#lista">' + icon("left") + 'Tutti gli eventi</a><p class="empty"><b>Evento non trovato.</b>Forse è stato tolto o il link non è completo.</p></div>'; return; }
+    document.title = ev.title + " · Eventi · Azione Under 30 Marche";
+    var past = isPast(ev), rep = replayFor(ev), src = ev.poster_path ? D.posterUrl(ev.poster_path) : "";
+    var link = safeHref(ev.link_url);
+    var sameDay = ev.ends_at && ymd(ev.ends_at) === ymd(ev.starts_at);
+    var hours = "Ore " + time(ev.starts_at) + (ev.ends_at ? (sameDay ? " – " + time(ev.ends_at) : " · fino a " + shortDate(ev.ends_at) + " ore " + time(ev.ends_at)) : "");
+    var maps = whereText(ev) && !/^online$/i.test(ev.place || "") ? "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent([ev.place, ev.city].filter(Boolean).join(", ")) : "";
+    main.innerHTML = '<div class="wrap"><a class="back" href="#lista">' + icon("left") + "Tutti gli eventi</a>" +
+      '<article class="detail">' +
+      (src ? '<div class="poster-full"><img src="' + esc(src) + '" alt="Locandina: ' + esc(ev.title) + '"></div>' : '<div class="poster-full none">' + icon("cal") + "</div>") +
+      "<div>" + (past ? '<span class="done">Evento concluso</span>' : '<span class="countdown">' + icon("clock") + esc(countdown(ev)) + "</span>") +
+      "<h1>" + esc(ev.title) + "</h1>" +
+      '<ul class="facts">' + (KIND1[ev.kind] ? '<li>' + icon("star") + "<div><b>" + KIND1[ev.kind] + "</b><span>" + esc(AREAS[ev.area] || "") + "</span></div></li>" : "") + '<li>' + icon("cal") + '<div><b style="text-transform:capitalize">' + esc(longDate(ev.starts_at)) + "</b><span>" + esc(hours) + "</span></div></li>" +
+      (whereText(ev) ? "<li>" + icon("pin") + "<div><b>" + esc(ev.place || ev.city) + "</b><span>" + esc(ev.place && ev.city ? ev.city : "") +
+        (maps ? (ev.place && ev.city ? " · " : "") + '<a href="' + esc(maps) + '" target="_blank" rel="noopener">Apri in Maps</a>' : "") + "</span></div></li>" : "") +
+      "</ul>" +
+      (ev.summary ? '<p class="lead">' + esc(ev.summary) + "</p>" : "") +
+      (ev.description ? '<div class="prose">' + prose(ev.description) + "</div>" : "") +
+      '<div class="cta">' +
+        (link && !past ? '<a class="btn solid" href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(ev.link_label || "Partecipa") + " " + icon("ext") + "</a>" : "") +
+        (!past ? '<a class="btn" href="' + esc(gcal(ev)) + '" target="_blank" rel="noopener">' + icon("plus") + "Google Calendar</a>" +
+                 '<button class="btn" type="button" data-ics="' + esc(ev.id) + '">' + icon("cal") + "Calendario del telefono</button>" : "") +
+        '<button class="btn" type="button" data-share="' + esc(ev.id) + '">' + icon("share") + "Condividi</button>" +
+      "</div>" +
+      (ev.needs_hands && !past ? '<div class="hands-box"><span class="tag hands" style="justify-self:start">Serve una mano</span><b>Ci dai una mano?</b>' +
+        "<p>Scegli il turno che preferisci: nell'Avamposto trovi orari, punto d'incontro e materiali. " +
+        (COUNTS[ev.id] ? '<span class="n">' + COUNTS[ev.id] + (COUNTS[ev.id] === 1 ? " persona ha" : " persone hanno") + " già detto «Ci sono».</span>" : "Sii il primo a dire «Ci sono».") + "</p>" +
+        '<div><a class="btn solid" href="../avamposto/#m-' + esc(ev.id) + '">Ci sono</a></div></div>' : "") +
+      (rep ? '<div class="replay-box"><span class="lockpill" style="justify-self:start">' + icon("lock") + "Avamposto</span><b>La replica è disponibile</b>" +
+        "<p>Guarda la registrazione nell'area riservata: iscriversi è gratis e basta la mail.</p>" +
+        '<div><a class="btn white" href="../avamposto/#repliche">' + icon("play") + "Guarda la replica</a></div></div>" : "") +
+      "</div></article></div>";
+    window.scrollTo(0, 0);
+  }
+
+  /* ---------- router ---------- */
+  function route() {
+    if (!E.ready) return;
+    var h = (location.hash || "#lista").slice(1);
+    if (h.indexOf("evento-") === 0) return viewEvent(h.slice(7));
+    document.title = "Eventi · Azione Under 30 Marche";
+    if (h === "calendario") return viewCalendar();
+    viewList();
+    if (h === "repliche") { var r = document.getElementById("repliche"); if (r) r.scrollIntoView(); }
+  }
+
+  document.addEventListener("click", function (e) {
+    var c = e.target.closest("[data-cal]");
+    if (c) {
+      var step = +c.getAttribute("data-cal");
+      if (!step) calMonth = todayYmd().slice(0, 7);
+      else { var y = +calMonth.slice(0, 4), m = +calMonth.slice(5, 7) - 1 + step; var d = new Date(Date.UTC(y, m, 1)); calMonth = d.toISOString().slice(0, 7); }
+      viewCalendar(); return;
+    }
+    var k = e.target.closest("[data-kind]");
+    if (k) { e.preventDefault(); F.kind = k.getAttribute("data-kind"); if (location.hash === "#calendario") viewCalendar(); else { if (location.hash && location.hash !== "#lista") location.hash = "#lista"; else viewList(); } return; }
+    var ics = e.target.closest("[data-ics]");
+    if (ics) {
+      var ev = E.events.filter(function (x) { return x.id === ics.getAttribute("data-ics"); })[0]; if (!ev) return;
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([icsFile(ev)], { type: "text/calendar;charset=utf-8" }));
+      a.download = ev.title.replace(/[^\w\- ]+/g, "").trim().replace(/\s+/g, "-").toLowerCase().slice(0, 40) + ".ics";
+      document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+      return;
+    }
+    var sh = e.target.closest("[data-share]");
+    if (sh) {
+      var evs = E.events.filter(function (x) { return x.id === sh.getAttribute("data-share"); })[0];
+      var data = { title: evs.title, text: evs.title + " – " + longDate(evs.starts_at), url: location.href };
+      if (navigator.share) { navigator.share(data).catch(function () {}); return; }
+      if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copiato"); }, function () { toast(location.href); });
+      else toast(location.href);
+    }
+  });
+  document.addEventListener("change", function (e) {
+    if (e.target.id !== "zone") return;
+    F.area = e.target.value; if (location.hash === "#calendario") viewCalendar(); else viewList();
+  });
+  window.addEventListener("hashchange", function () { route(); if (!/^#evento-/.test(location.hash) && location.hash !== "#repliche") window.scrollTo(0, 0); });
+
+  if (PREVIEW) { E.ready = true; route(); return; }
+  if (!D.live) document.getElementById("demo-bar").hidden = false;
+  D.init().then(function () { return Promise.all([D.events(), D.replayList(), D.signupCounts().catch(function () { return []; })]); }).then(function (r) {
+    E.events = (r[0] || []).filter(function (e) { return e.published !== false; });
+    E.replays = r[1] || [];
+    (r[2] || []).forEach(function (c) { COUNTS[c.event_id] = Number(c.n) || 0; });
+    E.ready = true; route();
+  }).catch(function (e) {
+    E.ready = true; route();
+    toast(D.friendly ? D.friendly(e) : "Non riesco a caricare gli eventi.");
+  });
+})();
+</script>
+</body>
+</html>

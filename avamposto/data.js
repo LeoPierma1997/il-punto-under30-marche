@@ -19,6 +19,10 @@
     [/invalid.*email|Unable to validate email/i, "L'indirizzo email non sembra valido. Controllalo e riprova."],
     [/Invito non valido/i, "Questo link d'invito non è valido o è stato disattivato. Chiedi allo staff un link nuovo."],
     [/row-level security|permission denied|Solo gli amministratori/i, "Non hai i permessi per questa operazione."],
+    [/events_link_url_check/i, "Il link dell'evento deve iniziare con https://"],
+    [/event_replays_video_url_check/i, "Il link al video deve iniziare con https://"],
+    [/events_ends_at_check/i, "La fine dell'evento non può essere prima dell'inizio."],
+    [/event_mobilization_kit_url_check/i, "Il link al kit deve iniziare con https://"],
     [/whatsapp_url_check/i, "Il link deve essere un link WhatsApp (chat.whatsapp.com o whatsapp.com/channel)."],
     [/duplicate key.*slug|initiatives_slug_key/i, "Esiste già un'iniziativa con questo indirizzo breve. Cambialo."],
     [/Failed to fetch|NetworkError|Load failed/i, "Connessione assente o lenta. Controlla la rete e riprova."],
@@ -152,6 +156,55 @@
           .then(removeOld).then(function () { return path; });
       },
 
+      /* --- eventi e repliche --- */
+      events: function () { return q(sb.from("events").select("*").order("starts_at")); },
+      posterUrl: function (path) {
+        if (!path) return "";
+        if (/^(data:|blob:|\.\.\/|https?:)/.test(path)) return path;
+        return cfg.supabaseUrl.replace(/\/$/, "") + "/storage/v1/object/public/locandine/" + path.split("/").map(encodeURIComponent).join("/");
+      },
+      saveEvent: function (ev) {
+        var row = { title: ev.title, starts_at: ev.starts_at, ends_at: ev.ends_at || null, place: ev.place || null, city: ev.city || null,
+          summary: ev.summary || null, description: ev.description || null, link_url: ev.link_url || null, link_label: ev.link_label || null,
+          kind: ev.kind || "incontro", area: ev.area || "marche", needs_hands: !!ev.needs_hands, published: ev.published !== false };
+        return ev.id ? q(sb.from("events").update(row).eq("id", ev.id).select().single()) : q(sb.from("events").insert(row).select().single());
+      },
+      deleteEvent: function (ev) {
+        var rm = ev.poster_path && !/^(data:|blob:|\.\.\/|https?:)/.test(ev.poster_path) ? q(sb.storage.from("locandine").remove([ev.poster_path])).catch(function () { return null; }) : Promise.resolve();
+        return rm.then(function () { return q(sb.from("events").delete().eq("id", ev.id)); });
+      },
+      setPoster: function (ev, blob) {
+        var old = ev.poster_path;
+        var removeOld = function () { return old && !/^(data:|blob:|\.\.\/|https?:)/.test(old) ? q(sb.storage.from("locandine").remove([old])).catch(function () { return null; }) : null; };
+        if (!blob) return q(sb.from("events").update({ poster_path: null }).eq("id", ev.id)).then(removeOld);
+        var path = ev.id + "/" + Date.now() + ".jpg";
+        return q(sb.storage.from("locandine").upload(path, blob, { contentType: "image/jpeg", upsert: false }))
+          .then(function () { return q(sb.from("events").update({ poster_path: path }).eq("id", ev.id)); }).then(removeOld);
+      },
+      mobilization: function () { return session ? q(sb.from("event_mobilization").select("*")) : Promise.resolve([]); },
+      saveMobilization: function (m) {
+        return q(sb.from("event_mobilization").upsert({ event_id: m.event_id, slots: m.slots || null, meeting_point: m.meeting_point || null,
+          kit_url: m.kit_url || null, notes: m.notes || null, updated_at: nowIso() }, { onConflict: "event_id" }));
+      },
+      signupCounts: function () { return q(sb.rpc("signup_counts")); },
+      mySignups: function () { return session ? q(sb.from("event_signups").select("*").eq("user_id", session.user.id)) : Promise.resolve([]); },
+      signup: function (eventId, data) {
+        return q(sb.from("event_signups").upsert({ event_id: eventId, user_id: session.user.id, email: email(), full_name: data.full_name || null,
+          slot: data.slot || null, note: data.note || null }, { onConflict: "event_id,user_id" }));
+      },
+      cancelSignup: function (eventId) { return q(sb.from("event_signups").delete().eq("event_id", eventId).eq("user_id", session.user.id)); },
+      allSignups: function () { return q(sb.from("event_signups").select("*").order("created_at")); },
+      removeSignup: function (eventId, userId) { return q(sb.from("event_signups").delete().eq("event_id", eventId).eq("user_id", userId)); },
+      replayList: function () { return q(sb.rpc("replay_list")); },
+      replays: function () {
+        return session ? q(sb.from("event_replays").select("*").order("recorded_on", { ascending: false }).order("created_at", { ascending: false })) : Promise.resolve([]);
+      },
+      saveReplay: function (r) {
+        var row = { event_id: r.event_id || null, title: r.title, recorded_on: r.recorded_on, video_url: r.video_url, description: r.description || null, published: r.published !== false };
+        return r.id ? q(sb.from("event_replays").update(row).eq("id", r.id).select().single()) : q(sb.from("event_replays").insert(row).select().single());
+      },
+      deleteReplay: function (id) { return q(sb.from("event_replays").delete().eq("id", id)); },
+
       /* --- gestione --- */
       allEnrollments: function () { return q(sb.from("enrollments").select("*").order("created_at", { ascending: false })); },
       allProfiles: function () { return q(sb.from("profiles").select("*").order("created_at", { ascending: false })); },
@@ -248,6 +301,36 @@
           summary: "Bozza: non ancora visibile agli iscritti.",
           description: "Iniziativa in preparazione." }
       ],
+      events: [
+        { id: "ev-aperitivo", kind: "aperitivo", area: "an", needs_hands: false, title: "Aperitivo Under 30", starts_at: iso(4, 19, 0), ends_at: iso(4, 21, 30), place: "Bar in centro (esempio)", city: "Ancona",
+          summary: "Due chiacchiere, uno spritz e i programmi per i prossimi mesi. Porta un amico.", description: "Ci vediamo per conoscerci, presentare i gruppi di lavoro e raccogliere idee per la primavera.\n\nIngresso libero, consumazione a carico di ciascuno.",
+          link_url: "https://www.instagram.com/azioneunder30marche/", link_label: "Segui gli aggiornamenti", poster_path: "../assets/foto/cena.jpg", published: true, created_at: iso(-3) },
+        { id: "ev-europa", kind: "incontro", area: "mc", needs_hands: false, title: "Europa, istruzioni per l'uso", starts_at: iso(12, 18, 0), ends_at: iso(12, 20, 0), place: "Sala conferenze (esempio)", city: "Macerata",
+          summary: "Come si decide a Bruxelles e perché conta per chi vive nelle Marche.", description: "Incontro aperto a tutti con domande dal pubblico. Al termine, aperitivo insieme.",
+          link_url: "https://noi.azione.it/primo-tesseramento/", link_label: "Prenota il posto", poster_path: "../assets/foto/piazza-bandiere.jpg", published: true, created_at: iso(-6) },
+        { id: "ev-banchetto", kind: "mobilitazione", area: "pu", needs_hands: true, title: "Banchetto in piazza", starts_at: iso(19, 10, 30), ends_at: iso(19, 13, 0), place: "Piazza centrale (esempio)", city: "Pesaro",
+          summary: "Volantinaggio e tesseramento: vieni a darci una mano anche solo per un'ora.", description: "", link_url: "", link_label: "",
+          poster_path: "../assets/foto/centro-storico.jpg", published: true, created_at: iso(-2) },
+        { id: "ev-volantini", kind: "mobilitazione", area: "an", needs_hands: true, title: "Volantinaggio all'università", starts_at: iso(8, 8, 30), ends_at: iso(8, 11, 0), place: "Ingresso del polo universitario (esempio)", city: "Ancona",
+          summary: "Volantini sul tesseramento e sugli eventi del mese. Bastano due ore del tuo tempo.", description: "", link_url: "", link_label: "", poster_path: "../assets/foto/corso-magliette.jpg", published: true, created_at: iso(-1) },
+        { id: "ev-bozza", kind: "aperitivo", area: "fm", needs_hands: false, title: "Cena di fine anno (bozza)", starts_at: iso(40, 20, 30), place: "", city: "Fermo", summary: "Ancora da confermare.", poster_path: "", published: false, created_at: iso(-1) },
+        { id: "ev-diretta", kind: "diretta", area: "online", needs_hands: false, title: "Diretta: come nasce una legge europea", starts_at: iso(-10, 21, 0), ends_at: iso(-10, 22, 0), place: "Online", city: "",
+          summary: "Un'ora per capire il percorso di una legge, dalla Commissione al voto finale.", description: "", poster_path: "../assets/foto/evento-roma-platea.jpg", published: true, created_at: iso(-20) },
+        { id: "ev-roma", kind: "incontro", area: "fuori", needs_hands: false, title: "Tutti a Roma", starts_at: iso(-24, 9, 0), place: "Roma", city: "Roma",
+          summary: "La trasferta con il gruppo Marche all'evento nazionale.", description: "", poster_path: "../assets/foto/evento-roma-gruppo.jpg", published: true, created_at: iso(-40) }
+      ],
+      mobilization: [
+        { event_id: "ev-banchetto", slots: "10:30 – 11:45\n11:45 – 13:00", meeting_point: "Davanti al municipio, 15 minuti prima del turno", kit_url: "https://drive.google.com/", notes: "Porta la maglietta di Azione se ce l'hai. Il gazebo e i volantini li portiamo noi." },
+        { event_id: "ev-volantini", slots: "8:30 – 9:45\n9:45 – 11:00", meeting_point: "Fermata dell'autobus davanti all'ingresso", kit_url: "", notes: "Due persone per turno bastano." }
+      ],
+      signups: [
+        { event_id: "ev-banchetto", user_id: "giulia.bianchi@esempio.it", email: "giulia.bianchi@esempio.it", full_name: "Giulia Bianchi (esempio)", slot: "10:30 – 11:45", note: "", created_at: iso(-1) },
+        { event_id: "ev-banchetto", user_id: "luca.verdi@esempio.it", email: "luca.verdi@esempio.it", full_name: "Luca Verdi (esempio)", slot: "11:45 – 13:00", note: "Porto anche un amico", created_at: iso(-1) }
+      ],
+      replays: [
+        { id: "rp-1", event_id: "ev-diretta", title: "Come nasce una legge europea", recorded_on: iso(-10).slice(0, 10), video_url: "", description: "La registrazione completa della diretta, con le domande finali.", published: true, created_at: iso(-9) },
+        { id: "rp-2", event_id: null, title: "Q&A con lo staff: come funzionano i gruppi di lavoro", recorded_on: iso(-30).slice(0, 10), video_url: "", description: "Mezz'ora di domande e risposte per chi è appena entrato.", published: true, created_at: iso(-29) }
+      ],
       org: (function () {
         var U = function (id, parent, name, kind, desc, pos) { return { id: id, parent_id: parent, name: name, kind: kind, description: desc, whatsapp_url: null, position: pos }; };
         var P = function (id, unit, name, role, pos) { return { id: id, unit_id: unit, full_name: name, role: role, instagram: null, photo_path: null, position: pos }; };
@@ -321,7 +404,7 @@
       live: false,
       demoAdmin: DEMO_ADMIN,
       demoMember: "mario.rossi@esempio.it",
-      init: function () { S = load(); save(); return Promise.resolve(); },
+      init: function () { S = load(); var fresh = null; ["events", "replays", "mobilization", "signups"].forEach(function (k) { if (!S[k] || (k === "events" && !S.events.some(function (e) { return e.kind; }))) { fresh = fresh || seed(); S[k] = fresh[k]; } }); save(); return Promise.resolve(); },
       reset: function () { S = seed(); save(); listeners.forEach(function (f) { f(); }); },
       onAuthChange: function (f) { listeners.push(f); },
       me: function () { return S.session ? { id: me(), email: me() } : null; },
@@ -437,6 +520,75 @@
         if (path && path.indexOf("blob:") === 0) return delay(path);
         return Promise.reject(new Error("Nel prototipo i PDF di esempio non contengono un file vero."));
       },
+
+      events: function () {
+        return delay(clone(S.events.filter(function (e) { return e.published || admin(); }).sort(function (a, b) { return a.starts_at < b.starts_at ? -1 : 1; })));
+      },
+      posterUrl: function (path) { return path || ""; },
+      saveEvent: function (ev) {
+        if (!admin()) return deny();
+        if (ev.link_url && !/^https?:\/\//.test(ev.link_url)) return Promise.reject(new Error("Il link deve iniziare con https://"));
+        var row;
+        if (ev.id) { row = S.events.filter(function (x) { return x.id === ev.id; })[0]; Object.assign(row, ev); }
+        else { var f = Object.assign({}, ev); delete f.id; row = Object.assign({ id: uid(), created_at: nowIso(), poster_path: "" }, f); S.events.push(row); }
+        save(); return delay(clone(row));
+      },
+      deleteEvent: function (ev) {
+        if (!admin()) return deny();
+        S.events = S.events.filter(function (x) { return x.id !== ev.id; });
+        S.replays.forEach(function (r) { if (r.event_id === ev.id) r.event_id = null; });
+        S.mobilization = S.mobilization.filter(function (x) { return x.event_id !== ev.id; });
+        S.signups = S.signups.filter(function (x) { return x.event_id !== ev.id; });
+        save(); return delay({});
+      },
+      setPoster: function (ev, blob) {
+        if (!admin()) return deny();
+        var row = S.events.filter(function (x) { return x.id === ev.id; })[0];
+        if (!blob) { row.poster_path = ""; save(); return delay({}); }
+        return new Promise(function (res) { var fr = new FileReader(); fr.onload = function () { row.poster_path = fr.result; try { save(); } catch (e) {} res({}); }; fr.readAsDataURL(blob); });
+      },
+      mobilization: function () { return me() ? delay(clone(S.mobilization)) : delay([]); },
+      saveMobilization: function (m) {
+        if (!admin()) return deny();
+        if (m.kit_url && !/^https:\/\//.test(m.kit_url)) return Promise.reject(new Error("Il link al kit deve iniziare con https://"));
+        var ex = S.mobilization.filter(function (x) { return x.event_id === m.event_id; })[0];
+        if (ex) Object.assign(ex, m); else S.mobilization.push(Object.assign({}, m));
+        save(); return delay({});
+      },
+      signupCounts: function () {
+        var o = {}; S.signups.forEach(function (x) { o[x.event_id] = (o[x.event_id] || 0) + 1; });
+        return delay(Object.keys(o).map(function (k) { return { event_id: k, n: o[k] }; }));
+      },
+      mySignups: function () { return delay(clone(S.signups.filter(function (x) { return x.user_id === me(); }))); },
+      signup: function (eventId, data) {
+        if (!me()) return deny();
+        var ev = S.events.filter(function (e) { return e.id === eventId; })[0];
+        if (!ev || !ev.published || !ev.needs_hands) return deny();
+        S.signups = S.signups.filter(function (x) { return !(x.event_id === eventId && x.user_id === me()); });
+        S.signups.push({ event_id: eventId, user_id: me(), email: me(), full_name: data.full_name || "", slot: data.slot || "", note: data.note || "", created_at: nowIso() });
+        save(); return delay({});
+      },
+      cancelSignup: function (eventId) { S.signups = S.signups.filter(function (x) { return !(x.event_id === eventId && x.user_id === me()); }); save(); return delay({}); },
+      allSignups: function () { return admin() ? delay(clone(S.signups)) : deny(); },
+      removeSignup: function (eventId, userId) { if (!admin()) return deny(); S.signups = S.signups.filter(function (x) { return !(x.event_id === eventId && x.user_id === userId); }); save(); return delay({}); },
+      replayList: function () {
+        return delay(S.replays.filter(function (r) { return r.published; }).map(function (r) {
+          return { id: r.id, event_id: r.event_id, title: r.title, recorded_on: r.recorded_on, description: r.description };
+        }).sort(function (a, b) { return a.recorded_on < b.recorded_on ? 1 : -1; }));
+      },
+      replays: function () {
+        if (!me()) return delay([]);
+        return delay(clone(S.replays.filter(function (r) { return r.published || admin(); }).sort(function (a, b) { return a.recorded_on < b.recorded_on ? 1 : -1; })));
+      },
+      saveReplay: function (r) {
+        if (!admin()) return deny();
+        if (r.video_url && !/^https:\/\//.test(r.video_url)) return Promise.reject(new Error("Il link al video deve iniziare con https://"));
+        var row;
+        if (r.id) { row = S.replays.filter(function (x) { return x.id === r.id; })[0]; Object.assign(row, r); }
+        else { var f = Object.assign({}, r); delete f.id; row = Object.assign({ id: uid(), created_at: nowIso() }, f); S.replays.push(row); }
+        save(); return delay(clone(row));
+      },
+      deleteReplay: function (id) { if (!admin()) return deny(); S.replays = S.replays.filter(function (x) { return x.id !== id; }); save(); return delay({}); },
 
       allEnrollments: function () { return admin() ? delay(clone(S.enrollments)) : deny(); },
       allProfiles: function () {

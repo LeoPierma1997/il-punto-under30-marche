@@ -13,6 +13,10 @@ Pagina: `avamposto/` del sito. Finché `avamposto/config.js` è vuoto, gira in *
   3. lo staff manda il **link d'invito** dell'iniziativa: chi lo apre e si iscrive o entra ha subito accesso. Il link si può disattivare o rigenerare.
 - **Materiali**: video (YouTube anche non in elenco, Vimeo, Google Drive), dirette Meet con data e ora (il pulsante compare 15 minuti prima), PDF fino a 50 MB, testi, link.
 - **La squadra**: organigramma con persone, ruoli, foto e link ai canali WhatsApp, visibile solo agli iscritti. Si modifica da Gestione → La squadra. I nomi reali si caricano con il file SQL riservato consegnato a parte (non è in questo repository).
+- **Eventi** (pagina pubblica `eventi/`): elenco con locandine, calendario mensile con la locandina dentro il giorno, scheda di ogni evento (aggiungi al calendario, condividi, apri in Maps), filtri per tipo e zona. Nella home compaiono i prossimi tre.
+- **Agenda e mobilitazione** (nell'Avamposto): gli eventi segnati «Serve una mano» mostrano agli iscritti turni, punto di ritrovo, kit del volontario e il pulsante «Ci sono». Lo staff vede chi c'è per turno, copia l'elenco per WhatsApp o lo scarica. Nella pagina pubblica si vede solo quante persone hanno aderito, senza nomi.
+- **Repliche**: le registrazioni delle dirette (YouTube anche non in elenco, Vimeo, Drive). La pagina Eventi mostra che esistono, ma si guardano solo dall'Avamposto.
+- Tutto si gestisce da **Gestione → Eventi, mobilitazione e repliche**.
 - **Gestione** (solo per la mail amministratore): richieste, iniziative, partecipanti, materiali, elenco iscritti con esportazione CSV.
 
 La protezione è sul server: le regole del database (`supabase/schema.sql`) impediscono di leggere materiali e PDF di iniziative a cui non si è abilitati, di approvarsi da soli e di diventare amministratori.

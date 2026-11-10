@@ -139,6 +139,7 @@
     var pending = S.admin ? A.enrollments.filter(function (e) { return e.status === "richiesta"; }).length : 0;
     nav.innerHTML =
       '<a href="#home"' + (active === "home" ? ' aria-current="page"' : "") + ">I miei percorsi</a>" +
+      '<a href="#agenda"' + (active === "agenda" ? ' aria-current="page"' : "") + ">Agenda</a>" +
       '<a href="#squadra"' + (active === "squadra" ? ' aria-current="page"' : "") + ">La squadra</a>" +
       '<a href="#profilo"' + (active === "profilo" ? ' aria-current="page"' : "") + ">Profilo</a>" +
       (S.admin ? '<a class="staff" href="#gestione"' + (active === "gestione" ? ' aria-current="page"' : "") + ">" + icon("shield") + "Gestione" +
@@ -155,18 +156,26 @@
     if (PREVIEW) return viewWelcome();
     var h = (location.hash || "#home").slice(1);
     if (!S.me) {
+      if (/^(agenda|repliche|mobilitazione|m-)/.test(h)) { try { localStorage.setItem(AFTER_KEY, h); } catch (e) {} }
       if (h.indexOf("i-") === 0) return viewInitiative(h.slice(2));
       return viewWelcome();
     }
     if (S.profile === null || !S.profile.full_name || !S.profile.membership || !S.profile.privacy_at) return viewCompleteProfile();
+    var after = ""; try { after = localStorage.getItem(AFTER_KEY) || ""; localStorage.removeItem(AFTER_KEY); } catch (e) {}
+    if (after && after !== h && (h === "home" || h === "")) { location.hash = "#" + after; return; }
     if (h === "profilo") return viewProfile();
     if (h === "squadra") return viewTeam();
+    if (h === "agenda" || h === "mobilitazione") return viewAgenda(h === "mobilitazione" ? "mobilitazione" : "");
+    if (h === "repliche") return viewAgenda("repliche");
+    if (h.indexOf("m-") === 0) return viewAgenda(h);
     if (h.indexOf("i-") === 0) return viewInitiative(h.slice(2));
     if (S.admin) {
       if (h === "gestione") return viewAdmin();
       if (h === "g-iscritti") return viewMembers();
       if (h === "g-nuova") return viewEditInitiative(null);
       if (h === "g-squadra") return viewEditTeam();
+      if (h === "g-eventi") return viewAdminEvents();
+      if (h.indexOf("g-ev-") === 0) return viewEditEvent(h.slice(5));
       if (h.indexOf("g-") === 0) return viewEditInitiative(h.slice(2));
     }
     return viewHome();
@@ -623,6 +632,292 @@
       .catch(function (x) { toast(x.message, true); });
   });
 
+  /* ---------------- agenda: mobilitazione e repliche ---------------- */
+  var EV = { events: [], mob: {}, mine: {}, replays: [], signups: [], counts: {} };
+  var EKIND = { incontro: "Incontro", aperitivo: "Aperitivo", mobilitazione: "Mobilitazione", diretta: "Diretta", formazione: "Formazione" };
+  var EAREA = { marche: "Tutta la regione", pu: "Pesaro-Urbino", an: "Ancona", mc: "Macerata", fm: "Fermo", ap: "Ascoli Piceno", online: "Online", fuori: "Fuori regione" };
+  var AFTER_KEY = "avamposto-dopo";
+  function evEnd(ev) { return new Date(ev.ends_at || new Date(new Date(ev.starts_at).getTime() + 2 * 3600000)); }
+  function evPast(ev) { return evEnd(ev).getTime() < Date.now(); }
+  function evWhere(ev) { return [ev.place, ev.city].filter(Boolean).join(" · "); }
+  function slotsOf(ev) { var m = EV.mob[ev.id]; return m && m.slots ? m.slots.split(/\n+/).map(function (x) { return x.trim(); }).filter(Boolean) : []; }
+  function loadAgenda(withAdmin) {
+    var jobs = [D.events(), D.mobilization(), D.mySignups(), D.replays(), D.signupCounts().catch(function () { return []; })];
+    if (withAdmin) jobs.push(D.allSignups());
+    return Promise.all(jobs).then(function (r) {
+      EV.events = r[0] || [];
+      EV.mob = {}; (r[1] || []).forEach(function (m) { EV.mob[m.event_id] = m; });
+      EV.mine = {}; (r[2] || []).forEach(function (x) { EV.mine[x.event_id] = x; });
+      EV.replays = r[3] || [];
+      EV.counts = {}; (r[4] || []).forEach(function (c) { EV.counts[c.event_id] = Number(c.n) || 0; });
+      EV.signups = r[5] || [];
+    });
+  }
+  function posterSrc(ev) { return ev && ev.poster_path ? D.posterUrl(ev.poster_path) : ""; }
+  function handsCard(ev) {
+    var m = EV.mob[ev.id] || {}, mine = EV.mine[ev.id], slots = slotsOf(ev), n = EV.counts[ev.id] || 0, id = esc(ev.id), src = posterSrc(ev);
+    var kit = safeHref(m.kit_url);
+    return '<article class="hands" id="m-' + id + '">' +
+      '<div class="hands-poster">' + (src ? '<img src="' + esc(src) + '" alt="" loading="lazy">' : icon("evento")) + "</div>" +
+      '<div class="hands-body"><div class="hands-top"><span class="pill hands-pill">Serve una mano</span>' + (n ? '<span class="hands-n">' + n + (n === 1 ? " c'è già" : " ci sono già") + "</span>" : "") + "</div>" +
+      "<h3>" + esc(ev.title) + "</h3>" +
+      '<p class="live-when">' + esc(fmtWhen(ev.starts_at)) + (evWhere(ev) ? " · " + esc(evWhere(ev)) : "") + "</p>" +
+      (ev.summary ? "<p>" + esc(ev.summary) + "</p>" : "") +
+      (m.meeting_point || m.notes ? '<ul class="hands-info">' + (m.meeting_point ? "<li><b>Ritrovo</b>" + esc(m.meeting_point) + "</li>" : "") + (m.notes ? "<li><b>Da sapere</b>" + esc(m.notes) + "</li>" : "") + "</ul>" : "") +
+      (mine
+        ? '<div class="hands-yes">' + icon("check") + "<div><b>Ci sei" + (mine.slot ? ": turno " + esc(mine.slot) : "") + "</b><span>Grazie! Lo staff ti scriverà con gli ultimi dettagli.</span></div></div>" +
+          '<div class="btn-row">' + (kit ? '<a class="btn small" href="' + esc(kit) + '" target="_blank" rel="noopener">' + icon("download") + "Kit del volontario</a>" : "") +
+          '<a class="btn small quiet" href="' + esc(evGcal(ev)) + '" target="_blank" rel="noopener">Aggiungi al calendario</a>' +
+          '<button class="btn small quiet" type="button" data-action="su-cancel" data-id="' + id + '">Non posso più</button></div>'
+        : '<form class="hands-form" data-form="signup" data-id="' + id + '" novalidate>' +
+          (slots.length ? '<fieldset class="slots"><legend>Scegli il turno</legend>' + slots.map(function (s, i) {
+            return '<label class="slot"><input type="radio" name="slot" value="' + esc(s) + '"' + (i === 0 ? " checked" : "") + "><span>" + esc(s) + "</span></label>";
+          }).join("") + "</fieldset>" : "") +
+          '<label class="field" for="sn-' + id + '"><span>Nota per lo staff <small>(facoltativa)</small></span><input type="text" id="sn-' + id + '" name="note" maxlength="300" placeholder="Es. arrivo con un amico, ho la macchina"></label>' +
+          '<div class="btn-row"><button class="btn primary" type="submit">' + icon("check") + "Ci sono</button>" +
+          (kit ? '<a class="btn small quiet" href="' + esc(kit) + '" target="_blank" rel="noopener">Guarda il kit</a>' : "") + "</div></form>") +
+      "</div></article>";
+  }
+  function evGcal(ev) {
+    var f = function (x) { return x.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""); };
+    var m = EV.mob[ev.id] || {}, mine = EV.mine[ev.id];
+    return "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(ev.title + (mine && mine.slot ? " (turno " + mine.slot + ")" : "")) +
+      "&dates=" + f(new Date(ev.starts_at)) + "/" + f(evEnd(ev)) + "&location=" + encodeURIComponent(m.meeting_point || evWhere(ev)) +
+      "&details=" + encodeURIComponent("Azione Under 30 Marche – " + (ev.summary || ""));
+  }
+  function replayCard(r) {
+    var ev = EV.events.filter(function (x) { return x.id === r.event_id; })[0];
+    var href = safeHref(r.video_url), em = href ? embedUrl(href) : "";
+    var dd = r.recorded_on ? fmtDate(r.recorded_on) : "";
+    return '<article class="mat replay" id="r-' + esc(r.id) + '"><div class="mat-ico">' + icon("video") + "</div>" +
+      '<div class="mat-kind">Replica' + (dd ? " · " + esc(dd) : "") + (r.published === false ? ' <span class="pill draft">Nascosta</span>' : "") + "</div>" +
+      "<h3>" + esc(r.title) + "</h3>" +
+      '<div class="mat-content">' +
+        (em ? '<div class="video"><iframe src="' + esc(em) + '" title="' + esc(r.title) + '" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>'
+          : href ? '<div class="btn-row"><a class="btn primary" href="' + esc(href) + '" target="_blank" rel="noopener">' + icon("video") + "Guarda la replica</a></div>"
+          : '<div class="video-placeholder">Video di esempio: qui comparirà la registrazione.</div>') +
+        (r.description ? "<p>" + esc(r.description) + "</p>" : "") +
+        (ev ? '<p class="replay-ev">Dall\'evento <a href="../eventi/#evento-' + esc(ev.id) + '">' + esc(ev.title) + "</a></p>" : "") +
+      "</div></article>";
+  }
+  function viewAgenda(focus) {
+    setMain('<div class="page-head"><span class="eyebrow">Avamposto Under 30</span><h1>Agenda</h1>' +
+      '<p>Dove serve una mano nei prossimi giorni e le repliche delle dirette. Il calendario completo è nella <a href="../eventi/">pagina Eventi</a>.</p>' +
+      '<nav class="subnav"><a href="#agenda">' + icon("users") + "Serve una mano</a><a href=\"#repliche\">" + icon("video") + "Repliche</a><a href=\"../eventi/#calendario\">" + icon("evento") + "Calendario ↗</a></nav></div>" +
+      '<div id="agenda"><p class="loading">Caricamento…</p></div>', "agenda");
+    loadAgenda(false).then(function () {
+      var box = document.getElementById("agenda"); if (!box) return;
+      var hands = EV.events.filter(function (e) { return e.published !== false && e.needs_hands && !evPast(e); });
+      var next = EV.events.filter(function (e) { return e.published !== false && !e.needs_hands && !evPast(e); }).slice(0, 4);
+      var mineCount = hands.filter(function (e) { return EV.mine[e.id]; }).length;
+      box.innerHTML =
+        '<section class="block" id="mobilitazione"><div class="block-head"><h2>Serve una mano</h2><span class="note">' +
+          (mineCount ? "Hai detto «Ci sono» a " + mineCount + (mineCount === 1 ? " appuntamento" : " appuntamenti") : "Banchetti, volantinaggi e allestimenti: scegli il turno che ti va") + "</span></div>" +
+          (hands.length ? '<div class="hands-list">' + hands.map(handsCard).join("") + "</div>" : '<p class="empty">Per ora non ci sono appuntamenti che cercano volontari. Ti avvisiamo nei canali WhatsApp.</p>') +
+        "</section>" +
+        (next.length ? '<section class="block"><div class="block-head"><h2>Prossimi eventi</h2><a href="../eventi/">Tutti gli eventi ↗</a></div><div class="next-events">' + next.map(function (ev) {
+          var src = posterSrc(ev);
+          return '<a class="next-ev" href="../eventi/#evento-' + esc(ev.id) + '">' + (src ? '<img src="' + esc(src) + '" alt="" loading="lazy">' : '<span class="ph">' + icon("evento") + "</span>") +
+            '<span><small>' + esc(fmtWhen(ev.starts_at)) + "</small><b>" + esc(ev.title) + "</b>" + (evWhere(ev) ? "<em>" + esc(evWhere(ev)) + "</em>" : "") + "</span></a>";
+        }).join("") + "</div></section>" : "") +
+        '<section class="block" id="repliche"><div class="block-head"><h2>Repliche</h2><span class="note">Le registrazioni delle dirette e degli incontri</span></div>' +
+          (EV.replays.length ? '<div class="mats">' + EV.replays.map(replayCard).join("") + "</div>" : '<p class="empty">Ancora nessuna replica. Le registrazioni arriveranno qui dopo le dirette.</p>') +
+        "</section>";
+      var target = focus && document.getElementById(focus);
+      if (target) { target.scrollIntoView({ block: "start" }); target.classList.add("flash"); }
+    }).catch(function (e) { var box = document.getElementById("agenda"); if (box) box.innerHTML = '<p class="form-msg err">' + esc(e.message) + "</p>"; });
+  }
+
+  /* gestione eventi */
+  function viewAdminEvents() {
+    setMain('<a class="back" href="#gestione">← Gestione</a><div class="page-head"><span class="eyebrow">Area staff</span><h1>Eventi, mobilitazione e repliche</h1>' +
+      '<p>Gli eventi pubblicati compaiono nella <a href="../eventi/">pagina Eventi</a>, visibile a tutti. Turni, kit e adesioni restano nell\'Avamposto; le repliche le vedono solo gli iscritti.</p></div>' +
+      '<div id="ev-admin"><p class="loading">Caricamento…</p></div>', "gestione");
+    loadAgenda(true).then(function () {
+      var box = document.getElementById("ev-admin"); if (!box) return;
+      var up = EV.events.filter(function (e) { return !evPast(e); }), past = EV.events.filter(evPast).reverse();
+      var row = function (ev) {
+        var n = EV.signups.filter(function (s) { return s.event_id === ev.id; }).length;
+        return "<tr><td class=\"num\">" + esc(fmtShort(ev.starts_at)) + "</td><td><b>" + esc(ev.title) + '</b><span class="sub">' + esc(EKIND[ev.kind] || "") + " · " + esc(EAREA[ev.area] || "") + "</span></td>" +
+          "<td>" + (ev.needs_hands ? '<span class="pill wait">' + n + (n === 1 ? " adesione" : " adesioni") + "</span>" : '<span class="sub">—</span>') + "</td>" +
+          "<td>" + (ev.published ? '<span class="pill ok">Pubblicato</span>' : '<span class="pill draft">Bozza</span>') + "</td>" +
+          '<td class="actions"><a class="btn small" href="#g-ev-' + esc(ev.id) + '">Gestisci</a></td></tr>';
+      };
+      var table = function (list) { return '<div class="table-wrap"><table><thead><tr><th>Data</th><th>Evento</th><th>Volontari</th><th>Stato</th><th></th></tr></thead><tbody>' + list.map(row).join("") + "</tbody></table></div>"; };
+      box.innerHTML =
+        '<section class="block"><div class="block-head"><h2>Prossimi eventi</h2><a class="btn primary small" href="#g-ev-nuovo">' + icon("plus") + "Nuovo evento</a></div>" +
+          (up.length ? table(up) : '<p class="empty">Nessun evento in programma.</p>') + "</section>" +
+        (past.length ? '<section class="block"><div class="block-head"><h2>Già passati</h2></div>' + table(past.slice(0, 12)) + "</section>" : "") +
+        '<section class="block" id="g-repliche"><div class="block-head"><h2>Repliche</h2><span class="note">Link YouTube (anche non in elenco), Vimeo o Google Drive</span></div><div class="team-admin">' +
+          EV.replays.map(replayForm).join("") + replayForm(null) + "</div></section>";
+    }).catch(function (e) { toast(e.message, true); });
+  }
+  function eventOptions(sel) {
+    return '<option value="">— nessuno —</option>' + EV.events.slice().reverse().map(function (ev) {
+      return '<option value="' + esc(ev.id) + '"' + (ev.id === sel ? " selected" : "") + ">" + esc(fmtShort(ev.starts_at) + " · " + ev.title) + "</option>";
+    }).join("");
+  }
+  function replayForm(r) {
+    var x = r || { title: "", recorded_on: new Date().toISOString().slice(0, 10), video_url: "", description: "", published: true }, id = esc(r ? r.id : "new");
+    return '<section class="panel"><form data-form="replay" data-id="' + (r ? id : "") + '" novalidate><h3>' + (r ? esc(r.title) : "Nuova replica") + '</h3><div class="grid-2">' +
+      '<label class="field" for="rt-' + id + '"><span>Titolo</span><input type="text" id="rt-' + id + '" name="title" value="' + esc(x.title) + '"></label>' +
+      '<label class="field" for="rv-' + id + '"><span>Link al video</span><input type="url" id="rv-' + id + '" name="video_url" placeholder="https://youtu.be/…" value="' + esc(x.video_url) + '"></label>' +
+      '<label class="field" for="rd-' + id + '"><span>Registrata il</span><input type="date" id="rd-' + id + '" name="recorded_on" value="' + esc(x.recorded_on || "") + '"></label>' +
+      '<label class="field" for="re-' + id + '"><span>Evento collegato</span><select id="re-' + id + '" name="event_id">' + eventOptions(x.event_id) + "</select></label>" +
+      '<label class="field" for="rs-' + id + '" style="grid-column:1/-1"><span>Descrizione breve</span><input type="text" id="rs-' + id + '" name="description" value="' + esc(x.description || "") + '"></label>' +
+      '</div><label class="check" for="rp-' + id + '"><input type="checkbox" id="rp-' + id + '" name="published"' + (x.published !== false ? " checked" : "") + "> <span><b>Pubblicata</b> per gli iscritti</span></label>" +
+      '<div class="btn-row"><button class="btn small primary" type="submit">' + (r ? "Salva" : "Aggiungi replica") + "</button>" +
+      (r ? '<button class="btn small danger" type="button" data-action="rp-del" data-id="' + id + '">' + icon("trash") + "Elimina</button>" : "") + "</div></form></section>";
+  }
+  function currentEvent() { var h = location.hash.slice(1); return h.indexOf("g-ev-") === 0 ? EV.events.filter(function (e) { return e.id === h.slice(5); })[0] : null; }
+  function viewEditEvent(id) {
+    setMain('<a class="back" href="#g-eventi">← Eventi</a><div id="ev-edit"><p class="loading">Caricamento…</p></div>', "gestione");
+    loadAgenda(true).then(function () {
+      var box = document.getElementById("ev-edit"); if (!box) return;
+      var ev = id === "nuovo" ? null : EV.events.filter(function (e) { return e.id === id; })[0];
+      if (id !== "nuovo" && !ev) { box.innerHTML = '<p class="empty">Evento non trovato.</p>'; return; }
+      var x = ev || { title: "", kind: "incontro", area: "marche", starts_at: "", ends_at: "", place: "", city: "", summary: "", description: "", link_url: "", link_label: "", published: true, needs_hands: false };
+      var m = (ev && EV.mob[ev.id]) || {};
+      var sign = ev ? EV.signups.filter(function (s) { return s.event_id === ev.id; }) : [];
+      var opts = function (o, sel) { return Object.keys(o).map(function (k) { return '<option value="' + k + '"' + (k === sel ? " selected" : "") + ">" + o[k] + "</option>"; }).join(""); };
+      var src = posterSrc(ev);
+      box.innerHTML = '<div class="page-head"><span class="eyebrow">Area staff · Evento</span><h1>' + (ev ? esc(ev.title) : "Nuovo evento") + "</h1>" +
+        (ev ? '<p><a href="../eventi/#evento-' + esc(ev.id) + '" target="_blank">Vedi la pagina pubblica ↗</a></p>' : "") + "</div>" +
+        '<div class="ev-edit-grid"><form class="panel" id="f-event" data-form="event" novalidate><h2>Dettagli</h2><div class="grid-2">' +
+          '<label class="field" for="ev-title" style="grid-column:1/-1"><span>Titolo</span><input type="text" id="ev-title" name="title" value="' + esc(x.title) + '"></label>' +
+          '<label class="field" for="ev-kind"><span>Tipo</span><select id="ev-kind" name="kind">' + opts(EKIND, x.kind) + "</select></label>" +
+          '<label class="field" for="ev-area"><span>Zona</span><select id="ev-area" name="area">' + opts(EAREA, x.area) + "</select></label>" +
+          '<label class="field" for="ev-start"><span>Inizio</span><input type="datetime-local" id="ev-start" name="starts_at" value="' + esc(toLocalInput(x.starts_at)) + '"></label>' +
+          '<label class="field" for="ev-end"><span>Fine <small>(facoltativa)</small></span><input type="datetime-local" id="ev-end" name="ends_at" value="' + esc(toLocalInput(x.ends_at)) + '"></label>' +
+          '<label class="field" for="ev-place"><span>Luogo</span><input type="text" id="ev-place" name="place" placeholder="Es. Sala del Consiglio, oppure Online" value="' + esc(x.place || "") + '"></label>' +
+          '<label class="field" for="ev-city"><span>Città</span><input type="text" id="ev-city" name="city" value="' + esc(x.city || "") + '"></label>' +
+          '<label class="field" for="ev-sum" style="grid-column:1/-1"><span>In una frase</span><input type="text" id="ev-sum" name="summary" maxlength="200" value="' + esc(x.summary || "") + '"></label>' +
+          '<label class="field" for="ev-desc" style="grid-column:1/-1"><span>Descrizione <small>(facoltativa)</small></span><textarea id="ev-desc" name="description" rows="4">' + esc(x.description || "") + "</textarea></label>" +
+          '<label class="field" for="ev-link"><span>Link per partecipare <small>(facoltativo)</small></span><input type="url" id="ev-link" name="link_url" placeholder="https://…" value="' + esc(x.link_url || "") + '"></label>' +
+          '<label class="field" for="ev-ll"><span>Testo del pulsante</span><input type="text" id="ev-ll" name="link_label" placeholder="Partecipa" value="' + esc(x.link_label || "") + '"></label>' +
+        "</div>" +
+        '<fieldset class="mob-fs"><legend><label class="check" for="ev-hands"><input type="checkbox" id="ev-hands" name="needs_hands"' + (x.needs_hands ? " checked" : "") + "> <span><b>Serve una mano</b>: raccogli le adesioni «Ci sono» nell'Avamposto</span></label></legend>" +
+          '<div class="grid-2">' +
+          '<label class="field" for="ev-slots"><span>Turni <small>(uno per riga)</small></span><textarea id="ev-slots" name="slots" rows="3" placeholder="10:00 – 11:30&#10;11:30 – 13:00">' + esc(m.slots || "") + "</textarea></label>" +
+          '<div class="grid-2" style="grid-template-columns:1fr">' +
+          '<label class="field" for="ev-meet"><span>Punto di ritrovo</span><input type="text" id="ev-meet" name="meeting_point" value="' + esc(m.meeting_point || "") + '"></label>' +
+          '<label class="field" for="ev-kit"><span>Link al kit del volontario <small>(Drive con volantini, grafiche, testi)</small></span><input type="url" id="ev-kit" name="kit_url" placeholder="https://drive.google.com/…" value="' + esc(m.kit_url || "") + '"></label></div>' +
+          '<label class="field" for="ev-notes" style="grid-column:1/-1"><span>Da sapere per i volontari</span><input type="text" id="ev-notes" name="notes" value="' + esc(m.notes || "") + '"></label>' +
+          "</div><small class=\"note\">Turni, ritrovo e kit li vedono solo gli iscritti all'Avamposto.</small></fieldset>" +
+        '<label class="check" for="ev-pub"><input type="checkbox" id="ev-pub" name="published"' + (x.published !== false ? " checked" : "") + "> <span><b>Pubblicato</b> nella pagina Eventi. Senza spunta resta una bozza.</span></label>" +
+        '<div class="btn-row"><button class="btn primary" type="submit">' + (ev ? "Salva" : "Crea evento") + "</button>" +
+        (ev ? '<button class="btn danger" type="button" data-action="ev-del" data-id="' + esc(ev.id) + '">' + icon("trash") + "Elimina evento</button>" : "") + "</div></form>" +
+        '<div class="ev-side"><section class="panel"><h2>Locandina</h2>' +
+          (ev ? (src ? '<img class="poster-prev" src="' + esc(src) + '" alt="Locandina attuale">' : '<p class="empty">Nessuna locandina. Va bene anche verticale (formato Instagram 4:5 o storia).</p>') +
+            '<div class="btn-row"><label class="btn small" for="ev-poster">' + (src ? "Cambia locandina" : "Carica locandina") + '</label><input type="file" id="ev-poster" class="visually-hidden" accept="image/jpeg,image/png,image/webp">' +
+            (src ? '<button class="btn small quiet" type="button" data-action="poster-del">Togli</button>' : "") + "</div>"
+            : '<p class="empty">Salva prima l\'evento, poi carica la locandina.</p>') + "</section>" +
+        (ev && ev.needs_hands ? '<section class="panel"><div class="block-head"><h2>Chi c\'è (' + sign.length + ")</h2></div>" +
+          (sign.length ? signupTable(ev, sign) + '<div class="btn-row"><button class="btn small" type="button" data-action="su-copy">' + icon("copy") + "Copia elenco per WhatsApp</button>" +
+            '<button class="btn small quiet" type="button" data-action="su-csv">' + icon("download") + "CSV</button></div>" : '<p class="empty">Ancora nessuna adesione.</p>') + "</section>" : "") +
+        "</div></div>";
+    }).catch(function (e) { toast(e.message, true); });
+  }
+  function signupTable(ev, sign) {
+    var slots = slotsOf(ev);
+    var groups = slots.length ? slots.concat(sign.some(function (s) { return !s.slot || slots.indexOf(s.slot) < 0; }) ? [""] : []) : [""];
+    return groups.map(function (g) {
+      var list = sign.filter(function (s) { return slots.length ? (g ? s.slot === g : (!s.slot || slots.indexOf(s.slot) < 0)) : true; });
+      return (slots.length ? '<h3 class="slot-h">' + (g ? "Turno " + esc(g) : "Senza turno") + " <span>" + list.length + "</span></h3>" : "") +
+        (list.length ? '<ul class="signups">' + list.map(function (s) {
+          return "<li><div><b>" + esc(s.full_name || s.email) + "</b><span>" + esc(s.email) + (s.note ? " · " + esc(s.note) : "") + "</span></div>" +
+            '<button class="btn small quiet" type="button" data-action="su-remove" data-id="' + esc(s.event_id) + '" data-user="' + esc(s.user_id) + '" aria-label="Togli ' + esc(s.full_name || s.email) + '">' + icon("trash") + "</button></li>";
+        }).join("") + "</ul>" : '<p class="sub">Nessuno.</p>');
+    }).join("");
+  }
+  function signupText(ev) {
+    var sign = EV.signups.filter(function (s) { return s.event_id === ev.id; }), slots = slotsOf(ev);
+    var out = ["*" + ev.title + "*", fmtWhen(ev.starts_at) + (evWhere(ev) ? " · " + evWhere(ev) : ""), ""];
+    if (slots.length) slots.forEach(function (g) {
+      out.push("Turno " + g + ":"); sign.filter(function (s) { return s.slot === g; }).forEach(function (s) { out.push("– " + (s.full_name || s.email)); }); out.push("");
+    }); else sign.forEach(function (s) { out.push("– " + (s.full_name || s.email)); });
+    var m = EV.mob[ev.id] || {}; if (m.meeting_point) out.push("Ritrovo: " + m.meeting_point);
+    return out.join("\n").trim();
+  }
+
+  document.addEventListener("submit", function (e) {
+    var f = e.target, kind = f.getAttribute && f.getAttribute("data-form");
+    if (kind !== "event" && kind !== "replay" && kind !== "signup") return;
+    e.preventDefault();
+    var val = function (n) { var el = f.elements[n]; return el ? String(el.value || "").trim() : ""; };
+    var on = function (n) { var el = f.elements[n]; return !!(el && el.checked); };
+    var btn = f.querySelector("button[type=submit]"); busy(btn, true);
+    var stop = function (msg) { toast(msg, true); busy(btn, false); };
+    if (kind === "signup") {
+      var radio = f.querySelector("input[name=slot]:checked");
+      D.signup(f.getAttribute("data-id"), { slot: radio ? radio.value : "", note: val("note"), full_name: (S.profile && S.profile.full_name) || "" })
+        .then(function () { toast("Grazie, ci sei!"); viewAgenda("m-" + f.getAttribute("data-id")); }).catch(function (x) { stop(x.message); });
+      return;
+    }
+    if (kind === "replay") {
+      if (!val("title")) return stop("Scrivi il titolo della replica.");
+      if (!/^https:\/\//.test(val("video_url"))) return stop("Incolla il link al video (deve iniziare con https://).");
+      D.saveReplay({ id: f.getAttribute("data-id") || undefined, title: val("title"), video_url: val("video_url"), recorded_on: val("recorded_on") || new Date().toISOString().slice(0, 10),
+        event_id: val("event_id") || null, description: val("description"), published: on("published") })
+        .then(function () { toast("Replica salvata"); viewAdminEvents(); }).catch(function (x) { stop(x.message); });
+      return;
+    }
+    var ev = currentEvent();
+    if (!val("title")) return stop("Scrivi il titolo dell'evento.");
+    if (!val("starts_at")) return stop("Indica data e ora di inizio.");
+    var start = new Date(val("starts_at")), end = val("ends_at") ? new Date(val("ends_at")) : null;
+    if (isNaN(start)) return stop("Data di inizio non valida.");
+    if (end && end < start) return stop("La fine non può essere prima dell'inizio.");
+    if (val("link_url") && !/^https?:\/\//.test(val("link_url"))) return stop("Il link per partecipare deve iniziare con https://");
+    if (val("kit_url") && !/^https:\/\//.test(val("kit_url"))) return stop("Il link al kit deve iniziare con https://");
+    var row = { id: ev ? ev.id : undefined, title: val("title"), kind: val("kind"), area: val("area"), starts_at: start.toISOString(), ends_at: end ? end.toISOString() : null,
+      place: val("place"), city: val("city"), summary: val("summary"), description: val("description"), link_url: val("link_url"), link_label: val("link_label"),
+      needs_hands: on("needs_hands"), published: on("published") };
+    var mob = { slots: val("slots"), meeting_point: val("meeting_point"), kit_url: val("kit_url"), notes: val("notes") };
+    D.saveEvent(row).then(function (saved) {
+      var hasMob = mob.slots || mob.meeting_point || mob.kit_url || mob.notes || (ev && EV.mob[ev.id]);
+      return (hasMob ? D.saveMobilization(Object.assign({ event_id: saved.id }, mob)) : Promise.resolve()).then(function () { return saved; });
+    }).then(function (saved) {
+      toast(ev ? "Evento salvato" : "Evento creato: ora puoi caricare la locandina");
+      if (ev) viewEditEvent(saved.id); else location.hash = "#g-ev-" + saved.id;
+    }).catch(function (x) { stop(x.message); });
+  });
+  document.addEventListener("change", function (e) {
+    if (e.target.id !== "ev-poster" || !e.target.files[0]) return;
+    var ev = currentEvent(); if (!ev) return;
+    toast("Carico la locandina…");
+    shrinkImage(e.target.files[0]).then(function (b) { return D.setPoster(ev, b); }).then(function () { toast("Locandina aggiornata"); viewEditEvent(ev.id); })
+      .catch(function (x) { toast(x.message, true); });
+  });
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-action]"); if (!b) return;
+    var act = b.getAttribute("data-action"), id = b.getAttribute("data-id");
+    if (act === "su-cancel") { D.cancelSignup(id).then(function () { toast("Adesione tolta"); viewAgenda("m-" + id); }).catch(function (x) { toast(x.message, true); }); }
+    else if (act === "su-remove") {
+      if (!confirm("Togliere questa persona dall'elenco?")) return;
+      D.removeSignup(id, b.getAttribute("data-user")).then(function () { viewEditEvent(id); }).catch(function (x) { toast(x.message, true); });
+    } else if (act === "su-copy") {
+      var ev = currentEvent(); if (!ev) return; var txt = signupText(ev);
+      if (navigator.clipboard) navigator.clipboard.writeText(txt).then(function () { toast("Elenco copiato: incollalo nel gruppo WhatsApp"); }, function () { toast("Non riesco a copiare", true); });
+    } else if (act === "su-csv") {
+      var ev2 = currentEvent(); if (!ev2) return;
+      var rows = [["Nome", "Email", "Turno", "Nota", "Data adesione"]].concat(EV.signups.filter(function (s) { return s.event_id === ev2.id; }).map(function (s) { return [s.full_name || "", s.email, s.slot || "", s.note || "", fmtDate(s.created_at)]; }));
+      var csv = rows.map(function (r) { return r.map(function (c) { return '"' + String(c).replace(/"/g, '""') + '"'; }).join(";"); }).join("\r\n");
+      var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" }));
+      a.download = "adesioni-" + slugify(ev2.title) + ".csv"; document.body.appendChild(a); a.click(); setTimeout(function () { a.remove(); }, 500);
+    } else if (act === "poster-del") {
+      var ev3 = currentEvent(); if (!ev3) return;
+      D.setPoster(ev3, null).then(function () { toast("Locandina tolta"); viewEditEvent(ev3.id); }).catch(function (x) { toast(x.message, true); });
+    } else if (act === "ev-del") {
+      var ev4 = currentEvent(); if (!ev4) return;
+      if (!confirm("Eliminare «" + ev4.title + "»? Spariscono anche turni e adesioni. Non si può annullare.")) return;
+      D.deleteEvent(ev4).then(function () { toast("Evento eliminato"); location.hash = "#g-eventi"; }).catch(function (x) { toast(x.message, true); });
+    } else if (act === "rp-del") {
+      if (!confirm("Eliminare questa replica?")) return;
+      D.deleteReplay(id).then(function () { toast("Replica eliminata"); viewAdminEvents(); }).catch(function (x) { toast(x.message, true); });
+    }
+  });
+
   /* ---------------- gestione ---------------- */
   function profileByEmail(mail) { return A.profiles.filter(function (p) { return p.email === mail; })[0]; }
   function personCell(mail) {
@@ -642,6 +937,7 @@
         '<a class="stat' + (reqs.length ? " alert" : "") + '" href="#richieste"><b>' + reqs.length + "</b><span>Richieste da approvare</span></a>" +
         '<div class="stat"><b>' + pub.length + "</b><span>Iniziative pubblicate</span></div>" +
         '<div class="stat"><b>' + active.length + "</b><span>Accessi attivi ai corsi</span></div>" +
+        '<a class="stat" href="#g-eventi"><b>' + icon("evento") + "</b><span>Eventi, mobilitazione e repliche</span></a>" +
         '<a class="stat" href="#g-squadra"><b>' + icon("team") + "</b><span>Gestisci la squadra e i canali WhatsApp</span></a>" +
       "</div>" +
       '<section class="block" id="richieste"><div class="block-head"><h2>Richieste da approvare</h2></div>' +

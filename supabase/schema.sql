@@ -382,6 +382,142 @@ create policy squadra_admin_delete on storage.objects for delete to authenticate
   using (bucket_id = 'squadra' and public.is_admin());
 
 -- ---------------------------------------------------------------------
+-- Eventi (pagina pubblica) e repliche delle live (solo iscritti)
+-- ---------------------------------------------------------------------
+create table if not exists public.events (
+  id uuid primary key default gen_random_uuid(),
+  title text not null check (char_length(title) between 2 and 160),
+  starts_at timestamptz not null,
+  ends_at timestamptz check (ends_at is null or ends_at >= starts_at),
+  place text,
+  city text,
+  summary text,
+  description text,
+  link_url text check (link_url is null or link_url ~ '^https?://'),
+  link_label text,
+  poster_path text,
+  kind text not null default 'incontro' check (kind in ('incontro','aperitivo','mobilitazione','diretta','formazione')),
+  area text not null default 'marche' check (area in ('marche','pu','an','mc','fm','ap','online','fuori')),
+  needs_hands boolean not null default false,   -- «Serve una mano»: si raccolgono le adesioni nell'Avamposto
+  published boolean not null default true,
+  created_at timestamptz not null default now()
+);
+create index if not exists events_starts_idx on public.events (starts_at);
+
+create table if not exists public.event_replays (
+  id uuid primary key default gen_random_uuid(),
+  event_id uuid references public.events(id) on delete set null,
+  title text not null check (char_length(title) between 2 and 160),
+  recorded_on date not null default current_date,
+  video_url text not null check (video_url ~ '^https://'),
+  description text,
+  published boolean not null default true,
+  created_at timestamptz not null default now()
+);
+
+alter table public.events enable row level security;
+alter table public.event_replays enable row level security;
+
+-- Gli eventi pubblicati li vede chiunque; le bozze solo lo staff.
+drop policy if exists events_read on public.events;
+create policy events_read on public.events for select to anon, authenticated
+  using (published or public.is_admin());
+drop policy if exists events_admin on public.events;
+create policy events_admin on public.events for all to authenticated
+  using (public.is_admin()) with check (public.is_admin());
+grant select on public.events to anon;
+grant select, insert, update, delete on public.events to authenticated;
+
+-- Le repliche (con il link al video) solo per chi è entrato nell'Avamposto.
+drop policy if exists replays_read on public.event_replays;
+create policy replays_read on public.event_replays for select to authenticated
+  using (auth.uid() is not null and (published or public.is_admin()));
+drop policy if exists replays_admin on public.event_replays;
+create policy replays_admin on public.event_replays for all to authenticated
+  using (public.is_admin()) with check (public.is_admin());
+grant select, insert, update, delete on public.event_replays to authenticated;
+
+-- Elenco pubblico delle repliche SENZA il link al video: serve alla pagina Eventi
+-- per mostrare che la replica esiste e mandare all'Avamposto.
+create or replace function public.replay_list()
+returns table (id uuid, event_id uuid, title text, recorded_on date, description text)
+language sql stable security definer set search_path = public as $$
+  select r.id, r.event_id, r.title, r.recorded_on, r.description
+  from public.event_replays r where r.published
+  order by r.recorded_on desc, r.created_at desc;
+$$;
+revoke all on function public.replay_list() from public;
+grant execute on function public.replay_list() to anon, authenticated;
+
+-- Mobilitazione: turni, kit e istruzioni per i volontari (solo iscritti) e adesioni «Ci sono».
+create table if not exists public.event_mobilization (
+  event_id uuid primary key references public.events(id) on delete cascade,
+  slots text,          -- un turno per riga, es. «10:00–11:30»
+  meeting_point text,  -- dove ci si trova
+  kit_url text check (kit_url is null or kit_url ~ '^https://'),
+  notes text,
+  updated_at timestamptz not null default now()
+);
+create table if not exists public.event_signups (
+  event_id uuid not null references public.events(id) on delete cascade,
+  user_id uuid not null default auth.uid(),
+  email text not null default public.current_email(),
+  full_name text,
+  slot text,
+  note text check (note is null or char_length(note) <= 300),
+  created_at timestamptz not null default now(),
+  primary key (event_id, user_id)
+);
+alter table public.event_mobilization enable row level security;
+alter table public.event_signups enable row level security;
+
+drop policy if exists mob_read on public.event_mobilization;
+create policy mob_read on public.event_mobilization for select to authenticated using (auth.uid() is not null);
+drop policy if exists mob_admin on public.event_mobilization;
+create policy mob_admin on public.event_mobilization for all to authenticated using (public.is_admin()) with check (public.is_admin());
+grant select, insert, update, delete on public.event_mobilization to authenticated;
+
+-- Ognuno vede e gestisce solo la propria adesione; lo staff le vede tutte.
+drop policy if exists signups_own_read on public.event_signups;
+create policy signups_own_read on public.event_signups for select to authenticated using (user_id = auth.uid() or public.is_admin());
+drop policy if exists signups_own_insert on public.event_signups;
+create policy signups_own_insert on public.event_signups for insert to authenticated
+  with check (user_id = auth.uid() and lower(email) = public.current_email()
+    and exists (select 1 from public.events e where e.id = event_id and e.published and e.needs_hands));
+drop policy if exists signups_own_update on public.event_signups;
+create policy signups_own_update on public.event_signups for update to authenticated
+  using (user_id = auth.uid()) with check (user_id = auth.uid() and lower(email) = public.current_email());
+drop policy if exists signups_delete on public.event_signups;
+create policy signups_delete on public.event_signups for delete to authenticated using (user_id = auth.uid() or public.is_admin());
+grant select, insert, update, delete on public.event_signups to authenticated;
+
+-- Numero di adesioni per evento, senza nomi: la pagina pubblica mostra «12 ci sono già».
+create or replace function public.signup_counts()
+returns table (event_id uuid, n bigint)
+language sql stable security definer set search_path = public as $$
+  select s.event_id, count(*) from public.event_signups s
+  join public.events e on e.id = s.event_id and e.published
+  group by s.event_id;
+$$;
+revoke all on function public.signup_counts() from public;
+grant execute on function public.signup_counts() to anon, authenticated;
+
+-- Locandine: cartella pubblica, solo lo staff carica
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('locandine', 'locandine', true, 8388608, array['image/jpeg', 'image/png', 'image/webp'])
+on conflict (id) do update set public = true, file_size_limit = 8388608,
+  allowed_mime_types = array['image/jpeg', 'image/png', 'image/webp'];
+drop policy if exists locandine_admin_insert on storage.objects;
+create policy locandine_admin_insert on storage.objects for insert to authenticated
+  with check (bucket_id = 'locandine' and public.is_admin());
+drop policy if exists locandine_admin_update on storage.objects;
+create policy locandine_admin_update on storage.objects for update to authenticated
+  using (bucket_id = 'locandine' and public.is_admin());
+drop policy if exists locandine_admin_delete on storage.objects;
+create policy locandine_admin_delete on storage.objects for delete to authenticated
+  using (bucket_id = 'locandine' and public.is_admin());
+
+-- ---------------------------------------------------------------------
 -- Ultimo passo (una volta sola): la mail condivisa dello staff diventa amministratore.
 -- Sostituisci l'indirizzo e togli i due trattini iniziali prima di eseguire.
 -- ---------------------------------------------------------------------
