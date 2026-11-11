@@ -278,10 +278,23 @@ footer a { color: #E4E6FF; }
 .vh b { font-size: .92rem; margin-top: auto; }
 .vh small { color: var(--muted); font-size: .82rem; display: block; font-weight: 500; }
 @media (max-width: 860px) { .vh-grid { grid-template-columns: 1fr; } }
+
+/* Apertura con video verticale: su schermi larghi il video sta a destra come una finestra a tutta altezza,
+   con lo stesso fotogramma sfocato sullo sfondo; su telefono riempie lo schermo. */
+.intro-blur { position: absolute; inset: -40px; z-index: -3; background: #0C1467 center / cover no-repeat; filter: blur(34px) saturate(1.1); opacity: .55; display: none; }
+.intro.split .intro-blur { display: block; }
+@media (min-aspect-ratio: 1/1) {
+  .intro.split .intro-media { left: auto; width: min(46vw, 680px); -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 22%); mask-image: linear-gradient(90deg, transparent 0, #000 22%); }
+  .intro.split::before { background: linear-gradient(90deg, rgba(12,20,103,.92) 0%, rgba(12,20,103,.78) 45%, rgba(12,20,103,.15) 75%, rgba(12,20,103,.35) 100%), linear-gradient(180deg, rgba(12,20,103,.2) 60%, rgba(12,20,103,.85) 100%); }
+  .intro.split .intro-body { padding-right: min(40vw, 600px); }
+  .intro.split h1 { font-size: clamp(2.4rem, 4.4vw, 4.4rem); max-width: 12ch; }
+  .intro.split .intro-foot { padding-top: 22px; }
+}
 </style>
 </head>
 <body>
 <section class="intro" id="intro" aria-label="Apertura">
+  <div class="intro-blur" id="intro-blur" aria-hidden="true"></div>
   <div class="intro-media" id="intro-media">
     <picture>
       <source media="(max-aspect-ratio: 4/5)" srcset="assets/foto/fiaccolata-ucraina.jpg">
@@ -295,7 +308,7 @@ footer a { color: #E4E6FF; }
   <div class="intro-body">
     <span class="intro-kicker" id="intro-kicker">Azione Under 30 · Marche</span>
     <h1 id="intro-frase">La politica è troppo importante per <span class="hl">lasciarla agli altri.</span></h1>
-    <p class="intro-sub" id="intro-sotto">Siamo ragazzi e ragazze delle Marche che hanno deciso di metterci la faccia. Con idee chiare, toni civili e tanta voglia di fare.</p>
+    <p class="intro-sub" id="intro-sotto">Ogni cosa che ti fa arrabbiare l'ha decisa qualcuno che si è presentato. Stavolta presentati tu.</p>
   </div>
   <div class="intro-foot">
     <a class="intro-enter" href="#home">Entra <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
@@ -517,12 +530,22 @@ SocialFeed.render({ base: "", box: document.getElementById("ig-grid"), limit: 4,
   if (c.immagine) { var img = media.querySelector("img"); img.src = c.immagine; }
   if (c.immagineTelefono) { media.querySelector("source").srcset = c.immagineTelefono; }
   var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (c.video && !still) {
-    var v = document.createElement("video");
-    v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.setAttribute("aria-hidden", "true");
-    v.poster = media.querySelector("img").currentSrc || media.querySelector("img").src;
-    v.src = c.video;
-    v.addEventListener("canplay", function () { media.innerHTML = ""; media.appendChild(v); v.play().catch(function () {}); }, { once: true });
+  if (c.video) {
+    var intro = document.getElementById("intro"), poster = c.copertinaVideo || "";
+    // il video è verticale: copertina come immagine (anche per chi riduce le animazioni) e sfondo sfocato sugli schermi larghi
+    if (poster) {
+      media.querySelector("img").src = poster; media.querySelector("source").srcset = poster;
+      document.getElementById("intro-blur").style.backgroundImage = "url('" + poster + "')";
+    }
+    intro.classList.add("split");
+    if (!still) {
+      var v = document.createElement("video");
+      v.muted = true; v.defaultMuted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
+      v.setAttribute("muted", ""); v.setAttribute("playsinline", ""); v.setAttribute("aria-hidden", "true"); v.preload = "auto";
+      if (poster) v.poster = poster;
+      v.addEventListener("canplay", function () { media.innerHTML = ""; media.appendChild(v); var pr = v.play(); if (pr) pr.catch(function () {}); }, { once: true });
+      v.src = c.video;
+    }
   }
 })();
 </script>

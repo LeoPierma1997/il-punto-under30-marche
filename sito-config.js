@@ -13,10 +13,11 @@ window.SITO_CONFIG = {
   intro: {
     kicker: "Azione Under 30 · Marche",
     frase: "La politica è troppo importante per *lasciarla agli altri.*",
-    sotto: "Siamo ragazzi e ragazze delle Marche che hanno deciso di metterci la faccia. Con idee chiare, toni civili e tanta voglia di fare.",
+    sotto: "Ogni cosa che ti fa arrabbiare l'ha decisa qualcuno che si è presentato. Stavolta presentati tu.",
     immagine: "assets/foto/piazza-bandiere.jpg",
     immagineTelefono: "assets/foto/fiaccolata-ucraina.jpg",
-    video: ""
+    video: "assets/video/apertura.mp4",
+    copertinaVideo: "assets/video/apertura-poster.jpg"
   },
   // Informativa privacy: il titolare è Azione. Compila questi campi con i dati che ti dà il partito
   // (sede legale, codice fiscale, email del Responsabile della protezione dei dati). Finché sono vuoti,
