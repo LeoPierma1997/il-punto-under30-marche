@@ -1,0 +1,323 @@
+{
+  "date": "2026-11-11",
+  "label": "Mercoledì 11 novembre 2026",
+  "intro": "Ad Abu Dhabi riprendono i negoziati sull'Ucraina con l'Europa a margine; in Italia la manovra divide banche, sindacati e Regioni sulla sanità, mentre nelle Marche il Consiglio regionale si scontra sull'inchiesta sulla ricostruzione e a Cerreto d'Esi si vota sull'intesa Electrolux.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Ucraina, ad Abu Dhabi i primi negoziati dopo nove mesi: Usa mediatori, Mosca non vuole gli europei al tavolo",
+          "summary": "Il 10 novembre sono ripresi ad Abu Dhabi i colloqui tra Russia, Ucraina e Stati Uniti, i primi dopo oltre nove mesi. Lo scoglio resta il Donbas: Mosca chiede a Kiev di cedere il 20% che non controlla, Kiev lo rifiuta. Gli inviati americani Witkoff e Kushner puntano a un'intesa più ampia sulla sicurezza europea; i rappresentanti Ue sono presenti solo a margine.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/10/negoziati-ucraina-abu-dhabi/",
+          "published": "2026-11-10",
+          "tags": [
+            "Ucraina",
+            "Negoziati"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Se l'Europa partecipa solo ai margini di una trattativa che disegna la sua sicurezza, chi tutela gli interessi dei giovani europei? Spunto per una domanda sul peso politico dell'Ue. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Abu Dhabi, dichiarazione congiunta di Ue, Francia, Germania, Italia, Regno Unito, Ucraina, Usa e Nato sui principi per l'Ucraina",
+          "summary": "A margine dei colloqui, i partner europei hanno fissato i principi: sovranità e integrità territoriale dell'Ucraina, garanzie di sicurezza credibili e una Nato forte al centro della difesa euro-atlantica. Il testo punta a valorizzare le istituzioni di sicurezza europee anche dopo la guerra. Non sono indicate date per i prossimi incontri con la Russia.",
+          "source": "Rappresentanza in Italia della Commissione europea",
+          "url": "https://italy.representation.ec.europa.eu/notizie-ed-eventi/notizie/dichiarazione-sui-colloqui-odierni-ad-abu-dhabi-tra-ue-francia-germania-italia-regno-unito-ucraina-2026-11-10_it",
+          "published": "2026-11-10",
+          "tags": [
+            "Ue",
+            "Sicurezza"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Una dichiarazione comune è un primo passo, ma conta se diventa capacità di difesa e voce unica. Quali strumenti comuni servono perché i principi pesino al tavolo? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Usa, Massie avvia l'impeachment contro il segretario alla Difesa Hegseth: voto possibile alla Camera entro l'11 novembre",
+          "summary": "Il repubblicano Thomas Massie ha presentato cinque capi d'accusa contro Hegseth, tra cui la guerra contro l'Iran oltre i limiti previsti senza autorizzazione del Congresso. Trump difende il ministro; i Democratici, che hanno vinto le elezioni di metà mandato, voteranno a favore. La condanna al Senato richiede due terzi, quindi resta improbabile.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/09/impeachment-hegseth-massie/",
+          "published": "2026-11-09",
+          "tags": [
+            "Usa",
+            "Impeachment"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Il controllo del Congresso sui poteri di guerra è un tema di equilibrio tra istituzioni, caro a una cultura liberale. Cosa insegna all'Europa sulla necessità di contrappesi? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Russia, Novaya Gazeta chiude l'edizione russa: era l'ultimo giornale indipendente",
+          "summary": "Il 9 novembre il quotidiano di Anna Politkovskaja ha cessato le pubblicazioni in Russia dopo l'inserimento tra gli «agenti stranieri», lo sfratto dalla sede e il blocco delle donazioni dei lettori. Resta attiva da Riga la versione europea.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/10/novaya-gazzetta-giornale-russo-chiusura/",
+          "published": "2026-11-10",
+          "tags": [
+            "Russia",
+            "Libertà di stampa"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "La fine dell'ultimo giornale indipendente russo ricorda quanto la libertà di stampa sia parte della democrazia liberale. Come difenderla anche da noi, con pluralismo e trasparenza? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Cyberattacco ai supermercati francesi: Parigi accusa l'Iran e chiederà sanzioni europee",
+          "summary": "Il ministro degli Esteri Barrot attribuisce ai Guardiani della Rivoluzione l'attacco di metà ottobre che ha spento i frigoriferi di circa 700 supermercati; la procura di Parigi indaga su un gruppo ritenuto affiliato. Gruppi filorussi hanno però rivendicato gli attacchi e Tajani li ritiene responsabili di quelli in Italia: una rivendicazione non prova le responsabilità.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/09/francia-supermercati-accusa-iran/",
+          "published": "2026-11-09",
+          "tags": [
+            "Cybersicurezza",
+            "Iran"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "La sicurezza delle infrastrutture è una questione europea: serve una risposta coordinata, non 27 difese separate. Quanto pesa la cybersicurezza nel dibattito sulla difesa comune? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, le banche contestano i nuovi oneri: l'Abi parla di dubbi di costituzionalità; Cgil, Cisl e Uil criticano il testo",
+          "summary": "Nelle audizioni alla Camera l'Abi stima in circa 22 miliardi l'impatto delle misure fiscali sulle banche dal 2025 e chiede una revisione profonda. I sindacati criticano la manovra: la Cisl di Fumarola chiede di ripristinare la rivalutazione delle pensioni, rimettere risorse sulla scuola e rilanciare la sanità pubblica.",
+          "source": "DIRE",
+          "url": "https://www.dire.it/10-11-2026/1287334-tg-politico-parlamentare-ledizione-di-martedi-10-novembre-2026/",
+          "published": "2026-11-10",
+          "tags": [
+            "Manovra",
+            "Banche"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Le coperture contano quanto le misure: tassare un settore a colpi di contributi straordinari è una politica fiscale o una toppa? Spunto sulla stabilità delle regole per chi investe. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sanità, protesta delle Regioni anche di centrodestra: nella manovra solo 2,3 miliardi in più, contro i 5-5,5 chiesti da Schillaci",
+          "summary": "Guidati dall'assessore lombardo Bertolaso, assessori e presidenti di varie aree contestano i fondi. Il Fondo sanitario cresce in valore assoluto (146,3 miliardi nel 2027) ma scende in rapporto al Pil, dal 6,3% del 2022 al 6,1%. Parte delle risorse è vincolata a voci specifiche, riducendo l'autonomia regionale.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/10/regioni-tagli-sanita-fondi-soldi-legge-di-bilancio-bertolaso/",
+          "published": "2026-11-10",
+          "tags": [
+            "Sanità",
+            "Manovra"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Quando anche le Regioni governate dal centrodestra protestano, il problema è strutturale. Quale quota di Pil vogliamo destinare alla sanità pubblica per le prossime generazioni? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Svimez: il Sud cresce più del Centro-Nord (+9,5% di Pil tra 2021 e 2025), ma dei nuovi occupati solo 70mila hanno meno di 35 anni",
+          "summary": "Secondo il rapporto presentato alla Camera, il Pil meridionale è salito del 9,5% contro il 6,6% del Centro-Nord, grazie a Superbonus e Pnrr, con una frenata attesa nel 2027. Nel Sud l'occupazione è aumentata di 643mila unità dal 2021, ma i giovani hanno beneficiato poco della crescita; un occupato su cinque è a rischio povertà.",
+          "source": "DIRE",
+          "url": "https://www.dire.it/10-11-2026/1287334-tg-politico-parlamentare-ledizione-di-martedi-10-novembre-2026/",
+          "published": "2026-11-10",
+          "tags": [
+            "Giovani",
+            "Lavoro"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Crescita senza lavoro giovanile è crescita a metà: un dato utile per un contenuto sui giovani che restano esclusi. Come usare la fine del Pnrr per creare occupazione stabile? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ex Ilva, niente accordo al ministero del Lavoro sulla cassa integrazione: Cigs per oltre 8mila lavoratori, sindacati divisi",
+          "summary": "Acciaierie d'Italia ha chiesto la cassa straordinaria per migliaia di dipendenti, circa 6.800 a Taranto (le cifre riportate variano tra 8.622 e 9.622). Concordato il pagamento diretto da parte dell'Inps; Fiom e Usb non firmano, Fim e Uilm chiedono un nuovo incontro a Palazzo Chigi. Sul tavolo anche due offerte d'acquisto, tra cui quella del gruppo Arvedi.",
+          "source": "AGI",
+          "url": "https://www.agi.it/economia/news/2026-11-10/ilva-cassa-integrazione-39967892/",
+          "published": "2026-11-10",
+          "tags": [
+            "Industria",
+            "Lavoro"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Anni di cassa integrazione senza piano industriale: serve una scelta chiara su cosa produrre e con quale energia. Spunto per una domanda sulla politica industriale. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sanità e appalti in Campania: arrestato l'ex senatore Casillo, presidente di Soresa, accusato di tangenti",
+          "summary": "La Guardia di Finanza ha eseguito una misura cautelare su richiesta della Dda di Napoli: a Casillo sono contestate tangenti legate a una gara da 23,8 milioni per barelle ospedaliere e a un appalto rifiuti a Somma Vesuviana. L'inchiesta coinvolge 13 persone; le accuse sono ancora da accertare.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/10/ex-senatore-tommaso-casillo-custodia-cautelare-carcere-accusa-tangenti/",
+          "published": "2026-11-10",
+          "tags": [
+            "Legalità",
+            "Appalti"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Appalti sanitari e legalità: più trasparenza e controlli sui soggetti che gestiscono denaro pubblico. Quali regole renderebbero le gare tracciabili per i cittadini? Presunzione di innocenza fino a sentenza. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta sisma, scontro in Consiglio regionale: dieci interrogazioni delle opposizioni, risponde la sottosegretaria Luconi",
+          "summary": "Le opposizioni hanno chiesto conto ad Acquaroli dei tempi dell'uscita di Pistarelli, ex capo di gabinetto detenuto con accuse ancora da accertare. Per il presidente ha risposto Luconi (FdI): nessuna notizia di indagini. Il centrodestra parla di «infamia» e «sciacallaggio»; le minoranze chiedono responsabilità politica, commissione d'inchiesta e Anac. Una risoluzione delle opposizioni è stata respinta.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/10/inchiesta-sisma-botta-e-risposta-in-aula-su-interrogazioni-minoranza_82224f5d-5ff8-4ca4-9b71-5307c62ce7be.html",
+          "also": [
+            {
+              "source": "Cronache Maceratesi",
+              "url": "https://www.cronachemaceratesi.it/2026/11/10/il-centrodestra-fa-quadrato-su-acquaroli-una-persona-perbene-che-non-e-indagata-infamia-dalle-opposizioni-video/2124842/"
+            },
+            {
+              "source": "ANSA Marche",
+              "url": "https://www.ansa.it/marche/notizie/2026/11/10/inchiesta-sisma-minoranza-acquaroli-non-vigilo-su-ex-capo-gabinetto_3f015862-c17f-494a-9032-61b37cf14ceb.html"
+            }
+          ],
+          "published": "2026-11-10",
+          "tags": [
+            "Regione",
+            "Legalità"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Responsabilità politica e responsabilità penale sono piani diversi: il punto è la vigilanza sulla ricostruzione. Quali controlli indipendenti e pubblici servono? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Acquaroli in aula: «Chi parla di responsabilità politica usa uno strumento per condannare tutti»; apre a una seduta dedicata alla ricostruzione",
+          "summary": "A fine dibattito il presidente ha detto di sentirsi vittima, insieme ai marchigiani e ai terremotati, e di non essere il «carnefice». Ha definito un «castello di sabbia» l'impianto delle opposizioni e non ha escluso una seduta sulla ricostruzione, se in buona fede. Le contestazioni giudiziarie restano da accertare.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/10/acquaroli-tema-responsabilita-politica-e-strumento-per-condannare-tutti_99758d99-339a-402d-ac01-589ca5a5a877.html",
+          "published": "2026-11-10",
+          "tags": [
+            "Regione",
+            "Ricostruzione"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Una seduta dedicata alla ricostruzione sarebbe utile se avesse dati, atti e calendario. Cosa chiederebbero i giovani delle aree del cratere? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Riesame, otto ore di udienza per Pistarelli e Crucianelli: decisione attesa entro venerdì",
+          "summary": "Davanti al Riesame di Ancona la Dda ha depositato nuovi atti, tra cui una relazione della Guardia di Finanza; le difese sostengono che «non cambiano niente». Il collegio si è riservato; sono previsti interrogatori davanti al gip l'11 e il 17 novembre. Si tratta di ipotesi accusatorie ancora da accertare.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/10/otto-ore-di-udienza-al-riesame-i-giudici-si-riservano-entro-venerdi-la-decisione-su-crucianelli-e-pistarelli/2124838/",
+          "published": "2026-11-10",
+          "tags": [
+            "Legalità",
+            "Sisma"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Le inchieste seguono il loro corso; la politica può occuparsi di prevenzione. Spunto su appalti e subappalti trasparenti nei cantieri pubblici. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ricostruzione, i sindacati in Prefettura: tavolo permanente, controlli sui subappalti e garanzia degli stipendi dopo le proteste sulle gru",
+          "summary": "Cgil, Cisl e Uil di Macerata hanno presentato il 9 novembre una piattaforma in sei punti, tra cui badge di cantiere, controlli preventivi e più ispettori. Il commissario Castelli assicura i pagamenti per i lavori regolari; l'azienda si è impegnata a pagare gli stipendi di ottobre entro il 15. Si contano 270 addetti diretti e circa 1.500 nella rete dei subappalti.",
+          "source": "Collettiva",
+          "url": "https://www.collettiva.it/copertine/italia/ricostruzione-post-sisma-marche-linchiesta-apre-una-crisi-da-migliaia-di-lavoratori-cpt0zfx3",
+          "published": "2026-11-10",
+          "tags": [
+            "Lavoro",
+            "Ricostruzione"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Dietro l'inchiesta ci sono lavoratori e famiglie ancora fuori casa a dieci anni dal sisma: tutelarli è la priorità. Quali garanzie per i salari e per la legalità dei cantieri? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Electrolux, oggi il referendum a Cerreto d'Esi sull'intesa del Mimit: fino a 902 uscite volontarie, investimenti per oltre 100 milioni",
+          "summary": "I 149 lavoratori di Cerreto d'Esi votano sull'intesa che evita la chiusura e mantiene i volumi attuali; a livello nazionale gli esuberi passano da 1.719 a un massimo di 902, su base volontaria. Previsto un advisor per cercare investitori. La Fiom avverte che la partita non è chiusa: le uscite rischiano di impoverire le competenze.",
+          "source": "Radio Gold",
+          "url": "https://radiogold.tv/2026/11/11/electrolux-il-giorno-del-referendum-dei-lavoratori",
+          "published": "2026-11-11",
+          "tags": [
+            "Lavoro",
+            "Electrolux"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "La vertenza mostra che il confronto tra impresa, governo e sindacati può evitare il peggio, ma la reindustrializzazione richiede un piano. Quali competenze servono per trattenere i giovani nelle Marche? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Politiche comunitarie, la Regione prima in Italia per i pagamenti del Fse; Pd: rapporto «autocelebrativo»",
+          "summary": "Presentando il rapporto 2025 in Consiglio, la maggioranza rivendica pagamenti Fse al 33,4% (media nazionale 18%) e Fesr al 16,57% (12,48%). Il Pd ricorda che i pagamenti Fesr sono solo il 18,7% della dotazione e che le risorse vanno spese entro il 2029. Sulla mobilità urbana sostenibile risultavano zero impegni su 50 milioni.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/10/attuazione-politiche-comunitarie-il-rapporto-in-consiglio-regionale_74ae16e2-c7d5-49d3-bb7c-c64ae3f2c046.html",
+          "published": "2026-11-10",
+          "tags": [
+            "Fondi Ue",
+            "Regione"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "I fondi europei sono la leva più concreta per giovani e imprese: contano progetti e tempi di spesa, non le classifiche. Come renderne visibile l'impatto ai cittadini? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Nuovo ospedale di Macerata, il Consiglio comunale approva la mozione sulle scelte urbanistiche: area non inferiore a 16 ettari",
+          "summary": "La mozione emendata, approvata con 19 voti favorevoli e 6 contrari, ribadisce che il Comune decide sull'urbanistica e che le aree eccedenti avranno finalità pubbliche. La superficie definitiva attende i rilievi archeologici. Le opposizioni denunciano la mancanza di fondi e di un progetto.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/10/nuovo-ospedale-di-macerata-riportare-in-consiglio-le-scelte-urbanistiche/2124962/",
+          "published": "2026-11-10",
+          "tags": [
+            "Sanità",
+            "Macerata"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Un ospedale è fatto di fondi e tempi certi oltre che di aree. Quali scadenze pubbliche renderebbero credibile l'opera? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Cassa integrazione nelle Marche: +19,6% nel terzo trimestre, la Cgil parla di crisi strutturale; Ascoli Piceno +192,7%",
+          "summary": "Secondo i dati Inps elaborati dall'Ires Cgil, nel terzo trimestre 2026 le ore di Cig sono 20,4 milioni, trainate dalla straordinaria (+5,6 milioni) e da meccanica e legno, mentre Centro e Italia calano di oltre il 20%. La Cgil chiede alla Regione interventi su Irpef ed esenzione ticket per i lavoratori in cassa.",
+          "source": "CGIL Marche",
+          "url": "https://www.marche.cgil.it/lavoro-allarme-industria-la-cassa-integrazione-sfiora-un-aumento-del-20-fontana-cgil-marche-la-crisi-e-ormai-troppo-diffusa/",
+          "published": "2026-11-02",
+          "tags": [
+            "Lavoro",
+            "Cig"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Dati diffusi da un sindacato, da leggere con cautela ma coerenti con la crisi della meccanica. Quali politiche attive e formazione per chi esce dalle fabbriche? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
