@@ -32,3 +32,26 @@ Succede quasi sempre per uno di questi motivi:
 
 ## Se modificate lo script
 Dopo ogni modifica serve **Esegui il deployment → Gestisci deployment → modifica (matita) → Versione: Nuova versione → Esegui il deployment**. L'URL resta lo stesso.
+
+## Brevo: invio della newsletter
+
+Il foglio Google resta l'archivio delle iscrizioni; la newsletter si manda da **Brevo** (gratuito fino a 300 mail al giorno),
+che gestisce disiscrizioni e statistiche. Mittente: azioneunder30marche@gmail.com (Brevo lo sostituisce con un suo indirizzo
+tecnico perché è una mail @gmail.com; con un dominio vostro questo si risolve).
+
+1. **Account**: brevo.com → registrati con azioneunder30marche@gmail.com, piano Free. Nei dati dell'organizzazione indica
+   «Azione Under 30 Marche» e un indirizzo postale (Brevo lo mette in fondo alle mail, è obbligatorio).
+2. **Mittente**: Impostazioni → Mittenti, domini e IP → Mittenti → aggiungi «Azione Under 30 Marche» <azioneunder30marche@gmail.com>
+   e conferma con il codice che arriva nella casella.
+3. **Lista**: Contatti → Liste → Crea lista «Newsletter Under 30 Marche». Annota il numero (ID) della lista.
+4. **Chiave API**: Impostazioni → SMTP e API → API Keys → Genera una nuova chiave (nome «Sito»). Copiala senza condividerla.
+5. **Collega lo script**: apri lo script della newsletter su script.google.com, sostituisci il codice con il nuovo `Codice.gs`
+   e salva. Impostazioni progetto (ingranaggio) → Proprietà script → aggiungi:
+   - `BREVO_API_KEY` = la chiave del punto 4
+   - `BREVO_LIST_ID` = il numero della lista del punto 3
+   Poi **Esegui il deployment → Gestisci deployment → modifica (matita) → Versione: Nuova versione → Esegui il deployment**
+   (l'indirizzo dell'app resta lo stesso).
+6. **Chi è già iscritto**: nello script scegli la funzione `sincronizzaTuttiConBrevo` e premi **Esegui**: carica su Brevo
+   tutte le mail già nel foglio. Da quel momento ogni nuova iscrizione dal sito arriva anche su Brevo.
+7. **Modello**: Campagne → Modelli → Nuovo modello → «Incolla il tuo codice» → incolla `modello-newsletter.html`.
+   Per ogni invio: duplica il modello, cambia i testi tra [parentesi quadre], prova con «Invia un test», poi programma la campagna.

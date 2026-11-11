@@ -9,7 +9,13 @@
  * - NON aggiunge una mail se è già presente in qualsiasi cella del foglio (maiuscole e spazi non contano);
  * - scrive la mail nella colonna la cui intestazione contiene "mail"; se esistono colonne
  *   "data"/"iscrizione", "fonte", "consenso" le compila, le altre restano vuote;
- * - se il foglio è vuoto crea le intestazioni: Email | Data iscrizione | Fonte | Consenso.
+ * - se il foglio è vuoto crea le intestazioni: Email | Data iscrizione | Fonte | Consenso;
+ * - se è collegato Brevo, aggiunge la mail anche alla lista della newsletter su Brevo.
+ *
+ * Collegare Brevo (una volta): in Apps Script, Impostazioni progetto (ingranaggio) > Proprietà script >
+ * aggiungi BREVO_API_KEY (la chiave API di Brevo) e BREVO_LIST_ID (il numero della lista).
+ * Poi esegui una volta la funzione sincronizzaTuttiConBrevo per caricare chi è già nel foglio.
+ * La chiave resta nelle proprietà dello script: non scriverla mai in questo file.
  */
 
 // Codice del foglio della newsletter (la parte dell'indirizzo tra /d/ e /edit).
@@ -47,7 +53,7 @@ function doPost(e) {
     var valori = sh.getDataRange().getDisplayValues();
     for (var r = 0; r < valori.length; r++) {
       for (var c = 0; c < valori[r].length; c++) {
-        if (String(valori[r][c]).trim().toLowerCase() === email) return risposta_({ ok: true, duplicate: true });
+        if (String(valori[r][c]).trim().toLowerCase() === email) { aggiungiABrevo_([email]); return risposta_({ ok: true, duplicate: true }); }
       }
     }
 
@@ -64,10 +70,60 @@ function doPost(e) {
     if (colEmail < 0) riga = [email, new Date(), fonte, "sì"]; // nessuna colonna "email": scrive in testa
 
     sh.appendRow(riga);
+    aggiungiABrevo_([email]);
     return risposta_({ ok: true, duplicate: false });
   } finally {
     lock.releaseLock();
   }
+}
+
+// ---- Brevo -------------------------------------------------------------------------------
+
+// Aggiunge (o aggiorna) le mail nella lista Brevo. Se Brevo non è collegato o risponde con un errore,
+// l'iscrizione resta comunque salvata nel foglio.
+function aggiungiABrevo_(emails) {
+  var pr = PropertiesService.getScriptProperties();
+  var key = pr.getProperty("BREVO_API_KEY"), lista = Number(pr.getProperty("BREVO_LIST_ID"));
+  if (!key || !lista || !emails.length) return false;
+  try {
+    var r;
+    if (emails.length === 1) {
+      r = UrlFetchApp.fetch("https://api.brevo.com/v3/contacts", {
+        method: "post", contentType: "application/json", muteHttpExceptions: true,
+        headers: { "api-key": key, accept: "application/json" },
+        payload: JSON.stringify({ email: emails[0], listIds: [lista], updateEnabled: true })
+      });
+    } else {
+      r = UrlFetchApp.fetch("https://api.brevo.com/v3/contacts/import", {
+        method: "post", contentType: "application/json", muteHttpExceptions: true,
+        headers: { "api-key": key, accept: "application/json" },
+        payload: JSON.stringify({ listIds: [lista], updateExistingContacts: true, emptyContactsAttributes: false,
+          jsonBody: emails.map(function (m) { return { email: m }; }) })
+      });
+    }
+    var ok = r.getResponseCode() < 300;
+    if (!ok) console.warn("Brevo ha risposto " + r.getResponseCode() + ": " + r.getContentText());
+    return ok;
+  } catch (err) {
+    console.warn("Brevo non raggiungibile: " + err);
+    return false;
+  }
+}
+
+// Da eseguire a mano una volta (menu Esegui): carica su Brevo tutte le mail già presenti nel foglio.
+function sincronizzaTuttiConBrevo() {
+  var ss = ID_FOGLIO ? SpreadsheetApp.openById(ID_FOGLIO) : SpreadsheetApp.getActiveSpreadsheet();
+  var sh = NOME_SCHEDA ? ss.getSheetByName(NOME_SCHEDA) : ss.getSheets()[0];
+  var visti = {}, emails = [];
+  sh.getDataRange().getDisplayValues().forEach(function (riga) {
+    riga.forEach(function (v) {
+      var m = String(v).trim().toLowerCase();
+      if (/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(m) && !visti[m]) { visti[m] = true; emails.push(m); }
+    });
+  });
+  if (!emails.length) { console.log("Nessuna mail nel foglio."); return; }
+  var ok = aggiungiABrevo_(emails);
+  console.log(ok ? emails.length + " mail inviate a Brevo (l'importazione richiede qualche minuto)." : "Importazione non riuscita: controlla BREVO_API_KEY e BREVO_LIST_ID.");
 }
 
 // Aprendo l'indirizzo dell'app nel browser si vede questo messaggio: serve solo a verificare che sia attiva.
