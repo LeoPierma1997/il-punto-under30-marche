@@ -19,7 +19,7 @@
   var ERRORS = [
     [/SOLO_STAFF|PRELANCIO|Database error saving new user|Signups not allowed|User not found/i, "L'accesso con la mail è solo per lo staff. Per entrare nell'Avamposto usa il codice."],
     [/CODICE_NON_VALIDO|Codice non valido/i, "Codice non valido o non più attivo. Controlla di averlo scritto bene o chiedilo allo staff."],
-    [/Serve il codice/i, "Serve il codice dell'Avamposto: inseriscilo di nuovo dalla pagina «Il tuo telefono»."],
+    [/Serve il codice/i, "Serve il codice dell'Avamposto: inseriscilo di nuovo dalla pagina «Il tuo dispositivo»."],
     [/Token has expired|otp_expired|invalid.*(token|otp)|Email link is invalid/i, "Codice sbagliato o scaduto. Controlla le cifre oppure chiedi una nuova mail."],
     [/rate limit|over_email_send_rate|For security purposes/i, "Hai chiesto troppi link in poco tempo. Aspetta un minuto e riprova."],
     [/invalid.*email|Unable to validate email/i, "L'indirizzo email non sembra valido. Controllalo e riprova."],
@@ -49,7 +49,7 @@
   function safeName(name) { return String(name || "file").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^A-Za-z0-9._-]+/g, "-").slice(-80); }
   function normCode(c) { return String(c || "").trim().toUpperCase().replace(/\s+/g, ""); }
 
-  /* Quello che resta sul telefono di chi entra con il codice: i codici, i «visto», i «ci sono»
+  /* Quello che resta sul dispositivo di chi entra con il codice: i codici, i «visto», i «ci sono»
      e i codici identificativi dei testi inviati. Niente nomi, niente mail. */
   function makeDevice(prefix) {
     var K = { codes: prefix + "codici", seen: prefix + "visti", hands: prefix + "cisono", voices: prefix + "mie-voci" };

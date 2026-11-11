@@ -93,7 +93,7 @@
   function go(hash) { if (location.hash === hash) route(); else location.hash = hash; }
   function initBySlug(slug) { return S.inits.filter(function (i) { return i.slug === slug; })[0]; }
   function initById(id) { return S.inits.filter(function (i) { return i.id === id; })[0]; }
-  // Dentro l'Avamposto si sta con un codice valido salvato sul telefono, oppure da staff (accesso con mail).
+  // Dentro l'Avamposto si sta con un codice valido salvato sul dispositivo, oppure da staff (accesso con mail).
   function inside() { return S.admin || !!S.pass.entry; }
   function unlocked(it) { return (S.pass.courses || []).indexOf(it.id) >= 0; }
   function hasAccess(it) {
@@ -160,7 +160,7 @@
           '<p class="vi-sign" data-sign-preview>Comparirà firmato: <b>Un under 30 di Azione Marche</b></p>' +
           '<label class="check"><input type="checkbox" name="consent"> <span>Acconsento alla pubblicazione del testo sul sito di Azione Under 30 Marche con la firma che ho scritto (o senza firma). So che una firma può far capire chi sono e il mio orientamento politico. <a href="privacy.html" target="_blank">Privacy</a></span></label>' +
           '<div class="btn-row"><button class="btn primary" type="submit">' + icon("voce") + "Invia allo staff</button></div>" +
-          '<p class="fine">Non ti chiediamo mail né account. Lo stato del testo lo vedi qui, solo da questo telefono.</p>' +
+          '<p class="fine">Non ti chiediamo mail né account. Lo stato del testo lo vedi qui, solo da questo dispositivo.</p>' +
         "</form>" +
         '<section class="voice-mine"><h2>I tuoi testi</h2>' +
           (list.length ? list.map(function (x) {
@@ -171,7 +171,7 @@
               (x.status === "rejected" && x.staff_note ? '<p class="vi-note">Nota dello staff: ' + esc(x.staff_note) + "</p>" : "") +
               '<div class="btn-row">' + (x.status === "approved" ? '<a class="btn small quiet" href="../voci/#v-' + esc(x.id) + '">Vedi sul sito</a>' : "") +
               '<button class="btn small danger" type="button" data-action="voice-del" data-id="' + esc(x.id) + '">' + (x.status === "approved" ? "Ritira dal sito" : "Ritira") + "</button></div></article>";
-          }).join("") : '<p class="empty-note">Non hai ancora scritto nulla da questo telefono. Il primo testo è sempre il più difficile: prova con una nota breve.</p>') +
+          }).join("") : '<p class="empty-note">Non hai ancora scritto nulla da questo dispositivo. Il primo testo è sempre il più difficile: prova con una nota breve.</p>') +
           (list.some(function (x) { return x.status === "rejected"; }) ? '<p class="fine">Per correggere un testo non pubblicato, ritiralo e mandane uno nuovo.</p>' : "") +
         "</section></div>", "voce");
       var ta = main.querySelector("textarea[name=body]"), ct = main.querySelector("[data-counter]");
@@ -202,7 +202,7 @@
       };
       setMain(
         '<p><a class="back" href="#gestione">← Gestione</a></p>' +
-        '<div class="page-head"><span class="eyebrow">Area staff</span><h1>Voci Under 30</h1><p>I testi mandati dall\'Avamposto arrivano qui, senza nome né mail (solo la firma, se l\'hanno scritta). Si pubblicano sul sito solo quando li approvi; chi scrive vede lo stato e la tua eventuale nota dal suo telefono. <a href="../voci/">Vedi la pagina pubblica →</a></p></div>' +
+        '<div class="page-head"><span class="eyebrow">Area staff</span><h1>Voci Under 30</h1><p>I testi mandati dall\'Avamposto arrivano qui, senza nome né mail (solo la firma, se l\'hanno scritta). Si pubblicano sul sito solo quando li approvi; chi scrive vede lo stato e la tua eventuale nota dal suo dispositivo. <a href="../voci/">Vedi la pagina pubblica →</a></p></div>' +
         '<div id="ev-admin">' +
         '<section><div class="block-head"><h2>Da leggere</h2><span class="note">' + pend.length + (pend.length === 1 ? " testo" : " testi") + "</span></div>" +
           (pend.length ? '<div class="voice-queue">' + pend.map(card).join("") + "</div>" : '<p class="empty-note">Niente in attesa. Ottimo lavoro.</p>') + "</section>" +
@@ -267,7 +267,7 @@
     var a = function (h, k, label) { return '<a href="#' + h + '"' + (active === k ? ' aria-current="page"' : "") + ">" + label + "</a>"; };
     if (!inside()) { nav.innerHTML = a("home", "home", "Entra"); return; }
     nav.innerHTML = a("home", "home", "Corsi") + a("agenda", "agenda", "Agenda") + a("voce", "voce", "La tua voce") + a("squadra", "squadra", "La squadra") +
-      a("dispositivo", "dispositivo", S.admin && !S.pass.entry ? "Esci" : "Il tuo telefono") +
+      a("dispositivo", "dispositivo", S.admin && !S.pass.entry ? "Esci" : "Il tuo dispositivo") +
       (S.admin ? '<a class="staff" href="#gestione"' + (active === "gestione" ? ' aria-current="page"' : "") + ">" + icon("shield") + "Gestione</a>" : "");
   }
   function setMain(html, active, bare) {
@@ -383,7 +383,7 @@
             : '<div class="panel door" id="auth-panel"><span class="eyebrow">Entra</span><h2>Hai il codice?</h2>' +
               codeForm("door", "Codice dell'Avamposto", "Entra") +
               '<p class="fine">Il codice te lo dà chi ti ha parlato dell\'Avamposto, oppure scrivici su <a href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener">Instagram</a> o a <a href="mailto:azioneunder30marche@gmail.com">azioneunder30marche@gmail.com</a>. ' +
-              'Resta salvato su questo telefono: la prossima volta entri direttamente.</p>' +
+              'Funziona da computer, tablet e telefono. Il codice resta salvato sul dispositivo che usi: la prossima volta entri direttamente; su un altro dispositivo lo inserisci una volta.</p>' +
               '<p class="tester-link"><a href="#staff">Sei dello staff? Accedi con la mail</a></p></div>') +
         "</div></section>" +
       '<div class="wrap page"><section class="block"><div class="block-head"><h2>Cosa trovi dentro</h2><span class="note">Alcuni corsi chiedono un secondo codice, che lo staff dà a chi partecipa.</span></div>' +
@@ -417,7 +417,7 @@
     document.getElementById("f-signin").hidden = true;
     var box = document.getElementById("sent");
     box.innerHTML = icon("mail") + "<h3>Controlla la posta</h3>" +
-      "<p>Abbiamo scritto a <b>" + esc(mail) + "</b>. Nella mail trovi un <b>codice di 6 cifre</b>: scrivilo qui sotto ed entri su questo dispositivo, anche se la mail l'hai aperta sul telefono. In alternativa tocca il pulsante nella mail. Se non la trovi, guarda nello spam.</p>" +
+      "<p>Abbiamo scritto a <b>" + esc(mail) + "</b>. Nella mail trovi un <b>codice di 6 cifre</b>: scrivilo qui sotto ed entri su questo dispositivo, anche se la mail l'hai aperta sul dispositivo. In alternativa tocca il pulsante nella mail. Se non la trovi, guarda nello spam.</p>" +
       '<form id="f-otp" class="code-form" novalidate>' +
         '<label class="field" for="otp-in"><span>Codice dalla mail</span><input type="text" id="otp-in" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="123456" style="letter-spacing:.3em;font-weight:800;font-size:1.3rem"></label>' +
         '<p class="form-msg err" id="otp-err" hidden></p>' +
@@ -495,16 +495,16 @@
       return its.length ? "Corsi sbloccati: " + its.map(function (i) { return esc(i.title); }).join(", ") + "." : "";
     };
     setMain(
-      '<div class="page-head"><span class="eyebrow">Avamposto Under 30</span><h1>' + (staffOnly ? "Il tuo accesso" : "Il tuo telefono") + "</h1>" +
-        "<p>Nell'Avamposto non hai un account: quello che serve resta su questo telefono, e lo puoi cancellare quando vuoi.</p></div>" +
+      '<div class="page-head"><span class="eyebrow">Avamposto Under 30</span><h1>' + (staffOnly ? "Il tuo accesso" : "Il tuo dispositivo") + "</h1>" +
+        "<p>Nell'Avamposto non hai un account: quello che serve resta su questo dispositivo, e lo puoi cancellare quando vuoi.</p></div>" +
       (codes.length ? '<section class="panel" style="max-width:640px"><h2>Codici salvati</h2>' +
         '<ul class="code-list">' + codes.map(function (c) { return "<li><code>" + esc(c) + "</code></li>"; }).join("") + "</ul>" +
         (whatOpens() ? '<p class="note">' + whatOpens() + "</p>" : "") +
         codeForm("device-code", "Aggiungi il codice di un corso", "Aggiungi", "Es. EUROPA-4K7PQ") + "</section>" : "") +
-      '<section class="panel privacy-panel" style="max-width:640px;margin-top:22px"><h2>Cosa resta su questo telefono</h2>' +
+      '<section class="panel privacy-panel" style="max-width:640px;margin-top:22px"><h2>Cosa resta su questo dispositivo</h2>' +
         "<ul class=\"plain\"><li>i codici che hai inserito;</li><li>i materiali che hai segnato come visti;</li><li>gli appuntamenti a cui hai detto «Ci sono»;</li><li>il riferimento ai testi che hai mandato in «La tua voce», per vederne lo stato.</li></ul>" +
         "<p>Allo staff arrivano solo numeri complessivi (quante persone sono entrate, quanti «Ci sono» per turno), mai chi sei. I testi di «La tua voce» arrivano con la firma che scrivi tu, se la scrivi. <a href=\"privacy.html\">Informativa privacy</a></p>" +
-        (codes.length ? '<div class="btn-row"><button class="btn danger" type="button" data-action="forget-device">' + icon("trash") + "Dimentica tutto su questo telefono</button></div>" +
+        (codes.length ? '<div class="btn-row"><button class="btn danger" type="button" data-action="forget-device">' + icon("trash") + "Dimentica tutto su questo dispositivo</button></div>" +
           '<div id="forget-confirm" hidden><p class="form-msg err" style="margin-top:14px">Confermi? Per rientrare ti servirà di nuovo il codice. I testi già mandati restano allo staff: se vuoi ritirarli, fallo prima da «La tua voce».</p>' +
           '<div class="btn-row"><button class="btn danger" type="button" data-action="forget-yes">Sì, dimentica</button><button class="btn quiet" type="button" data-action="forget-no">Annulla</button></div></div>' : "") +
       "</section>" +
@@ -1000,7 +1000,7 @@
   document.addEventListener("click", function (e) {
     var b = e.target.closest("[data-action]"); if (!b) return;
     var act = b.getAttribute("data-action"), id = b.getAttribute("data-id");
-    if (act === "su-cancel") { D.cancelSignup(id).then(function () { toast("Tolto da questo telefono. Se eri già nel gruppo WhatsApp, avvisa lì."); viewAgenda("m-" + id); }).catch(function (x) { toast(x.message, true); }); }
+    if (act === "su-cancel") { D.cancelSignup(id).then(function () { toast("Tolto da questo dispositivo. Se eri già nel gruppo WhatsApp, avvisa lì."); viewAgenda("m-" + id); }).catch(function (x) { toast(x.message, true); }); }
     else if (act === "poster-del") {
       var ev3 = currentEvent(); if (!ev3) return;
       D.setPoster(ev3, null).then(function () { toast("Locandina tolta"); viewEditEvent(ev3.id); }).catch(function (x) { toast(x.message, true); });
@@ -1416,7 +1416,7 @@
     if (act === "forget-no") { document.getElementById("forget-confirm").hidden = true; return; }
     if (act === "forget-yes") {
       D.forgetDevice(); S.pass = NO_PASS; S.views = {};
-      toast("Fatto: su questo telefono non resta più nulla dell'Avamposto.");
+      toast("Fatto: su questo dispositivo non resta più nulla dell'Avamposto.");
       refresh().then(function () { go("#home"); });
       return;
     }
