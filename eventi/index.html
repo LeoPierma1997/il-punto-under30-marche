@@ -434,7 +434,7 @@ footer a { color: var(--muted); }
     var inside = signedIn();
     var body;
     if (!E.replays.length) {
-      body = '<p class="empty"><b>Ancora nessuna replica.</b>Le registrazioni delle dirette compariranno qui, riservate a chi è iscritto all\'Avamposto.</p>';
+      body = '<p class="empty"><b>Ancora nessuna replica.</b>Le registrazioni delle dirette compariranno qui, riservate a chi entra nell\'Avamposto.</p>';
     } else {
       body = '<div class="rgrid">' + E.replays.map(function (r) {
         var ev = E.events.filter(function (x) { return x.id === r.event_id; })[0];
@@ -447,8 +447,8 @@ footer a { color: var(--muted); }
       }).join("") + "</div>";
     }
     return '<section class="replays" id="repliche" aria-labelledby="rep-title"><div class="wrap">' +
-      '<div class="block-head"><h2 id="rep-title">Repliche degli eventi</h2><span class="lockpill">' + icon("lock") + "Per gli iscritti all'Avamposto</span></div>" +
-      '<p class="note" style="margin:-4px 0 18px">Ti sei perso una diretta? Le registrazioni si guardano nell\'Avamposto. Iscriversi è gratis e basta la mail.</p>' +
+      '<div class="block-head"><h2 id="rep-title">Repliche degli eventi</h2><span class="lockpill">' + icon("lock") + "Nell'Avamposto</span></div>" +
+      '<p class="note" style="margin:-4px 0 18px">Ti sei perso una diretta? Le registrazioni si guardano nell\'Avamposto, dove si entra con il codice che diamo a chi è dei nostri.</p>' +
       body +
       '<div class="cta">' + (inside ? '<a class="btn white" href="../avamposto/#repliche">' + icon("play") + "Guarda le repliche</a>"
         : '<a class="btn white" href="../avamposto/#repliche">Iscriviti gratis</a><a class="btn ghost-white" href="../avamposto/#repliche">Entra</a>') + "</div>" +

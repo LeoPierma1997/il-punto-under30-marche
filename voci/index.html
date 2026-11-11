@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" href="../assets/logo.png">
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
 <style>
-/* Voci Under 30: testi degli iscritti approvati dallo staff. */
+/* Voci Under 30: testi mandati dall'Avamposto e approvati dallo staff. */
 :root {
   --page: #F3F3FA; --surface: #FFFFFF; --fg: #14123A; --muted: #5A5784; --line: #E1E0F0; --soft: #E9E8F7;
   --blue: #312781; --blue-deep: #0C1467; --accent: #312781; --accent-ink: #FFFFFF; --title: #312781;
@@ -141,7 +141,7 @@ footer a { color: var(--muted); }
       <button type="button" data-f="nota" aria-pressed="false">Note</button>
     </div>
     <div class="voices" id="voices" aria-live="polite"><p class="disclaimer">Carico…</p></div>
-    <div class="write"><div><b>Hai qualcosa da dire?</b><p>Entra nell'Avamposto (è gratis, basta la mail) e scrivi da «La tua voce». Puoi firmarti con nome e cognome, con l'iniziale o in forma anonima.</p></div>
+    <div class="write"><div><b>Hai qualcosa da dire?</b><p>Entra nell'Avamposto con il codice e scrivi da «La tua voce», senza account. La firma la scrivi tu, oppure resti anonimo.</p></div>
       <a class="btn" href="../avamposto/#voce">Scrivi la tua voce</a></div>
   </div>
 </main>
@@ -184,7 +184,7 @@ footer a { color: var(--muted); }
   }
   function show(list) {
     ALL = list || [];
-    if (!ALL.length) { box.outerHTML = '<p class="empty"><b>Le prime voci arrivano presto.</b>Sei iscritto all\'Avamposto? Scrivi tu la prima.</p>'; return; }
+    if (!ALL.length) { box.outerHTML = '<p class="empty"><b>Le prime voci arrivano presto.</b>Sei nell\'Avamposto? Scrivi tu la prima.</p>'; return; }
     chips.hidden = false; draw("");
     var h = location.hash.slice(1), el = h && document.getElementById(h);
     if (el) { el.classList.add("hl"); el.scrollIntoView({ block: "center" }); }

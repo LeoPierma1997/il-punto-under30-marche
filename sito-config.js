@@ -27,6 +27,6 @@ window.SITO_CONFIG = {
     sede: "Corso Vittorio Emanuele II, 21, 00186 Roma",
     codiceFiscale: "15102151006",
     dpoEmail: "dpo@azione.it",
-    aggiornata: "10 novembre 2026"
+    aggiornata: "11 novembre 2026"
   }
 };

@@ -5,7 +5,6 @@
   var main = document.getElementById("main");
   var nav = document.getElementById("mast-nav");
   var toastEl = document.getElementById("toast");
-  var INVITE_KEY = "avamposto-invito";
   var DEMO = false;
   try {
     if (/[?&]demo=1\b/.test(location.search)) sessionStorage.setItem("avamposto-demo", "1");
@@ -15,8 +14,9 @@
   // Finché Supabase non è collegato, il pubblico vede solo l'anteprima: niente dati di esempio, niente iscrizioni finte.
   var PREVIEW = !D.live && !DEMO;
 
-  var S = { prelancio: false, testerEntry: false, me: null, admin: false, profile: null, inits: [], mine: {}, amats: [], views: {}, ready: false };
-  var A = { enrollments: [], profiles: [], invites: {} }; // dati di gestione
+  var NO_PASS = { entry: false, courses: [], valid: [] };
+  var S = { me: null, admin: false, pass: NO_PASS, inits: [], amats: [], views: {}, ready: false };
+  var A = { codes: [] }; // dati di gestione
 
   /* ---------------- utilità ---------------- */
   function esc(s) {
@@ -93,43 +93,31 @@
   function go(hash) { if (location.hash === hash) route(); else location.hash = hash; }
   function initBySlug(slug) { return S.inits.filter(function (i) { return i.slug === slug; })[0]; }
   function initById(id) { return S.inits.filter(function (i) { return i.id === id; })[0]; }
+  // Dentro l'Avamposto si sta con un codice valido salvato sul telefono, oppure da staff (accesso con mail).
+  function inside() { return S.admin || !!S.pass.entry; }
+  function unlocked(it) { return (S.pass.courses || []).indexOf(it.id) >= 0; }
   function hasAccess(it) {
-    if (!S.me) return false;
     if (S.admin) return true;
-    if (!it.published) return false;
-    if (it.access === "aperta") return true;
-    var e = S.mine[it.id]; return !!(e && e.status === "attiva");
+    if (!S.pass.entry || !it.published) return false;
+    return it.access === "aperta" || unlocked(it);
   }
-  function redirectUrl() {
-    var inv = pendingInvite();
-    return location.origin + location.pathname + (inv ? "?invito=" + encodeURIComponent(inv) : "");
-  }
-  function pendingInvite() { try { return localStorage.getItem(INVITE_KEY) || ""; } catch (e) { return ""; } }
-  function setPendingInvite(v) { try { if (v) localStorage.setItem(INVITE_KEY, v); else localStorage.removeItem(INVITE_KEY); } catch (e) {} }
-  function emailsFrom(text) {
-    var found = String(text || "").toLowerCase().match(/[^\s,;<>()"']+@[^\s,;<>()"']+\.[a-z]{2,}/g) || [];
-    return found.filter(function (m, i) { return found.indexOf(m) === i; });
-  }
+  function redirectUrl() { return location.origin + location.pathname + "#gestione"; }
 
   /* ---------------- dati ---------------- */
   function refresh() {
     S.me = D.me();
-    var tasks = [D.initiatives().then(function (r) { S.inits = r || []; }), D.prelancio().then(function (v) { S.prelancio = !!v; })];
-    if (S.me) {
-      tasks.push(D.isAdmin().then(function (a) { S.admin = !!a; }));
-      tasks.push(D.getProfile().then(function (p) { S.profile = p; }));
-      tasks.push(D.myEnrollments().then(function (r) {
-        S.mine = {}; (r || []).forEach(function (e) { S.mine[e.initiative_id] = e; });
-      }));
-      tasks.push(D.accessibleMaterials().then(function (r) { S.amats = r || []; }));
-      tasks.push(D.myViews().then(function (r) { S.views = {}; (r || []).forEach(function (v) { S.views[v.material_id] = true; }); }));
-    } else { S.admin = false; S.profile = null; S.mine = {}; S.amats = []; S.views = {}; }
+    var tasks = [
+      D.initiatives().then(function (r) { S.inits = r || []; }),
+      D.pass().then(function (p) { S.pass = p || NO_PASS; }).catch(function () { S.pass = NO_PASS; })
+    ];
+    if (S.me) tasks.push(D.isAdmin().then(function (a) { S.admin = !!a; })); else S.admin = false;
     return Promise.all(tasks).then(function () {
-      if (!S.admin) return;
-      return Promise.all([D.allEnrollments(), D.allProfiles(), D.invites()]).then(function (r) {
-        A.enrollments = r[0] || []; A.profiles = r[1] || [];
-        A.invites = {}; (r[2] || []).forEach(function (v) { A.invites[v.initiative_id] = v; });
-      });
+      if (!inside()) { S.amats = []; S.views = {}; return; }
+      return Promise.all([
+        (S.admin ? D.accessibleMaterials() : D.passMaterials()).then(function (r) { S.amats = r || []; }),
+        D.myViews().then(function (r) { S.views = {}; (r || []).forEach(function (v) { S.views[v.material_id] = true; }); }),
+        S.admin ? D.listCodes().then(function (r) { A.codes = r || []; }) : null
+      ]);
     });
   }
   function reload() { return refresh().then(route).catch(function (e) { toast(e.message, true); route(); }); }
@@ -139,42 +127,39 @@
   var VSTATUS = { pending: ["wait", "In attesa"], approved: ["ok", "Pubblicato"], rejected: ["no", "Non pubblicato"] };
   function voiceSignPreview(sig, name, city) {
     var n = String(name || "").replace(/\s*\(esempio\)\s*$/, "").trim(), parts = n.split(/\s+/);
-    var who = sig === "anonimo" ? "Un under 30 di Azione Marche" : sig === "completo" ? n : (parts.length > 1 ? parts[0] + " " + parts[parts.length - 1].charAt(0).toUpperCase() + "." : parts[0]);
+    var who = sig === "anonimo" || !n ? "Un under 30 di Azione Marche" : sig === "completo" ? n : (parts.length > 1 ? parts[0] + " " + parts[parts.length - 1].charAt(0).toUpperCase() + "." : parts[0]);
     return who + (city ? " · " + city : "");
   }
-  function viewVoice(editId) {
+  function voiceSig(v) {
+    if (v.signed_name) return v.signed_name + (v.city ? " · " + v.city : "");
+    return voiceSignPreview(v.signature, v.author_name, v.city);
+  }
+  function viewVoice() {
     setMain('<p class="loading">Carico…</p>', "voce");
     D.myVoices().then(function (list) {
-      var v = editId ? list.filter(function (x) { return x.id === editId && x.status !== "approved"; })[0] : null;
-      v = v || { kind: "riflessione", signature: "nome", title: "", body: "", topic: "", link_url: "", city: "" };
-      var name = (S.profile && S.profile.full_name) || "";
-      var radio = function (n, val, label, cur, hint) {
-        return '<label class="choice' + (hint ? " tall" : "") + '"><input type="radio" name="' + n + '" value="' + val + '"' + (cur === val ? " checked" : "") + "> <span>" + label + (hint ? "<small>" + esc(hint) + "</small>" : "") + "</span></label>";
+      var radio = function (n, val, label) {
+        return '<label class="choice"><input type="radio" name="' + n + '" value="' + val + '"' + (val === "riflessione" ? " checked" : "") + "> <span>" + label + "</span></label>";
       };
       setMain(
         '<div class="page-head"><span class="eyebrow">Voci Under 30</span><h1>Di\' la tua</h1>' +
           "<p>Una riflessione, un commento a una notizia, una nota dopo un banchetto: scrivi quello che pensi. Lo staff legge tutto e pubblica sul sito i testi che rispettano lo spirito del gruppo: idee, rispetto, niente insulti. " +
           '<a href="../voci/">Leggi le voci pubblicate →</a></p></div>' +
         '<div class="voice-layout">' +
-        '<form class="panel voice-form" data-form="voice" data-id="' + esc(v.id || "") + '" novalidate>' +
-          "<h2>" + (v.id ? "Modifica il tuo testo" : "Scrivi") + "</h2>" +
-          (v.id && v.staff_note ? '<p class="form-msg err">Nota dello staff: ' + esc(v.staff_note) + "</p>" : "") +
+        '<form class="panel voice-form" data-form="voice" novalidate>' +
+          "<h2>Scrivi</h2>" +
           '<fieldset class="field"><legend>Che cos\'è</legend><div class="choice-row">' +
-            radio("kind", "riflessione", "Riflessione", v.kind) + radio("kind", "commento", "Commento a una notizia", v.kind) + radio("kind", "nota", "Nota breve", v.kind) +
+            radio("kind", "riflessione", "Riflessione") + radio("kind", "commento", "Commento a una notizia") + radio("kind", "nota", "Nota breve") +
           "</div></fieldset>" +
-          '<label class="field"><span>Titolo <small>(facoltativo)</small></span><input type="text" name="title" maxlength="120" value="' + esc(v.title || "") + '"></label>' +
-          '<div class="grid-2"><label class="field"><span>A proposito di <small>(facoltativo)</small></span><input type="text" name="topic" maxlength="100" placeholder="Es. la manovra, il consiglio regionale" value="' + esc(v.topic || "") + '"></label>' +
-          '<label class="field"><span>Link alla notizia <small>(facoltativo)</small></span><input name="link_url" type="url" inputmode="url" placeholder="https://" value="' + esc(v.link_url || "") + '"></label></div>' +
-          '<label class="field"><span>Il tuo testo</span><textarea name="body" rows="9" maxlength="2500" required placeholder="Scrivi qui. Bastano poche righe.">' + esc(v.body || "") + '</textarea><small class="counter" data-counter>0 / 2500</small></label>' +
-          '<label class="field"><span>Città <small>(facoltativa)</small></span><input type="text" name="city" maxlength="60" value="' + esc(v.city || "") + '"></label>' +
-          '<fieldset class="field"><legend>Come vuoi firmarti</legend><div class="choice-col">' +
-            radio("signature", "completo", "Nome e cognome", v.signature, voiceSignPreview("completo", name)) +
-            radio("signature", "nome", "Nome e iniziale", v.signature, voiceSignPreview("nome", name)) +
-            radio("signature", "anonimo", "Anonimo", v.signature, "Un under 30 di Azione Marche") +
-          "</div></fieldset>" +
-          '<label class="check"><input type="checkbox" name="consent"> <span>Acconsento alla pubblicazione del testo sul sito di Azione Under 30 Marche con la firma scelta. So che può far capire il mio orientamento politico e che posso ritirarlo quando voglio. <a href="privacy.html" target="_blank">Privacy</a></span></label>' +
-          '<div class="btn-row"><button class="btn primary" type="submit">' + icon("voce") + (v.id ? "Rimanda allo staff" : "Invia allo staff") + "</button>" +
-            (v.id ? '<a class="btn quiet" href="#voce">Annulla</a>' : "") + "</div>" +
+          '<label class="field"><span>Titolo <small>(facoltativo)</small></span><input type="text" name="title" maxlength="120"></label>' +
+          '<div class="grid-2"><label class="field"><span>A proposito di <small>(facoltativo)</small></span><input type="text" name="topic" maxlength="100" placeholder="Es. la manovra, il consiglio regionale"></label>' +
+          '<label class="field"><span>Link alla notizia <small>(facoltativo)</small></span><input name="link_url" type="url" inputmode="url" placeholder="https://"></label></div>' +
+          '<label class="field"><span>Il tuo testo</span><textarea name="body" rows="9" maxlength="2500" required placeholder="Scrivi qui. Bastano poche righe."></textarea><small class="counter" data-counter>0 / 2500</small></label>' +
+          '<div class="grid-2"><label class="field"><span>Firma <small>(facoltativa)</small></span><input type="text" name="signed_name" maxlength="60" placeholder="Es. Giulia, oppure Giulia R."></label>' +
+          '<label class="field"><span>Città <small>(facoltativa)</small></span><input type="text" name="city" maxlength="60"></label></div>' +
+          '<p class="vi-sign" data-sign-preview>Comparirà firmato: <b>Un under 30 di Azione Marche</b></p>' +
+          '<label class="check"><input type="checkbox" name="consent"> <span>Acconsento alla pubblicazione del testo sul sito di Azione Under 30 Marche con la firma che ho scritto (o senza firma). So che una firma può far capire chi sono e il mio orientamento politico. <a href="privacy.html" target="_blank">Privacy</a></span></label>' +
+          '<div class="btn-row"><button class="btn primary" type="submit">' + icon("voce") + "Invia allo staff</button></div>" +
+          '<p class="fine">Non ti chiediamo mail né account. Lo stato del testo lo vedi qui, solo da questo telefono.</p>' +
         "</form>" +
         '<section class="voice-mine"><h2>I tuoi testi</h2>' +
           (list.length ? list.map(function (x) {
@@ -183,14 +168,17 @@
               (x.title ? "<h3>" + esc(x.title) + "</h3>" : "") +
               "<p>" + esc(x.body.length > 220 ? x.body.slice(0, 217) + "…" : x.body) + "</p>" +
               (x.status === "rejected" && x.staff_note ? '<p class="vi-note">Nota dello staff: ' + esc(x.staff_note) + "</p>" : "") +
-              (x.status === "approved" ? '<p class="vi-sign">Firmato: ' + esc(voiceSignPreview(x.signature, x.author_name, x.city)) + "</p>" : "") +
-              '<div class="btn-row">' + (x.status !== "approved" ? '<a class="btn small quiet" href="#voce-' + esc(x.id) + '">Modifica</a>' : '<a class="btn small quiet" href="../voci/#v-' + esc(x.id) + '">Vedi sul sito</a>') +
-              '<button class="btn small danger" type="button" data-action="voice-del" data-id="' + esc(x.id) + '">' + (x.status === "approved" ? "Ritira dal sito" : "Elimina") + "</button></div></article>";
-          }).join("") : '<p class="empty-note">Non hai ancora scritto nulla. Il primo testo è sempre il più difficile: prova con una nota breve.</p>') +
+              '<div class="btn-row">' + (x.status === "approved" ? '<a class="btn small quiet" href="../voci/#v-' + esc(x.id) + '">Vedi sul sito</a>' : "") +
+              '<button class="btn small danger" type="button" data-action="voice-del" data-id="' + esc(x.id) + '">' + (x.status === "approved" ? "Ritira dal sito" : "Ritira") + "</button></div></article>";
+          }).join("") : '<p class="empty-note">Non hai ancora scritto nulla da questo telefono. Il primo testo è sempre il più difficile: prova con una nota breve.</p>') +
+          (list.some(function (x) { return x.status === "rejected"; }) ? '<p class="fine">Per correggere un testo non pubblicato, ritiralo e mandane uno nuovo.</p>' : "") +
         "</section></div>", "voce");
       var ta = main.querySelector("textarea[name=body]"), ct = main.querySelector("[data-counter]");
       var upd = function () { var n = ta.value.length; ct.textContent = n + " / 2500" + (n && n < 20 ? " · almeno 20" : ""); };
       ta.addEventListener("input", upd); upd();
+      var sn = main.querySelector("input[name=signed_name]"), cy = main.querySelector("input[name=city]"), pv = main.querySelector("[data-sign-preview] b");
+      var sig = function () { pv.textContent = voiceSig({ signed_name: sn.value.trim(), city: cy.value.trim(), signature: "anonimo" }); };
+      sn.addEventListener("input", sig); cy.addEventListener("input", sig);
     }).catch(function (x) { setMain('<p class="form-msg err">' + esc(x.message) + "</p>", "voce"); });
   }
 
@@ -202,29 +190,29 @@
       var rej = all.filter(function (v) { return v.status === "rejected"; });
       var card = function (v) {
         return '<article class="panel voice-mod" id="vm-' + esc(v.id) + '">' +
-          '<div class="vi-head"><span class="pill wait">' + esc(VKIND[v.kind] || "") + "</span><small>Inviato il " + esc(fmtDate(v.created_at)) + " da <b>" + esc(v.author_name || "—") + "</b></small></div>" +
+          '<div class="vi-head"><span class="pill wait">' + esc(VKIND[v.kind] || "") + "</span><small>Inviato il " + esc(fmtDate(v.created_at)) + (v.user_id || v.signed_name ? " da <b>" + esc(v.signed_name || v.author_name || "—") + "</b>" : " senza firma") + "</small></div>" +
           (v.title ? "<h3>" + esc(v.title) + "</h3>" : "") +
           (v.topic || v.link_url ? '<p class="vi-topic">A proposito di: ' + esc(v.topic || "") + (safeHref(v.link_url) ? ' <a href="' + esc(safeHref(v.link_url)) + '" target="_blank" rel="noopener">link</a>' : "") + "</p>" : "") +
           '<label class="field"><span>Testo <small>(puoi correggere refusi prima di pubblicare)</small></span><textarea name="body" rows="7" maxlength="2500">' + esc(v.body) + "</textarea></label>" +
-          '<p class="vi-sign">Comparirà firmato: <b>' + esc(voiceSignPreview(v.signature, v.author_name, v.city)) + "</b></p>" +
+          '<p class="vi-sign">Comparirà firmato: <b>' + esc(voiceSig(v)) + "</b></p>" +
           '<label class="field"><span>Nota per chi ha scritto <small>(se non lo pubblichi)</small></span><input type="text" name="note" maxlength="500" placeholder="Es. troppo personale verso una persona: prova a parlare delle idee"></label>' +
           '<div class="btn-row"><button class="btn primary small" type="button" data-action="voice-ok" data-id="' + esc(v.id) + '">' + icon("check") + "Pubblica</button>" +
           '<button class="btn small quiet" type="button" data-action="voice-no" data-id="' + esc(v.id) + '">Non pubblicare</button></div></article>';
       };
       setMain(
         '<p><a class="back" href="#gestione">← Gestione</a></p>' +
-        '<div class="page-head"><span class="eyebrow">Area staff</span><h1>Voci Under 30</h1><p>I testi degli iscritti arrivano qui. Si pubblicano sul sito solo quando li approvi; chi scrive vede lo stato e la tua eventuale nota. <a href="../voci/">Vedi la pagina pubblica →</a></p></div>' +
+        '<div class="page-head"><span class="eyebrow">Area staff</span><h1>Voci Under 30</h1><p>I testi mandati dall\'Avamposto arrivano qui, senza nome né mail (solo la firma, se l\'hanno scritta). Si pubblicano sul sito solo quando li approvi; chi scrive vede lo stato e la tua eventuale nota dal suo telefono. <a href="../voci/">Vedi la pagina pubblica →</a></p></div>' +
         '<div id="ev-admin">' +
         '<section><div class="block-head"><h2>Da leggere</h2><span class="note">' + pend.length + (pend.length === 1 ? " testo" : " testi") + "</span></div>" +
           (pend.length ? '<div class="voice-queue">' + pend.map(card).join("") + "</div>" : '<p class="empty-note">Niente in attesa. Ottimo lavoro.</p>') + "</section>" +
         '<section><div class="block-head"><h2>Pubblicate</h2><span class="note">' + pub.length + "</span></div>" +
           (pub.length ? '<div class="table-wrap"><table><thead><tr><th>Testo</th><th>Firma</th><th>Pubblicata</th><th></th></tr></thead><tbody>' + pub.map(function (v) {
-            return "<tr><td>" + esc(v.title || (v.body.length > 70 ? v.body.slice(0, 67) + "…" : v.body)) + "</td><td>" + esc(voiceSignPreview(v.signature, v.author_name, v.city)) + '</td><td class="num">' + esc(fmtShort(v.published_at)) + "</td>" +
+            return "<tr><td>" + esc(v.title || (v.body.length > 70 ? v.body.slice(0, 67) + "…" : v.body)) + "</td><td>" + esc(voiceSig(v)) + '</td><td class="num">' + esc(fmtShort(v.published_at)) + "</td>" +
               '<td><button class="btn small quiet" type="button" data-action="voice-hide" data-id="' + esc(v.id) + '">Togli dal sito</button></td></tr>';
           }).join("") + "</tbody></table></div>" : '<p class="empty-note">Ancora nessuna voce pubblicata.</p>') + "</section>" +
         (rej.length ? '<details class="panel rp-edit"><summary><span><b>Non pubblicate</b><small>' + rej.length + " testi</small></span><span class=\"btn small\">Mostra</span></summary>" +
           '<div style="padding:14px 18px;display:grid;gap:10px">' + rej.map(function (v) {
-            return '<div class="vi-row"><span>' + esc(v.title || v.body.slice(0, 80)) + "<small>" + esc(v.author_name || "") + (v.staff_note ? " · nota: " + esc(v.staff_note) : "") + '</small></span><button class="btn small quiet" type="button" data-action="voice-ok" data-id="' + esc(v.id) + '">Pubblica</button></div>';
+            return '<div class="vi-row"><span>' + esc(v.title || v.body.slice(0, 80)) + "<small>" + esc(v.signed_name || v.author_name || "senza firma") + (v.staff_note ? " · nota: " + esc(v.staff_note) : "") + '</small></span><button class="btn small quiet" type="button" data-action="voice-ok" data-id="' + esc(v.id) + '">Pubblica</button></div>';
           }).join("") + "</div></details>" : "") +
         "</div>", "gestione");
     }).catch(function (x) { setMain('<p class="form-msg err">' + esc(x.message) + "</p>", "gestione"); });
@@ -238,9 +226,9 @@
     if (val("body").length < 20) { toast("Scrivi almeno 20 caratteri.", true); return; }
     if (!f.elements.consent.checked) { toast("Per inviare serve il consenso alla pubblicazione.", true); return; }
     var btn = f.querySelector("button[type=submit]"); busy(btn, true);
-    D.saveVoice({ id: f.getAttribute("data-id") || null, kind: pick("kind") || "riflessione", signature: pick("signature") || "nome",
+    D.saveVoice({ kind: pick("kind") || "riflessione", signed_name: val("signed_name"),
       title: val("title"), topic: val("topic"), link_url: val("link_url"), body: val("body"), city: val("city") })
-      .then(function () { toast("Inviato! Lo staff lo leggerà presto: trovi lo stato qui sotto."); if (location.hash === "#voce") viewVoice(""); else location.hash = "#voce"; })
+      .then(function () { toast("Inviato! Lo staff lo leggerà presto: trovi lo stato qui sotto."); if (location.hash === "#voce") viewVoice(); else location.hash = "#voce"; })
       .catch(function (x) { toast(x.message, true); busy(btn, false); });
   });
   document.addEventListener("click", function (e) {
@@ -248,7 +236,7 @@
     var act = b.getAttribute("data-action"), id = b.getAttribute("data-id");
     if (act === "voice-del") {
       if (b.getAttribute("data-sure") !== "1") { b.setAttribute("data-sure", "1"); b.textContent = "Sicuro? Tocca di nuovo"; return; }
-      busy(b, true); D.deleteVoice(id).then(function () { toast("Fatto."); viewVoice(""); }).catch(function (x) { toast(x.message, true); busy(b, false); });
+      busy(b, true); D.deleteVoice(id).then(function () { toast("Testo ritirato."); viewVoice(); }).catch(function (x) { toast(x.message, true); busy(b, false); });
       return;
     }
     var box = document.getElementById("vm-" + id);
@@ -263,66 +251,6 @@
       .catch(function (x) { toast(x.message, true); busy(b, false); });
   });
 
-  /* ---------------- Pre-lancio ---------------- */
-  function viewPrelaunch() {
-    setMain('<p class="loading">Carico…</p>', "gestione");
-    Promise.all([D.prelancio(), D.prelaunchList()]).then(function (r) {
-      S.prelancio = !!r[0]; var list = r[1] || [];
-      setMain(
-        '<p><a class="back" href="#gestione">← Gestione</a></p>' +
-        '<div class="page-head"><span class="eyebrow">Area staff</span><h1>Pre-lancio</h1>' +
-          "<p>Finché il pre-lancio è attivo, nell'Avamposto possono iscriversi solo lo staff e le mail di questa lista. Tutti gli altri vedono «L'Avamposto apre a breve». La regola vale nel database, non solo nella pagina.</p></div>" +
-        '<div id="ev-admin">' +
-        '<section class="panel prelaunch-state ' + (S.prelancio ? "on" : "off") + '">' +
-          "<div><b>" + (S.prelancio ? "Pre-lancio attivo" : "L'Avamposto è aperto a tutti") + "</b>" +
-          "<p>" + (S.prelancio ? "Iscrizioni riservate a " + list.length + (list.length === 1 ? " mail" : " mail") + " della lista, più lo staff." : "Chiunque può iscriversi. Puoi riattivare il pre-lancio in qualsiasi momento: chi è già iscritto resta dentro.") + "</p></div>" +
-          '<button class="btn ' + (S.prelancio ? "primary" : "quiet") + '" type="button" data-action="prelancio-toggle" data-on="' + (S.prelancio ? "0" : "1") + '">' +
-            (S.prelancio ? "Apri l'Avamposto a tutti" : "Riattiva il pre-lancio") + "</button>" +
-        "</section>" +
-        '<section class="panel"><form data-form="prelaunch" novalidate>' +
-          "<h2>Aggiungi al gruppo di prova</h2>" +
-          '<label class="field"><span>Mail <small>(una per riga, o separate da virgola)</small></span><textarea name="emails" rows="4" placeholder="giulia@esempio.it&#10;luca@esempio.it"></textarea></label>' +
-          '<label class="field"><span>Nota <small>(facoltativa, es. «gruppo di prova» o «staff Ancona»)</small></span><input type="text" name="note" maxlength="120"></label>' +
-          '<div class="btn-row"><button class="btn primary" type="submit">' + icon("check") + "Aggiungi</button></div>" +
-        "</form></section>" +
-        '<section><div class="block-head"><h2>Chi può entrare</h2><span class="note">' + list.length + "</span></div>" +
-          (list.length ? '<div class="table-wrap"><table><thead><tr><th>Mail</th><th>Nota</th><th>Aggiunta</th><th></th></tr></thead><tbody>' + list.map(function (x) {
-            return "<tr><td>" + esc(x.email) + "</td><td>" + esc(x.note || "") + '</td><td class="num">' + esc(fmtShort(x.created_at)) + "</td>" +
-              '<td><button class="btn small quiet" type="button" data-action="prelancio-del" data-email="' + esc(x.email) + '">Togli</button></td></tr>';
-          }).join("") + "</tbody></table></div>" : '<p class="empty-note">Nessuna mail in lista: per ora entra solo lo staff.</p>') +
-          '<p class="fine">Togliere una mail impedisce nuove iscrizioni con quell\'indirizzo; chi si è già iscritto resta nell\'Avamposto.</p>' +
-        "</section></div>", "gestione");
-    }).catch(function (x) { setMain('<p class="form-msg err">' + esc(x.message) + "</p>", "gestione"); });
-  }
-  document.addEventListener("submit", function (e) {
-    var f = e.target; if (!f.getAttribute || f.getAttribute("data-form") !== "prelaunch") return;
-    e.preventDefault();
-    var raw = String(f.elements.emails.value || "").toLowerCase().split(/[\s,;]+/).filter(Boolean);
-    var ok = [], bad = [];
-    raw.forEach(function (m) { (/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(m) ? ok : bad).push(m); });
-    if (!ok.length) { toast(bad.length ? "Mail non valida: " + bad[0] : "Scrivi almeno una mail.", true); return; }
-    var btn = f.querySelector("button[type=submit]"); busy(btn, true);
-    D.addPrelaunch(ok.filter(function (m, i) { return ok.indexOf(m) === i; }), String(f.elements.note.value || "").trim())
-      .then(function () { toast(ok.length + (ok.length === 1 ? " mail aggiunta." : " mail aggiunte.") + (bad.length ? " Ignorate: " + bad.join(", ") : "")); viewPrelaunch(); })
-      .catch(function (x) { toast(x.message, true); busy(btn, false); });
-  });
-  document.addEventListener("click", function (e) {
-    var b = e.target.closest("[data-action^='prelancio-']"); if (!b) return;
-    var act = b.getAttribute("data-action");
-    if (act === "prelancio-entra") { S.testerEntry = true; viewWelcome(); return; }
-    if (act === "prelancio-del") {
-      busy(b, true); D.removePrelaunch(b.getAttribute("data-email")).then(viewPrelaunch).catch(function (x) { toast(x.message, true); busy(b, false); });
-      return;
-    }
-    if (act === "prelancio-toggle") {
-      var on = b.getAttribute("data-on") === "1";
-      if (!on && b.getAttribute("data-sure") !== "1") { b.setAttribute("data-sure", "1"); b.textContent = "Sicuro? Da adesso chiunque può iscriversi"; return; }
-      busy(b, true);
-      D.setPrelancio(on).then(function () { S.prelancio = on; toast(on ? "Pre-lancio riattivato." : "L'Avamposto è aperto a tutti."); viewPrelaunch(); })
-        .catch(function (x) { toast(x.message, true); busy(b, false); });
-    }
-  });
-
   /* nella tessera di Gestione mostra quante voci aspettano */
   var viewAdminBase = viewAdmin;
   viewAdmin = function () {
@@ -335,16 +263,11 @@
 
   /* ---------------- menu ---------------- */
   function renderNav(active) {
-    if (!S.me) { nav.innerHTML = '<a href="#home"' + (active === "home" ? ' aria-current="page"' : "") + ">Entra</a>"; return; }
-    var pending = S.admin ? A.enrollments.filter(function (e) { return e.status === "richiesta"; }).length : 0;
-    nav.innerHTML =
-      '<a href="#home"' + (active === "home" ? ' aria-current="page"' : "") + ">I miei percorsi</a>" +
-      '<a href="#agenda"' + (active === "agenda" ? ' aria-current="page"' : "") + ">Agenda</a>" +
-      '<a href="#voce"' + (active === "voce" ? ' aria-current="page"' : "") + ">La tua voce</a>" +
-      '<a href="#squadra"' + (active === "squadra" ? ' aria-current="page"' : "") + ">La squadra</a>" +
-      '<a href="#profilo"' + (active === "profilo" ? ' aria-current="page"' : "") + ">Profilo</a>" +
-      (S.admin ? '<a class="staff" href="#gestione"' + (active === "gestione" ? ' aria-current="page"' : "") + ">" + icon("shield") + "Gestione" +
-        (pending ? ' <span class="count" aria-label="' + pending + ' richieste">' + pending + "</span>" : "") + "</a>" : "");
+    var a = function (h, k, label) { return '<a href="#' + h + '"' + (active === k ? ' aria-current="page"' : "") + ">" + label + "</a>"; };
+    if (!inside()) { nav.innerHTML = a("home", "home", "Entra"); return; }
+    nav.innerHTML = a("home", "home", "Corsi") + a("agenda", "agenda", "Agenda") + a("voce", "voce", "La tua voce") + a("squadra", "squadra", "La squadra") +
+      a("dispositivo", "dispositivo", S.admin && !S.pass.entry ? "Esci" : "Il tuo telefono") +
+      (S.admin ? '<a class="staff" href="#gestione"' + (active === "gestione" ? ' aria-current="page"' : "") + ">" + icon("shield") + "Gestione</a>" : "");
   }
   function setMain(html, active, bare) {
     renderNav(active);
@@ -356,29 +279,29 @@
     if (!S.ready) return;
     if (PREVIEW) return viewWelcome();
     var h = (location.hash || "#home").slice(1);
-    if (!S.me) {
-      if (/^(agenda|repliche|mobilitazione|m-)/.test(h)) { try { localStorage.setItem(AFTER_KEY, h); } catch (e) {} }
+    if (h === "staff") return S.admin ? go("#gestione") : viewStaffLogin();
+    if (!inside()) {
+      if (/^(agenda|repliche|mobilitazione|m-|voce|squadra)/.test(h)) { try { localStorage.setItem(AFTER_KEY, h); } catch (e) {} }
       if (h.indexOf("i-") === 0) return viewInitiative(h.slice(2));
       return viewWelcome();
     }
-    if (S.profile === null || !S.profile.full_name || !S.profile.membership || !S.profile.privacy_at) return viewCompleteProfile();
     var after = ""; try { after = localStorage.getItem(AFTER_KEY) || ""; localStorage.removeItem(AFTER_KEY); } catch (e) {}
     if (after && after !== h && (h === "home" || h === "")) { location.hash = "#" + after; return; }
-    if (h === "profilo") return viewProfile();
+    if (h === "dispositivo" || h === "profilo") return viewDevice();
     if (h === "squadra") return viewTeam();
-    if (h === "voce" || h.indexOf("voce-") === 0) return viewVoice(h.indexOf("voce-") === 0 ? h.slice(5) : "");
+    if (h === "voce" || h.indexOf("voce-") === 0) return viewVoice();
     if (h === "agenda" || h === "mobilitazione") return viewAgenda(h === "mobilitazione" ? "mobilitazione" : "");
     if (h === "repliche") return viewAgenda("repliche");
     if (h.indexOf("m-") === 0) return viewAgenda(h);
     if (h.indexOf("i-") === 0) return viewInitiative(h.slice(2));
     if (S.admin) {
       if (h === "gestione") return viewAdmin();
-      if (h === "g-iscritti") return viewMembers();
+      if (h === "g-codici") return viewCodes();
+      if (h === "g-numeri") return viewNumbers();
       if (h === "g-nuova") return viewEditInitiative(null);
       if (h === "g-squadra") return viewEditTeam();
       if (h === "g-eventi") return viewAdminEvents();
       if (h === "g-voci") return viewAdminVoices();
-      if (h === "g-prelancio") return viewPrelaunch();
       if (h.indexOf("g-ev-") === 0) return viewEditEvent(h.slice(5));
       if (h.indexOf("g-") === 0) return viewEditInitiative(h.slice(2));
     }
@@ -388,20 +311,14 @@
   /* ---------------- schede iniziativa ---------------- */
   function statusPill(it) {
     if (!it.published) return '<span class="pill draft">Bozza</span>';
-    if (it.access === "aperta") return '<span class="pill open">Aperta a tutti</span>';
-    var e = S.mine[it.id];
-    if (e && e.status === "attiva") return '<span class="pill ok">' + icon("check") + "Accesso attivo</span>";
-    if (e && e.status === "richiesta") return '<span class="pill wait">Richiesta inviata</span>';
-    if (e && e.status === "rifiutata") return '<span class="pill no">Non accolta</span>';
-    return '<span class="pill lock">' + icon("lock") + "Su richiesta</span>";
+    if (it.access === "aperta") return '<span class="pill open">Aperto a tutti</span>';
+    if (unlocked(it)) return '<span class="pill ok">' + icon("check") + "Sbloccato</span>";
+    return '<span class="pill lock">' + icon("lock") + "Con codice del corso</span>";
   }
   function actionFor(it) {
-    if (!S.me) return '<a class="btn small" href="#home" data-action="focus-signup">Entra per partecipare</a>';
+    if (!inside()) return '<a class="btn small" href="#home" data-action="focus-code">Entra con il codice</a>';
     if (hasAccess(it)) return '<a class="btn small primary" href="#i-' + esc(it.slug) + '">Apri</a>';
-    var e = S.mine[it.id];
-    if (e && e.status === "richiesta") return '<button class="btn small quiet" type="button" data-action="cancel" data-id="' + esc(it.id) + '">Annulla richiesta</button>';
-    if (e && e.status === "rifiutata") return '<span class="note">Per informazioni scrivi allo staff</span>';
-    return '<button class="btn small primary" type="button" data-action="request" data-id="' + esc(it.id) + '">Chiedi di partecipare</button>';
+    return '<button class="btn small" type="button" data-action="focus-course-code">Ho il codice</button>';
   }
   function band(it) {
     var when = it.starts_on ? "Dal " + fmtShort(it.starts_on) : "";
@@ -438,8 +355,13 @@
   }
 
   /* ---------------- benvenuto e accesso ---------------- */
+  function codeForm(id, label, button, hint) {
+    return '<form class="code-form" data-form="code" id="' + id + '" novalidate>' +
+      '<label class="field" for="' + id + '-in"><span>' + label + '</span><input type="text" id="' + id + '-in" name="code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="' + esc(hint || "Es. AVAMPOSTO-2027") + '" maxlength="40"></label>' +
+      '<p class="form-msg err" hidden></p>' +
+      '<button class="btn primary" type="submit">' + icon("check") + esc(button) + "</button></form>";
+  }
   function viewWelcome() {
-    var invite = pendingInvite();
     var catalog = PREVIEW ? [] : S.inits.filter(function (i) { return i.published; });
     setMain(
       '<section class="ava-hero"><div class="ava-hero-bg" aria-hidden="true"><img src="../assets/foto/evento-roma-platea.jpg" alt=""></div>' +
@@ -447,74 +369,38 @@
           '<div class="hero-copy">' +
             '<span class="eyebrow">Avamposto Under 30 · Marche</span>' +
             "<h1>Qui si impara a <em>fare politica.</em></h1>" +
-            "<p>Corsi pratici, dirette con ospiti e materiali che non trovi altrove, riservati a tesserati e simpatizzanti. Entri gratis, con la tua mail e senza password.</p>" +
+            "<p>Corsi pratici, dirette con ospiti e materiali che non trovi altrove, per chi gira intorno ad Azione Under 30 Marche: tesserati, simpatizzanti, curiosi. Si entra con un codice: niente iscrizione, niente mail, niente password.</p>" +
             '<ul class="points">' +
               "<li>" + icon("corso") + "<span><b>Corsi</b> con video, slide ed esercitazioni</span></li>" +
               "<li>" + icon("diretta") + "<span><b>Dirette su Meet</b> con ospiti e domande dal vivo</span></li>" +
-              "<li>" + icon("check") + "<span><b>Segni cosa hai visto</b> e riprendi da dove eri rimasto</span></li>" +
+              "<li>" + icon("users") + "<span><b>«Ci sono»</b> per dare una mano ai banchetti e agli eventi</span></li>" +
             "</ul>" +
           "</div>" +
-          (PREVIEW || (S.prelancio && !S.testerEntry && !invite) ? '<div class="panel soon-panel"><span class="eyebrow">Iscrizioni in arrivo</span><h2>L\'Avamposto apre a breve</h2>' +
+          (PREVIEW ? '<div class="panel soon-panel"><span class="eyebrow">In arrivo</span><h2>L\'Avamposto apre a breve</h2>' +
               "<p>Stiamo preparando i primi percorsi. Iscriviti alla newsletter o seguici su Instagram: ti avvisiamo appena si parte.</p>" +
-              '<div class="btn-row"><a class="btn primary" href="../#unisciti">Avvisami</a><a class="btn quiet" href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener">Instagram</a></div>' +
-              (PREVIEW ? "" : '<p class="tester-link"><button class="linklike" type="button" data-action="prelancio-entra">Fai parte del gruppo di prova o dello staff? Entra qui</button></p>') + "</div>"
-            : '<div class="panel" id="auth-panel">' +
-              (S.prelancio ? '<p class="form-msg ok">Fase di prova: possono entrare solo lo staff e le mail del gruppo di prova.</p>' : "") +
-              (invite ? '<p class="form-msg ok">Hai un link d\'invito. Iscriviti o entra: il corso si sbloccherà in automatico.</p>' : "") +
-              authForms() +
-            "</div>") +
+              '<div class="btn-row"><a class="btn primary" href="../#unisciti">Avvisami</a><a class="btn quiet" href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener">Instagram</a></div></div>'
+            : '<div class="panel door" id="auth-panel"><span class="eyebrow">Entra</span><h2>Hai il codice?</h2>' +
+              codeForm("door", "Codice dell'Avamposto", "Entra") +
+              '<p class="fine">Il codice te lo dà chi ti ha parlato dell\'Avamposto, oppure scrivici su <a href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener">Instagram</a> o a <a href="mailto:azioneunder30marche@gmail.com">azioneunder30marche@gmail.com</a>. ' +
+              'Resta salvato su questo telefono: la prossima volta entri direttamente.</p>' +
+              '<p class="tester-link"><a href="#staff">Sei dello staff? Accedi con la mail</a></p></div>') +
         "</div></section>" +
-      '<div class="wrap page"><section class="block"><div class="block-head"><h2>Cosa trovi dentro</h2><span class="note">I corsi «su richiesta» si sbloccano dopo l\'approvazione dello staff.</span></div>' +
+      '<div class="wrap page"><section class="block"><div class="block-head"><h2>Cosa trovi dentro</h2><span class="note">Alcuni corsi chiedono un secondo codice, che lo staff dà a chi partecipa.</span></div>' +
       (catalog.length ? '<div class="inits">' + catalog.map(initCard).join("") + "</div>" : '<p class="empty soon">Presto ci saranno nuove iniziative per i corsi.</p>') +
       "</section></div>", "home", true);
-    bindAuth();
   }
-  function authForms() {
-    return '<div class="tabs" role="tablist">' +
-        '<button type="button" role="tab" aria-selected="true" data-tab="signup" id="tab-signup">Iscriviti</button>' +
-        '<button type="button" role="tab" aria-selected="false" data-tab="signin" id="tab-signin">Sono già iscritto</button>' +
-      "</div>" +
-      '<form id="f-signup" novalidate>' +
-        '<label class="field" for="su-name"><span>Nome e cognome</span><input type="text" id="su-name" autocomplete="name" required></label>' +
-        '<label class="field" for="su-email"><span>Email</span><input type="email" id="su-email" autocomplete="email" inputmode="email" required></label>' +
-        '<fieldset class="field"><legend>Sei</legend><div class="choice-row">' +
-          '<label class="choice" for="su-t"><input type="radio" name="membership" id="su-t" value="tesserato"> Tesserato</label>' +
-          '<label class="choice" for="su-s"><input type="radio" name="membership" id="su-s" value="simpatizzante"> Simpatizzante</label>' +
-        "</div></fieldset>" +
-        '<label class="check" for="su-privacy"><input type="checkbox" id="su-privacy"> <span>Ho almeno 14 anni, ho letto l\'<a href="privacy.html" target="_blank">informativa privacy</a> e acconsento al trattamento dei miei dati da parte di Azione, compresa l\'indicazione di tesserato o simpatizzante, che rivela un\'opinione politica.</span></label>' +
-        '<p class="form-msg err" id="su-err" hidden></p>' +
-        '<button class="btn primary" type="submit">' + icon("mail") + "Mandami il link per entrare</button>" +
-      "</form>" +
-      '<form id="f-signin" novalidate hidden>' +
-        '<label class="field" for="si-email"><span>Email con cui ti sei iscritto</span><input type="email" id="si-email" autocomplete="email" inputmode="email" required></label>' +
-        '<p class="form-msg err" id="si-err" hidden></p>' +
-        '<button class="btn primary" type="submit">' + icon("mail") + "Mandami il link per entrare</button>" +
-      "</form>" +
-      '<div class="sent" id="sent" hidden></div>';
-  }
-  function bindAuth() {
-    var panel = document.getElementById("auth-panel"); if (!panel) return;
-    panel.addEventListener("click", function (e) {
-      var t = e.target.closest("[data-tab]"); if (!t) return;
-      var su = t.getAttribute("data-tab") === "signup";
-      document.getElementById("tab-signup").setAttribute("aria-selected", su);
-      document.getElementById("tab-signin").setAttribute("aria-selected", !su);
-      document.getElementById("f-signup").hidden = !su;
-      document.getElementById("f-signin").hidden = su;
-    });
-    document.getElementById("f-signup").addEventListener("submit", function (e) {
-      e.preventDefault();
-      var err = document.getElementById("su-err"), btn = e.target.querySelector("button[type=submit]");
-      var m = document.querySelector('input[name="membership"]:checked');
-      var form = { full_name: document.getElementById("su-name").value.trim(), email: document.getElementById("su-email").value.trim(),
-        membership: m ? m.value : "", privacy: document.getElementById("su-privacy").checked };
-      var problem = !form.full_name ? "Scrivi nome e cognome." : !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email) ? "Scrivi un indirizzo email valido." :
-        !form.membership ? "Indica se sei tesserato o simpatizzante." : !form.privacy ? "Per iscriverti serve il consenso all'informativa privacy." : "";
-      if (problem) { err.textContent = problem; err.hidden = false; return; }
-      err.hidden = true; busy(btn, true);
-      D.signUp(form, redirectUrl()).then(function () { showSent(form.email); })
-        .catch(function (x) { err.textContent = x.message; err.hidden = false; }).then(function () { busy(btn, false); });
-    });
+  function viewStaffLogin() {
+    setMain(
+      '<a class="back" href="#home">← Avamposto</a>' +
+      '<div class="page-head"><span class="eyebrow">Area staff</span><h1>Accesso staff</h1><p>Solo per chi gestisce l\'Avamposto. Ti mandiamo un link per entrare: niente password.</p></div>' +
+      '<div class="panel" id="auth-panel" style="max-width:520px">' +
+        '<form id="f-signin" novalidate>' +
+          '<label class="field" for="si-email"><span>Mail dello staff</span><input type="email" id="si-email" autocomplete="email" inputmode="email" required></label>' +
+          '<p class="form-msg err" id="si-err" hidden></p>' +
+          '<button class="btn primary" type="submit">' + icon("mail") + "Mandami il link per entrare</button>" +
+        "</form>" +
+        '<div class="sent" id="sent" hidden></div>' +
+      "</div>", "home");
     document.getElementById("f-signin").addEventListener("submit", function (e) {
       e.preventDefault();
       var err = document.getElementById("si-err"), btn = e.target.querySelector("button[type=submit]");
@@ -526,9 +412,7 @@
     });
   }
   function showSent(mail) {
-    document.getElementById("f-signup").hidden = true;
     document.getElementById("f-signin").hidden = true;
-    document.querySelector("#auth-panel .tabs").hidden = true;
     var box = document.getElementById("sent");
     box.innerHTML = icon("mail") + "<h3>Controlla la posta</h3>" +
       "<p>Abbiamo mandato un link a <b>" + esc(mail) + "</b>. Aprilo per entrare: vale per un'ora. Se non lo trovi, guarda nello spam.</p>" +
@@ -536,61 +420,38 @@
       '<button class="btn quiet small" type="button" data-action="auth-again">Usa un\'altra mail</button>';
     box.hidden = false;
   }
+  document.addEventListener("submit", function (e) {
+    var f = e.target; if (!f.getAttribute || f.getAttribute("data-form") !== "code") return;
+    e.preventDefault();
+    var input = f.elements.code, err = f.querySelector(".form-msg"), btn = f.querySelector("button[type=submit]");
+    if (!input.value.trim()) { err.textContent = "Scrivi il codice."; err.hidden = false; input.focus(); return; }
+    var before = S.pass.entry, courses = (S.pass.courses || []).slice();
+    err.hidden = true; busy(btn, true);
+    D.addCode(input.value).then(function () { return refresh(); }).then(function () {
+      var fresh = S.inits.filter(function (i) { return unlocked(i) && courses.indexOf(i.id) < 0; });
+      if (!before) { D.hit("ingresso", "avamposto"); toast("Benvenuto nell'Avamposto"); }
+      else toast(fresh.length ? "Sbloccato: " + fresh.map(function (i) { return i.title; }).join(", ") : "Codice salvato");
+      if (fresh.length === 1 && before) location.hash = "#i-" + fresh[0].slug; else if (location.hash === "#home" || !location.hash) route(); else location.hash = "#home";
+    }).catch(function (x) { err.textContent = x.message; err.hidden = false; busy(btn, false); });
+  });
 
-  function viewCompleteProfile() {
-    var p = S.profile || {};
-    setMain(
-      '<div class="page-head"><span class="eyebrow">Un ultimo passo</span><h1>Completa il profilo</h1><p>Ci servono questi dati per gestire i corsi e le iscrizioni.</p></div>' +
-      '<div class="panel" style="max-width:560px">' + profileForm(p, true) + "</div>", "home");
-    bindProfileForm(true);
-  }
-  function profileForm(p, first) {
-    return '<form id="f-profile" novalidate>' +
-      '<label class="field" for="pf-name"><span>Nome e cognome</span><input type="text" id="pf-name" autocomplete="name" value="' + esc(p.full_name || "") + '"></label>' +
-      '<label class="field" for="pf-email"><span>Email</span><input type="email" id="pf-email" value="' + esc(S.me.email) + '" disabled></label>' +
-      '<fieldset class="field"><legend>Sei</legend><div class="choice-row">' +
-        '<label class="choice" for="pf-t"><input type="radio" name="pf-m" id="pf-t" value="tesserato"' + (p.membership === "tesserato" ? " checked" : "") + "> Tesserato</label>" +
-        '<label class="choice" for="pf-s"><input type="radio" name="pf-m" id="pf-s" value="simpatizzante"' + (p.membership === "simpatizzante" ? " checked" : "") + "> Simpatizzante</label>" +
-      "</div></fieldset>" +
-      (first || !p.privacy_at ? '<label class="check" for="pf-privacy"><input type="checkbox" id="pf-privacy"' + (p.privacy_at ? " checked" : "") + '> <span>Ho almeno 14 anni, ho letto l\'<a href="privacy.html" target="_blank">informativa privacy</a> e acconsento al trattamento dei miei dati da parte di Azione, compresa l\'indicazione di tesserato o simpatizzante, che rivela un\'opinione politica.</span></label>' :
-        '<p class="note" style="margin:0;color:var(--muted);font-size:.88rem">Consenso privacy dato il ' + esc(fmtDate(p.privacy_at)) + ".</p>") +
-      '<p class="form-msg err" id="pf-err" hidden></p>' +
-      '<div class="btn-row"><button class="btn primary" type="submit">' + (first ? "Entra nell'Avamposto" : "Salva") + "</button></div>" +
-      "</form>";
-  }
-  function bindProfileForm(first) {
-    document.getElementById("f-profile").addEventListener("submit", function (e) {
-      e.preventDefault();
-      var err = document.getElementById("pf-err"), btn = e.target.querySelector("button[type=submit]");
-      var m = document.querySelector('input[name="pf-m"]:checked');
-      var pv = document.getElementById("pf-privacy");
-      var data = { full_name: document.getElementById("pf-name").value.trim(), membership: m ? m.value : "",
-        privacy_at: (S.profile && S.profile.privacy_at) || (pv && pv.checked ? new Date().toISOString() : null) };
-      var problem = !data.full_name ? "Scrivi nome e cognome." : !data.membership ? "Indica se sei tesserato o simpatizzante." : !data.privacy_at ? "Serve il consenso all'informativa privacy." : "";
-      if (problem) { err.textContent = problem; err.hidden = false; return; }
-      busy(btn, true);
-      D.saveProfile(data).then(function () { toast(first ? "Benvenuto nell'Avamposto" : "Profilo salvato"); return reload(); })
-        .catch(function (x) { err.textContent = x.message; err.hidden = false; busy(btn, false); });
-    });
-  }
-
-  /* ---------------- area iscritto ---------------- */
+  /* ---------------- area di chi entra ---------------- */
   function viewHome() {
     var visible = S.inits.filter(function (i) { return i.published; });
-    var mine = visible.filter(function (i) { return i.access === "aperta" || (S.mine[i.id] && S.mine[i.id].status === "attiva"); });
+    var mine = visible.filter(hasAccess);
     var others = visible.filter(function (i) { return mine.indexOf(i) < 0; });
-    var first = (S.profile.full_name || "").split(" ")[0];
     var unseen = mine.reduce(function (n, it) { return n + progressOf(it).unseen; }, 0);
     setMain(
-      '<div class="page-head"><span class="eyebrow">Avamposto Under 30</span><h1>Ciao ' + esc(first) + "!</h1><p>" +
-        (unseen ? "Hai <b>" + unseen + (unseen === 1 ? " materiale nuovo" : " materiali nuovi") + "</b> da vedere nei tuoi percorsi." : "Sei in pari con tutti i tuoi percorsi.") + "</p></div>" +
+      '<div class="page-head"><span class="eyebrow">Avamposto Under 30</span><h1>Bentornato nell\'Avamposto</h1><p>' +
+        (unseen ? "Hai <b>" + unseen + (unseen === 1 ? " materiale nuovo" : " materiali nuovi") + "</b> da vedere nei tuoi corsi." : mine.length ? "Sei in pari con tutti i tuoi corsi." : "Qui trovi corsi, dirette e materiali.") + "</p></div>" +
       nextLiveCard() +
       (!visible.length ? '<p class="empty soon">Presto ci saranno nuove iniziative per i corsi.</p>' : "") +
-      (visible.length ? '<section class="block"><div class="block-head"><h2>I miei percorsi</h2></div>' +
-        (mine.length ? '<div class="inits">' + mine.map(initCard).join("") + "</div>" : '<p class="empty">Non hai ancora corsi attivi. Scegline uno qui sotto.</p>') +
-      "</section>" +
-      '<section class="block"><div class="block-head"><h2>Catalogo</h2><span class="note">Lo staff riceve la tua richiesta e ti abilita.</span></div>' +
-        (others.length ? '<div class="inits">' + others.map(initCard).join("") + "</div>" : '<p class="empty">Sei già dentro a tutte le iniziative disponibili.</p>') +
+      (visible.length ? '<section class="block"><div class="block-head"><h2>I tuoi corsi</h2></div>' +
+        (mine.length ? '<div class="inits">' + mine.map(initCard).join("") + "</div>" : '<p class="empty">Non ci sono ancora corsi aperti a tutti. Se hai il codice di un corso, inseriscilo qui sotto.</p>') +
+      "</section>" : "") +
+      (others.length ? '<section class="block" id="altri-corsi"><div class="block-head"><h2>Corsi con codice</h2><span class="note">Lo staff dà il codice a chi partecipa al corso.</span></div>' +
+        '<div class="inits">' + others.map(initCard).join("") + "</div>" +
+        '<div class="panel course-code">' + codeForm("course-code", "Hai il codice di un corso?", "Sblocca", "Es. EUROPA-4K7PQ") + "</div>" +
       "</section>" : ""), "home");
   }
 
@@ -611,20 +472,30 @@
       "</div></section>";
   }
 
-  function viewProfile() {
+  function viewDevice() {
+    var codes = D.codes(), staffOnly = S.admin && !S.pass.entry;
+    var whatOpens = function (c) {
+      if (S.admin) return "";
+      var its = S.inits.filter(function (i) { return unlocked(i); });
+      return its.length ? "Corsi sbloccati: " + its.map(function (i) { return esc(i.title); }).join(", ") + "." : "";
+    };
     setMain(
-      '<div class="page-head"><span class="eyebrow">Il tuo account</span><h1>Profilo</h1></div>' +
-      '<div class="panel" style="max-width:560px">' + profileForm(S.profile, false) + "</div>" +
-      '<div class="btn-row"><button class="btn quiet" type="button" data-action="signout">Esci dall\'Avamposto</button></div>' +
-      '<section class="panel privacy-panel" style="max-width:560px;margin-top:28px"><h2>I tuoi dati</h2>' +
-        '<p>Puoi scaricare una copia dei dati che conserviamo su di te o cancellare l\'account. La cancellazione toglie profilo, accessi ai corsi, segni «visto» e adesioni ai turni, e non si può annullare. ' +
-        'Per la newsletter o per altre richieste scrivi a <a href="mailto:azioneunder30marche@gmail.com">azioneunder30marche@gmail.com</a>. <a href="privacy.html">Informativa privacy</a></p>' +
-        '<div class="btn-row"><button class="btn quiet" type="button" data-action="export-me">' + icon("download") + 'Scarica i miei dati</button>' +
-        '<button class="btn danger" type="button" data-action="delete-me">' + icon("trash") + 'Cancella il mio account</button></div>' +
-        '<div id="delete-confirm" hidden><p class="form-msg err" style="margin-top:14px">Confermi? L\'account e i tuoi dati nell\'Avamposto verranno cancellati subito.</p>' +
-        '<div class="btn-row"><button class="btn danger" type="button" data-action="delete-me-yes">Sì, cancella tutto</button><button class="btn quiet" type="button" data-action="delete-me-no">Annulla</button></div></div>' +
-      "</section>", "profilo");
-    bindProfileForm(false);
+      '<div class="page-head"><span class="eyebrow">Avamposto Under 30</span><h1>' + (staffOnly ? "Il tuo accesso" : "Il tuo telefono") + "</h1>" +
+        "<p>Nell'Avamposto non hai un account: quello che serve resta su questo telefono, e lo puoi cancellare quando vuoi.</p></div>" +
+      (codes.length ? '<section class="panel" style="max-width:640px"><h2>Codici salvati</h2>' +
+        '<ul class="code-list">' + codes.map(function (c) { return "<li><code>" + esc(c) + "</code></li>"; }).join("") + "</ul>" +
+        (whatOpens() ? '<p class="note">' + whatOpens() + "</p>" : "") +
+        codeForm("device-code", "Aggiungi il codice di un corso", "Aggiungi", "Es. EUROPA-4K7PQ") + "</section>" : "") +
+      '<section class="panel privacy-panel" style="max-width:640px;margin-top:22px"><h2>Cosa resta su questo telefono</h2>' +
+        "<ul class=\"plain\"><li>i codici che hai inserito;</li><li>i materiali che hai segnato come visti;</li><li>gli appuntamenti a cui hai detto «Ci sono»;</li><li>il riferimento ai testi che hai mandato in «La tua voce», per vederne lo stato.</li></ul>" +
+        "<p>Allo staff arrivano solo numeri complessivi (quante persone sono entrate, quanti «Ci sono» per turno), mai chi sei. I testi di «La tua voce» arrivano con la firma che scrivi tu, se la scrivi. <a href=\"privacy.html\">Informativa privacy</a></p>" +
+        (codes.length ? '<div class="btn-row"><button class="btn danger" type="button" data-action="forget-device">' + icon("trash") + "Dimentica tutto su questo telefono</button></div>" +
+          '<div id="forget-confirm" hidden><p class="form-msg err" style="margin-top:14px">Confermi? Per rientrare ti servirà di nuovo il codice. I testi già mandati restano allo staff: se vuoi ritirarli, fallo prima da «La tua voce».</p>' +
+          '<div class="btn-row"><button class="btn danger" type="button" data-action="forget-yes">Sì, dimentica</button><button class="btn quiet" type="button" data-action="forget-no">Annulla</button></div></div>' : "") +
+      "</section>" +
+      (S.me ? '<section class="panel" style="max-width:640px;margin-top:22px"><h2>Staff</h2><p>Sei entrato come <b>' + esc(S.me.email) + "</b>.</p>" +
+        '<div class="btn-row"><button class="btn quiet" type="button" data-action="signout">Esci dall\'area staff</button></div></section>' : ""),
+      "dispositivo");
   }
 
   function viewInitiative(slug) {
@@ -633,7 +504,7 @@
     var access = hasAccess(it);
     var pr = access ? progressOf(it) : { total: 0 };
     setMain(
-      '<a class="back" href="#home">← ' + (S.me ? "I miei percorsi" : "Avamposto") + "</a>" +
+      '<a class="back" href="#home">← ' + (inside() ? "I tuoi corsi" : "Avamposto") + "</a>" +
       '<header class="init-head"><div class="course-cover">' + coverHtml(it, "big") +
         '<span class="cover-kind">' + icon(it.kind) + esc(KIND[it.kind] || "Iniziativa") + (it.starts_on ? " · dal " + esc(fmtShort(it.starts_on)) : "") + "</span></div>" +
         '<div class="init-head-body">' +
@@ -644,9 +515,12 @@
         (access ? "" : '<div class="btn-row">' + actionFor(it) + "</div>") +
       "</div></header>" +
       (access ? '<section class="block"><div class="block-head"><h2>Materiali</h2></div><div class="mats" id="mats"><p class="loading">Caricamento dei materiali…</p></div></section>' :
-        '<p class="empty">' + icon("lock") + " I materiali di questa iniziativa sono visibili a chi partecipa." + (S.me ? "" : " Entra nell'Avamposto per chiedere l'accesso.") + "</p>"),
+        '<div class="panel course-code">' + (inside() ? '<p class="note">' + icon("lock") + " I materiali di questo corso si aprono con il codice del corso, che lo staff dà a chi partecipa.</p>" + codeForm("course-code", "Codice del corso", "Sblocca", "Es. EUROPA-4K7PQ")
+          : '<p class="note">' + icon("lock") + " Per vedere i materiali entra nell'Avamposto con il codice.</p>" + codeForm("door", "Codice dell'Avamposto", "Entra")) + "</div>"),
       "home");
-    if (access) D.materials(it.id).then(function (list) {
+    if (access && !S.admin) D.hit("apertura", it.id);
+    var load = S.admin ? D.materials(it.id) : Promise.resolve(S.amats.filter(function (m) { return m.initiative_id === it.id; }));
+    if (access) load.then(function (list) {
       var box = document.getElementById("mats"); if (!box) return;
       box.innerHTML = list.length ? list.map(function (m, i) { return materialCard(m, i + 1); }).join("") : '<p class="empty">Lo staff non ha ancora pubblicato materiali. Torna presto.</p>';
     }).catch(function (e) { var box = document.getElementById("mats"); if (box) box.innerHTML = '<p class="form-msg err">' + esc(e.message) + "</p>"; });
@@ -701,7 +575,7 @@
       c = href ? '<div class="btn-row"><a class="btn primary" href="' + esc(href) + '" target="_blank" rel="noopener">' + icon("link") + "Apri il link</a></div>" : "";
     }
     var body = m.body ? (m.kind === "testo" ? '<div class="prose">' + prose(m.body) + "</div>" : "<p>" + esc(m.body) + "</p>") : "";
-    var seenBtn = S.me ? '<button class="seen-btn" type="button" data-action="seen" data-mid="' + esc(m.id) + '" aria-pressed="' + seen + '">' +
+    var seenBtn = inside() ? '<button class="seen-btn" type="button" data-action="seen" data-mid="' + esc(m.id) + '" aria-pressed="' + seen + '">' +
       (seen ? icon("check") + "Visto" : "Segna come visto") + "</button>" : "";
     return '<article class="mat' + (seen ? " seen" : "") + '" data-mid="' + esc(m.id) + '"><div class="mat-ico">' + (seen ? icon("check") : icon(m.kind)) + "</div>" +
       '<div class="mat-kind">' + (n ? '<span class="mat-num">' + n + "</span>" : "") + esc(MAT[m.kind] || "") + (m.published === false ? ' <span class="pill draft">Nascosto</span>' : "") + seenBtn + "</div>" +
@@ -713,7 +587,8 @@
   /* ---------------- la squadra ---------------- */
   var T = { units: [], people: [], photos: {} };
   function loadTeam() {
-    return Promise.all([D.orgUnits(), D.orgPeople()]).then(function (r) {
+    var get = S.admin ? Promise.all([D.orgUnits(), D.orgPeople()]) : D.passTeam().then(function (t) { return [t && t.units, t && t.people]; });
+    return get.then(function (r) {
       T.units = r[0] || []; T.people = r[1] || [];
       return D.orgPhotoUrls(T.people.map(function (pp) { return pp.photo_path; }));
     }).then(function (urls) { T.photos = urls || {}; });
@@ -797,7 +672,7 @@
     var u = o.u, id = esc(u.id), pp = T.people.filter(function (x) { return x.unit_id === u.id; });
     return '<section class="panel unit-admin" style="margin-left:' + Math.min(o.depth, 3) * 18 + 'px">' +
       '<form data-form="unit" data-id="' + id + '" novalidate><h3>' + esc(u.name) + '</h3>' +
-        (unitVisible(u) ? "" : '<p class="vacant">Nascosta agli iscritti finché non aggiungi una persona o un link WhatsApp.</p>') + '<div class="grid-2">' +
+        (unitVisible(u) ? "" : '<p class="vacant">Nascosta nell\'Avamposto finché non aggiungi una persona o un link WhatsApp.</p>') + '<div class="grid-2">' +
         '<label class="field" for="un-' + id + '"><span>Nome</span><input type="text" id="un-' + id + '" name="name" value="' + esc(u.name) + '"></label>' +
         '<label class="field" for="ud-' + id + '"><span>Descrizione / ruolo</span><input type="text" id="ud-' + id + '" name="description" value="' + esc(u.description || "") + '"></label>' +
         '<label class="field" for="uw-' + id + '"><span>Link canale WhatsApp</span><input type="url" id="uw-' + id + '" name="whatsapp_url" placeholder="https://chat.whatsapp.com/…" value="' + esc(u.whatsapp_url || "") + '"></label>' +
@@ -811,7 +686,7 @@
   }
   function viewEditTeam() {
     setMain('<a class="back" href="#gestione">← Gestione</a><div class="page-head"><span class="eyebrow">Area staff</span><h1>La squadra</h1>' +
-      '<p>Modifica strutture, persone, foto e link dei canali WhatsApp. La pagina «La squadra» è visibile solo agli iscritti all\'Avamposto. <a href="#squadra">Vedi come la vedono →</a></p></div>' +
+      '<p>Modifica strutture, persone, foto e link dei canali WhatsApp. La pagina «La squadra» la vede solo chi entra nell\'Avamposto con il codice. <a href="#squadra">Vedi come la vedono →</a></p></div>' +
       '<div id="team-admin"><p class="loading">Caricamento…</p></div>', "gestione");
     loadTeam().then(function () {
       var box = document.getElementById("team-admin"); if (!box) return;
@@ -855,7 +730,7 @@
   });
 
   /* ---------------- agenda: mobilitazione e repliche ---------------- */
-  var EV = { events: [], mob: {}, mine: {}, replays: [], signups: [], counts: {} };
+  var EV = { events: [], mob: {}, mine: {}, replays: [], hands: [], counts: {} };
   var EKIND = { incontro: "Incontro", aperitivo: "Aperitivo", mobilitazione: "Mobilitazione", diretta: "Diretta", formazione: "Formazione" };
   var EAREA = { marche: "Tutta la regione", pu: "Pesaro-Urbino", an: "Ancona", mc: "Macerata", fm: "Fermo", ap: "Ascoli Piceno", online: "Online", fuori: "Fuori regione" };
   var AFTER_KEY = "avamposto-dopo";
@@ -864,21 +739,22 @@
   function evWhere(ev) { return [ev.place, ev.city].filter(Boolean).join(" · "); }
   function slotsOf(ev) { var m = EV.mob[ev.id]; return m && m.slots ? m.slots.split(/\n+/).map(function (x) { return x.trim(); }).filter(Boolean) : []; }
   function loadAgenda(withAdmin) {
-    var jobs = [D.events(), D.mobilization(), D.mySignups(), D.replays(), D.signupCounts().catch(function () { return []; })];
-    if (withAdmin) jobs.push(D.allSignups());
+    var jobs = [D.events(), S.admin ? D.mobilization() : D.passMobilization(), D.mySignups(), S.admin ? D.replays() : D.passReplays(),
+      D.signupCounts().catch(function () { return []; })];
+    if (withAdmin) jobs.push(D.counts().then(function (r) { return (r || []).filter(function (c) { return c.kind === "cisono"; }); }));
     return Promise.all(jobs).then(function (r) {
       EV.events = r[0] || [];
       EV.mob = {}; (r[1] || []).forEach(function (m) { EV.mob[m.event_id] = m; });
       EV.mine = {}; (r[2] || []).forEach(function (x) { EV.mine[x.event_id] = x; });
       EV.replays = r[3] || [];
       EV.counts = {}; (r[4] || []).forEach(function (c) { EV.counts[c.event_id] = Number(c.n) || 0; });
-      EV.signups = r[5] || [];
+      EV.hands = r[5] || [];
     });
   }
   function posterSrc(ev) { return ev && ev.poster_path ? D.posterUrl(ev.poster_path) : ""; }
   function handsCard(ev) {
     var m = EV.mob[ev.id] || {}, mine = EV.mine[ev.id], slots = slotsOf(ev), n = EV.counts[ev.id] || 0, id = esc(ev.id), src = posterSrc(ev);
-    var kit = safeHref(m.kit_url);
+    var kit = safeHref(m.kit_url), wa = mine && safeHref(mine.wa);
     return '<article class="hands" id="m-' + id + '">' +
       '<div class="hands-poster">' + (src ? '<img src="' + esc(src) + '" alt="" loading="lazy">' : icon("evento")) + "</div>" +
       '<div class="hands-body"><div class="hands-top"><span class="pill hands-pill">Serve una mano</span>' + (n ? '<span class="hands-n">' + n + (n === 1 ? " c'è già" : " ci sono già") + "</span>" : "") + "</div>" +
@@ -887,18 +763,18 @@
       (ev.summary ? "<p>" + esc(ev.summary) + "</p>" : "") +
       (m.meeting_point || m.notes ? '<ul class="hands-info">' + (m.meeting_point ? "<li><b>Ritrovo</b>" + esc(m.meeting_point) + "</li>" : "") + (m.notes ? "<li><b>Da sapere</b>" + esc(m.notes) + "</li>" : "") + "</ul>" : "") +
       (mine
-        ? '<div class="hands-yes">' + icon("check") + "<div><b>Ci sei" + (mine.slot ? ": turno " + esc(mine.slot) : "") + "</b><span>Grazie! Lo staff ti scriverà con gli ultimi dettagli.</span></div></div>" +
-          '<div class="btn-row">' + (kit ? '<a class="btn small" href="' + esc(kit) + '" target="_blank" rel="noopener">' + icon("download") + "Kit del volontario</a>" : "") +
+        ? '<div class="hands-yes">' + icon("check") + "<div><b>Ci sei" + (mine.slot ? ": turno " + esc(mine.slot) : "") + "</b><span>" +
+            (wa ? "Grazie! Entra nel gruppo WhatsApp dell'evento: lì vi organizzate e lo staff dà gli ultimi dettagli." : "Grazie! Gli ultimi dettagli arrivano nei canali WhatsApp della tua zona.") + "</span></div></div>" +
+          '<div class="btn-row">' + waButton(wa, "Gruppo WhatsApp dell'evento") + (kit ? '<a class="btn small" href="' + esc(kit) + '" target="_blank" rel="noopener">' + icon("download") + "Kit del volontario</a>" : "") +
           '<a class="btn small quiet" href="' + esc(evGcal(ev)) + '" target="_blank" rel="noopener">Aggiungi al calendario</a>' +
           '<button class="btn small quiet" type="button" data-action="su-cancel" data-id="' + id + '">Non posso più</button></div>'
         : '<form class="hands-form" data-form="signup" data-id="' + id + '" novalidate>' +
           (slots.length ? '<fieldset class="slots"><legend>Scegli il turno</legend>' + slots.map(function (s, i) {
             return '<label class="slot"><input type="radio" name="slot" value="' + esc(s) + '"' + (i === 0 ? " checked" : "") + "><span>" + esc(s) + "</span></label>";
           }).join("") + "</fieldset>" : "") +
-          '<label class="field" for="sn-' + id + '"><span>Nota per lo staff <small>(facoltativa)</small></span><input type="text" id="sn-' + id + '" name="note" maxlength="300" placeholder="Es. arrivo con un amico, ho la macchina"></label>' +
           '<div class="btn-row"><button class="btn primary" type="submit">' + icon("check") + "Ci sono</button>" +
           (kit ? '<a class="btn small quiet" href="' + esc(kit) + '" target="_blank" rel="noopener">Guarda il kit</a>' : "") + "</div>" +
-          '<p class="fine">Lo staff vedrà nome, email, turno e nota per organizzarsi. Nella pagina pubblica compare solo il numero di adesioni.</p></form>') +
+          '<p class="fine">Non ti chiediamo il nome: contiamo solo quante persone ci sono per turno. Dopo il «Ci sono» trovi il link al gruppo WhatsApp dell\'evento.</p></form>') +
       "</div></article>";
   }
   function evGcal(ev) {
@@ -955,13 +831,13 @@
   /* gestione eventi */
   function viewAdminEvents() {
     setMain('<a class="back" href="#gestione">← Gestione</a><div class="page-head"><span class="eyebrow">Area staff</span><h1>Eventi, mobilitazione e repliche</h1>' +
-      '<p>Gli eventi pubblicati compaiono nella <a href="../eventi/">pagina Eventi</a>, visibile a tutti. Turni, kit e adesioni restano nell\'Avamposto; le repliche le vedono solo gli iscritti.</p></div>' +
+      '<p>Gli eventi pubblicati compaiono nella <a href="../eventi/">pagina Eventi</a>, visibile a tutti. Turni, kit e gruppo WhatsApp restano nell\'Avamposto, come le repliche.</p></div>' +
       '<div id="ev-admin"><p class="loading">Caricamento…</p></div>', "gestione");
     loadAgenda(true).then(function () {
       var box = document.getElementById("ev-admin"); if (!box) return;
       var up = EV.events.filter(function (e) { return !evPast(e); }), past = EV.events.filter(evPast).reverse();
       var row = function (ev) {
-        var n = EV.signups.filter(function (s) { return s.event_id === ev.id; }).length;
+        var n = handsOf(ev).total;
         return "<tr><td class=\"num\">" + esc(fmtShort(ev.starts_at)) + "</td><td><b>" + esc(ev.title) + '</b><span class="sub">' + esc(EKIND[ev.kind] || "") + " · " + esc(EAREA[ev.area] || "") + "</span></td>" +
           "<td>" + (ev.needs_hands ? '<span class="pill wait">' + n + (n === 1 ? " adesione" : " adesioni") + "</span>" : '<span class="sub">—</span>') + "</td>" +
           "<td>" + (ev.published ? '<span class="pill ok">Pubblicato</span>' : '<span class="pill draft">Bozza</span>') + "</td>" +
@@ -990,7 +866,7 @@
       '<label class="field" for="rd-' + id + '"><span>Registrata il</span><input type="date" id="rd-' + id + '" name="recorded_on" value="' + esc(x.recorded_on || "") + '"></label>' +
       '<label class="field" for="re-' + id + '"><span>Evento collegato</span><select id="re-' + id + '" name="event_id">' + eventOptions(x.event_id) + "</select></label>" +
       '<label class="field" for="rs-' + id + '" style="grid-column:1/-1"><span>Descrizione breve</span><input type="text" id="rs-' + id + '" name="description" value="' + esc(x.description || "") + '"></label>' +
-      '</div><label class="check" for="rp-' + id + '"><input type="checkbox" id="rp-' + id + '" name="published"' + (x.published !== false ? " checked" : "") + "> <span><b>Pubblicata</b> per gli iscritti</span></label>" +
+      '</div><label class="check" for="rp-' + id + '"><input type="checkbox" id="rp-' + id + '" name="published"' + (x.published !== false ? " checked" : "") + "> <span><b>Pubblicata</b> nell'Avamposto</span></label>" +
       '<div class="btn-row"><button class="btn small primary" type="submit">' + (r ? "Salva" : "Aggiungi replica") + "</button>" +
       (r ? '<button class="btn small danger" type="button" data-action="rp-del" data-id="' + id + '">' + icon("trash") + "Elimina</button>" : "") + "</div></form>" + (r ? "</details>" : "</section>");
   }
@@ -1003,7 +879,7 @@
       if (id !== "nuovo" && !ev) { box.innerHTML = '<p class="empty">Evento non trovato.</p>'; return; }
       var x = ev || { title: "", kind: "incontro", area: "marche", starts_at: "", ends_at: "", place: "", city: "", summary: "", description: "", link_url: "", link_label: "", published: true, needs_hands: false };
       var m = (ev && EV.mob[ev.id]) || {};
-      var sign = ev ? EV.signups.filter(function (s) { return s.event_id === ev.id; }) : [];
+      var hs = ev ? handsOf(ev) : { total: 0, by: {} };
       var opts = function (o, sel) { return Object.keys(o).map(function (k) { return '<option value="' + k + '"' + (k === sel ? " selected" : "") + ">" + o[k] + "</option>"; }).join(""); };
       var src = posterSrc(ev);
       box.innerHTML = '<div class="page-head"><span class="eyebrow">Area staff · Evento</span><h1>' + (ev ? esc(ev.title) : "Nuovo evento") + "</h1>" +
@@ -1028,7 +904,8 @@
           '<label class="field" for="ev-meet"><span>Punto di ritrovo</span><input type="text" id="ev-meet" name="meeting_point" value="' + esc(m.meeting_point || "") + '"></label>' +
           '<label class="field" for="ev-kit"><span>Link al kit del volontario <small>(Drive con volantini, grafiche, testi)</small></span><input type="url" id="ev-kit" name="kit_url" placeholder="https://drive.google.com/…" value="' + esc(m.kit_url || "") + '"></label></div>' +
           '<label class="field" for="ev-notes" style="grid-column:1/-1"><span>Da sapere per i volontari</span><input type="text" id="ev-notes" name="notes" value="' + esc(m.notes || "") + '"></label>' +
-          "</div><small class=\"note\">Turni, ritrovo e kit li vedono solo gli iscritti all'Avamposto.</small></fieldset>" +
+          '<label class="field" for="ev-wa" style="grid-column:1/-1"><span>Link al gruppo WhatsApp dell\'evento <small>(compare dopo «Ci sono»)</small></span><input type="url" id="ev-wa" name="whatsapp_url" placeholder="https://chat.whatsapp.com/…" value="' + esc(m.whatsapp_url || "") + '"></label>' +
+          "</div><small class=\"note\">Turni, ritrovo, kit e gruppo WhatsApp li vede solo chi entra nell'Avamposto con il codice. Chi dice «Ci sono» resta anonimo: qui vedi solo quanti sono.</small></fieldset>" +
         '<label class="check" for="ev-pub"><input type="checkbox" id="ev-pub" name="published"' + (x.published !== false ? " checked" : "") + "> <span><b>Pubblicato</b> nella pagina Eventi. Senza spunta resta una bozza.</span></label>" +
         '<div class="btn-row"><button class="btn primary" type="submit">' + (ev ? "Salva" : "Crea evento") + "</button>" +
         (ev ? '<button class="btn danger" type="button" data-action="ev-del" data-id="' + esc(ev.id) + '">' + icon("trash") + "Elimina evento</button>" : "") + "</div></form>" +
@@ -1037,32 +914,22 @@
             '<div class="btn-row"><label class="btn small" for="ev-poster">' + (src ? "Cambia locandina" : "Carica locandina") + '</label><input type="file" id="ev-poster" class="visually-hidden" accept="image/jpeg,image/png,image/webp">' +
             (src ? '<button class="btn small quiet" type="button" data-action="poster-del">Togli</button>' : "") + "</div>"
             : '<p class="empty">Salva prima l\'evento, poi carica la locandina.</p>') + "</section>" +
-        (ev && ev.needs_hands ? '<section class="panel"><div class="block-head"><h2>Chi c\'è (' + sign.length + ")</h2></div>" +
-          (sign.length ? signupTable(ev, sign) + '<div class="btn-row"><button class="btn small" type="button" data-action="su-copy">' + icon("copy") + "Copia elenco per WhatsApp</button>" +
-            '<button class="btn small quiet" type="button" data-action="su-csv">' + icon("download") + "CSV</button></div>" : '<p class="empty">Ancora nessuna adesione.</p>') + "</section>" : "") +
+        (ev && ev.needs_hands ? '<section class="panel"><div class="block-head"><h2>Quanti ci sono</h2><span class="note">' + hs.total + " in tutto</span></div>" +
+          (hs.total ? '<ul class="slot-counts">' + Object.keys(hs.by).map(function (k) {
+            return "<li><span>" + (k ? "Turno " + esc(k) : "Senza turno") + "</span><b>" + hs.by[k] + "</b></li>";
+          }).join("") + "</ul>" : '<p class="empty">Ancora nessun «Ci sono».</p>') +
+          '<p class="fine">Sono numeri anonimi: per sapere chi viene, guardate il gruppo WhatsApp dell\'evento.</p></section>' : "") +
         "</div></div>";
     }).catch(function (e) { toast(e.message, true); });
   }
-  function signupTable(ev, sign) {
-    var slots = slotsOf(ev);
-    var groups = slots.length ? slots.concat(sign.some(function (s) { return !s.slot || slots.indexOf(s.slot) < 0; }) ? [""] : []) : [""];
-    return groups.map(function (g) {
-      var list = sign.filter(function (s) { return slots.length ? (g ? s.slot === g : (!s.slot || slots.indexOf(s.slot) < 0)) : true; });
-      return (slots.length ? '<h3 class="slot-h">' + (g ? "Turno " + esc(g) : "Senza turno") + " <span>" + list.length + "</span></h3>" : "") +
-        (list.length ? '<ul class="signups">' + list.map(function (s) {
-          return "<li><div><b>" + esc(s.full_name || s.email) + "</b><span>" + esc(s.email) + (s.note ? " · " + esc(s.note) : "") + "</span></div>" +
-            '<button class="btn small quiet" type="button" data-action="su-remove" data-id="' + esc(s.event_id) + '" data-user="' + esc(s.user_id) + '" aria-label="Togli ' + esc(s.full_name || s.email) + '">' + icon("trash") + "</button></li>";
-        }).join("") + "</ul>" : '<p class="sub">Nessuno.</p>');
-    }).join("");
-  }
-  function signupText(ev) {
-    var sign = EV.signups.filter(function (s) { return s.event_id === ev.id; }), slots = slotsOf(ev);
-    var out = ["*" + ev.title + "*", fmtWhen(ev.starts_at) + (evWhere(ev) ? " · " + evWhere(ev) : ""), ""];
-    if (slots.length) slots.forEach(function (g) {
-      out.push("Turno " + g + ":"); sign.filter(function (s) { return s.slot === g; }).forEach(function (s) { out.push("– " + (s.full_name || s.email)); }); out.push("");
-    }); else sign.forEach(function (s) { out.push("– " + (s.full_name || s.email)); });
-    var m = EV.mob[ev.id] || {}; if (m.meeting_point) out.push("Ritrovo: " + m.meeting_point);
-    return out.join("\n").trim();
+  function handsOf(ev) {
+    var by = {}, total = 0;
+    slotsOf(ev).forEach(function (sl) { by[sl] = 0; });
+    EV.hands.forEach(function (c) {
+      var parts = String(c.ref).split("|"); if (parts[0] !== ev.id) return;
+      var sl = parts.slice(1).join("|"); by[sl] = (by[sl] || 0) + (Number(c.n) || 0); total += Number(c.n) || 0;
+    });
+    return { total: total, by: by };
   }
 
   document.addEventListener("submit", function (e) {
@@ -1075,7 +942,7 @@
     var stop = function (msg) { toast(msg, true); busy(btn, false); };
     if (kind === "signup") {
       var radio = f.querySelector("input[name=slot]:checked");
-      D.signup(f.getAttribute("data-id"), { slot: radio ? radio.value : "", note: val("note"), full_name: (S.profile && S.profile.full_name) || "" })
+      D.signup(f.getAttribute("data-id"), { slot: radio ? radio.value : "" })
         .then(function () { toast("Grazie, ci sei!"); viewAgenda("m-" + f.getAttribute("data-id")); }).catch(function (x) { stop(x.message); });
       return;
     }
@@ -1095,12 +962,13 @@
     if (end && end < start) return stop("La fine non può essere prima dell'inizio.");
     if (val("link_url") && !/^https?:\/\//.test(val("link_url"))) return stop("Il link per partecipare deve iniziare con https://");
     if (val("kit_url") && !/^https:\/\//.test(val("kit_url"))) return stop("Il link al kit deve iniziare con https://");
+    if (val("whatsapp_url") && !/^https:\/\/(chat\.whatsapp\.com|(www\.)?whatsapp\.com\/channel|wa\.me)\//.test(val("whatsapp_url"))) return stop("Il link del gruppo deve essere un link WhatsApp (chat.whatsapp.com/…).");
     var row = { id: ev ? ev.id : undefined, title: val("title"), kind: val("kind"), area: val("area"), starts_at: start.toISOString(), ends_at: end ? end.toISOString() : null,
       place: val("place"), city: val("city"), summary: val("summary"), description: val("description"), link_url: val("link_url"), link_label: val("link_label"),
       needs_hands: on("needs_hands"), published: on("published") };
-    var mob = { slots: val("slots"), meeting_point: val("meeting_point"), kit_url: val("kit_url"), notes: val("notes") };
+    var mob = { slots: val("slots"), meeting_point: val("meeting_point"), kit_url: val("kit_url"), notes: val("notes"), whatsapp_url: val("whatsapp_url") };
     D.saveEvent(row).then(function (saved) {
-      var hasMob = mob.slots || mob.meeting_point || mob.kit_url || mob.notes || (ev && EV.mob[ev.id]);
+      var hasMob = mob.slots || mob.meeting_point || mob.kit_url || mob.notes || mob.whatsapp_url || (ev && EV.mob[ev.id]);
       return (hasMob ? D.saveMobilization(Object.assign({ event_id: saved.id }, mob)) : Promise.resolve()).then(function () { return saved; });
     }).then(function (saved) {
       toast(ev ? "Evento salvato" : "Evento creato: ora puoi caricare la locandina");
@@ -1117,20 +985,8 @@
   document.addEventListener("click", function (e) {
     var b = e.target.closest("[data-action]"); if (!b) return;
     var act = b.getAttribute("data-action"), id = b.getAttribute("data-id");
-    if (act === "su-cancel") { D.cancelSignup(id).then(function () { toast("Adesione tolta"); viewAgenda("m-" + id); }).catch(function (x) { toast(x.message, true); }); }
-    else if (act === "su-remove") {
-      if (!confirm("Togliere questa persona dall'elenco?")) return;
-      D.removeSignup(id, b.getAttribute("data-user")).then(function () { viewEditEvent(id); }).catch(function (x) { toast(x.message, true); });
-    } else if (act === "su-copy") {
-      var ev = currentEvent(); if (!ev) return; var txt = signupText(ev);
-      if (navigator.clipboard) navigator.clipboard.writeText(txt).then(function () { toast("Elenco copiato: incollalo nel gruppo WhatsApp"); }, function () { toast("Non riesco a copiare", true); });
-    } else if (act === "su-csv") {
-      var ev2 = currentEvent(); if (!ev2) return;
-      var rows = [["Nome", "Email", "Turno", "Nota", "Data adesione"]].concat(EV.signups.filter(function (s) { return s.event_id === ev2.id; }).map(function (s) { return [s.full_name || "", s.email, s.slot || "", s.note || "", fmtDate(s.created_at)]; }));
-      var csv = rows.map(function (r) { return r.map(function (c) { return '"' + String(c).replace(/"/g, '""') + '"'; }).join(";"); }).join("\r\n");
-      var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" }));
-      a.download = "adesioni-" + slugify(ev2.title) + ".csv"; document.body.appendChild(a); a.click(); setTimeout(function () { a.remove(); }, 500);
-    } else if (act === "poster-del") {
+    if (act === "su-cancel") { D.cancelSignup(id).then(function () { toast("Tolto da questo telefono. Se eri già nel gruppo WhatsApp, avvisa lì."); viewAgenda("m-" + id); }).catch(function (x) { toast(x.message, true); }); }
+    else if (act === "poster-del") {
       var ev3 = currentEvent(); if (!ev3) return;
       D.setPoster(ev3, null).then(function () { toast("Locandina tolta"); viewEditEvent(ev3.id); }).catch(function (x) { toast(x.message, true); });
     } else if (act === "ev-del") {
@@ -1144,49 +1000,39 @@
   });
 
   /* ---------------- gestione ---------------- */
-  function profileByEmail(mail) { return A.profiles.filter(function (p) { return p.email === mail; })[0]; }
-  function personCell(mail) {
-    var p = profileByEmail(mail);
-    return p && p.full_name ? esc(p.full_name) + '<span class="sub">' + esc(mail) + (p.membership ? " · " + esc(p.membership) : "") + "</span>"
-      : esc(mail) + '<span class="sub">non ancora iscritto all\'Avamposto</span>';
+  function codeLink(c) { return location.origin + location.pathname + "?codice=" + encodeURIComponent(c); }
+  function randomCode(prefix) {
+    var abc = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789", out = "", i;
+    for (i = 0; i < 5; i++) out += abc.charAt(Math.floor(Math.random() * abc.length));
+    return (prefix || "AVAMPOSTO") + "-" + out;
   }
+  function coursePrefix(it) {
+    var skip = ["corso", "scuola", "formazione", "laboratorio", "percorso", "della", "delle", "degli"];
+    return (slugify(it.title).split("-").filter(function (w) { return w.length > 3 && skip.indexOf(w) < 0; })[0] || "CORSO").toUpperCase().slice(0, 14);
+  }
+  function codesFor(id) { return A.codes.filter(function (c) { return c.initiative_id === id; }); }
 
   function viewAdmin() {
-    var reqs = A.enrollments.filter(function (e) { return e.status === "richiesta"; });
-    var active = A.enrollments.filter(function (e) { return e.status === "attiva"; });
     var pub = S.inits.filter(function (i) { return i.published; });
+    var entryCodes = A.codes.filter(function (c) { return c.kind === "ingresso" && c.active; });
     setMain(
-      '<div class="page-head"><span class="eyebrow">Area staff</span><h1>Gestione</h1><p>Approva le richieste, crea iniziative, carica i materiali e abilita le persone ai corsi.</p></div>' +
+      '<div class="page-head"><span class="eyebrow">Area staff</span><h1>Gestione</h1><p>Codici d\'accesso, corsi e materiali, eventi, squadra e Voci. Chi entra con il codice resta anonimo: qui vedi solo numeri complessivi.</p></div>' +
       '<div class="stats">' +
-        '<a class="stat" href="#g-iscritti"><b>' + A.profiles.length + "</b><span>Iscritti all'Avamposto</span></a>" +
-        '<a class="stat' + (reqs.length ? " alert" : "") + '" href="#richieste"><b>' + reqs.length + "</b><span>Richieste da approvare</span></a>" +
+        '<a class="stat' + (entryCodes.length ? "" : " alert") + '" href="#g-codici"><b>' + (entryCodes.length ? icon("lock") : "!") + "</b><span>" + (entryCodes.length ? "Codici d'accesso" : "Crea il codice d'ingresso") + "</span></a>" +
+        '<a class="stat" href="#g-numeri"><b>' + icon("users") + "</b><span>Numeri dell'Avamposto</span></a>" +
         '<div class="stat"><b>' + pub.length + "</b><span>Iniziative pubblicate</span></div>" +
-        '<div class="stat"><b>' + active.length + "</b><span>Accessi attivi ai corsi</span></div>" +
         '<a class="stat" href="#g-eventi"><b>' + icon("evento") + "</b><span>Eventi, mobilitazione e repliche</span></a>" +
         '<a class="stat" href="#g-squadra"><b>' + icon("team") + "</b><span>Gestisci la squadra e i canali WhatsApp</span></a>" +
-        '<a class="stat' + (S.prelancio ? " alert" : "") + '" href="#g-prelancio"><b>' + icon("shield") + "</b><span>" + (S.prelancio ? "Pre-lancio attivo: gestisci chi può entrare" : "Avamposto aperto a tutti") + "</span></a>" +
         '<a class="stat" href="#g-voci" id="stat-voci"><b>' + icon("voce") + "</b><span>Voci Under 30 da approvare</span></a>" +
       "</div>" +
-      '<section class="block" id="richieste"><div class="block-head"><h2>Richieste da approvare</h2></div>' +
-        (reqs.length ? '<div class="table-wrap"><table><thead><tr><th>Persona</th><th>Iniziativa</th><th>Richiesta il</th><th></th></tr></thead><tbody>' +
-          reqs.map(function (e) {
-            var it = initById(e.initiative_id);
-            return "<tr><td>" + personCell(e.email) + "</td><td>" + esc(it ? it.title : "—") + '</td><td class="num">' + esc(fmtShort(e.created_at)) + "</td>" +
-              '<td class="actions"><div class="btn-row" style="justify-content:flex-end">' +
-              '<button class="btn small primary" type="button" data-action="decide" data-status="attiva" data-id="' + esc(e.initiative_id) + '" data-email="' + esc(e.email) + '">Approva</button>' +
-              '<button class="btn small quiet" type="button" data-action="decide" data-status="rifiutata" data-id="' + esc(e.initiative_id) + '" data-email="' + esc(e.email) + '">Rifiuta</button>' +
-              "</div></td></tr>";
-          }).join("") + "</tbody></table></div>"
-          : '<p class="empty">Nessuna richiesta in attesa.</p>') +
-      "</section>" +
+      (entryCodes.length ? "" : '<p class="form-msg err">Non c\'è un codice d\'ingresso attivo: per ora nell\'Avamposto entra solo lo staff. <a href="#g-codici">Crealo qui</a>.</p>') +
       '<section class="block"><div class="block-head"><h2>Iniziative</h2><a class="btn primary small" href="#g-nuova">' + icon("plus") + "Nuova iniziativa</a></div>" +
-        (S.inits.length ? '<div class="table-wrap"><table><thead><tr><th>Iniziativa</th><th>Accesso</th><th>Partecipanti</th><th>Stato</th><th></th></tr></thead><tbody>' +
+        (S.inits.length ? '<div class="table-wrap"><table><thead><tr><th>Iniziativa</th><th>Chi la vede</th><th>Stato</th><th></th></tr></thead><tbody>' +
           S.inits.map(function (it) {
-            var n = A.enrollments.filter(function (e) { return e.initiative_id === it.id && e.status === "attiva"; }).length;
-            var r = A.enrollments.filter(function (e) { return e.initiative_id === it.id && e.status === "richiesta"; }).length;
+            var n = codesFor(it.id).filter(function (c) { return c.active; }).length;
             return "<tr><td><b>" + esc(it.title) + '</b><span class="sub">' + esc(KIND[it.kind] || "") + "</span></td>" +
-              "<td>" + (it.access === "aperta" ? '<span class="pill open">Aperta a tutti</span>' : '<span class="pill lock">Su richiesta</span>') + "</td>" +
-              '<td class="num">' + (it.access === "aperta" ? "Tutti" : n) + (r ? ' <span class="pill wait">' + r + " in attesa</span>" : "") + "</td>" +
+              "<td>" + (it.access === "aperta" ? '<span class="pill open">Tutti nell\'Avamposto</span>'
+                : '<span class="pill lock">Con codice del corso</span>' + (n ? "" : ' <span class="pill wait">manca il codice</span>')) + "</td>" +
               "<td>" + (it.published ? '<span class="pill ok">Pubblicata</span>' : '<span class="pill draft">Bozza</span>') + "</td>" +
               '<td class="actions"><a class="btn small" href="#g-' + esc(it.slug) + '">Gestisci</a></td></tr>';
           }).join("") + "</tbody></table></div>"
@@ -1194,39 +1040,133 @@
       "</section>", "gestione");
   }
 
-  function viewMembers() {
-    setMain(
-      '<a class="back" href="#gestione">← Gestione</a>' +
-      '<div class="page-head"><span class="eyebrow">Area staff</span><h1>Iscritti</h1><p>Tutte le persone iscritte all\'Avamposto e i percorsi a cui hanno accesso.</p></div>' +
-      '<div class="toolbar"><input type="search" id="m-search" placeholder="Cerca per nome o email" aria-label="Cerca iscritti">' +
-      '<button class="btn small quiet" type="button" data-action="export">' + icon("download") + "Scarica elenco (CSV)</button></div>" +
-      '<div class="table-wrap"><table><thead><tr><th>Persona</th><th>Tipo</th><th>Iscritto il</th><th>Percorsi attivi</th></tr></thead><tbody id="m-body"></tbody></table></div>', "gestione");
-    var body = document.getElementById("m-body");
-    function draw(q) {
-      q = (q || "").toLowerCase();
-      var rows = A.profiles.filter(function (p) { return !q || (p.email + " " + (p.full_name || "")).toLowerCase().indexOf(q) >= 0; });
-      body.innerHTML = rows.length ? rows.map(function (p) {
-        var act = A.enrollments.filter(function (e) { return e.email === p.email && e.status === "attiva"; })
-          .map(function (e) { var it = initById(e.initiative_id); return it ? esc(it.title) : ""; }).filter(Boolean);
-        return "<tr><td>" + esc(p.full_name || "—") + '<span class="sub">' + esc(p.email) + "</span></td><td>" + esc(p.membership || "—") +
-          '</td><td class="num">' + esc(fmtShort(p.created_at)) + "</td><td>" + (act.length ? act.join("<br>") : '<span class="sub">Solo contenuti aperti</span>') + "</td></tr>";
-      }).join("") : '<tr><td colspan="4">Nessun risultato.</td></tr>';
-    }
-    draw("");
-    document.getElementById("m-search").addEventListener("input", function (e) { draw(e.target.value); });
+  /* codici d'accesso */
+  function codeRow(c) {
+    var it = c.initiative_id && initById(c.initiative_id), id = esc(c.id);
+    return "<tr" + (c.active ? "" : ' class="off"') + "><td><code>" + esc(c.code) + "</code>" + (c.label ? '<span class="sub">' + esc(c.label) + "</span>" : "") + "</td>" +
+      "<td>" + (c.kind === "ingresso" ? "Avamposto" : "Avamposto + " + esc(it ? it.title : "corso eliminato")) + "</td>" +
+      "<td>" + (c.active ? '<span class="pill ok">Attivo</span>' : '<span class="pill draft">Disattivato</span>') + "</td>" +
+      '<td class="actions"><div class="btn-row" style="justify-content:flex-end">' +
+        (c.active ? '<button class="btn small" type="button" data-action="code-copy" data-code="' + esc(c.code) + '">' + icon("copy") + "Copia link</button>" : "") +
+        '<button class="btn small quiet" type="button" data-action="code-toggle" data-id="' + id + '">' + (c.active ? "Disattiva" : "Riattiva") + "</button>" +
+        '<button class="btn small danger" type="button" data-action="code-del" data-id="' + id + '" aria-label="Elimina ' + esc(c.code) + '">' + icon("trash") + "</button>" +
+      "</div></td></tr>";
   }
-  function exportCsv() {
-    var head = ["Nome", "Email", "Tipo", "Iscritto il", "Consenso privacy", "Percorsi attivi"];
-    var rows = A.profiles.map(function (p) {
-      var act = A.enrollments.filter(function (e) { return e.email === p.email && e.status === "attiva"; })
-        .map(function (e) { var it = initById(e.initiative_id); return it ? it.title : ""; }).join(" | ");
-      return [p.full_name || "", p.email, p.membership || "", fmtDate(p.created_at), fmtDate(p.privacy_at), act];
-    });
-    var csv = [head].concat(rows).map(function (r) { return r.map(function (v) { return '"' + String(v).replace(/"/g, '""') + '"'; }).join(";"); }).join("\r\n");
-    var a = document.createElement("a");
-    a.href = URL.createObjectURL(new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" }));
-    a.download = "iscritti-avamposto-" + new Date().toISOString().slice(0, 10) + ".csv";
-    document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  function viewCodes() {
+    setMain('<p class="loading">Carico…</p>', "gestione");
+    D.listCodes().then(function (list) {
+      A.codes = list || [];
+      var courses = S.inits.filter(function (i) { return i.access !== "aperta"; });
+      var pre = location.hash === "#g-codici" ? "" : "";
+      setMain(
+        '<a class="back" href="#gestione">← Gestione</a>' +
+        '<div class="page-head"><span class="eyebrow">Area staff</span><h1>Codici d\'accesso</h1>' +
+          "<p>Il <b>codice d'ingresso</b> apre l'Avamposto: corsi aperti, Agenda, La squadra, repliche e La tua voce. Puoi darlo a chi vuoi: tesserati, simpatizzanti, amici. " +
+          "I <b>codici dei corsi</b> sbloccano in più un corso «con codice» e fanno entrare anche da soli. Il link «?codice=» fa entrare con un tocco: comodo nei gruppi WhatsApp.</p>" +
+          '<p class="fine">Se un codice gira dove non deve, disattivalo e creane uno nuovo: chi aveva il vecchio dovrà inserire quello nuovo.</p></div>' +
+        '<div id="ev-admin">' +
+        '<section><div class="block-head"><h2>Codici</h2><span class="note">' + A.codes.filter(function (c) { return c.active; }).length + " attivi</span></div>" +
+          (A.codes.length ? '<div class="table-wrap"><table class="codes"><thead><tr><th>Codice</th><th>Apre</th><th>Stato</th><th></th></tr></thead><tbody>' + A.codes.map(codeRow).join("") + "</tbody></table></div>"
+            : '<p class="empty-note">Nessun codice. Crea il codice d\'ingresso qui sotto.</p>') + "</section>" +
+        '<section class="panel"><form data-form="newcode" novalidate><h2>Nuovo codice</h2><div class="grid-2">' +
+          '<label class="field" for="nc-kind"><span>Che cosa apre</span><select id="nc-kind" name="kind"><option value="ingresso">L\'Avamposto (codice d\'ingresso)</option>' +
+            (courses.length ? '<option value="corso">Un corso con codice</option>' : "") + "</select></label>" +
+          '<label class="field" for="nc-course" data-for="corso" hidden><span>Corso</span><select id="nc-course" name="initiative_id">' +
+            courses.map(function (i) { return '<option value="' + esc(i.id) + '">' + esc(i.title) + "</option>"; }).join("") + "</select></label>" +
+          '<label class="field" for="nc-code"><span>Codice <small>(lettere, numeri e trattini)</small></span><input type="text" id="nc-code" name="code" maxlength="40" autocomplete="off" value="' + esc(randomCode()) + '"></label>' +
+          '<label class="field" for="nc-label"><span>Nota per lo staff <small>(facoltativa)</small></span><input type="text" id="nc-label" name="label" maxlength="80" placeholder="Es. dato al banchetto di Pesaro"></label>' +
+        '</div><div class="btn-row"><button class="btn primary" type="submit">' + icon("plus") + 'Crea codice</button><button class="btn quiet small" type="button" data-action="code-gen">Generane un altro</button></div></form></section>' +
+        "</div>", "gestione");
+      var kindSel = document.getElementById("nc-kind"), courseBox = main.querySelector("[data-for=corso]"), codeIn = document.getElementById("nc-code");
+      kindSel.addEventListener("change", function () {
+        courseBox.hidden = kindSel.value !== "corso";
+        var it = initById(document.getElementById("nc-course").value);
+        codeIn.value = randomCode(kindSel.value === "corso" && it ? coursePrefix(it) : "AVAMPOSTO");
+      });
+    }).catch(function (x) { setMain('<p class="form-msg err">' + esc(x.message) + "</p>", "gestione"); });
+  }
+  document.addEventListener("submit", function (e) {
+    var f = e.target; if (!f.getAttribute || f.getAttribute("data-form") !== "newcode") return;
+    e.preventDefault();
+    var btn = f.querySelector("button[type=submit]"); busy(btn, true);
+    D.saveCode({ code: f.elements.code.value, kind: f.elements.kind.value, initiative_id: f.elements.initiative_id ? f.elements.initiative_id.value : null, label: f.elements.label.value.trim() })
+      .then(function (c) { toast("Codice " + c.code + " creato"); return refresh(); }).then(function () { if (location.hash === "#g-codici") viewCodes(); else route(); })
+      .catch(function (x) { toast(/duplicate|unique/i.test((x.raw && x.raw.message) || "") ? "Questo codice esiste già: scegline un altro." : x.message, true); busy(btn, false); });
+  });
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-action^='code-']"); if (!b) return;
+    var act = b.getAttribute("data-action"), id = b.getAttribute("data-id"), c = A.codes.filter(function (x) { return x.id === id; })[0];
+    if (act === "code-gen") { var k = document.getElementById("nc-kind"), it = initById((document.getElementById("nc-course") || {}).value); document.getElementById("nc-code").value = randomCode(k.value === "corso" && it ? coursePrefix(it) : "AVAMPOSTO"); return; }
+    if (act === "code-copy") {
+      var link = codeLink(b.getAttribute("data-code"));
+      var done = function () { toast("Link copiato: chi lo apre entra direttamente"); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(link).then(done, function () { window.prompt("Copia il link:", link); });
+      else window.prompt("Copia il link:", link);
+      return;
+    }
+    if (act === "code-quick") {
+      var itq = initById(id); if (!itq) return; busy(b, true);
+      D.saveCode({ code: randomCode(coursePrefix(itq)), kind: "corso", initiative_id: itq.id, label: itq.title })
+        .then(function (cq) { toast("Codice " + cq.code + " creato"); return refresh(); }).then(route).catch(function (x) { toast(x.message, true); busy(b, false); });
+      return;
+    }
+    if (!c) return;
+    if (act === "code-toggle") {
+      busy(b, true); D.saveCode(Object.assign({}, c, { active: !c.active })).then(function () { toast(c.active ? "Codice disattivato: chi lo usava non entra più" : "Codice riattivato"); return refresh(); })
+        .then(function () { if (location.hash === "#g-codici") viewCodes(); else route(); }).catch(function (x) { toast(x.message, true); busy(b, false); });
+      return;
+    }
+    if (act === "code-del") {
+      if (needsConfirm(b, "Sicuro? Tocca di nuovo")) return;
+      busy(b, true); D.deleteCode(c.id).then(function () { toast("Codice eliminato"); return refresh(); })
+        .then(function () { if (location.hash === "#g-codici") viewCodes(); else route(); }).catch(function (x) { toast(x.message, true); busy(b, false); });
+    }
+  });
+
+  /* numeri anonimi */
+  function viewNumbers() {
+    setMain('<p class="loading">Carico…</p>', "gestione");
+    Promise.all([D.counts(), D.events().catch(function () { return []; })]).then(function (r) {
+      var rows = r[0] || [], events = r[1] || [];
+      var today = new Date(); today.setHours(12, 0, 0, 0);
+      var dayKey = function (n) { return new Date(today.getTime() - n * 86400000).toISOString().slice(0, 10); };
+      var since = function (n) { var k = dayKey(n - 1); return rows.filter(function (c) { return c.day >= k; }); };
+      var sum = function (list, kind, ref) { return list.filter(function (c) { return c.kind === kind && (!ref || c.ref === ref); }).reduce(function (t, c) { return t + (Number(c.n) || 0); }, 0); };
+      var visits = function (list) { return sum(list, "ingresso", "visita"); }, newcomers = function (list) { return sum(list, "ingresso", "avamposto"); };
+      var group = function (kind) {
+        var o = {}; rows.filter(function (c) { return c.kind === kind; }).forEach(function (c) { o[c.ref] = (o[c.ref] || 0) + (Number(c.n) || 0); });
+        return Object.keys(o).map(function (k) { return { ref: k, n: o[k] }; }).sort(function (a, b) { return b.n - a.n; });
+      };
+      var days = [], maxV = 1, i;
+      for (i = 29; i >= 0; i--) { var k = dayKey(i), v = rows.filter(function (c) { return c.day === k && c.kind === "ingresso"; }).reduce(function (t, c) { return t + (Number(c.n) || 0); }, 0); days.push({ k: k, v: v }); if (v > maxV) maxV = v; }
+      var matTitle = function (id) { var m = S.amats.filter(function (x) { return x.id === id; })[0]; return m ? m.title : "Materiale non più presente"; };
+      var evTitle = function (id) { var ev = events.filter(function (x) { return x.id === id; })[0]; return ev ? ev.title + " · " + fmtShort(ev.starts_at) : "Evento non più presente"; };
+      var opens = group("apertura"), seen = group("visto").slice(0, 10), hands = group("cisono");
+      var table = function (list, label) {
+        return list.length ? '<div class="table-wrap"><table><tbody>' + list.map(function (x) { return "<tr><td>" + esc(label(x.ref)) + '</td><td class="num"><b>' + x.n + "</b></td></tr>"; }).join("") + "</tbody></table></div>"
+          : '<p class="empty-note">Ancora niente.</p>';
+      };
+      setMain(
+        '<a class="back" href="#gestione">← Gestione</a>' +
+        '<div class="page-head"><span class="eyebrow">Area staff</span><h1>Numeri dell\'Avamposto</h1>' +
+          "<p>Contatori anonimi degli ultimi quattro mesi: contano le azioni, non le persone, e non sappiamo chi le ha fatte. Bastano per capire cosa funziona.</p></div>" +
+        '<div class="stats">' +
+          '<div class="stat"><b>' + newcomers(since(30)) + "</b><span>Nuovi telefoni entrati con il codice (30 giorni)</span></div>" +
+          '<div class="stat"><b>' + visits(since(7)) + "</b><span>Visite negli ultimi 7 giorni</span></div>" +
+          '<div class="stat"><b>' + visits(since(30)) + "</b><span>Visite negli ultimi 30 giorni</span></div>" +
+          '<div class="stat"><b>' + sum(rows, "cisono") + "</b><span>«Ci sono» in totale</span></div>" +
+        "</div>" +
+        '<section class="panel"><h2>Ingressi giorno per giorno</h2><div class="spark" role="img" aria-label="Ingressi negli ultimi 30 giorni">' +
+          days.map(function (x) { return '<span title="' + esc(fmtShort(x.k)) + ": " + x.v + '" style="height:' + Math.max(4, Math.round(x.v / maxV * 100)) + '%"></span>'; }).join("") +
+          '</div><p class="fine">Ultimi 30 giorni, oggi a destra.</p></section>' +
+        '<div class="grid-2 numbers-grid">' +
+          '<section class="panel"><h2>Corsi aperti</h2>' + table(opens, function (id) { var it = initById(id); return it ? it.title : "Corso non più presente"; }) + "</section>" +
+          '<section class="panel"><h2>Materiali segnati come visti</h2>' + table(seen, matTitle) + "</section>" +
+          '<section class="panel" style="grid-column:1/-1"><h2>«Ci sono» per evento e turno</h2>' + table(hands, function (ref) {
+            var parts = ref.split("|"); return evTitle(parts[0]) + (parts[1] ? " — turno " + parts.slice(1).join("|") : "");
+          }) + "</section>" +
+        "</div>", "gestione");
+    }).catch(function (x) { setMain('<p class="form-msg err">' + esc(x.message) + "</p>", "gestione"); });
   }
 
   function viewEditInitiative(slug) {
@@ -1237,7 +1177,7 @@
     setMain(
       '<a class="back" href="#gestione">← Gestione</a>' +
       '<div class="page-head"><span class="eyebrow">' + (it ? "Gestisci iniziativa" : "Nuova iniziativa") + "</span><h1>" + esc(it ? it.title : "Nuova iniziativa") + "</h1>" +
-        (it ? '<p><a href="#i-' + esc(it.slug) + '">Vedi come la vedono gli iscritti →</a></p>' : "") + "</div>" +
+        (it ? '<p><a href="#i-' + esc(it.slug) + '">Vedi la pagina del corso →</a></p>' : "") + "</div>" +
       '<section class="panel"><h2>Dettagli</h2><form id="f-init" novalidate>' +
         '<label class="field" for="in-title"><span>Titolo</span><input type="text" id="in-title" value="' + esc(x.title) + '" required></label>' +
         '<div class="grid-2">' +
@@ -1245,10 +1185,10 @@
           '<label class="field" for="in-start"><span>Data di inizio (facoltativa)</span><input type="date" id="in-start" value="' + esc(x.starts_on || "") + '"></label>' +
         "</div>" +
         '<fieldset class="field"><legend>Chi può vederla</legend><div class="choice-row">' +
-          '<label class="choice" for="in-acc-r"><input type="radio" name="in-acc" id="in-acc-r" value="su_richiesta"' + (x.access !== "aperta" ? " checked" : "") + "> Solo chi abilitate (su richiesta)</label>" +
-          '<label class="choice" for="in-acc-a"><input type="radio" name="in-acc" id="in-acc-a" value="aperta"' + (x.access === "aperta" ? " checked" : "") + "> Tutti gli iscritti all'Avamposto</label>" +
+          '<label class="choice" for="in-acc-r"><input type="radio" name="in-acc" id="in-acc-r" value="su_richiesta"' + (x.access !== "aperta" ? " checked" : "") + "> Solo con il codice del corso</label>" +
+          '<label class="choice" for="in-acc-a"><input type="radio" name="in-acc" id="in-acc-a" value="aperta"' + (x.access === "aperta" ? " checked" : "") + "> Tutti quelli che entrano nell'Avamposto</label>" +
         "</div></fieldset>" +
-        '<label class="field" for="in-summary"><span>Presentazione breve</span><input type="text" id="in-summary" maxlength="200" value="' + esc(x.summary || "") + '"><small>Compare nel catalogo, anche a chi non è ancora iscritto.</small></label>' +
+        '<label class="field" for="in-summary"><span>Presentazione breve</span><input type="text" id="in-summary" maxlength="200" value="' + esc(x.summary || "") + '"><small>Compare nel catalogo, anche a chi non è ancora entrato.</small></label>' +
         '<label class="field" for="in-desc"><span>Descrizione completa</span><textarea id="in-desc">' + esc(x.description || "") + "</textarea><small>Una riga vuota separa i paragrafi. **testo** diventa grassetto.</small></label>" +
         '<label class="field" for="in-slug"><span>Indirizzo breve</span><input type="text" id="in-slug" value="' + esc(x.slug) + '"' + (it ? " disabled" : "") + '><small>' + (it ? "Non si cambia dopo la creazione, così i link già mandati continuano a funzionare." : "Si compila dal titolo. Solo lettere minuscole, numeri e trattini.") + "</small></label>" +
         '<label class="check" for="in-pub"><input type="checkbox" id="in-pub"' + (x.published ? " checked" : "") + "> <span><b>Pubblicata</b>: visibile nel catalogo. Se togli la spunta resta una bozza visibile solo allo staff.</span></label>" +
@@ -1256,7 +1196,7 @@
         '<div class="btn-row"><button class="btn primary" type="submit">' + (it ? "Salva le modifiche" : "Crea iniziativa") + "</button>" +
         (it ? '<button class="btn danger small" type="button" data-action="del-init" data-id="' + esc(it.id) + '">' + icon("trash") + "Elimina iniziativa</button>" : "") + "</div>" +
       "</form></section>" +
-      (it ? coverSection(it) + inviteSection(it) + participantsSection(it) + '<section class="panel" id="mat-panel"><div class="block-head"><h2>Materiali</h2>' +
+      (it ? coverSection(it) + courseCodeSection(it) + '<section class="panel" id="mat-panel"><div class="block-head"><h2>Materiali</h2>' +
         '<button class="btn small primary" type="button" data-action="mat-new">' + icon("plus") + 'Aggiungi materiale</button></div><div id="mat-form-slot"></div><div class="mat-admin" id="mat-list"><p class="loading">Caricamento…</p></div></section>' : ""),
       "gestione");
 
@@ -1317,44 +1257,14 @@
       .catch(function (x) { err.textContent = x.message; err.hidden = false; });
   });
 
-  function inviteUrl(c) { return location.origin + location.pathname + "?invito=" + encodeURIComponent(c); }
-  function inviteSection(it) {
-    var inv = A.invites[it.id];
-    if (!inv) return "";
-    return '<section class="panel"><h2>Link d\'invito</h2>' +
-      "<p style=\"margin:0;color:var(--muted)\">Chi apre questo link e si iscrive (o entra) ottiene subito l'accesso, senza approvazione. Mandalo per mail o nel gruppo del corso. Se finisce dove non deve, generane uno nuovo: il vecchio smette di funzionare.</p>" +
-      '<div class="invite-box' + (inv.active ? "" : " invite-off") + '"><code id="inv-url">' + esc(inviteUrl(inv.code)) + "</code>" +
-      '<button class="btn small" type="button" data-action="copy-invite"' + (inv.active ? "" : " disabled") + ">" + icon("copy") + "Copia</button></div>" +
-      '<div class="btn-row">' + (inv.active ? '<span class="pill ok">Attivo</span>' : '<span class="pill no">Disattivato</span>') +
-      '<button class="btn small quiet" type="button" data-action="inv-toggle" data-id="' + esc(it.id) + '" data-active="' + (inv.active ? "0" : "1") + '">' + (inv.active ? "Disattiva" : "Riattiva") + "</button>" +
-      '<button class="btn small quiet" type="button" data-action="inv-new" data-id="' + esc(it.id) + '">Genera un link nuovo</button></div></section>';
+  function courseCodeSection(it) {
+    if (it.access === "aperta") return '<section class="panel"><h2>Chi lo vede</h2><p>Tutti quelli che entrano nell\'Avamposto con il codice d\'ingresso. Per riservarlo a chi partecipa, scegli «Solo con il codice del corso» qui sopra.</p></section>';
+    var list = codesFor(it.id);
+    return '<section class="panel"><div class="block-head"><h2>Codici del corso</h2><a class="note" href="#g-codici">Tutti i codici →</a></div>' +
+      "<p>Dai il codice (o il link) a chi partecipa al corso: lo inserisce nell'Avamposto e il corso si sblocca. Non serve sapere chi è.</p>" +
+      (list.length ? '<div class="table-wrap"><table class="codes"><tbody>' + list.map(codeRow).join("") + "</tbody></table></div>" : '<p class="form-msg err">Questo corso non ha ancora un codice: per ora non lo vede nessuno, a parte lo staff.</p>') +
+      '<div class="btn-row"><button class="btn small primary" type="button" data-action="code-quick" data-id="' + esc(it.id) + '">' + icon("plus") + "Crea un codice per questo corso</button></div></section>";
   }
-
-  function participantsSection(it) {
-    var rows = A.enrollments.filter(function (e) { return e.initiative_id === it.id; })
-      .sort(function (a, b) { var o = { richiesta: 0, attiva: 1, rifiutata: 2 }; return (o[a.status] - o[b.status]) || (a.created_at < b.created_at ? 1 : -1); });
-    var SRC = { richiesta: "Richiesta dal sito", manuale: "Inserito dallo staff", invito: "Link d'invito" };
-    var ST = { richiesta: '<span class="pill wait">In attesa</span>', attiva: '<span class="pill ok">Attivo</span>', rifiutata: '<span class="pill no">Rifiutato</span>' };
-    return '<section class="panel"><h2>Partecipanti</h2>' +
-      (it.access === "aperta" ? '<p class="form-msg ok">Questa iniziativa è aperta: tutti gli iscritti all\'Avamposto vedono già i materiali. Le persone qui sotto contano solo se la rendi «su richiesta».</p>' : "") +
-      '<form id="f-add" novalidate><label class="field" for="add-emails"><span>Aggiungi persone a mano</span>' +
-        '<textarea id="add-emails" style="min-height:80px" placeholder="nome.cognome@gmail.com, altra@mail.it"></textarea>' +
-        "<small>Incolla una o più email, separate da virgola o a capo. Funziona anche se la persona non si è ancora iscritta: appena entra con quella mail, trova il corso sbloccato.</small></label>" +
-        '<p class="form-msg err" id="add-err" hidden></p>' +
-        '<div class="btn-row"><button class="btn primary small" type="submit">' + icon("plus") + "Abilita</button></div></form>" +
-      (rows.length ? '<div class="table-wrap"><table><thead><tr><th>Persona</th><th>Stato</th><th>Come</th><th></th></tr></thead><tbody>' +
-        rows.map(function (e) {
-          var a = ' data-id="' + esc(it.id) + '" data-email="' + esc(e.email) + '"';
-          return "<tr><td>" + personCell(e.email) + "</td><td>" + ST[e.status] + '</td><td><span class="sub" style="color:var(--fg)">' + esc(SRC[e.source] || "") + '</span><span class="sub">' + esc(fmtShort(e.created_at)) + "</span></td>" +
-            '<td class="actions"><div class="btn-row" style="justify-content:flex-end">' +
-            (e.status !== "attiva" ? '<button class="btn small primary" type="button" data-action="decide" data-status="attiva"' + a + ">Approva</button>" : "") +
-            (e.status === "richiesta" ? '<button class="btn small quiet" type="button" data-action="decide" data-status="rifiutata"' + a + ">Rifiuta</button>" : "") +
-            (e.status === "attiva" ? '<button class="btn small danger" type="button" data-action="remove-enr"' + a + ">Togli accesso</button>" : "") +
-            "</div></td></tr>";
-        }).join("") + "</tbody></table></div>" : '<p class="empty">Nessun partecipante per ora.</p>') +
-      "</section>";
-  }
-
   var adminMats = [];
   function loadAdminMaterials(it) {
     return D.materials(it.id).then(function (list) {
@@ -1366,7 +1276,7 @@
           '<div class="btn-row">' +
           '<button class="icon-btn" type="button" title="Sposta su" aria-label="Sposta su" data-action="mat-move" data-i="' + i + '" data-dir="-1"' + (i === 0 ? " disabled" : "") + ">" + icon("up") + "</button>" +
           '<button class="icon-btn" type="button" title="Sposta giù" aria-label="Sposta giù" data-action="mat-move" data-i="' + i + '" data-dir="1"' + (i === adminMats.length - 1 ? " disabled" : "") + ">" + icon("down") + "</button>" +
-          '<button class="icon-btn" type="button" title="' + (m.published === false ? "Mostra agli iscritti" : "Nascondi agli iscritti") + '" aria-label="' + (m.published === false ? "Mostra" : "Nascondi") + '" data-action="mat-vis" data-i="' + i + '">' + icon(m.published === false ? "eyeoff" : "eye") + "</button>" +
+          '<button class="icon-btn" type="button" title="' + (m.published === false ? "Mostra nel corso" : "Nascondi nel corso") + '" aria-label="' + (m.published === false ? "Mostra" : "Nascondi") + '" data-action="mat-vis" data-i="' + i + '">' + icon(m.published === false ? "eyeoff" : "eye") + "</button>" +
           '<button class="icon-btn" type="button" title="Modifica" aria-label="Modifica" data-action="mat-edit" data-i="' + i + '">' + icon("edit") + "</button>" +
           '<button class="icon-btn" type="button" title="Elimina" aria-label="Elimina" data-action="mat-del" data-i="' + i + '">' + icon("trash") + "</button>" +
           "</div></div>";
@@ -1394,7 +1304,7 @@
     document.querySelectorAll("#f-mat [data-for]").forEach(function (el) { el.hidden = el.getAttribute("data-for").split(" ").indexOf(k) < 0; });
     var lbl = { video: "Link del video", link: "Indirizzo della pagina", diretta: "Link di Google Meet" }[k] || "Indirizzo";
     var help = { video: "YouTube (anche «non in elenco»), Vimeo o Google Drive: il video si vede direttamente nella pagina.",
-      diretta: "Il pulsante per entrare compare agli iscritti 15 minuti prima. Dopo la diretta puoi aggiungere la registrazione come Video.",
+      diretta: "Il pulsante per entrare compare nel corso 15 minuti prima. Dopo la diretta puoi aggiungere la registrazione come Video.",
       link: "Un sito, un documento Google, un modulo…" }[k] || "";
     document.getElementById("mt-url-lbl").textContent = lbl;
     document.getElementById("mt-url-help").textContent = help;
@@ -1452,7 +1362,7 @@
   function currentInit() { var h = location.hash.slice(1); return h.indexOf("g-") === 0 ? initBySlug(h.slice(2)) : null; }
 
   function setSeen(mid, on) {
-    if (!S.me || !mid || !!S.views[mid] === on) return Promise.resolve();
+    if (!inside() || !mid || !!S.views[mid] === on) return Promise.resolve();
     if (on) S.views[mid] = true; else delete S.views[mid];
     refreshSeenUI(mid);
     return D.markViewed(mid, on).catch(function (x) {
@@ -1487,22 +1397,18 @@
     var act = b.getAttribute("data-action"), id = b.getAttribute("data-id"), mail = b.getAttribute("data-email");
     var it = currentInit();
 
-    if (act === "export-me") {
-      Promise.all([D.getProfile(), D.myEnrollments(), D.mySignups ? D.mySignups() : [], D.myViews()]).then(function (r) {
-        var dump = { esportato_il: new Date().toISOString(), titolare: "Azione", profilo: r[0], accessi_alle_iniziative: r[1], adesioni_ai_turni: r[2], materiali_segnati_come_visti: r[3] };
-        var a = document.createElement("a");
-        a.href = URL.createObjectURL(new Blob([JSON.stringify(dump, null, 2)], { type: "application/json" }));
-        a.download = "avamposto-i-miei-dati.json"; document.body.appendChild(a); a.click();
-        setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
-      }).catch(function (x) { toast(x.message, true); });
+    if (act === "forget-device") { document.getElementById("forget-confirm").hidden = false; return; }
+    if (act === "forget-no") { document.getElementById("forget-confirm").hidden = true; return; }
+    if (act === "forget-yes") {
+      D.forgetDevice(); S.pass = NO_PASS; S.views = {};
+      toast("Fatto: su questo telefono non resta più nulla dell'Avamposto.");
+      refresh().then(function () { go("#home"); });
       return;
     }
-    if (act === "delete-me") { document.getElementById("delete-confirm").hidden = false; return; }
-    if (act === "delete-me-no") { document.getElementById("delete-confirm").hidden = true; return; }
-    if (act === "delete-me-yes") {
-      busy(b, true);
-      D.deleteMyAccount().then(function () { toast("Account cancellato. Ci dispiace vederti andare."); location.hash = "#home"; })
-        .catch(function (x) { toast(x.message, true); busy(b, false); });
+    if (act === "focus-code" || act === "focus-course-code") {
+      e.preventDefault();
+      var inp = document.getElementById(act === "focus-code" ? "door-in" : "course-code-in");
+      if (inp) { inp.scrollIntoView({ block: "center" }); inp.focus(); } else go("#home");
       return;
     }
     if (act === "play-video") {
@@ -1512,15 +1418,16 @@
       fr.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; fr.allowFullscreen = true;
       var box = b.parentNode; box.classList.remove("video-gate"); box.innerHTML = ""; box.appendChild(fr); return;
     }
-    if (act === "demo-as") { D.demoOpenLink(b.getAttribute("data-who") === "admin" ? D.demoAdmin : D.demoMember); location.hash = b.getAttribute("data-who") === "admin" ? "#gestione" : "#home"; return; }
+    if (act === "demo-as") {
+      if (b.getAttribute("data-who") === "admin") { D.demoOpenLink(D.demoAdmin); location.hash = "#gestione"; return; }
+      if (S.me) D.signOut();
+      D.addCode(D.demoCode).then(refresh).then(function () { toast("Entrato con il codice " + D.demoCode); go("#home"); });
+      return;
+    }
     if (act === "demo-reset") { D.reset(); toast("Dati di esempio ripristinati"); location.hash = "#home"; return; }
     if (act === "demo-open") { D.demoOpenLink(mail); return; }
-    if (act === "auth-again") { viewWelcome(); return; }
-    if (act === "focus-signup") { e.preventDefault(); var f = document.getElementById("su-name"); if (f) { f.scrollIntoView({ block: "center" }); f.focus(); } else go("#home"); return; }
+    if (act === "auth-again") { viewStaffLogin(); return; }
     if (act === "signout") { D.signOut().then(function () { location.hash = "#home"; }); return; }
-
-    if (act === "request") { busy(b, true); D.requestAccess(id).then(function () { toast("Richiesta inviata allo staff"); return reload(); }).catch(function (x) { toast(x.message, true); busy(b, false); }); return; }
-    if (act === "cancel") { busy(b, true); D.cancelRequest(id).then(function () { toast("Richiesta annullata"); return reload(); }).catch(function (x) { toast(x.message, true); busy(b, false); }); return; }
 
     if (act === "t-person-new") {
       var unit = b.getAttribute("data-unit");
@@ -1559,45 +1466,19 @@
       return;
     }
 
-    if (act === "decide") {
-      var st = b.getAttribute("data-status"); busy(b, true);
-      D.setEnrollment(id, mail, st).then(function () { toast(st === "attiva" ? "Accesso approvato" : "Richiesta rifiutata"); return reload(); })
-        .catch(function (x) { toast(x.message, true); busy(b, false); });
-      return;
-    }
-    if (act === "remove-enr") {
-      if (needsConfirm(b, "Conferma: togli accesso")) return;
-      busy(b, true);
-      D.removeEnrollment(id, mail).then(function () { toast("Accesso tolto"); return reload(); }).catch(function (x) { toast(x.message, true); busy(b, false); });
-      return;
-    }
     if (act === "del-init") {
-      if (needsConfirm(b, "Conferma: elimina iniziativa, materiali e partecipanti")) return;
+      if (needsConfirm(b, "Conferma: elimina iniziativa, materiali e codici del corso")) return;
       busy(b, true);
       D.deleteInitiative(id).then(function () { toast("Iniziativa eliminata"); return refresh(); }).then(function () { go("#gestione"); })
         .catch(function (x) { toast(x.message, true); busy(b, false); });
       return;
     }
-    if (act === "copy-invite") {
-      var text = document.getElementById("inv-url").textContent;
-      var done = function () { toast("Link copiato"); };
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { selectText("inv-url"); });
-      else selectText("inv-url");
-      return;
-    }
-    if (act === "inv-toggle") { busy(b, true); D.setInviteActive(id, b.getAttribute("data-active") === "1").then(function () { toast("Link aggiornato"); return reload(); }).catch(function (x) { toast(x.message, true); busy(b, false); }); return; }
-    if (act === "inv-new") {
-      if (needsConfirm(b, "Conferma: il vecchio link smette di funzionare")) return;
-      busy(b, true); D.regenerateInvite(id).then(function () { toast("Nuovo link pronto"); return reload(); }).catch(function (x) { toast(x.message, true); busy(b, false); }); return;
-    }
-    if (act === "export") { exportCsv(); return; }
-
     if (!it) return;
     var i = parseInt(b.getAttribute("data-i"), 10), m = adminMats[i];
     if (act === "mat-new") { openMaterialForm(it, null); return; }
     if (act === "mat-cancel") { document.getElementById("mat-form-slot").innerHTML = ""; return; }
     if (act === "mat-edit") { openMaterialForm(it, m); document.getElementById("mat-panel").scrollIntoView({ block: "start" }); return; }
-    if (act === "mat-vis") { busy(b, true); m.published = m.published === false; D.saveMaterial(m).then(function () { toast(m.published ? "Ora è visibile agli iscritti" : "Nascosto agli iscritti"); return loadAdminMaterials(it); }).catch(function (x) { toast(x.message, true); busy(b, false); }); return; }
+    if (act === "mat-vis") { busy(b, true); m.published = m.published === false; D.saveMaterial(m).then(function () { toast(m.published ? "Ora è visibile nel corso" : "Nascosto nel corso"); return loadAdminMaterials(it); }).catch(function (x) { toast(x.message, true); busy(b, false); }); return; }
     if (act === "mat-del") {
       if (!b.classList.contains("confirm")) { b.classList.add("confirm"); b.style.background = "var(--no)"; b.style.color = "#fff"; b.title = "Tocca di nuovo per eliminare"; toast("Tocca di nuovo il cestino per eliminare «" + m.title + "»"); return; }
       busy(b, true); D.deleteMaterial(m).then(function () { toast("Materiale eliminato"); return loadAdminMaterials(it); }).catch(function (x) { toast(x.message, true); busy(b, false); }); return;
@@ -1611,52 +1492,36 @@
     }
   });
 
-  document.addEventListener("submit", function (e) {
-    if (e.target.id !== "f-add") return;
-    e.preventDefault();
-    var it = currentInit(); if (!it) return;
-    var err = document.getElementById("add-err"), btn = e.target.querySelector("button[type=submit]");
-    var list = emailsFrom(document.getElementById("add-emails").value);
-    if (!list.length) { err.textContent = "Non trovo indirizzi email validi nel testo."; err.hidden = false; return; }
-    busy(btn, true);
-    D.addParticipants(it.id, list).then(function () { toast(list.length === 1 ? "Persona abilitata" : list.length + " persone abilitate"); return reload(); })
-      .catch(function (x) { err.textContent = x.message; err.hidden = false; busy(btn, false); });
-  });
-
-  function selectText(id) {
-    var el = document.getElementById(id), r = document.createRange();
-    r.selectNodeContents(el); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-    toast("Link selezionato: copialo con Copia");
-  }
-
   /* ---------------- avvio ---------------- */
-  function handleInvite() {
-    var inv = pendingInvite();
-    if (!S.me || !inv) return Promise.resolve();
-    return D.redeemInvite(inv).then(function (slug) {
-      setPendingInvite("");
-      return refresh().then(function () {
-        var it = initBySlug(slug);
-        toast("Invito accettato" + (it ? ": " + it.title : ""));
-        location.hash = "#i-" + slug;
-      });
-    }).catch(function (e) { setPendingInvite(""); toast(e.message, true); });
+  function welcomeFromLink(raw) {
+    var had = D.codes().length > 0;
+    return D.addCode(raw).then(function () {
+      if (!had) D.hit("ingresso", "avamposto");
+      return true;
+    }).catch(function (x) { toast(x.message, true); return false; });
+  }
+  function countVisit() {
+    if (S.admin || !S.pass.entry) return;
+    try { if (sessionStorage.getItem("avamposto-visita")) return; sessionStorage.setItem("avamposto-visita", "1"); } catch (e) {}
+    D.hit("ingresso", "visita");
   }
 
   function start() {
-    var params = new URLSearchParams(location.search);
-    if (params.get("invito")) {
-      setPendingInvite(params.get("invito"));
-      history.replaceState(null, "", location.pathname + location.hash);
-    }
+    var params = new URLSearchParams(location.search), linkCode = params.get("codice");
+    if (linkCode || params.get("invito")) history.replaceState(null, "", location.pathname + location.hash);
     if (!D.live && DEMO) document.getElementById("demo-bar").hidden = false;
     if (PREVIEW) { S.ready = true; renderNav = function () { nav.innerHTML = ""; }; viewWelcome(); return; }
-    D.init().then(refresh).then(function () { S.ready = true; return handleInvite(); }).then(route)
+    D.init().then(function () { return linkCode ? welcomeFromLink(linkCode) : false; }).then(function (ok) {
+      return refresh().then(function () {
+        S.ready = true; countVisit();
+        if (ok) toast("Codice salvato: benvenuto nell'Avamposto");
+      });
+    }).then(route)
       .catch(function (e) { S.ready = true; main.innerHTML = '<div class="wrap page"><p class="form-msg err">' + esc(D.friendly(e)) + "</p></div>"; });
     D.onAuthChange(function () {
       S.ready = false;
       main.innerHTML = '<div class="wrap page"><p class="loading">Caricamento…</p></div>';
-      refresh().then(function () { S.ready = true; return handleInvite(); }).then(route).catch(function (e) { S.ready = true; toast(e.message, true); route(); });
+      refresh().then(function () { S.ready = true; }).then(route).catch(function (e) { S.ready = true; toast(e.message, true); route(); });
     });
     window.addEventListener("hashchange", function () { route(); window.scrollTo(0, 0); });
   }

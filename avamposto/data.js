@@ -17,8 +17,9 @@
   function code() { return Math.random().toString(16).slice(2, 10) + Math.random().toString(16).slice(2, 10); }
 
   var ERRORS = [
-    [/PRELANCIO|Database error saving new user/i, "L'Avamposto non è ancora aperto: per ora entra solo il gruppo di prova. Se ne fai parte, usa la mail che hai dato allo staff."],
-    [/Signups not allowed|User not found/i, "Questa mail non risulta iscritta all'Avamposto. Usa «Iscriviti»."],
+    [/SOLO_STAFF|PRELANCIO|Database error saving new user|Signups not allowed|User not found/i, "L'accesso con la mail è solo per lo staff. Per entrare nell'Avamposto usa il codice."],
+    [/CODICE_NON_VALIDO|Codice non valido/i, "Codice non valido o non più attivo. Controlla di averlo scritto bene o chiedilo allo staff."],
+    [/Serve il codice/i, "Serve il codice dell'Avamposto: inseriscilo di nuovo dalla pagina «Il tuo dispositivo»."],
     [/rate limit|over_email_send_rate|For security purposes/i, "Hai chiesto troppi link in poco tempo. Aspetta un minuto e riprova."],
     [/invalid.*email|Unable to validate email/i, "L'indirizzo email non sembra valido. Controllalo e riprova."],
     [/Invito non valido/i, "Questo link d'invito non è valido o è stato disattivato. Chiedi allo staff un link nuovo."],
@@ -40,6 +41,39 @@
     return "Qualcosa non ha funzionato (" + msg + "). Riprova tra poco.";
   }
   function fail(err) { var e = new Error(friendly(err)); e.raw = err; throw e; }
+  function uuid() {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) { var r = Math.random() * 16 | 0; return (c === "x" ? r : (r & 3 | 8)).toString(16); });
+  }
+  function safeName(name) { return String(name || "file").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^A-Za-z0-9._-]+/g, "-").slice(-80); }
+  function normCode(c) { return String(c || "").trim().toUpperCase().replace(/\s+/g, ""); }
+
+  /* Quello che resta sul telefono di chi entra con il codice: i codici, i «visto», i «ci sono»
+     e i codici identificativi dei testi inviati. Niente nomi, niente mail. */
+  function makeDevice(prefix) {
+    var K = { codes: prefix + "codici", seen: prefix + "visti", hands: prefix + "cisono", voices: prefix + "mie-voci" };
+    function get(k, def) { try { var v = localStorage.getItem(K[k]); return v ? JSON.parse(v) : def; } catch (e) { return def; } }
+    function set(k, v) { try { localStorage.setItem(K[k], JSON.stringify(v)); } catch (e) {} }
+    return {
+      codes: function () { return get("codes", []).filter(function (c) { return typeof c === "string"; }); },
+      setCodes: function (list) { set("codes", list); },
+      addCode: function (c) { var l = this.codes(); if (l.indexOf(c) < 0) l.push(c); set("codes", l.slice(-20)); },
+      seen: function () { return get("seen", {}); },
+      setSeen: function (id, on) { var o = get("seen", {}); if (on) o[id] = new Date().toISOString(); else delete o[id]; set("seen", o); },
+      hands: function () { return get("hands", {}); },
+      setHand: function (eventId, row) { var o = get("hands", {}); if (row) o[eventId] = row; else delete o[eventId]; set("hands", o); },
+      voices: function () { return get("voices", []); },
+      addVoice: function (id) { var l = get("voices", []); l.unshift(id); set("voices", l.slice(0, 50)); },
+      keepVoices: function (ids) { set("voices", get("voices", []).filter(function (x) { return ids.indexOf(x) >= 0; })); },
+      forget: function () { Object.keys(K).forEach(function (k) { try { localStorage.removeItem(K[k]); } catch (e) {} }); }
+    };
+  }
+  var EMPTY_PASS = { entry: false, courses: [], valid: [] };
+  function checkCode(raw) {
+    var c = normCode(raw);
+    if (!/^[A-Z0-9-]{4,40}$/.test(c)) return Promise.reject(new Error("Il codice è fatto solo di lettere, numeri e trattini. Controllalo e riprova."));
+    return Promise.resolve(c);
+  }
 
   /* ================================================================
      Motore Supabase
@@ -53,9 +87,16 @@
   }
 
   function makeLive() {
-    var sb = null, session = null, listeners = [];
+    var sb = null, session = null, listeners = [], dev = makeDevice("avamposto-");
     function q(p) { return p.then(function (r) { if (r.error) fail(r.error); return r.data; }); }
     function email() { return lower(session && session.user && session.user.email); }
+    function rpc(name, args) { return q(sb.rpc(name, args || {})); }
+    function codes() { return dev.codes(); }
+    function publicUrl(bucket, path) { return cfg.supabaseUrl.replace(/\/$/, "") + "/storage/v1/object/public/" + bucket + "/" + path.split("/").map(encodeURIComponent).join("/"); }
+    // I file nuovi stanno in bucket pubblici con un indirizzo impossibile da indovinare (d/… e f/…);
+    // quelli vecchi restano nei bucket privati e si aprono con un link firmato.
+    function docBucket(path) { return /^d\//.test(path || "") ? "documenti" : "materiali"; }
+    function photoBucket(path) { return /^f\//.test(path || "") ? "squadra-foto" : "squadra"; }
 
     return {
       live: true,
@@ -73,19 +114,35 @@
       },
       onAuthChange: function (f) { listeners.push(f); },
       me: function () { return session ? { id: session.user.id, email: email() } : null; },
-      signUp: function (form, redirectTo) {
-        return q(sb.auth.signInWithOtp({
-          email: lower(form.email),
-          options: { shouldCreateUser: true, emailRedirectTo: redirectTo,
-            data: { full_name: form.full_name, membership: form.membership, privacy: form.privacy ? "true" : "false" } }
-        }));
+      /* --- codici d'accesso (chi entra senza account) --- */
+      codes: codes,
+      pass: function () {
+        var c = codes(); if (!c.length) return Promise.resolve(EMPTY_PASS);
+        return rpc("ava_pass", { p_codes: c }).then(function (p) {
+          p = p || {}; var valid = p.valid || [];
+          dev.setCodes(c.filter(function (x) { return valid.indexOf(x) >= 0; }));
+          return { entry: !!p.entry, courses: p.courses || [], valid: valid };
+        });
       },
+      addCode: function (raw) {
+        return checkCode(raw).then(function (c) {
+          return rpc("ava_pass", { p_codes: [c] }).then(function (p) {
+            if (!p || !p.entry) fail({ message: "CODICE_NON_VALIDO" });
+            dev.addCode(c); return c;
+          });
+        });
+      },
+      forgetDevice: function () { dev.forget(); },
+      passMaterials: function () { return codes().length ? rpc("ava_materials", { p_codes: codes() }) : Promise.resolve([]); },
+      passTeam: function () { return codes().length ? rpc("ava_team", { p_codes: codes() }) : Promise.resolve({ units: [], people: [] }); },
+      passMobilization: function () { return codes().length ? rpc("ava_mobilization", { p_codes: codes() }) : Promise.resolve([]); },
+      passReplays: function () { return codes().length ? rpc("ava_replays", { p_codes: codes() }) : Promise.resolve([]); },
+      hit: function (kind, ref) { if (!codes().length) return Promise.resolve(); return rpc("ava_hit", { p_codes: codes(), p_kind: kind, p_ref: String(ref) }).catch(function () {}); },
       signIn: function (mail, redirectTo) {
         return q(sb.auth.signInWithOtp({ email: lower(mail), options: { shouldCreateUser: false, emailRedirectTo: redirectTo } }));
       },
       signOut: function () { return sb.auth.signOut(); },
       isAdmin: function () { return session ? q(sb.rpc("is_admin")) : Promise.resolve(false); },
-      deleteMyAccount: function () { return q(sb.rpc("delete_my_account")).then(function () { return sb.auth.signOut(); }); },
 
       getProfile: function () { return q(sb.from("profiles").select("*").eq("id", session.user.id).maybeSingle()); },
       saveProfile: function (p) {
@@ -108,6 +165,7 @@
         return q(sb.from("materials").select("*").eq("initiative_id", initId).order("position").order("created_at"));
       },
       fileUrl: function (path) {
+        if (docBucket(path) === "documenti") return Promise.resolve(publicUrl("documenti", path));
         return q(sb.storage.from("materiali").createSignedUrl(path, 3600)).then(function (d) { return d.signedUrl; });
       },
       coverUrl: function (path) {
@@ -118,19 +176,22 @@
       accessibleMaterials: function () {
         return session ? q(sb.from("materials").select("id,initiative_id,kind,title,live_at,url,published,created_at")) : Promise.resolve([]);
       },
-      myViews: function () { return session ? q(sb.from("material_views").select("material_id")) : Promise.resolve([]); },
+      myViews: function () { return Promise.resolve(Object.keys(dev.seen()).map(function (k) { return { material_id: k }; })); },
       markViewed: function (materialId, on) {
-        return on ? q(sb.from("material_views").upsert({ user_id: session.user.id, material_id: materialId }, { onConflict: "user_id,material_id", ignoreDuplicates: true }))
-                  : q(sb.from("material_views").delete().eq("user_id", session.user.id).eq("material_id", materialId));
+        var first = on && !dev.seen()[materialId];
+        dev.setSeen(materialId, on);
+        return first ? this.hit("visto", materialId) : Promise.resolve();
       },
       orgUnits: function () { return q(sb.from("org_units").select("*").order("position").order("created_at")); },
       orgPeople: function () { return q(sb.from("org_people").select("*").order("position").order("created_at")); },
       orgPhotoUrls: function (paths) {
         paths = (paths || []).filter(Boolean);
-        if (!paths.length) return Promise.resolve({});
-        return q(sb.storage.from("squadra").createSignedUrls(paths, 3600)).then(function (list) {
-          var o = {}; (list || []).forEach(function (x) { if (x.signedUrl) o[x.path] = x.signedUrl; }); return o;
-        });
+        var o = {}, old = [];
+        paths.forEach(function (p) { if (photoBucket(p) === "squadra-foto") o[p] = publicUrl("squadra-foto", p); else old.push(p); });
+        if (!old.length || !session) return Promise.resolve(o);
+        return q(sb.storage.from("squadra").createSignedUrls(old, 3600)).then(function (list) {
+          (list || []).forEach(function (x) { if (x.signedUrl) o[x.path] = x.signedUrl; }); return o;
+        }).catch(function () { return o; });
       },
       saveUnit: function (u) {
         var row = { parent_id: u.parent_id || null, name: u.name, kind: u.kind, description: u.description || null, whatsapp_url: u.whatsapp_url || null, position: u.position || 0 };
@@ -142,15 +203,15 @@
         return pp.id ? q(sb.from("org_people").update(row).eq("id", pp.id).select().single()) : q(sb.from("org_people").insert(row).select().single());
       },
       deletePerson: function (pp) {
-        var rm = pp.photo_path ? q(sb.storage.from("squadra").remove([pp.photo_path])).catch(function () { return null; }) : Promise.resolve();
+        var rm = pp.photo_path ? q(sb.storage.from(photoBucket(pp.photo_path)).remove([pp.photo_path])).catch(function () { return null; }) : Promise.resolve();
         return rm.then(function () { return q(sb.from("org_people").delete().eq("id", pp.id)); });
       },
       setPersonPhoto: function (pp, blob) {
         var old = pp.photo_path;
-        var removeOld = function () { return old ? q(sb.storage.from("squadra").remove([old])).catch(function () { return null; }) : null; };
+        var removeOld = function () { return old ? q(sb.storage.from(photoBucket(old)).remove([old])).catch(function () { return null; }) : null; };
         if (!blob) return q(sb.from("org_people").update({ photo_path: null }).eq("id", pp.id)).then(removeOld);
-        var path = pp.id + "/" + Date.now() + ".jpg";
-        return q(sb.storage.from("squadra").upload(path, blob, { contentType: "image/jpeg" }))
+        var path = "f/" + uuid() + ".jpg";
+        return q(sb.storage.from("squadra-foto").upload(path, blob, { contentType: "image/jpeg" }))
           .then(function () { return q(sb.from("org_people").update({ photo_path: path }).eq("id", pp.id)); }).then(removeOld);
       },
       setCover: function (it, blob) {
@@ -191,35 +252,35 @@
       mobilization: function () { return session ? q(sb.from("event_mobilization").select("*")) : Promise.resolve([]); },
       saveMobilization: function (m) {
         return q(sb.from("event_mobilization").upsert({ event_id: m.event_id, slots: m.slots || null, meeting_point: m.meeting_point || null,
-          kit_url: m.kit_url || null, notes: m.notes || null, updated_at: nowIso() }, { onConflict: "event_id" }));
+          kit_url: m.kit_url || null, notes: m.notes || null, whatsapp_url: m.whatsapp_url || null, updated_at: nowIso() }, { onConflict: "event_id" }));
       },
       signupCounts: function () { return q(sb.rpc("signup_counts")); },
-      /* --- pre-lancio --- */
-      prelancio: function () { return q(sb.rpc("prelancio")).catch(function () { return false; }); },
-      setPrelancio: function (on) { return q(sb.from("site_settings").upsert({ key: "prelancio", value: !!on, updated_at: new Date().toISOString() })); },
-      prelaunchList: function () { return q(sb.from("prelaunch_list").select("*").order("created_at", { ascending: false })); },
-      addPrelaunch: function (emails, note) {
-        return q(sb.from("prelaunch_list").upsert(emails.map(function (m) { return { email: m, note: note || null }; }), { onConflict: "email" }));
-      },
-      removePrelaunch: function (email) { return q(sb.from("prelaunch_list").delete().eq("email", email)); },
       /* --- voci under 30 --- */
       publicVoices: function (n) { return q(sb.rpc("public_voices", { p_limit: n || 60 })); },
-      myVoices: function () { return session ? q(sb.from("voices").select("*").eq("user_id", session.user.id).order("created_at", { ascending: false })) : Promise.resolve([]); },
-      saveVoice: function (v) {
-        var row = { kind: v.kind, title: v.title || null, body: v.body, topic: v.topic || null, link_url: v.link_url || null, signature: v.signature, city: v.city || null };
-        return v.id ? q(sb.from("voices").update(row).eq("id", v.id).select().single()) : q(sb.from("voices").insert(row).select().single());
+      myVoices: function () {
+        var ids = dev.voices(); if (!ids.length) return Promise.resolve([]);
+        return rpc("ava_voice_status", { p_ids: ids }).then(function (list) {
+          list = list || []; dev.keepVoices(list.map(function (x) { return x.id; }));
+          return list.sort(function (a, b) { return a.created_at < b.created_at ? 1 : -1; });
+        });
       },
-      deleteVoice: function (id) { return q(sb.from("voices").delete().eq("id", id)); },
+      saveVoice: function (v) {
+        if (v.link_url && !/^https:\/\//.test(v.link_url)) return Promise.reject(new Error("Il link deve iniziare con https://"));
+        return rpc("ava_voice_submit", { p_codes: codes(), p_kind: v.kind, p_title: v.title || null, p_body: v.body, p_topic: v.topic || null,
+          p_link: v.link_url || null, p_name: v.signed_name || null, p_city: v.city || null }).then(function (id) { dev.addVoice(id); return id; });
+      },
+      deleteVoice: function (id) {
+        return rpc("ava_voice_withdraw", { p_id: id }).then(function () { dev.keepVoices(dev.voices().filter(function (x) { return x !== id; })); });
+      },
       allVoices: function () { return q(sb.from("voices").select("*").order("created_at", { ascending: false })); },
       moderateVoice: function (id, patch) { return q(sb.from("voices").update(patch).eq("id", id).select().single()); },
-      mySignups: function () { return session ? q(sb.from("event_signups").select("*").eq("user_id", session.user.id)) : Promise.resolve([]); },
+      mySignups: function () { var o = dev.hands(); return Promise.resolve(Object.keys(o).map(function (k) { return Object.assign({ event_id: k }, o[k]); })); },
       signup: function (eventId, data) {
-        return q(sb.from("event_signups").upsert({ event_id: eventId, user_id: session.user.id, email: email(), full_name: data.full_name || null,
-          slot: data.slot || null, note: data.note || null }, { onConflict: "event_id,user_id" }));
+        return rpc("ava_ci_sono", { p_codes: codes(), p_event: eventId, p_slot: data.slot || "" }).then(function (wa) {
+          var row = { slot: data.slot || "", wa: wa || "", at: nowIso() }; dev.setHand(eventId, row); return row;
+        });
       },
-      cancelSignup: function (eventId) { return q(sb.from("event_signups").delete().eq("event_id", eventId).eq("user_id", session.user.id)); },
-      allSignups: function () { return q(sb.from("event_signups").select("*").order("created_at")); },
-      removeSignup: function (eventId, userId) { return q(sb.from("event_signups").delete().eq("event_id", eventId).eq("user_id", userId)); },
+      cancelSignup: function (eventId) { dev.setHand(eventId, null); return Promise.resolve(); },
       replayList: function () { return q(sb.rpc("replay_list")); },
       replays: function () {
         return session ? q(sb.from("event_replays").select("*").order("recorded_on", { ascending: false }).order("created_at", { ascending: false })) : Promise.resolve([]);
@@ -231,9 +292,16 @@
       deleteReplay: function (id) { return q(sb.from("event_replays").delete().eq("id", id)); },
 
       /* --- gestione --- */
-      allEnrollments: function () { return q(sb.from("enrollments").select("*").order("created_at", { ascending: false })); },
-      allProfiles: function () { return q(sb.from("profiles").select("*").order("created_at", { ascending: false })); },
-      invites: function () { return q(sb.from("invites").select("*")); },
+      listCodes: function () { return q(sb.from("access_codes").select("*").order("created_at", { ascending: false })); },
+      saveCode: function (c) {
+        var row = { code: normCode(c.code), kind: c.kind, initiative_id: c.kind === "corso" ? c.initiative_id : null, label: c.label || null, active: c.active !== false };
+        return c.id ? q(sb.from("access_codes").update(row).eq("id", c.id).select().single()) : q(sb.from("access_codes").insert(row).select().single());
+      },
+      deleteCode: function (id) { return q(sb.from("access_codes").delete().eq("id", id)); },
+      counts: function () {
+        var since = new Date(Date.now() - 120 * 86400000).toISOString().slice(0, 10);
+        return q(sb.from("ava_counts").select("*").gte("day", since));
+      },
       saveInitiative: function (it) {
         var row = { slug: it.slug, title: it.title, summary: it.summary, description: it.description, kind: it.kind,
           access: it.access, starts_on: it.starts_on || null, published: !!it.published, position: it.position || 0 };
@@ -241,7 +309,12 @@
                      : q(sb.from("initiatives").insert(row).select().single());
       },
       deleteInitiative: function (id) {
-        return q(sb.storage.from("materiali").list(id, { limit: 1000 })).then(function (files) {
+        return q(sb.from("materials").select("file_path").eq("initiative_id", id)).then(function (rows) {
+          var docs = (rows || []).map(function (r) { return r.file_path; }).filter(function (p) { return docBucket(p) === "documenti"; });
+          return docs.length ? q(sb.storage.from("documenti").remove(docs)) : null;
+        }).catch(function () { return null; }).then(function () {
+          return q(sb.storage.from("materiali").list(id, { limit: 1000 }));
+        }).then(function (files) {
           var paths = (files || []).map(function (f) { return id + "/" + f.name; });
           return paths.length ? q(sb.storage.from("materiali").remove(paths)) : null;
         }).catch(function () { return null; }).then(function () {
@@ -253,20 +326,6 @@
           return q(sb.from("initiatives").delete().eq("id", id));
         });
       },
-      setInviteActive: function (initId, active) {
-        return q(sb.from("invites").update({ active: active, updated_at: nowIso() }).eq("initiative_id", initId));
-      },
-      regenerateInvite: function (initId) { return q(sb.rpc("regenerate_invite", { p_initiative: initId })); },
-      addParticipants: function (initId, emails) {
-        var rows = emails.map(function (e) { return { initiative_id: initId, email: lower(e), status: "attiva", source: "manuale", decided_at: nowIso() }; });
-        return q(sb.from("enrollments").upsert(rows, { onConflict: "initiative_id,email" }));
-      },
-      setEnrollment: function (initId, mail, status) {
-        return q(sb.from("enrollments").update({ status: status, decided_at: nowIso() }).eq("initiative_id", initId).eq("email", lower(mail)));
-      },
-      removeEnrollment: function (initId, mail) {
-        return q(sb.from("enrollments").delete().eq("initiative_id", initId).eq("email", lower(mail)));
-      },
       saveMaterial: function (m) {
         var row = { initiative_id: m.initiative_id, kind: m.kind, title: m.title, body: m.body || null, url: m.url || null,
           file_path: m.file_path || null, live_at: m.live_at || null, position: m.position || 0, published: m.published !== false };
@@ -274,13 +333,12 @@
                     : q(sb.from("materials").insert(row).select().single());
       },
       deleteMaterial: function (m) {
-        var p = m.file_path ? q(sb.storage.from("materiali").remove([m.file_path])).catch(function () { return null; }) : Promise.resolve();
+        var p = m.file_path ? q(sb.storage.from(docBucket(m.file_path)).remove([m.file_path])).catch(function () { return null; }) : Promise.resolve();
         return p.then(function () { return q(sb.from("materials").delete().eq("id", m.id)); });
       },
       uploadFile: function (initId, file) {
-        var safe = file.name.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^A-Za-z0-9._-]+/g, "-").slice(-80);
-        var path = initId + "/" + Date.now() + "-" + safe;
-        return q(sb.storage.from("materiali").upload(path, file, { contentType: file.type || "application/pdf", upsert: false }))
+        var path = "d/" + uuid() + "/" + safeName(file.name);
+        return q(sb.storage.from("documenti").upload(path, file, { contentType: file.type || "application/pdf", upsert: false }))
           .then(function () { return path; });
       }
     };
@@ -319,11 +377,11 @@
           description: "Ciclo di tre dirette con ospiti, seguite da materiali di approfondimento." },
         { id: I.spec, slug: "contenuti-speciali", title: "Contenuti speciali", kind: "contenuti", access: "aperta", published: true, position: 3, cover_path: "../assets/foto/piazza-bandiere.jpg",
           created_at: iso(-30),
-          summary: "Approfondimenti e materiali riservati a tutti gli iscritti all'Avamposto.",
+          summary: "Approfondimenti e materiali per tutti quelli che entrano nell'Avamposto.",
           description: "Qui trovi i contenuti extra pubblicati dallo staff: schede, dossier e registrazioni degli eventi." },
         { id: I.social, slug: "laboratorio-social", title: "Laboratorio social", kind: "corso", access: "su_richiesta", published: false, position: 4,
           created_at: iso(-1),
-          summary: "Bozza: non ancora visibile agli iscritti.",
+          summary: "Bozza: non ancora visibile nell'Avamposto.",
           description: "Iniziativa in preparazione." }
       ],
       events: [
@@ -345,8 +403,8 @@
           summary: "La trasferta con il gruppo Marche all'evento nazionale.", description: "", poster_path: "../assets/foto/evento-roma-gruppo.jpg", published: true, created_at: iso(-40) }
       ],
       mobilization: [
-        { event_id: "ev-banchetto", slots: "10:30 – 11:45\n11:45 – 13:00", meeting_point: "Davanti al municipio, 15 minuti prima del turno", kit_url: "https://drive.google.com/", notes: "Porta la maglietta di Azione se ce l'hai. Il gazebo e i volantini li portiamo noi." },
-        { event_id: "ev-volantini", slots: "8:30 – 9:45\n9:45 – 11:00", meeting_point: "Fermata dell'autobus davanti all'ingresso", kit_url: "", notes: "Due persone per turno bastano." }
+        { event_id: "ev-banchetto", slots: "10:30 – 11:45\n11:45 – 13:00", meeting_point: "Davanti al municipio, 15 minuti prima del turno", kit_url: "https://drive.google.com/", whatsapp_url: "https://chat.whatsapp.com/esempio", notes: "Porta la maglietta di Azione se ce l'hai. Il gazebo e i volantini li portiamo noi." },
+        { event_id: "ev-volantini", slots: "8:30 – 9:45\n9:45 – 11:00", meeting_point: "Fermata dell'autobus davanti all'ingresso", kit_url: "", whatsapp_url: "https://chat.whatsapp.com/esempio", notes: "Due persone per turno bastano." }
       ],
       signups: [
         { event_id: "ev-banchetto", user_id: "giulia.bianchi@esempio.it", email: "giulia.bianchi@esempio.it", full_name: "Giulia Bianchi (esempio)", slot: "10:30 – 11:45", note: "", created_at: iso(-1) },
@@ -356,6 +414,19 @@
         { id: "rp-1", event_id: "ev-diretta", title: "Come nasce una legge europea", recorded_on: iso(-10).slice(0, 10), video_url: "", description: "La registrazione completa della diretta, con le domande finali.", published: true, created_at: iso(-9) },
         { id: "rp-2", event_id: null, title: "Q&A con lo staff: come funzionano i gruppi di lavoro", recorded_on: iso(-30).slice(0, 10), video_url: "", description: "Mezz'ora di domande e risposte per chi è appena entrato.", published: true, created_at: iso(-29) }
       ],
+      codes: [
+        { id: "cd-1", code: "AVAMPOSTO-DEMO", kind: "ingresso", initiative_id: null, label: "Codice d'ingresso (esempio)", active: true, created_at: iso(-20) },
+        { id: "cd-2", code: "COMUNICA-DEMO", kind: "corso", initiative_id: I.com, label: "Partecipanti al corso (esempio)", active: true, created_at: iso(-8) }
+      ],
+      counts: (function () {
+        var out = [], k;
+        for (k = 0; k < 21; k++) { out.push({ kind: "ingresso", ref: "visita", day: iso(-k).slice(0, 10), n: Math.max(1, Math.round(9 - k / 3 + (k % 4))) });
+          if (k % 3 === 0) out.push({ kind: "ingresso", ref: "avamposto", day: iso(-k).slice(0, 10), n: 1 + (k % 2) }); }
+        out.push({ kind: "apertura", ref: I.com, day: iso(-2).slice(0, 10), n: 14 }, { kind: "apertura", ref: I.spec, day: iso(-3).slice(0, 10), n: 22 },
+          { kind: "visto", ref: "demo-m1", day: iso(-2).slice(0, 10), n: 9 }, { kind: "cisono", ref: "ev-banchetto|10:30 – 11:45", day: iso(-1).slice(0, 10), n: 3 },
+          { kind: "cisono", ref: "ev-banchetto|11:45 – 13:00", day: iso(-1).slice(0, 10), n: 2 });
+        return out;
+      })(),
       voices: [
         { id: "vo-1", user_id: "giulia.bianchi@esempio.it", kind: "riflessione", title: "Perché resto nelle Marche", body: "Tutti mi chiedono quando me ne vado. Io vorrei restare, ma servono treni che arrivano in orario, affitti accessibili vicino alle università e aziende che assumono chi ha studiato qui. Non chiedo miracoli: chiedo che chi governa la regione smetta di considerarci di passaggio.", topic: "", link_url: "", signature: "nome", author_name: "Giulia Bianchi (esempio)", city: "Macerata", status: "approved", staff_note: "", created_at: iso(-6), published_at: iso(-5) },
         { id: "vo-2", user_id: "luca.verdi@esempio.it", kind: "commento", title: "", body: "Bene che se ne parli, ma la manovra continua a spendere tanto per chi è già in pensione e poco per chi deve ancora entrare nel mondo del lavoro. Un under 30 queste cose le guarda con attenzione.", topic: "Manovra 2027", link_url: "", signature: "completo", author_name: "Luca Verdi (esempio)", city: "Ancona", status: "approved", staff_note: "", created_at: iso(-3), published_at: iso(-2) },
@@ -399,14 +470,14 @@
         { id: uid(), initiative_id: I.com, kind: "diretta", title: "Lezione 2 – Parlare in pubblico (diretta)", url: "https://meet.google.com/", live_at: iso(2, 18, 30), body: "Porta un intervento di due minuti su un tema della rassegna.", position: 3, published: true, created_at: iso(-6) },
         { id: uid(), initiative_id: I.com, kind: "testo", title: "Esercitazione della settimana", body: "Prendi una notizia dalla rassegna di oggi e scrivi:\n\n**1.** un post di massimo 600 caratteri;\n**2.** tre titoli alternativi per una storia Instagram.\n\nCarica il lavoro nel gruppo del corso entro venerdì.", position: 4, published: true, created_at: iso(-5) },
         { id: uid(), initiative_id: I.eu, kind: "diretta", title: "Primo incontro: come nasce una legge europea", url: "https://meet.google.com/", live_at: iso(5, 21, 0), body: "Diretta su Meet, durata circa un'ora.", position: 1, published: true, created_at: iso(-10) },
-        { id: uid(), initiative_id: I.spec, kind: "testo", title: "Benvenuto nell'Avamposto", body: "Questa è l'area riservata di Azione Under 30 Marche.\n\nIn **Contenuti speciali** trovi i materiali aperti a tutti gli iscritti. Dal **catalogo** puoi chiedere di partecipare ai corsi: lo staff approva le richieste.", position: 1, published: true, created_at: iso(-30) },
+        { id: uid(), initiative_id: I.spec, kind: "testo", title: "Benvenuto nell'Avamposto", body: "Questa è l'area riservata di Azione Under 30 Marche.\n\nIn **Contenuti speciali** trovi i materiali aperti a tutti. Alcuni corsi si sbloccano con un secondo codice, che lo staff dà a chi partecipa.", position: 1, published: true, created_at: iso(-30) },
         { id: uid(), initiative_id: I.spec, kind: "link", title: "La rassegna stampa di oggi", url: "../rassegna/", body: "Il Punto Under 30 – Marche, ogni mattina alle 8.", position: 2, published: true, created_at: iso(-30) }
       ]
     };
   }
 
   function makeDemo() {
-    var S = null, listeners = [];
+    var S = null, listeners = [], dev = makeDevice("avamposto-demo-");
     function save() { try { localStorage.setItem(DEMO_KEY, JSON.stringify(S)); } catch (e) {} }
     function load() {
       try { var raw = localStorage.getItem(DEMO_KEY); if (raw) return JSON.parse(raw); } catch (e) {}
@@ -425,6 +496,19 @@
       if (i.access === "aperta") return true;
       return S.enrollments.some(function (e) { return e.initiative_id === id && e.email === me() && e.status === "attiva"; });
     }
+    function passOf(list) {
+      var ok = (S.codes || []).filter(function (c) { return c.active && list.indexOf(c.code) >= 0; });
+      return { entry: ok.length > 0, valid: ok.map(function (c) { return c.code; }),
+        courses: ok.filter(function (c) { return c.initiative_id; }).map(function (c) { return c.initiative_id; }) };
+    }
+    function entry() { return passOf(dev.codes()).entry; }
+    function count(kind, ref) {
+      var day = new Date().toISOString().slice(0, 10);
+      var row = S.counts.filter(function (c) { return c.kind === kind && c.ref === ref && c.day === day; })[0];
+      if (row) row.n++; else S.counts.push({ kind: kind, ref: ref, day: day, n: 1 });
+      save();
+    }
+    function publishedEvent(id) { return S.events.some(function (e) { return e.id === id && e.published; }); }
     function setSession(mail) { S.session = mail ? lower(mail) : null; save(); listeners.forEach(function (f) { f(); }); }
     function upsertEnroll(row) {
       var ex = S.enrollments.filter(function (e) { return e.initiative_id === row.initiative_id && e.email === row.email; })[0];
@@ -434,21 +518,44 @@
     return {
       live: false,
       demoAdmin: DEMO_ADMIN,
-      demoMember: "mario.rossi@esempio.it",
-      init: function () { S = load(); var fresh = null; ["events", "replays", "mobilization", "signups", "voices"].forEach(function (k) { if (!S[k] || (k === "events" && !S.events.some(function (e) { return e.kind; }))) { fresh = fresh || seed(); S[k] = fresh[k]; } }); save(); return Promise.resolve(); },
-      reset: function () { S = seed(); save(); listeners.forEach(function (f) { f(); }); },
+      demoCode: "AVAMPOSTO-DEMO",
+      init: function () { S = load(); var fresh = null; ["events", "replays", "mobilization", "signups", "voices", "codes", "counts"].forEach(function (k) { if (!S[k] || (k === "events" && !S.events.some(function (e) { return e.kind; }))) { fresh = fresh || seed(); S[k] = fresh[k]; } }); save(); return Promise.resolve(); },
+      reset: function () { S = seed(); save(); dev.forget(); listeners.forEach(function (f) { f(); }); },
+      codes: function () { return dev.codes(); },
+      pass: function () {
+        var p = passOf(dev.codes()); dev.setCodes(dev.codes().filter(function (c) { return p.valid.indexOf(c) >= 0; }));
+        return delay(p);
+      },
+      addCode: function (raw) {
+        return checkCode(raw).then(function (c) {
+          if (!passOf([c]).entry) fail({ message: "CODICE_NON_VALIDO" });
+          dev.addCode(c); return delay(c);
+        });
+      },
+      forgetDevice: function () { dev.forget(); },
+      passMaterials: function () {
+        var p = passOf(dev.codes()); if (!p.entry) return delay([]);
+        return delay(clone(S.materials.filter(function (m) {
+          var i = initById(m.initiative_id);
+          return m.published && i && i.published && (i.access === "aperta" || p.courses.indexOf(i.id) >= 0);
+        }).sort(function (a, b) { return (a.position - b.position) || (a.created_at < b.created_at ? -1 : 1); })));
+      },
+      passTeam: function () {
+        if (!entry()) return delay({ units: [], people: [] });
+        var by = function (a, b) { return a.position - b.position; };
+        return delay({ units: clone(S.org.units).sort(by), people: clone(S.org.people).sort(by) });
+      },
+      passMobilization: function () { return delay(entry() ? clone(S.mobilization.filter(function (m) { return publishedEvent(m.event_id); })) : []); },
+      passReplays: function () {
+        return delay(entry() ? clone(S.replays.filter(function (r) { return r.published; }).sort(function (a, b) { return a.recorded_on < b.recorded_on ? 1 : -1; })) : []);
+      },
+      hit: function (kind, ref) { if (entry()) count(kind, String(ref)); return delay({}); },
       onAuthChange: function (f) { listeners.push(f); },
       me: function () { return S.session ? { id: me(), email: me() } : null; },
-      signUp: function (form) {
-        var m = lower(form.email);
-        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)) return Promise.reject(new Error(friendly({ message: "invalid email" })));
-        if (S.prelancio && !S.users[m] && S.admins.indexOf(m) < 0 && !(S.prelaunch || []).some(function (x) { return x.email === m; })) return Promise.reject(new Error(friendly({ message: "PRELANCIO" })));
-        if (!S.users[m]) S.users[m] = { full_name: form.full_name, membership: form.membership, privacy_at: form.privacy ? nowIso() : null, created_at: nowIso() };
-        save(); return delay({});
-      },
       signIn: function (mail) {
         var m = lower(mail);
-        if (!S.users[m]) return Promise.reject(new Error(friendly({ message: "Signups not allowed for otp" })));
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)) return Promise.reject(new Error(friendly({ message: "invalid email" })));
+        if (S.admins.indexOf(m) < 0) return Promise.reject(new Error(friendly({ message: "SOLO_STAFF" })));
         return delay({});
       },
       demoOpenLink: function (mail) { setSession(mail); },
@@ -537,15 +644,11 @@
         if (!me()) return delay([]);
         return delay(clone(S.materials.filter(function (m) { return hasAccess(m.initiative_id) && (m.published || admin()); })));
       },
-      myViews: function () {
-        var v = (S.views || {})[me()] || {};
-        return delay(Object.keys(v).map(function (k) { return { material_id: k }; }));
-      },
+      myViews: function () { return delay(Object.keys(dev.seen()).map(function (k) { return { material_id: k }; })); },
       markViewed: function (id, on) {
-        if (!me()) return deny();
-        S.views = S.views || {}; var v = S.views[me()] = S.views[me()] || {};
-        if (on) v[id] = nowIso(); else delete v[id];
-        save(); return delay({});
+        var first = on && !dev.seen()[id]; dev.setSeen(id, on);
+        if (first) count("visto", id);
+        return delay({});
       },
       setCover: function (it, blob) {
         if (!admin()) return deny();
@@ -598,19 +701,12 @@
       },
       signupCounts: function () {
         var o = {}; S.signups.forEach(function (x) { o[x.event_id] = (o[x.event_id] || 0) + 1; });
+        S.counts.forEach(function (c) { if (c.kind === "cisono") { var e = c.ref.split("|")[0]; o[e] = (o[e] || 0) + c.n; } });
         return delay(Object.keys(o).map(function (k) { return { event_id: k, n: o[k] }; }));
       },
-      prelancio: function () { return delay(!!S.prelancio); },
-      setPrelancio: function (on) { if (!admin()) return deny(); S.prelancio = !!on; save(); return delay({}); },
-      prelaunchList: function () { return admin() ? delay(clone(S.prelaunch || [])) : deny(); },
-      addPrelaunch: function (emails, note) {
-        if (!admin()) return deny(); S.prelaunch = S.prelaunch || [];
-        emails.forEach(function (m) { if (!S.prelaunch.some(function (x) { return x.email === m; })) S.prelaunch.unshift({ email: m, note: note || "", created_at: nowIso() }); });
-        save(); return delay({});
-      },
-      removePrelaunch: function (email) { if (!admin()) return deny(); S.prelaunch = (S.prelaunch || []).filter(function (x) { return x.email !== email; }); save(); return delay({}); },
       publicVoices: function (n) {
         var shown = function (v) {
+          if (v.signed_name) return v.signed_name;
           if (v.signature === "anonimo") return null;
           var nm = String(v.author_name || "").replace(/\s*\(esempio\)\s*$/, "").trim();
           if (v.signature === "completo") return v.author_name;
@@ -620,29 +716,24 @@
           .sort(function (a, b) { return a.published_at < b.published_at ? 1 : -1; }).slice(0, n || 60)
           .map(function (v) { return { id: v.id, kind: v.kind, title: v.title, body: v.body, topic: v.topic, link_url: v.link_url, display_name: shown(v), city: v.city, published_at: v.published_at }; }));
       },
-      myVoices: function () { return delay(clone(S.voices.filter(function (v) { return v.user_id === me(); }).sort(function (a, b) { return a.created_at < b.created_at ? 1 : -1; }))); },
+      myVoices: function () {
+        var ids = dev.voices(), list = S.voices.filter(function (v) { return ids.indexOf(v.id) >= 0; });
+        dev.keepVoices(list.map(function (v) { return v.id; }));
+        return delay(clone(list).sort(function (a, b) { return a.created_at < b.created_at ? 1 : -1; }));
+      },
       saveVoice: function (v) {
-        var m = me(); if (!m) return deny();
+        if (!entry()) return Promise.reject(new Error(friendly({ message: "Serve il codice" })));
         if (!v.body || v.body.trim().length < 20) return Promise.reject(new Error("Scrivi almeno 20 caratteri."));
         if (v.body.length > 2500) return Promise.reject(new Error("Il testo è troppo lungo (massimo 2500 caratteri)."));
         if (v.link_url && !/^https:\/\//.test(v.link_url)) return Promise.reject(new Error("Il link deve iniziare con https://"));
-        var name = (S.users[m] || {}).full_name || m, row;
-        if (v.id) {
-          row = S.voices.filter(function (x) { return x.id === v.id && x.user_id === m; })[0];
-          if (!row || row.status === "approved") return deny();
-          Object.assign(row, v, { status: "pending", staff_note: "", published_at: null, author_name: name, updated_at: nowIso() });
-        } else {
-          if (S.voices.filter(function (x) { return x.user_id === m && x.status === "pending"; }).length >= 5) return Promise.reject(new Error("Hai già 5 testi in attesa di approvazione: aspetta che lo staff li legga."));
-          var f = Object.assign({}, v); delete f.id;
-          row = Object.assign({ id: uid(), user_id: m, created_at: nowIso() }, f, { status: "pending", staff_note: "", published_at: null, author_name: name });
-          S.voices.push(row);
-        }
-        save(); return delay(clone(row));
+        var name = String(v.signed_name || "").trim().slice(0, 60) || null;
+        var row = { id: uid(), user_id: null, kind: v.kind || "riflessione", title: v.title || "", body: v.body.trim(), topic: v.topic || "", link_url: v.link_url || "",
+          signature: name ? "completo" : "anonimo", signed_name: name, author_name: name, city: v.city || "", status: "pending", staff_note: "", created_at: nowIso(), published_at: null };
+        S.voices.push(row); save(); dev.addVoice(row.id); return delay(row.id);
       },
       deleteVoice: function (id) {
-        var m = me(); var row = S.voices.filter(function (x) { return x.id === id; })[0];
-        if (!row || (row.user_id !== m && !admin())) return deny();
-        S.voices = S.voices.filter(function (x) { return x.id !== id; }); save(); return delay({});
+        S.voices = S.voices.filter(function (x) { return !(x.id === id && !x.user_id); }); save();
+        dev.keepVoices(dev.voices().filter(function (x) { return x !== id; })); return delay({});
       },
       allVoices: function () { return admin() ? delay(clone(S.voices.slice().sort(function (a, b) { return a.created_at < b.created_at ? 1 : -1; }))) : deny(); },
       moderateVoice: function (id, patch) {
@@ -652,18 +743,16 @@
         if (patch.status && patch.status !== "approved") patch.published_at = null;
         Object.assign(row, patch); save(); return delay(clone(row));
       },
-      mySignups: function () { return delay(clone(S.signups.filter(function (x) { return x.user_id === me(); }))); },
+      mySignups: function () { var o = dev.hands(); return delay(Object.keys(o).map(function (k) { return Object.assign({ event_id: k }, o[k]); })); },
       signup: function (eventId, data) {
-        if (!me()) return deny();
+        if (!entry()) return Promise.reject(new Error(friendly({ message: "Codice non valido" })));
         var ev = S.events.filter(function (e) { return e.id === eventId; })[0];
-        if (!ev || !ev.published || !ev.needs_hands) return deny();
-        S.signups = S.signups.filter(function (x) { return !(x.event_id === eventId && x.user_id === me()); });
-        S.signups.push({ event_id: eventId, user_id: me(), email: me(), full_name: data.full_name || "", slot: data.slot || "", note: data.note || "", created_at: nowIso() });
-        save(); return delay({});
+        if (!ev || !ev.published || !ev.needs_hands) return Promise.reject(new Error("Evento non trovato."));
+        count("cisono", eventId + "|" + (data.slot || ""));
+        var mob = S.mobilization.filter(function (m) { return m.event_id === eventId; })[0] || {};
+        var row = { slot: data.slot || "", wa: mob.whatsapp_url || "", at: nowIso() }; dev.setHand(eventId, row); return delay(row);
       },
-      cancelSignup: function (eventId) { S.signups = S.signups.filter(function (x) { return !(x.event_id === eventId && x.user_id === me()); }); save(); return delay({}); },
-      allSignups: function () { return admin() ? delay(clone(S.signups)) : deny(); },
-      removeSignup: function (eventId, userId) { if (!admin()) return deny(); S.signups = S.signups.filter(function (x) { return !(x.event_id === eventId && x.user_id === userId); }); save(); return delay({}); },
+      cancelSignup: function (eventId) { dev.setHand(eventId, null); return delay({}); },
       replayList: function () {
         return delay(S.replays.filter(function (r) { return r.published; }).map(function (r) {
           return { id: r.id, event_id: r.event_id, title: r.title, recorded_on: r.recorded_on, description: r.description };
@@ -683,13 +772,20 @@
       },
       deleteReplay: function (id) { if (!admin()) return deny(); S.replays = S.replays.filter(function (x) { return x.id !== id; }); save(); return delay({}); },
 
-      allEnrollments: function () { return admin() ? delay(clone(S.enrollments)) : deny(); },
-      allProfiles: function () {
+      listCodes: function () { return admin() ? delay(clone(S.codes).sort(function (a, b) { return a.created_at < b.created_at ? 1 : -1; })) : deny(); },
+      saveCode: function (c) {
         if (!admin()) return deny();
-        return delay(Object.keys(S.users).map(function (m) { return Object.assign({ id: m, email: m }, clone(S.users[m])); })
-          .sort(function (a, b) { return a.created_at < b.created_at ? 1 : -1; }));
+        var code = normCode(c.code);
+        if (!/^[A-Z0-9-]{4,40}$/.test(code)) return Promise.reject(new Error("Il codice deve avere da 4 a 40 caratteri tra lettere, numeri e trattini."));
+        if (S.codes.some(function (x) { return x.code === code && x.id !== c.id; })) return Promise.reject(new Error("Questo codice esiste già: scegline un altro."));
+        if (c.kind === "corso" && !c.initiative_id) return Promise.reject(new Error("Scegli il corso che il codice sblocca."));
+        var row = { code: code, kind: c.kind, initiative_id: c.kind === "corso" ? c.initiative_id : null, label: c.label || null, active: c.active !== false };
+        var ex = c.id && S.codes.filter(function (x) { return x.id === c.id; })[0];
+        if (ex) Object.assign(ex, row); else { ex = Object.assign({ id: uid(), created_at: nowIso() }, row); S.codes.push(ex); }
+        save(); return delay(clone(ex));
       },
-      invites: function () { return admin() ? delay(Object.keys(S.invites).map(function (k) { return clone(S.invites[k]); })) : deny(); },
+      deleteCode: function (id) { if (!admin()) return deny(); S.codes = S.codes.filter(function (x) { return x.id !== id; }); save(); return delay({}); },
+      counts: function () { return admin() ? delay(clone(S.counts)) : deny(); },
       saveInitiative: function (it) {
         if (!admin()) return deny();
         if (S.initiatives.some(function (x) { return x.slug === it.slug && x.id !== it.id; }))
@@ -705,23 +801,6 @@
         S.enrollments = S.enrollments.filter(function (e) { return e.initiative_id !== id; });
         S.materials = S.materials.filter(function (m) { return m.initiative_id !== id; });
         delete S.invites[id]; save(); return delay({});
-      },
-      setInviteActive: function (id, active) { if (!admin()) return deny(); S.invites[id].active = active; save(); return delay({}); },
-      regenerateInvite: function (id) { if (!admin()) return deny(); S.invites[id].code = code(); S.invites[id].active = true; save(); return delay(S.invites[id].code); },
-      addParticipants: function (id, emails) {
-        if (!admin()) return deny();
-        emails.forEach(function (m) { upsertEnroll({ initiative_id: id, email: lower(m), status: "attiva", source: "manuale", decided_at: nowIso() }); });
-        save(); return delay({});
-      },
-      setEnrollment: function (id, mail, status) {
-        if (!admin()) return deny();
-        S.enrollments.forEach(function (e) { if (e.initiative_id === id && e.email === lower(mail)) { e.status = status; e.decided_at = nowIso(); } });
-        save(); return delay({});
-      },
-      removeEnrollment: function (id, mail) {
-        if (!admin()) return deny();
-        S.enrollments = S.enrollments.filter(function (e) { return !(e.initiative_id === id && e.email === lower(mail)); });
-        save(); return delay({});
       },
       saveMaterial: function (m) {
         if (!admin()) return deny();

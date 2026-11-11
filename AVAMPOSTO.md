@@ -1,38 +1,38 @@
 # Avamposto Under 30 – area riservata
 
-Pagina: `avamposto/` del sito. Finché `avamposto/config.js` è vuoto, gira in **modalità prototipo** con dati di esempio salvati solo nel browser.
-
-## Come funziona
-- **Iscrizione libera** con nome, email, tesserato/simpatizzante e consenso privacy. Niente password: si entra con un link mandato per mail.
+Pagina: `avamposto/` del sito. Con `?demo=1` gira in **modalità prototipo** con dati di esempio salvati solo nel browser (codici di prova `AVAMPOST## Come funziona
+- **Si entra con un codice, senza account.** Chi partecipa non dà nome, mail né dice se è tesserato: inserisce il codice d'ingresso e il telefono se lo ricorda. Il codice si può dare a chiunque giri intorno ad Azione (tesserati, simpatizzanti, curiosi).
+- **Link con il codice**: `…/avamposto/?codice=XYZ` fa entrare con un tocco (comodo nei gruppi WhatsApp). In Gestione → Codici c'è «Copia link».
 - **Iniziative** (corso, formazione, contenuti speciali, evento):
-  - *Tutti gli iscritti*: visibile a chiunque sia iscritto all'Avamposto;
-  - *Su richiesta*: visibile solo a chi è abilitato.
-- **Tre modi per abilitare una persona** a un'iniziativa su richiesta:
-  1. la persona clicca «Chiedi di partecipare» e lo staff approva in Gestione;
-  2. lo staff incolla una o più email in «Aggiungi persone a mano» (vale anche per chi non si è ancora iscritto);
-  3. lo staff manda il **link d'invito** dell'iniziativa: chi lo apre e si iscrive o entra ha subito accesso. Il link si può disattivare o rigenerare.
-- **Materiali**: video (YouTube anche non in elenco, Vimeo, Google Drive), dirette Meet con data e ora (il pulsante compare 15 minuti prima), PDF fino a 50 MB, testi, link.
-- **La squadra**: organigramma con persone, ruoli, foto e link ai canali WhatsApp, visibile solo agli iscritti. Si modifica da Gestione → La squadra. I nomi reali si caricano con il file SQL riservato consegnato a parte (non è in questo repository).
-- **Eventi** (pagina pubblica `eventi/`): elenco con locandine, calendario mensile con la locandina dentro il giorno, scheda di ogni evento (aggiungi al calendario, condividi, apri in Maps), filtri per tipo e zona. Nella home compaiono i prossimi tre.
-- **Agenda e mobilitazione** (nell'Avamposto): gli eventi segnati «Serve una mano» mostrano agli iscritti turni, punto di ritrovo, kit del volontario e il pulsante «Ci sono». Lo staff vede chi c'è per turno, copia l'elenco per WhatsApp o lo scarica. Nella pagina pubblica si vede solo quante persone hanno aderito, senza nomi.
-- **Repliche**: le registrazioni delle dirette (YouTube anche non in elenco, Vimeo, Drive). La pagina Eventi mostra che esistono, ma si guardano solo dall'Avamposto.
-- Tutto si gestisce da **Gestione → Eventi, mobilitazione e repliche**.
-- **Pre-lancio**: finché è attivo (lo è appena si crea il database) si iscrivono solo lo staff e le mail della lista di prova; si gestisce e si spegne da Gestione → Pre-lancio.
-- **Gestione** (solo per la mail amministratore): richieste, iniziative, partecipanti, materiali, elenco iscritti con esportazione CSV.
+  - *Tutti quelli che entrano*: visibili con il codice d'ingresso;
+  - *Solo con il codice del corso*: si sbloccano con un secondo codice che lo staff dà a chi partecipa. Il codice del corso fa entrare anche da solo.
+- **Cambiare un codice**: se gira dove non deve, disattivalo e creane uno nuovo. Chi aveva il vecchio dovrà inserire quello nuovo.
+- **Materiali**: video (YouTube anche non in elenco, Vimeo, Google Drive), dirette Meet con data e ora (il pulsante compare 15 minuti prima), PDF fino a 50 MB, testi, link. I PDF nuovi hanno un indirizzo impossibile da indovinare che il database consegna solo a chi ha il codice giusto.
+- **«Visto»**: resta sul telefono di chi lo segna; allo staff arriva solo il numero complessivo.
+- **La squadra**: organigramma con persone, ruoli, foto e canali WhatsApp, visibile solo a chi entra con il codice. Si modifica da Gestione → La squadra. I nomi reali si caricano con il file SQL riservato consegnato a parte (non è in questo repository).
+- **Eventi** (pagina pubblica `eventi/`): elenco con locandine, calendario, scheda di ogni evento, filtri per tipo e zona.
+- **Agenda e «Ci sono»**: per gli eventi «Serve una mano» si vedono turni, ritrovo e kit. «Ci sono» non chiede il nome: aumenta il contatore del turno e mostra il **link al gruppo WhatsApp dell'evento**, dove ci si organizza. Lo staff vede quanti sono per turno; la pagina pubblica solo il totale.
+- **Repliche**: le registrazioni delle dirette, visibili solo nell'Avamposto.
+- **La tua voce**: si manda un testo senza account, con firma facoltativa scritta a mano. Lo staff lo approva in Gestione → Voci. Chi l'ha mandato ne vede lo stato e può ritirarlo dallo stesso telefono.
+- **Il tuo telefono**: mostra i codici salvati e permette di cancellare tutto.
+- **Gestione** (solo staff, che entra con la mail da «Sei dello staff?»): Codici, Numeri (contatori anonimi: ingressi, visite, corsi aperti, «visto», «Ci sono»), iniziative e materiali, eventi, squadra, Voci.
 
-La protezione è sul server: le regole del database (`supabase/schema.sql`) impediscono di leggere materiali e PDF di iniziative a cui non si è abilitati, di approvarsi da soli e di diventare amministratori.
+La protezione è sul server: materiali, squadra, turni e repliche li consegnano funzioni del database solo a chi presenta un codice attivo; gli account possono crearli solo le mail dello staff (`public.admins`).
+
+ati, di approvarsi da soli e di diventare amministratori.
 
 ## Messa in funzione (una volta)
 1. **Supabase**: crea un account su supabase.com e un progetto nella regione **Europe (Frankfurt)** con il piano Free.
-2. **Database**: SQL Editor → New query → incolla tutto `supabase/schema.sql` → Run.
+2. **Database**: SQL Editor → New query → incolla tutto `supabase/schema.sql` → Run. (Se il database esiste già dalla versione con gli account: esegui `supabase/aggiornamento-codici.sql` e poi, una volta, `supabase/pulizia-account.sql`.)
 3. **Amministratore**: nello stesso editor esegui, con la mail condivisa dello staff:
    `insert into public.admins (email) values (lower('mail-staff@esempio.it'));`
 4. **Indirizzi consentiti**: Authentication → URL Configuration →
    - Site URL: `https://leopierma1997.github.io/il-punto-under30-marche/avamposto/`
    - Redirect URLs: `https://leopierma1997.github.io/il-punto-under30-marche/avamposto/**`
-5. **Mail di accesso**: il servizio incluso manda pochissime mail all'ora. Collega un servizio di invio (per esempio Brevo, piano gratuito) in Authentication → Emails → SMTP Settings, e traduci in italiano il modello «Magic Link».
-6. **Collegamento**: Project Settings → API → copia *Project URL* e *anon / publishable key* in `avamposto/config.js`.
-7. **Privacy**: il titolare è Azione. Quando il partito ti manda sede legale, codice fiscale e mail del DPO, scrivili in `sito-config.js` (sezione `privacy`): l'informativa si aggiorna da sola. Lo schema programma ogni lunedì la pulizia automatica (account fermi da 24 mesi, adesioni ai turni di eventi finiti da 12 mesi). Se Supabase segnala che manca `pg_cron`, attiva *Integrations → Cron* e riesegui l'ultimo blocco «Privacy» di `schema.sql`.
+5. **Mail di accesso dello staff**: SMTP di Gmail con password per le app in Authentication → Emails → SMTP Settings; modelli italiani in `supabase/mail-2-link-di-accesso.html`.
+6. **Codice d'ingresso**: entra come staff, Gestione → Codici → crea il codice d'ingresso (e quelli dei corsi riservati).
+7. **Collegamento**: Project Settings → API → copia *Project URL* e *anon / publishable key* in `avamposto/config.js`.
+8. **Privacy**: il titolare è Azione. Quando il partito ti manda sede legale, codice fiscale e mail del DPO, scrivili in `sito-config.js` (sezione `privacy`): l'informativa si aggiorna da sola. Lo schema programma ogni lunedì la pulizia automatica (account fermi da 24 mesi, vecchie adesioni ai turni dopo 12 mesi, contatori anonimi dopo 24 mesi). Se Supabase segnala che manca `pg_cron`, attiva *Integrations → Cron* e riesegui l'ultimo blocco «Privacy» di `schema.sql`.
 
 ## Note
 - I progetti Supabase gratuiti vanno in pausa dopo 7 giorni senza attività: l'attività quotidiana della rassegna può tenerlo sveglio.
