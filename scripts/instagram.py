@@ -70,12 +70,29 @@ def main():
     if not token:
         print("Segreto IG_TOKEN non impostato: niente da fare (vedi INSTAGRAM.md).")
         return 0
-    if dt.date.today().weekday() == 0 or os.environ.get("FORCE_REFRESH") == "1":
+    if not token.startswith("EAA") and (dt.date.today().weekday() == 0 or os.environ.get("FORCE_REFRESH") == "1"):
         token = refresh_token(token)
 
     fields = "id,caption,media_type,media_product_type,media_url,thumbnail_url,permalink,timestamp"
-    q = urllib.parse.urlencode({"fields": fields, "limit": LIMIT, "access_token": token})
-    data = get_json(f"{API}/me/media?{q}")
+    if token.startswith("EAA"):
+        # token del login con Facebook: si passa dalla Pagina collegata all'account Instagram
+        fb = "https://graph.facebook.com/v21.0"
+        q = urllib.parse.urlencode({"fields": "instagram_business_account", "access_token": token})
+        pages = get_json(f"{fb}/me/accounts?{q}").get("data", [])
+        ig = next((p["instagram_business_account"]["id"] for p in pages if p.get("instagram_business_account")), None)
+        if not ig:
+            try:
+                ig = get_json(f"{fb}/me?{urllib.parse.urlencode({'fields': 'id', 'access_token': token})}")["id"]
+            except Exception:
+                ig = None
+        if not ig:
+            print("Nessun account Instagram trovato con questo token.")
+            return 1
+        q = urllib.parse.urlencode({"fields": fields, "limit": LIMIT, "access_token": token})
+        data = get_json(f"{fb}/{ig}/media?{q}")
+    else:
+        q = urllib.parse.urlencode({"fields": fields, "limit": LIMIT, "access_token": token})
+        data = get_json(f"{API}/me/media?{q}")
 
     IMG_DIR.mkdir(parents=True, exist_ok=True)
     old = {}
