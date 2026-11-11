@@ -741,6 +741,15 @@
     };
   }
 
-  window.AvampostoData = LIVE ? makeLive() : makeDemo();
+  // Con ?demo=1 (ricordato per la visita) si usano sempre i dati di esempio, anche se il database vero è collegato:
+  // serve a far provare il sito a referenti e squadra senza toccare i dati reali. ?demo=0 torna al sito vero.
+  var WANT_DEMO = false;
+  try {
+    if (/[?&]demo=1\b/.test(location.search)) sessionStorage.setItem("avamposto-demo", "1");
+    if (/[?&]demo=0\b/.test(location.search)) sessionStorage.removeItem("avamposto-demo");
+    WANT_DEMO = sessionStorage.getItem("avamposto-demo") === "1";
+  } catch (e) { WANT_DEMO = /[?&]demo=1\b/.test(location.search); }
+  window.AvampostoData = LIVE && !WANT_DEMO ? makeLive() : makeDemo();
+  window.AvampostoData.isDemo = !(LIVE && !WANT_DEMO);
   window.AvampostoData.friendly = friendly;
 })();

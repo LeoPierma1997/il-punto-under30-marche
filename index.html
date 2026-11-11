@@ -288,6 +288,8 @@ footer a { color: #E4E6FF; }
   .intro.split::before { background: linear-gradient(90deg, rgba(12,20,103,.9) 0%, rgba(12,20,103,.78) 38%, rgba(12,20,103,.34) 66%, rgba(12,20,103,.16) 100%), linear-gradient(180deg, rgba(12,20,103,.25) 55%, rgba(12,20,103,.9) 100%); }
   .intro.split h1 { text-shadow: 0 2px 30px rgba(12,20,103,.6); }
 }
+.demo-strip { background: #FFF1B8; color: #3A2E00; font-size: .86rem; padding: 8px 16px; text-align: center; }
+.demo-strip b { margin-right: 6px; }
 </style>
 </head>
 <body>
@@ -608,39 +610,47 @@ SocialFeed.render({ base: "", box: document.getElementById("ig-grid"), limit: 4,
     document.getElementById("ava-actions").innerHTML = '<a class="btn white" href="avamposto/">I miei percorsi →</a>';
   }
   var cfg = window.AVAMPOSTO_CONFIG || {};
-  if (cfg.supabaseUrl && cfg.supabaseAnonKey) {
-    var KIND = { corso: "Corso", formazione: "Formazione", contenuti: "Contenuti speciali", evento: "Evento" };
-    getJSON(cfg.supabaseUrl.replace(/\/$/, "") + "/rest/v1/initiatives?select=slug,title,kind,starts_on&published=eq.true&order=position.asc&limit=3",
-      { headers: { apikey: cfg.supabaseAnonKey, Authorization: "Bearer " + cfg.supabaseAnonKey } })
-      .then(function (rows) {
-        if (!rows || !rows.length) return;
-        var cap = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5"/></svg>';
-        document.getElementById("ava-list").innerHTML = rows.map(function (r) {
-          var d = r.starts_on ? new Date(r.starts_on + "T12:00:00") : null;
-          var when = d ? " · dal " + d.getDate() + " " + MONTHS[d.getMonth()] : "";
-          return "<li>" + cap + '<div><b><a href="avamposto/#i-' + esc(r.slug) + '" style="color:#FFFFFF">' + esc(r.title) + "</a></b><span>" + esc(KIND[r.kind] || "Iniziativa") + esc(when) + "</span></div></li>";
-        }).join("");
-      }).catch(function () {});
+  var DD = window.AvampostoData, DEMO_ON = !!(DD && DD.isDemo && (function () { try { return sessionStorage.getItem("avamposto-demo") === "1"; } catch (e) { return false; } })());
+  var KIND = { corso: "Corso", formazione: "Formazione", contenuti: "Contenuti speciali", evento: "Evento" };
+  function fixPath(u) { return String(u || "").replace(/^\.\.\//, ""); }
+  function showInits(rows) {
+    if (!rows || !rows.length) return;
+    var cap = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5"/></svg>';
+    document.getElementById("ava-list").innerHTML = rows.slice(0, 3).map(function (r) {
+      var d = r.starts_on ? new Date(r.starts_on + "T12:00:00") : null;
+      var when = d ? " · dal " + d.getDate() + " " + MONTHS[d.getMonth()] : "";
+      return "<li>" + cap + '<div><b><a href="avamposto/#i-' + esc(r.slug) + '" style="color:#FFFFFF">' + esc(r.title) + "</a></b><span>" + esc(KIND[r.kind] || "Iniziativa") + esc(when) + "</span></div></li>";
+    }).join("");
   }
-
-  /* Prossimi appuntamenti (dalla pagina Eventi) */
-  if (cfg.supabaseUrl && cfg.supabaseAnonKey) {
-    getJSON(cfg.supabaseUrl.replace(/\/$/, "") + "/rest/v1/events?select=id,title,starts_at,place,city,poster_path,needs_hands&published=eq.true&starts_at=gte." +
-      encodeURIComponent(new Date(Date.now() - 3 * 3600000).toISOString()) + "&order=starts_at.asc&limit=3",
-      { headers: { apikey: cfg.supabaseAnonKey, Authorization: "Bearer " + cfg.supabaseAnonKey } })
-      .then(function (rows) {
-        if (!rows || !rows.length) return;
-        var fw = new Intl.DateTimeFormat("it-IT", { timeZone: "Europe/Rome", weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
-        var base = cfg.supabaseUrl.replace(/\/$/, "") + "/storage/v1/object/public/locandine/";
-        document.getElementById("ag-grid").innerHTML = rows.map(function (r) {
-          var src = r.poster_path ? base + r.poster_path.split("/").map(encodeURIComponent).join("/") : "";
-          return '<a class="ag" href="eventi/#evento-' + esc(r.id) + '"><span class="pic">' + (src ? '<img src="' + esc(src) + '" alt="" loading="lazy">' : "") + "</span>" +
-            "<span><small>" + esc(fw.format(new Date(r.starts_at))) + "</small><b>" + esc(r.title) + "</b>" +
-            ([r.place, r.city].filter(Boolean).length ? "<em>" + esc([r.place, r.city].filter(Boolean).join(" · ")) + "</em>" : "") +
-            (r.needs_hands ? '<span class="hands">Serve una mano</span>' : "") + "</span></a>";
-        }).join("");
-        document.getElementById("eventi").hidden = false;
-      }).catch(function () {});
+  function showEvents(rows, poster) {
+    if (!rows || !rows.length) return;
+    var fw = new Intl.DateTimeFormat("it-IT", { timeZone: "Europe/Rome", weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
+    document.getElementById("ag-grid").innerHTML = rows.slice(0, 3).map(function (r) {
+      var src = r.poster_path ? poster(r.poster_path) : "";
+      return '<a class="ag" href="eventi/#evento-' + esc(r.id) + '"><span class="pic">' + (src ? '<img src="' + esc(src) + '" alt="" loading="lazy">' : "") + "</span>" +
+        "<span><small>" + esc(fw.format(new Date(r.starts_at))) + "</small><b>" + esc(r.title) + "</b>" +
+        ([r.place, r.city].filter(Boolean).length ? "<em>" + esc([r.place, r.city].filter(Boolean).join(" · ")) + "</em>" : "") +
+        (r.needs_hands ? '<span class="hands">Serve una mano</span>' : "") + "</span></a>";
+    }).join("");
+    document.getElementById("eventi").hidden = false;
+  }
+  if (DEMO_ON) {
+    /* anteprima con dati di esempio (?demo=1) */
+    var bar = document.createElement("div");
+    bar.className = "demo-strip";
+    bar.innerHTML = "<b>Anteprima</b> Stai provando il sito con dati di esempio: tocca pure tutto, non cambia nulla di vero.";
+    document.body.insertBefore(bar, document.body.firstChild);
+    DD.init().then(function () { return Promise.all([DD.initiatives(), DD.events()]); }).then(function (r) {
+      showInits((r[0] || []).filter(function (i) { return i.published; }));
+      var now = Date.now() - 3 * 3600000;
+      showEvents((r[1] || []).filter(function (e) { return e.published !== false && new Date(e.starts_at).getTime() >= now; }), function (pth) { return fixPath(DD.posterUrl(pth)); });
+    }).catch(function () {});
+  } else if (cfg.supabaseUrl && cfg.supabaseAnonKey) {
+    var H = { headers: { apikey: cfg.supabaseAnonKey, Authorization: "Bearer " + cfg.supabaseAnonKey } }, API = cfg.supabaseUrl.replace(/\/$/, "");
+    getJSON(API + "/rest/v1/initiatives?select=slug,title,kind,starts_on&published=eq.true&order=position.asc&limit=3", H).then(showInits).catch(function () {});
+    getJSON(API + "/rest/v1/events?select=id,title,starts_at,place,city,poster_path,needs_hands&published=eq.true&starts_at=gte." +
+      encodeURIComponent(new Date(Date.now() - 3 * 3600000).toISOString()) + "&order=starts_at.asc&limit=3", H)
+      .then(function (rows) { showEvents(rows, function (pth) { return API + "/storage/v1/object/public/locandine/" + pth.split("/").map(encodeURIComponent).join("/"); }); }).catch(function () {});
   }
 
   /* Copia indirizzo email */
