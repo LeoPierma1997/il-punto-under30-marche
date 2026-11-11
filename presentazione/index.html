@@ -120,6 +120,12 @@ footer a { color: var(--muted); }
 .tryit-actions { display: grid; gap: 10px; justify-items: start; }
 .tryit-actions small { color: var(--muted); }
 @media (max-width: 820px) { .tryit { grid-template-columns: 1fr; padding: 22px 18px; } }
+
+.steps li.done::before { content: "✓"; background: #312781; }
+.steps li.done b::after { content: " · fatto"; font-weight: 700; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.steps li.doing { border: 2px solid var(--yellow); }
+.steps li.doing::before { background: var(--yellow); color: #0C1467; }
+.steps li.doing b::after { content: " · in corso"; font-weight: 700; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -167,12 +173,12 @@ footer a { color: var(--muted); }
     </section>
 
     <nav class="toc" aria-label="Indice">
-      <a href="#home">Home</a><a href="#voci">Voci Under 30</a><a href="#punto">Il Punto</a><a href="#eventi">Eventi</a><a href="#social">Social</a><a href="#avamposto">Avamposto</a><a href="#gestione">Gestione</a><a href="#privacy">Privacy</a><a href="#prossimi">Prossimi passi</a>
+      <a href="#home">Home</a><a href="#voci">Voci Under 30</a><a href="#punto">Il Punto</a><a href="#eventi">Eventi</a><a href="#social">Social</a><a href="#avamposto">Avamposto</a><a href="#gestione">Gestione</a><a href="#privacy">Privacy</a><a href="#prossimi">A che punto siamo</a>
     </nav>
 
     <section class="part" id="home">
       <div>
-        <span class="status on">Online</span>
+        <span class="status prev">Pronta · si apre al lancio</span>
         <h2>La porta d'ingresso</h2>
         <p>Chi arriva capisce subito chi siamo e dove andare: leggere la rassegna, entrare nell'Avamposto, venire a un evento.</p>
         <ul>
@@ -188,7 +194,7 @@ footer a { color: var(--muted); }
 
     <section class="part" id="voci">
       <div>
-        <span class="status prev">Pronta · in anteprima</span>
+        <span class="status on">Attiva · in prova</span>
         <h2>Voci Under 30</h2>
         <p>Lo spazio dove i ragazzi dicono la loro: riflessioni, commenti alle notizie, note dopo un banchetto. Si scrive dall'area riservata, lo staff approva, poi il testo compare sul sito.</p>
         <ul>
@@ -221,7 +227,7 @@ footer a { color: var(--muted); }
 
     <section class="part" id="eventi">
       <div>
-        <span class="status prev">Pronta · in anteprima</span>
+        <span class="status on">Attiva · si apre al lancio</span>
         <h2>Eventi</h2>
         <p>Tutti gli appuntamenti nelle Marche con le locandine: aperitivi, incontri, banchetti, dirette, formazione.</p>
         <ul>
@@ -237,23 +243,23 @@ footer a { color: var(--muted); }
 
     <section class="part" id="social">
       <div>
-        <span class="status prev">Pronta · da collegare a Instagram</span>
+        <span class="status on">Collegata a Instagram</span>
         <h2>Social</h2>
-        <p>Ogni reel e ogni post che pubblichiamo su Instagram compare da solo sul sito, nella pagina Social e in anteprima in home. Nessun lavoro in più per chi gestisce i social.</p>
+        <p>Ogni reel e ogni post che pubblichiamo su Instagram compare da solo sul sito, nella pagina Social e in anteprima in home. Il collegamento è già attivo: sul sito ci sono i nostri ultimi contenuti. Nessun lavoro in più per chi gestisce i social.</p>
         <ul>
           <li><span>Aggiornamento automatico ogni due ore</span></li>
           <li><span>Filtri per Reel e Post; tocchi e si apre su Instagram</span></li>
           <li><span>Le immagini sono copiate sul sito: chi guarda non viene tracciato da Instagram</span></li>
         </ul>
-        <div class="actions"><a class="btn solid" href="../social/?demo=1">Vedi l'anteprima</a></div>
+        <div class="actions"><a class="btn solid" href="../social/?demo=1">Vedi i nostri post sul sito</a></div>
       </div>
-      <div class="shots"><a class="shot" href="img/social.jpg"><img src="img/social.jpg" alt="La pagina Social" loading="lazy" width="1400" height="875"></a>
+      <div class="shots"><a class="shot" href="img/social.jpg"><img src="img/social.jpg" alt="La pagina Social con i nostri post" loading="lazy" width="1280" height="900"></a>
         <a class="phone" href="img/social-m.jpg"><img src="img/social-m.jpg" alt="La pagina Social su telefono" loading="lazy" width="560" height="1120"></a></div>
     </section>
 
     <section class="part" id="avamposto">
       <div>
-        <span class="status prev">Pronta · in anteprima</span>
+        <span class="status on">Attiva · in prova con un gruppo ristretto</span>
         <h2>Avamposto, l'area riservata</h2>
         <p>Qui si impara a fare politica. Iscrizione gratuita con la mail, senza password: ricevi un link e sei dentro.</p>
         <ul>
@@ -271,7 +277,7 @@ footer a { color: var(--muted); }
 
     <section class="part" id="gestione">
       <div>
-        <span class="status prev">Pronta · per lo staff</span>
+        <span class="status on">Attiva · per lo staff</span>
         <h2>Gestione, senza toccare codice</h2>
         <p>Lo staff regionale gestisce tutto da un pannello, con un'unica mail condivisa.</p>
         <ul>
@@ -279,6 +285,7 @@ footer a { color: var(--muted); }
           <li><span>Pubblica eventi con locandina, turni e kit per i volontari; vede chi ha aderito e copia l'elenco per WhatsApp</span></li>
           <li><span>Aggiorna la squadra, le foto e i link dei canali</span></li>
           <li><span>Elenco iscritti esportabile</span></li>
+          <li><span>Pre-lancio: decide chi può entrare finché il sito non è aperto a tutti, e lo apre con un clic</span></li>
         </ul>
         <div class="actions"><a class="btn solid" href="../avamposto/?demo=1">Entra come staff (anteprima)</a></div>
       </div>
@@ -294,10 +301,10 @@ footer a { color: var(--muted); }
       <div class="cards">
         <div class="card"><b>Titolare: Azione</b><p>Informativa allineata a quelle del partito (sostenitori, formazione, eventi, volontari, newsletter), con il DPO di Azione indicato.</p></div>
         <div class="card"><b>Dati in Europa</b><p>Iscritti, corsi, adesioni ed eventi sono su server a Francoforte. Nessun cookie di profilazione, nessuna statistica, nessuna pubblicità.</p></div>
-        <div class="card"><b>Protezione sul server</b><p>Le regole del database impediscono di vedere materiali non autorizzati, approvarsi da soli o diventare amministratori.</p></div>
+        <div class="card"><b>Protezione sul server</b><p>Le regole del database impediscono di vedere materiali non autorizzati, approvarsi da soli o diventare amministratori. Verifica in due passaggi sugli account dello staff.</p></div>
         <div class="card"><b>I dati restano delle persone</b><p>Ognuno scarica o cancella i propri dati da solo. Account inattivi cancellati dopo 24 mesi, adesioni ai turni dopo 12.</p></div>
         <div class="card"><b>Nomi riservati</b><p>L'organigramma con i nomi e i canali WhatsApp è visibile solo agli iscritti, non sul sito pubblico.</p></div>
-        <div class="card"><b>Costi</b><p>Hosting, database e invio mail su piani gratuiti. Nessun costo fisso.</p></div>
+        <div class="card"><b>Costi</b><p>Sito, database e mail di accesso su piani gratuiti o con gli strumenti che abbiamo già. Nessun costo fisso.</p></div>
       </div>
       <div class="actions" style="margin-top:24px"><a class="btn white" href="../avamposto/privacy.html">Leggi l'informativa</a></div>
     </div>
@@ -305,20 +312,24 @@ footer a { color: var(--muted); }
 
   <section class="next" id="prossimi">
     <div class="wrap">
-      <span class="eyebrow">Prossimi passi</span>
-      <h2>Cosa manca per partire</h2>
+      <span class="eyebrow">Stato dei lavori · aggiornato all'11 novembre 2026</span>
+      <h2>A che punto siamo</h2>
       <ol class="steps">
-        <li><div><b>Accendere l'area riservata</b><span>Collegamento del database (Supabase, server in Europa): attiva iscrizioni, corsi, eventi, squadra e mobilitazione.</span></div></li>
-        <li><div><b>Mail di accesso</b><span>Servizio di invio gratuito per i link d'accesso e, più avanti, per la newsletter.</span></div></li>
-        <li><div><b>Collegare Instagram</b><span>Da quel momento post e reel arrivano sul sito da soli.</span></div></li>
-        <li><div><b>Prova con un gruppo di ragazzi</b><span>Iscrizione, richiesta di un corso, adesione a un turno, poi apertura a tutti.</span></div></li>
+        <li class="done"><div><b>Il Punto online</b><span>La rassegna esce ogni mattina alle 8, anche in audio, e circola già tra i ragazzi.</span></div></li>
+        <li class="done"><div><b>Area riservata accesa</b><span>Database collegato su server a Francoforte, con le regole di sicurezza e l'organigramma riservato.</span></div></li>
+        <li class="done"><div><b>Mail di accesso</b><span>Il link per entrare parte dalla casella del gruppo, con testi in italiano.</span></div></li>
+        <li class="done"><div><b>Instagram collegato</b><span>Post e reel arrivano sul sito da soli ogni due ore.</span></div></li>
+        <li class="done"><div><b>Sicurezza e privacy</b><span>Informativa allineata ad Azione, verifica in due passaggi, pre-lancio attivo: per ora entra solo chi autorizziamo.</span></div></li>
+        <li class="doing"><div><b>Prova con un gruppo ristretto</b><span>Quattro ragazzi provano iscrizione, corsi, adesione ai turni e Voci Under 30.</span></div></li>
+        <li><div><b>Contenuti per il lancio</b><span>Primi eventi con le locandine, il primo corso, le prime Voci e le foto della squadra.</span></div></li>
+        <li><div><b>Lancio</b><span>Reel di annuncio, messaggi nei gruppi e apertura dell'Avamposto a tutti.</span></div></li>
       </ol>
       <div class="try">
         <h3>Come provarlo adesso</h3>
         <ul>
           <li>Le parti in anteprima usano dati di esempio (nomi ed eventi finti): si possono toccare senza rompere nulla, le modifiche restano solo sul proprio dispositivo.</li>
           <li>Nell'Avamposto, la barra gialla in alto permette di entrare <b>come iscritto</b> o <b>come staff</b>.</li>
-          <li>Link: <a href="../">Home</a> · <a href="../rassegna/">Il Punto</a> · <a href="../eventi/?demo=1">Eventi</a> · <a href="../social/?demo=1">Social</a> · <a href="../voci/?demo=1">Voci</a> · <a href="../avamposto/?demo=1">Avamposto</a></li>
+          <li>Link: <a href="../?demo=1">Home</a> · <a href="../rassegna/">Il Punto</a> · <a href="../eventi/?demo=1">Eventi</a> · <a href="../social/?demo=1">Social</a> · <a href="../voci/?demo=1">Voci</a> · <a href="../avamposto/?demo=1">Avamposto</a></li>
         </ul>
       </div>
     </div>
