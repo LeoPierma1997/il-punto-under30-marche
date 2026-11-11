@@ -74,25 +74,34 @@ def main():
         token = refresh_token(token)
 
     fields = "id,caption,media_type,media_product_type,media_url,thumbnail_url,permalink,timestamp"
-    if token.startswith("EAA"):
-        # token del login con Facebook: si passa dalla Pagina collegata all'account Instagram
-        fb = "https://graph.facebook.com/v21.0"
-        q = urllib.parse.urlencode({"fields": "instagram_business_account", "access_token": token})
-        pages = get_json(f"{fb}/me/accounts?{q}").get("data", [])
-        ig = next((p["instagram_business_account"]["id"] for p in pages if p.get("instagram_business_account")), None)
-        if not ig:
-            try:
-                ig = get_json(f"{fb}/me?{urllib.parse.urlencode({'fields': 'id', 'access_token': token})}")["id"]
-            except Exception:
-                ig = None
-        if not ig:
-            print("Nessun account Instagram trovato con questo token.")
-            return 1
-        q = urllib.parse.urlencode({"fields": fields, "limit": LIMIT, "access_token": token})
-        data = get_json(f"{fb}/{ig}/media?{q}")
-    else:
-        q = urllib.parse.urlencode({"fields": fields, "limit": LIMIT, "access_token": token})
-        data = get_json(f"{API}/me/media?{q}")
+    data = None
+    ig_id = os.environ.get("IG_USER_ID", "").strip()
+    fb = "https://graph.facebook.com/v21.0"
+    tries = []
+    if ig_id:  # token di un «utente di sistema» del portfolio business + ID dell'account Instagram
+        tries.append(("Facebook Graph con IG_USER_ID", f"{fb}/{ig_id}/media"))
+    if not token.startswith("EAA"):
+        tries.append(("Instagram Graph", f"{API}/me/media"))
+    for label, url in tries:
+        try:
+            data = get_json(url + "?" + urllib.parse.urlencode({"fields": fields, "limit": LIMIT, "access_token": token}))
+            print(f"Post letti tramite {label}.")
+            break
+        except Exception as e:
+            print(f"{label}: non riuscito ({e}).")
+    if data is None and token.startswith("EAA"):
+        # ultimo tentativo: account Instagram collegato a una Pagina Facebook
+        try:
+            pages = get_json(f"{fb}/me/accounts?" + urllib.parse.urlencode({"fields": "instagram_business_account", "access_token": token})).get("data", [])
+            ig = next((p["instagram_business_account"]["id"] for p in pages if p.get("instagram_business_account")), None)
+            if ig:
+                data = get_json(f"{fb}/{ig}/media?" + urllib.parse.urlencode({"fields": fields, "limit": LIMIT, "access_token": token}))
+                print(f"Post letti tramite la Pagina Facebook (ID Instagram {ig}).")
+        except Exception as e:
+            print(f"Pagina Facebook: non riuscito ({e}).")
+    if data is None:
+        print("Non riesco a leggere i post: controlla IG_TOKEN e, se usi un utente di sistema, IG_USER_ID (vedi INSTAGRAM.md).")
+        return 1
 
     IMG_DIR.mkdir(parents=True, exist_ok=True)
     old = {}

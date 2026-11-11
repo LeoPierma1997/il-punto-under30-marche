@@ -36,6 +36,7 @@ jobs:
       - name: Scarica post e copertine
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
           GH_TOKEN: ${{ secrets.GH_PAT }}
           FORCE_REFRESH: ${{ github.event.inputs.refresh }}
         run: python scripts/instagram.py

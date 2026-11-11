@@ -32,3 +32,11 @@ Con `?demo=1` si vedono post di esempio.
 - Si vedono gli ultimi 24 contenuti; le copertine dei post non più tra gli ultimi 24 vengono tolte dal sito.
 - Reel, post e caroselli hanno un'etichetta diversa; nella pagina Social si filtrano con «Reel» e «Post».
 - Per togliere un contenuto dal sito basta archiviarlo o eliminarlo su Instagram: sparisce al giro successivo.
+
+## Alternativa: utente di sistema del portfolio business (token senza scadenza)
+Se Meta chiede il portfolio business e l'account Instagram non è collegato a una Pagina Facebook:
+1. business.facebook.com/settings → Account → **Account Instagram** → Aggiungi → accedi con @azioneunder30marche.
+2. Utenti → **Utenti di sistema** → Aggiungi (ruolo Amministratore) → **Assegna risorse**: l'account Instagram (controllo completo) e l'app.
+3. **Genera nuovo token** → scegli l'app → scadenza «Mai» → autorizzazione `instagram_basic` → copia il token.
+4. Su GitHub salva due segreti: `IG_TOKEN` (il token) e `IG_USER_ID` (l'ID dell'account Instagram, il numero che si vede in Account → Account Instagram).
+Con questo token non serve il rinnovo e non serve `GH_PAT`.
