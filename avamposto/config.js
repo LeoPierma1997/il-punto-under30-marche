@@ -4,6 +4,6 @@
 // La "anon key" (o "publishable key") può stare qui: è pubblica per progetto,
 // la protezione dei dati è garantita dalle regole del database.
 window.AVAMPOSTO_CONFIG = {
-  supabaseUrl: "",
-  supabaseAnonKey: ""
+  supabaseUrl: "https://qsjdsbqeddcnvkfouxov.supabase.co",
+  supabaseAnonKey: "sb_publishable_54KYyuEjPgErYsnDDtBCqw_2edSOD9Q"
 };

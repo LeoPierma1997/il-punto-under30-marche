@@ -1,0 +1,42 @@
+name: Verifica collegamento Supabase
+
+# Controllo di sola lettura: legge indirizzo e chiave pubblica da avamposto/config.js
+# e verifica che il database risponda come previsto (senza creare utenti né dati).
+on:
+  push:
+    branches: [main]
+    paths:
+      - "avamposto/config.js"
+      - ".github/workflows/verifica-supabase.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Controlli
+        run: |
+          URL=$(grep -o 'https://[a-z0-9]*\.supabase\.co' avamposto/config.js | head -1)
+          KEY=$(grep -o 'sb_publishable_[A-Za-z0-9_-]*\|eyJ[A-Za-z0-9._-]*' avamposto/config.js | head -1)
+          echo "Progetto: $URL"
+          chiama() { curl -sS -o /tmp/r.json -w "%{http_code}" "$URL$1" -H "apikey: $KEY" -H "Authorization: Bearer $KEY" -H "Content-Type: application/json" ${2:+-X POST -d "$2"}; }
+          echo "- pre-lancio attivo:        HTTP $(chiama /rest/v1/rpc/prelancio '{}') -> $(cat /tmp/r.json)"
+          echo "- iniziative pubbliche:     HTTP $(chiama '/rest/v1/initiatives?select=id&limit=5') -> $(head -c 200 /tmp/r.json)"
+          echo "- eventi pubblici:          HTTP $(chiama '/rest/v1/events?select=id&limit=5') -> $(head -c 200 /tmp/r.json)"
+          echo "- voci pubbliche:           HTTP $(chiama /rest/v1/rpc/public_voices '{"p_limit":3}') -> $(head -c 200 /tmp/r.json)"
+          echo "- squadra (deve essere vuota da anonimo): HTTP $(chiama '/rest/v1/org_units?select=id') -> $(head -c 200 /tmp/r.json)"
+          echo "- lista pre-lancio (deve essere negata): HTTP $(chiama '/rest/v1/prelaunch_list?select=email') -> $(head -c 200 /tmp/r.json)"
+          echo "- autenticazione:           HTTP $(chiama /auth/v1/settings) -> $(head -c 300 /tmp/r.json)"
+          mkdir -p /tmp/js && cd /tmp/js && npm init -y >/dev/null && npm i --silent @supabase/supabase-js@2.45.4 >/dev/null
+          node -e "
+            const { createClient } = require('@supabase/supabase-js');
+            const sb = createClient('$URL', '$KEY');
+            sb.rpc('prelancio').then(r => console.log('- supabase-js 2.45.4 con questa chiave:', r.error ? 'ERRORE ' + r.error.message : 'ok, prelancio = ' + r.data));
+          "
