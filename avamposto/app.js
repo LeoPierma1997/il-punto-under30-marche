@@ -25,6 +25,7 @@
     });
   }
   var ICONS = {
+    voce: '<path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/>',
     corso: '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5"/>',
     formazione: '<path d="M3 9l9-5 9 5M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 20h18"/>',
     contenuti: '<path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/>',
@@ -133,6 +134,145 @@
   }
   function reload() { return refresh().then(route).catch(function (e) { toast(e.message, true); route(); }); }
 
+  /* ---------------- Voci Under 30 ---------------- */
+  var VKIND = { riflessione: "Riflessione", commento: "Commento", nota: "Nota breve" };
+  var VSTATUS = { pending: ["wait", "In attesa"], approved: ["ok", "Pubblicato"], rejected: ["no", "Non pubblicato"] };
+  function voiceSignPreview(sig, name, city) {
+    var n = String(name || "").replace(/\s*\(esempio\)\s*$/, "").trim(), parts = n.split(/\s+/);
+    var who = sig === "anonimo" ? "Un under 30 di Azione Marche" : sig === "completo" ? n : (parts.length > 1 ? parts[0] + " " + parts[parts.length - 1].charAt(0).toUpperCase() + "." : parts[0]);
+    return who + (city ? " · " + city : "");
+  }
+  function viewVoice(editId) {
+    setMain('<p class="loading">Carico…</p>', "voce");
+    D.myVoices().then(function (list) {
+      var v = editId ? list.filter(function (x) { return x.id === editId && x.status !== "approved"; })[0] : null;
+      v = v || { kind: "riflessione", signature: "nome", title: "", body: "", topic: "", link_url: "", city: "" };
+      var name = (S.profile && S.profile.full_name) || "";
+      var radio = function (n, val, label, cur, hint) {
+        return '<label class="choice' + (hint ? " tall" : "") + '"><input type="radio" name="' + n + '" value="' + val + '"' + (cur === val ? " checked" : "") + "> <span>" + label + (hint ? "<small>" + esc(hint) + "</small>" : "") + "</span></label>";
+      };
+      setMain(
+        '<div class="page-head"><span class="eyebrow">Voci Under 30</span><h1>Di\' la tua</h1>' +
+          "<p>Una riflessione, un commento a una notizia, una nota dopo un banchetto: scrivi quello che pensi. Lo staff legge tutto e pubblica sul sito i testi che rispettano lo spirito del gruppo: idee, rispetto, niente insulti. " +
+          '<a href="../voci/">Leggi le voci pubblicate →</a></p></div>' +
+        '<div class="voice-layout">' +
+        '<form class="panel voice-form" data-form="voice" data-id="' + esc(v.id || "") + '" novalidate>' +
+          "<h2>" + (v.id ? "Modifica il tuo testo" : "Scrivi") + "</h2>" +
+          (v.id && v.staff_note ? '<p class="form-msg err">Nota dello staff: ' + esc(v.staff_note) + "</p>" : "") +
+          '<fieldset class="field"><legend>Che cos\'è</legend><div class="choice-row">' +
+            radio("kind", "riflessione", "Riflessione", v.kind) + radio("kind", "commento", "Commento a una notizia", v.kind) + radio("kind", "nota", "Nota breve", v.kind) +
+          "</div></fieldset>" +
+          '<label class="field"><span>Titolo <small>(facoltativo)</small></span><input type="text" name="title" maxlength="120" value="' + esc(v.title || "") + '"></label>' +
+          '<div class="grid-2"><label class="field"><span>A proposito di <small>(facoltativo)</small></span><input type="text" name="topic" maxlength="100" placeholder="Es. la manovra, il consiglio regionale" value="' + esc(v.topic || "") + '"></label>' +
+          '<label class="field"><span>Link alla notizia <small>(facoltativo)</small></span><input name="link_url" type="url" inputmode="url" placeholder="https://" value="' + esc(v.link_url || "") + '"></label></div>' +
+          '<label class="field"><span>Il tuo testo</span><textarea name="body" rows="9" maxlength="2500" required placeholder="Scrivi qui. Bastano poche righe.">' + esc(v.body || "") + '</textarea><small class="counter" data-counter>0 / 2500</small></label>' +
+          '<label class="field"><span>Città <small>(facoltativa)</small></span><input type="text" name="city" maxlength="60" value="' + esc(v.city || "") + '"></label>' +
+          '<fieldset class="field"><legend>Come vuoi firmarti</legend><div class="choice-col">' +
+            radio("signature", "completo", "Nome e cognome", v.signature, voiceSignPreview("completo", name)) +
+            radio("signature", "nome", "Nome e iniziale", v.signature, voiceSignPreview("nome", name)) +
+            radio("signature", "anonimo", "Anonimo", v.signature, "Un under 30 di Azione Marche") +
+          "</div></fieldset>" +
+          '<label class="check"><input type="checkbox" name="consent"> <span>Acconsento alla pubblicazione del testo sul sito di Azione Under 30 Marche con la firma scelta. So che può far capire il mio orientamento politico e che posso ritirarlo quando voglio. <a href="privacy.html" target="_blank">Privacy</a></span></label>' +
+          '<div class="btn-row"><button class="btn primary" type="submit">' + icon("voce") + (v.id ? "Rimanda allo staff" : "Invia allo staff") + "</button>" +
+            (v.id ? '<a class="btn quiet" href="#voce">Annulla</a>' : "") + "</div>" +
+        "</form>" +
+        '<section class="voice-mine"><h2>I tuoi testi</h2>' +
+          (list.length ? list.map(function (x) {
+            var st = VSTATUS[x.status] || VSTATUS.pending;
+            return '<article class="voice-item"><div class="vi-head"><span class="pill ' + st[0] + '">' + st[1] + "</span><small>" + esc(VKIND[x.kind] || "") + " · " + esc(fmtShort(x.created_at)) + "</small></div>" +
+              (x.title ? "<h3>" + esc(x.title) + "</h3>" : "") +
+              "<p>" + esc(x.body.length > 220 ? x.body.slice(0, 217) + "…" : x.body) + "</p>" +
+              (x.status === "rejected" && x.staff_note ? '<p class="vi-note">Nota dello staff: ' + esc(x.staff_note) + "</p>" : "") +
+              (x.status === "approved" ? '<p class="vi-sign">Firmato: ' + esc(voiceSignPreview(x.signature, x.author_name, x.city)) + "</p>" : "") +
+              '<div class="btn-row">' + (x.status !== "approved" ? '<a class="btn small quiet" href="#voce-' + esc(x.id) + '">Modifica</a>' : '<a class="btn small quiet" href="../voci/#v-' + esc(x.id) + '">Vedi sul sito</a>') +
+              '<button class="btn small danger" type="button" data-action="voice-del" data-id="' + esc(x.id) + '">' + (x.status === "approved" ? "Ritira dal sito" : "Elimina") + "</button></div></article>";
+          }).join("") : '<p class="empty-note">Non hai ancora scritto nulla. Il primo testo è sempre il più difficile: prova con una nota breve.</p>') +
+        "</section></div>", "voce");
+      var ta = main.querySelector("textarea[name=body]"), ct = main.querySelector("[data-counter]");
+      var upd = function () { var n = ta.value.length; ct.textContent = n + " / 2500" + (n && n < 20 ? " · almeno 20" : ""); };
+      ta.addEventListener("input", upd); upd();
+    }).catch(function (x) { setMain('<p class="form-msg err">' + esc(x.message) + "</p>", "voce"); });
+  }
+
+  function viewAdminVoices() {
+    setMain('<p class="loading">Carico…</p>', "gestione");
+    D.allVoices().then(function (all) {
+      var pend = all.filter(function (v) { return v.status === "pending"; });
+      var pub = all.filter(function (v) { return v.status === "approved"; }).sort(function (a, b) { return a.published_at < b.published_at ? 1 : -1; });
+      var rej = all.filter(function (v) { return v.status === "rejected"; });
+      var card = function (v) {
+        return '<article class="panel voice-mod" id="vm-' + esc(v.id) + '">' +
+          '<div class="vi-head"><span class="pill wait">' + esc(VKIND[v.kind] || "") + "</span><small>Inviato il " + esc(fmtDate(v.created_at)) + " da <b>" + esc(v.author_name || "—") + "</b></small></div>" +
+          (v.title ? "<h3>" + esc(v.title) + "</h3>" : "") +
+          (v.topic || v.link_url ? '<p class="vi-topic">A proposito di: ' + esc(v.topic || "") + (safeHref(v.link_url) ? ' <a href="' + esc(safeHref(v.link_url)) + '" target="_blank" rel="noopener">link</a>' : "") + "</p>" : "") +
+          '<label class="field"><span>Testo <small>(puoi correggere refusi prima di pubblicare)</small></span><textarea name="body" rows="7" maxlength="2500">' + esc(v.body) + "</textarea></label>" +
+          '<p class="vi-sign">Comparirà firmato: <b>' + esc(voiceSignPreview(v.signature, v.author_name, v.city)) + "</b></p>" +
+          '<label class="field"><span>Nota per chi ha scritto <small>(se non lo pubblichi)</small></span><input type="text" name="note" maxlength="500" placeholder="Es. troppo personale verso una persona: prova a parlare delle idee"></label>' +
+          '<div class="btn-row"><button class="btn primary small" type="button" data-action="voice-ok" data-id="' + esc(v.id) + '">' + icon("check") + "Pubblica</button>" +
+          '<button class="btn small quiet" type="button" data-action="voice-no" data-id="' + esc(v.id) + '">Non pubblicare</button></div></article>';
+      };
+      setMain(
+        '<p><a class="back" href="#gestione">← Gestione</a></p>' +
+        '<div class="page-head"><span class="eyebrow">Area staff</span><h1>Voci Under 30</h1><p>I testi degli iscritti arrivano qui. Si pubblicano sul sito solo quando li approvi; chi scrive vede lo stato e la tua eventuale nota. <a href="../voci/">Vedi la pagina pubblica →</a></p></div>' +
+        '<div id="ev-admin">' +
+        '<section><div class="block-head"><h2>Da leggere</h2><span class="note">' + pend.length + (pend.length === 1 ? " testo" : " testi") + "</span></div>" +
+          (pend.length ? '<div class="voice-queue">' + pend.map(card).join("") + "</div>" : '<p class="empty-note">Niente in attesa. Ottimo lavoro.</p>') + "</section>" +
+        '<section><div class="block-head"><h2>Pubblicate</h2><span class="note">' + pub.length + "</span></div>" +
+          (pub.length ? '<div class="table-wrap"><table><thead><tr><th>Testo</th><th>Firma</th><th>Pubblicata</th><th></th></tr></thead><tbody>' + pub.map(function (v) {
+            return "<tr><td>" + esc(v.title || (v.body.length > 70 ? v.body.slice(0, 67) + "…" : v.body)) + "</td><td>" + esc(voiceSignPreview(v.signature, v.author_name, v.city)) + '</td><td class="num">' + esc(fmtShort(v.published_at)) + "</td>" +
+              '<td><button class="btn small quiet" type="button" data-action="voice-hide" data-id="' + esc(v.id) + '">Togli dal sito</button></td></tr>';
+          }).join("") + "</tbody></table></div>" : '<p class="empty-note">Ancora nessuna voce pubblicata.</p>') + "</section>" +
+        (rej.length ? '<details class="panel rp-edit"><summary><span><b>Non pubblicate</b><small>' + rej.length + " testi</small></span><span class=\"btn small\">Mostra</span></summary>" +
+          '<div style="padding:14px 18px;display:grid;gap:10px">' + rej.map(function (v) {
+            return '<div class="vi-row"><span>' + esc(v.title || v.body.slice(0, 80)) + "<small>" + esc(v.author_name || "") + (v.staff_note ? " · nota: " + esc(v.staff_note) : "") + '</small></span><button class="btn small quiet" type="button" data-action="voice-ok" data-id="' + esc(v.id) + '">Pubblica</button></div>';
+          }).join("") + "</div></details>" : "") +
+        "</div>", "gestione");
+    }).catch(function (x) { setMain('<p class="form-msg err">' + esc(x.message) + "</p>", "gestione"); });
+  }
+
+  document.addEventListener("submit", function (e) {
+    var f = e.target; if (!f.getAttribute || f.getAttribute("data-form") !== "voice") return;
+    e.preventDefault();
+    var val = function (n) { var el = f.elements[n]; return el ? String(el.value || "").trim() : ""; };
+    var pick = function (n) { var c = f.querySelector("input[name=" + n + "]:checked"); return c ? c.value : ""; };
+    if (val("body").length < 20) { toast("Scrivi almeno 20 caratteri.", true); return; }
+    if (!f.elements.consent.checked) { toast("Per inviare serve il consenso alla pubblicazione.", true); return; }
+    var btn = f.querySelector("button[type=submit]"); busy(btn, true);
+    D.saveVoice({ id: f.getAttribute("data-id") || null, kind: pick("kind") || "riflessione", signature: pick("signature") || "nome",
+      title: val("title"), topic: val("topic"), link_url: val("link_url"), body: val("body"), city: val("city") })
+      .then(function () { toast("Inviato! Lo staff lo leggerà presto: trovi lo stato qui sotto."); if (location.hash === "#voce") viewVoice(""); else location.hash = "#voce"; })
+      .catch(function (x) { toast(x.message, true); busy(btn, false); });
+  });
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-action^='voice-']"); if (!b) return;
+    var act = b.getAttribute("data-action"), id = b.getAttribute("data-id");
+    if (act === "voice-del") {
+      if (b.getAttribute("data-sure") !== "1") { b.setAttribute("data-sure", "1"); b.textContent = "Sicuro? Tocca di nuovo"; return; }
+      busy(b, true); D.deleteVoice(id).then(function () { toast("Fatto."); viewVoice(""); }).catch(function (x) { toast(x.message, true); busy(b, false); });
+      return;
+    }
+    var box = document.getElementById("vm-" + id);
+    var patch;
+    if (act === "voice-ok") { patch = { status: "approved", staff_note: null }; if (box) patch.body = box.querySelector("textarea[name=body]").value.trim(); }
+    if (act === "voice-no") { patch = { status: "rejected", staff_note: box ? box.querySelector("input[name=note]").value.trim() || null : null }; }
+    if (act === "voice-hide") { patch = { status: "rejected", staff_note: "Tolta dal sito dallo staff." }; }
+    if (!patch) return;
+    if (patch.body !== undefined && patch.body.length < 20) { toast("Il testo deve avere almeno 20 caratteri.", true); return; }
+    busy(b, true);
+    D.moderateVoice(id, patch).then(function () { toast(act === "voice-ok" ? "Pubblicata sul sito." : "Fatto."); viewAdminVoices(); })
+      .catch(function (x) { toast(x.message, true); busy(b, false); });
+  });
+
+  /* nella tessera di Gestione mostra quante voci aspettano */
+  var viewAdminBase = viewAdmin;
+  viewAdmin = function () {
+    viewAdminBase();
+    D.allVoices().then(function (all) {
+      var n = all.filter(function (v) { return v.status === "pending"; }).length, t = document.getElementById("stat-voci");
+      if (t && n) { t.classList.add("alert"); t.querySelector("b").textContent = n; }
+    }).catch(function () {});
+  };
+
   /* ---------------- menu ---------------- */
   function renderNav(active) {
     if (!S.me) { nav.innerHTML = '<a href="#home"' + (active === "home" ? ' aria-current="page"' : "") + ">Entra</a>"; return; }
@@ -140,6 +280,7 @@
     nav.innerHTML =
       '<a href="#home"' + (active === "home" ? ' aria-current="page"' : "") + ">I miei percorsi</a>" +
       '<a href="#agenda"' + (active === "agenda" ? ' aria-current="page"' : "") + ">Agenda</a>" +
+      '<a href="#voce"' + (active === "voce" ? ' aria-current="page"' : "") + ">La tua voce</a>" +
       '<a href="#squadra"' + (active === "squadra" ? ' aria-current="page"' : "") + ">La squadra</a>" +
       '<a href="#profilo"' + (active === "profilo" ? ' aria-current="page"' : "") + ">Profilo</a>" +
       (S.admin ? '<a class="staff" href="#gestione"' + (active === "gestione" ? ' aria-current="page"' : "") + ">" + icon("shield") + "Gestione" +
@@ -165,6 +306,7 @@
     if (after && after !== h && (h === "home" || h === "")) { location.hash = "#" + after; return; }
     if (h === "profilo") return viewProfile();
     if (h === "squadra") return viewTeam();
+    if (h === "voce" || h.indexOf("voce-") === 0) return viewVoice(h.indexOf("voce-") === 0 ? h.slice(5) : "");
     if (h === "agenda" || h === "mobilitazione") return viewAgenda(h === "mobilitazione" ? "mobilitazione" : "");
     if (h === "repliche") return viewAgenda("repliche");
     if (h.indexOf("m-") === 0) return viewAgenda(h);
@@ -175,6 +317,7 @@
       if (h === "g-nuova") return viewEditInitiative(null);
       if (h === "g-squadra") return viewEditTeam();
       if (h === "g-eventi") return viewAdminEvents();
+      if (h === "g-voci") return viewAdminVoices();
       if (h.indexOf("g-ev-") === 0) return viewEditEvent(h.slice(5));
       if (h.indexOf("g-") === 0) return viewEditInitiative(h.slice(2));
     }
@@ -958,6 +1101,7 @@
         '<div class="stat"><b>' + active.length + "</b><span>Accessi attivi ai corsi</span></div>" +
         '<a class="stat" href="#g-eventi"><b>' + icon("evento") + "</b><span>Eventi, mobilitazione e repliche</span></a>" +
         '<a class="stat" href="#g-squadra"><b>' + icon("team") + "</b><span>Gestisci la squadra e i canali WhatsApp</span></a>" +
+        '<a class="stat" href="#g-voci" id="stat-voci"><b>' + icon("voce") + "</b><span>Voci Under 30 da approvare</span></a>" +
       "</div>" +
       '<section class="block" id="richieste"><div class="block-head"><h2>Richieste da approvare</h2></div>' +
         (reqs.length ? '<div class="table-wrap"><table><thead><tr><th>Persona</th><th>Iniziativa</th><th>Richiesta il</th><th></th></tr></thead><tbody>' +

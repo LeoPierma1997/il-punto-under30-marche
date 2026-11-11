@@ -518,6 +518,99 @@ create policy locandine_admin_delete on storage.objects for delete to authentica
   using (bucket_id = 'locandine' and public.is_admin());
 
 -- ---------------------------------------------------------------------
+-- Voci Under 30: riflessioni, commenti e note scritte dagli iscritti.
+-- Si pubblicano solo dopo l'approvazione dello staff.
+-- ---------------------------------------------------------------------
+create table if not exists public.voices (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null default auth.uid(),
+  kind text not null default 'riflessione' check (kind in ('riflessione', 'commento', 'nota')),
+  title text check (title is null or char_length(title) <= 120),
+  body text not null check (char_length(body) between 20 and 2500),
+  topic text check (topic is null or char_length(topic) <= 100),
+  link_url text check (link_url is null or link_url ~ '^https://'),
+  signature text not null default 'nome' check (signature in ('completo', 'nome', 'anonimo')),
+  author_name text,
+  city text check (city is null or char_length(city) <= 60),
+  status text not null default 'pending' check (status in ('pending', 'approved', 'rejected')),
+  staff_note text check (staff_note is null or char_length(staff_note) <= 500),
+  consent_at timestamptz not null default now(),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  published_at timestamptz
+);
+create index if not exists voices_status_idx on public.voices (status, published_at desc);
+
+-- Chi non è staff può solo proporre: lo stato torna sempre «in attesa» e il nome viene dal profilo.
+create or replace function public.voices_guard()
+returns trigger language plpgsql security definer set search_path = public as $$
+declare v_admin boolean := public.is_admin(); v_name text;
+begin
+  if tg_op = 'INSERT' then
+    if not v_admin then
+      new.user_id := auth.uid();
+      if (select count(*) from public.voices where user_id = auth.uid() and status = 'pending') >= 5 then
+        raise exception 'Hai già 5 testi in attesa di approvazione: aspetta che lo staff li legga.';
+      end if;
+    end if;
+  end if;
+  if not v_admin then
+    if tg_op = 'UPDATE' and old.user_id <> auth.uid() then raise exception 'Non autorizzato.'; end if;
+    new.status := 'pending'; new.published_at := null; new.staff_note := null; new.consent_at := now();
+    if tg_op = 'UPDATE' then new.user_id := old.user_id; new.created_at := old.created_at; end if;
+  else
+    if new.status = 'approved' and (tg_op = 'INSERT' or old.status is distinct from 'approved') then new.published_at := now(); end if;
+    if new.status <> 'approved' then new.published_at := null; end if;
+  end if;
+  select full_name into v_name from public.profiles where id = new.user_id;
+  new.author_name := coalesce(nullif(trim(v_name), ''), new.author_name);
+  new.updated_at := now();
+  return new;
+end;
+$$;
+drop trigger if exists voices_guard on public.voices;
+create trigger voices_guard before insert or update on public.voices
+  for each row execute function public.voices_guard();
+
+alter table public.voices enable row level security;
+drop policy if exists voices_read on public.voices;
+create policy voices_read on public.voices for select to authenticated
+  using (user_id = auth.uid() or public.is_admin());
+drop policy if exists voices_write on public.voices;
+create policy voices_write on public.voices for insert to authenticated
+  with check (user_id = auth.uid());
+drop policy if exists voices_edit on public.voices;
+create policy voices_edit on public.voices for update to authenticated
+  using ((user_id = auth.uid() and status <> 'approved') or public.is_admin())
+  with check ((user_id = auth.uid()) or public.is_admin());
+drop policy if exists voices_remove on public.voices;
+create policy voices_remove on public.voices for delete to authenticated
+  using (user_id = auth.uid() or public.is_admin());
+grant select, insert, update, delete on public.voices to authenticated;
+
+-- Le voci approvate, per la pagina pubblica: niente email, niente id dell'autore,
+-- e la firma come l'ha scelta chi scrive (nome completo, nome e iniziale, anonimo).
+create or replace function public.public_voices(p_limit int default 60)
+returns table (id uuid, kind text, title text, body text, topic text, link_url text, display_name text, city text, published_at timestamptz)
+language sql stable security definer set search_path = public as $$
+  select v.id, v.kind, v.title, v.body, v.topic, v.link_url,
+    case v.signature
+      when 'completo' then v.author_name
+      when 'nome' then split_part(trim(v.author_name), ' ', 1) ||
+        case when position(' ' in trim(v.author_name)) > 0
+          then ' ' || upper(left(split_part(trim(v.author_name), ' ', array_length(regexp_split_to_array(trim(v.author_name), '\s+'), 1)), 1)) || '.'
+          else '' end
+      else null end,
+    v.city, v.published_at
+  from public.voices v
+  where v.status = 'approved'
+  order by v.published_at desc
+  limit least(greatest(coalesce(p_limit, 60), 1), 200);
+$$;
+revoke all on function public.public_voices(int) from public;
+grant execute on function public.public_voices(int) to anon, authenticated;
+
+-- ---------------------------------------------------------------------
 -- Privacy: cancellazione dell'account e pulizia automatica
 -- ---------------------------------------------------------------------
 -- Cancella tutto ciò che riguarda una persona (account, profilo, accessi, «visto», adesioni).
@@ -527,6 +620,7 @@ declare v_email text;
 begin
   select lower(email) into v_email from auth.users where id = p_user;
   delete from public.event_signups where user_id = p_user;
+  delete from public.voices where user_id = p_user;
   delete from public.material_views where user_id = p_user;
   if v_email is not null then delete from public.enrollments where email = v_email; end if;
   delete from public.profiles where id = p_user;

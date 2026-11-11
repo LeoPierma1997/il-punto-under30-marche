@@ -491,3 +491,26 @@ td.num { font-variant-numeric: tabular-nums; }
   .mast-nav::-webkit-scrollbar { display: none; }
   .mast-nav a, .mast-nav button { flex: none; }
 }
+
+/* --- Voci Under 30 --- */
+.voice-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.voice-form h2, .voice-mine h2 { margin: 0; font-size: 1.25rem; letter-spacing: -.02em; }
+.voice-mine { display: grid; gap: 12px; }
+.choice-col { display: grid; gap: 8px; }
+.choice.tall { align-items: flex-start; }
+.choice.tall span small { display: block; font-weight: 500; color: var(--muted); font-size: .82rem; margin-top: 2px; }
+.counter { justify-self: end; }
+.voice-item, .voice-mod { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; gap: 8px; }
+.voice-item h3, .voice-mod h3 { margin: 0; font-size: 1.05rem; letter-spacing: -.02em; }
+.voice-item p { margin: 0; color: var(--fg); font-size: .94rem; }
+.vi-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.vi-head small { color: var(--muted); font-size: .82rem; }
+.vi-note { color: var(--no) !important; font-size: .88rem !important; }
+.vi-sign, .vi-topic { margin: 0; color: var(--muted); font-size: .88rem; }
+.voice-queue { display: grid; gap: 14px; }
+.vi-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.vi-row small { display: block; color: var(--muted); font-size: .82rem; }
+.empty-note { color: var(--muted); margin: 0; }
+@media (max-width: 860px) { .voice-layout { grid-template-columns: 1fr; } }
+#agenda > *, #ev-admin > * { min-width: 0; }
+#ev-admin { grid-template-columns: minmax(0, 1fr); }

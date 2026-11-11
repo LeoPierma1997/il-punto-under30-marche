@@ -26,6 +26,8 @@
     [/event_replays_video_url_check/i, "Il link al video deve iniziare con https://"],
     [/events_ends_at_check/i, "La fine dell'evento non può essere prima dell'inizio."],
     [/event_mobilization_kit_url_check/i, "Il link al kit deve iniziare con https://"],
+    [/voices_body_check/i, "Il testo deve essere tra 20 e 2500 caratteri."],
+    [/voices_link_url_check/i, "Il link deve iniziare con https://"],
     [/whatsapp_url_check/i, "Il link deve essere un link WhatsApp (chat.whatsapp.com o whatsapp.com/channel)."],
     [/duplicate key.*slug|initiatives_slug_key/i, "Esiste già un'iniziativa con questo indirizzo breve. Cambialo."],
     [/Failed to fetch|NetworkError|Load failed/i, "Connessione assente o lenta. Controlla la rete e riprova."],
@@ -191,6 +193,16 @@
           kit_url: m.kit_url || null, notes: m.notes || null, updated_at: nowIso() }, { onConflict: "event_id" }));
       },
       signupCounts: function () { return q(sb.rpc("signup_counts")); },
+      /* --- voci under 30 --- */
+      publicVoices: function (n) { return q(sb.rpc("public_voices", { p_limit: n || 60 })); },
+      myVoices: function () { return session ? q(sb.from("voices").select("*").eq("user_id", session.user.id).order("created_at", { ascending: false })) : Promise.resolve([]); },
+      saveVoice: function (v) {
+        var row = { kind: v.kind, title: v.title || null, body: v.body, topic: v.topic || null, link_url: v.link_url || null, signature: v.signature, city: v.city || null };
+        return v.id ? q(sb.from("voices").update(row).eq("id", v.id).select().single()) : q(sb.from("voices").insert(row).select().single());
+      },
+      deleteVoice: function (id) { return q(sb.from("voices").delete().eq("id", id)); },
+      allVoices: function () { return q(sb.from("voices").select("*").order("created_at", { ascending: false })); },
+      moderateVoice: function (id, patch) { return q(sb.from("voices").update(patch).eq("id", id).select().single()); },
       mySignups: function () { return session ? q(sb.from("event_signups").select("*").eq("user_id", session.user.id)) : Promise.resolve([]); },
       signup: function (eventId, data) {
         return q(sb.from("event_signups").upsert({ event_id: eventId, user_id: session.user.id, email: email(), full_name: data.full_name || null,
@@ -335,6 +347,12 @@
         { id: "rp-1", event_id: "ev-diretta", title: "Come nasce una legge europea", recorded_on: iso(-10).slice(0, 10), video_url: "", description: "La registrazione completa della diretta, con le domande finali.", published: true, created_at: iso(-9) },
         { id: "rp-2", event_id: null, title: "Q&A con lo staff: come funzionano i gruppi di lavoro", recorded_on: iso(-30).slice(0, 10), video_url: "", description: "Mezz'ora di domande e risposte per chi è appena entrato.", published: true, created_at: iso(-29) }
       ],
+      voices: [
+        { id: "vo-1", user_id: "giulia.bianchi@esempio.it", kind: "riflessione", title: "Perché resto nelle Marche", body: "Tutti mi chiedono quando me ne vado. Io vorrei restare, ma servono treni che arrivano in orario, affitti accessibili vicino alle università e aziende che assumono chi ha studiato qui. Non chiedo miracoli: chiedo che chi governa la regione smetta di considerarci di passaggio.", topic: "", link_url: "", signature: "nome", author_name: "Giulia Bianchi (esempio)", city: "Macerata", status: "approved", staff_note: "", created_at: iso(-6), published_at: iso(-5) },
+        { id: "vo-2", user_id: "luca.verdi@esempio.it", kind: "commento", title: "", body: "Bene che se ne parli, ma la manovra continua a spendere tanto per chi è già in pensione e poco per chi deve ancora entrare nel mondo del lavoro. Un under 30 queste cose le guarda con attenzione.", topic: "Manovra 2027", link_url: "", signature: "completo", author_name: "Luca Verdi (esempio)", city: "Ancona", status: "approved", staff_note: "", created_at: iso(-3), published_at: iso(-2) },
+        { id: "vo-3", user_id: "mario.rossi@esempio.it", kind: "nota", title: "", body: "Ieri al banchetto un signore di ottant'anni ci ha detto: finalmente dei giovani che parlano di Europa senza urlare. Ce lo teniamo stretto.", topic: "", link_url: "", signature: "anonimo", author_name: "Mario Rossi (esempio)", city: "Pesaro", status: "approved", staff_note: "", created_at: iso(-2), published_at: iso(-1) },
+        { id: "vo-4", user_id: "luca.verdi@esempio.it", kind: "riflessione", title: "Il servizio civile europeo", body: "Proposta: un anno di servizio civile in un altro paese dell'Unione, riconosciuto come credito universitario. Costa poco e costruisce europei veri.", topic: "", link_url: "", signature: "nome", author_name: "Luca Verdi (esempio)", city: "Fermo", status: "pending", staff_note: "", created_at: iso(0), published_at: null }
+      ],
       org: (function () {
         var U = function (id, parent, name, kind, desc, pos) { return { id: id, parent_id: parent, name: name, kind: kind, description: desc, whatsapp_url: null, position: pos }; };
         var P = function (id, unit, name, role, pos) { return { id: id, unit_id: unit, full_name: name, role: role, instagram: null, photo_path: null, position: pos }; };
@@ -408,7 +426,7 @@
       live: false,
       demoAdmin: DEMO_ADMIN,
       demoMember: "mario.rossi@esempio.it",
-      init: function () { S = load(); var fresh = null; ["events", "replays", "mobilization", "signups"].forEach(function (k) { if (!S[k] || (k === "events" && !S.events.some(function (e) { return e.kind; }))) { fresh = fresh || seed(); S[k] = fresh[k]; } }); save(); return Promise.resolve(); },
+      init: function () { S = load(); var fresh = null; ["events", "replays", "mobilization", "signups", "voices"].forEach(function (k) { if (!S[k] || (k === "events" && !S.events.some(function (e) { return e.kind; }))) { fresh = fresh || seed(); S[k] = fresh[k]; } }); save(); return Promise.resolve(); },
       reset: function () { S = seed(); save(); listeners.forEach(function (f) { f(); }); },
       onAuthChange: function (f) { listeners.push(f); },
       me: function () { return S.session ? { id: me(), email: me() } : null; },
@@ -431,6 +449,7 @@
         delete S.users[m];
         S.enrollments = S.enrollments.filter(function (e) { return e.email !== m; });
         S.signups = (S.signups || []).filter(function (x) { return x.user_id !== m; });
+        S.voices = (S.voices || []).filter(function (x) { return x.user_id !== m; });
         if (S.views) delete S.views[m];
         setSession(null); return delay({});
       },
@@ -570,6 +589,49 @@
       signupCounts: function () {
         var o = {}; S.signups.forEach(function (x) { o[x.event_id] = (o[x.event_id] || 0) + 1; });
         return delay(Object.keys(o).map(function (k) { return { event_id: k, n: o[k] }; }));
+      },
+      publicVoices: function (n) {
+        var shown = function (v) {
+          if (v.signature === "anonimo") return null;
+          var nm = String(v.author_name || "").replace(/\s*\(esempio\)\s*$/, "").trim();
+          if (v.signature === "completo") return v.author_name;
+          var parts = nm.split(/\s+/); return parts.length > 1 ? parts[0] + " " + parts[parts.length - 1].charAt(0).toUpperCase() + "." + (/(esempio)/.test(v.author_name) ? " (esempio)" : "") : parts[0];
+        };
+        return delay(S.voices.filter(function (v) { return v.status === "approved"; })
+          .sort(function (a, b) { return a.published_at < b.published_at ? 1 : -1; }).slice(0, n || 60)
+          .map(function (v) { return { id: v.id, kind: v.kind, title: v.title, body: v.body, topic: v.topic, link_url: v.link_url, display_name: shown(v), city: v.city, published_at: v.published_at }; }));
+      },
+      myVoices: function () { return delay(clone(S.voices.filter(function (v) { return v.user_id === me(); }).sort(function (a, b) { return a.created_at < b.created_at ? 1 : -1; }))); },
+      saveVoice: function (v) {
+        var m = me(); if (!m) return deny();
+        if (!v.body || v.body.trim().length < 20) return Promise.reject(new Error("Scrivi almeno 20 caratteri."));
+        if (v.body.length > 2500) return Promise.reject(new Error("Il testo è troppo lungo (massimo 2500 caratteri)."));
+        if (v.link_url && !/^https:\/\//.test(v.link_url)) return Promise.reject(new Error("Il link deve iniziare con https://"));
+        var name = (S.users[m] || {}).full_name || m, row;
+        if (v.id) {
+          row = S.voices.filter(function (x) { return x.id === v.id && x.user_id === m; })[0];
+          if (!row || row.status === "approved") return deny();
+          Object.assign(row, v, { status: "pending", staff_note: "", published_at: null, author_name: name, updated_at: nowIso() });
+        } else {
+          if (S.voices.filter(function (x) { return x.user_id === m && x.status === "pending"; }).length >= 5) return Promise.reject(new Error("Hai già 5 testi in attesa di approvazione: aspetta che lo staff li legga."));
+          var f = Object.assign({}, v); delete f.id;
+          row = Object.assign({ id: uid(), user_id: m, created_at: nowIso() }, f, { status: "pending", staff_note: "", published_at: null, author_name: name });
+          S.voices.push(row);
+        }
+        save(); return delay(clone(row));
+      },
+      deleteVoice: function (id) {
+        var m = me(); var row = S.voices.filter(function (x) { return x.id === id; })[0];
+        if (!row || (row.user_id !== m && !admin())) return deny();
+        S.voices = S.voices.filter(function (x) { return x.id !== id; }); save(); return delay({});
+      },
+      allVoices: function () { return admin() ? delay(clone(S.voices.slice().sort(function (a, b) { return a.created_at < b.created_at ? 1 : -1; }))) : deny(); },
+      moderateVoice: function (id, patch) {
+        if (!admin()) return deny();
+        var row = S.voices.filter(function (x) { return x.id === id; })[0];
+        if (patch.status === "approved" && row.status !== "approved") patch.published_at = nowIso();
+        if (patch.status && patch.status !== "approved") patch.published_at = null;
+        Object.assign(row, patch); save(); return delay(clone(row));
       },
       mySignups: function () { return delay(clone(S.signups.filter(function (x) { return x.user_id === me(); }))); },
       signup: function (eventId, data) {

@@ -235,11 +235,82 @@ footer a { color: #E4E6FF; }
 .ig .section-head a { font-weight: 700; }
 .ig-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
 @media (max-width: 860px) { .ig-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } }
+
+/* Apertura a tutto schermo (prima della home) */
+.intro { position: relative; min-height: 100vh; min-height: 100svh; display: grid; grid-template-rows: auto 1fr auto; color: #FFFFFF; background: #0C1467; overflow: hidden; isolation: isolate; }
+.intro-media { position: absolute; inset: 0; z-index: -2; }
+.intro-media img, .intro-media video { width: 100%; height: 100%; object-fit: cover; }
+.intro::before { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(12,20,103,.55) 0%, rgba(12,20,103,.25) 35%, rgba(12,20,103,.65) 70%, rgba(12,20,103,.95) 100%), linear-gradient(90deg, rgba(12,20,103,.6) 0%, rgba(12,20,103,0) 70%); }
+.intro::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: linear-gradient(90deg, #0C1467, #312781 70%, #FCCA00 70%); z-index: 1; }
+.intro-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: max(18px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px)); max-width: 1160px; width: 100%; margin: 0 auto; }
+.intro-top .brand { color: #FFFFFF; }
+.intro-top .brand b span { color: #C9CCF5; }
+.intro-skip { font: 700 .88rem/1 var(--body); color: #FFFFFF; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 10px 16px; text-decoration: none; backdrop-filter: blur(6px); }
+.intro-body { align-self: end; width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 max(16px, env(safe-area-inset-left, 0px)) 18px; }
+.intro-kicker { display: inline-block; font-weight: 700; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: #FCCA00; margin-bottom: 18px; }
+.intro h1 { margin: 0; font-family: var(--display); font-weight: 900; font-size: clamp(2.6rem, 7.6vw, 6.4rem); line-height: .94; letter-spacing: -.05em; max-width: 15ch; text-wrap: balance; text-shadow: 0 2px 24px rgba(12,20,103,.35); }
+.intro h1 .hl { color: #FCCA00; }
+.intro-sub { margin: 22px 0 0; font-size: clamp(1.02rem, 1.6vw, 1.22rem); max-width: 46ch; color: #E4E3FF; }
+.intro-foot { width: 100%; max-width: 1160px; margin: 0 auto; padding: 18px max(16px, env(safe-area-inset-left, 0px)) max(34px, calc(env(safe-area-inset-bottom, 0px) + 22px)); display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.intro-enter { font: 800 1rem/1 var(--body); display: inline-flex; align-items: center; gap: 10px; padding: 16px 24px; border-radius: 999px; background: #FFFFFF; color: #312781; text-decoration: none; border: 0; cursor: pointer; }
+.intro-enter svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.intro-hint { color: #C9CCF5; font-size: .88rem; }
+.intro.gone { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .intro-media img { animation: kenburns 24s ease-out both; transform-origin: 60% 40%; }
+  @keyframes kenburns { from { transform: scale(1.14); } to { transform: scale(1); } }
+  .intro h1, .intro-sub, .intro-kicker, .intro-foot { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+  .intro-kicker { animation-delay: .15s; } .intro h1 { animation-delay: .3s; } .intro-sub { animation-delay: .6s; } .intro-foot { animation-delay: .85s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  .intro-enter svg { animation: nudge 2.2s ease-in-out 2s infinite; }
+  @keyframes nudge { 0%, 100% { transform: none; } 50% { transform: translateY(3px); } }
+}
+@media (max-width: 640px) { .intro-skip { display: none; } .intro-body { padding-bottom: 8px; } .intro-hint { display: none; } }
+
+/* Voci Under 30 in home */
+.voci-home .wrap { padding-block: 0 64px; display: grid; gap: 18px; }
+.voci-home .section-head a { font-weight: 700; }
+.vh-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.vh { background: var(--surface); border: 1px solid var(--line); border-top: 5px solid var(--blue); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: inherit; position: relative; }
+.vh::before { content: "“"; position: absolute; right: 14px; top: -8px; font: 900 4.6rem/1 var(--display); color: var(--line); }
+.vh p { margin: 0; font-size: 1rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; position: relative; }
+.vh b { font-size: .92rem; margin-top: auto; }
+.vh small { color: var(--muted); font-size: .82rem; display: block; font-weight: 500; }
+@media (max-width: 860px) { .vh-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
+<section class="intro" id="intro" aria-label="Apertura">
+  <div class="intro-media" id="intro-media">
+    <picture>
+      <source media="(max-aspect-ratio: 4/5)" srcset="assets/foto/fiaccolata-ucraina.jpg">
+      <img src="assets/foto/piazza-bandiere.jpg" alt="" fetchpriority="high">
+    </picture>
+  </div>
+  <div class="intro-top">
+    <span class="brand"><img src="assets/logo.png" alt="" width="48" height="48"><b>Azione Under 30<span>Marche</span></b></span>
+    <a class="intro-skip" href="#home">Salta</a>
+  </div>
+  <div class="intro-body">
+    <span class="intro-kicker" id="intro-kicker">Azione Under 30 · Marche</span>
+    <h1 id="intro-frase">La politica è troppo importante per <span class="hl">lasciarla agli altri.</span></h1>
+    <p class="intro-sub" id="intro-sotto">Siamo ragazzi e ragazze delle Marche che hanno deciso di metterci la faccia. Con idee chiare, toni civili e tanta voglia di fare.</p>
+  </div>
+  <div class="intro-foot">
+    <a class="intro-enter" href="#home">Entra <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+    <span class="intro-hint">oppure scorri</span>
+  </div>
+</section>
+<script>
+/* L'apertura si vede una volta per visita; chi arriva con un link interno (#unisciti, #chi-siamo…) va dritto al punto. */
+(function () {
+  var seen = false; try { seen = sessionStorage.getItem("intro-vista") === "1"; sessionStorage.setItem("intro-vista", "1"); } catch (e) {}
+  if (seen || (location.hash && location.hash !== "#intro")) document.getElementById("intro").classList.add("gone");
+})();
+</script>
 
-<div class="az-line" aria-hidden="true"></div>
+<div class="az-line" aria-hidden="true" id="home"></div>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="./">
@@ -250,6 +321,7 @@ footer a { color: #E4E6FF; }
       <a href="rassegna/">Il Punto</a>
       <a href="eventi/">Eventi</a>
       <a href="social/">Social</a>
+      <a href="voci/">Voci</a>
       <a href="avamposto/">Avamposto</a>
       <a href="#chi-siamo">Chi siamo</a>
       <a class="btn solid" href="#unisciti">Unisciti a noi</a>
@@ -354,6 +426,13 @@ footer a { color: #E4E6FF; }
   </div>
 </section>
 
+<section class="voci-home" id="voci" aria-labelledby="voci-title" hidden>
+  <div class="wrap">
+    <div class="section-head"><h2 id="voci-title">Voci Under 30</h2><a href="voci/">Leggi tutte →</a></div>
+    <div class="vh-grid" id="vh-grid"></div>
+  </div>
+</section>
+
 <section class="ig" id="social" aria-labelledby="ig-title" hidden>
   <div class="wrap">
     <div class="section-head"><h2 id="ig-title">Dal nostro Instagram</h2><a href="social/">Tutti i post e i reel →</a></div>
@@ -426,7 +505,45 @@ footer a { color: #E4E6FF; }
 SocialFeed.render({ base: "", box: document.getElementById("ig-grid"), limit: 4, onEmpty: function () {}, onReady: function () { document.getElementById("social").hidden = false; } });
 </script>
 <script src="sito-config.js"></script>
+<script>
+/* Testi, foto e video dell'apertura si cambiano da sito-config.js (sezione intro). */
+(function () {
+  var c = (window.SITO_CONFIG || {}).intro || {};
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (x) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[x]; }); }
+  if (c.frase) document.getElementById("intro-frase").innerHTML = esc(c.frase).replace(/\*(.+?)\*/g, '<span class="hl">$1</span>');
+  if (c.sotto) document.getElementById("intro-sotto").textContent = c.sotto;
+  if (c.kicker) document.getElementById("intro-kicker").textContent = c.kicker;
+  var media = document.getElementById("intro-media");
+  if (c.immagine) { var img = media.querySelector("img"); img.src = c.immagine; }
+  if (c.immagineTelefono) { media.querySelector("source").srcset = c.immagineTelefono; }
+  var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (c.video && !still) {
+    var v = document.createElement("video");
+    v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.setAttribute("aria-hidden", "true");
+    v.poster = media.querySelector("img").currentSrc || media.querySelector("img").src;
+    v.src = c.video;
+    v.addEventListener("canplay", function () { media.innerHTML = ""; media.appendChild(v); v.play().catch(function () {}); }, { once: true });
+  }
+})();
+</script>
 <script src="avamposto/config.js"></script>
+<script src="avamposto/data.js"></script>
+<script>
+/* Ultime tre Voci Under 30 approvate (compare solo se ce ne sono). */
+(function () {
+  var D = window.AvampostoData, demo = false;
+  try { demo = sessionStorage.getItem("avamposto-demo") === "1" || /[?&]demo=1\b/.test(location.search); } catch (e) {}
+  if (!D || (!D.live && !demo)) return;
+  function esc(t) { return String(t == null ? "" : t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  D.init().then(function () { return D.publicVoices(3); }).then(function (list) {
+    if (!list || !list.length) return;
+    document.getElementById("vh-grid").innerHTML = list.map(function (v) {
+      return '<a class="vh" href="voci/#v-' + esc(v.id) + '"><p>' + esc(v.title ? v.title + " — " + v.body : v.body) + "</p><b>" + esc(v.display_name || "Un under 30 di Azione Marche") + "<small>" + esc(v.city || "") + "</small></b></a>";
+    }).join("");
+    document.getElementById("voci").hidden = false;
+  }).catch(function () {});
+})();
+</script>
 <script>
 (function () {
   "use strict";

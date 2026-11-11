@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex"><!-- PRELANCIO -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Voci Under 30 · Azione Under 30 Marche</title>
+<meta name="description" content="Riflessioni, commenti e note scritte dai ragazzi di Azione Under 30 Marche.">
+<meta property="og:title" content="Voci Under 30 · Azione Under 30 Marche">
+<meta property="og:description" content="Lo diciamo noi: riflessioni e note dei ragazzi di Azione Under 30 Marche.">
+<meta property="og:image" content="https://leopierma1997.github.io/il-punto-under30-marche/assets/foto/copertina-reel.jpg">
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<style>
+/* Voci Under 30: testi degli iscritti approvati dallo staff. */
+:root {
+  --page: #F3F3FA; --surface: #FFFFFF; --fg: #14123A; --muted: #5A5784; --line: #E1E0F0; --soft: #E9E8F7;
+  --blue: #312781; --blue-deep: #0C1467; --accent: #312781; --accent-ink: #FFFFFF; --title: #312781;
+  --yellow: #FCCA00; --em-fg: #312781; --em-mark: #FCCA00;
+  --az-grad: linear-gradient(100deg, #0C1467 0%, #312781 100%); --focus: #312781;
+  --display: "Gotham", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --body: "Gotham", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #0B0E38; --surface: #171A55; --fg: #F1F1FA; --muted: #B5B3DA; --line: #2C2B72; --soft: #1F2363;
+    --accent: #BDB7FF; --accent-ink: #14123A; --title: #FFFFFF; --em-fg: #FCCA00; --em-mark: transparent; --focus: #BDB7FF; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #0B0E38; --surface: #171A55; --fg: #F1F1FA; --muted: #B5B3DA; --line: #2C2B72; --soft: #1F2363;
+  --accent: #BDB7FF; --accent-ink: #14123A; --title: #FFFFFF; --em-fg: #FCCA00; --em-mark: transparent; --focus: #BDB7FF; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.55;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-underline-offset: 3px; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.ico { width: 1.15em; height: 1.15em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.eyebrow { font: 600 .76rem/1.3 var(--body); letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.btn { font: 700 .95rem/1 var(--body); letter-spacing: -.01em; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 20px; border-radius: 999px;
+  border: 2px solid var(--accent); background: transparent; color: var(--accent); text-decoration: none; cursor: pointer; white-space: nowrap; }
+.btn.solid { background: var(--accent); color: var(--accent-ink); }
+.btn .ico { width: 18px; height: 18px; }
+.demo-bar { background: #FFF1B8; color: #3A2E00; font-size: .86rem; }
+.demo-bar .wrap { padding-block: 8px; display: flex; gap: 6px 12px; flex-wrap: wrap; }
+.az-line { height: 5px; background: var(--az-grad); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; padding-block: 16px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--title); }
+.brand img { width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 0 0 2px #FFFFFF, 0 2px 8px rgba(27,30,87,.18); }
+.brand b { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 1.02rem; line-height: 1.1; letter-spacing: -.02em; }
+.brand b span { display: block; font-weight: 700; font-size: .78rem; letter-spacing: .1em; color: var(--muted); }
+.top nav { display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; }
+.top nav a { font-weight: 700; font-size: .92rem; text-decoration: none; color: var(--fg); padding: 9px 12px; border-radius: 999px; }
+.top nav a[aria-current="page"] { background: var(--surface); color: var(--title); box-shadow: inset 0 0 0 1px var(--line); }
+.top nav a.btn { color: var(--accent-ink); padding: 10px 16px; }
+@media (max-width: 760px) { .top nav a:not(.btn) { display: none; } .top nav a.btn { padding: 9px 14px; font-size: .86rem; } }
+@media (max-width: 400px) { .brand img { width: 40px; height: 40px; } .brand b { font-size: .95rem; } }
+
+.head { padding-block: 14px 24px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 28px; }
+.head h1 { margin: 8px 0 0; font-family: var(--display); font-weight: 800; color: var(--title); font-size: clamp(2.4rem, 5.6vw, 4.2rem); line-height: .98; letter-spacing: -.045em; }
+.head h1 em { font-style: normal; color: var(--em-fg); background: linear-gradient(transparent 60%, var(--em-mark) 60%, var(--em-mark) 92%, transparent 92%); padding: 0 .06em; }
+.head p { margin: 14px 0 0; font-size: 1.08rem; max-width: 52ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.chips button { font: 700 .86rem/1 var(--body); padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+.chips button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+
+.voices { columns: 3 300px; column-gap: 16px; padding-bottom: 20px; }
+.voice { break-inside: avoid; margin: 0 0 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px 22px 18px; position: relative; scroll-margin-top: 20px; }
+.voice::before { content: "“"; position: absolute; right: 16px; top: -6px; font: 900 5.2rem/1 var(--display); color: var(--soft); pointer-events: none; }
+.voice.k-riflessione { border-top: 5px solid #312781; }
+.voice.k-commento { border-top: 5px solid #0C1467; }
+.voice.k-nota { border-top: 5px solid var(--yellow); }
+.voice .k { position: relative; font-weight: 800; font-size: .7rem; letter-spacing: .09em; text-transform: uppercase; color: var(--accent); }
+.voice h2 { position: relative; margin: 8px 0 0; font-family: var(--display); font-weight: 800; font-size: 1.3rem; line-height: 1.15; letter-spacing: -.03em; color: var(--title); }
+.voice .topic { display: flex; width: fit-content; max-width: 100%; gap: 6px; align-items: center; margin-top: 8px; font-size: .84rem; font-weight: 600; color: var(--muted); background: var(--soft); padding: 5px 10px; border-radius: 999px; }
+.voice .txt { position: relative; margin-top: 10px; font-size: 1.02rem; line-height: 1.6; }
+.voice .txt p { margin: 0 0 .7em; }
+.voice.k-nota .txt { font-size: 1.12rem; font-weight: 600; letter-spacing: -.01em; }
+.voice .more { font: 700 .9rem/1 var(--body); color: var(--accent); background: none; border: 0; padding: 4px 0; cursor: pointer; }
+.voice footer { border: 0; margin-top: 12px; display: flex; align-items: center; gap: 10px; }
+.voice .av { width: 36px; height: 36px; border-radius: 50%; background: var(--grad, linear-gradient(135deg, #0C1467, #312781)); color: #FFFFFF; display: grid; place-items: center; font-weight: 800; font-size: .85rem; flex: none; }
+.voice .who b { display: block; font-size: .94rem; }
+.voice .who small { color: var(--muted); font-size: .82rem; }
+.voice.hl { box-shadow: 0 0 0 3px var(--yellow); }
+.disclaimer { color: var(--muted); font-size: .86rem; margin: 0 0 22px; max-width: 70ch; }
+.write { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; background: linear-gradient(100deg, #0C1467 0%, #312781 100%); color: #FFFFFF; border-radius: 20px; padding: 24px; margin: 10px 0 56px; }
+.write b { font-family: var(--display); font-size: 1.35rem; letter-spacing: -.03em; display: block; }
+.write p { margin: 4px 0 0; color: #DCDAFF; max-width: 52ch; }
+.write .btn { background: #FFFFFF; color: #312781; border-color: #FFFFFF; }
+@media (max-width: 640px) { .voice { padding: 18px 18px 14px; } }
+.empty { background: var(--surface); border: 1px dashed var(--line); border-radius: 18px; padding: 28px 22px; color: var(--muted); margin: 0 0 56px; }
+.empty b { color: var(--fg); display: block; font-size: 1.1rem; margin-bottom: 4px; }
+.follow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; background: var(--az-grad); color: #FFFFFF; border-radius: 20px; padding: 22px 24px; margin-bottom: 56px; }
+.follow b { font-family: var(--display); font-size: 1.3rem; letter-spacing: -.03em; }
+.follow p { margin: 4px 0 0; color: #DCDAFF; }
+.follow .btn { background: #FFFFFF; color: #312781; border-color: #FFFFFF; }
+.note { color: var(--muted); font-size: .84rem; margin: -40px 0 46px; }
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 26px 34px; display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; color: var(--muted); font-size: .9rem; }
+footer nav { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="demo-bar" id="demo-bar" hidden><div class="wrap"><strong>Prototipo</strong><span>Voci di esempio. Si scrivono dall'Avamposto in «La tua voce» e si approvano in Gestione.</span></div></div>
+<div class="az-line" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="48" height="48"><b>Azione Under 30<span>Marche</span></b></a>
+    <nav aria-label="Menu principale">
+      <a href="../rassegna/">Il Punto</a>
+      <a href="../eventi/">Eventi</a>
+      <a href="../social/">Social</a>
+      <a href="./" aria-current="page">Voci</a>
+      <a href="../avamposto/">Avamposto</a>
+      <a class="btn solid" href="../#unisciti">Unisciti a noi</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap head">
+    <div><span class="eyebrow">Voci Under 30</span>
+      <h1>Lo diciamo <em>noi.</em></h1>
+      <p>Riflessioni, commenti e note scritte dai ragazzi di Azione Under 30 Marche. Le scrivono nell'area riservata, lo staff le legge e le pubblica qui.</p></div>
+    <a class="btn" href="../avamposto/#voce">Scrivi la tua</a>
+  </div>
+  <div class="wrap">
+    <p class="disclaimer">Ognuno scrive a titolo personale: i testi non rappresentano necessariamente le posizioni ufficiali di Azione.</p>
+    <div class="chips" role="group" aria-label="Filtra" id="chips" hidden>
+      <button type="button" data-f="" aria-pressed="true">Tutte</button>
+      <button type="button" data-f="riflessione" aria-pressed="false">Riflessioni</button>
+      <button type="button" data-f="commento" aria-pressed="false">Commenti</button>
+      <button type="button" data-f="nota" aria-pressed="false">Note</button>
+    </div>
+    <div class="voices" id="voices" aria-live="polite"><p class="disclaimer">Carico…</p></div>
+    <div class="write"><div><b>Hai qualcosa da dire?</b><p>Entra nell'Avamposto (è gratis, basta la mail) e scrivi da «La tua voce». Puoi firmarti con nome e cognome, con l'iniziale o in forma anonima.</p></div>
+      <a class="btn" href="../avamposto/#voce">Scrivi la tua voce</a></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Azione Under 30 Marche · i giovani di <a href="https://www.azione.it/" target="_blank" rel="noopener">Azione</a> nelle Marche</span>
+    <nav aria-label="Collegamenti"><a href="../">Home</a><a href="../rassegna/">Il Punto</a><a href="../eventi/">Eventi</a><a href="../avamposto/">Avamposto</a><a href="../avamposto/privacy.html">Privacy</a></nav>
+  </div>
+</footer>
+
+<script src="../avamposto/config.js"></script>
+<script src="../avamposto/data.js"></script>
+<script>
+(function () {
+  "use strict";
+  var D = window.AvampostoData, box = document.getElementById("voices"), chips = document.getElementById("chips");
+  var DEMO = false;
+  try { if (/[?&]demo=1\b/.test(location.search)) sessionStorage.setItem("avamposto-demo", "1"); if (/[?&]demo=0\b/.test(location.search)) sessionStorage.removeItem("avamposto-demo"); DEMO = sessionStorage.getItem("avamposto-demo") === "1"; } catch (e) { DEMO = /[?&]demo=1\b/.test(location.search); }
+  var MONTHS = ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+  var KIND = { riflessione: "Riflessione", commento: "Commento", nota: "Nota" };
+  function esc(t) { return String(t == null ? "" : t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function paras(t) { return esc(t).split(/\n{2,}/).map(function (p) { return "<p>" + p.replace(/\n/g, "<br>") + "</p>"; }).join(""); }
+  function date(v) { var d = new Date(v); return isNaN(d) ? "" : d.getDate() + " " + MONTHS[d.getMonth()] + " " + d.getFullYear(); }
+  function initials(n) { if (!n) return "U30"; var p = n.replace(/\(.*?\)/g, "").trim().split(/\s+/); return (p[0].charAt(0) + (p.length > 1 ? p[p.length - 1].charAt(0) : "")).toUpperCase(); }
+  var ALL = [];
+  function card(v) {
+    var long = v.body.length > 700, link = /^https:\/\//.test(v.link_url || "") ? v.link_url : "";
+    return '<article class="voice k-' + esc(v.kind) + '" id="v-' + esc(v.id) + '">' +
+      '<span class="k">' + esc(KIND[v.kind] || "") + "</span>" +
+      (v.title ? "<h2>" + esc(v.title) + "</h2>" : "") +
+      (v.topic || link ? '<span class="topic">A proposito di ' + (link ? '<a href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(v.topic || "questa notizia") + "</a>" : esc(v.topic)) + "</span>" : "") +
+      '<div class="txt">' + (long ? paras(v.body.slice(0, 640).replace(/\s+\S*$/, "") + "…") : paras(v.body)) + "</div>" +
+      (long ? '<button class="more" type="button" data-more="' + esc(v.id) + '">Leggi tutto</button>' : "") +
+      '<footer><span class="av" aria-hidden="true">' + esc(initials(v.display_name)) + '</span><span class="who"><b>' + esc(v.display_name || "Un under 30 di Azione Marche") + "</b><small>" + esc([v.city, date(v.published_at)].filter(Boolean).join(" · ")) + "</small></span></footer></article>";
+  }
+  function draw(f) {
+    var list = ALL.filter(function (v) { return !f || v.kind === f; });
+    box.innerHTML = list.length ? list.map(card).join("") : '<p class="empty"><b>Nessun testo qui, per ora.</b>Prova un altro filtro.</p>';
+  }
+  function show(list) {
+    ALL = list || [];
+    if (!ALL.length) { box.outerHTML = '<p class="empty"><b>Le prime voci arrivano presto.</b>Sei iscritto all\'Avamposto? Scrivi tu la prima.</p>'; return; }
+    chips.hidden = false; draw("");
+    var h = location.hash.slice(1), el = h && document.getElementById(h);
+    if (el) { el.classList.add("hl"); el.scrollIntoView({ block: "center" }); }
+  }
+  chips.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-f]"); if (!b) return;
+    chips.querySelectorAll("[data-f]").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+    draw(b.getAttribute("data-f"));
+  });
+  box.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-more]"); if (!b) return;
+    var v = ALL.filter(function (x) { return x.id === b.getAttribute("data-more"); })[0]; if (!v) return;
+    b.previousElementSibling.innerHTML = paras(v.body); b.remove();
+  });
+  if (!D.live && !DEMO) { show([]); return; }
+  if (!D.live) document.getElementById("demo-bar").hidden = false;
+  D.init().then(function () { return D.publicVoices(60); }).then(show).catch(function () { show([]); });
+})();
+</script>
+</body>
+</html>

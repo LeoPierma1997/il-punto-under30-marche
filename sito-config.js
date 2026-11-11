@@ -8,6 +8,16 @@ window.SITO_CONFIG = {
   discord: "https://discord.gg/SZbnaCjrV",
   video: "https://www.instagram.com/reel/DXPXZmQjT95/",
   tesseramento: "https://noi.azione.it/primo-tesseramento/",
+  // Apertura a tutto schermo della home. Tra asterischi la parte evidenziata in giallo.
+  // video: un file .mp4 nostro (es. "assets/video/apertura.mp4"), muto e in loop; se è vuoto si usa la foto.
+  intro: {
+    kicker: "Azione Under 30 · Marche",
+    frase: "La politica è troppo importante per *lasciarla agli altri.*",
+    sotto: "Siamo ragazzi e ragazze delle Marche che hanno deciso di metterci la faccia. Con idee chiare, toni civili e tanta voglia di fare.",
+    immagine: "assets/foto/piazza-bandiere.jpg",
+    immagineTelefono: "assets/foto/fiaccolata-ucraina.jpg",
+    video: ""
+  },
   // Informativa privacy: il titolare è Azione. Compila questi campi con i dati che ti dà il partito
   // (sede legale, codice fiscale, email del Responsabile della protezione dei dati). Finché sono vuoti,
   // l'informativa rimanda alla privacy policy di azione.it, dove quei dati sono pubblicati.
