@@ -101,7 +101,8 @@
     if (!S.pass.entry || !it.published) return false;
     return it.access === "aperta" || unlocked(it);
   }
-  function redirectUrl() { return location.origin + location.pathname + "#gestione"; }
+  // Niente «#» nell'indirizzo di ritorno: il link della mail ci mette la chiave d'accesso.
+  function redirectUrl() { return location.origin + location.pathname; }
 
   /* ---------------- dati ---------------- */
   function refresh() {
@@ -407,6 +408,7 @@
       var mail = document.getElementById("si-email").value.trim();
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)) { err.textContent = "Scrivi un indirizzo email valido."; err.hidden = false; return; }
       err.hidden = true; busy(btn, true);
+      try { localStorage.setItem(AFTER_KEY, "gestione"); } catch (x) {}
       D.signIn(mail, redirectUrl()).then(function () { showSent(mail); })
         .catch(function (x) { err.textContent = x.message; err.hidden = false; }).then(function () { busy(btn, false); });
     });
