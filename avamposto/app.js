@@ -15,7 +15,7 @@
   // Finché Supabase non è collegato, il pubblico vede solo l'anteprima: niente dati di esempio, niente iscrizioni finte.
   var PREVIEW = !D.live && !DEMO;
 
-  var S = { me: null, admin: false, profile: null, inits: [], mine: {}, amats: [], views: {}, ready: false };
+  var S = { prelancio: false, testerEntry: false, me: null, admin: false, profile: null, inits: [], mine: {}, amats: [], views: {}, ready: false };
   var A = { enrollments: [], profiles: [], invites: {} }; // dati di gestione
 
   /* ---------------- utilità ---------------- */
@@ -114,7 +114,7 @@
   /* ---------------- dati ---------------- */
   function refresh() {
     S.me = D.me();
-    var tasks = [D.initiatives().then(function (r) { S.inits = r || []; })];
+    var tasks = [D.initiatives().then(function (r) { S.inits = r || []; }), D.prelancio().then(function (v) { S.prelancio = !!v; })];
     if (S.me) {
       tasks.push(D.isAdmin().then(function (a) { S.admin = !!a; }));
       tasks.push(D.getProfile().then(function (p) { S.profile = p; }));
@@ -263,6 +263,66 @@
       .catch(function (x) { toast(x.message, true); busy(b, false); });
   });
 
+  /* ---------------- Pre-lancio ---------------- */
+  function viewPrelaunch() {
+    setMain('<p class="loading">Carico…</p>', "gestione");
+    Promise.all([D.prelancio(), D.prelaunchList()]).then(function (r) {
+      S.prelancio = !!r[0]; var list = r[1] || [];
+      setMain(
+        '<p><a class="back" href="#gestione">← Gestione</a></p>' +
+        '<div class="page-head"><span class="eyebrow">Area staff</span><h1>Pre-lancio</h1>' +
+          "<p>Finché il pre-lancio è attivo, nell'Avamposto possono iscriversi solo lo staff e le mail di questa lista. Tutti gli altri vedono «L'Avamposto apre a breve». La regola vale nel database, non solo nella pagina.</p></div>" +
+        '<div id="ev-admin">' +
+        '<section class="panel prelaunch-state ' + (S.prelancio ? "on" : "off") + '">' +
+          "<div><b>" + (S.prelancio ? "Pre-lancio attivo" : "L'Avamposto è aperto a tutti") + "</b>" +
+          "<p>" + (S.prelancio ? "Iscrizioni riservate a " + list.length + (list.length === 1 ? " mail" : " mail") + " della lista, più lo staff." : "Chiunque può iscriversi. Puoi riattivare il pre-lancio in qualsiasi momento: chi è già iscritto resta dentro.") + "</p></div>" +
+          '<button class="btn ' + (S.prelancio ? "primary" : "quiet") + '" type="button" data-action="prelancio-toggle" data-on="' + (S.prelancio ? "0" : "1") + '">' +
+            (S.prelancio ? "Apri l'Avamposto a tutti" : "Riattiva il pre-lancio") + "</button>" +
+        "</section>" +
+        '<section class="panel"><form data-form="prelaunch" novalidate>' +
+          "<h2>Aggiungi al gruppo di prova</h2>" +
+          '<label class="field"><span>Mail <small>(una per riga, o separate da virgola)</small></span><textarea name="emails" rows="4" placeholder="giulia@esempio.it&#10;luca@esempio.it"></textarea></label>' +
+          '<label class="field"><span>Nota <small>(facoltativa, es. «gruppo di prova» o «staff Ancona»)</small></span><input type="text" name="note" maxlength="120"></label>' +
+          '<div class="btn-row"><button class="btn primary" type="submit">' + icon("check") + "Aggiungi</button></div>" +
+        "</form></section>" +
+        '<section><div class="block-head"><h2>Chi può entrare</h2><span class="note">' + list.length + "</span></div>" +
+          (list.length ? '<div class="table-wrap"><table><thead><tr><th>Mail</th><th>Nota</th><th>Aggiunta</th><th></th></tr></thead><tbody>' + list.map(function (x) {
+            return "<tr><td>" + esc(x.email) + "</td><td>" + esc(x.note || "") + '</td><td class="num">' + esc(fmtShort(x.created_at)) + "</td>" +
+              '<td><button class="btn small quiet" type="button" data-action="prelancio-del" data-email="' + esc(x.email) + '">Togli</button></td></tr>';
+          }).join("") + "</tbody></table></div>" : '<p class="empty-note">Nessuna mail in lista: per ora entra solo lo staff.</p>') +
+          '<p class="fine">Togliere una mail impedisce nuove iscrizioni con quell\'indirizzo; chi si è già iscritto resta nell\'Avamposto.</p>' +
+        "</section></div>", "gestione");
+    }).catch(function (x) { setMain('<p class="form-msg err">' + esc(x.message) + "</p>", "gestione"); });
+  }
+  document.addEventListener("submit", function (e) {
+    var f = e.target; if (!f.getAttribute || f.getAttribute("data-form") !== "prelaunch") return;
+    e.preventDefault();
+    var raw = String(f.elements.emails.value || "").toLowerCase().split(/[\s,;]+/).filter(Boolean);
+    var ok = [], bad = [];
+    raw.forEach(function (m) { (/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(m) ? ok : bad).push(m); });
+    if (!ok.length) { toast(bad.length ? "Mail non valida: " + bad[0] : "Scrivi almeno una mail.", true); return; }
+    var btn = f.querySelector("button[type=submit]"); busy(btn, true);
+    D.addPrelaunch(ok.filter(function (m, i) { return ok.indexOf(m) === i; }), String(f.elements.note.value || "").trim())
+      .then(function () { toast(ok.length + (ok.length === 1 ? " mail aggiunta." : " mail aggiunte.") + (bad.length ? " Ignorate: " + bad.join(", ") : "")); viewPrelaunch(); })
+      .catch(function (x) { toast(x.message, true); busy(btn, false); });
+  });
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-action^='prelancio-']"); if (!b) return;
+    var act = b.getAttribute("data-action");
+    if (act === "prelancio-entra") { S.testerEntry = true; viewWelcome(); return; }
+    if (act === "prelancio-del") {
+      busy(b, true); D.removePrelaunch(b.getAttribute("data-email")).then(viewPrelaunch).catch(function (x) { toast(x.message, true); busy(b, false); });
+      return;
+    }
+    if (act === "prelancio-toggle") {
+      var on = b.getAttribute("data-on") === "1";
+      if (!on && b.getAttribute("data-sure") !== "1") { b.setAttribute("data-sure", "1"); b.textContent = "Sicuro? Da adesso chiunque può iscriversi"; return; }
+      busy(b, true);
+      D.setPrelancio(on).then(function () { S.prelancio = on; toast(on ? "Pre-lancio riattivato." : "L'Avamposto è aperto a tutti."); viewPrelaunch(); })
+        .catch(function (x) { toast(x.message, true); busy(b, false); });
+    }
+  });
+
   /* nella tessera di Gestione mostra quante voci aspettano */
   var viewAdminBase = viewAdmin;
   viewAdmin = function () {
@@ -318,6 +378,7 @@
       if (h === "g-squadra") return viewEditTeam();
       if (h === "g-eventi") return viewAdminEvents();
       if (h === "g-voci") return viewAdminVoices();
+      if (h === "g-prelancio") return viewPrelaunch();
       if (h.indexOf("g-ev-") === 0) return viewEditEvent(h.slice(5));
       if (h.indexOf("g-") === 0) return viewEditInitiative(h.slice(2));
     }
@@ -393,10 +454,12 @@
               "<li>" + icon("check") + "<span><b>Segni cosa hai visto</b> e riprendi da dove eri rimasto</span></li>" +
             "</ul>" +
           "</div>" +
-          (PREVIEW ? '<div class="panel soon-panel"><span class="eyebrow">Iscrizioni in arrivo</span><h2>L\'Avamposto apre a breve</h2>' +
+          (PREVIEW || (S.prelancio && !S.testerEntry && !invite) ? '<div class="panel soon-panel"><span class="eyebrow">Iscrizioni in arrivo</span><h2>L\'Avamposto apre a breve</h2>' +
               "<p>Stiamo preparando i primi percorsi. Iscriviti alla newsletter o seguici su Instagram: ti avvisiamo appena si parte.</p>" +
-              '<div class="btn-row"><a class="btn primary" href="../#unisciti">Avvisami</a><a class="btn quiet" href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener">Instagram</a></div></div>'
+              '<div class="btn-row"><a class="btn primary" href="../#unisciti">Avvisami</a><a class="btn quiet" href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener">Instagram</a></div>' +
+              (PREVIEW ? "" : '<p class="tester-link"><button class="linklike" type="button" data-action="prelancio-entra">Fai parte del gruppo di prova o dello staff? Entra qui</button></p>') + "</div>"
             : '<div class="panel" id="auth-panel">' +
+              (S.prelancio ? '<p class="form-msg ok">Fase di prova: possono entrare solo lo staff e le mail del gruppo di prova.</p>' : "") +
               (invite ? '<p class="form-msg ok">Hai un link d\'invito. Iscriviti o entra: il corso si sbloccherà in automatico.</p>' : "") +
               authForms() +
             "</div>") +
@@ -1101,6 +1164,7 @@
         '<div class="stat"><b>' + active.length + "</b><span>Accessi attivi ai corsi</span></div>" +
         '<a class="stat" href="#g-eventi"><b>' + icon("evento") + "</b><span>Eventi, mobilitazione e repliche</span></a>" +
         '<a class="stat" href="#g-squadra"><b>' + icon("team") + "</b><span>Gestisci la squadra e i canali WhatsApp</span></a>" +
+        '<a class="stat' + (S.prelancio ? " alert" : "") + '" href="#g-prelancio"><b>' + icon("shield") + "</b><span>" + (S.prelancio ? "Pre-lancio attivo: gestisci chi può entrare" : "Avamposto aperto a tutti") + "</span></a>" +
         '<a class="stat" href="#g-voci" id="stat-voci"><b>' + icon("voce") + "</b><span>Voci Under 30 da approvare</span></a>" +
       "</div>" +
       '<section class="block" id="richieste"><div class="block-head"><h2>Richieste da approvare</h2></div>' +

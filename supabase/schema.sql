@@ -518,6 +518,56 @@ create policy locandine_admin_delete on storage.objects for delete to authentica
   using (bucket_id = 'locandine' and public.is_admin());
 
 -- ---------------------------------------------------------------------
+-- Pre-lancio: finché è attivo, nell'Avamposto possono iscriversi solo le mail
+-- della lista di prova e lo staff. Si spegne da Gestione → Pre-lancio.
+-- ---------------------------------------------------------------------
+create table if not exists public.site_settings (
+  key text primary key,
+  value jsonb not null,
+  updated_at timestamptz not null default now()
+);
+insert into public.site_settings (key, value) values ('prelancio', 'true'::jsonb) on conflict (key) do nothing;
+
+create table if not exists public.prelaunch_list (
+  email text primary key check (email = lower(email) and email ~ '^[^@\s]+@[^@\s]+\.[^@\s]+$'),
+  note text check (note is null or char_length(note) <= 120),
+  created_at timestamptz not null default now()
+);
+
+alter table public.site_settings enable row level security;
+alter table public.prelaunch_list enable row level security;
+drop policy if exists settings_admin on public.site_settings;
+create policy settings_admin on public.site_settings for all to authenticated
+  using (public.is_admin()) with check (public.is_admin());
+drop policy if exists prelaunch_admin on public.prelaunch_list;
+create policy prelaunch_admin on public.prelaunch_list for all to authenticated
+  using (public.is_admin()) with check (public.is_admin());
+grant select, insert, update, delete on public.site_settings, public.prelaunch_list to authenticated;
+
+-- Il sito chiede solo «il pre-lancio è attivo?» (sì/no), senza vedere la lista.
+create or replace function public.prelancio()
+returns boolean language sql stable security definer set search_path = public as $$
+  select coalesce((select (value #>> '{}')::boolean from public.site_settings where key = 'prelancio'), false);
+$$;
+revoke all on function public.prelancio() from public;
+grant execute on function public.prelancio() to anon, authenticated;
+
+-- Blocca la creazione di nuovi account non autorizzati mentre il pre-lancio è attivo.
+create or replace function public.prelaunch_gate()
+returns trigger language plpgsql security definer set search_path = public as $$
+begin
+  if public.prelancio()
+     and lower(coalesce(new.email, '')) not in (select email from public.prelaunch_list)
+     and lower(coalesce(new.email, '')) not in (select email from public.admins) then
+    raise exception 'PRELANCIO: l''Avamposto non è ancora aperto';
+  end if;
+  return new;
+end $$;
+drop trigger if exists prelaunch_gate on auth.users;
+create trigger prelaunch_gate before insert on auth.users
+  for each row execute function public.prelaunch_gate();
+
+-- ---------------------------------------------------------------------
 -- Voci Under 30: riflessioni, commenti e note scritte dagli iscritti.
 -- Si pubblicano solo dopo l'approvazione dello staff.
 -- ---------------------------------------------------------------------

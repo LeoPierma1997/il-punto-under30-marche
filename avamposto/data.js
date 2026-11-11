@@ -17,6 +17,7 @@
   function code() { return Math.random().toString(16).slice(2, 10) + Math.random().toString(16).slice(2, 10); }
 
   var ERRORS = [
+    [/PRELANCIO|Database error saving new user/i, "L'Avamposto non è ancora aperto: per ora entra solo il gruppo di prova. Se ne fai parte, usa la mail che hai dato allo staff."],
     [/Signups not allowed|User not found/i, "Questa mail non risulta iscritta all'Avamposto. Usa «Iscriviti»."],
     [/rate limit|over_email_send_rate|For security purposes/i, "Hai chiesto troppi link in poco tempo. Aspetta un minuto e riprova."],
     [/invalid.*email|Unable to validate email/i, "L'indirizzo email non sembra valido. Controllalo e riprova."],
@@ -193,6 +194,14 @@
           kit_url: m.kit_url || null, notes: m.notes || null, updated_at: nowIso() }, { onConflict: "event_id" }));
       },
       signupCounts: function () { return q(sb.rpc("signup_counts")); },
+      /* --- pre-lancio --- */
+      prelancio: function () { return q(sb.rpc("prelancio")).catch(function () { return false; }); },
+      setPrelancio: function (on) { return q(sb.from("site_settings").upsert({ key: "prelancio", value: !!on, updated_at: new Date().toISOString() })); },
+      prelaunchList: function () { return q(sb.from("prelaunch_list").select("*").order("created_at", { ascending: false })); },
+      addPrelaunch: function (emails, note) {
+        return q(sb.from("prelaunch_list").upsert(emails.map(function (m) { return { email: m, note: note || null }; }), { onConflict: "email" }));
+      },
+      removePrelaunch: function (email) { return q(sb.from("prelaunch_list").delete().eq("email", email)); },
       /* --- voci under 30 --- */
       publicVoices: function (n) { return q(sb.rpc("public_voices", { p_limit: n || 60 })); },
       myVoices: function () { return session ? q(sb.from("voices").select("*").eq("user_id", session.user.id).order("created_at", { ascending: false })) : Promise.resolve([]); },
@@ -433,6 +442,7 @@
       signUp: function (form) {
         var m = lower(form.email);
         if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)) return Promise.reject(new Error(friendly({ message: "invalid email" })));
+        if (S.prelancio && !S.users[m] && S.admins.indexOf(m) < 0 && !(S.prelaunch || []).some(function (x) { return x.email === m; })) return Promise.reject(new Error(friendly({ message: "PRELANCIO" })));
         if (!S.users[m]) S.users[m] = { full_name: form.full_name, membership: form.membership, privacy_at: form.privacy ? nowIso() : null, created_at: nowIso() };
         save(); return delay({});
       },
@@ -590,6 +600,15 @@
         var o = {}; S.signups.forEach(function (x) { o[x.event_id] = (o[x.event_id] || 0) + 1; });
         return delay(Object.keys(o).map(function (k) { return { event_id: k, n: o[k] }; }));
       },
+      prelancio: function () { return delay(!!S.prelancio); },
+      setPrelancio: function (on) { if (!admin()) return deny(); S.prelancio = !!on; save(); return delay({}); },
+      prelaunchList: function () { return admin() ? delay(clone(S.prelaunch || [])) : deny(); },
+      addPrelaunch: function (emails, note) {
+        if (!admin()) return deny(); S.prelaunch = S.prelaunch || [];
+        emails.forEach(function (m) { if (!S.prelaunch.some(function (x) { return x.email === m; })) S.prelaunch.unshift({ email: m, note: note || "", created_at: nowIso() }); });
+        save(); return delay({});
+      },
+      removePrelaunch: function (email) { if (!admin()) return deny(); S.prelaunch = (S.prelaunch || []).filter(function (x) { return x.email !== email; }); save(); return delay({}); },
       publicVoices: function (n) {
         var shown = function (v) {
           if (v.signature === "anonimo") return null;
