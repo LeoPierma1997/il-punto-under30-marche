@@ -33,7 +33,10 @@ Succede quasi sempre per uno di questi motivi:
 ## Se modificate lo script
 Dopo ogni modifica serve **Esegui il deployment → Gestisci deployment → modifica (matita) → Versione: Nuova versione → Esegui il deployment**. L'URL resta lo stesso.
 
-## Brevo: invio della newsletter
+## (Facoltativo) Brevo per l'invio della newsletter
+
+Per ora la newsletter si manda a mano da Gmail, mettendo i destinatari in **Ccn** (mai in A o Cc, così nessuno vede le mail degli altri).
+Lo script è già pronto per Brevo ma resta spento finché non si impostano le proprietà qui sotto.
 
 Il foglio Google resta l'archivio delle iscrizioni; la newsletter si manda da **Brevo** (gratuito fino a 300 mail al giorno),
 che gestisce disiscrizioni e statistiche. Mittente: azioneunder30marche@gmail.com (Brevo lo sostituisce con un suo indirizzo
