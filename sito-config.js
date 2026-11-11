@@ -13,7 +13,7 @@ window.SITO_CONFIG = {
   intro: {
     kicker: "Azione Under 30 · Marche",
     frase: "La politica è troppo importante per *lasciarla agli altri.*",
-    sotto: "Ogni cosa che ti fa arrabbiare l'ha decisa qualcuno che si è presentato. Stavolta presentati tu.",
+    sotto: "Idee serie, persone che non si prendono troppo sul serio. È così che vogliamo cambiare le Marche, l'Italia e l'Europa.",
     immagine: "assets/foto/piazza-bandiere.jpg",
     immagineTelefono: "assets/foto/fiaccolata-ucraina.jpg",
     video: "assets/video/apertura.mp4",
