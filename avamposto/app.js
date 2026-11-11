@@ -417,10 +417,23 @@
     document.getElementById("f-signin").hidden = true;
     var box = document.getElementById("sent");
     box.innerHTML = icon("mail") + "<h3>Controlla la posta</h3>" +
-      "<p>Abbiamo mandato un link a <b>" + esc(mail) + "</b>. Aprilo per entrare: vale per un'ora. Se non lo trovi, guarda nello spam.</p>" +
-      (D.live ? "" : '<p class="form-msg ok">Nel prototipo nessuna mail parte davvero.</p><button class="btn primary" type="button" data-action="demo-open" data-email="' + esc(mail) + '">Apri il link di prova</button>') +
+      "<p>Abbiamo scritto a <b>" + esc(mail) + "</b>. Nella mail trovi un <b>codice di 6 cifre</b>: scrivilo qui sotto ed entri su questo dispositivo, anche se la mail l'hai aperta sul telefono. In alternativa tocca il pulsante nella mail. Se non la trovi, guarda nello spam.</p>" +
+      '<form id="f-otp" class="code-form" novalidate>' +
+        '<label class="field" for="otp-in"><span>Codice dalla mail</span><input type="text" id="otp-in" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="123456" style="letter-spacing:.3em;font-weight:800;font-size:1.3rem"></label>' +
+        '<p class="form-msg err" id="otp-err" hidden></p>' +
+        '<button class="btn primary" type="submit">' + icon("check") + "Entra</button></form>" +
+      (D.live ? "" : '<p class="form-msg ok">Nel prototipo nessuna mail parte davvero: scrivi un numero qualsiasi di 6 cifre.</p>') +
       '<button class="btn quiet small" type="button" data-action="auth-again">Usa un\'altra mail</button>';
     box.hidden = false;
+    var inp = document.getElementById("otp-in"); inp.focus();
+    document.getElementById("f-otp").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var err = document.getElementById("otp-err"), btn = e.target.querySelector("button[type=submit]"), code = inp.value.replace(/\D/g, "");
+      if (code.length < 6) { err.textContent = "Scrivi le cifre del codice che trovi nella mail."; err.hidden = false; return; }
+      err.hidden = true; busy(btn, true);
+      D.verifyCode(mail, code).then(function () { try { localStorage.removeItem(AFTER_KEY); } catch (x) {} location.hash = "#gestione"; })
+        .catch(function (x) { err.textContent = x.message; err.hidden = false; busy(btn, false); });
+    });
   }
   document.addEventListener("submit", function (e) {
     var f = e.target; if (!f.getAttribute || f.getAttribute("data-form") !== "code") return;

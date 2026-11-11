@@ -19,7 +19,8 @@
   var ERRORS = [
     [/SOLO_STAFF|PRELANCIO|Database error saving new user|Signups not allowed|User not found/i, "L'accesso con la mail è solo per lo staff. Per entrare nell'Avamposto usa il codice."],
     [/CODICE_NON_VALIDO|Codice non valido/i, "Codice non valido o non più attivo. Controlla di averlo scritto bene o chiedilo allo staff."],
-    [/Serve il codice/i, "Serve il codice dell'Avamposto: inseriscilo di nuovo dalla pagina «Il tuo dispositivo»."],
+    [/Serve il codice/i, "Serve il codice dell'Avamposto: inseriscilo di nuovo dalla pagina «Il tuo telefono»."],
+    [/Token has expired|otp_expired|invalid.*(token|otp)|Email link is invalid/i, "Codice sbagliato o scaduto. Controlla le cifre oppure chiedi una nuova mail."],
     [/rate limit|over_email_send_rate|For security purposes/i, "Hai chiesto troppi link in poco tempo. Aspetta un minuto e riprova."],
     [/invalid.*email|Unable to validate email/i, "L'indirizzo email non sembra valido. Controllalo e riprova."],
     [/Invito non valido/i, "Questo link d'invito non è valido o è stato disattivato. Chiedi allo staff un link nuovo."],
@@ -140,6 +141,9 @@
       hit: function (kind, ref) { if (!codes().length) return Promise.resolve(); return rpc("ava_hit", { p_codes: codes(), p_kind: kind, p_ref: String(ref) }).catch(function () {}); },
       signIn: function (mail, redirectTo) {
         return q(sb.auth.signInWithOtp({ email: lower(mail), options: { shouldCreateUser: false, emailRedirectTo: redirectTo } }));
+      },
+      verifyCode: function (mail, token) {
+        return q(sb.auth.verifyOtp({ email: lower(mail), token: String(token).replace(/\D/g, ""), type: "email" }));
       },
       signOut: function () { return sb.auth.signOut(); },
       isAdmin: function () { return session ? q(sb.rpc("is_admin")) : Promise.resolve(false); },
@@ -559,6 +563,10 @@
         return delay({});
       },
       demoOpenLink: function (mail) { setSession(mail); },
+      verifyCode: function (mail, token) {
+        if (!/^\d{6,10}$/.test(String(token).replace(/\D/g, ""))) return Promise.reject(new Error(friendly({ message: "Token has expired or is invalid" })));
+        setSession(lower(mail)); return delay({});
+      },
       signOut: function () { setSession(null); return Promise.resolve(); },
       isAdmin: function () { return delay(admin()); },
       deleteMyAccount: function () {
