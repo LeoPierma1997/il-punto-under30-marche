@@ -8,7 +8,7 @@ Finché il sito non è lanciato si diffonde solo **Il Punto** (`rassegna/`):
 Le parti da cambiare sono segnate con `PRELANCIO` nel codice.
 
 ## Il giorno del lancio
-1. In `rassegna/index.html`: ripristinare il menu (Il Punto, Eventi, Social, Avamposto, «Unisciti a noi»),
+1. In `rassegna/index.html`: togliere `hidden` dalla striscia «← Azione Under 30 Marche» in cima; ripristinare il menu (Il Punto, Eventi, Social, Avamposto, «Unisciti a noi»),
    il logo che porta alla home (`href="../"`) e i link nel piè di pagina.
 2. In `avamposto/privacy.html`: logo verso la home e link in fondo (Home, Avamposto, Eventi).
 3. Togliere `<meta name="robots" content="noindex">` da `index.html`, `eventi/`, `social/`, `voci/`, `avamposto/`.

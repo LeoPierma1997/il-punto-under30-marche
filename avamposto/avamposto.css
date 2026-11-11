@@ -524,3 +524,10 @@ td.num { font-variant-numeric: tabular-nums; }
 .prelaunch-state p { margin: 4px 0 0; color: var(--muted); }
 .prelaunch-state.on { border-left: 5px solid #FCCA00; }
 .prelaunch-state.off { border-left: 5px solid #312781; }
+
+/* Striscia in cima: torna alla pagina iniziale di Azione Under 30 Marche */
+.home-strip { background: #0C1467; }
+.home-strip .wrap { padding-block: 7px; }
+.home-strip a { display: inline-flex; align-items: center; gap: 6px; color: #FFFFFF; font-weight: 700; font-size: .84rem; text-decoration: none; padding: 3px 0; }
+.home-strip a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.home-strip svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }

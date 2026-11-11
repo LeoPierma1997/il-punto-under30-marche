@@ -182,10 +182,19 @@ footer p { margin: 0; max-width: 80ch; }
 footer a { color: #E4E6FF; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 @media (prefers-reduced-motion: reduce) { details.spunto summary .chev { transition: none; } }
+
+/* Striscia in cima: torna alla pagina iniziale di Azione Under 30 Marche */
+.home-strip { background: #0C1467; }
+.home-strip .wrap { padding-block: 7px; }
+.home-strip a { display: inline-flex; align-items: center; gap: 6px; color: #FFFFFF; font-weight: 700; font-size: .84rem; text-decoration: none; padding: 3px 0; }
+.home-strip a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.home-strip svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 </style>
 </head>
 <body>
 <div class="az-line" aria-hidden="true"></div>
+<!-- PRELANCIO: al lancio togliere «hidden» qui sotto per mostrare il tasto verso la pagina iniziale -->
+<div class="home-strip" hidden><div class="wrap"><a href="../"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Azione Under 30 Marche</a></div></div>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="./">
