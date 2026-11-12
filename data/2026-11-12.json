@@ -1,0 +1,374 @@
+{
+  "date": "2026-11-12",
+  "label": "Giovedì 12 novembre 2026",
+  "intro": "Chiusi senza progressi i colloqui di Abu Dhabi sull'Ucraina, con l'Europa ai margini e un accordo sul bilancio Ue 2027; in Italia la maggioranza prepara correttivi alla manovra su sanità, pensioni e scuola, mentre nelle Marche proseguono gli sviluppi dell'inchiesta sulla ricostruzione e a Cerreto d'Esi i lavoratori Electrolux approvano l'intesa.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Ucraina, chiusi i colloqui di Abu Dhabi: nessun passo sul cessate il fuoco, intesa di principio su uno scambio di prigionieri",
+          "summary": "Due giorni di negoziati mediati dagli Stati Uniti si sono chiusi senza progressi su cessate il fuoco e territori: Mosca chiede il ritiro ucraino dal Donbas, Kiev rifiuta. L'unico risultato concreto è l'accordo di principio su un ampio scambio di prigionieri, con numeri e tempi non ancora confermati. Gli inviati Usa Kushner e Witkoff vanno ora da Putin.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/11/abu-dhabi-peace-talks-end-with-prisoner-exchange-agreement-as-us-envoys-prepare-to-meet-pu",
+          "published": "2026-11-11",
+          "tags": [
+            "Ucraina",
+            "Negoziati"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Su Kiev Calenda ha chiesto al governo di approvare entro un mese un nuovo pacchetto di aiuti: lo spunto è collegare i negoziati al sostegno concreto all'Ucraina, per non lasciare l'iniziativa ad altri.",
+            "refs": [
+              {
+                "label": "Calenda, intervista a Maria Teresa Meli – Corriere della Sera (ripresa da Adnkronos), 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Europa ai margini dei negoziati: Mosca la esclude, Merz lega il bilancio Ue agli aiuti a Kiev e Fico minaccia il veto",
+          "summary": "I rappresentanti europei restano fuori dai colloqui trilaterali: Lavrov accusa gli europei di voler usare un cessate il fuoco per inviare truppe, mentre Washington ritiene che dovranno entrare nei negoziati sulla sicurezza futura. Il tentativo di Merz di condizionare il bilancio pluriennale a nuovi aiuti all'Ucraina divide gli Stati membri; Slovacchia, Cechia, Ungheria e Bulgaria si oppongono. Costa promette un ampio dibattito al Consiglio europeo informale di Dublino.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/11/constructive-abu-dhabi-talks-resume-but-a-ceasefire-is-nowhere-near",
+          "published": "2026-11-11",
+          "tags": [
+            "Ue",
+            "Ucraina"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Un'Europa divisa sul bilancio e assente dal tavolo pesa poco dove si decide la sua sicurezza. Quali strumenti comuni servono per sedersi ai negoziati? Spunto sulla difesa comune. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ue, accordo Consiglio-Parlamento sul bilancio 2027: 199,7 miliardi di impegni, ultimo annuale del quadro 2021-2027",
+          "summary": "L'intesa provvisoria fissa 199,7 miliardi in impegni e 211,5 in pagamenti, ripristinando i tagli di 1 miliardo del Consiglio e aggiungendo 300 milioni alla proposta della Commissione. Rafforzati Erasmus+, Horizon Europe, reti di trasporto ed energia e mobilità militare. Lo strumento di prestito per l'Ucraina non è attivato ma resta aperto per il 2027. Il Consiglio dovrebbe ratificare il 23 novembre.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/11/intesa-tra-parlamento-e-paesi-ue-sul-bilancio-2027/",
+          "also": [
+            {
+              "source": "Rappresentanza in Italia della Commissione europea",
+              "url": "https://italy.representation.ec.europa.eu/notizie-ed-eventi/notizie/portato-termine-con-successo-lattuale-qfp-grazie-allaccordo-sul-bilancio-annuale-definitivo-2026-11-11_it"
+            }
+          ],
+          "published": "2026-11-11",
+          "tags": [
+            "Ue",
+            "Bilancio"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Erasmus+ e ricerca restano tra le priorità: un dato concreto per un contenuto sui giovani e l'Europa. Come far percepire il bilancio Ue come strumento per studiare e lavorare? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Trump contro la BBC: un tribunale della Florida fa proseguire la causa per diffamazione da 5 miliardi di dollari",
+          "summary": "Il tribunale ha respinto la richiesta di archiviazione della Bbc sulla diffamazione per il documentario di «Panorama» sul discorso del 6 gennaio 2021, mentre ha escluso l'accusa di pratiche commerciali ingannevoli. La Bbc si era scusata ma rifiuta di pagare. Trump dovrà rendere una deposizione giurata entro l'11 dicembre.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/11/autorizzazione-causa-trump-bbc/",
+          "published": "2026-11-11",
+          "tags": [
+            "Usa",
+            "Informazione"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Il rapporto tra potere politico e stampa è un tema liberale: quali garanzie servono perché l'informazione resti indipendente anche dalle cause milionarie? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Regno Unito, soldato Usa di 41 anni arrestato per presunto spionaggio a favore della Russia",
+          "summary": "L'uomo è stato arrestato il 10 novembre vicino a Gloucester dall'unità antiterrorismo britannica, con Fbi ed esercito Usa: gli investigatori sospettano che abbia passato informazioni protette all'intelligence russa. Non risultano ancora accuse formali né dettagli sulle informazioni; il legame con la base Raf Fairford è solo un'ipotesi dell'articolo.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/10/soldato-esercito-stati-uniti-arresto-regno-unito-spionaggio-russia/",
+          "published": "2026-11-10",
+          "tags": [
+            "Sicurezza",
+            "Russia"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Lo spionaggio dentro l'alleanza ricorda che la sicurezza europea riguarda anche infrastrutture e informazioni. Quanta cooperazione servirebbe tra intelligence europee? Ipotesi investigativa, non accertata. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, vertice di maggioranza a Palazzo Chigi: correttivi mirati su sanità, pensioni, scuola e università senza toccare i conti",
+          "summary": "Dopo un'ora di vertice tra Meloni, Tajani, Salvini, Lupi e Giorgetti, la maggioranza prepara un pacchetto di emendamenti concordati con margini ridotti; Lupi esclude un maggiore contributo delle banche. Le Regioni giudicano insufficienti i 2,4 miliardi in più per la sanità (3,4 con 1 già previsto). Gli emendamenti vanno presentati entro il 17 novembre.",
+          "source": "AGI",
+          "url": "https://www.agi.it/economia/news/2026-11-11/manovra-correttivi-tagli-scuola-39988597/",
+          "published": "2026-11-11",
+          "tags": [
+            "Manovra",
+            "Sanità"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Calenda ha definito la manovra «proprio malfatta», fatta di benefici a pioggia per accontentare tutti senza incidere sui problemi: lo spunto è chiedere dove siano le riforme e su cosa si concentrino le risorse.",
+            "refs": [
+              {
+                "label": "Calenda, intervista nella sede di Azione – Quotidiano Nazionale, 3 novembre 2026",
+                "url": "https://www.quotidiano.net/video/in-vista/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente-ioyqidyh"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Pensioni, Istat: 3,5 milioni di pensionati perderanno in media 510 euro lordi nel 2027 per il taglio alla rivalutazione",
+          "summary": "Secondo la stima Istat riportata dall'AGI, il taglio perde circa 510 euro lordi annui in media per 3,5 milioni di pensionati (poco più di 200 per quasi tre milioni di famiglie). Il ddl mantiene l'adeguamento pieno fino a 4 volte il minimo e lo riduce a scaglioni, fino al 32% oltre 10 volte il minimo. Non sono attesi interventi incisivi.",
+          "source": "AGI",
+          "url": "https://www.agi.it/economia/news/2026-11-11/manovra-correttivi-tagli-scuola-39988597/",
+          "also": [
+            {
+              "source": "Businessonline",
+              "url": "https://www.businessonline.it/news/pensioni-anticipate-e-taglio-importi-rivalutazione-i-primi-emendamenti-e-audizioni-per-modificare-manovra-finanziaria-2027_n88748.html"
+            }
+          ],
+          "published": "2026-11-11",
+          "tags": [
+            "Pensioni",
+            "Manovra"
+          ],
+          "icon": "hourglass",
+          "spunto": {
+            "text": "Chi paga il conto di un sistema previdenziale sbilanciato? Spunto per un contenuto sull'equità tra generazioni: il peso ricade soprattutto su chi oggi lavora e versa contributi. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Scuola, la maggioranza valuta il rinvio del taglio di 7mila posti tra docenti e Ata; sindacati a Palazzo Chigi venerdì",
+          "summary": "Il governo studia di rinviare il taglio previsto dal prossimo anno, ma i sindacati si oppongono e saranno ricevuti venerdì. L'ipotesi era emersa già a inizio mese con la Lega, mentre la Cisl chiedeva correzioni su scuola e rivalutazione delle pensioni.",
+          "source": "AGI",
+          "url": "https://www.agi.it/economia/news/2026-11-11/manovra-correttivi-tagli-scuola-39988597/",
+          "also": [
+            {
+              "source": "Avvenire",
+              "url": "https://www.avvenire.it/politica/tagli-alla-scuola-il-governo-in-tilt-ora-ci-ripensa_115246"
+            }
+          ],
+          "published": "2026-11-11",
+          "tags": [
+            "Scuola",
+            "Giovani"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Meno organici significa meno qualità per studenti e famiglie. Quale modello di scuola vogliamo e con quali risorse? Spunto sul diritto allo studio. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Calenda ad AdnTalks: «Meloni almeno è vera», Conte «una calamità»; ipotizza elezioni anticipate ad aprile 2027 senza la Lega",
+          "summary": "Intervistato dal direttore di Adnkronos, il leader di Azione sceglie Meloni tra lei, Schlein e Conte pur giudicando povera la classe dirigente del governo, indica in Salvini un problema per la maggioranza e indica aprile 2027 come sua previsione per il voto. Si dice contrario all'election day con le amministrative e ricorda i costi di Superbonus, reddito di cittadinanza e Quota 100.",
+          "source": "Baritalia News",
+          "url": "https://www.baritalianews.it/152060/2026/11/12/calenda-duro-con-conte-e-stata-una-calamita-per-questo-paese-ma-salva-la-meloni-lei-e-vera/",
+          "published": "2026-11-12",
+          "tags": [
+            "Azione",
+            "Opposizioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Posizione recente di Azione: correre da sola, senza campo largo né centrodestra, e puntare a un centro decisivo dopo il voto. Spunto per un contenuto sul «terzo polo» come alternativa ai due blocchi.",
+            "refs": [
+              {
+                "label": "Calenda ad AdnTalks – Baritalia News, 12 novembre 2026",
+                "url": "https://www.baritalianews.it/152060/2026/11/12/calenda-duro-con-conte-e-stata-una-calamita-per-questo-paese-ma-salva-la-meloni-lei-e-vera/"
+              },
+              {
+                "label": "Calenda, intervista a Maria Teresa Meli – Corriere della Sera (ripresa da Adnkronos), 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Cgil, sciopero generale il 20 novembre contro la manovra: manifestazioni anche nei capoluoghi marchigiani",
+          "summary": "Landini ha annunciato il 17 ottobre lo sciopero generale per il 20 novembre, su lavoro, salari e stato sociale. Nelle Marche la Cgil ha confermato manifestazioni in tutti i capoluoghi di provincia. Notizia non di oggi ma ancora in corso: lo sciopero è a otto giorni dalla data.",
+          "source": "SoldiOnline",
+          "url": "https://www.soldionline.it/notizie/economia-politica/landini-annuncia-lo-sciopero-generale-cgil-del-20-novembre-cosa-chiede-al-govern",
+          "also": [
+            {
+              "source": "Il Resto del Carlino",
+              "url": "https://www.ilrestodelcarlino.it/marche/la-manovra-spacca-le-marche-78e68da1"
+            }
+          ],
+          "published": "2026-10-17",
+          "tags": [
+            "Lavoro",
+            "Sindacati"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Lo sciopero fotografa il malcontento su salari e precarietà. Quali proposte concrete su lavoro giovane e salari si possono contrapporre alla sola protesta? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta sisma, Acquaroli sentito per oltre due ore dai pm come persona informata sui fatti",
+          "summary": "Il 5 novembre il presidente della Regione è stato ascoltato dalla Dda di Ancona come persona informata sui fatti nell'inchiesta sulla ricostruzione (51 indagati, otto misure cautelari, oltre 57 milioni sequestrati). Ha negato legami con la criminalità organizzata e si è definito vittima della condotta dell'ex capo di gabinetto Pistarelli, in carcere con accuse ancora da accertare.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/cronaca/2026/11/11/inchiesta-sisma-acquaroli-per-oltre-due-ore-davanti-ai-pm_3fc69937-0a79-4d5c-bb50-fa79ef78c702.html",
+          "also": [
+            {
+              "source": "ANSA Marche",
+              "url": "https://www.ansa.it/marche/notizie/2026/11/11/inchiesta-sisma-acquaroli-per-oltre-due-ore-e-mezzo-davanti-al-pm-della_b325fb22-580f-4285-aeda-135e41633d40.html"
+            }
+          ],
+          "published": "2026-11-11",
+          "tags": [
+            "Regione",
+            "Legalità"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Responsabilità penale e politica sono piani distinti: il punto è la vigilanza. Quali controlli indipendenti e pubblici sulla ricostruzione? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Acquaroli ai pm: avvisi su Pistarelli dal Garante Giulianelli e dal direttore tecnico Ast Fermo sul caso di un appalto ospedaliero",
+          "summary": "Secondo il racconto riportato dal Resto del Carlino, Acquaroli rinnovò l'incarico a Pistarelli solo per tre mesi dopo il deterioramento dei rapporti. Il Garante Giulianelli gli avrebbe consigliato di non fidarsi; Tirabasso (Ast Fermo) gli avrebbe segnalato condotte improprie su un appalto dell'ospedale di Fermo. Pistarelli avrebbe negato; il presidente dice di non aver saputo dell'indagine. Sono dichiarazioni, non accertamenti.",
+          "source": "Il Resto del Carlino",
+          "url": "https://www.ilrestodelcarlino.it/marche/cronaca/acquaroli-interrogato-pistarelli-sct8bjsc",
+          "published": "2026-11-11",
+          "tags": [
+            "Sanità",
+            "Appalti"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Gli appalti sanitari sono denaro dei cittadini: servono trasparenza e segnalazioni che arrivino subito alle autorità, non solo ai vertici politici. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta sisma, la minoranza: «Le vicende riferite da Acquaroli sono quelle oggetto dell'inchiesta»; polemica sul ruolo del Garante",
+          "summary": "In conferenza stampa Mancinelli (Pd) ha sostenuto che i fatti riferiti dal presidente coincidono con l'oggetto dell'inchiesta e che avrebbe dovuto rispondere ai cittadini, non solo sotto pressione. Nobili (Avs) ha definito «sconcertante e inaccettabile» l'indicazione che il Garante avrebbe avvisato Acquaroli, ricordando che il ruolo richiede imparzialità.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/11/minoranza-marche-vicende-riferite-ad-acquaroli-sono-quelle-oggetto-dinchiesta_7bb6d914-8528-4367-aba7-5e2b9f3b5896.html",
+          "published": "2026-11-11",
+          "tags": [
+            "Regione",
+            "Opposizioni"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Il ruolo delle istituzioni di garanzia è decisivo: come tutelarne l'indipendenza e la trasparenza? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ricostruzione, interrogatori davanti al gip per l'ex Monachette di Macerata: il gip si riserva sulle misure cautelari",
+          "summary": "L'accusa riguarda un finanziamento di 350mila euro legato a Intermesoli che sarebbe stato in parte destinato a Pistarelli e un funzionario Erdis (Pompili) accusato di aver agevolato l'operazione. Intermesoli e Pompili non hanno risposto; Allocco sì. La Procura chiede carcere per Intermesoli e Allocco e domiciliari per Pompili. Sono ipotesi accusatorie ancora da accertare.",
+          "source": "Civitanova Live",
+          "url": "https://www.civitanovalive.it/2026/11/12/interrogatori-facolta-di-non-rispondere-e-richieste-di-misure-cautelari-davanti-al-gip-i-protagonisti-della-vicenda/",
+          "published": "2026-11-12",
+          "tags": [
+            "Legalità",
+            "Sisma"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Le inchieste seguono il loro corso; la politica può occuparsi di prevenzione, con appalti, subappalti ed enti pubblici sotto controllo. Presunzione di innocenza fino a sentenza. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Electrolux, a Cerreto d'Esi il referendum approva l'intesa con l'87% dei voti: 99 sì, 14 no",
+          "summary": "Su 149 aventi diritto hanno votato in 114. L'intesa del Mimit evita la chiusura del 31 dicembre e mantiene le produzioni fino a una soluzione di reindustrializzazione. La Fiom parla di un primo risultato della mobilitazione e promette di vigilare sugli impegni, pronta a riprendere la lotta.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/economia/2026/11/11/electrolux-si-allaccordo-dall87-dei-lavoratori-stabilimento-di-cerreto-desi_5506fdd4-8fc6-404e-bec0-25ff6b7ec12e.html",
+          "also": [
+            {
+              "source": "Avvenire",
+              "url": "https://www.avvenire.it/economia/electrolux-alla-fine-dimezza-gli-esuberi-cosa-succede-sede-per-sede_115286"
+            }
+          ],
+          "published": "2026-11-11",
+          "tags": [
+            "Lavoro",
+            "Electrolux"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Il confronto tra impresa, governo e sindacati ha evitato il peggio; ora serve un piano di reindustrializzazione. Quali competenze per trattenere i giovani nelle Marche? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "La manovra spacca le Marche: Pd e Cgil denunciano «sanità ko», la Giunta rivendica Zes e riduzione delle tasse",
+          "summary": "Cesetti (Pd) e la Cgil contestano un fondo sanitario che cresce meno del 2% con inflazione al 5,2%; l'assessore Bugaro difende il rifinanziamento delle Zes (1,4 miliardi per il 2027) e il sostegno alle imprese contro il caro energia. Calcinaro invita alla prudenza perché l'iter è lungo. Articolo del 7 novembre, tema ancora in discussione.",
+          "source": "Il Resto del Carlino",
+          "url": "https://www.ilrestodelcarlino.it/marche/la-manovra-spacca-le-marche-78e68da1",
+          "published": "2026-11-07",
+          "tags": [
+            "Manovra",
+            "Sanità"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Fondi sanitari e Zes si giudicano dai risultati per i cittadini marchigiani: quali tempi e quali assunzioni per ridurre le liste d'attesa? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Scuola e montagna nelle Marche: Uil stima 400 posti a rischio e 29 Comuni esclusi dalla classificazione montana",
+          "summary": "Secondo la Uil Scuola Marche i tagli della manovra metterebbero a rischio circa 400 posti; il sindacato segnala anche l'esclusione di 29 Comuni dall'elenco dei montani. Per Mangialardi (Pd) a pagare sarebbero soprattutto i precari. Stime sindacali, articolo del 7 novembre.",
+          "source": "Il Resto del Carlino",
+          "url": "https://www.ilrestodelcarlino.it/marche/la-manovra-spacca-le-marche-78e68da1",
+          "published": "2026-11-07",
+          "tags": [
+            "Scuola",
+            "Entroterra"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Senza scuole e servizi l'entroterra si spopola. Quali strumenti per tenere i giovani nei borghi? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Consiglio regionale, seduta del 10 novembre: all'ordine del giorno nidi, salute mentale, piano dipendenze, carceri e salario minimo negli appalti",
+          "summary": "Oltre al dibattito sull'inchiesta sisma, il programma prevedeva le proposte di legge su nidi d'infanzia e servizio di sollievo per la salute mentale, il Piano regionale dipendenze 2026-2028, interrogazioni su sanità penitenziaria e nuovo carcere di Camerino e mozioni, tra cui il salario minimo di 9 euro negli appalti regionali. Gli esiti dei voti non sono stati verificati.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/04/il-consiglio-regionale-delle-marche-si-riunira-martedi-10-novembre_56522822-f4ca-40b2-ad9f-166fe335a691.html",
+          "also": [
+            {
+              "source": "Riviera Oggi",
+              "url": "https://www.rivieraoggi.it/2026/11/04/445622/consiglio-regionale-marche-tutti-i-punti-allordine-del-giorno/"
+            }
+          ],
+          "published": "2026-11-04",
+          "tags": [
+            "Regione",
+            "Consiglio"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Servizi per l'infanzia e salute mentale sono temi concreti per giovani e famiglie. Quali risorse per renderli accessibili ovunque? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
