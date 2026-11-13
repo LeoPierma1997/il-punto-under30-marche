@@ -1,0 +1,356 @@
+{
+  "date": "2026-11-13",
+  "label": "Venerdì 13 novembre 2026",
+  "intro": "Dopo la missione di Witkoff e Kushner a Mosca e il vertice di Dublino, l'Europa discute come sedersi al tavolo sull'Ucraina; in Italia vertice governo-opposizioni sugli allarmi bomba nelle scuole e correttivi alla manovra, mentre nelle Marche il Riesame conferma il carcere per sei indagati dell'inchiesta sul sisma.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Ucraina, Witkoff e Kushner da Putin: Mosca ridimensiona l'apertura agli europei e li condiziona allo stop degli aiuti a Kiev",
+          "summary": "Gli inviati Usa sono andati a Mosca per ottenere il via libera di Putin a una presenza europea ai negoziati, oggi solo trilaterali. Witkoff ha detto che gli europei «si uniranno al prossimo incontro», ma il Cremlino ha frenato: l'aiuto Ue all'Ucraina dovrebbe cessare e Bruxelles scegliere tra «pace» e «guerra». Putin punta a rivedere l'architettura di sicurezza europea; i leader riuniti a Dublino lo hanno respinto.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/12/russia-plays-down-peace-talks-with-europe-after-witkoff-raises-hopes-of-breakthrough",
+          "published": "2026-11-12",
+          "tags": [
+            "Ucraina",
+            "Negoziati"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Se la Russia pone condizioni alla presenza europea, il punto è con quali strumenti l'Europa pesa al tavolo. Su Kiev Calenda ha chiesto al governo un nuovo pacchetto di aiuti entro un mese: lo spunto è legare presenza ai negoziati e sostegno concreto all'Ucraina.",
+            "refs": [
+              {
+                "label": "Calenda, intervista a Maria Teresa Meli – Corriere della Sera (ripresa da Adnkronos), 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Dublino, vertice della Comunità politica europea: sostegno a Kiev, nuove sanzioni in arrivo e il nodo dell'inviato unico Ue",
+          "summary": "I leader dei 48 Paesi hanno ribadito il sostegno all'Ucraina; von der Leyen ha annunciato un 22° pacchetto di sanzioni e nuovi finanziamenti a Kiev prima del prossimo Consiglio europeo. Restano le divisioni sul dialogo con Mosca: Rama lo ritiene necessario, Orpo chiede un ruolo diretto per l'Europa nei negoziati. Si discute anche di nominare un inviato comune; Meloni, in una lettera a Costa, aveva criticato il disordine dei formati europei.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/en/2026/11/12/the-european-political-community-is-seeking-unity-on-ukraine-but-the-putin-and-trump-issues-remain/",
+          "also": [
+            {
+              "source": "EUobserver",
+              "url": "https://euobserver.com/247519/trump-vows-beautiful-russia-deal-as-eu-agonises-over-which-envoy-to-send-to-ukraine-peace-talks/"
+            }
+          ],
+          "published": "2026-11-12",
+          "tags": [
+            "Ue",
+            "Difesa"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Un'Europa con 27 voci e nessun inviato comune pesa poco dove si decide la sua sicurezza. Quale mandato e quale volto per una diplomazia europea unica? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Gaza, raid israeliano sull'ospedale Nasser di Khan Yunis: almeno sei morti, l'Idf parla di base di Hamas",
+          "summary": "Nella notte tra l'11 e il 12 novembre almeno due missili hanno colpito il reparto di chirurgia del più grande ospedale ancora funzionante nella Striscia; secondo i soccorsi i morti sono almeno sei e i feriti oltre venti. L'esercito israeliano afferma che la struttura era usata dai miliziani di Hamas, versione riportata da Il Post dal profilo X dell'Idf. È il primo attacco al Nasser dalla tregua dell'ottobre 2025.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/12/israele-attacco-ospedale-nasser-sei-persone-uccise",
+          "published": "2026-11-12",
+          "tags": [
+            "Gaza",
+            "Medio Oriente"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "La tregua regge solo sulla carta se si continua a colpire strutture sanitarie. Quale ruolo può avere l'Europa nel far rispettare il diritto umanitario? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "La Corte di giustizia Ue respinge tutti e sette i ricorsi della Polonia contro le norme climatiche del Green Deal",
+          "summary": "I giudici di Lussemburgo hanno stabilito che per adottare le regole contestate (tra cui stop ai motori termici dal 2035, Ets2 e Cbam) bastava la maggioranza qualificata, non l'unanimità, come sosteneva Varsavia. La sentenza conferma il quadro: Cbam è già a regime, Ets2 dovrebbe partire nel 2027. Sul calendario di Ets2 la partita resta politica, con Polonia e altri Paesi che chiedono rinvii, e se ne riparlerà al vertice di dicembre.",
+          "source": "Moncloa.com",
+          "url": "https://www.moncloa.com/2026/11/12/tjue-avala-pacto-verde-polonia-3466547/",
+          "published": "2026-11-12",
+          "tags": [
+            "Ue",
+            "Clima"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "La Corte chiude il fronte giuridico ma resta quello politico: come tenere insieme obiettivi climatici e competitività dell'industria europea, in particolare quella dell'auto? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Cittadini Ue chiedono la sospensione dell'accordo di associazione con Israele: consegnate 1,1 milioni di firme alla Commissione",
+          "summary": "L'iniziativa dei cittadini europei ha raccolto 1.117.104 firme validate, superando la soglia in 12 Stati membri, ed è stata formalmente presentata il 12 novembre. La Commissione incontrerà gli organizzatori nelle prossime settimane, il Parlamento terrà un'audizione pubblica e la risposta ufficiale è attesa entro il 12 maggio 2027. L'esame non obbliga la Commissione ad accogliere la richiesta.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/en/2026/11/12/the-eu-commission-is-due-to-respond-by-may-to-the-request-to-suspend-the-agreement-with-israel/",
+          "published": "2026-11-12",
+          "tags": [
+            "Ue",
+            "Israele"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Gli strumenti di partecipazione europea mostrano la loro forza e i loro limiti: serve davvero una risposta politica, non solo procedurale? Spunto sulla democrazia europea. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, scontro Messina-Meloni sul Superbonus e correttivi in discussione: scuola, pensioni, sanità",
+          "summary": "Il numero uno di Intesa Sanpaolo, Messina, ha definito «sudamericane» alcune misure; Meloni ha risposto da Dublino che non lo sono. In maggioranza si studiano modifiche: Forza Italia giudica inaccettabile il taglio di circa 7.000 posti tra docenti e Ata e si valuta un rinvio al 2029, mentre Lega e Forza Italia chiedono un fondo per le pensioni basse dei comparti sicurezza. Giorgetti ribadisce che ogni correttivo deve avere coperture.",
+          "source": "Firenze Post",
+          "url": "https://www.firenzepost.it/2026/11/12/manovra-maggioranza-studia-modifiche-su-scuola-sanita-e-pensioni-messina-misure-sudamericane-meloni-non-lo-sono/",
+          "also": [
+            {
+              "source": "Teleborsa",
+              "url": "https://www.teleborsa.it/News/2026/11/12/manovra-correttivi-mirati-su-sanita-pensioni-e-scuola-9.html"
+            }
+          ],
+          "published": "2026-11-12",
+          "tags": [
+            "Manovra",
+            "Conti pubblici"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Una manovra rattoppata a colpi di emendamenti di bandiera, con ognuno che difende il suo capitolo. Calenda l'ha definita fatta di tanti piccoli interventi che non risolvono i problemi: lo spunto è chiedere priorità chiare su crescita e lavoro.",
+            "refs": [
+              {
+                "label": "Calenda sulla manovra, intervista nella sede di Azione – Agenzia Vista (TGCAL24), 3 novembre 2026",
+                "url": "https://www.tgcal24.it/video-agenzia-vista/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Allarmi bomba nelle scuole, vertice a Palazzo Chigi tra governo e opposizioni: da oggi un tavolo tecnico",
+          "summary": "Dopo le mail con falsi allarmi arrivate a molte scuole l'11 e il 12 novembre, il governo ha incontrato per due ore le opposizioni. Da oggi è attivo un tavolo tecnico che definirà misure a breve, medio e lungo termine e criteri per riconoscere le minacce infondate. Gli autori delle mail non sono stati individuati. Schlein e Bonelli chiedono più risorse per la cybersicurezza, Conte un protocollo unitario.",
+          "source": "Adnkronos",
+          "url": "https://www.adnkronos.com/politica/allarmi-bomba-meloni-opposizioni_1L7zkmdK41bok9BsexdOk6",
+          "published": "2026-11-12",
+          "tags": [
+            "Sicurezza",
+            "Cyber"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Calenda ha parlato di clima positivo al tavolo e rilanciato lo «scudo democratico»; ad AdnTalks aveva detto che l'Italia è molto indietro sulla difesa digitale. Spunto: quali investimenti in cybersicurezza e come difendere scuole e dibattito pubblico dalle interferenze.",
+            "refs": [
+              {
+                "label": "Calenda su allarmi bomba e «scudo democratico» – Adnkronos, 12 novembre 2026",
+                "url": "https://www.adnkronos.com/politica/allarmi-bomba-meloni-opposizioni_1L7zkmdK41bok9BsexdOk6"
+              },
+              {
+                "label": "Calenda ad AdnTalks su cyberattacchi e interferenze russe – Gazzetta di Reggio (Adnkronos), 11 novembre 2026",
+                "url": "https://www.gazzettadireggio.com/2026/11/11/carlo-calenda-ospite-di-adntalks-lintervista-cyberattacchi-governo/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Protezione civile, Mattarella promulga la legge ma scrive alle Camere: deroghe penali troppo ampie, serve un quadro omogeneo",
+          "summary": "La legge introduce una causa di non punibilità per reati colposi di autorità, operatori e volontari che seguono linee guida e buone pratiche. Nella lettera a Fontana, La Russa e Meloni il Capo dello Stato osserva che l'esclusione copre anche la colpa grave, una deroga molto ampia, e invita a valutare regole coerenti tra i diversi settori, perché altre categorie potrebbero chiedere lo stesso trattamento.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/12/mattarella-firma-la-legge-sulla-protezione-civile-ma-con-una-lettera-ai-presidenti_bb66bb20-5294-4f3b-adcb-861abf32d9bc.html",
+          "published": "2026-11-12",
+          "tags": [
+            "Giustizia",
+            "Quirinale"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Responsabilità e tutele degli amministratori pubblici: come proteggere chi decide nell'emergenza senza creare scudi penali selettivi? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Decreto scuola, emendamento sulla rappresentatività sindacale: la Flc Cgil denuncia la cancellazione del peso del voto Rsu",
+          "summary": "Secondo la Flc Cgil, un emendamento approvato in commissione al Senato elimina il peso dei voti delle liste Rsu dal calcolo della rappresentatività nel solo comparto scuola, inserendo la norma in un decreto che non tratta la materia. Il sindacato chiede il ritiro, parla di norma incostituzionale e annuncia mobilitazione. La ricostruzione è del sindacato; la fonte non riporta la posizione della maggioranza.",
+          "source": "Newsistruzione",
+          "url": "https://www.newsistruzione.it/2026/11/12/rappresentanza-scuola-maggioranza-cancella-voto-rsu",
+          "published": "2026-11-12",
+          "tags": [
+            "Scuola",
+            "Sindacati"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Su regole che toccano la rappresentanza dei lavoratori conta il metodo: è giusto cambiarle con un emendamento a un decreto su altro, senza confronto con le parti sociali? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Centrosinistra, il tavolo sulla politica estera si aggiorna al 17 novembre: resta il nodo degli aiuti militari a Kiev",
+          "summary": "Pd, M5s, Avs, Più Europa, Iv e altre sigle concordano su Medio Oriente, multilateralismo e ruolo dell'Europa, ma restano distanti sulle armi all'Ucraina: M5s teme l'escalation, Più Europa e Iv dicono che senza armi non c'è negoziato. La riunione è stata definita interlocutoria; si riprende martedì 17, con la decisione finale rimessa al tavolo dei leader.",
+          "source": "askanews",
+          "url": "https://askanews.it/2026/11/12/centrosinistra-si-lavora-a-intesa-su-politica-estera-ma-resta-nodo-armi-a-kiev/",
+          "published": "2026-11-12",
+          "tags": [
+            "Opposizioni",
+            "Ucraina"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Un'alternativa di governo si misura sulla politica estera: si può proporre di governare senza sciogliere il nodo su Ucraina e difesa? Spunto di riflessione sulla coerenza delle coalizioni. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta sul sisma, il Riesame conferma il carcere per sei indagati, tra cui l'ex capo di gabinetto di Acquaroli",
+          "summary": "Il Tribunale del Riesame di Ancona ha respinto le richieste di scarcerazione di Fabio Pistarelli, ex capo di gabinetto del presidente della Regione fino a dicembre 2025, e di cinque imprenditori. Il collegio ha confermato l'impianto dell'accusa della Dda su presunti condizionamenti negli appalti della ricostruzione e sulle infiltrazioni nei subappalti. Gli indagati sono presunti innocenti fino a sentenza definitiva.",
+          "source": "Vivere Fermo",
+          "url": "https://www.viverefermo.it/2026/11/12/inchiesta-ricostruzione-pistarelli-e-crucianelli-restano-in-carcere-respinti-i-ricorsi/207492",
+          "published": "2026-11-12",
+          "tags": [
+            "Ricostruzione",
+            "Legalità"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "La ricostruzione post-sisma è soldi pubblici e fiducia dei territori: quali controlli su appalti e subappalti servono perché non resti il sospetto? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Consiglio regionale, seduta sull'inchiesta: l'opposizione parla di responsabilità politica, bocciata la risoluzione su Castelli e Acquaroli",
+          "summary": "Dieci interrogazioni delle opposizioni sono state discusse in Aula, con risposta della sottosegretaria Luconi al posto di Acquaroli, e poi un dibattito di oltre cinque ore. Pd, M5s, Avs e le altre minoranze sostengono che la Giunta non vigilò su Pistarelli, mentre il presidente ha parlato di strumentalizzazioni. La risoluzione che chiedeva a Castelli e Acquaroli di riferire sulla ricostruzione è stata respinta.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/10/inchiesta-sisma-minoranza-acquaroli-non-vigilo-su-ex-capo-gabinetto_3f015862-c17f-494a-9032-61b37cf14ceb.html",
+          "also": [
+            {
+              "source": "TV Centro Marche",
+              "url": "https://www.tvcentromarche.it/2026/11/11/acquaroli-mafia-e-corruzione-non-mi-riguardano/"
+            }
+          ],
+          "published": "2026-11-10",
+          "tags": [
+            "Regione",
+            "Opposizione"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "La differenza tra responsabilità penale, che spetta ai giudici, e responsabilità politica, che spetta agli eletti: come si misura la seconda? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "FdI: Pistarelli allontanato dopo 26 giorni dalle voci, annunciata una mozione sulla legalità con tavolo tecnico anti-infiltrazioni",
+          "summary": "Secondo la sottosegretaria Luconi (FdI), Pistarelli si dimise dopo 26 giorni dalle voci di novembre 2025 e non si sapeva di indagini; il capogruppo Putzu ha rivendicato la scelta e annunciato una mozione per un tavolo tecnico contro le infiltrazioni mafiose. L'assessore Bugaro accusa la minoranza di cercare visibilità, mentre Avs contesta l'assenza di Acquaroli dall'Aula. La Dda ha intanto depositato nuovi atti al Riesame.",
+          "source": "La Provincia di Fermo",
+          "url": "https://www.laprovinciadifermo.com/inchiesta-sisma-nelle-marche-la-dda-deposita-nuovi-atti-al-riesame-e-in-regione-e-scontro-politico-su-acquaroli/",
+          "published": "2026-11-10",
+          "tags": [
+            "Legalità",
+            "Maggioranza"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Un tavolo tecnico contro le infiltrazioni può essere utile se ha poteri e tempi chiari: quali controlli concreti su cantieri e subappalti? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Nuovo ospedale di Macerata, il Consiglio comunale approva la mozione sugli espropri (19 sì, 6 no); Strada Comune: «Tre ore e mezza senza un progetto»",
+          "summary": "La mozione di maggioranza sulle scelte urbanistiche, emendata, è passata con 19 voti favorevoli e 6 contrari; l'area definitiva dipende ancora dai rilievi archeologici (almeno 16 ettari, contro i 24 della variante). Dall'opposizione, Strada Comune sostiene che manchino progetto, finanziamenti e tempi e chiede certezze sui 90 milioni annunciati a gennaio 2025. FdI replica che i fondi bastano per partire; i punti non discussi sono rinviati al 30 novembre.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/12/ospedale-tre-ore-e-mezza-a-parlare-di-perimetri-ed-espropri-quando-non-ce-neanche-un-progetto/2125502",
+          "also": [
+            {
+              "source": "Cronache Maceratesi",
+              "url": "https://www.cronachemaceratesi.it/2026/11/10/nuovo-ospedale-di-macerata-riportare-in-consiglio-le-scelte-urbanistiche/2124962/"
+            }
+          ],
+          "published": "2026-11-12",
+          "tags": [
+            "Sanità",
+            "Macerata"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Un ospedale nuovo è una promessa lunga: prima del cantiere servono progetto, risorse e cronoprogramma verificabili. Come rendere trasparenti le tappe ai cittadini? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Allarmi bomba nelle scuole, il sindaco di Fano Serfilippi: «Presidi soli, serve un protocollo chiaro»",
+          "summary": "Il sindaco di Fano chiede al governo una circolare per i dirigenti scolastici che definisca un protocollo condiviso con prefetture, questure e Polizia postale, per evitare evacuazioni quando le verifiche non rilevano minacce concrete. Invoca la massima severità contro chi invia gli allarmi e segnala il ritardo della pubblica amministrazione sulle minacce digitali. L'articolo non indica quante scuole siano state evacuate.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/12/allarmi-bomba-sindaco-presidi-soli-serve-un-protocollo-chiaro_5655e76e-ebc6-45d4-9d6f-35ae6f5478f2.html",
+          "published": "2026-11-12",
+          "tags": [
+            "Scuola",
+            "Sicurezza"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Chi decide se evacuare? Dare ai presidi regole chiare è un tema concreto per i comuni e per le scuole delle Marche. Come coordinare enti locali e prefetture? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Piceno, cassa integrazione +192% nei primi nove mesi: la Cgil rilancia lo sciopero generale del 20 novembre",
+          "summary": "Secondo dati Inps elaborati da Ires Marche, le ore di cassa integrazione nel Piceno sono passate da circa 846 mila a circa 2,48 milioni (+192,7%), equivalenti secondo la Cgil a oltre 1.700 posti di lavoro. Il sindacato chiede di riaprire un tavolo istituzionale sul lavoro. Il 20 novembre manifestazione provinciale ad Ascoli (concentramento alle 10 in piazza Matteotti). Dati del 4 novembre, riportati come contesto.",
+          "source": "Vivere Ascoli",
+          "url": "https://www.vivereascoli.it/2026/11/04/cgil-ascoli-piceno-ore-di-cassa-integrazione-192-nel-piceno-nei-primi-nove-mesi-del-2026-la-crisi-evidente-il-20-novembre-sar-sciopero-generale/200807",
+          "published": "2026-11-04",
+          "tags": [
+            "Lavoro",
+            "Piceno"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "I numeri della cassa integrazione raccontano una crisi industriale che tocca soprattutto i giovani nel mercato del lavoro locale. Quali politiche attive per non perdere competenze nel territorio? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ancona Servizi, il Pd chiede a Silvetti di assumersi le responsabilità dopo le dimissioni dell'amministratore per i pranzi contestati",
+          "summary": "L'amministratore unico della partecipata comunale, Andrea Ciccarelli, si è dimesso dopo che il sindaco gli aveva revocato l'incarico per spese di pranzo ritenute eccessive. Il gruppo Pd replica alle parole del sindaco su amministrazioni passate chiedendo scuse e responsabilità nella scelta dei dirigenti. Nell'articolo non risultano accuse formali né responsabilità accertate; le valutazioni sono opinioni politiche. Notizia del 5 novembre.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/05/pd-ancona-silvetti-si-assuma-le-responsabilita-su-caso-ancona-servizi_6f60a621-749d-4067-a4e6-e49837f5990a.html",
+          "published": "2026-11-05",
+          "tags": [
+            "Ancona",
+            "Partecipate"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Le società partecipate gestiscono servizi e denaro dei cittadini: come rendere nomine e spese davvero trasparenti, a prescindere dal colore politico? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Scuola e aree interne, la Uil: nelle Marche a rischio circa 400 posti e 29 Comuni esclusi dalla classificazione montana",
+          "summary": "La Uil Marche stima circa 400 posti a rischio per i tagli agli organici della manovra 2027, soprattutto in piccoli comuni, aree montane e interne, e chiede che la denatalità non diventi un pretesto per risparmiare sull'istruzione. Segnala inoltre i 29 Comuni marchigiani esclusi dalla nuova classificazione montana e la fine delle misure legate al sisma. Notizia del 5 novembre, ripresa come contesto del dibattito su decreto scuola e manovra.",
+          "source": "Uil Marche",
+          "url": "https://www.uil-marche.it/2026/11/05/finanziaria-tagli-scuola-marche/",
+          "published": "2026-11-05",
+          "tags": [
+            "Scuola",
+            "Entroterra"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "La scuola è un presidio dell'entroterra: come garantire servizi e opportunità ai giovani nelle aree interne senza tagli lineari? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
