@@ -1,0 +1,350 @@
+{
+  "date": "2026-11-14",
+  "label": "Sabato 14 novembre 2026",
+  "intro": "Il vertice di Dublino fa nascere un team negoziale europeo sull'Ucraina (E5 più Costa e von der Leyen) mentre Putin dice no all'Europa al tavolo; in Italia il governo ritira i tagli alla scuola nella manovra e il Viminale detta le regole sugli allarmi bomba, mentre nelle Marche proseguono le polemiche sull'inchiesta sisma e arriva un piano da 440 milioni per 329 opere.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Dublino, l'Europa avrà un suo team negoziale sull'Ucraina: E5 più Costa e von der Leyen, Kallas esclusa",
+          "summary": "I leader riuniti a Dublino hanno scelto di non nominare un rappresentante unico: ai colloqui siederanno Francia, Germania, Italia, Polonia e Regno Unito insieme ai vertici di Consiglio e Commissione. Costa dice che l'Europa si siederà al tavolo «come una squadra sola»; von der Leyen parla di un percorso difficile. Il tema era stato portato da Meloni con una lettera a Costa, mentre Francia e Germania difendevano il formato già esistente.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/en/2026/11/13/e5-and-the-eu-europe-selects-its-negotiating-team-for-peace-between-russia-and-ukraine/",
+          "also": [
+            {
+              "source": "Il Post",
+              "url": "https://www.ilpost.it/2026/11/13/scelta-rappresentate-europeo-negoziati-ucraina-dublino/"
+            },
+            {
+              "source": "Euronews",
+              "url": "https://www.euronews.com/2026/11/13/eu-leaders-gather-in-dublin-to-decide-who-will-speak-for-europe-in-peace-talks"
+            }
+          ],
+          "published": "2026-11-13",
+          "tags": [
+            "Ucraina",
+            "Ue"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Un'Europa che negozia con sette inviati e nessuna voce unica rischia di pesare meno al tavolo: come si costruisce una politica estera europea con un mandato chiaro? Azione ha indicato come contraddizione la richiesta di Salvini di fermare gli aiuti a Kiev.",
+            "refs": [
+              {
+                "label": "Calenda e Lombardo (Azione) sulla linea su Kiev e su Salvini – Il Foglio, 31 ottobre 2026",
+                "url": "https://www.ilfoglio.it/politica/2026/10/31/news/le-linee-rosse-di-azione-su-forza-italia--412251"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Putin riceve Witkoff e Kushner e dice no all'Europa al tavolo: respinti truppe straniere e zona cuscinetto",
+          "summary": "Dopo Abu Dhabi, gli inviati di Trump hanno incontrato Putin per due ore e mezza, in parte mostrate in tv. Secondo Il Foglio, il presidente russo ha eluso la richiesta americana di un posto per l'Ue, ha ribadito che parlerà di sicurezza europea solo con Trump e ha definito le truppe straniere in Ucraina un «obiettivo legittimo». Proposta una tregua umanitaria a Kostiantynivka, sul modello di Oleshky; Kiev è scettica.",
+          "source": "Il Foglio",
+          "url": "https://www.ilfoglio.it/esteri/2026/11/13/news/giacche-incontri-e-i-no-di-putin-a-witkoff-e-kushner-in-diretta-tv--413546",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://ansa.it/sito/notizie/mondo/2026/11/12/witkoff-e-kushner-da-putin-poi-da-zelensky-fissati-nuovi-colloqui-ci-saranno-gli_3b13b03e-1348-4fd1-9b1f-f2a129c504cd.html"
+            }
+          ],
+          "published": "2026-11-13",
+          "tags": [
+            "Ucraina",
+            "Russia"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Se Mosca respinge ogni garanzia di sicurezza, quanto è credibile una pace senza l'Europa al tavolo? Una domanda su cui costruire un contenuto sul prezzo di un negoziato che lascia fuori chi paga e ricostruisce. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ucraina, al vertice del 26-27 novembre il 22° pacchetto di sanzioni e le opzioni per finanziare Kiev nel 2027",
+          "summary": "Von der Leyen ha annunciato che la Commissione presenterà al vertice straordinario un documento sulle opzioni di finanziamento dei bisogni ucraini per il 2027 e un nuovo pacchetto di sanzioni, con l'obiettivo di adottarlo entro fine anno. Alcuni Stati temono il segnale inviato durante i negoziati. Zelensky ha denunciato che le restrizioni su Starshield ostacolano l'intercettazione dei droni; Kallas porterà al Consiglio Affari esteri il tema dei beni a duplice uso forniti dalla Cina alla Russia.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/13/eu-leaders-gather-in-dublin-to-decide-who-will-speak-for-europe-in-peace-talks",
+          "published": "2026-11-13",
+          "tags": [
+            "Sanzioni",
+            "Ucraina"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Sostenere Kiev nel 2027 ha un costo: chi lo paga e con quali strumenti comuni? È il tema per un contenuto sul bilancio europeo e sulla difesa condivisa. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ets, accordo provvisorio Consiglio-Parlamento: 121 milioni di quote gratuite di CO2 per l'industria 2026-2030",
+          "summary": "Il 12 novembre Parlamento e Consiglio hanno raggiunto un'intesa provvisoria che porta a circa 121 milioni le quote gratuite per l'industria, contro gli 88 milioni proposti dalla Commissione: 28 milioni vengono da quote non assegnate e 5 sono una riserva per i settori più esposti al rischio di delocalizzazione. Serve ancora l'approvazione formale di entrambe le istituzioni.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/en/2026/11/13/council-and-parliament-agree-on-free-ets-co2-allowance-increase-to-shield-industry-from-foreign-competition/",
+          "published": "2026-11-13",
+          "tags": [
+            "Energia",
+            "Industria"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Come tenere insieme obiettivi climatici e competitività di chi produce in Europa? Un tema utile per parlare di imprese marchigiane energivore e di politica industriale. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Dublino, primo vertice Ue sull'intelligenza artificiale: sovranità tecnologica, rischi e dipendenza da fornitori extra-Ue",
+          "summary": "Al vertice informale i leader hanno discusso come competere con Usa e Cina proteggendo i cittadini dai rischi dell'Ia, con Mistral e Geoffrey Hinton tra gli ospiti. Metsola ha detto di essere stanca di sentir dire che l'Ue ha «perso la corsa»; Estonia e Finlandia chiedono regole Ue per rispondere a incidenti gravi. Sullo sfondo, il caso Nvidia dopo le dimissioni del ceo.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/13/eu-leaders-discuss-how-to-boost-europes-ai-industry-while-tackling-risks-at-dublin-summit",
+          "published": "2026-11-13",
+          "tags": [
+            "Ia",
+            "Sovranità"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Regolare l'Ia senza uccidere l'innovazione europea: dove sta l'equilibrio, e cosa significa per i giovani che cercano lavoro in questi settori? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, dietrofront del governo sui tagli alla scuola dopo l'incontro con i sindacati: sanità al centro della ricerca di risorse",
+          "summary": "Dopo quasi otto ore di incontri a Palazzo Chigi, il governo ha annunciato il ritiro dell'intervento che avrebbe ridotto quasi 7.000 posti tra docenti e Ata (85 milioni nel 2027, 250 dall'anno dopo). Le risorse che si trovano andranno alla sanità; sulle pensioni il confronto resta aperto in Parlamento. Meloni dice che «non erano tagli». La Cgil conferma lo sciopero generale del 20 novembre.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/13/manovra-il-governo-apre-alle-modifiche-saltano-i-tagli-alla-scuola-piu_a9e7d8e3-ebe1-4229-a908-26b2f2a973d6.html",
+          "also": [
+            {
+              "source": "ANSA – Cisl-Uil: il governo valuta più risorse per la sanità",
+              "url": "https://www.ansa.it/sito/notizie/politica/2026/11/13/manovra-cisl-uil-il-governo-valuta-laumento-delle-risorse-per-la-sanita_a9e7d8e3-ebe1-4229-a908-26b2f2a973d6.html"
+            }
+          ],
+          "published": "2026-11-13",
+          "tags": [
+            "Manovra",
+            "Scuola"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Una retromarcia dopo le proteste: la manovra è una lista di interventi da correggere uno a uno o ha una direzione? Calenda l'ha definita fatta di tanti piccoli interventi: il ritiro dei tagli può diventare spunto per chiedere priorità chiare su scuola, sanità e giovani.",
+            "refs": [
+              {
+                "label": "Calenda ad Affaritaliani, Roma – 3 novembre 2026: «Una manovra proprio malfatta, perché è costruita con una serie di piccoli interventi»",
+                "url": "https://www.affaritaliani.it/coffee/video/vista/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente.html"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Manovra, Meloni rivendica il taglio dell'Irpef al ceto medio; Schlein cita l'Upb, Renzi parla di 708 milioni di tasse in più",
+          "summary": "Meloni sostiene che un lavoratore con 30mila euro guadagna 1.300 euro netti in più l'anno e chi ne guadagna 55mila o più 1.200, e attacca la sinistra sulle patrimoniali. Schlein, citando l'Ufficio parlamentare di bilancio, dice che la misura aiuterebbe l'89% dei dirigenti e l'1% degli operai; Renzi contesta la tesi che le tasse non aumentino. Sono cifre sostenute dalle parti, non verificate dall'articolo.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/13/manovra-meloni-difesa-del-ceto-medio-e-premio-al-merito-ad-altri-la-retorica_a9e7d8e3-ebe1-4229-a908-26b2f2a973d6.html",
+          "published": "2026-11-13",
+          "tags": [
+            "Fisco",
+            "Irpef"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Chi beneficia davvero degli sgravi, e cosa resta a giovani e partite Iva con redditi bassi? Spunto per un confronto con numeri verificabili, senza slogan. Nessuna posizione attribuita ad Azione su questo punto.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ucraina, nasce il «formato di Dublino»: Meloni incassa un posto per l'Italia nel team negoziale europeo",
+          "summary": "Dopo il pranzo di lavoro a Dublino, un convoglio ha portato Zelensky e i consiglieri di Regno Unito, Francia, Germania, Italia e Polonia dagli inviati Usa. Secondo l'ANSA, la lettera di Meloni a Costa è stata decisiva e il consigliere diplomatico Fabrizio Saggio parteciperà ai prossimi round, probabilmente da Abu Dhabi tra due settimane. Fonti italiane ribadiscono il no a soldati italiani in Ucraina dopo un cessate il fuoco.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/mondo/2026/11/13/sullucraina-nasce-il-formato-di-dublino.-meloni-incassa-il-posto-negli-e5_3de8789e-2705-4127-8ce3-ab4379696a65.html",
+          "published": "2026-11-13",
+          "tags": [
+            "Politica estera",
+            "Ucraina"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Un risultato per l'Italia sul piano della presenza, ma resta il nodo della coerenza della maggioranza: Azione ha criticato la richiesta di Salvini di fermare gli aiuti a Kiev e ha accolto con favore la conferma di Meloni sulla linea del governo.",
+            "refs": [
+              {
+                "label": "Calenda e Lombardo (Azione) sulla linea su Kiev e su Salvini – Il Foglio, 31 ottobre 2026",
+                "url": "https://www.ilfoglio.it/politica/2026/10/31/news/le-linee-rosse-di-azione-su-forza-italia--412251"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Allarmi bomba nelle scuole, circolare del Viminale: minacce via mail in serie «inattendibili», evacuazioni non automatiche",
+          "summary": "Piantedosi ha inviato a prefetti e questori una circolare: le mail identiche inviate a più destinatari sono considerate inattendibili e le evacuazioni vanno decise solo in presenza di altri elementi di rischio. Il questore verifica e, se necessario, propone l'evacuazione al prefetto. I presidi dell'Anp accolgono con favore criteri condivisi; Mantovano cita 298,9 milioni per la cybersicurezza nella manovra.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/cronaca/2026/11/13/allarmi-bomba-la-circolare-del-viminale-inattendibili-le-minacce-con-mail-bombing_ca1d2b9c-c7e2-4e00-afb9-6dccb59191fb.html",
+          "published": "2026-11-13",
+          "tags": [
+            "Scuola",
+            "Sicurezza"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Come proteggere il diritto allo studio senza cedere a chi punta a creare panico? Spunto sulla responsabilità dei dirigenti scolastici e sugli investimenti in cybersicurezza. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Manovra, Cisl e Uil: il governo valuta più risorse per la sanità; Cgil: incontro «politicamente inutile»",
+          "summary": "Dopo l'incontro a Palazzo Chigi durato quasi due ore e mezza, Giorgetti ha detto che, anche alla luce del confronto con la Conferenza Stato-Regioni, il governo valuta ulteriori risorse per la sanità. Fumarola (Cisl) parla di un impegno a cercare risposte sulla rivalutazione delle pensioni in Parlamento; Ferrari (Cgil) conferma lo sciopero del 20 e critica una manovra basata su austerità e riarmo.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/13/manovra-cisl-uil-il-governo-valuta-laumento-delle-risorse-per-la-sanita_a9e7d8e3-ebe1-4229-a908-26b2f2a973d6.html",
+          "published": "2026-11-13",
+          "tags": [
+            "Sanità",
+            "Pensioni"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Le Regioni e i cittadini aspettano risposte su liste d'attesa e personale: dove trovare risorse stabili per la sanità senza scaricare i costi sulle generazioni future? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta sisma, Strada Comune a Macerata: Acquaroli riferisca in Consiglio sulle segnalazioni su Pistarelli",
+          "summary": "Dopo le deposizioni del presidente alla Dda, il gruppo Strada Comune sostiene che le prime segnalazioni sull'ex capo di gabinetto risalirebbero a novembre 2025 e che la Regione avrebbe dovuto informare magistratura e Anac. Acquaroli ha detto ai pm che non rientra nei compiti del capo di gabinetto occuparsi di un rinnovo d'appalto. Le accuse non sono accertate: Acquaroli è persona informata sui fatti, la responsabilità penale richiede sentenza definitiva.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/13/gestione-di-potere-a-palazzo-leopardi-un-quadro-sconcertante-acquaroli-torni-in-consiglio-a-chiarire/2125877/",
+          "published": "2026-11-13",
+          "tags": [
+            "Ricostruzione",
+            "Legalità"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Quando arriva una segnalazione su possibili irregolarità, qual è la procedura corretta e a chi va comunicata? Spunto sulla trasparenza degli enti pubblici nei fondi della ricostruzione. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ricostruzione, Piergallini (Pd): «La filiera Meloni-Castelli-Acquaroli non ha funzionato»",
+          "summary": "Il vicepresidente dell'Assemblea legislativa dice che la risposta della sottosegretaria Luconi in aula il 10 novembre non ha fornito i dati chiesti su coordinamento e controlli, e richiama il ruolo del vicecommissario nel dl 189/2016. Chiede verifica e trasparenza, non «giustizialismo». È una posizione politica dell'opposizione; nell'articolo non c'è replica della maggioranza.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/12/piergallini-pd-sulla-ricostruzione-la-filiera-non-ha-funzionato_9261a0af-5056-4f2f-b008-d31561c6c740.html",
+          "published": "2026-11-12",
+          "tags": [
+            "Ricostruzione",
+            "Regione"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Chi controlla i controllori nella filiera della ricostruzione? Un tema da trattare senza processi sommari ma chiedendo dati, tempi e responsabilità chiare. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sisma 2016, piano da 440,3 milioni per 329 opere pubbliche nelle Marche",
+          "summary": "La Cabina di coordinamento, presieduta dal commissario Castelli, ha approvato un piano per 329 interventi: 154 nel Maceratese (178,4 milioni), 74 nell'Ascolano (155,9), 71 nel Fermano, 21 nell'Anconetano e nove nel Pesarese. I soggetti attuatori devono presentare i cronoprogrammi entro il 31 gennaio 2027 e avviare le gare per i lavori entro il 31 marzo 2028.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/13/sisma-piano-da-440-milioni-per-329-opere-pubbliche-nelle-marche_07f2f2db-18cb-4fbc-ae61-649a4dc186bf.html",
+          "published": "2026-11-13",
+          "tags": [
+            "Sisma",
+            "Opere"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Rispettare i cronoprogrammi sarà il vero banco di prova: come si garantisce che i fondi diventino cantieri e servizi per i borghi dell'entroterra, anche per chi vuole restare a vivere lì? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sciopero generale Cgil del 20 novembre: cinque piazze nelle Marche, Santarelli attacca la manovra su lavoratori e sanità",
+          "summary": "Cortei a Fermo, Macerata, Pesaro, Ancona e Ascoli Piceno. Il segretario regionale Santarelli sostiene che la manovra penalizza circa mezzo milione di dipendenti e 400mila pensionati marchigiani e che il Fondo sanitario cresce dell'1,6% a fronte di un'inflazione del 5,4%. Sono dati e giudizi del sindacato.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/13/sciopero-generale-della-cgil-il-20-novembre-cinque-piazze-nelle-marche_92752918-3bde-430f-9f4e-eed024e65ff3.html",
+          "published": "2026-11-13",
+          "tags": [
+            "Sindacati",
+            "Manovra"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Quali richieste della piazza sono concrete e finanziabili, e quali no? Spunto per un contenuto che separa critica alla manovra e proposte alternative su salari, sanità e giovani. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Hp Composites, accordo con i creditori e fine della cassa integrazione; lunedì tavolo regionale",
+          "summary": "Conclusa la composizione negoziata della crisi, l'azienda di Campolungo annuncia piena operatività e salvaguardia di tutta la forza lavoro. Fim, Fiom e Uilm parlano di passaggio importante ma di fase «delicata» e chiedono di mantenere il confronto con Regione e azienda; nuovo incontro il 16 novembre.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/13/hp-composites-sindacati-preoccupati-lunedi-nuovo-tavolo-sul-futuro_0c31993b-9fbb-4ce0-93d6-22f1fc19eb01.html",
+          "published": "2026-11-13",
+          "tags": [
+            "Lavoro",
+            "Industria"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Una crisi industriale che si chiude bene è un caso da raccontare: quali strumenti di sostegno hanno funzionato e come replicarli nel Piceno? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ancona, la giunta approva una variazione di bilancio da 1,9 milioni: contratto dipendenti, eventi natalizi, energia",
+          "summary": "La variazione, finanziata secondo il Comune con economie di gestione e spostamenti tra settori, copre soprattutto il rinnovo del contratto nazionale dei dipendenti comunali, luminarie e programma natalizio, Bando Cultura, quota per Marche Teatro e maggiori costi dell'energia. Passa ora in commissione e poi al voto del Consiglio comunale.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/13/spese-per-natale-ad-ancona-e-contratti-variazione-bilancio-da-19-milioni_37fbbdba-7f35-4fe0-852a-421f2efcfb7d.html",
+          "published": "2026-11-13",
+          "tags": [
+            "Comuni",
+            "Bilancio"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Come si bilanciano spese correnti e investimenti nei bilanci comunali, e cosa chiedere perché gli eventi producano ricadute reali su commercio e giovani? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Violenza di genere nelle Marche: nel 2025 855 donne ai centri antiviolenza, 3 femminicidi",
+          "summary": "Secondo i dati regionali riportati dall'ANSA, gli accessi ai Cav crescono dell'1,7%; nel 79,9% dei casi l'autore è il partner o l'ex. I centri per uomini autori di violenza hanno preso in carico 282 utenti, con 90 in lista d'attesa. Meri Marziali, del Forum regionale, chiede continuità della rete e prevenzione nelle scuole.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/13/centri-antiviolenza-marche-nel-2025-gli-accessi-delle-donne-sono_3229c547-2ec5-40ac-b83f-783ad5b69811.html",
+          "published": "2026-11-13",
+          "tags": [
+            "Welfare",
+            "Scuola"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "La prevenzione parte dalle scuole: quali percorsi educativi e quali risorse stabili servono ai territori? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Nordio ad Ancona: «L'effetto del referendum ormai è stato digerito»",
+          "summary": "A margine di un evento pubblico ad Ancona, il ministro della Giustizia ha risposto a una domanda sulle prossime politiche sostenendo che l'effetto del referendum è superato, come mostrerebbero sondaggi e comunali di Venezia dove il centrosinistra ha perso al primo turno. Per Nordio non c'è parallelo tra voto referendario e voto politico o amministrativo.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/13/nordio-leffetto-del-referendum-ormai-e-stato-digerito_a7c023cc-f4b5-401f-820d-2b5e59f65ee3.html",
+          "published": "2026-11-13",
+          "tags": [
+            "Giustizia",
+            "Elezioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Le interpretazioni dei risultati elettorali sono sempre di parte: quali dati servono per leggere davvero gli umori degli elettori in vista delle politiche? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
