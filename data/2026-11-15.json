@@ -1,0 +1,350 @@
+{
+  "date": "2026-11-15",
+  "label": "Domenica 15 novembre 2026",
+  "intro": "Zelensky rivela la proposta Usa di Nato in cambio del Donbass mentre emerge il documento russo con la richiesta di ritiro dell'Alleanza ai confini del 1997; in Italia la manovra tra forfettari, banche e giovani, e Calenda chiude con D'Amato; nelle Marche lo scontro sui tagli alle sedute operatorie dell'Ast di Macerata e il lavoro dopo il referendum Electrolux.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Zelensky: gli Usa propongono l'adesione alla Nato in cambio del Donbass alla Russia; il 19 novembre trilaterale Xi-Trump-Putin",
+          "summary": "Rientrato a Kiev, Zelensky ha detto che Washington ha ipotizzato per la prima volta l'ingresso dell'Ucraina nella Nato in cambio della cessione dell'intero Donbass. Ha ribadito che Kiev non cederà territori e ha parlato di un referendum, perché non può decidere da solo. L'adesione richiede comunque l'unanimità degli alleati, e restano aperti i nodi su tempi e applicazione dell'articolo 5. Il Cremlino ha confermato per il 19 novembre un trilaterale con Trump e Xi in Cina.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/europa/notizie/rubriche/altrenews/2026/11/14/ansazelensky-gli-usa-ci-propongono-la-nato-in-cambio-del-donbass_0440ec02-e3db-48c5-b433-fc8ea263e325.html",
+          "also": [
+            {
+              "source": "Il Fatto Quotidiano",
+              "url": "https://www.ilfattoquotidiano.it/2026/11/14/zelensky-cessione-territori-ucraina-nato-notizie/8571829/"
+            }
+          ],
+          "published": "2026-11-14",
+          "tags": [
+            "Ucraina",
+            "Negoziati"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Una pace che passa sopra la testa degli ucraini e degli europei può essere duratura? Spunto: chi decide i confini d'Europa e con quali garanzie di sicurezza. Calenda ha già detto che, con questa linea di Trump, la situazione in Ucraina non si sblocca.",
+            "refs": [
+              {
+                "label": "Calenda ad Agenzia Vista – Libero Quotidiano, 6 novembre 2026",
+                "url": "https://www.liberoquotidiano.it/news/video-news-by-vista/49539147/calenda-trump-e-un-asset-di-putin-a-tutti-gli-effetti-cosi-la-situazione-in-ucraina-non-si-sblocca/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Il documento russo ad Abu Dhabi: Nato ai confini del 1997 e fine del nuclear sharing, Tusk lo definisce inaccettabile",
+          "summary": "Il New York Times ha pubblicato un «non-paper» russo, datato 10 novembre e portato ai colloqui di Abu Dhabi con gli inviati Usa Witkoff e Kushner. Chiede il ritiro della Nato ai confini del 1997, lo stop alle armi occidentali a Kiev, la fine della condivisione nucleare e un'Ucraina nell'Ue senza partecipazione alla difesa comune. Tusk ha parlato di condizioni inaccettabili, mentre due fonti coinvolte nei colloqui indicano che potrebbe essere solo un punto di partenza.",
+          "source": "Il Fatto Quotidiano",
+          "url": "https://www.ilfattoquotidiano.it/2026/11/14/ucraina-putin-nato-confini-1997-notizie/8571944/",
+          "published": "2026-11-14",
+          "tags": [
+            "Ucraina",
+            "Sicurezza"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Se Mosca parte da richieste di questo tipo, che spazio reale ha l'Europa per difendere la propria architettura di sicurezza? Spunto utile per un contenuto sul perché servono una difesa comune europea e un posto Ue al tavolo. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Bce, due candidati per la successione di Lagarde: Hernández de Cos favorito, Francia e Germania trattano sul pacchetto di nomine",
+          "summary": "Un funzionario Ue ha confermato a Dublino che i candidati alla presidenza della Bce sono due; Euronews indica Pablo Hernández de Cos e Klaas Knot. Secondo la stampa spagnola e tedesca, Parigi e Berlino cercano un accordo sull'intero pacchetto dei posti nel Comitato esecutivo, perché tre dei sei membri lasceranno entro cinque mesi. Merz parla di intesa vicina ma non ancora definitiva, e il 26 novembre il presidente Costa dovrebbe avviare le consultazioni.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/13/france-and-germany-near-deal-on-de-cos-for-ecb-top-job-as-eu-confirms-two-candidates",
+          "published": "2026-11-13",
+          "tags": [
+            "Bce",
+            "Ue"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Le nomine delle istituzioni europee si decidono con trattative tra capitali: che peso ha l'Italia nel pacchetto Bce? Spunto sul rapporto tra istituzioni economiche europee e interessi dei giovani (mutui, lavoro). Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Turchia e Qatar firmano un accordo di difesa reciproca contro attacchi esterni",
+          "summary": "Erdoğan e l'emiro del Qatar hanno firmato a Istanbul, il 13 novembre, un accordo di difesa reciproca: consultazioni sulle minacce, esercitazioni congiunte e progetti nell'industria della difesa. Il comunicato non precisa gli obblighi militari in caso di attacco. È il secondo patto di questo tipo per Ankara dopo quello con Pakistan e Arabia Saudita ad agosto, e nei colloqui si è parlato anche di Iran-Usa e della riapertura dello stretto di Hormuz.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/14/turchia-e-qatar-firmano-accordo-di-difesa-reciproca-contro-attacchi-esterni",
+          "published": "2026-11-14",
+          "tags": [
+            "Medio Oriente",
+            "Difesa"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Nascono nuove alleanze di difesa fuori dalla Nato: cosa significa per l'Europa e per l'Italia nel Mediterraneo allargato? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Casa Bianca: a Shenzhen Trump parlerà con Xi e Putin di Iran, non di Ucraina",
+          "summary": "La Casa Bianca ha fatto sapere che nel trilaterale a margine del vertice Apec di Shenzhen, giovedì 19 novembre, Trump affronterà con Xi e Putin il dossier Iran e non quello ucraino. L'annuncio arriva mentre il negoziato su Kiev procede su canali separati, tra Abu Dhabi e il nuovo formato europeo di Dublino.",
+          "source": "ANSA",
+          "url": "https://ansa.it/sito/notizie/mondo/mediooriente/2026/11/14/casa-bianca-trump-discutera-di-iran-con-xi-e-putin-non-di-ucraina_52f18b18-fb69-4fdb-985f-489287578816.html",
+          "published": "2026-11-14",
+          "tags": [
+            "Usa",
+            "Iran"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Le grandi potenze trattano tra loro mentre l'Europa resta spettatrice: come si costruisce un'Ue capace di pesare nei tavoli globali? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, Meloni difende la soglia forfettaria a 100mila euro: «Per la sinistra gli autonomi sono di serie B»",
+          "summary": "In un video sui social la premier ha spiegato che dal 2027 il regime forfettario sale da 85mila a 100mila euro di fatturato ai fini Irpef, mentre per l'Iva serve un via libera Ue. Secondo Meloni chi superava la soglia vedeva crescere il carico fiscale e perdeva incentivo a crescere. Ha respinto le critiche delle opposizioni, ricordando che gli autonomi non hanno ferie pagate, tredicesima o liquidazione.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/14/meloni-per-la-sinistra-gli-autonomi-di-serie-b-noi-aiutiamo-chi-rischia_a45aae7e-ea75-4996-a2d0-5519950bc747.html",
+          "published": "2026-11-14",
+          "tags": [
+            "Manovra",
+            "Fisco"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Il problema dei giovani professionisti è il costo del lavoro e la tutela, non solo la soglia della flat tax. Calenda ha definito la manovra fatta di interventi a pioggia che accontentano tutti senza risolvere niente: si può costruire un contenuto su cosa servirebbe davvero per chi apre la partita Iva a vent'anni.",
+            "refs": [
+              {
+                "label": "Calenda ad Agenzia Vista – AGI, 3 novembre 2026",
+                "url": "https://www.agi.it/vista-tv/video/2026-11-03/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente-39861894/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Manovra e giovani: meno di un miliardo su 26 per gli under 35, il grosso va a pensionati e anziani",
+          "summary": "Secondo l'analisi del Post, su circa 26 miliardi di manovra le misure per gli under 35 valgono meno di un miliardo. Tra queste l'Irpef all'1% sugli aumenti di stipendio degli under 30 fino a 28mila euro e la soglia dei fringe benefit raddoppiata a 2.000 euro. La carta sanitaria per gli over 75 costa 1,6 miliardi nel 2027, più di quattro volte la principale misura per i giovani. L'articolo è del 3 novembre, ma resta il quadro di riferimento del confronto in corso.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/03/legge-di-bilancio-giovani-pensionati/",
+          "published": "2026-11-03",
+          "tags": [
+            "Giovani",
+            "Manovra"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Una legge di bilancio per i giovani che destina loro meno di un miliardo su 26 è un patto tra generazioni? Calenda aveva chiesto un patto generazionale: spunto per un contenuto sui numeri.",
+            "refs": [
+              {
+                "label": "Calenda in tv sulla manovra, ripreso da Il Riformista, 30 ottobre 2026",
+                "url": "https://www.ilriformista.it/manovra-la-critica-del-campo-largo-e-laccusa-di-marchette-elettorali-calenda-voleva-un-patto-generazionale-536369/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Meloni e Messina si sentono al telefono dopo lo scontro sul Superbonus e sui contributi delle banche",
+          "summary": "La premier e l'amministratore delegato di Intesa Sanpaolo si sono parlati per chiarire dopo le critiche di Messina alla rateizzazione in dieci anni dei crediti Superbonus e ai nuovi oneri per le banche. Secondo le ricostruzioni c'è stata sintonia e l'intesa di risentirsi durante l'iter. Il governo non esclude di coinvolgere anche energetiche e assicurazioni, ma solo dopo gli emendamenti e a saldi invariati.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/14/meloni-messina-una-telefonata-per-chiarirsi-dopo-le-incomprensioni_44e64f57-2657-4960-b7bf-c79677f0315e.html",
+          "published": "2026-11-14",
+          "tags": [
+            "Manovra",
+            "Banche"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Chi paga il conto dei conti pubblici quando una misura viene corretta per le pressioni di un settore? Spunto sulla trasparenza delle trattative sulla manovra. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Forum della piccola impresa: Schlein propone un piano su energia e aggregazioni, Conte un price cap e più produttività",
+          "summary": "Al Forum della piccola impresa di Confindustria a Roma Schlein ha chiesto di dimezzare i tempi autorizzativi per le rinnovabili, di favorire le aggregazioni tra Pmi e un nuovo Next Generation Eu. Conte ha proposto un price cap sull'energia, una tassa sulla speculazione finanziaria per tagliare il costo del lavoro e si è detto contrario alla patrimoniale. Entrambi hanno rivendicato la solidità del «campo largo».",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/14/schlein-far-ripartire-la-crescita-del-paese.-conte-sostenere-la-produttivita_52e6cc4c-9e14-4beb-9d3d-74f5f18bfbf1.html",
+          "published": "2026-11-14",
+          "tags": [
+            "Opposizioni",
+            "Imprese"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Le opposizioni parlano alle imprese ma restano divise su ricette fiscali ed energetiche: quale proposta riformista e credibile per le Pmi? Calenda ha giudicato duramente l'azione di governo di Conte.",
+            "refs": [
+              {
+                "label": "Calenda ad AdnTalks – Baritalia News, 12 novembre 2026",
+                "url": "https://www.baritalianews.it/152060/2026/11/12/calenda-duro-con-conte-e-stata-una-calamita-per-questo-paese-ma-salva-la-meloni-lei-e-vera/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Azione, Calenda risponde a D'Amato: «Nessun ultimatum», sì a Gualtieri e no a un'intesa con la destra",
+          "summary": "Dopo l'ultimatum del coordinatore romano Alessio D'Amato, Calenda ha scritto su X che Azione non accetta ultimatum e ha detto a SkyStart che D'Amato non è più nel partito. Ha escluso un'intesa con la destra e si è detto favorevole a sostenere la ricandidatura di Roberto Gualtieri a sindaco, con un dialogo e un lavoro sul programma già avviati. Ha inoltre dichiarato di non voler avere a che fare con Goffredo Bettini.",
+          "source": "L'Opinione",
+          "url": "https://opinione.it/politica/2026/11/13/manlio-fusani-carlo-calenda-azione-alessio-d-amato-rottura-roma-campo-largo/",
+          "published": "2026-11-13",
+          "tags": [
+            "Azione",
+            "Roma"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Le alleanze locali si decidono sul programma, non sugli ultimatum: è la linea espressa da Calenda su Roma. Spunto per spiegare come Azione sceglie le coalizioni, anche nelle Marche.",
+            "refs": [
+              {
+                "label": "Calenda su X e a SkyStart – L'Opinione, 13 novembre 2026",
+                "url": "https://opinione.it/politica/2026/11/13/manlio-fusani-carlo-calenda-azione-alessio-d-amato-rottura-roma-campo-largo/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Sanità, l'Ast di Macerata taglia le sedute operatorie per due mesi: la Regione chiede il ritiro, il Pd chiede se Marini ha agito da solo",
+          "summary": "Dal 12 novembre l'Ast di Macerata ha ridotto la chirurgia programmata per due mesi: stop a San Severino e Civitanova, sedute ridotte a Camerino e Macerata. Il direttore generale Alessandro Marini parla di riallineamento delle attività e avvio di lavori. Acquaroli e l'assessore Calcinaro hanno definito il metodo inappropriato e chiesto il ritiro; il consigliere Pd Catena domanda se la Regione sapesse e, se Marini ha agito da solo, ne chiede la rimozione.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/13/tagli-alle-sale-operatorie-la-regione-boccia-last-macerata-decisioni-inappropriate-vanno-ritirate/2126192/",
+          "also": [
+            {
+              "source": "Cronache Maceratesi (Catena, Pd, 14 novembre)",
+              "url": "https://www.cronachemaceratesi.it/2026/11/14/tagli-delle-sedute-operatorie-catena-acquaroli-e-calcinaro-non-sapevano-se-marini-ha-agito-da-solo-va-rimosso/2126219/"
+            }
+          ],
+          "published": "2026-11-13",
+          "tags": [
+            "Sanità",
+            "Macerata"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Chi risponde quando un'azienda sanitaria decide in autonomia e la Regione la smentisce? Spunto sulle liste d'attesa e sulla catena di responsabilità. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Electrolux a Cerreto d'Esi, dopo il sì dei lavoratori i sindacati chiedono vigilanza e un nuovo soggetto industriale",
+          "summary": "Al referendum del 12 novembre 99 lavoratori su 114 votanti hanno approvato l'intesa del Mimit. Uilm, Cisl e Fiom parlano di un primo risultato, ma chiedono verifica degli impegni e un imprenditore credibile per la reindustrializzazione, con nuove mobilitazioni se le promesse saltano. L'assessore regionale Consoli ha confermato tavoli dedicati sulle vertenze del Fabrianese, compresa Beko.",
+          "source": "Radio Gold",
+          "url": "https://www.radiogold.tv/2026/11/12/electrolux-le-reazioni-dopo-dopo-il-referendum-un-passaggio-fondamentale-non-il-traguardo/",
+          "published": "2026-11-12",
+          "tags": [
+            "Lavoro",
+            "Fabriano"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Cosa serve a un territorio industriale per non perdere i suoi giovani: politiche attive, formazione, nuovi investimenti? Spunto sulla reindustrializzazione delle aree interne. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Acquaroli: «Tra trent'anni le Marche perderanno circa 200mila abitanti», serve aggregare le piccole attività",
+          "summary": "Intervenendo a Forlì al Festival dell'economia sociale, il presidente della Regione ha indicato il calo demografico come rischio per il tessuto economico, con possibili chiusure di piccole attività al momento del ricambio generazionale. Propone forme di aggregazione tra piccole realtà e indica la legge regionale sul terzo settore come strumento. Ha riconosciuto che il localismo marchigiano è un ostacolo.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/14/acquaroli-nelle-marche-rischiamo-chiusura-attivita-economiche-serve-aggregazione_f8e06a4a-1e88-4518-ac34-6b5c631a30fd.html",
+          "published": "2026-11-14",
+          "tags": [
+            "Demografia",
+            "Imprese"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Calo demografico e giovani che partono: quali politiche concrete (casa, lavoro, servizi) possono trattenerli nelle Marche? Spunto per un contenuto sui numeri. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Manovra, Cna Marche: bene sull'energia per le Pmi, da rivedere la rateizzazione del Superbonus e la ritenuta sui pagamenti B2B",
+          "summary": "Cna Marche dà un giudizio complessivamente positivo sulla legge di bilancio 2027, ma chiede interventi strutturali per la competitività delle micro e piccole imprese. Apprezza il sostegno alle Pmi non energivore, ma vuole una soluzione sugli oneri di sistema in bolletta. Contesta l'aumento della ritenuta sulle transazioni B2B e la rateizzazione decennale dei crediti Superbonus, e chiede continuità degli investimenti pubblici dopo il Pnrr.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/11/manovra-cna-marche-servono-interventi-strutturali-per-sostenere-le-pmi_73005a34-4a0c-4f00-8ff3-e10a797ea407.html",
+          "published": "2026-11-11",
+          "tags": [
+            "Manovra",
+            "Pmi"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Le imprese marchigiane chiedono stabilità degli incentivi all'assunzione di giovani e donne: la manovra la garantisce? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sanità nel Piceno, la Cgil: sette direttori in pochi anni, prestazioni in calo e una legge di iniziativa popolare",
+          "summary": "La Cgil parla di situazione estremamente negativa nell'Ast di Ascoli, con sette direttori e commissari dal Covid a oggi e nel primo semestre 2026 prestazioni in calo dell'1,3% sul 2025. Denuncia carenza di personale, limiti alle prestazioni aggiuntive e dubbi sull'attivazione di Case della Salute e Ospedali di Comunità. Rilancia una proposta di legge con oltre 2.500 firme nel Piceno, che chiede investimenti nella sanità pubblica fino al 7,5% del Pil. Il dato sulle prestazioni è citato dal sindacato.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/10/sanita-nel-piceno-cgil-alla-regione-politiche-fallimentari-si-cambi_057a6f24-1639-4762-a1e6-3a2323a441d3.html",
+          "published": "2026-11-10",
+          "tags": [
+            "Sanità",
+            "Piceno"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Come si garantisce stabilità alla governance delle aziende sanitarie e il diritto alle cure nelle aree interne? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ricostruzione, 17,75 milioni a Tolentino dal nuovo piano: Luconi parla di «chiusura del cerchio» della ricostruzione pubblica",
+          "summary": "Dal piano delle opere pubbliche post sisma a Tolentino andranno circa 17,75 milioni, tra cui 7,65 per il chiostro della basilica di San Nicola e 5,15 per alloggi Erp. La sottosegretaria alla giunta regionale Silvia Luconi sostiene che gli interventi aiuteranno a ripensare piazze e centro storico. Nell'intera provincia di Macerata il piano porta 178 milioni.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/14/palazzo-parisani-bezzi-e-le-ex-carceri-ridisegneranno-la-citta-che-verra-attenzione-concreta-da-regione-e-governo/2126228",
+          "published": "2026-11-14",
+          "tags": [
+            "Ricostruzione",
+            "Tolentino"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Dopo l'inchiesta sulla ricostruzione, come si garantiscono controlli e trasparenza sull'uso di questi fondi? Spunto su legalità e tempi dei cantieri. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ricostruzione, 11 milioni a Morrovalle per tre edifici storici: dal convento di San Francesco a Palazzo Vicoli",
+          "summary": "Dal nuovo Piano per la ricostruzione pubblica, approvato dalla Cabina di coordinamento sisma 2016, arrivano a Morrovalle oltre 11 milioni: 7 per l'ex convento di San Francesco, 2,8 per Palazzo Vicoli e 1,3 per il Palazzo del Podestà. Il sindaco Staffolani ringrazia il commissario Castelli e Acquaroli. Ora il Comune dovrà avviare la progettazione con l'Ufficio speciale ricostruzione.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/14/ricostruzione-morrovalle-fa-tris-e-porta-a-casa-11-milioni/2126226/",
+          "published": "2026-11-14",
+          "tags": [
+            "Ricostruzione",
+            "Macerata"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Tra finanziamento e cantiere passano spesso anni: quali strumenti rendono i tempi certi per i comuni del cratere? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Provincia di Pesaro e Urbino, il 29 novembre si vota il nuovo Consiglio provinciale: tre liste e 25 candidati",
+          "summary": "Domenica 29 novembre sindaci e consiglieri comunali sono chiamati a rinnovare il Consiglio provinciale. Le liste sono tre: «Provincia civica», «Provincia democratica e progressista» e «Uniti per la Provincia - Alessandri presidente», con 25 candidati in tutto. La notizia è del 9 novembre ed è il contesto per l'appuntamento elettorale di fine mese.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/09/rinnovo-del-consiglio-provinciale-di-pesaro-urbino-tre-liste-e-25-candidati_bff1dd51-e6e8-4af8-9b7f-5478766b368e.html",
+          "published": "2026-11-09",
+          "tags": [
+            "Province",
+            "Elezioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Le Province eleggono i propri organi con voto di secondo livello: i cittadini, e i giovani in particolare, hanno voce sulle scelte che le riguardano? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
