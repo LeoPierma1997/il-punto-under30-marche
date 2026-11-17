@@ -173,19 +173,19 @@ var N = "#0C1467", BL = "#312781", Y = "#FCCA00", L = "#C9CCF5", W = "#ffffff", 
 
 /* ---------------- scene e tempi (battute a 116 BPM) ---------------- */
 var SC = [
-  { id: "s1", a: 0, b: 2 },
-  { id: "s2", a: 2, b: 3.5, tr: "iris" },
-  { id: "s3", a: 3.5, b: 5.5, tr: "stripes" },
-  { id: "s4", a: 5.5, b: 7, tr: "whip" },
-  { id: "s5", a: 7, b: 8.5, tr: "flip" },
-  { id: "s6", a: 8.5, b: 10.5, tr: "push" },
-  { id: "s7", a: 10.5, b: 11.75, tr: "blinds" },
-  { id: "s8", a: 11.75, b: 14, tr: "split" },
-  { id: "s9", a: 14, b: 16.25, tr: "whipR" },
-  { id: "s10", a: 16.25, b: 18.5, tr: "zoom" }
+  { id: "s1", a: 0, b: 4.8 },
+  { id: "s2", a: 4.8, b: 11.5, tr: "iris" },
+  { id: "s3", a: 11.5, b: 19.2, tr: "stripes" },
+  { id: "s4", a: 19.2, b: 25.8, tr: "whip" },
+  { id: "s5", a: 25.8, b: 31.5, tr: "flip" },
+  { id: "s6", a: 31.5, b: 36.5, tr: "push" },
+  { id: "s7", a: 36.5, b: 41.0, tr: "blinds" },
+  { id: "s8", a: 41.0, b: 49.6, tr: "split" },
+  { id: "s9", a: 49.6, b: 58.2, tr: "whipR" },
+  { id: "s10", a: 58.2, b: 66.2, tr: "zoom" }
 ];
-SC.forEach(function (s) { s.t0 = s.a * BAR; s.t1 = s.b * BAR; });
-window.TOTAL = 18.5 * BAR;
+SC.forEach(function (s) { s.t0 = s.a; s.t1 = s.b; });
+window.TOTAL = 66.2;
 var TD = .5;
 
 /* ---------------- personaggi: un unico «pupazzo» snodabile ---------------- */
@@ -400,10 +400,10 @@ DRAW.s1 = function (t) {
     z.setAttribute("x", 260 + i * 30 + ph * 80); z.setAttribute("y", 1150 - ph * 220); z.setAttribute("opacity", t < sitA ? (1 - ph) : 0);
   });
   for (var i = 0; i < 6; i++) $("st" + i).setAttribute("opacity", .35 + .65 * Math.abs(Math.sin(t * 2.2 + i * 1.7)));
-  var kb = back((t - at(1, 2)) / .4);
-  tr($("bulb"), "translate(470,840) scale(" + (t < at(1, 2) ? 0 : kb) + ")"); tr($("rays"), "rotate(" + t * 60 + ")");
+  var kb = back((t - at(1, 1)) / .4);
+  tr($("bulb"), "translate(470,840) scale(" + (t < at(1, 1) ? 0 : kb) + ")"); tr($("rays"), "rotate(" + t * 60 + ")");
   words("t1a", t0 + .1, t, .12);
-  words("t1b", at(1, 2), t, .12);
+  words("t1b", at(1, 1), t, .12);
 };
 DRAW.s2 = function (t) {
   var t0 = SC[1].t0, lt = t - t0, kp = back(lt / .5);
@@ -416,24 +416,24 @@ DRAW.s2 = function (t) {
   var fq = $("flagQ"); fq.setAttribute("x", 568 + w / 2); fq.setAttribute("y", top + 6 + h / 2 + 42 + Math.sin(2.5 - t * 7) * A * .5); fq.setAttribute("opacity", clamp((lt - .6) / .2));
   var cheer = Math.sin(t * 9);
   pose("you2", { x: 400, y: 1450, s: 1.15, armR: -105 + 6 * cheer, armL: 150 + 10 * cheer, blink: blink(t, 2), mouth: 9, mouthW: 12, bob: -Math.abs(cheer) * 6, head: 4 * cheer });
-  words("t2a", t0 + .15, t, .1); words("t2b", t0 + .9, t, .06);
+  words("t2a", t0 + .15, t, .1); words("t2b", t0 + 2.6, t, .06);
 };
 DRAW.s3 = function (t) {
   var t0 = SC[2].t0, lt = t - t0, st = stroll(t, t0 + .05, t0 + .95, 1250, 330);
-  var talking = lt > 1.1 && lt < 2.6;
+  var talking = lt > 1.1 && lt < 6.6;
   pose("sond", mix(st, { y: 1560, s: 1.32, blink: blink(t, 3), mouth: talk(t, talking), head: talking ? 5 * Math.sin(t * 4) : 0, armL: st.armL + (lt > 1 ? 30 : 0) }));
   ["cb0", "cb1", "cb2"].forEach(function (id, i) { var r = $(id), hh = 20 + 40 * Math.abs(Math.sin(t * 3 + i)); r.setAttribute("y", 80 - hh); r.setAttribute("height", hh); });
   $("c3").style.opacity = ease(lt / .3);
   var kb = back((lt - 1.0) / .35); $("bubble").style.transform = "scale(" + (lt < 1 ? 0 : kb) + ")";
-  var p = clamp((lt - .5) / 2.2), pk = inout(p) * .97 + (p >= 1 ? .03 : 0);
+  var p = clamp((lt - .6) / 4.0), pk = inout(p) * .97 + (p >= 1 ? .03 : 0);
   $("pFill").style.width = (pk * 100) + "%"; $("pPct").textContent = Math.round(pk * 100) + "%";
-  var te = t0 + 2.9, ke = clamp((t - te) / .18), wig = t > te ? 26 * Math.sin((t - te) * 40) * Math.exp(-(t - te) * 5) : 0;
+  var te = t0 + 5.0, ke = clamp((t - te) / .18), wig = t > te ? 26 * Math.sin((t - te) * 40) * Math.exp(-(t - te) * 5) : 0;
   $("pErr").style.opacity = ke; $("pErr").style.transform = "scale(" + (1 + .4 * (1 - ke)) + ")"; $("panel").style.transform = "translateX(" + wig + "px)";
 };
 DRAW.s4 = function (t) {
   var t0 = SC[3].t0, xs = [200, 540, 880], arr = [];
   [0, 1, 2].forEach(function (i) {
-    var a = t0 + .1 + i * .42, e = a + .55, st = stroll(t, a, e, -250, xs[i]); arr.push(e);
+    var a = t0 + 1.6 + i * 1.0, e = a + .55, st = stroll(t, a, e, -250, xs[i]); arr.push(e);
     var wave = t > e + .1 ? Math.sin((t - e) * 10) : 0;
     pose("i" + i, mix(st, { y: 1450, s: .95, blink: blink(t, i), armR: t > e ? -140 + 20 * wave : st.armR, mouth: t > e ? 7 : 2.5, mouthW: 11 }));
     var g = $("g" + i), kg = back((t - e) / .35);
@@ -501,13 +501,13 @@ DRAW.s8 = function (t) {
   pose("you8", { x: 540, y: 1180, s: 1.05, armL: 150 + 15 * j, armR: -150 - 15 * j, bob: -Math.abs(j) * 10, mouth: 9, mouthW: 13, blink: blink(t, 8), head: 5 * j });
   [0, 1, 2, 3].forEach(function (i) { var f = ((t * 1.4 + i * .37) % 1); tr($("fx" + i), "scale(" + (f < .12 ? 1.2 * Math.sin(f / .12 * Math.PI) : 0) + ")"); });
   [0, 1, 2, 3, 4, 5, 6, 7].forEach(function (i) {
-    var a = t0 + 1.4 + i * .12, d = t - a;
+    var a = t0 + 5.2 + i * .12, d = t - a;
     tr($("co" + i), d < 0 ? "scale(0)" : "translate(" + (540 + (i - 3.5) * 40 + d * (i - 3.5) * 160) + "," + (1000 - d * 700 + d * d * 900) + ") rotate(" + d * 400 + ")");
   });
   $("dA").style.transform = "scale(" + back(lt / .4) + ") rotate(" + (-20 * (1 - ease(lt / .5))) + "deg)";
-  words("t8a", t0 + .15, t, .08); words("t8b", t0 + .9, t); words("t8c", t0 + 1.3, t);
-  var kd = ease((lt - 1.5) / 1.2), v = Math.round(kd * 84000 / 100) * 100;
-  $("debt").textContent = "−" + v.toLocaleString("it-IT") + " €"; $("debtBox").style.opacity = clamp((lt - 1.45) / .15);
+  words("t8a", t0 + .15, t, .08); words("t8b", t0 + 3.6, t); words("t8c", t0 + 5.3, t);
+  var kd = ease((lt - 5.4) / 1.6), v = Math.round(kd * 84000 / 100) * 100;
+  $("debt").textContent = "−" + v.toLocaleString("it-IT") + " €"; $("debtBox").style.opacity = clamp((lt - 5.35) / .15);
 };
 DRAW.s9 = function (t) {
   var t0 = SC[8].t0, lt = t - t0;
@@ -515,10 +515,10 @@ DRAW.s9 = function (t) {
   for (var i = 0; i < 6; i++) { var ph = (t * .55 + i / 6) % 1, c = $("sm" + i); c.setAttribute("cx", 860 + Math.sin(ph * 5 + i) * 30 + ph * 60); c.setAttribute("cy", 600 - ph * 330); c.setAttribute("r", 26 + ph * 46); c.setAttribute("opacity", (1 - ph) * .85); }
   var g = Math.sin(t * 6);
   pose("you9", { x: 245, y: 1228, s: .9, armR: -70 + 25 * g, armL: 20, mouth: talk(t, true), blink: blink(t, 9), head: 4 * g });
-  var st = stroll(t, t0 + .5, t0 + 1.3, 1250, 830);
-  pose("prs", mix(st, { y: 1300, s: .78, dir: -1, armR: t > t0 + 1.3 ? -95 : st.armR, blink: blink(t, 10) }));
+  var st = stroll(t, t0 + 3.6, t0 + 4.4, 1250, 830);
+  pose("prs", mix(st, { y: 1300, s: .78, dir: -1, armR: t > t0 + 4.4 ? -95 : st.armR, blink: blink(t, 10) }));
   $("dB").style.transform = "scale(" + back(lt / .4) + ") rotate(" + (20 * (1 - ease(lt / .5))) + "deg)";
-  words("t9a", t0 + .15, t, .08); words("t9b", t0 + .9, t); words("t9c", t0 + 1.3, t, .1);
+  words("t9a", t0 + .15, t, .08); words("t9b", t0 + 4.0, t); words("t9c", t0 + 5.6, t, .1);
 };
 DRAW.s10 = function (t) {
   var t0 = SC[9].t0, lt = t - t0;
@@ -534,8 +534,8 @@ DRAW.s10 = function (t) {
   $("capA").style.opacity = ease((lt - 1.1) / .3); $("capB").style.opacity = ease((lt - 1.3) / .3);
   var tc = t0 + 1.6, kc = back((t - tc) / .4), pc = t > tc + .5 ? 1 + .045 * Math.max(0, Math.cos(((t - tc) / Bt) * Math.PI * 2)) : 1;
   $("oCta").style.transform = "translateX(-50%) scale(" + ((t < tc ? 0 : kc) * pc) + ")";
-  $("oInfo").style.opacity = ease((lt - 2.2) / .3); $("oInfo").style.transform = "translateY(" + (30 * (1 - ease((lt - 2.2) / .3))) + "px)";
-  $("oFoot").style.opacity = ease((lt - 2.8) / .4);
+  $("oInfo").style.opacity = ease((lt - 3.8) / .3); $("oInfo").style.transform = "translateY(" + (30 * (1 - ease((lt - 3.8) / .3))) + "px)";
+  $("oFoot").style.opacity = ease((lt - 4.5) / .4);
 };
 
 /* ---------------- transizioni ---------------- */
