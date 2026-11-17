@@ -316,10 +316,14 @@ footer a { color: #E4E6FF; }
   </div>
 </section>
 <script>
-/* L'apertura si vede una volta per visita; chi arriva con un link interno (#unisciti, #chi-siamo…) va dritto al punto. */
+/* L'apertura col video si vede sempre a chi arriva da fuori (link in bio, ricerca, link diretto) o ricarica la pagina.
+   Si salta solo tornando alla home da un'altra pagina del sito, o con un link interno (#unisciti, #chi-siamo…). */
 (function () {
-  var seen = false; try { seen = sessionStorage.getItem("intro-vista") === "1"; sessionStorage.setItem("intro-vista", "1"); } catch (e) {}
-  if (seen || (location.hash && location.hash !== "#intro")) document.getElementById("intro").classList.add("gone");
+  var fromSite = false;
+  try { fromSite = !!document.referrer && new URL(document.referrer).origin === location.origin && !/\/il-punto-under30-marche\/(index\.html)?(\?|#|$)/.test(new URL(document.referrer).pathname + new URL(document.referrer).search); } catch (e) {}
+  var nav = (performance.getEntriesByType && performance.getEntriesByType("navigation")[0]) || {};
+  if (nav.type === "reload") fromSite = false;
+  if (fromSite || (location.hash && location.hash !== "#intro")) document.getElementById("intro").classList.add("gone");
 })();
 </script>
 
