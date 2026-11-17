@@ -1,0 +1,361 @@
+{
+  "date": "2026-11-17",
+  "label": "Martedì 17 novembre 2026",
+  "intro": "Mosca frena sulla presenza europea ai negoziati mentre l'Ue sblocca quasi 8 miliardi per Kiev; in Italia la Lega rinvia Quota 64 e il governo cerca correttivi su scuola, sanità e fisco; nelle Marche il gip respinge alcuni arresti dell'inchiesta sul sisma e il Pd attacca la giunta sulla sanità di Macerata.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Ucraina, il Cremlino frena sulla delegazione europea; Kallas: serve prima un cessate il fuoco",
+          "summary": "Dopo la ripresa dei colloqui ad Abu Dhabi, il consigliere del Cremlino Ushakov dice che l'allargamento del tavolo all'Europa «non è stato concordato» e che serviranno prima uno o più round trilaterali. Il 13 novembre i leader Ue avevano indicato una delegazione con Regno Unito, Francia, Germania, Italia, Polonia e istituzioni Ue. Il 16 a Bruxelles Kallas ha definito «assurde» le richieste russe, ha detto che l'Ue deve poter avanzare le proprie e che senza cessate il fuoco non si negozia. Tajani parla di una «fase nuova» col formato E5.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/16/kallas-negoziatori-ue-richieste/",
+          "also": [
+            {
+              "source": "Internazionale (Reuters)",
+              "url": "https://www.internazionale.it/ultime-notizie-reuters/2026/11/16/kremlin-aide-denies-russia-agreed-to-include-europe-in-ukraine-peace-talks"
+            }
+          ],
+          "published": "2026-11-16",
+          "tags": [
+            "Ucraina",
+            "Ue"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Chi siede al tavolo quando si decide la sicurezza dell'Europa? Spunto per un contenuto sull'importanza di una voce europea unica e credibile nei negoziati. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ue, via libera a quasi 8 miliardi per l'Ucraina: il maggiore esborso singolo dello strumento",
+          "summary": "Il Consiglio Affari esteri ha approvato l'erogazione di circa 8 miliardi allo strumento per l'Ucraina, di cui circa 5 dal prestito da 90 miliardi per il 2026. Con questo nono pagamento Kiev supera i 40 miliardi ricevuti dal Piano. Il via libera arriva dopo il raggiungimento di oltre 20 obiettivi di riforma su giustizia, anticorruzione, energia e digitale. Nello stesso giorno la Commissione ha erogato 1,71 miliardi per droni, munizioni e difesa aerea.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/16/consiglio-ue-miliardi-a-ucraina/",
+          "published": "2026-11-16",
+          "tags": [
+            "Ucraina",
+            "Bilancio Ue"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Aiuti legati a riforme verificabili: un modello che si potrebbe raccontare ai giovani come uso condizionato e trasparente dei fondi europei. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Vertice di Shenzhen: Trump vola da Xi e Putin, ma l'Ucraina non sarà al centro; Zelensky avverte di un nuovo attacco",
+          "summary": "Giovedì 19 novembre Trump incontrerà Xi Jinping e Vladimir Putin a Shenzhen; secondo funzionari Usa i temi saranno la riduzione delle armi nucleari e l'Iran, più che l'Ucraina. Trump sostiene che Putin stia facendo qualche concessione. Zelensky segnala che la Russia prepara un grosso attacco missilistico e chiede a Germania, Francia, Regno Unito e Italia più armi a lungo raggio. Tajani si dice scettico su risultati concreti.",
+          "source": "Adnkronos",
+          "url": "https://www.adnkronos.com/internazionale/esteri/trump-putin-incontro-ucraina-russia-news-17-novembre_5sEgMCruvME7sCya96g904",
+          "also": [
+            {
+              "source": "Eunews (Tajani)",
+              "url": "https://www.eunews.it/2026/11/16/kallas-negoziatori-ue-richieste/"
+            }
+          ],
+          "published": "2026-11-17",
+          "tags": [
+            "Usa-Cina-Russia",
+            "Ucraina"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Se i grandi decidono senza l'Europa, cosa resta agli europei? Spunto sulla necessità di una difesa comune. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Commissione Ue: sì senza condizioni all'acquisizione di Commerzbank da parte di UniCredit",
+          "summary": "La Commissione ha autorizzato l'operazione, notificata il 9 ottobre, perché non solleva problemi di concorrenza nello Spazio economico europeo: le sovrapposizioni in Germania sono limitate e restano molti concorrenti. Teresa Ribera ha detto che dimostra che una grande fusione transfrontaliera è possibile e ha chiesto un'interpretazione restrittiva delle preoccupazioni di sicurezza dei governi, avvertendo che la Commissione agirebbe se Berlino ostacolasse l'accordo. Tajani ha parlato di passo nella giusta direzione per il mercato unico.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/16/commissione-ue-commerzbank-unicredit/",
+          "published": "2026-11-16",
+          "tags": [
+            "Mercato unico",
+            "Banche"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Banche europee più grandi per finanziare imprese e innovazione: uno spunto sull'Unione dei mercati dei capitali e sul peso dei veti nazionali. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ue-Siria, verso un accordo di associazione dopo la caduta di Assad",
+          "summary": "Al termine del Consiglio Affari esteri, Kaja Kallas ha annunciato la volontà di rafforzare sostanzialmente i rapporti con la Siria. L'ipotesi è firmare l'accordo di associazione negoziato nel 2008 e mai sottoscritto per le violazioni dei diritti umani del regime, e poi lavorare a un nuovo mandato per un accordo modernizzato. I ministri chiedono condizionalità sui diritti umani e il non riconoscimento dei territori ucraini e georgiani occupati. Secondo Kallas, senza impegno europeo il vuoto lo riempirebbero altri attori.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/16/in-arrivo-accordo-associazione-ue-siria/",
+          "published": "2026-11-16",
+          "tags": [
+            "Politica estera",
+            "Siria"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Come tenere insieme apertura al Medio Oriente e condizionalità sui diritti? Una domanda di riflessione sul ruolo dell'Ue come attore globale. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Pensioni, la Lega rinvia Quota 64 a un provvedimento separato; vertice Meloni sui correttivi alla manovra",
+          "summary": "Claudio Borghi dice che Quota 64 (uscita a 64 anni con ricalcolo contributivo) «ci sarà» ma resterà fuori dai correttivi alla manovra; l'articolo 52 stanzia 850 milioni l'anno fino al 2029 e rinvia a una legge successiva. Forza Italia lavora su indicizzazioni e rivalutazione piena delle pensioni medie; i requisiti salgono di un mese nel 2027 e di due nel 2028. Meloni riunisce Giorgetti, Tajani, Salvini e Lupi; scade il termine per gli emendamenti.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/economia/2026/11/16/passo-indietro-della-lega-su-quota-64.-nuovo-vertice-sulla-manovra_3cb9d552-f79d-44b5-abd8-55c8263b801b.html",
+          "published": "2026-11-16",
+          "tags": [
+            "Pensioni",
+            "Manovra"
+          ],
+          "icon": "hourglass",
+          "spunto": {
+            "text": "Promesse rinviate e fondi spalmati: un giovane lavoratore oggi sa quale pensione avrà? Spunto sull'equità generazionale, con la critica di Calenda agli «interventi a pioggia» come cornice.",
+            "refs": [
+              {
+                "label": "Calenda, intervista nella sede di Azione – Affaritaliani, 3 novembre 2026",
+                "url": "https://www.affaritaliani.it/coffee/video/vista/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente.html"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Scuola, i tagli agli organici nella manovra: sindacati mobilitati, il governo cerca le risorse per cancellarli",
+          "summary": "La legge di bilancio 2027 prevede circa 7mila posti in meno (quasi 5mila docenti di potenziamento e oltre 2mila Ata), con un risparmio di circa 252 milioni l'anno dal 2028. Cisl Scuola, Uil Scuola, Snals e Anief hanno avviato una campagna per cancellare la misura, con presidio a Roma l'11 novembre e assemblee il 16. Secondo le ricostruzioni, la Lega lavora per trovare le coperture; il termine per gli emendamenti è il 17 novembre. Notizia del 6 novembre, ancora in corso.",
+          "source": "Tecnica della Scuola",
+          "url": "https://www.tecnicadellascuola.it/manovra-2027-stop-ai-tagli-alla-scuola-il-tempo-stringe-emendamenti-entro-il-17-novembre-sindacati-convocati-a-palazzo-chigi-il-13",
+          "published": "2026-11-06",
+          "tags": [
+            "Scuola",
+            "Manovra"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Tagliare cattedre mentre calano gli iscritti è «adeguamento» o rinuncia a investire sul capitale umano? Spunto sulla qualità della scuola per i giovani. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sanità, il 5 dicembre sciopero e corteo a Roma contro la manovra; Schillaci apre a più fondi per i medici in esclusiva",
+          "summary": "Sindacati dei medici, di altre professioni sanitarie e infermieri hanno indetto per sabato 5 dicembre sciopero e corteo a Roma: giudicano insufficienti i 2,4 miliardi aggiunti al Fondo sanitario (le Regioni ne chiedevano 6,8) e chiedono più indennità di esclusività, stipendi per gli infermieri e nuove assunzioni. Il 16 novembre il ministro Schillaci ha aperto a nuovi fondi per i medici in esclusiva, ma il principale sindacato ospedaliero conferma la mobilitazione.",
+          "source": "QuiFinanza",
+          "url": "https://quifinanza.it/info-utili/scioperi/sciopero-sanita-5-dicembre-2026/1023641/",
+          "also": [
+            {
+              "source": "ANSA (Schillaci, 16 novembre)",
+              "url": "https://www.ansa.it/sito/notizie/economia/2026/11/16/passo-indietro-della-lega-su-quota-64.-nuovo-vertice-sulla-manovra_3cb9d552-f79d-44b5-abd8-55c8263b801b.html"
+            }
+          ],
+          "published": "2026-11-10",
+          "tags": [
+            "Sanità",
+            "Lavoro"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Senza personale non ci sono liste d'attesa che si accorciano: spunto sui giovani medici e infermieri che lasciano il Ssn. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Manovra, raddoppia la Tobin tax e arriva l'exit tax: Borsa e associazioni protestano, Forza Italia vuole correggere",
+          "summary": "La manovra da circa 26 miliardi raddoppia la tassa sulle transazioni finanziarie (da 0,2% a 0,4% sul mercato regolamentato, da 0,4% a 0,8% fuori mercato) per circa 1,7 miliardi, e il governo punta a 5 miliardi dal settore finanziario. Dal 2027 scatta l'exit tax sulle plusvalenze per chi trasferisce la residenza all'estero sopra 800mila euro. Il 16 novembre Borsa Italiana e otto associazioni hanno protestato, mentre Forza Italia propone di alzare la soglia dell'exit tax a 4-5 milioni.",
+          "source": "Finanza.com",
+          "url": "https://www.finanza.com/?p=191494",
+          "also": [
+            {
+              "source": "Milano Finanza (exit tax, 31 ottobre)",
+              "url": "https://www.milanofinanza.it/news/manovra-dal-2027-una-tassa-per-chi-lascia-l-italia-2722665"
+            },
+            {
+              "source": "ANSA (correttivi, 16 novembre)",
+              "url": "https://www.ansa.it/sito/notizie/economia/2026/11/16/passo-indietro-della-lega-su-quota-64.-nuovo-vertice-sulla-manovra_3cb9d552-f79d-44b5-abd8-55c8263b801b.html"
+            }
+          ],
+          "published": "2026-11-04",
+          "tags": [
+            "Fisco",
+            "Manovra"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Tassare i mercati rende più o meno facile finanziare le imprese che assumono giovani? Spunto sul rapporto tra gettito e crescita. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Calenda sulla manovra: «malfatta», costruita con piccoli interventi per accontentare tutti",
+          "summary": "In un'intervista nella sede di Azione, il segretario Carlo Calenda ha giudicato la legge di bilancio «proprio malfatta» perché fatta di tanti piccoli interventi che non risolvono i problemi. Il governo, a suo dire, distribuisce piccole somme alla platea più ampia possibile senza affrontare le questioni di fondo. Intervista del 3 novembre, ripresa il 4 novembre.",
+          "source": "Affaritaliani",
+          "url": "https://www.affaritaliani.it/coffee/video/vista/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente.html",
+          "published": "2026-11-03",
+          "tags": [
+            "Azione",
+            "Manovra"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Il contenuto social può mettere a confronto misure a pioggia e scelte concentrate su pochi obiettivi, come i giovani e il lavoro.",
+            "refs": [
+              {
+                "label": "Calenda, intervista nella sede di Azione – Affaritaliani, 3 novembre 2026",
+                "url": "https://www.affaritaliani.it/coffee/video/vista/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente.html"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta sisma, scontro in Consiglio regionale su Acquaroli: la maggioranza lo difende, le opposizioni chiedono chiarimenti",
+          "summary": "Il 10 novembre il Consiglio regionale ha dibattuto le comunicazioni di Acquaroli sull'inchiesta Dda sulla ricostruzione, che ha portato il 22 ottobre all'arresto dell'ex capo di gabinetto Fabio Pistarelli. Il centrodestra ribadisce che il presidente non è indagato; le opposizioni parlano di «omissione di vigilanza» e chiedono una commissione d'inchiesta. L'11 novembre è emerso che Acquaroli è stato sentito dai pm come persona informata sui fatti. Le accuse a Pistarelli sono ancora da accertare.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/11/minoranza-marche-vicende-riferite-ad-acquaroli-sono-quelle-oggetto-dinchiesta_7bb6d914-8528-4367-aba7-5e2b9f3b5896.html",
+          "also": [
+            {
+              "source": "Cronache Maceratesi (dibattito, 10 novembre)",
+              "url": "https://www.cronachemaceratesi.it/2026/11/10/il-centrodestra-fa-quadrato-su-acquaroli-una-persona-perbene-che-non-e-indagata-infamia-dalle-opposizioni-video/2124842/"
+            },
+            {
+              "source": "Cronache Maceratesi (question time, 10 novembre)",
+              "url": "https://www.cronachemaceratesi.it/2026/11/10/question-time-sullinchiesta-in-regione-surreale-che-acquaroli-sia-assente-in-aula-luconi-risponde-alla-minoranza/2124700/"
+            }
+          ],
+          "published": "2026-11-11",
+          "tags": [
+            "Regione",
+            "Legalità"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Trasparenza e controlli nella ricostruzione: chi vigila sui fondi pubblici? Domanda di riflessione sulla legalità nell'amministrazione. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta Dda sulla ricostruzione, il gip respinge gli arresti per Intermesoli e Pompili",
+          "summary": "Il gip di Ancona ha respinto le richieste della Procura antimafia di misure per Andrea Intermesoli (chiesto il carcere) e Michele Pompili, funzionario Erdis (domiciliari), perché le esigenze cautelari sono venute meno anche per le dimissioni dalle cariche. Disposta invece l'interdizione dall'impresa per Pasqualino Allocco. Le accuse, non accertate, riguardano presunti condizionamenti della gara Erdis per l'ex convento delle Monachette a Macerata e coperture di gestori vicini ai Casalesi.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/16/inchiesta-dda-sulla-ricostruzione-arresti-respinti-per-intermesoli-e-pompili-cessate-le-esigenze-cautelari/2127159/",
+          "published": "2026-11-16",
+          "tags": [
+            "Ricostruzione",
+            "Giustizia"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Presunzione di innocenza e dimissioni: cosa chiediamo a chi gestisce risorse pubbliche prima delle sentenze? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sanità a Macerata, retromarcia sui tagli alle sedute operatorie: il Pd attacca la giunta, «responsabilità politica»",
+          "summary": "Dopo la riduzione della chirurgia programmata decisa dall'Ast di Macerata dal 12 novembre, Acquaroli e l'assessore Calcinaro hanno definito la scelta inappropriata e annunciato la retromarcia sullo stop fino al 7 gennaio (esclusi urgenze e oncologia). Il 16 novembre il consigliere Pd Leonardo Catena ha respinto lo «scaricabarile» sul direttore Marini, legando i tagli a una richiesta di rientro superiore ai 40 milioni, e ha segnalato rinvii già comunicati ai pazienti e rischio di mobilità passiva.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/16/catena-acquaroli-e-calcinaro-non-giochino-allo-scaricabarile-la-responsabilita-dei-tagli-e-politica/2127090/",
+          "published": "2026-11-16",
+          "tags": [
+            "Sanità",
+            "Macerata"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Liste d'attesa e rientro dai disavanzi: come si tutelano i pazienti quando i conti stringono? Spunto sulle scelte di bilancio sanitario. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Torrette, le minoranze regionali: appalti ritirati, PET ferma e incarichi legali sotto accusa",
+          "summary": "Il 11 novembre le minoranze del Consiglio regionale hanno contestato la gestione dell'Azienda ospedaliero-universitaria di Torrette: un appalto biomedicale da 17 milioni e una gara da 18,3 milioni per PET e angiografi, revocati il 2 novembre dopo i rilievi del Collegio sindacale; partenariati pubblico-privati per 408,5 milioni inseriti senza parere regionale; venti incarichi a un legale esterno per oltre 600mila euro. L'articolo non riporta repliche della direzione.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/11/cosa-succede-a-torrette-lopposizione-mette-sotto-accusa-la-gestione-della-direzione/2125238/",
+          "published": "2026-11-11",
+          "tags": [
+            "Sanità",
+            "Appalti"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Gare chiare e tempi certi per la diagnostica: spunto su trasparenza degli appalti sanitari. Si tratta di rilievi dell'opposizione. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Scuola, a Petriolo sezione dell'infanzia ridotta da tre a due: appello a governo e Regione dopo i tagli",
+          "summary": "Il capogruppo di minoranza Domenico Luciani apprezza l'impegno del governo a eliminare dalla manovra i tagli agli organici scolastici, ma chiede interventi per ripristinare la terza sezione della scuola dell'infanzia di Petriolo, ridotta a due per il 2026/27 nonostante i lavori di ampliamento. Segnala che nemmeno le risorse per il cratere hanno prodotto posti in deroga e ha scritto a Meloni, Valditara, Castelli e Acquaroli; le firme raccolte superano le 300.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/16/scuola-dellinfanzia-le-rassicurazioni-del-governo-fanno-sperare-nel-ripristino-della-terza-sezione/2126959/",
+          "published": "2026-11-16",
+          "tags": [
+            "Scuola",
+            "Entroterra"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Denatalità e aree interne: se chiude una sezione, i giovani famiglie restano? Spunto sui servizi per non spopolare l'entroterra. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Cosmari e Tari, Strada Comune: «piano industriale assente», chiede tariffa puntuale e stop agli aumenti",
+          "summary": "Il gruppo consiliare Macerata Strada Comune accusa i vertici di Cosmari di non avere un piano industriale e imputa al centrodestra la gestione dei rifiuti. Cita aumenti Tari del 9,87% nel 2025, 8,5% nel 2026 e 6% nel 2027, chiede tariffa puntuale, cassonetti intelligenti e di tutelare la gestione pubblica alla scadenza del contratto nel 2029. Sono affermazioni del gruppo, non verificate nell'articolo.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/16/cosmari-e-aumento-della-tari-il-fallimento-della-filiera-di-centrodestra-tariffa-puntuale-e-cassonetti-intelligenti/2127106/",
+          "published": "2026-11-16",
+          "tags": [
+            "Rifiuti",
+            "Tari"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Chi differenzia meno paga uguale? Spunto su tariffa puntuale, servizi pubblici efficienti e ruolo dei privati. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Lupi nel Maceratese, nuovi attacchi a Matelica e Pieve Torina: Coldiretti chiede contenimento e risarcimenti adeguati",
+          "summary": "Nuovi attacchi di lupi al bestiame a Matelica e Pieve Torina. Secondo Coldiretti Macerata nel 2025 il 42% dei 90 attacchi registrati nelle Marche è avvenuto nel Maceratese. Il direttore David Donninelli denuncia l'emergenza e chiede azioni di contenimento, revisione dei criteri di risarcimento, prevenzione e monitoraggio, per conciliare tutela della biodiversità e difesa degli allevamenti.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/16/emergenza-lupi-in-provincia-nuovi-attacchi-a-matelica-e-pieve-torina-coldiretti-risarcimenti-adeguati/2127041/",
+          "published": "2026-11-16",
+          "tags": [
+            "Agricoltura",
+            "Entroterra"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Come si tengono insieme biodiversità e vita nelle aree interne? Una domanda utile per un contenuto sull'entroterra. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Stazione Marittima di Ancona, Nobili (Avs) chiede tempi certi: servono almeno 30 milioni, obiettivo 2028",
+          "summary": "Il capogruppo Avs Andrea Nobili ha presentato un'interrogazione sulla riattivazione ferroviaria della Stazione Marittima di Ancona, inserita tra le priorità del Def regionale 2026-2028 con un tavolo con Mit, Rfi, Comune e Autorità portuale. La soluzione allo studio di Rfi prevede un tratto in galleria; secondo il sindaco Silvetti servono almeno 30 milioni e l'obiettivo è il progetto esecutivo e i finanziamenti entro il 2028. Notizia del 3 novembre, intervento ancora in corso.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/03/nobili-avs-regione-spieghi-i-passi-compiuti-per-stazione-marittima-ancona_f7d01032-9e1e-408d-b989-ebe78f409f6a.html",
+          "published": "2026-11-03",
+          "tags": [
+            "Infrastrutture",
+            "Ancona"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Porto e ferrovia: un collegamento che pesa su turismo e lavoro. Spunto su tempi e coperture delle opere strategiche. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
