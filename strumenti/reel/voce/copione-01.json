@@ -1,0 +1,18 @@
+{
+  "video": "puntata-01.mp4",
+  "uscita": "puntata-01-voce.mp4",
+  "voce": "it-IT-DiegoNeural",
+  "velocita": "+5%",
+  "battute": [
+    { "da": 0.4,  "a": 4.7,  "testo": "Un giorno ti svegli... e decidi:" },
+    { "da": 5.1,  "a": 8.3,  "testo": "Fondi un partito. Il nome? Lo sceglierete voi." },
+    { "da": 8.8,  "a": 13.1, "testo": "Il sondaggista cerca il tuo partito nei sondaggi. Risultato: non rilevato." },
+    { "da": 13.5, "a": 16.7, "testo": "Iscritti: tre. Tu, tuo cugino e il commercialista." },
+    { "da": 17.1, "a": 20.3, "testo": "Questi sono i tuoi numeri. Ogni scelta li cambierà." },
+    { "da": 20.8, "a": 25.1, "testo": "A Roma, intanto, nessuno se n'è accorto." },
+    { "da": 25.5, "a": 28.1, "testo": "Prima scelta: dove presenti il partito?" },
+    { "da": 28.6, "a": 33.5, "testo": "Scelta A. Nel teatro più grande di Roma. Tante telecamere... e tanti debiti." },
+    { "da": 34.0, "a": 38.9, "testo": "Scelta B. In una fabbrica di provincia. Pochi giornalisti, tanta concretezza." },
+    { "da": 39.4, "a": 44.2, "testo": "A o B? Scrivilo nei commenti. Hai quarantotto ore." }
+  ]
+}

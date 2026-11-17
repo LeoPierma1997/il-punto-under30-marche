@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root { --blue:#312781; --night:#0C1467; --yellow:#FCCA00; --lav:#C9CCF5; }
+* { box-sizing:border-box; margin:0; padding:0; }
+html,body { width:1080px; height:1920px; overflow:hidden; background:var(--night); font-family:Montserrat, sans-serif; }
+#stage { position:absolute; inset:0; overflow:hidden; }
+.scene { position:absolute; inset:0; display:none; overflow:hidden; transform-origin:50% 50%; }
+.scene > svg.art { position:absolute; left:0; top:0; width:1080px; height:1920px; overflow:visible; }
+.bg-blue { background:linear-gradient(160deg, #3d32a0 0%, var(--blue) 45%, var(--night) 100%); }
+.bg-night { background:linear-gradient(170deg, #1b2390 0%, var(--night) 60%, #070b45 100%); }
+.bg-yellow { background:var(--yellow); }
+.bg-white { background:#F3F3FA; }
+.drift { position:absolute; width:2600px; height:260px; left:-760px; transform-origin:50% 50%; }
+.bg-blue .drift, .bg-night .drift { background:rgba(255,255,255,.045); }
+.bg-white .drift { background:rgba(49,39,129,.045); }
+.bg-yellow .drift { background:rgba(12,20,103,.06); }
+/* testi a parole */
+.tb { position:absolute; font-weight:900; letter-spacing:-.045em; line-height:1.02; }
+.tb .ln { display:block; white-space:nowrap; }
+.wm { display:inline-block; overflow:hidden; vertical-align:top; padding:0 .02em .1em; margin-bottom:-.1em; }
+.wi { display:inline-block; position:relative; z-index:0; will-change:transform; }
+.wi .bar { position:absolute; left:-.06em; bottom:.1em; height:.34em; width:0; background:var(--yellow); z-index:-1; border-radius:.06em; }
+.y { color:var(--yellow); } .w { color:#fff; } .b { color:var(--blue); } .n { color:var(--night); } .l { color:var(--lav); }
+.chip { position:absolute; display:inline-block; background:var(--yellow); color:var(--night); font-weight:900; font-size:30px; padding:9px 22px; border-radius:999px; letter-spacing:.08em; white-space:nowrap; }
+.chipn { background:var(--night); color:#fff; }
+/* mini HUD */
+.mini { position:absolute; left:50%; top:150px; display:flex; gap:26px; background:var(--night); border-radius:999px; padding:16px 34px; white-space:nowrap; box-shadow:0 10px 30px rgba(0,0,0,.25); }
+.mini div { color:#fff; font-weight:800; font-size:24px; letter-spacing:.05em; display:flex; align-items:center; gap:10px; }
+.mini i { display:inline-block; width:14px; height:14px; border-radius:4px; background:rgba(255,255,255,.22); margin-right:-6px; }
+.mini i.on { background:var(--yellow); }
+/* pannello ricerca */
+#panel { position:absolute; left:90px; right:90px; top:330px; height:250px; border-radius:40px; background:var(--night); padding:38px 48px; overflow:hidden; }
+#pLab { color:#C9CCF5; font-weight:800; font-size:40px; letter-spacing:.02em; }
+#pTrack { margin-top:30px; height:44px; border-radius:22px; background:rgba(255,255,255,.12); overflow:hidden; }
+#pFill { height:100%; width:0; background:var(--yellow); border-radius:22px; }
+#pPct { position:absolute; right:48px; top:38px; color:var(--yellow); font-weight:900; font-size:40px; }
+#pErr { position:absolute; inset:0; background:var(--yellow); display:flex; align-items:center; justify-content:center; color:var(--night); font-weight:900; font-size:118px; letter-spacing:-.05em; opacity:0; }
+#bubble { position:absolute; left:560px; top:900px; width:430px; background:var(--blue); color:#fff; border-radius:40px; padding:34px 40px; font-weight:800; font-size:54px; line-height:1.08; letter-spacing:-.03em; transform-origin:0 100%; }
+#bubble:after { content:""; position:absolute; left:-26px; bottom:34px; border:18px solid transparent; border-right:30px solid var(--blue); }
+/* contatore */
+.roll { position:absolute; overflow:hidden; height:300px; width:220px; }
+.roll div { font-weight:900; font-size:300px; line-height:300px; letter-spacing:-.05em; color:var(--yellow); text-align:center; }
+.tag { position:absolute; background:#fff; color:var(--night); font-weight:900; font-size:30px; padding:10px 22px; border-radius:999px; white-space:nowrap; transform-origin:50% 100%; }
+/* HUD */
+#card { position:absolute; left:90px; right:90px; top:420px; height:1060px; background:#fff; border-radius:56px; padding:56px 56px; box-shadow:0 40px 100px rgba(0,0,0,.35); transform-origin:50% 0; }
+#card h3 { color:var(--night); font-weight:900; font-size:104px; letter-spacing:-.05em; line-height:1; margin-top:26px; }
+.cchip { display:inline-block; background:var(--yellow); color:var(--night); font-weight:900; font-size:28px; padding:8px 20px; border-radius:999px; letter-spacing:.08em; }
+.hrow { margin-top:44px; }
+.hrow .lab { color:var(--blue); font-weight:900; font-size:38px; letter-spacing:.06em; text-transform:uppercase; display:flex; justify-content:space-between; }
+.hrow .lab span { color:var(--night); }
+.segs { display:flex; gap:14px; margin-top:16px; }
+.seg { flex:1; height:58px; border-radius:16px; background:#E6E7F6; }
+.seg i { display:block; width:100%; height:100%; border-radius:16px; background:var(--yellow); transform:scale(0); }
+.nr { color:var(--blue); font-weight:800; font-size:34px; margin-top:16px; }
+/* nomi personaggi */
+.nm { position:absolute; width:220px; margin-left:-110px; text-align:center; color:var(--night); font-weight:900; font-size:25px; letter-spacing:.05em; line-height:1.12; text-transform:uppercase; }
+/* lettera scelta */
+.disc { position:absolute; width:230px; height:230px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:170px; letter-spacing:-.05em; }
+#debt { font-variant-numeric:tabular-nums; }
+/* chiusura */
+#oLogo { position:absolute; left:50%; top:150px; width:150px; height:150px; margin-left:-75px; border-radius:50%; background:#fff; padding:6px; }
+#oCta { position:absolute; left:50%; top:1290px; background:var(--yellow); color:var(--night); font-weight:900; font-size:64px; padding:28px 64px; border-radius:999px; white-space:nowrap; }
+#oInfo { position:absolute; left:0; right:0; top:1440px; text-align:center; color:#fff; font-weight:800; font-size:44px; line-height:1.35; }
+#oInfo span { color:var(--yellow); }
+#oFoot { position:absolute; left:0; right:0; top:1580px; text-align:center; color:#9EA2E0; font-weight:700; letter-spacing:.14em; font-size:24px; }
+.cap { position:absolute; width:300px; margin-left:-150px; text-align:center; color:#DCDDF8; font-weight:800; font-size:36px; }
+/* fascia della transizione */
+#band { position:absolute; width:90px; height:2300px; top:-190px; background:var(--yellow); display:none; transform-origin:50% 50%; }
+</style></head>
+<body>
+<div id="stage">
+
+<!-- S1 camera da letto -->
+<div class="scene bg-night" id="s1"><div class="drift" style="top:300px"></div>
+ <svg class="art" viewBox="0 0 1080 1920" id="a1"></svg>
+ <div class="tb w" id="t1a" style="left:90px;top:300px;font-size:120px" data-l="Un giorno|ti svegli"></div>
+ <div class="tb y" id="t1b" style="left:90px;top:560px;font-size:120px" data-l="e decidi:"></div>
+</div>
+
+<!-- S2 bandiera -->
+<div class="scene bg-yellow" id="s2"><div class="drift" style="top:900px"></div>
+ <svg class="art" viewBox="0 0 1080 1920" id="a2"></svg>
+ <div class="tb n" id="t2a" style="left:90px;top:260px;font-size:150px" data-l="Fondi un|*partito.*"></div>
+ <div class="tb b" id="t2b" style="left:90px;top:1520px;font-size:50px" data-l="Il nome? Lo sceglierete voi."></div>
+</div>
+
+<!-- S3 sondaggista -->
+<div class="scene bg-white" id="s3"><div class="drift" style="top:1300px"></div>
+ <span class="chip chipn" id="c3" style="left:90px;top:230px">IL SONDAGGISTA</span>
+ <div id="panel"><div id="pLab">Ricerca del tuo partito nei sondaggi…</div><div id="pPct">0%</div><div id="pTrack"><div id="pFill"></div></div><div id="pErr">non rilevato.</div></div>
+ <svg class="art" viewBox="0 0 1080 1920" id="a3"></svg>
+ <div id="bubble">Intenzioni di voto?</div>
+</div>
+
+<!-- S4 iscritti -->
+<div class="scene bg-night" id="s4"><div class="drift" style="top:500px"></div>
+ <div class="tb w" id="t4a" style="left:90px;top:330px;font-size:150px" data-l="Iscritti:"></div>
+ <div class="roll" id="roll" style="left:740px;top:255px"><div>0</div><div>1</div><div>2</div><div>3</div></div>
+ <svg class="art" viewBox="0 0 1080 1920" id="a4"></svg>
+ <div class="tag" id="g0">Tu</div><div class="tag" id="g1">Tuo cugino</div><div class="tag" id="g2">Il commercialista</div>
+</div>
+
+<!-- S5 scheda -->
+<div class="scene bg-blue" id="s5"><div class="drift" style="top:1500px"></div>
+ <div id="card"><span class="cchip">LA TUA PARTITA</span><h3>I tuoi numeri.</h3><div id="rows"></div></div>
+</div>
+
+<!-- S6 Roma -->
+<div class="scene bg-white" id="s6"><div class="drift" style="top:1650px"></div>
+ <svg class="art" viewBox="0 0 1080 1920" id="a6"></svg>
+ <div class="tb n" id="t6a" style="left:90px;top:250px;font-size:92px" data-l="A Roma nessuno|se n'è *accorto.*"></div>
+ <div id="names6"></div>
+ <div class="mini" id="m6"></div>
+</div>
+
+<!-- S7 prima scelta -->
+<div class="scene bg-night" id="s7"><div class="drift" style="top:1100px"></div>
+ <svg class="art" viewBox="0 0 1080 1920" id="a7"></svg>
+ <div class="tb w" id="t7a" style="left:90px;top:300px;font-size:110px" data-l="Prima scelta:"></div>
+ <div class="tb y" id="t7b" style="left:90px;top:450px;font-size:170px" data-l="dove lo|presenti?"></div>
+ <div class="mini" id="m7"></div>
+</div>
+
+<!-- S8 A teatro -->
+<div class="scene bg-white" id="s8"><div class="drift" style="top:1500px"></div>
+ <svg class="art" viewBox="0 0 1080 1920" id="a8"></svg>
+ <div class="disc" id="dA" style="left:90px;top:250px;background:var(--blue);color:#fff">A</div>
+ <div class="tb n" id="t8a" style="left:360px;top:268px;font-size:74px" data-l="Nel teatro più|grande di Roma."></div>
+ <div class="tb b" id="t8b" style="left:90px;top:1380px;font-size:72px" data-l="Tante telecamere."></div>
+ <div class="tb n" style="left:90px;top:1470px;font-size:80px" id="t8c" data-l="*Tanti* *debiti:*"></div>
+ <div class="tb n" id="debtBox" style="left:640px;top:1470px;font-size:80px"><span id="debt">0 €</span></div>
+ <div class="mini" id="m8"></div>
+</div>
+
+<!-- S9 B fabbrica -->
+<div class="scene bg-blue" id="s9"><div class="drift" style="top:1400px"></div>
+ <svg class="art" viewBox="0 0 1080 1920" id="a9"></svg>
+ <div class="disc" id="dB" style="left:90px;top:250px;background:var(--yellow);color:var(--night)">B</div>
+ <div class="tb w" id="t9a" style="left:360px;top:268px;font-size:74px" data-l="In una fabbrica|di provincia."></div>
+ <div class="tb w" id="t9b" style="left:90px;top:1380px;font-size:72px" data-l="Pochi giornalisti."></div>
+ <div class="tb y" id="t9c" style="left:90px;top:1470px;font-size:80px" data-l="Tanta concretezza."></div>
+ <div class="mini" id="m9"></div>
+</div>
+
+<!-- S10 chiusura -->
+<div class="scene bg-night" id="s10"><div class="drift" style="top:400px"></div><div class="drift" style="top:1300px"></div>
+ <img id="oLogo" src="logo.png" alt="">
+ <span class="chip" id="c10" style="left:50%;top:330px">SEI TU IL LEADER · PUNTATA 1</span>
+ <div class="tb w" id="t10a" style="left:0;right:0;text-align:center;top:410px;font-size:150px" data-l="A o B?"></div>
+ <svg class="art" viewBox="0 0 1080 1920" id="a10"></svg>
+ <div class="cap" id="capA" style="left:250px;top:1140px">Il grande teatro</div>
+ <div class="cap" id="capB" style="left:830px;top:1140px">La fabbrica</div>
+ <div id="oCta">Commenta A o B</div>
+ <div id="oInfo">Voto aperto <span>48 ore</span><br>Segui per la puntata 2</div>
+ <div id="oFoot">PERSONAGGI DI FANTASIA · SATIRA</div>
+</div>
+
+<div id="band"></div>
+</div>
+<script>
+var Bt = 60 / 100, BAR = 4 * Bt;
+function at(bar, beat) { return (bar + (beat || 0) / 4) * BAR; }
+function clamp(x) { return Math.max(0, Math.min(1, x)); }
+function ease(x) { x = clamp(x); return 1 - Math.pow(1 - x, 3); }
+function inout(x) { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+function back(x) { x = clamp(x); var c = 1.9; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); }
+function lerp(a, b, k) { return a + (b - a) * k; }
+function $(id) { return document.getElementById(id); }
+function tr(el, s) { if (el) el.setAttribute("transform", s); }
+var N = "#0C1467", BL = "#312781", Y = "#FCCA00", L = "#C9CCF5", W = "#ffffff", P = "#8f87ff";
+
+/* ---------------- scene e tempi (battute a 116 BPM) ---------------- */
+var SC = [
+  { id: "s1", a: 0, b: 2 },
+  { id: "s2", a: 2, b: 3.5, tr: "iris" },
+  { id: "s3", a: 3.5, b: 5.5, tr: "stripes" },
+  { id: "s4", a: 5.5, b: 7, tr: "whip" },
+  { id: "s5", a: 7, b: 8.5, tr: "flip" },
+  { id: "s6", a: 8.5, b: 10.5, tr: "push" },
+  { id: "s7", a: 10.5, b: 11.75, tr: "blinds" },
+  { id: "s8", a: 11.75, b: 14, tr: "split" },
+  { id: "s9", a: 14, b: 16.25, tr: "whipR" },
+  { id: "s10", a: 16.25, b: 18.5, tr: "zoom" }
+];
+SC.forEach(function (s) { s.t0 = s.a * BAR; s.t1 = s.b * BAR; });
+window.TOTAL = 18.5 * BAR;
+var TD = .5;
+
+/* ---------------- personaggi: un unico «pupazzo» snodabile ---------------- */
+var HAIR = '<path d="M-43 -2 Q-46 -48 0 -48 Q46 -48 43 -2 Q32 -28 0 -26 Q-32 -28 -43 -2Z" fill="' + N + '"/>';
+function rig(p, o) {
+  o = o || {}; var skin = o.skin || L, shirt = o.shirt || BL, pants = o.pants || N;
+  function leg(sd, x) { return '<g transform="translate(' + x + ',255)"><g id="' + p + '_leg' + sd + '"><rect x="-13" y="0" width="26" height="140" rx="13" fill="' + pants + '"/><ellipse cx="7" cy="141" rx="22" ry="11" fill="' + N + '"/></g></g>'; }
+  function arm(sd, x) { return '<g transform="translate(' + x + ',150)"><g id="' + p + '_arm' + sd + '"><rect x="-11" y="-6" width="22" height="112" rx="11" fill="' + (o.sleeve || shirt) + '"/><circle cx="0" cy="110" r="13" fill="' + skin + '"/><g transform="translate(0,110)"><g id="' + p + '_acc' + sd + '">' + (o["hand" + sd] || "") + "</g></g></g></g>"; }
+  var s = '<g id="' + p + '"><g id="' + p + '_bob">' + leg("L", 86) + leg("R", 114) + arm("L", 64);
+  s += '<path d="M58 272 L60 162 Q62 128 100 126 Q138 128 140 162 L142 272 Z" fill="' + shirt + '"/>' + (o.body || "") + arm("R", 136);
+  s += '<g transform="translate(100,86)"><g id="' + p + '_head">' + (o.headBack || "") + '<circle r="42" fill="' + skin + '"/>' + (o.hair === undefined ? HAIR : o.hair) +
+    '<g id="' + p + '_eyes"><circle cx="-14" cy="0" r="5" fill="' + N + '"/><circle cx="14" cy="0" r="5" fill="' + N + '"/></g><ellipse id="' + p + '_mouth" cx="0" cy="19" rx="9" ry="2.5" fill="' + N + '"/>' + (o.face || "") + "</g></g>";
+  return s + "</g></g>";
+}
+var CACHE = {};
+function gp(p, n) { var k = p + (n ? "_" + n : ""); return CACHE[k] || (CACHE[k] = document.getElementById(k)); }
+function pose(p, q) {
+  var s = q.s || 1, d = q.dir || 1, extra = q.rot ? " translate(100,255) rotate(" + q.rot + ") translate(-100,-255)" : "";
+  tr(gp(p), "translate(" + q.x + "," + q.y + ") scale(" + (d * s) + "," + s + ") translate(-100,-400)" + extra);
+  tr(gp(p, "bob"), "translate(0," + (q.bob || 0) + ")");
+  tr(gp(p, "legL"), "rotate(" + (q.legL || 0) + ")"); tr(gp(p, "legR"), "rotate(" + (q.legR || 0) + ")");
+  tr(gp(p, "armL"), "rotate(" + (q.armL || 8) + ")"); tr(gp(p, "armR"), "rotate(" + (q.armR || -8) + ")");
+  tr(gp(p, "accL"), "rotate(" + (-(q.armL || 8) + (q.accL || 0)) + ")"); tr(gp(p, "accR"), "rotate(" + (-(q.armR || -8) + (q.accR || 0)) + ")");
+  tr(gp(p, "head"), "rotate(" + (q.head || 0) + ")");
+  tr(gp(p, "eyes"), "scale(1," + (q.blink || 1) + ")");
+  var m = gp(p, "mouth"); if (m) { m.setAttribute("ry", q.mouth || 2.5); m.setAttribute("rx", q.mouthW || 9); }
+}
+function walk(ph, a) { a = a || 1; var s = Math.sin(ph); return { legL: 24 * s * a, legR: -24 * s * a, armL: 8 - 20 * s * a, armR: -8 + 20 * s * a, bob: -Math.abs(Math.cos(ph)) * 8 * a }; }
+function blink(t, seed) { return ((t + seed * 1.37) % 2.7) < .11 ? .12 : 1; }
+function talk(t, on) { return on ? 3 + 8 * Math.abs(Math.sin(t * 15)) : 2.5; }
+function mix(a, b) { for (var k in b) a[k] = b[k]; return a; }
+/* entra camminando da xs a xe tra t0 e t1, poi resta fermo */
+function stroll(t, t0, t1, xs, xe) {
+  var k = clamp((t - t0) / (t1 - t0)), x = lerp(xs, xe, k), w = k > 0 && k < 1 ? walk((t - t0) * 13) : walk(0, 0);
+  w.x = x; return w;
+}
+
+/* accessori */
+var GL = '<circle cx="-15" cy="0" r="13" fill="none" stroke="' + N + '" stroke-width="5"/><circle cx="15" cy="0" r="13" fill="none" stroke="' + N + '" stroke-width="5"/><line x1="-2" y1="0" x2="2" y2="0" stroke="' + N + '" stroke-width="5"/>';
+var TIE = function (c) { return '<path d="M92 128 L108 128 L104 210 L100 220 L96 210 Z" fill="' + c + '"/>'; };
+var COLLAR = '<path d="M82 128 L100 152 L118 128 Z" fill="#fff"/>';
+var PHONE = '<rect x="-14" y="-40" width="28" height="48" rx="6" fill="' + N + '"/><rect x="-10" y="-35" width="20" height="36" rx="3" fill="' + P + '"/>';
+var CHARS = {
+  you: { shirt: Y, sleeve: Y, pants: N, body: '<path d="M78 128 L100 190 L122 128" fill="none" stroke="' + N + '" stroke-width="6"/><rect x="86" y="186" width="28" height="32" rx="5" fill="#fff" stroke="' + N + '" stroke-width="3"/>' },
+  cugino: { shirt: P, sleeve: P, pants: BL, hair: '<path d="M-44 -6 Q-44 -50 0 -50 Q44 -50 44 -6 Z" fill="' + BL + '"/><rect x="0" y="-14" width="64" height="12" rx="6" fill="' + BL + '"/>' },
+  comm: { shirt: W, sleeve: W, pants: N, body: TIE(N), face: GL, handR: '<rect x="-20" y="-6" width="40" height="54" rx="6" fill="' + L + '" stroke="' + N + '" stroke-width="4"/><rect x="-13" y="2" width="26" height="12" fill="' + N + '"/><g fill="' + BL + '"><rect x="-13" y="20" width="7" height="7"/><rect x="-3" y="20" width="7" height="7"/><rect x="7" y="20" width="7" height="7"/><rect x="-13" y="32" width="7" height="7"/><rect x="-3" y="32" width="7" height="7"/><rect x="7" y="32" width="7" height="7"/></g>' },
+  sond: { shirt: N, pants: N, body: COLLAR + TIE(Y), face: GL, hair: '<path d="M-43 -4 Q-44 -48 0 -48 Q44 -48 43 -4 Q34 -30 0 -30 Q-34 -30 -43 -4Z" fill="' + BL + '"/>',
+    handL: '<g transform="translate(18,-30)"><rect x="0" y="0" width="70" height="92" rx="8" fill="#fff" stroke="' + BL + '" stroke-width="5"/><rect x="22" y="-8" width="26" height="14" rx="4" fill="' + BL + '"/><rect id="cb0" x="12" y="50" width="12" height="30" fill="' + BL + '"/><rect id="cb1" x="29" y="30" width="12" height="50" fill="' + Y + '"/><rect id="cb2" x="46" y="44" width="12" height="36" fill="' + BL + '"/></g>' },
+  sovrana: { shirt: BL, body: COLLAR, hair: '<path d="M-52 30 Q-58 -54 0 -52 Q58 -54 52 30 L40 30 Q42 -18 0 -22 Q-42 -18 -40 30 Z" fill="' + Y + '"/>', handR: '<rect x="-5" y="-30" width="10" height="26" rx="5" fill="' + L + '"/>' },
+  felpato: { shirt: BL, sleeve: BL, pants: N, hair: '<path d="M-42 -8 Q-44 -46 0 -46 Q44 -46 42 -8 Q36 -30 0 -30 Q-36 -30 -42 -8Z" fill="' + N + '"/>', headBack: '<path d="M-62 60 Q-70 20 -40 28 L40 28 Q70 20 62 60 Z" fill="' + BL + '"/>', body: '<line x1="90" y1="132" x2="88" y2="190" stroke="#fff" stroke-width="5"/><line x1="110" y1="132" x2="112" y2="190" stroke="#fff" stroke-width="5"/><rect x="70" y="214" width="60" height="30" rx="10" fill="' + N + '" opacity=".35"/>',
+    face: '<path d="M-41 2 Q-40 58 0 60 Q40 58 41 2 Q34 30 18 26 Q0 22 -18 26 Q-34 30 -41 2Z" fill="' + N + '"/><path d="M-12 30 Q0 36 12 30" fill="none" stroke="' + L + '" stroke-width="4"/>', handR: PHONE + '<circle id="fl_flash" cx="0" cy="-16" r="0" fill="#fff" opacity=".9"/>' },
+  diplo: { shirt: N, body: COLLAR + TIE(BL), hair: '<path d="M-44 4 Q-48 -50 4 -50 Q48 -48 44 4 Q40 -24 16 -30 L-6 -34 Q-30 -26 -44 4Z" fill="#fff"/><path d="M-6 -34 L-2 -46" stroke="' + L + '" stroke-width="3"/>', face: '<path d="M-12 16 Q0 26 12 16" fill="none" stroke="' + N + '" stroke-width="4"/>',
+    handL: '<rect x="-26" y="2" width="52" height="40" rx="7" fill="' + BL + '"/><rect x="-10" y="-6" width="20" height="10" rx="4" fill="none" stroke="' + BL + '" stroke-width="5"/>',
+    handR: '<line x1="0" y1="10" x2="0" y2="-80" stroke="' + N + '" stroke-width="5"/><g id="dp_flag"><rect x="0" y="-80" width="70" height="46" fill="' + BL + '"/><g fill="' + Y + '"><circle cx="35" cy="-70" r="3.5"/><circle cx="45" cy="-66" r="3.5"/><circle cx="48" cy="-57" r="3.5"/><circle cx="45" cy="-48" r="3.5"/><circle cx="35" cy="-44" r="3.5"/><circle cx="25" cy="-48" r="3.5"/><circle cx="22" cy="-57" r="3.5"/><circle cx="25" cy="-66" r="3.5"/></g></g>' },
+  generale: { shirt: N, sleeve: N, pants: N, hair: "", body: '<rect x="56" y="140" width="34" height="12" rx="5" fill="' + Y + '"/><rect x="110" y="140" width="34" height="12" rx="5" fill="' + Y + '"/><circle cx="80" cy="180" r="7" fill="' + Y + '"/><circle cx="96" cy="180" r="7" fill="' + P + '"/>',
+    face: '<ellipse cx="-8" cy="-36" rx="54" ry="18" fill="' + BL + '"/><circle cx="26" cy="-40" r="8" fill="' + Y + '"/>' },
+  armo: { shirt: P, sleeve: P, pants: N, hair: '<g fill="' + N + '"><path d="M-46 8 Q-56 -40 -10 -54 Q30 -62 48 -30 Q54 -12 46 4 Q40 -22 20 -28 Q-6 -20 -22 -34 Q-34 -14 -46 8Z"/><circle cx="-22" cy="-44" r="16"/><circle cx="6" cy="-50" r="16"/><circle cx="30" cy="-42" r="14"/></g>',
+    handR: '<g id="ar_fan"><rect x="-8" y="-80" width="16" height="80" rx="5" fill="' + Y + '"/><rect x="-8" y="-80" width="16" height="80" rx="5" fill="#fff"/><rect x="-8" y="-80" width="16" height="80" rx="5" fill="' + L + '"/><rect x="-8" y="-80" width="16" height="80" rx="5" fill="' + BL + '"/><rect x="-8" y="-80" width="16" height="80" rx="5" fill="' + P + '"/></g>' },
+  avvo: { shirt: N, body: COLLAR + TIE(L) + '<path d="M64 170 L90 170 L86 160 L80 166 L76 156 L70 166 L66 158 Z" fill="#fff"/>', hair: '<path d="M-44 0 Q-50 -54 2 -56 Q40 -58 48 -26 Q50 -10 44 0 Q40 -30 10 -36 Q-30 -36 -44 0Z" fill="' + N + '"/><path d="M-44 0 Q-46 -14 -40 -22" stroke="#fff" stroke-width="5" fill="none"/><path d="M44 0 Q46 -14 40 -22" stroke="#fff" stroke-width="5" fill="none"/>',
+    handR: '<line x1="0" y1="10" x2="0" y2="-90" stroke="' + BL + '" stroke-width="6"/><g transform="translate(0,-90)"><g id="av_vane"><path d="M-40 0 L30 0" stroke="' + BL + '" stroke-width="6"/><path d="M30 -14 L52 0 L30 14 Z" fill="' + Y + '"/><path d="M-40 -14 L-28 0 L-40 14 L-50 14 L-38 0 L-50 -14 Z" fill="' + BL + '"/></g></g>' },
+  duoA: { shirt: BL, pants: N, face: GL, hair: '<path d="M-43 -4 Q-44 -30 -34 -36 Q-30 -20 -26 -10 Z M43 -4 Q44 -30 34 -36 Q30 -20 26 -10 Z" fill="#fff"/>' },
+  duoB: { shirt: P, pants: N, face: '<path d="M-34 10 Q0 58 34 10 Q30 40 0 46 Q-30 40 -34 10Z" fill="' + N + '"/>', hair: '<g fill="' + N + '"><circle cx="-26" cy="-30" r="18"/><circle cx="0" cy="-40" r="20"/><circle cx="26" cy="-30" r="18"/></g>' },
+  rotta: { shirt: W, sleeve: W, body: '<path d="M84 128 L100 146 L116 128" fill="none" stroke="' + L + '" stroke-width="4"/><line x1="100" y1="150" x2="100" y2="270" stroke="' + L + '" stroke-width="3"/>', hair: '<path d="M-43 -2 Q-48 -52 4 -52 Q48 -48 43 -2 Q36 -34 14 -34 L4 -44 L-6 -32 Q-34 -30 -43 -2Z" fill="' + N + '"/>', face: '<path d="M-16 14 Q0 32 16 14 Z" fill="' + N + '"/>', handR: '<rect x="-16" y="-6" width="32" height="40" rx="6" fill="' + N + '"/><line x1="10" y1="-6" x2="16" y2="-36" stroke="' + N + '" stroke-width="4"/><circle cx="-4" cy="10" r="6" fill="' + Y + '"/>' },
+  press: { shirt: L, sleeve: L, pants: BL, body: '<rect x="66" y="170" width="50" height="22" rx="4" fill="' + N + '"/>', handR: '<line x1="0" y1="10" x2="0" y2="-40" stroke="' + N + '" stroke-width="6"/><circle cx="0" cy="-48" r="14" fill="' + N + '"/>' }
+};
+function bulldozer(id) {
+  return '<g id="' + id + '"><rect x="0" y="20" width="90" height="40" rx="8" fill="' + Y + '"/><rect x="14" y="-6" width="40" height="30" rx="5" fill="' + Y + '"/><rect x="20" y="0" width="26" height="16" fill="' + N + '" opacity=".6"/>' +
+    '<path d="M90 30 L120 22 L124 64 L92 60 Z" fill="' + N + '"/><rect x="-2" y="56" width="94" height="22" rx="11" fill="' + N + '"/><circle cx="14" cy="67" r="7" fill="' + L + '"/><circle cx="46" cy="67" r="7" fill="' + L + '"/><circle cx="78" cy="67" r="7" fill="' + L + '"/></g>';
+}
+function bush(id, c) { return '<g id="' + id + '"><circle cx="0" cy="-50" r="50" fill="' + c + '"/><circle cx="-40" cy="-30" r="34" fill="' + c + '"/><circle cx="40" cy="-30" r="34" fill="' + c + '"/><rect x="-74" y="-30" width="148" height="30" rx="15" fill="' + c + '"/><circle cx="-14" cy="-56" r="6" fill="' + N + '"/><circle cx="14" cy="-56" r="6" fill="' + N + '"/><ellipse id="' + id + '_m" cx="0" cy="-36" rx="8" ry="4" fill="' + N + '"/></g>'; }
+
+/* ---------------- testi a parole ---------------- */
+var WORDS = {};
+document.querySelectorAll(".tb[data-l]").forEach(function (el) {
+  var n = 0;
+  el.innerHTML = el.getAttribute("data-l").split("|").map(function (line) {
+    return '<span class="ln">' + line.split(" ").map(function (w) {
+      var mk = /^\*.*\*$/.test(w); if (mk) w = w.slice(1, -1);
+      return '<span class="wm"><span class="wi" data-i="' + (n++) + '">' + (mk ? '<b class="bar"></b>' : "") + w + "</span></span>";
+    }).join(" ") + "</span>";
+  }).join("");
+  WORDS[el.id] = [].slice.call(el.querySelectorAll(".wi"));
+});
+function words(id, t0, t, st) {
+  st = st || .09;
+  WORDS[id].forEach(function (w, i) {
+    var k = back((t - t0 - i * st) / .4);
+    w.style.transform = "translateY(" + (115 * (1 - k)) + "%) rotate(" + (6 * (1 - k)) + "deg)";
+    var b = w.querySelector(".bar"); if (b) b.style.width = (ease((t - t0 - i * st - .3) / .3) * 106) + "%";
+  });
+}
+function wordsOut(id, t0, t) { var k = inout((t - t0) / .3); $(id).style.opacity = 1 - k; $(id).style.transform = "translateY(" + (-40 * k) + "px)"; }
+
+/* ---------------- costruzione delle scene ---------------- */
+function miniHTML() {
+  return [["CONSENSO", 0], ["CREDIBILITÀ", 2], ["CASSE", 1], ["SQUADRA", 2]].map(function (h) {
+    var sq = ""; for (var i = 0; i < 5; i++) sq += '<i class="' + (i < h[1] ? "on" : "") + '"></i>';
+    return "<div>" + h[0] + " " + (h[1] ? sq : '<span style="color:var(--yellow)">N.R.</span>') + "</div>";
+  }).join("");
+}
+["m6", "m7", "m8", "m9"].forEach(function (id) { $(id).innerHTML = miniHTML(); $(id).style.transform = "translateX(-50%)"; });
+
+// S1: stanza
+$("a1").innerHTML =
+  '<g id="stars">' + [[120, 820], [260, 760], [880, 330], [980, 760], [700, 820], [560, 760]].map(function (s, i) { return '<circle id="st' + i + '" cx="' + s[0] + '" cy="' + s[1] + '" r="5" fill="#fff"/>'; }).join("") + "</g>" +
+  '<rect x="0" y="1380" width="1080" height="540" fill="' + N + '" opacity=".55"/>' +
+  '<rect x="160" y="1120" width="40" height="300" rx="10" fill="' + BL + '"/>' +
+  '<rect x="180" y="1250" width="700" height="80" rx="20" fill="#fff"/><rect x="180" y="1320" width="700" height="60" rx="10" fill="' + BL + '"/><rect x="860" y="1200" width="40" height="220" rx="10" fill="' + BL + '"/>' +
+  '<ellipse cx="290" cy="1238" rx="90" ry="34" fill="' + L + '"/>' +
+  rig("you1", CHARS.you) +
+  '<path id="blanket" d="M380 1196 Q600 1150 880 1200 L880 1330 L370 1330 Z" fill="' + P + '"/>' +
+  '<rect x="930" y="1270" width="120" height="150" rx="12" fill="' + BL + '"/>' +
+  '<g id="clock" transform="translate(990,1210)"><circle cx="-30" cy="-46" r="18" fill="' + Y + '"/><circle cx="30" cy="-46" r="18" fill="' + Y + '"/><circle r="50" fill="#fff" stroke="' + Y + '" stroke-width="8"/><line x1="0" y1="0" x2="0" y2="-32" stroke="' + N + '" stroke-width="6"/><line x1="0" y1="0" x2="22" y2="8" stroke="' + N + '" stroke-width="6"/></g>' +
+  '<g id="zz" fill="#fff" font-family="Montserrat" font-weight="900"><text id="z0" font-size="44">z</text><text id="z1" font-size="56">z</text><text id="z2" font-size="70">Z</text></g>' +
+  '<g id="bulb"><g id="rays">' + [0, 1, 2, 3, 4, 5, 6, 7].map(function (i) { return '<rect x="-5" y="-96" width="10" height="30" rx="5" fill="' + Y + '" transform="rotate(' + i * 45 + ')"/>'; }).join("") + '</g><circle r="44" fill="' + Y + '"/><rect x="-18" y="40" width="36" height="26" rx="6" fill="' + L + '"/></g>';
+
+// S2: bandiera
+$("a2").innerHTML = '<rect x="0" y="1450" width="1080" height="12" rx="6" fill="' + N + '" opacity=".25"/>' +
+  '<g id="pole"><rect x="-8" y="-700" width="16" height="700" rx="8" fill="' + N + '"/><circle cx="0" cy="-704" r="16" fill="' + N + '"/></g>' +
+  '<path id="flag" fill="' + BL + '"/><text id="flagQ" font-family="Montserrat" font-weight="900" font-size="120" fill="' + Y + '" text-anchor="middle">?</text>' +
+  rig("you2", CHARS.you);
+
+// S3
+$("a3").innerHTML = rig("sond", CHARS.sond);
+
+// S4
+$("a4").innerHTML = '<rect x="0" y="1450" width="1080" height="10" rx="5" fill="#fff" opacity=".12"/>' + rig("i0", CHARS.you) + rig("i1", CHARS.cugino) + rig("i2", CHARS.comm);
+
+// S5: righe scheda
+$("rows").innerHTML = [["Consenso", "non rilevato", 0], ["Credibilità", "2/5", 2], ["Casse", "1/5", 1], ["Squadra", "2/5", 2]].map(function (r, i) {
+  var s = ""; for (var k = 0; k < 5; k++) s += '<div class="seg"><i id="sg' + i + "_" + k + '"></i></div>';
+  return '<div class="hrow" id="hr' + i + '"><div class="lab">' + r[0] + "<span>" + r[1] + '</span></div><div class="segs">' + s + "</div></div>";
+}).join("");
+var HUDON = [0, 2, 1, 2];
+
+// S6: Roma
+var ROMA = [
+  { p: "sov", c: "sovrana", nm: "La|Sovrana", x: 130, y: 990, from: -300 },
+  { p: "fel", c: "felpato", nm: "Il|Felpato", x: 330, y: 990, from: -500 },
+  { p: "dip", c: "diplo", nm: "Il|Diplomatico", x: 540, y: 990, from: -700 },
+  { p: "gen", c: "generale", nm: "Il|Generale", x: 750, y: 990, from: 1500 },
+  { p: "arm", c: "armo", nm: "L'Armo-|cromista", x: 950, y: 990, from: 1300 },
+  { p: "avv", c: "avvo", nm: "L'Avvocato|del Popolo", x: 130, y: 1470, from: -300 },
+  { p: "dua", c: "duoA", nm: "", x: 310, y: 1470, from: -520 },
+  { p: "dub", c: "duoB", nm: "", x: 420, y: 1470, from: -430 },
+  { p: "rot", c: "rotta", nm: "Il|Rottamatore", x: 600, y: 1470, from: 1400 }
+];
+var sky = '<g fill="' + L + '" opacity=".55"><path d="M400 1200 L400 980 Q400 850 540 840 Q680 850 680 980 L680 1200 Z"/><rect x="525" y="790" width="30" height="60" rx="10"/><circle cx="540" cy="782" r="14"/>' +
+  '<rect x="330" y="1000" width="420" height="40"/>' + [0, 1, 2, 3, 4, 5].map(function (i) { return '<rect x="' + (345 + i * 70) + '" y="1040" width="30" height="160"/>'; }).join("") +
+  '<path d="M760 1200 L760 1010 Q900 960 1040 1010 L1040 1200 Z"/><path d="M40 1200 L40 1060 L120 1020 L200 1060 L200 1200 Z"/></g>' +
+  '<g id="clouds" fill="#fff">' + [0, 1, 2].map(function (i) { return '<g id="cl' + i + '"><ellipse cx="0" cy="0" rx="90" ry="34"/><ellipse cx="50" cy="-20" rx="60" ry="34"/><ellipse cx="-50" cy="-10" rx="50" ry="26"/></g>'; }).join("") + "</g>" +
+  '<rect x="0" y="1468" width="1080" height="8" rx="4" fill="' + N + '" opacity=".12"/><rect x="0" y="988" width="1080" height="8" rx="4" fill="' + N + '" opacity=".08"/>';
+$("a6").innerHTML = sky + ROMA.map(function (r) { return rig(r.p, CHARS[r.c]); }).join("") + bulldozer("bdz") +
+  bush("bu0", L) + bush("bu1", P) + bush("bu2", L);
+$("names6").innerHTML = ROMA.filter(function (r) { return r.nm; }).map(function (r) { return '<div class="nm" id="nm_' + r.p + '" style="left:' + r.x + "px;top:" + (r.y + 18) + 'px">' + r.nm.replace("|", "<br>") + "</div>"; }).join("") +
+  '<div class="nm" id="nm_duo" style="left:375px;top:1488px">Il<br>Duo</div><div class="nm" id="nm_ces" style="left:952px;top:1488px">I<br>Cespugli</div>';
+
+// S7
+$("a7").innerHTML = '<rect x="0" y="1560" width="1080" height="10" rx="5" fill="#fff" opacity=".12"/>' + rig("you7", CHARS.you) +
+  [0, 1, 2, 3, 4].map(function (i) { return '<text id="q' + i + '" font-family="Montserrat" font-weight="900" fill="' + Y + '" text-anchor="middle">?</text>'; }).join("");
+
+// S8 teatro
+$("a8").innerHTML =
+  '<rect x="60" y="580" width="960" height="760" rx="30" fill="' + N + '"/>' +
+  '<rect x="90" y="610" width="900" height="560" fill="#1b2390"/>' +
+  '<g id="spots"><path id="sp0" d="M0 0 L-90 640 L90 640 Z" fill="' + Y + '" opacity=".22"/><path id="sp1" d="M0 0 L-90 640 L90 640 Z" fill="' + Y + '" opacity=".22"/></g>' +
+  '<rect x="90" y="1170" width="900" height="40" fill="' + BL + '"/>' + rig("you8", CHARS.you) +
+  '<path id="curL" d="M90 600 L560 600 L540 1170 L90 1170 Z" fill="' + BL + '"/><path id="curR" d="M520 600 L990 600 L990 1170 L540 1170 Z" fill="' + BL + '"/>' +
+  '<path d="M60 580 L1020 580 L1020 640 Q540 700 60 640 Z" fill="' + P + '"/>' +
+  [0, 1, 2, 3].map(function (i) {
+    var x = 180 + i * 240;
+    return '<g transform="translate(' + x + ',1290)"><rect x="-50" y="-40" width="100" height="64" rx="10" fill="' + BL + '"/><circle cx="0" cy="-8" r="22" fill="' + N + '" stroke="' + L + '" stroke-width="6"/><rect x="-36" y="-54" width="30" height="16" rx="4" fill="' + BL + '"/><g id="fx' + i + '"><path d="M0 -70 L10 -40 L40 -40 L16 -22 L26 8 L0 -10 L-26 8 L-16 -22 L-40 -40 L-10 -40 Z" fill="#fff"/></g></g>';
+  }).join("") +
+  '<g id="coins">' + [0, 1, 2, 3, 4, 5, 6, 7].map(function (i) { return '<g id="co' + i + '"><circle r="22" fill="' + Y + '" stroke="' + N + '" stroke-width="4"/><text y="10" font-family="Montserrat" font-weight="900" font-size="28" fill="' + N + '" text-anchor="middle">€</text></g>'; }).join("") + "</g>";
+
+// S9 fabbrica
+$("a9").innerHTML =
+  '<path d="M80 1300 L80 820 L250 720 L250 820 L420 720 L420 820 L590 720 L590 820 L760 720 L760 1300 Z" fill="' + L + '"/>' +
+  '<rect x="820" y="640" width="80" height="660" fill="' + L + '"/><rect x="810" y="630" width="100" height="30" rx="8" fill="#fff"/>' +
+  [0, 1, 2].map(function (i) { return '<rect x="' + (130 + i * 210) + '" y="900" width="140" height="120" rx="12" fill="' + BL + '"/>'; }).join("") +
+  '<rect x="300" y="1100" width="180" height="200" rx="10" fill="' + N + '" opacity=".75"/>' +
+  '<g id="gearA" transform="translate(680,980)">' + gear(58, Y) + '</g><g id="gearB" transform="translate(620,1080)">' + gear(40, N) + "</g>" +
+  '<g id="smoke">' + [0, 1, 2, 3, 4, 5].map(function (i) { return '<circle id="sm' + i + '" fill="#fff"/>'; }).join("") + "</g>" +
+  '<rect x="0" y="1300" width="1080" height="10" fill="#fff" opacity=".2"/>' +
+  '<rect x="150" y="1225" width="190" height="80" rx="8" fill="' + Y + '"/><line x1="150" y1="1265" x2="340" y2="1265" stroke="' + N + '" stroke-width="4" opacity=".4"/>' +
+  rig("you9", CHARS.you) + rig("prs", CHARS.press);
+function gear(r, c) {
+  var s = ""; for (var i = 0; i < 8; i++) s += '<rect x="-' + (r * .18) + '" y="-' + (r * 1.25) + '" width="' + (r * .36) + '" height="' + (r * .5) + '" rx="4" fill="' + c + '" transform="rotate(' + i * 45 + ')"/>';
+  return s + '<circle r="' + r + '" fill="' + c + '"/><circle r="' + r * .35 + '" fill="' + L + '"/>';
+}
+
+// S10 chiusura
+$("a10").innerHTML =
+  '<line x1="250" y1="600" x2="250" y2="680" stroke="#fff" stroke-width="5" opacity=".5"/><line x1="830" y1="600" x2="830" y2="680" stroke="#fff" stroke-width="5" opacity=".5"/>' +
+  '<g id="sgA" transform="translate(250,600)"><line x1="0" y1="0" x2="0" y2="90" stroke="#fff" stroke-width="5"/><circle cx="0" cy="260" r="170" fill="#fff"/><text x="0" y="335" font-family="Montserrat" font-weight="900" font-size="230" fill="' + BL + '" text-anchor="middle" letter-spacing="-10">A</text></g>' +
+  '<g id="sgB" transform="translate(830,600)"><line x1="0" y1="0" x2="0" y2="90" stroke="#fff" stroke-width="5"/><circle cx="0" cy="260" r="170" fill="' + Y + '"/><text x="0" y="335" font-family="Montserrat" font-weight="900" font-size="230" fill="' + N + '" text-anchor="middle" letter-spacing="-10">B</text></g>' +
+  rig("you10", CHARS.you);
+
+/* ---------------- disegno di ogni scena ---------------- */
+var DRAW = {};
+DRAW.s1 = function (t) {
+  var t0 = SC[0].t0, sitA = at(0, 2.6), sitB = at(1, 0);
+  var rot = lerp(-84, 0, inout((t - sitA) / (sitB - sitA))), up = t > sitB;
+  var stretch = clamp((t - at(1, .4)) / .3) * (1 - clamp((t - at(1, 2.2)) / .3));
+  var q = { x: 470, y: 1330, s: 1, rot: rot, blink: t < sitA ? .12 : blink(t, 1), head: up ? 6 * Math.sin(t * 2) : 0,
+    armL: lerp(10, 160, stretch), armR: lerp(-10, -160, stretch), mouth: stretch > .3 ? 10 * stretch : 2.5 };
+  pose("you1", q);
+  var ring = t < sitA + .2, c = $("clock");
+  tr(c, "translate(990,1210) rotate(" + (ring ? 10 * Math.sin(t * 55) : 0) + ")");
+  [0, 1, 2].forEach(function (i) {
+    var ph = ((t * .7 + i / 3) % 1), z = $("z" + i);
+    z.setAttribute("x", 260 + i * 30 + ph * 80); z.setAttribute("y", 1150 - ph * 220); z.setAttribute("opacity", t < sitA ? (1 - ph) : 0);
+  });
+  for (var i = 0; i < 6; i++) $("st" + i).setAttribute("opacity", .35 + .65 * Math.abs(Math.sin(t * 2.2 + i * 1.7)));
+  var kb = back((t - at(1, 2)) / .4);
+  tr($("bulb"), "translate(470,840) scale(" + (t < at(1, 2) ? 0 : kb) + ")"); tr($("rays"), "rotate(" + t * 60 + ")");
+  words("t1a", t0 + .1, t, .12);
+  words("t1b", at(1, 2), t, .12);
+};
+DRAW.s2 = function (t) {
+  var t0 = SC[1].t0, lt = t - t0, kp = back(lt / .5);
+  tr($("pole"), "translate(560,1450) scale(1," + Math.max(0, kp) + ")");
+  var top = 1450 - 700 * kp, unf = ease((lt - .35) / .5), wv = "", A = 16, w = 300 * unf, h = 190, pts = [];
+  for (var i = 0; i <= 12; i++) { var x = w * i / 12, a = Math.sin(i / 12 * 5 - t * 7) * A * (i / 12); pts.push([568 + x, top + 6 + a]); }
+  wv = "M" + pts.map(function (p) { return p[0].toFixed(1) + " " + p[1].toFixed(1); }).join(" L");
+  for (var j = 12; j >= 0; j--) wv += " L" + pts[j][0].toFixed(1) + " " + (pts[j][1] + h).toFixed(1);
+  $("flag").setAttribute("d", wv + " Z");
+  var fq = $("flagQ"); fq.setAttribute("x", 568 + w / 2); fq.setAttribute("y", top + 6 + h / 2 + 42 + Math.sin(2.5 - t * 7) * A * .5); fq.setAttribute("opacity", clamp((lt - .6) / .2));
+  var cheer = Math.sin(t * 9);
+  pose("you2", { x: 400, y: 1450, s: 1.15, armR: -105 + 6 * cheer, armL: 150 + 10 * cheer, blink: blink(t, 2), mouth: 9, mouthW: 12, bob: -Math.abs(cheer) * 6, head: 4 * cheer });
+  words("t2a", t0 + .15, t, .1); words("t2b", t0 + .9, t, .06);
+};
+DRAW.s3 = function (t) {
+  var t0 = SC[2].t0, lt = t - t0, st = stroll(t, t0 + .05, t0 + .95, 1250, 330);
+  var talking = lt > 1.1 && lt < 2.6;
+  pose("sond", mix(st, { y: 1560, s: 1.32, blink: blink(t, 3), mouth: talk(t, talking), head: talking ? 5 * Math.sin(t * 4) : 0, armL: st.armL + (lt > 1 ? 30 : 0) }));
+  ["cb0", "cb1", "cb2"].forEach(function (id, i) { var r = $(id), hh = 20 + 40 * Math.abs(Math.sin(t * 3 + i)); r.setAttribute("y", 80 - hh); r.setAttribute("height", hh); });
+  $("c3").style.opacity = ease(lt / .3);
+  var kb = back((lt - 1.0) / .35); $("bubble").style.transform = "scale(" + (lt < 1 ? 0 : kb) + ")";
+  var p = clamp((lt - .5) / 2.2), pk = inout(p) * .97 + (p >= 1 ? .03 : 0);
+  $("pFill").style.width = (pk * 100) + "%"; $("pPct").textContent = Math.round(pk * 100) + "%";
+  var te = t0 + 2.9, ke = clamp((t - te) / .18), wig = t > te ? 26 * Math.sin((t - te) * 40) * Math.exp(-(t - te) * 5) : 0;
+  $("pErr").style.opacity = ke; $("pErr").style.transform = "scale(" + (1 + .4 * (1 - ke)) + ")"; $("panel").style.transform = "translateX(" + wig + "px)";
+};
+DRAW.s4 = function (t) {
+  var t0 = SC[3].t0, xs = [200, 540, 880], arr = [];
+  [0, 1, 2].forEach(function (i) {
+    var a = t0 + .1 + i * .42, e = a + .55, st = stroll(t, a, e, -250, xs[i]); arr.push(e);
+    var wave = t > e + .1 ? Math.sin((t - e) * 10) : 0;
+    pose("i" + i, mix(st, { y: 1450, s: .95, blink: blink(t, i), armR: t > e ? -140 + 20 * wave : st.armR, mouth: t > e ? 7 : 2.5, mouthW: 11 }));
+    var g = $("g" + i), kg = back((t - e) / .35);
+    g.style.left = (xs[i] - g.offsetWidth / 2) + "px"; g.style.top = "1000px"; g.style.transform = "scale(" + (t < e ? 0 : kg) + ")";
+  });
+  var n = 0; arr.forEach(function (e, i) { n += ease((t - e) / .25); });
+  $("roll").firstElementChild.style.marginTop = (-300 * n) + "px";
+  words("t4a", t0 + .05, t);
+};
+DRAW.s5 = function (t) {
+  var t0 = SC[4].t0, lt = t - t0;
+  HUDON.forEach(function (on, i) {
+    var r = $("hr" + i), tr0 = t0 + .25 + i * .2, kr = back((t - tr0) / .35);
+    r.style.opacity = clamp((t - tr0) / .1); r.style.transform = "translateY(" + (60 * (1 - kr)) + "px)";
+    for (var k = 0; k < 5; k++) { var s = $("sg" + i + "_" + k), ks = back((t - tr0 - .25 - k * .07) / .3); s.style.transform = "scale(" + (k < on ? ks : 0) + ")"; }
+  });
+  var ke = inout((t - (SC[4].t1 - .45)) / .45);
+  $("card").style.transform = "translateY(" + (-270 * ke) + "px) scale(" + (1 - .45 * ke) + ")";
+};
+DRAW.s6 = function (t) {
+  var t0 = SC[5].t0, lt = t - t0;
+  words("t6a", t0 + .1, t, .08);
+  for (var c = 0; c < 3; c++) tr($("cl" + c), "translate(" + (((c * 420 + t * 40) % 1400) - 160) + "," + (720 + c * 70) + ")");
+  ROMA.forEach(function (r, i) {
+    var a = t0 + .15 + (i % 5) * .12, e = a + 1.0, st = stroll(t, a, e, r.from, r.x), on = t > e, ph = t - e;
+    var q = mix(st, { y: r.y, s: .8, blink: blink(t, i + 4), dir: st.x > r.x + 1 ? -1 : 1 });
+    if (on) {
+      if (r.p === "sov") mix(q, { armR: -155 + 16 * Math.sin(ph * 9), accR: 0, mouth: talk(t, true), head: -4 });
+      if (r.p === "fel") { mix(q, { armR: -125, accR: -10, head: 10 + 3 * Math.sin(ph * 3), mouth: 8, mouthW: 14 }); var fl = $("fl_flash"); var fk = (ph * 1.2) % 1; fl.setAttribute("r", fk < .15 ? 40 * (fk / .15) : 0); fl.setAttribute("opacity", fk < .15 ? 1 - fk / .15 : 0); }
+      if (r.p === "dip") { mix(q, { armR: -150 + 10 * Math.sin(ph * 6), armL: 6, head: 6 * Math.sin(ph * 2.5) }); tr($("dp_flag"), "skewY(" + (8 * Math.sin(ph * 10)) + ")"); }
+      if (r.p === "gen") { var sal = ((ph % 1.6) < 1.1) ? 1 : 0; mix(q, { armR: sal ? 168 : -4, armL: 4, legL: 6 * Math.sin(ph * 8), legR: -6 * Math.sin(ph * 8), head: 0 }); }
+      if (r.p === "arm") { mix(q, { armR: -60 + 30 * Math.sin(ph * 5), mouth: talk(t, true) }); }
+      if (r.p === "avv") { mix(q, { armR: -165, head: 14 * Math.sin(ph * 1.6) }); tr($("av_vane"), "rotate(" + (ph * 260) + ")"); }
+      if (r.p === "dua" || r.p === "dub") { var sw = 5 * Math.sin(ph * 4); mix(q, { rot: 0, head: sw, mouth: talk(t, true), armR: r.p === "dua" ? -40 : -8, armL: r.p === "dub" ? 40 : 8, bob: -Math.abs(Math.sin(ph * 4)) * 6 }); }
+      if (r.p === "rot") { mix(q, { armR: -45 + 6 * Math.sin(ph * 12), head: 10, mouth: 6 }); }
+    }
+    pose(r.p, q);
+    if (r.p === "arm") { var fan = $("ar_fan").children, sp = on ? 12 + 10 * Math.sin(ph * 5) : 0; for (var f = 0; f < fan.length; f++) tr(fan[f], "rotate(" + ((f - 2) * sp) + ")"); }
+    var nm = $("nm_" + r.p); if (nm) { nm.style.opacity = clamp((t - e) / .2); }
+  });
+  ["duo", "ces"].forEach(function (n, i) { $("nm_" + n).style.opacity = clamp((t - (t0 + 1.4 + i * .2)) / .2); });
+  var bt = t - (t0 + 1.2); tr($("bdz"), "translate(" + (680 + (bt > 0 ? 40 * Math.sin(bt * 2.4) : 300 - 300 * clamp(bt + 1))) + ",1405) scale(.8)");
+  [0, 1, 2].forEach(function (i) {
+    var a = t0 + 1.1 + i * .15, k = back((t - a) / .4), hop = t > a + .4 ? Math.abs(Math.sin((t - a) * 6 + i)) * 18 : 0;
+    tr($("bu" + i), "translate(" + (890 + i * 62) + "," + (1470 - hop) + ") scale(" + ((t < a ? 0 : k) * (.36 + (i === 1 ? .08 : 0))) + ")");
+    $("bu" + i + "_m").setAttribute("ry", 3 + 5 * Math.abs(Math.sin(t * 12 + i)));
+  });
+  $("m6").style.transform = "translateX(-50%) translateY(" + (-200 * (1 - back(lt / .45))) + "px)";
+};
+DRAW.s7 = function (t) {
+  var t0 = SC[6].t0, lt = t - t0;
+  pose("you7", { x: 540, y: 1560, s: 1.3, armR: 162 + 8 * Math.sin(t * 12), armL: 10, head: -10 + 4 * Math.sin(t * 3), blink: blink(t, 7), mouth: 4, mouthW: 6 });
+  [0, 1, 2, 3, 4].forEach(function (i) {
+    var ph = ((lt * .8 + i / 5) % 1), q = $("q" + i);
+    q.setAttribute("x", 380 + i * 80 + Math.sin(ph * 6 + i) * 30); q.setAttribute("y", 1000 - ph * 250); q.setAttribute("font-size", 60 + i % 3 * 20); q.setAttribute("opacity", Math.sin(ph * Math.PI) * clamp(lt / .4));
+  });
+  words("t7a", t0 + .05, t); words("t7b", t0 + .3, t, .12);
+};
+DRAW.s8 = function (t) {
+  var t0 = SC[7].t0, lt = t - t0, ko = inout((lt - .3) / .7);
+  tr($("curL"), "translate(90,0) scale(" + (1 - .8 * ko) + ",1) translate(-90,0)");
+  tr($("curR"), "translate(990,0) scale(" + (1 - .8 * ko) + ",1) translate(-990,0)");
+  tr($("sp0"), "translate(140,600) rotate(" + (-30 + 14 * Math.sin(t * 2.2)) + ")"); tr($("sp1"), "translate(940,600) rotate(" + (30 + 14 * Math.sin(t * 2.6 + 1)) + ")");
+  var j = Math.sin(t * 10);
+  pose("you8", { x: 540, y: 1180, s: 1.05, armL: 150 + 15 * j, armR: -150 - 15 * j, bob: -Math.abs(j) * 10, mouth: 9, mouthW: 13, blink: blink(t, 8), head: 5 * j });
+  [0, 1, 2, 3].forEach(function (i) { var f = ((t * 1.4 + i * .37) % 1); tr($("fx" + i), "scale(" + (f < .12 ? 1.2 * Math.sin(f / .12 * Math.PI) : 0) + ")"); });
+  [0, 1, 2, 3, 4, 5, 6, 7].forEach(function (i) {
+    var a = t0 + 1.4 + i * .12, d = t - a;
+    tr($("co" + i), d < 0 ? "scale(0)" : "translate(" + (540 + (i - 3.5) * 40 + d * (i - 3.5) * 160) + "," + (1000 - d * 700 + d * d * 900) + ") rotate(" + d * 400 + ")");
+  });
+  $("dA").style.transform = "scale(" + back(lt / .4) + ") rotate(" + (-20 * (1 - ease(lt / .5))) + "deg)";
+  words("t8a", t0 + .15, t, .08); words("t8b", t0 + .9, t); words("t8c", t0 + 1.3, t);
+  var kd = ease((lt - 1.5) / 1.2), v = Math.round(kd * 84000 / 100) * 100;
+  $("debt").textContent = "−" + v.toLocaleString("it-IT") + " €"; $("debtBox").style.opacity = clamp((lt - 1.45) / .15);
+};
+DRAW.s9 = function (t) {
+  var t0 = SC[8].t0, lt = t - t0;
+  tr($("gearA"), "translate(680,980) rotate(" + t * 80 + ")"); tr($("gearB"), "translate(620,1080) rotate(" + (-t * 116) + ")");
+  for (var i = 0; i < 6; i++) { var ph = (t * .55 + i / 6) % 1, c = $("sm" + i); c.setAttribute("cx", 860 + Math.sin(ph * 5 + i) * 30 + ph * 60); c.setAttribute("cy", 600 - ph * 330); c.setAttribute("r", 26 + ph * 46); c.setAttribute("opacity", (1 - ph) * .85); }
+  var g = Math.sin(t * 6);
+  pose("you9", { x: 245, y: 1228, s: .9, armR: -70 + 25 * g, armL: 20, mouth: talk(t, true), blink: blink(t, 9), head: 4 * g });
+  var st = stroll(t, t0 + .5, t0 + 1.3, 1250, 830);
+  pose("prs", mix(st, { y: 1300, s: .78, dir: -1, armR: t > t0 + 1.3 ? -95 : st.armR, blink: blink(t, 10) }));
+  $("dB").style.transform = "scale(" + back(lt / .4) + ") rotate(" + (20 * (1 - ease(lt / .5))) + "deg)";
+  words("t9a", t0 + .15, t, .08); words("t9b", t0 + .9, t); words("t9c", t0 + 1.3, t, .1);
+};
+DRAW.s10 = function (t) {
+  var t0 = SC[9].t0, lt = t - t0;
+  $("oLogo").style.transform = "scale(" + back(lt / .45) + ")";
+  $("c10").style.transform = "translateX(-50%) scale(" + back((lt - .2) / .35) + ")";
+  words("t10a", t0 + .35, t, .1);
+  [["sgA", 250, 0], ["sgB", 830, .25]].forEach(function (s) {
+    var a = t0 + .6 + s[2], k = back((t - a) / .5), sw = (t > a ? 7 * Math.sin((t - a) * 3 + s[2] * 6) : 0);
+    tr($(s[0]), "translate(" + s[1] + "," + (600 - 900 * (1 - clamp(k))) + ") rotate(" + sw + ")");
+  });
+  var pt = Math.floor((lt / (Bt * 2))) % 2;
+  pose("you10", { x: 540, y: 1230, s: .78, armL: pt ? 10 : 115, armR: pt ? -115 : -10, head: pt ? 10 : -10, mouth: 7, mouthW: 11, blink: blink(t, 11), bob: -Math.abs(Math.sin(t * 6)) * 5 });
+  $("capA").style.opacity = ease((lt - 1.1) / .3); $("capB").style.opacity = ease((lt - 1.3) / .3);
+  var tc = t0 + 1.6, kc = back((t - tc) / .4), pc = t > tc + .5 ? 1 + .045 * Math.max(0, Math.cos(((t - tc) / Bt) * Math.PI * 2)) : 1;
+  $("oCta").style.transform = "translateX(-50%) scale(" + ((t < tc ? 0 : kc) * pc) + ")";
+  $("oInfo").style.opacity = ease((lt - 2.2) / .3); $("oInfo").style.transform = "translateY(" + (30 * (1 - ease((lt - 2.2) / .3))) + "px)";
+  $("oFoot").style.opacity = ease((lt - 2.8) / .4);
+};
+
+/* ---------------- transizioni ---------------- */
+function resetScene(el) { el.style.display = "none"; el.style.transform = ""; el.style.clipPath = ""; el.style.webkitMaskImage = ""; el.style.maskImage = ""; el.style.filter = ""; el.style.opacity = ""; el.style.zIndex = ""; }
+function applyTr(kind, out, inc, k, t) {
+  var band = $("band");
+  if (kind === "iris") inc.style.clipPath = "circle(" + (2300 * Math.pow(k, 1.6)) + "px at 470px 840px)";
+  if (kind === "stripes") {
+    var Pp = -100 + k * 2100; inc.style.clipPath = "polygon(0 0," + Pp + "px 0," + (Pp - 800) + "px 1920px,0 1920px)";
+    band.style.display = "block"; band.style.left = (Pp - 400 - 45) + "px"; band.style.transform = "rotate(22.6deg)";
+  }
+  if (kind === "whip" || kind === "whipR") {
+    var d = kind === "whip" ? 1 : -1;
+    out.style.transform = "translateX(" + (-d * k * 1080) + "px)"; out.style.filter = "blur(" + (k * 24) + "px)";
+    inc.style.transform = "translateX(" + (d * (1 - k) * 1080) + "px)"; inc.style.filter = "blur(" + ((1 - k) * 24) + "px)";
+  }
+  if (kind === "flip") {
+    if (k < .5) { out.style.transform = "perspective(2200px) rotateY(" + (k * 180) + "deg)"; inc.style.display = "none"; }
+    else { out.style.display = "none"; inc.style.transform = "perspective(2200px) rotateY(" + (-(1 - k) * 180) + "deg)"; }
+  }
+  if (kind === "push") { out.style.transform = "translateY(" + (-k * 1920) + "px)"; inc.style.transform = "translateY(" + ((1 - k) * 1920) + "px)"; }
+  if (kind === "blinds") { var m = "repeating-linear-gradient(to bottom,#000 0px,#000 " + (k * 160) + "px,transparent " + (k * 160) + "px,transparent 160px)"; inc.style.webkitMaskImage = m; inc.style.maskImage = m; }
+  if (kind === "split") { var q = 50 - 50 * k; inc.style.clipPath = "inset(0 " + q + "% 0 " + q + "%)"; }
+  if (kind === "zoom") { out.style.transform = "scale(" + (1 + .5 * k) + ")"; out.style.opacity = 1 - k; inc.style.transform = "scale(" + (.86 + .14 * k) + ")"; inc.style.opacity = k; }
+}
+
+window.render = function (t) {
+  var scs = document.querySelectorAll(".scene"); for (var i = 0; i < scs.length; i++) resetScene(scs[i]);
+  $("band").style.display = "none";
+  var idx = 0; SC.forEach(function (s, i) { if (t >= s.t0) idx = i; });
+  var cur = SC[idx], el = $(cur.id); el.style.display = "block"; el.style.zIndex = 2;
+  DRAW[cur.id](t);
+  if (idx > 0 && t < cur.t0 + TD) {
+    var prev = SC[idx - 1], pel = $(prev.id); pel.style.display = "block"; pel.style.zIndex = 1;
+    DRAW[prev.id](t);
+    applyTr(cur.tr, pel, el, inout((t - cur.t0) / TD), t);
+  }
+  document.querySelectorAll(".drift").forEach(function (d, i) { d.style.transform = "rotate(-24deg) translateX(" + (((t * 60 + i * 300) % 600) - 300) + "px)"; });
+  var imgs = [].slice.call(document.images).filter(function (i) { return i.offsetParent !== null; });
+  return Promise.all(imgs.map(function (i) { return i.decode().catch(function () {}); }));
+};
+</script>
+</body></html>

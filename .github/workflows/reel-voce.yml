@@ -1,0 +1,49 @@
+name: Voce dei reel
+
+on:
+  push:
+    branches: [reel-voce]
+    paths:
+      - "strumenti/reel/voce/*.json"
+      - "strumenti/reel/voce/*.mp4"
+      - "strumenti/reel/voce/genera_voce.py"
+      - ".github/workflows/reel-voce.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: reel-voce
+  cancel-in-progress: false
+
+jobs:
+  voce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installa motore vocale e ffmpeg
+        run: |
+          pip install edge-tts
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Genera la voce e montala sul video
+        run: |
+          for c in strumenti/reel/voce/copione-*.json; do
+            python strumenti/reel/voce/genera_voce.py "$c"
+          done
+
+      - name: Pubblica il video con la voce
+        run: |
+          git config user.name "il-punto-bot"
+          git config user.email "il-punto-bot@users.noreply.github.com"
+          git add strumenti/reel/voce/*-voce.mp4
+          if git diff --cached --quiet; then echo "Niente da pubblicare"; exit 0; fi
+          git commit -m "Reel con voce"
+          git pull --rebase origin reel-voce
+          git push origin HEAD:reel-voce
