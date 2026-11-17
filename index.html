@@ -289,6 +289,8 @@ footer a { color: #E4E6FF; }
 }
 .demo-strip { background: #FFF1B8; color: #3A2E00; font-size: .86rem; padding: 8px 16px; text-align: center; }
 .demo-strip b { margin-right: 6px; }
+.door .ava-soon { margin: 4px 0 0; padding: 12px 14px; border-radius: 12px; background: rgba(252,202,0,.14); border: 1px solid rgba(252,202,0,.45); color: #FFFFFF; }
+.door .ava-soon b { color: var(--yellow, #FCCA00); }
 </style>
 </head>
 <body>
@@ -392,7 +394,7 @@ footer a { color: #E4E6FF; }
         <div class="bg" aria-hidden="true"><img src="assets/foto/evento-roma-platea.jpg" alt="" loading="lazy" width="787" height="1400"></div>
         <div class="door-body">
           <span class="lock"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Area riservata</span>
-          <span class="tag">Si entra con un codice</span>
+          <span class="tag">Apre a breve</span>
           <h3>Avamposto</h3>
           <p>Qui impariamo a fare politica bene: scrivere un post che funziona, parlare in pubblico, capire come si decide davvero in Europa. Corsi, dirette con ospiti e materiali riservati a chi è dei nostri.</p>
           <ul class="inside" id="ava-list">
@@ -400,9 +402,10 @@ footer a { color: #E4E6FF; }
             <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M8.5 15.5a5 5 0 0 1 0-7M15.5 8.5a5 5 0 0 1 0 7M5.6 18.4a9 9 0 0 1 0-12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></svg><div><b>Dirette</b><span>Incontri su Meet con ospiti e domande dal vivo.</span></div></li>
             <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg><div><b>Contenuti speciali</b><span>Dossier e registrazioni delle dirette.</span></div></li>
           </ul>
+          <p class="ava-soon"><b>L'Avamposto apre a breve.</b> Iscriviti alla newsletter per sapere per primo quando si parte.</p>
           <div class="actions" id="ava-actions">
-            <a class="btn white" href="avamposto/">Ho il codice</a>
-            <a class="btn ghost-white" href="#unisciti">Chiedi il codice</a>
+            <a class="btn white" href="#unisciti">Iscriviti alla newsletter</a>
+            <a class="btn ghost-white" href="avamposto/scopri.html">Scopri di più</a>
           </div>
         </div>
       </article>
@@ -552,7 +555,7 @@ SocialFeed.render({ base: "", box: document.getElementById("ig-grid"), limit: 4,
   }
 })();
 </script>
-<script src="avamposto/config.js?v=20261117c"></script>
+<script src="avamposto/config.js?v=20261117d"></script>
 <script src="avamposto/data.js"></script>
 <script>
 /* Ultime tre Voci Under 30 approvate (compare solo se ce ne sono). */
@@ -611,15 +614,11 @@ SocialFeed.render({ base: "", box: document.getElementById("ig-grid"), limit: 4,
   }
   var cfg = window.AVAMPOSTO_CONFIG || {};
   var DD = window.AvampostoData, DEMO_ON = !!(DD && DD.isDemo && (function () { try { return sessionStorage.getItem("avamposto-demo") === "1"; } catch (e) { return false; } })());
-  if (cfg.inArrivo && !DEMO_ON) {
-    document.querySelector(".door.avamposto .tag").textContent = "Apre a breve";
-    document.getElementById("ava-actions").innerHTML = '<a class="btn white" href="#unisciti">Avvisami con la newsletter</a><a class="btn ghost-white" href="avamposto/scopri.html">Scopri di più</a>';
-  } else if (signedIn()) {
-    document.getElementById("ava-actions").innerHTML = '<a class="btn white" href="avamposto/">Entra nell\'Avamposto →</a>';
-  }
+  /* Riquadro dell'Avamposto: fisso nell'HTML fino all'apertura (vedi LANCIO.md). */
   var KIND = { corso: "Corso", formazione: "Formazione", contenuti: "Contenuti speciali", evento: "Evento" };
   function fixPath(u) { return String(u || "").replace(/^\.\.\//, ""); }
   function showInits(rows) {
+    return; // fino all'apertura il riquadro dell'Avamposto resta fisso (vedi LANCIO.md)
     if (!rows || !rows.length) return;
     var cap = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5"/></svg>';
     document.getElementById("ava-list").innerHTML = rows.slice(0, 3).map(function (r) {
