@@ -2,7 +2,7 @@
 
 **Sito lanciato il 17 novembre 2026**: menu completi in Il Punto e nella privacy, pagine indicizzate dai motori di ricerca. Resta non indicizzata solo `presentazione/`.
 
-**Avamposto in arrivo**: in `avamposto/config.js` c'è `inArrivo: true`, e a chi apre l'Avamposto compare «aprirà a breve, tenete d'occhio la newsletter». Lo staff entra lo stesso da `avamposto/#staff`. Per aprirlo: `inArrivo: false` (e cambiare il numero `?v=` dei file, così i browser lo vedono subito).
+**Avamposto in arrivo**: in `avamposto/config.js` c'è `inArrivo: true`, e a chi apre l'Avamposto compare «aprirà a breve, tenete d'occhio la newsletter». Chi apre l'Avamposto finisce su `avamposto/scopri.html`, che lo racconta. Lo staff entra lo stesso da `avamposto/#staff`. Per aprirlo: `inArrivo: false` (e cambiare il numero `?v=` dei file, così i browser lo vedono subito).
 
 Il resto di questa guida descrive com'era il pre-lancio, per memoria.
 

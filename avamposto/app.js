@@ -395,6 +395,8 @@
       "</section></div>", "home", true);
   }
   function viewSoon() {
+    // Finché l'Avamposto è «in arrivo», chi non è dello staff va alla pagina che lo racconta.
+    try { location.replace("scopri.html"); return; } catch (e) {}
     setMain(
       '<section class="ava-hero"><div class="ava-hero-bg" aria-hidden="true"><img src="../assets/foto/evento-roma-platea.jpg" alt=""></div>' +
         '<div class="wrap ava-hero-in">' +
@@ -1569,6 +1571,7 @@
       .catch(function (e) {
         S.ready = true;
         if (SOON && !S.admin && location.hash !== "#staff") return viewSoon();
+        if (location.hash === "#staff") return viewStaffLogin();
         main.innerHTML = '<div class="wrap page"><p class="form-msg err">' + esc(D.friendly(e)) + "</p></div>";
       });
     D.onAuthChange(function () {

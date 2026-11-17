@@ -552,7 +552,7 @@ SocialFeed.render({ base: "", box: document.getElementById("ig-grid"), limit: 4,
   }
 })();
 </script>
-<script src="avamposto/config.js?v=20261117b"></script>
+<script src="avamposto/config.js?v=20261117c"></script>
 <script src="avamposto/data.js"></script>
 <script>
 /* Ultime tre Voci Under 30 approvate (compare solo se ce ne sono). */
@@ -613,7 +613,7 @@ SocialFeed.render({ base: "", box: document.getElementById("ig-grid"), limit: 4,
   var DD = window.AvampostoData, DEMO_ON = !!(DD && DD.isDemo && (function () { try { return sessionStorage.getItem("avamposto-demo") === "1"; } catch (e) { return false; } })());
   if (cfg.inArrivo && !DEMO_ON) {
     document.querySelector(".door.avamposto .tag").textContent = "Apre a breve";
-    document.getElementById("ava-actions").innerHTML = '<a class="btn white" href="#unisciti">Avvisami con la newsletter</a><a class="btn ghost-white" href="avamposto/">Scopri di più</a>';
+    document.getElementById("ava-actions").innerHTML = '<a class="btn white" href="#unisciti">Avvisami con la newsletter</a><a class="btn ghost-white" href="avamposto/scopri.html">Scopri di più</a>';
   } else if (signedIn()) {
     document.getElementById("ava-actions").innerHTML = '<a class="btn white" href="avamposto/">Entra nell\'Avamposto →</a>';
   }
