@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root { --blue:#312781; --night:#0C1467; --yellow:#FCCA00; --white:#fff; }
+* { box-sizing:border-box; margin:0; padding:0; }
+html,body { width:1080px; height:1920px; overflow:hidden; background:var(--night); font-family:Montserrat, sans-serif; }
+#stage { position:absolute; inset:0; overflow:hidden; }
+.layer { position:absolute; inset:0; }
+.scene { position:absolute; inset:0; display:none; overflow:hidden; }
+.bg-blue { background:radial-gradient(120% 80% at 80% 0%, #3d32a0 0%, var(--blue) 40%, var(--night) 100%); }
+.bg-night { background:radial-gradient(90% 60% at 50% 45%, #1b2390 0%, var(--night) 70%, #060a3d 100%); }
+.bg-yellow { background:var(--yellow); }
+.bg-white { background:#F3F3FA; }
+.slash { position:absolute; width:1600px; height:340px; transform:rotate(-24deg); left:-260px; top:1250px; }
+.bg-blue .slash, .bg-night .slash { background:rgba(255,255,255,.05); }
+.bg-yellow .slash { background:rgba(12,20,103,.06); }
+.bg-white .slash { background:rgba(49,39,129,.05); }
+.y { color:var(--yellow); } .w { color:#fff; } .b { color:var(--blue); } .n { color:var(--night); }
+.hl { background:linear-gradient(transparent 60%, var(--yellow) 60%, var(--yellow) 90%, transparent 90%); }
+.hlb { background:var(--blue); color:#fff; padding:0 22px; border-radius:18px; }
+/* digitazione */
+#typeBox { position:absolute; left:90px; right:90px; top:700px; font-weight:800; font-size:96px; line-height:1.12; letter-spacing:-.035em; color:#fff; }
+#cursor { display:inline-block; width:.09em; height:.95em; background:var(--yellow); vertical-align:-.12em; margin-left:6px; }
+/* massi */
+.rock { position:absolute; left:0; right:0; text-align:center; font-weight:900; letter-spacing:-.05em; line-height:1; will-change:transform; }
+.dust { position:absolute; width:22px; height:22px; border-radius:50%; background:rgba(201,204,245,.55); }
+/* frasi promozionali */
+.promo { position:absolute; left:80px; right:80px; top:0; bottom:0; display:flex; flex-direction:column; justify-content:center; gap:26px; }
+.line { font-weight:900; letter-spacing:-.05em; line-height:.98; will-change:transform,opacity; transform-origin:left center; }
+/* video */
+#vid { width:1080px; height:1920px; object-fit:cover; }
+.shade { background:linear-gradient(180deg, rgba(12,20,103,.55) 0%, rgba(12,20,103,.3) 40%, rgba(12,20,103,.88) 100%); }
+/* telefoni */
+.ptitle { position:absolute; left:90px; right:90px; top:190px; }
+.chip { display:inline-block; background:var(--yellow); color:var(--night); font-weight:900; font-size:30px; padding:8px 18px; border-radius:999px; letter-spacing:.06em; }
+.ptitle h3 { color:#fff; font-weight:900; font-size:116px; letter-spacing:-.05em; line-height:1; margin-top:20px; }
+.ptitle p { color:#DCDDF8; font-size:42px; font-weight:700; line-height:1.25; margin-top:16px; }
+.phone { position:absolute; left:150px; width:780px; top:700px; height:1560px; border-radius:76px; background:#05072b; padding:22px; box-shadow:0 40px 120px rgba(0,0,0,.55), 0 0 0 3px rgba(255,255,255,.12) inset; }
+.screen { position:relative; width:736px; height:1516px; border-radius:56px; overflow:hidden; background:#F3F3FA; }
+.screen img { position:absolute; left:0; top:0; width:736px; }
+.notch { position:absolute; left:50%; top:34px; width:190px; height:46px; margin-left:-95px; border-radius:30px; background:#05072b; z-index:3; }
+/* chiusura */
+#logo { position:absolute; left:50%; top:470px; width:270px; height:270px; margin-left:-135px; border-radius:50%; background:#fff; padding:8px; box-shadow:0 20px 60px rgba(0,0,0,.4); }
+#o1, #o2 { position:absolute; left:60px; right:60px; text-align:center; font-weight:900; letter-spacing:-.05em; line-height:1; }
+#o1 { top:830px; font-size:120px; color:#fff; } #o2 { top:960px; font-size:150px; color:var(--yellow); }
+#o3 { position:absolute; left:50%; top:1230px; background:var(--yellow); color:var(--night); font-weight:900; font-size:58px; padding:26px 60px; border-radius:999px; white-space:nowrap; }
+#o4 { position:absolute; left:0; right:0; top:1400px; text-align:center; color:#C9CCF5; font-weight:800; letter-spacing:.2em; font-size:30px; }
+/* «e se pensi che…» */
+#setup { position:absolute; left:90px; right:90px; top:0; bottom:0; display:flex; flex-direction:column; justify-content:center; gap:6px; }
+.sl { overflow:hidden; padding-bottom:.14em; margin-bottom:-.12em; } .sl span { display:inline-block; font-weight:900; font-size:112px; letter-spacing:-.05em; line-height:1.02; color:#fff; will-change:transform; }
+.sl span.y { color:var(--yellow); } .ul { position:relative; } .ul i { position:absolute; left:0; bottom:-4px; height:12px; border-radius:6px; background:#fff; }
+/* TI SBAGLI DI GROSSO */
+.stamp { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-weight:900; letter-spacing:-.06em; line-height:1; text-align:center; }
+/* TUTTI */
+#t1, #t2 { position:absolute; left:60px; right:60px; text-align:center; font-weight:900; letter-spacing:-.05em; line-height:1; }
+#t1 { top:560px; font-size:118px; color:#fff; } #t2 { top:900px; font-size:300px; color:var(--yellow); }
+.conf { position:absolute; width:26px; height:14px; border-radius:3px; }
+#flash { background:#fff; opacity:0; pointer-events:none; }
+</style></head>
+<body>
+<div id="stage">
+  <!-- 1. digitazione -->
+  <div class="scene bg-blue" id="sType"><div class="slash"></div><div id="typeBox"><span id="typed"></span><span id="cursor"></span></div></div>
+  <!-- 2. massi -->
+  <div class="scene bg-night" id="sRocks"><div class="slash"></div></div>
+  <!-- 3. video del gruppo -->
+  <div class="scene" id="sVideo"><img id="vid" class="layer" alt=""><div class="layer shade"></div><div class="promo" id="vidText"></div></div>
+  <!-- 4. promo e telefoni (generati) -->
+  <div id="dyn"></div>
+  <!-- 4b. «e se pensi che…» -->
+  <div class="scene bg-blue" id="sSetup"><div class="slash"></div><div id="setup">
+    <div class="sl"><span>e se pensi</span></div><div class="sl"><span>che questo sia</span></div><div class="sl"><span>solo per gli</span></div>
+    <div class="sl"><span class="y ul">iscritti...<i id="ulbar"></i></span></div></div></div>
+  <!-- 4c. TI SBAGLI DI GROSSO -->
+  <div class="scene bg-yellow" id="sTi"><div class="stamp n" style="font-size:520px">TI</div></div>
+  <div class="scene bg-night" id="sSbagli"><div class="stamp y" style="font-size:250px">SBAGLI</div></div>
+  <div class="scene bg-white" id="sDi"><div class="stamp b" style="font-size:520px">DI</div></div>
+  <div class="scene bg-blue" id="sGrosso"><div class="stamp w" style="font-size:228px">GROSSO</div></div>
+  <!-- 4d. aperto a TUTTI -->
+  <div class="scene bg-night" id="sTutti"><div class="slash"></div><div id="t1">il nostro sito<br>è aperto a</div><div id="t2">TUTTI!</div><div id="confBox"></div></div>
+  <!-- 5. chiusura -->
+  <div class="scene" id="sOutro"><img id="vid2" class="layer" style="width:1080px;height:1920px;object-fit:cover" alt=""><div class="layer shade"></div>
+    <img id="logo" src="logo.png" alt=""><div id="o1">Il nostro sito</div><div id="o2">è online.</div><div id="o3">Link in bio ↗</div><div id="o4">AZIONE UNDER 30 MARCHE</div></div>
+</div>
+<div id="flash" class="layer"></div>
+<script>
+var B = 60 / 116, BAR = 4 * B;
+function at(bar, beat) { return (bar + (beat || 0) / 4) * BAR; }
+function clamp(x) { return Math.max(0, Math.min(1, x)); }
+function ease(x) { x = clamp(x); return 1 - Math.pow(1 - x, 3); }
+function inout(x) { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+function back(x) { x = clamp(x); var c = 2.2; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); }
+function rnd(i) { var x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+function $(id) { return document.getElementById(id); }
+
+/* ---------------- copione (battute da 4 battiti, 116 BPM) ---------------- */
+var TYPE_TXT = [["e se ti dicessi che ", "w"], ["Azione Under 30 Marche", "y"], ["...", "w"]];
+var ROCKS = [
+  { txt: "ha una", cls: "w", size: 130, y: 470, land: at(2, 1) },
+  { txt: "sorpresa", cls: "w", size: 175, y: 640, land: at(2, 2) },
+  { txt: "per", cls: "y", size: 130, y: 860, land: at(2, 3) },
+  { txt: "TE?", cls: "y", size: 400, y: 1020, land: at(3, 0) }
+];
+var VIDEO = { start: 4, bars: 2, lines: [
+  ["La politica", "w", 120, at(4, 0)], ["è troppo", "w", 120, at(4, 1)], ["importante", "w", 120, at(4, 2)],
+  ["per lasciarla", "y", 120, at(5, 0)], ["agli altri.", "y", 120, at(5, 2)]] };
+var DYN = [
+  { bar: 6, type: "promo", bg: "yellow", lines: [["Così ci siamo", "n", 118, 0], ["fatti", "n", 118, 1], ["<span class='hlb'>il nostro</span>", "n", 140, 2], ["<span class='hlb'>sito.</span>", "n", 140, 3]] },
+  { bar: 7, type: "phone", img: "punto", chip: "01", title: "Il Punto", sub: "Ogni mattina alle 8, la rassegna stampa.", scroll: 1100 },
+  { bar: 8, type: "promo", bg: "white", lines: [["Notizie", "b", 170, 0], ["<span class='hl'>vere.</span>", "b", 170, 1], ["Zero", "b", 170, 2], ["<span class='hlb'>fuffa.</span>", "b", 170, 3]] },
+  { bar: 9, type: "phone", img: "eventi", chip: "02", title: "Eventi", sub: "Tutti i nostri appuntamenti, in un calendario.", scroll: 1000 },
+  { bar: 10, type: "promo", bg: "blue", lines: [["Aperitivi.", "w", 150, 0], ["Banchetti.", "y", 150, 1], ["Dirette.", "w", 150, 2], ["Tutto qui.", "y", 150, 3]] },
+  { bar: 11, type: "phone", img: "voci", chip: "03", title: "Voci Under 30", sub: "Le vostre idee, pubblicate sul sito.", scroll: 850 },
+  { bar: 12, type: "promo", bg: "yellow", lines: [["La tua", "n", 170, 0], ["voce.", "b", 170, 1], ["Sul", "n", 170, 2], ["<span class='hlb'>serio.</span>", "n", 170, 3]] },
+  { bar: 13, type: "phone", img: "avamposto", chip: "04", title: "L'Avamposto", sub: "La nostra area riservata.", scroll: 700 },
+  { bar: 14, type: "promo", bg: "night", lines: [["Corsi.", "w", 170, 0], ["Dirette.", "y", 170, 1], ["Piazza.", "w", 170, 2], ["Insieme.", "y", 170, 3]] },
+  { bar: 15, type: "phone", img: "agenda", chip: "05", title: "«Ci sono»", sub: "Scegli il turno e scendi in piazza con noi.", scroll: 800 }
+];
+var SETUP = 16, STAMPS = 18, TUTTI = 19;
+var OUTRO = 21, TOTAL_BARS = 23;
+var STAMP_IDS = ["sTi", "sSbagli", "sDi", "sGrosso"];
+window.TOTAL = TOTAL_BARS * BAR;
+
+/* ---------------- costruzione ---------------- */
+(function build() {
+  var rs = $("sRocks");
+  ROCKS.forEach(function (r, i) {
+    var d = document.createElement("div"); d.className = "rock " + r.cls; d.id = "rock" + i;
+    d.style.fontSize = r.size + "px"; d.style.top = r.y + "px"; d.textContent = r.txt; rs.appendChild(d);
+    for (var k = 0; k < 16; k++) { var p = document.createElement("div"); p.className = "dust"; p.id = "dust" + i + "_" + k; rs.appendChild(p); }
+  });
+  $("vidText").innerHTML = VIDEO.lines.map(function (l, i) { return '<div class="line ' + l[1] + '" id="vl' + i + '" style="font-size:' + l[2] + 'px">' + l[0] + "</div>"; }).join("");
+  var cb = $("confBox"), cols = ["#FCCA00", "#ffffff", "#8f87ff", "#FCCA00", "#C9CCF5"];
+  for (var c = 0; c < 90; c++) { var q = document.createElement("div"); q.className = "conf"; q.id = "cf" + c; q.style.background = cols[c % cols.length]; cb.appendChild(q); }
+  var dyn = $("dyn");
+  DYN.forEach(function (s, i) {
+    var el = document.createElement("div"); el.id = "dyn" + i;
+    if (s.type === "promo") {
+      el.className = "scene bg-" + s.bg;
+      el.innerHTML = '<div class="slash"></div><div class="promo">' + s.lines.map(function (l, j) {
+        return '<div class="line ' + l[1] + '" id="d' + i + "_" + j + '" style="font-size:' + l[2] + 'px">' + l[0] + "</div>"; }).join("") + "</div>";
+    } else {
+      el.className = "scene bg-blue";
+      el.innerHTML = '<div class="slash"></div><div class="ptitle" id="pt' + i + '"><span class="chip">' + s.chip + "</span><h3>" + s.title + "</h3><p>" + s.sub + "</p></div>" +
+        '<div class="phone" id="ph' + i + '"><div class="screen"><div class="notch"></div><img id="im' + i + '" src="cap/' + s.img + '.png" alt=""></div></div>';
+    }
+    dyn.appendChild(el);
+  });
+})();
+
+/* colpi: tremolio dello schermo */
+var HITS = [];
+ROCKS.forEach(function (r, i) { HITS.push([r.land, i === 3 ? 46 : 20]); });
+VIDEO.lines.forEach(function (l) { HITS.push([l[3], 8]); });
+DYN.forEach(function (s) {
+  if (s.type === "promo") s.lines.forEach(function (l) { HITS.push([at(s.bar, l[3]), 14]); });
+  else HITS.push([at(s.bar, 0), 18]);
+});
+[0, 1, 2, 3].forEach(function (k) { HITS.push([at(SETUP, k * .5), 6]); });
+[0, 1, 2, 3].forEach(function (k) { HITS.push([at(STAMPS, k), k === 3 ? 40 : 24]); });
+HITS.push([at(TUTTI, 0), 16], [at(TUTTI, 2), 44]);
+HITS.push([at(OUTRO, 0), 30], [at(OUTRO, 1), 12], [at(OUTRO, 2), 22], [at(OUTRO + 1, 0), 18]);
+function shake(t) {
+  var x = 0, y = 0;
+  HITS.forEach(function (h, i) {
+    var d = t - h[0]; if (d < 0 || d > .35) return;
+    var a = h[1] * Math.exp(-d * 14);
+    x += a * Math.sin(d * 90 + i); y += a * Math.cos(d * 77 + i * 2);
+  });
+  return [x, y];
+}
+function slam(el, t0, t, from) {
+  var k = (t - t0) / .14, o = clamp(k * 3);
+  var s = t < t0 ? 0 : 1 + (from - 1) * (1 - ease(k));
+  el.style.opacity = t < t0 ? 0 : o; el.style.transform = "scale(" + s + ")";
+}
+function vidFrame(img, f) { var src = "vid/f" + String(Math.max(1, Math.min(480, f))).padStart(4, "0") + ".jpg"; if (img.getAttribute("src") !== src) img.setAttribute("src", src); }
+
+window.render = function (t) {
+  var all = document.querySelectorAll(".scene"); for (var i = 0; i < all.length; i++) all[i].style.display = "none";
+  var fl = 0;
+  // 1. digitazione (battute 0-1)
+  if (t < at(2, 0)) {
+    $("sType").style.display = "block";
+    var full = TYPE_TXT.map(function (p) { return p[0]; }).join(""), nChars = full.length;
+    var tStart = .25, tEnd = at(1, 3);
+    var typedN = Math.floor(nChars * clamp((t - tStart) / (tEnd - tStart)));
+    var html = "", left = typedN;
+    TYPE_TXT.forEach(function (p) { var s = p[0].slice(0, Math.max(0, left)); left -= p[0].length; html += '<span class="' + p[1] + '">' + s + "</span>"; });
+    $("typed").innerHTML = html;
+    var typing = t < tEnd;
+    $("cursor").style.opacity = typing ? 1 : (Math.floor(t / (B / 2)) % 2 ? 0 : 1);
+    // transizione: zoom e sfocatura sull'ultimo battito
+    var z = clamp((t - at(1, 3)) / B);
+    var box = $("typeBox");
+    box.style.transform = "scale(" + (1 + 3.5 * Math.pow(z, 2.2)) + ")"; box.style.transformOrigin = "40% 60%";
+    box.style.filter = "blur(" + (24 * Math.pow(z, 2)) + "px)"; box.style.opacity = 1 - Math.pow(z, 3);
+    if (t > at(2, 0) - .1) fl = (t - (at(2, 0) - .1)) / .1;
+  }
+  // 2. massi (battute 2-3)
+  else if (t < at(4, 0)) {
+    $("sRocks").style.display = "block";
+    if (t < at(2, 0) + .12) fl = 1 - (t - at(2, 0)) / .12;
+    ROCKS.forEach(function (r, i) {
+      var el = $("rock" + i), fall = .38, k = (t - (r.land - fall)) / fall;
+      var y;
+      if (k < 0) { el.style.opacity = 0; y = -1600; }
+      else if (k < 1) { el.style.opacity = 1; y = -1500 * (1 - k * k); }
+      else { el.style.opacity = 1; var d = t - r.land; y = -Math.abs(Math.sin(d * 18)) * 34 * Math.exp(-d * 9); }
+      var sq = k >= 1 ? 1 + .12 * Math.exp(-(t - r.land) * 16) : 1;
+      var rot = k < 1 && k >= 0 ? (i % 2 ? 4 : -4) * (1 - k) : 0;
+      if (i === 3 && t > r.land + .4) { var pb = Math.max(0, Math.sin(((t - r.land) / B) * Math.PI)); sq *= 1 + .03 * pb; }
+      el.style.transform = "translateY(" + y + "px) rotate(" + rot + "deg) scale(" + sq + "," + (2 - sq) + ")";
+      for (var kk = 0; kk < 16; kk++) {
+        var p = $("dust" + i + "_" + kk), d2 = t - r.land;
+        if (d2 < 0 || d2 > .7) { p.style.opacity = 0; continue; }
+        var ang = Math.PI + rnd(i * 31 + kk) * Math.PI, sp = (180 + rnd(kk * 7 + i) * 380) * (i === 3 ? 1.8 : 1);
+        var px = 540 + (rnd(kk + i * 3) - .5) * (i === 3 ? 700 : 420) + Math.cos(ang) * sp * d2 * 1.4;
+        var py = r.y + r.size * .92 + Math.sin(ang) * sp * d2 + 500 * d2 * d2;
+        p.style.opacity = (1 - d2 / .7) * .9; var sz = (10 + rnd(kk * 13) * 26) * (i === 3 ? 1.5 : 1);
+        p.style.width = p.style.height = sz + "px"; p.style.left = px + "px"; p.style.top = py + "px";
+      }
+    });
+    if (t >= at(3, 0) && t < at(3, 0) + .08) fl = .6 * (1 - (t - at(3, 0)) / .08);
+  }
+  // 3. video con «La politica è troppo importante…» (battute 4-5)
+  else if (t < at(6, 0)) {
+    $("sVideo").style.display = "block";
+    vidFrame($("vid"), Math.floor((t - at(4, 0)) * 30) + 1);
+    VIDEO.lines.forEach(function (l, i) { slam($("vl" + i), l[3], t, 1.5); });
+    if (t < at(4, 0) + .1) fl = .8 * (1 - (t - at(4, 0)) / .1);
+  }
+  // 4. promo e telefoni
+  else if (t < at(SETUP, 0)) {
+    var bar = Math.floor(t / BAR), idx = -1;
+    DYN.forEach(function (s, i) { if (s.bar === bar) idx = i; });
+    var s = DYN[idx], el = $("dyn" + idx); el.style.display = "block";
+    var lt = t - at(s.bar, 0);
+    if (s.type === "promo") {
+      s.lines.forEach(function (l, j) { slam($("d" + idx + "_" + j), at(s.bar, l[3]), t, 1.7); });
+    } else {
+      var ph = $("ph" + idx), pt = $("pt" + idx), im = $("im" + idx);
+      var e = back(lt / .42);
+      ph.style.transform = "translateY(" + (1000 * (1 - e)) + "px) rotate(" + (-6 * (1 - ease(lt / .5))) + "deg)";
+      var pulse = 0; for (var bb = 1; bb < 4; bb++) { var dd = lt - bb * B; if (dd >= 0 && dd < .25) pulse = Math.max(pulse, 1 - dd / .25); }
+      ph.style.transform += " scale(" + (1 + .025 * pulse) + ")";
+      var k2 = ease(lt / .3); pt.style.opacity = k2; pt.style.transform = "translateX(" + (-120 * (1 - k2)) + "px)";
+      im.style.transform = "translateY(" + (-s.scroll * inout((lt - .45) / (BAR - .55))) + "px)";
+    }
+    if (lt < .07) fl = .35 * (1 - lt / .07);
+  }
+  // 4b. «e se pensi che questo sia solo per gli iscritti...»
+  else if (t < at(STAMPS, 0)) {
+    $("sSetup").style.display = "block";
+    var ls = t - at(SETUP, 0);
+    var spans = document.querySelectorAll("#setup .sl > span");
+    for (var q = 0; q < spans.length; q++) {
+      var kq = ease((ls - q * B * .5) / .32);
+      spans[q].style.transform = "translateY(" + (110 * (1 - kq)) + "%)";
+    }
+    var ub = $("ulbar"), ku = ease((ls - (3 * B * .5 + .35)) / .35); ub.style.width = (100 * ku) + "%";
+    var zz = ease((t - (at(STAMPS, 0) - B * .6)) / (B * .6));
+    $("setup").style.transform = "scale(" + (1 + .25 * zz) + ")"; $("setup").style.opacity = 1 - zz;
+    if (ls < .1) fl = .4 * (1 - ls / .1);
+  }
+  // 4c. TI / SBAGLI / DI / GROSSO, uno per colpo
+  else if (t < at(TUTTI, 0)) {
+    var sk = Math.min(3, Math.floor((t - at(STAMPS, 0)) / B)), st0 = at(STAMPS, sk), ds = t - st0;
+    var sc = $(STAMP_IDS[sk]); sc.style.display = "block";
+    var w = sc.querySelector(".stamp"), kk2 = ease(ds / .1);
+    w.style.transform = "scale(" + (1 + 1.2 * (1 - kk2)) + ")"; w.style.filter = "blur(" + (14 * (1 - kk2)) + "px)";
+    if (ds < .05) fl = .25 * (1 - ds / .05);
+  }
+  // 4d. il nostro sito è aperto a TUTTI!
+  else if (t < at(OUTRO, 0)) {
+    $("sTutti").style.display = "block";
+    slam($("t1"), at(TUTTI, 0), t, 1.5);
+    var tt2 = at(TUTTI, 2), e2 = $("t2");
+    if (t < tt2) { e2.style.opacity = 0; }
+    else {
+      var k5 = ease((t - tt2) / .16), pu = 0;
+      for (var bb2 = 1; bb2 < 8; bb2++) { var d5 = t - (tt2 + bb2 * B); if (d5 >= 0 && d5 < .22) pu = Math.max(pu, 1 - d5 / .22); }
+      e2.style.opacity = 1; e2.style.transform = "scale(" + ((1 + 1.6 * (1 - k5)) * (1 + .05 * pu)) + ") rotate(" + (-3 * (1 - k5)) + "deg)";
+    }
+    for (var c2 = 0; c2 < 90; c2++) {
+      var cf = $("cf" + c2), dc = t - tt2;
+      if (dc < 0) { cf.style.opacity = 0; continue; }
+      var a2 = rnd(c2 * 3.1) * Math.PI * 2, v2 = 900 + rnd(c2 * 5.7) * 1500;
+      var x2 = 540 + Math.cos(a2) * v2 * dc * .9, y2 = 1050 + Math.sin(a2) * v2 * dc * .9 - 900 * dc + 1500 * dc * dc;
+      cf.style.opacity = Math.max(0, 1 - dc / 3.2); cf.style.left = x2 + "px"; cf.style.top = y2 + "px";
+      cf.style.transform = "rotate(" + (dc * 720 * (rnd(c2) - .5)) + "deg) scaleX(" + Math.cos(dc * 9 + c2) + ")";
+    }
+    if (t >= tt2 && t < tt2 + .08) fl = .5 * (1 - (t - tt2) / .08);
+  }
+  // 5. chiusura
+  else {
+    $("sOutro").style.display = "block";
+    var lo = t - at(OUTRO, 0);
+    vidFrame($("vid2"), Math.floor(lo * 30) + 150);
+    if (lo < .12) fl = 1 - lo / .12;
+    var kl = back(lo / .4); $("logo").style.transform = "scale(" + kl + ")";
+    slam($("o1"), at(OUTRO, 1), t, 1.6); slam($("o2"), at(OUTRO, 2), t, 1.9);
+    var k3 = back((t - at(OUTRO + 1, 0)) / .4), o3 = $("o3");
+    var pul = t > at(OUTRO + 1, 1) ? 1 + .05 * Math.max(0, Math.cos(((t - at(OUTRO + 1, 0)) / B) * Math.PI * 2)) : 1;
+    o3.style.opacity = clamp((t - at(OUTRO + 1, 0)) / .1); o3.style.transform = "translateX(-50%) scale(" + (k3 * pul) + ")";
+    $("o4").style.opacity = clamp((t - at(OUTRO + 1, 2)) / .3);
+  }
+  var sh = shake(t); $("stage").style.transform = "translate(" + sh[0] + "px," + sh[1] + "px)";
+  $("flash").style.opacity = clamp(fl);
+  var imgs = [].slice.call(document.images).filter(function (i) { return i.offsetParent !== null && i.getAttribute("src"); });
+  return Promise.all(imgs.map(function (i) { return i.decode().catch(function () {}); }));
+};
+</script>
+</body></html>
