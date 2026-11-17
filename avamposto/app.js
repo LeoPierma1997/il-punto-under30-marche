@@ -5,12 +5,13 @@
   var main = document.getElementById("main");
   var nav = document.getElementById("mast-nav");
   var toastEl = document.getElementById("toast");
-  var DEMO = false;
+  var DEMO = false, DEMO_STAFF = false;
   try {
     if (/[?&]demo=1\b/.test(location.search)) sessionStorage.setItem("avamposto-demo", "1");
     if (/[?&]demo=0\b/.test(location.search)) sessionStorage.removeItem("avamposto-demo");
     DEMO = sessionStorage.getItem("avamposto-demo") === "1";
-  } catch (e) { DEMO = /[?&]demo=1\b/.test(location.search); }
+    DEMO_STAFF = DEMO && sessionStorage.getItem("avamposto-demo-staff") === "1";
+  } catch (e) { DEMO = /[?&]demo=1\b/.test(location.search); DEMO_STAFF = DEMO && /[?&]staff=1\b/.test(location.search); }
   // Finché Supabase non è collegato, il pubblico vede solo l'anteprima: niente dati di esempio, niente iscrizioni finte.
   var PREVIEW = !D.live && !DEMO;
 
@@ -409,6 +410,7 @@
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)) { err.textContent = "Scrivi un indirizzo email valido."; err.hidden = false; return; }
       err.hidden = true; busy(btn, true);
       try { localStorage.setItem(AFTER_KEY, "gestione"); } catch (x) {}
+      if (!D.live && DEMO && !DEMO_STAFF) { err.textContent = "Nell'anteprima l'area staff non è disponibile."; err.hidden = false; busy(btn, false); return; }
       D.signIn(mail, redirectUrl()).then(function () { showSent(mail); })
         .catch(function (x) { err.textContent = x.message; err.hidden = false; }).then(function () { busy(btn, false); });
     });
@@ -1524,9 +1526,17 @@
   function start() {
     var params = new URLSearchParams(location.search), linkCode = params.get("codice");
     if (linkCode || params.get("invito")) history.replaceState(null, "", location.pathname + location.hash);
-    if (!D.live && DEMO) document.getElementById("demo-bar").hidden = false;
+    if (!D.live && DEMO) {
+      document.getElementById("demo-bar").hidden = false;
+      if (!DEMO_STAFF) {
+        var sb = document.querySelector('[data-action="demo-as"][data-who="admin"]'); if (sb) sb.remove();
+      }
+    }
     if (PREVIEW) { S.ready = true; renderNav = function () { nav.innerHTML = ""; }; viewWelcome(); return; }
-    D.init().then(function () { return linkCode ? welcomeFromLink(linkCode) : false; }).then(function (ok) {
+    D.init().then(function () {
+      if (!D.live && DEMO && !DEMO_STAFF && D.me()) D.signOut();
+      return linkCode ? welcomeFromLink(linkCode) : false;
+    }).then(function (ok) {
       return refresh().then(function () {
         S.ready = true; countVisit();
         if (ok) toast("Codice salvato: benvenuto nell'Avamposto");

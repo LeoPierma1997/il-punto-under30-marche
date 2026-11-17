@@ -832,8 +832,13 @@
   // serve a far provare il sito a referenti e squadra senza toccare i dati reali. ?demo=0 torna al sito vero.
   var WANT_DEMO = false;
   try {
-    if (/[?&]demo=1\b/.test(location.search)) sessionStorage.setItem("avamposto-demo", "1");
-    if (/[?&]demo=0\b/.test(location.search)) sessionStorage.removeItem("avamposto-demo");
+    if (/[?&]demo=1\b/.test(location.search)) {
+      sessionStorage.setItem("avamposto-demo", "1");
+      // Il pulsante «Entra come staff» dell'anteprima compare solo con &staff=1 (link per i referenti).
+      if (/[?&]staff=1\b/.test(location.search)) sessionStorage.setItem("avamposto-demo-staff", "1");
+      else sessionStorage.removeItem("avamposto-demo-staff");
+    }
+    if (/[?&]demo=0\b/.test(location.search)) { sessionStorage.removeItem("avamposto-demo"); sessionStorage.removeItem("avamposto-demo-staff"); }
     WANT_DEMO = sessionStorage.getItem("avamposto-demo") === "1";
   } catch (e) { WANT_DEMO = /[?&]demo=1\b/.test(location.search); }
   window.AvampostoData = LIVE && !WANT_DEMO ? makeLive() : makeDemo();
