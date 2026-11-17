@@ -1,5 +1,7 @@
 # Lancio del sito
 
+**Lanciato il giorno in cui questa modifica è stata pubblicata**: menu completi in Il Punto e nella privacy, pagine indicizzate dai motori di ricerca. Resta non indicizzata solo `presentazione/`.
+
 Finché il sito non è lanciato si diffonde solo **Il Punto** (`rassegna/`):
 - la rassegna non ha link verso home, Eventi, Social, Voci e Avamposto (menu ridotto a «Seguici su Instagram»);
 - home, Eventi, Social e Avamposto non vengono indicizzate dai motori di ricerca (`noindex`),
