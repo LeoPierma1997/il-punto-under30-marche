@@ -1,5 +1,7 @@
 # Lancio del sito
 
+**Avamposto in arrivo**: in `avamposto/config.js` c'è `inArrivo: true`, e a chi apre l'Avamposto compare «aprirà a breve, tenete d'occhio la newsletter». Lo staff entra lo stesso da `avamposto/#staff`. Per aprirlo: `inArrivo: false` (e cambiare il numero `?v=` dei file, così i browser lo vedono subito).
+
 Finché il sito non è lanciato si diffonde solo **Il Punto** (`rassegna/`):
 - la rassegna non ha link verso home, Eventi, Social, Voci e Avamposto (menu ridotto a «Seguici su Instagram»);
 - home, Eventi, Social e Avamposto non vengono indicizzate dai motori di ricerca (`noindex`),

@@ -14,6 +14,7 @@
   } catch (e) { DEMO = /[?&]demo=1\b/.test(location.search); DEMO_STAFF = DEMO && /[?&]staff=1\b/.test(location.search); }
   // Finché Supabase non è collegato, il pubblico vede solo l'anteprima: niente dati di esempio, niente iscrizioni finte.
   var PREVIEW = !D.live && !DEMO;
+  var SOON = !!(window.AVAMPOSTO_CONFIG || {}).inArrivo && !DEMO;
 
   var NO_PASS = { entry: false, courses: [], valid: [] };
   var S = { me: null, admin: false, pass: NO_PASS, inits: [], amats: [], views: {}, ready: false };
@@ -265,6 +266,7 @@
 
   /* ---------------- menu ---------------- */
   function renderNav(active) {
+    if (SOON && !S.admin) { nav.innerHTML = ""; return; }
     var a = function (h, k, label) { return '<a href="#' + h + '"' + (active === k ? ' aria-current="page"' : "") + ">" + label + "</a>"; };
     if (!inside()) { nav.innerHTML = a("home", "home", "Entra"); return; }
     nav.innerHTML = a("home", "home", "Corsi") + a("agenda", "agenda", "Agenda") + a("voce", "voce", "La tua voce") + a("squadra", "squadra", "La squadra") +
@@ -282,6 +284,7 @@
     if (PREVIEW) return viewWelcome();
     var h = (location.hash || "#home").slice(1);
     if (h === "staff") return S.admin ? go("#gestione") : viewStaffLogin();
+    if (SOON && !S.admin) return viewSoon();
     if (!inside()) {
       if (/^(agenda|repliche|mobilitazione|m-|voce|squadra)/.test(h)) { try { localStorage.setItem(AFTER_KEY, h); } catch (e) {} }
       if (h.indexOf("i-") === 0) return viewInitiative(h.slice(2));
@@ -390,6 +393,26 @@
       '<div class="wrap page"><section class="block"><div class="block-head"><h2>Cosa trovi dentro</h2><span class="note">Alcuni corsi chiedono un secondo codice, che lo staff dà a chi partecipa.</span></div>' +
       (catalog.length ? '<div class="inits">' + catalog.map(initCard).join("") + "</div>" : '<p class="empty soon">Presto ci saranno nuove iniziative per i corsi.</p>') +
       "</section></div>", "home", true);
+  }
+  function viewSoon() {
+    setMain(
+      '<section class="ava-hero"><div class="ava-hero-bg" aria-hidden="true"><img src="../assets/foto/evento-roma-platea.jpg" alt=""></div>' +
+        '<div class="wrap ava-hero-in">' +
+          '<div class="hero-copy">' +
+            '<span class="eyebrow">Avamposto Under 30 · Marche</span>' +
+            "<h1>L'Avamposto <em>aprirà a breve.</em></h1>" +
+            "<p>Corsi pratici, dirette con ospiti e materiali che non trovi altrove: stiamo preparando tutto. Tenete d'occhio la newsletter, sarete i primi a saperlo.</p>" +
+            '<ul class="points">' +
+              "<li>" + icon("corso") + "<span><b>Corsi</b> con video, slide ed esercitazioni</span></li>" +
+              "<li>" + icon("diretta") + "<span><b>Dirette su Meet</b> con ospiti e domande dal vivo</span></li>" +
+              "<li>" + icon("users") + "<span><b>«Ci sono»</b> per dare una mano ai banchetti e agli eventi</span></li>" +
+            "</ul>" +
+          "</div>" +
+          '<div class="panel soon-panel"><span class="eyebrow">In arrivo</span><h2>Tenete d\'occhio la newsletter</h2>' +
+            "<p>Appena l'Avamposto apre, lo scriviamo lì per primi. Iscriversi è gratis e ci si cancella con un clic.</p>" +
+            '<div class="btn-row"><a class="btn primary" href="../#unisciti">Iscriviti alla newsletter</a><a class="btn quiet" href="https://www.instagram.com/azioneunder30marche/" target="_blank" rel="noopener">Instagram</a></div>' +
+            '<p class="tester-link"><a href="#staff">Area staff</a></p></div>' +
+        "</div></section>", "home", true);
   }
   function viewStaffLogin() {
     setMain(
@@ -1533,6 +1556,7 @@
       }
     }
     if (PREVIEW) { S.ready = true; renderNav = function () { nav.innerHTML = ""; }; viewWelcome(); return; }
+    if (SOON) linkCode = null;
     D.init().then(function () {
       if (!D.live && DEMO && !DEMO_STAFF && D.me()) D.signOut();
       return linkCode ? welcomeFromLink(linkCode) : false;
@@ -1542,7 +1566,11 @@
         if (ok) toast("Codice salvato: benvenuto nell'Avamposto");
       });
     }).then(route)
-      .catch(function (e) { S.ready = true; main.innerHTML = '<div class="wrap page"><p class="form-msg err">' + esc(D.friendly(e)) + "</p></div>"; });
+      .catch(function (e) {
+        S.ready = true;
+        if (SOON && !S.admin && location.hash !== "#staff") return viewSoon();
+        main.innerHTML = '<div class="wrap page"><p class="form-msg err">' + esc(D.friendly(e)) + "</p></div>";
+      });
     D.onAuthChange(function () {
       S.ready = false;
       main.innerHTML = '<div class="wrap page"><p class="loading">Caricamento…</p></div>';

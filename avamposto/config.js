@@ -5,5 +5,8 @@
 // la protezione dei dati è garantita dalle regole del database.
 window.AVAMPOSTO_CONFIG = {
   supabaseUrl: "https://qsjdsbqeddcnvkfouxov.supabase.co",
-  supabaseAnonKey: "sb_publishable_54KYyuEjPgErYsnDDtBCqw_2edSOD9Q"
+  supabaseAnonKey: "sb_publishable_54KYyuEjPgErYsnDDtBCqw_2edSOD9Q",
+  // true = l'Avamposto mostra a tutti «aprirà a breve» (lo staff entra lo stesso da #staff).
+  // Per aprirlo: metti false.
+  inArrivo: true
 };
