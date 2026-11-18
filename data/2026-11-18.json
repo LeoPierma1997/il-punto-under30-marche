@@ -1,0 +1,360 @@
+{
+  "date": "2026-11-18",
+  "label": "Mercoledì 18 novembre 2026",
+  "intro": "Giovedì il vertice di Shenzhen tra Trump, Xi e Putin mentre una notte di droni colpisce Mosca e il ponte di Crimea; in Italia la manovra incassa circa 6.600 emendamenti tra condono e pensioni e la Cgil prepara lo sciopero generale di venerdì; nelle Marche la Regione ripristina le sedute operatorie all'Ast di Macerata e le opposizioni chiedono le dimissioni del Garante Giulianelli.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Vertice di Shenzhen, giovedì Trump incontra Xi e Putin: sul tavolo il nucleare, ma gli esperti attendono pochi risultati",
+          "summary": "Giovedì 19 novembre Trump, Xi Jinping e Vladimir Putin si incontrano a Shenzhen. Washington vuole discutere la riduzione degli arsenali nucleari, dopo la scadenza a febbraio del trattato New START che lascia Usa e Russia senza limiti numerici per la prima volta dal 1972. Pechino non ha confermato che il tema sia in agenda e finora ha respinto un negoziato a tre. Secondo gli analisti l'esito più probabile è una dichiarazione politica, non un accordo verificabile.",
+          "source": "Defense News",
+          "url": "https://www.defensenews.com/global/the-americas/2026/11/17/trump-seeks-nuclear-cuts-at-summit-with-putin-and-xi-but-prospects-are-low/",
+          "published": "2026-11-17",
+          "tags": [
+            "Nucleare",
+            "Usa-Cina-Russia"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Tre leader decidono la sicurezza globale e l'Europa guarda: spunto sulla necessità di sostenere Kiev e di avere peso al tavolo. Calenda ha chiesto al governo di approvare entro un mese il pacchetto di aiuti all'Ucraina.",
+            "refs": [
+              {
+                "label": "Calenda, intervista al Corriere della Sera (ripresa da Adnkronos) – 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Notte di droni su Mosca e sul ponte di Crimea: secondo Mosca abbattuti oltre 1.400 velivoli",
+          "summary": "Il sindaco di Mosca Sobyanin ha riferito di circa 800 droni diretti verso la regione della capitale, di cui 321 neutralizzati in avvicinamento; la Tass parla di uno degli attacchi più gravi degli ultimi due anni. Il ministero della Difesa russo dichiara 1.441 droni ucraini intercettati su tutto il territorio, cifra non verificata. Il traffico sul ponte di Crimea è stato sospeso dopo un secondo attacco, senza vittime segnalate. Mosca afferma di aver colpito infrastrutture a Kiev, Zaporizhzhia, Cherkasy e Dnipropetrovsk.",
+          "source": "LaPresse",
+          "url": "https://www.lapresse.it/esteri/2026/11/17/ucraina-raid-di-kiev-su-mosca-nella-notte-tra-i-piu-gravi-degli-ultimi-anni-la-diretta-17-novembre/",
+          "published": "2026-11-17",
+          "tags": [
+            "Ucraina",
+            "Guerra"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Mentre si prepara il vertice dei grandi, la guerra continua e colpisce le infrastrutture civili. Domanda di riflessione: quale pressione serve perché la trattativa porti a un cessate il fuoco? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Dopo l'esclusione dai negoziati, Kallas isolata a Bruxelles: nel team Ue entrano i gabinetti di Costa e von der Leyen",
+          "summary": "Secondo Euronews, la proposta di Kaja Kallas di fare da inviata Ue per i negoziati sull'Ucraina è stata respinta dai leader a Dublino; nel team allargato a sette non c'è nessuno del suo ufficio. Fonti diplomatiche riferiscono che Meloni avrebbe sostenuto che mancasse del peso istituzionale necessario, mentre la Germania propone di porla sotto la supervisione di von der Leyen. Restano critiche sul suo stile, ma fuori da Bruxelles Kallas è apprezzata per la linea dura verso Mosca.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/17/after-peace-talks-snub-kallas-faces-reproach-and-uncertain-future",
+          "published": "2026-11-17",
+          "tags": [
+            "Ue",
+            "Ucraina"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Chi parla a nome dell'Europa? Spunto sul nodo dei trattati che rendono la politica estera Ue un puzzle di ruoli e formati. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Cyberattacchi e disinformazione russa, il Consiglio Ue sanziona 30 persone e due entità",
+          "summary": "Il 16 novembre il Consiglio Affari esteri ha deciso congelamento dei beni e divieto d'ingresso per 30 persone e due entità, tra cui la Social Design Agency di Mosca e il gruppo hacker filorusso NoName057(16). Secondo il Consiglio la prima gestisce campagne di disinformazione contro Paesi e istituzioni Ue, anche in occasione delle europee 2024; il secondo ha condotto attacchi DDoS contro siti di energia, finanza, trasporti e partiti. Tajani ha detto che l'Italia aveva chiesto il dibattito dopo le minacce di bomba nelle scuole italiane.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/en/2026/11/16/eu-council-sanctions-30-individuals-and-two-russian-entities-over-cyberattacks-and-other-malicious-cyber-activities/",
+          "published": "2026-11-16",
+          "tags": [
+            "Sicurezza",
+            "Cybersicurezza"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "La disinformazione è uno strumento di guerra che colpisce soprattutto i più giovani sui social: spunto su educazione digitale e difesa della democrazia. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Bilancio Ue 2027, accordo tra Parlamento e Consiglio: 199,7 miliardi di impegni, voto formale atteso il 23 novembre",
+          "summary": "Parlamento e Consiglio hanno raggiunto l'intesa sull'ultimo bilancio annuale del quadro 2021-2027: 199,7 miliardi in impegni e 211,5 in pagamenti. Il Consiglio ha accettato di ripristinare il taglio di 1 miliardo e il Parlamento ha ottenuto 300 milioni in più rispetto alla proposta della Commissione, tra cui fondi per Erasmus+, Horizon Europe, reti di trasporto ed energia e aiuti umanitari. La ratifica formale del Consiglio è prevista il 23 novembre. Notizia dell'11 novembre, passaggio finale ancora in corso.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/11/intesa-tra-parlamento-e-paesi-ue-sul-bilancio-2027/",
+          "published": "2026-11-11",
+          "tags": [
+            "Bilancio Ue",
+            "Fondi"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Erasmus+ e ricerca crescono, ma il bilancio resta una frazione del Pil: spunto su quanto l'Europa investa davvero su giovani e competitività. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, record di emendamenti (circa 6.600): la maggioranza rilancia il condono, Giorgetti frena sulla spesa",
+          "summary": "Per ANSA sono arrivati circa 6.600 emendamenti alla legge di bilancio, altre testate parlano di circa 7mila; circa 2.000 sono della maggioranza. Fratelli d'Italia propone di fissare un termine ai Comuni per rispondere alle vecchie domande di condono e di riaprire quello del 2003 per la Campania; Lupi assicura che nessun «ecomostro» sarà sanato. Si discute anche di exit tax (la Lega vuole salvare startup e Pmi innovative, Forza Italia alzare la soglia a 5 milioni) e di Superbonus. Dopo il vertice con Meloni, Giorgetti invita alla prudenza sui conti.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/17/record-di-emendamenti-alla-manovra-la-maggioranza-vuole-il-condono_0852cc79-1b4d-45f3-a0ff-9faa1bbaab52.html",
+          "also": [
+            {
+              "source": "AGI",
+              "url": "https://www.agi.it/economia/news/2026-11-17/manovra-pensioni-condono-emendamenti-40074396/"
+            },
+            {
+              "source": "Il Giornale",
+              "url": "https://www.ilgiornale.it/news/politica/manovra-ci-sono-7mila-emendamenti-si-riapre-al-condono-e-si-chiudono-i-social-ai-minori-di-13-anni/"
+            }
+          ],
+          "published": "2026-11-17",
+          "tags": [
+            "Manovra",
+            "Condono"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Una manovra a colpi di emendamenti, con un condono che guarda al passato: dov'è la scelta per giovani e crescita? Spunto sul confronto con la critica di Calenda alla legge di bilancio.",
+            "refs": [
+              {
+                "label": "Calenda, intervista al Corriere della Sera (ripresa da Adnkronos) – 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              },
+              {
+                "label": "Calenda, intervista nella sede di Azione – Affaritaliani, 3 novembre 2026",
+                "url": "https://www.affaritaliani.it/coffee/video/vista/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente.html"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Pensioni in manovra: Forza Italia e Noi Moderati puntano sulle rivalutazioni, la Lega sul fondo per Quota 64",
+          "summary": "Secondo AGI, Forza Italia propone di estendere la rivalutazione piena fino a pensioni di sei volte il minimo (circa 3.900 euro lordi), Noi Moderati fino a cinque volte. La Lega chiede di portare da 850 milioni a circa 1,2 miliardi il fondo per l'anticipo pensionistico, così da usarlo già dal 2027 con Quota 64. Tra i 18 emendamenti comuni del centrosinistra c'è anche la rivalutazione delle pensioni.",
+          "source": "AGI",
+          "url": "https://www.agi.it/economia/news/2026-11-17/manovra-pensioni-condono-emendamenti-40074396/",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/sito/notizie/politica/2026/11/17/record-di-emendamenti-alla-manovra-la-maggioranza-vuole-il-condono_0852cc79-1b4d-45f3-a0ff-9faa1bbaab52.html"
+            }
+          ],
+          "published": "2026-11-17",
+          "tags": [
+            "Pensioni",
+            "Manovra"
+          ],
+          "icon": "hourglass",
+          "spunto": {
+            "text": "Ognuno tira la coperta verso i propri elettori: i giovani che oggi versano i contributi chi li rappresenta? Spunto sull'equità tra generazioni. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Venerdì 20 sciopero generale Cgil: stop di scuola, sanità e pubblico impiego, corteo a Roma con Landini",
+          "summary": "La Cgil ha proclamato 24 ore di sciopero per venerdì 20 novembre, con circa cento manifestazioni e il corteo nazionale a Roma alle 9.30. Chiede salari più alti, pensioni più adeguate, più progressività fiscale, investimenti in sanità e istruzione e meno precarietà per i giovani. Il trasporto è escluso dalla Commissione di garanzia, ma Cub Trasporti e Sgb Ferrovie scioperano dalle 21 di venerdì alle 20 di sabato. Il governo ha intanto aperto a cancellare i tagli da 6.974 posti nella scuola e cerca risorse per la sanità; la Cgil ha definito l'incontro a Palazzo Chigi «politicamente inutile».",
+          "source": "Il Fatto Quotidiano",
+          "url": "https://www.ilfattoquotidiano.it/2026/11/17/sciopero-generale-20-novembre-cgil-notizie/8574447/",
+          "also": [
+            {
+              "source": "Il Fatto Quotidiano (tagli scuola, 13 novembre)",
+              "url": "https://www.ilfattoquotidiano.it/2026/11/13/manovra-tagli-scuola-retromarcia-notizie/8571341/"
+            }
+          ],
+          "published": "2026-11-17",
+          "tags": [
+            "Sindacati",
+            "Sciopero"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Sciopero e piazza contro manovra: quali richieste parlano davvero ai giovani, tra salari, precarietà e casa? Domanda di riflessione per un contenuto social. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Social vietati sotto i 13 anni: la proposta in un emendamento al ddl Sicurezza",
+          "summary": "Secondo Il Giornale, un emendamento del centrodestra al ddl Sicurezza prevede il divieto totale dei social per gli under 13 e un accesso graduale per la fascia 13-15 anni. L'articolo prevede un consenso ampio ma non unanime, senza indicare un solo partito proponente. Il tema è collegato alla manovra e alla discussione su tutela dei minori online.",
+          "source": "Il Giornale",
+          "url": "https://www.ilgiornale.it/news/politica/manovra-ci-sono-7mila-emendamenti-si-riapre-al-condono-e-si-chiudono-i-social-ai-minori-di-13-anni/",
+          "published": "2026-11-17",
+          "tags": [
+            "Giovani",
+            "Social"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Vietare basta o serve educazione digitale a scuola e in famiglia? Spunto per ascoltare i coetanei. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Azione, Calenda estromette D'Amato dal coordinamento di Roma: scontro sull'alleanza per Gualtieri",
+          "summary": "Secondo L'Opinione, Calenda ha allontanato Alessio D'Amato, coordinatore romano di Azione, dopo le sue dichiarazioni a Repubblica a favore di un'intesa ampia per la ricandidatura del sindaco Gualtieri («se Calenda vira a destra, io non lo seguo»). Calenda ha respinto sull'account X gli «ultimatum», escludendo sia un'alleanza con la destra sia un appoggio incondizionato in cambio di un assessorato, e si è detto favorevole a sostenere Gualtieri se c'è un dialogo sul programma. Ricostruzione di una testata, notizia del 13 novembre.",
+          "source": "L'Opinione",
+          "url": "https://opinione.it/politica/2026/11/13/manlio-fusani-carlo-calenda-azione-alessio-d-amato-rottura-roma-campo-largo/",
+          "published": "2026-11-13",
+          "tags": [
+            "Azione",
+            "Roma"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Alleanze sui programmi, non sulle poltrone: la linea indicata da Calenda può essere raccontata ai giovani militanti. Calenda ha detto che Azione correrà senza alleanze né con il centrodestra né con il campo largo.",
+            "refs": [
+              {
+                "label": "Calenda, intervista al Corriere della Sera (ripresa da Adnkronos) – 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Ast Macerata, la Regione ripristina il calendario operatorio; Marini verso l'addio, concorsi deserti e reparti in affanno",
+          "summary": "L'assessore alla Sanità Calcinaro ha detto che il calendario delle sedute operatorie è stato ripristinato, parlando di «errore di comunicazione» e di scelta non in linea con le politiche regionali. Secondo Cronache Maceratesi il direttore Marini ha rivendicato la decisione e, nonostante le voci di dimissioni, non si è dimesso; all'Ast viene chiesto di recuperare circa 40 milioni. Intanto i concorsi per geriatria, medicina d'urgenza (cinque posti) e psichiatria (quattro) faticano a coprire i posti.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/17/scintille-tra-regione-e-vertici-ast-macerata-concorsi-a-vuoto-reparti-in-affanno/2127458/",
+          "also": [
+            {
+              "source": "Cronache Maceratesi (Calcinaro)",
+              "url": "https://www.cronachemaceratesi.it/2026/11/17/ast-macerata-lassessore-calcinaro-ripristinato-calendario-delle-operazioni/2127270/"
+            }
+          ],
+          "published": "2026-11-17",
+          "tags": [
+            "Sanità",
+            "Macerata"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Se mancano medici, i tagli alle sale operatorie sono la cura o il sintomo? Spunto su personale sanitario, concorsi e attrattività del Ssn. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta ricostruzione, opposizioni chiedono le dimissioni del Garante Giulianelli dopo la visita a Pistarelli in carcere",
+          "summary": "Secondo la stampa, il garante regionale dei diritti Giancarlo Giulianelli nel novembre 2025 avrebbe avvertito Acquaroli di voci su Fabio Pistarelli, allora capo di gabinetto, e a inizio novembre avrebbe incontrato Pistarelli nel carcere di Montacuto, dove è detenuto dal 22 ottobre. Pd, M5S, Avs, Progetto Marche e Lista Ricci chiedono le dimissioni se la visita sarà confermata, ricordando però che visitare i detenuti rientra nei compiti del garante. I deputati Pd Manzi, Curti e Serracchiani presenteranno un'interrogazione al ministero della Giustizia. Le accuse a Pistarelli sono da accertare; l'articolo non riporta una replica di Giulianelli. Notizia del 15 novembre, vicenda in corso.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/15/prima-le-segnalazioni-su-pistarelli-poi-la-visita-a-montacuto-giulianelli-chiarisca-e-si-dimetta/2126569",
+          "published": "2026-11-15",
+          "tags": [
+            "Regione",
+            "Legalità"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Chi controlla i controllori? Domanda di riflessione su ruoli di garanzia, opportunità e trasparenza nelle istituzioni regionali. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Assestamento di bilancio 2026-2028, via all'esame in commissione: emendamenti entro il 18, voto in Aula dopo il 27 novembre",
+          "summary": "La commissione Bilancio del Consiglio regionale ha avviato l'esame dell'assestamento, illustrato dall'assessora Pantaloni; relatrici sono Marcozzi (Forza Italia) per la maggioranza e Vitri (Pd) per le opposizioni. Gli emendamenti vanno presentati entro mercoledì 18 novembre, il 19 l'analisi in commissione, il 25 i pareri di Cal e Crel e il 27 l'esame di ammissibilità, poi il passaggio in Aula. L'agenzia non riporta gli importi.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/16/assestamento-del-bilancio-della-regione-via-allesame-in-commissione_36a62b98-7641-472a-a2fa-32efbbaf7103.html",
+          "published": "2026-11-16",
+          "tags": [
+            "Bilancio",
+            "Regione"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Dove vanno i soldi della Regione per giovani, lavoro e sanità? Spunto per seguire gli emendamenti dei prossimi giorni. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Consiglio regionale, in aula salario minimo negli appalti, social ai minori, DIA nelle Marche e Piano dipendenze",
+          "summary": "L'ordine del giorno della seduta del 17 novembre comprendeva le proposte di legge su servizi per l'infanzia e servizio di sollievo per la salute mentale, il Piano regionale integrato delle dipendenze 2026-2028 e diverse mozioni: salario minimo di 9 euro negli appalti regionali, restrizioni dei social per i minori, un centro operativo DIA, i ritardi nei referti istologici e un gruppo di lavoro sull'attività amministrativa dell'Azienda ospedaliero-universitaria. Gli esiti non sono ancora noti al momento della redazione.",
+          "source": "LaPresse",
+          "url": "https://www.lapresse.it/politica/2026/11/16/regione-marche-martedi-17-novembre-ce-consiglio/",
+          "published": "2026-11-16",
+          "tags": [
+            "Consiglio",
+            "Lavoro"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Salario minimo e social per i minori: due temi che toccano da vicino i giovani lavoratori e studenti. Quale risposta può dare una Regione? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Cassa integrazione nelle Marche in crescita del 19,6%, mentre in Italia cala: la Cgil chiede interventi alla Regione",
+          "summary": "Secondo dati Inps elaborati dall'Ires Cgil Marche, nel terzo trimestre 2026 la Cig è cresciuta di 3,3 milioni di ore (+19,6%) rispetto al 2025, mentre in Italia cala di circa il 22%. Pesa la Cig straordinaria per riorganizzazione e crisi, con la meccanica a +4 milioni di ore; Ascoli Piceno segna +192,7%, mentre Macerata e Fermo calano. Il segretario Santarelli chiede alla Regione di intervenire su Irpef ed esenzione ticket. Dati sindacali del 2 novembre, ancora attuali.",
+          "source": "CGIL Marche",
+          "url": "https://www.marche.cgil.it/lavoro-allarme-industria-la-cassa-integrazione-sfiora-un-aumento-del-20-fontana-cgil-marche-la-crisi-e-ormai-troppo-diffusa/",
+          "published": "2026-11-02",
+          "tags": [
+            "Lavoro",
+            "Industria"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Una crisi industriale diffusa senza piani di rilancio: spunto sulle politiche per attrarre e far crescere le imprese marchigiane. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Uil Marche: solo il 4% dei contratti attivati agli under 30 è a tempo indeterminato",
+          "summary": "Secondo la Uil Marche, tra gennaio e giugno 2026 sono stati attivati 119.461 contratti, di cui 11.911 a tempo indeterminato. Per gli under 30 le attivazioni stabili sono 1.977 su 48.338, circa il 4%. Il sindacato chiede alla Regione una strategia di medio-lungo periodo sull'occupazione e maggiore stabilità per i giovani, per non farli andare via dalla regione. Dati sindacali del 3 novembre.",
+          "source": "Vivere Marche",
+          "url": "https://www.viveremarche.it/2026/11/03/uil-il-lavoro-nelle-marche-precario-fragile-e-in-controtendenza-rispetto-allitalia/199991",
+          "published": "2026-11-03",
+          "tags": [
+            "Giovani",
+            "Lavoro"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Se il 96% dei contratti ai giovani è precario, chi resta nelle Marche? Spunto per un contenuto sul futuro dei giovani e sul lavoro di qualità. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Nuovo ospedale di Macerata: il Consiglio comunale approva la mozione sulle scelte urbanistiche, scontro sui fondi",
+          "summary": "Il 10 novembre il Consiglio comunale di Macerata ha approvato con 19 sì e 6 no la mozione emendata sull'area del nuovo ospedale: la superficie non sarà inferiore a 16 ettari, contro i 24 della variante, e ogni decisione tornerà in Consiglio. Il Pd parla di mancanza di progetto e di fondi, Fratelli d'Italia sostiene che i finanziamenti bastano per avviare l'opera. Parte dell'ordine del giorno è rinviata al 30 novembre.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/10/nuovo-ospedale-di-macerata-riportare-in-consiglio-le-scelte-urbanistiche/2124962/",
+          "published": "2026-11-10",
+          "tags": [
+            "Sanità",
+            "Infrastrutture"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Un ospedale nuovo è una promessa o un cantiere con copertura finanziaria? Spunto su tempi certi e risorse per le grandi opere sanitarie. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ancona, al via il percorso partecipativo per il nuovo Piano urbanistico generale",
+          "summary": "Il 17 novembre il Comune di Ancona ha aperto il percorso partecipativo per il nuovo Pug, presentato dal sindaco Silvetti e dall'assessore Eliantonio. I laboratori si svolgeranno dal 2 dicembre al 23 marzo 2027 su nove temi, tra cui università, porto, casa, lavoro e rapporti con il territorio; è disponibile anche un questionario online. Gli esiti andranno ai professionisti scelti con gara per redigere il piano.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/17/comune-di-ancona-al-via-percorso-partecipativo-per-il-piano-urbanistico-generale_99b9157f-cfa5-46be-a634-39839b0feeab.html",
+          "published": "2026-11-17",
+          "tags": [
+            "Ancona",
+            "Urbanistica"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Casa, università, porto: i giovani saranno ascoltati nei laboratori sul Pug? Spunto per invitare gli under 30 a partecipare. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
