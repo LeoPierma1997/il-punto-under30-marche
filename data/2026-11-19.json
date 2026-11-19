@@ -1,0 +1,366 @@
+{
+  "date": "2026-11-19",
+  "label": "Giovedì 19 novembre 2026",
+  "intro": "A Shenzhen il primo vertice a tre tra Trump, Xi e Putin, mentre Von der Leyen propone 45 miliardi di nuovo prestito Ue a Kiev; in Italia la manovra tra condoni, pensioni e sanità e lo sciopero generale Cgil di domani; nelle Marche la minoranza chiede le dimissioni di Acquaroli e i sindaci dei comuni montani esclusi protestano a Roma.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Shenzhen, oggi il primo vertice a tre tra Trump, Xi e Putin: al centro il controllo delle armi nucleari",
+          "summary": "Al margine dell'Apec si tiene il primo vertice trilaterale Usa-Cina-Russia. Tema centrale è il controllo degli armamenti nucleari, dopo la scadenza del trattato New START a febbraio 2026, ma funzionari americani abbassano le aspettative su un accordo. Sul tavolo anche Iran, Ucraina e la tregua commerciale Usa-Cina prorogata al 10 gennaio 2027. Secondo l'Afp, alcune capitali europee temono discussioni su 'sfere di influenza' senza i Paesi interessati. Al momento della stesura non risultano esiti ufficiali.",
+          "source": "Newsquawk",
+          "url": "https://www.newsquawk.com/headlines/primer-trump-xi-putin-trilateral-in-shenzhen-nuclear-arms-control-in-focus-but-officials-downplay-a-deal-iran-and-ukraine-updates-unlikely",
+          "also": [
+            {
+              "source": "Politis (diretta)",
+              "url": "https://en.politis.com.cy/news/world/1071033/trump-xi-and-putin-meet-in-landmark-shenzhen-summit"
+            }
+          ],
+          "published": "2026-11-19",
+          "tags": [
+            "Esteri",
+            "Nucleare"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Domanda di riflessione: se si parla di Ucraina e sicurezza europea, perché l'Europa non è al tavolo? Un'occasione per ragionare su difesa comune e voce unica dell'Ue. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Von der Leyen propone un nuovo prestito da 45 miliardi all'Ucraina con debito comune",
+          "summary": "La presidente della Commissione propone 45 miliardi (20 per il sostegno finanziario, 25 per armi e difesa aerea) da erogare nel 2027, in aggiunta ai 90 miliardi concordati a dicembre. Slovacchia, Repubblica Ceca, Ungheria e Bulgaria non intendono partecipare e Merz minaccia il veto sul bilancio Ue se non aderiscono tutti i 27. Il rimborso dipende dalle riparazioni russe, con possibile uso degli asset congelati (210 miliardi). I leader ne discuteranno la prossima settimana a Bruxelles.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/18/von-der-leyen-propone-nuovo-prestito-ue-da-45-miliardi-allucraina-con-debito-comune",
+          "published": "2026-11-18",
+          "tags": [
+            "Ucraina",
+            "Bilancio Ue"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Calenda ha denunciato il disimpegno italiano sugli aiuti militari a Kiev (nessun decreto nel 2026): un prestito europeo con debito comune è il banco di prova di un'Europa che decide e finanzia insieme, con l'Italia dentro e non a rimorchio.",
+            "refs": [
+              {
+                "label": "Calenda su aiuti all'Ucraina e Crosetto – Open, 5 novembre 2026",
+                "url": "https://www.open.online/2026/11/05/ucraina-crosetto-rilancia-aiuti-sfida-lega/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Nasce l'Ufficio Ue per le sanzioni: coordinerà design, applicazione e lotta all'elusione",
+          "summary": "La Commissione europea istituisce l'Ufficio Ue per le sanzioni, che riunisce competenze finora divise tra più direzioni generali e opererà nella Segreteria generale. Coprirà tutti i regimi (Russia, Bielorussia, Iran, Corea del Nord, Siria, crimine organizzato, minacce ibride). Lars Danielsson sarà inviato per le sanzioni dal 6 febbraio 2027; le modifiche scattano dal 16 gennaio 2027. Finora l'applicazione, in mano agli Stati, ha dato risultati molto disomogenei.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/18/la-commissione-europea-istituisce-lufficio-ue-per-le-sanzioni/",
+          "published": "2026-11-18",
+          "tags": [
+            "Sanzioni",
+            "Ue"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Le sanzioni valgono quanto la loro applicazione: un ufficio europeo è un passo verso una politica estera davvero comune. Domanda: gli Stati membri cederanno davvero competenze? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Il Consiglio Ue approva la firma provvisoria degli accordi commerciali con l'Indonesia",
+          "summary": "Il Consiglio dell'Ue autorizza firma e applicazione provvisoria dell'accordo di partenariato economico globale (Cepa) e dell'accordo sulla protezione degli investimenti con l'Indonesia. Dopo la firma serviranno il via libera del Parlamento europeo e la decisione finale del Consiglio. Dal 1° gennaio 2027 Giacarta esce dal sistema di preferenze generalizzate Ue.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/18/dal-consiglio-ue-il-si-provvisorio-agli-accordi-di-partenariato-economico-con-lindonesia/",
+          "published": "2026-11-18",
+          "tags": [
+            "Commercio",
+            "Ue"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "In un mondo di dazi e blocchi, gli accordi commerciali diversificano mercati e catene di fornitura per le imprese europee, comprese quelle marchigiane. Domanda: quanto pesano le regole su ambiente e lavoro? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ucraina, Kallas: serve il cessate il fuoco prima dei negoziati; Tajani, l'Italia sarà nella delegazione europea",
+          "summary": "L'Alta rappresentante Kallas giudica 'assurde' le richieste russe, dubita della serietà di Mosca e chiede ai negoziatori Ue di ottenere concessioni in cambio. Il ministro Tajani dice che l'Italia farà parte della delegazione europea, con il formato E5 insieme a Consiglio e Commissione, e non si aspetta risultati concreti dal vertice di Shenzhen. Resta aperta la disputa su chi rappresenti l'Europa. Notizia del 16 novembre, vicenda in corso.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/en/2026/11/16/ukraine-kallas-a-ceasefire-is-needed-to-begin-talks-but-moscow-isnt-serious/",
+          "published": "2026-11-16",
+          "tags": [
+            "Ucraina",
+            "Diplomazia"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Calenda ha attaccato chi nel centrodestra propone di 'mollare l'Ucraina' o 'mollare Salvini' dopo lo stop agli aiuti annunciato dalla Lega: la presenza italiana al tavolo europeo ha senso solo se Roma è coerente sul sostegno a Kiev.",
+            "refs": [
+              {
+                "label": "Calenda su Il Centro, Salvini e Ucraina – L'Espresso, 16 novembre 2026",
+                "url": "https://lespresso.it/c/politica/2026/11/16/carlo-calenda-elezioni-centro-polo-pareggio-sondaggi/65853"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, la maggioranza al lavoro su quasi 7mila emendamenti: riaprono i condoni, Schlein parla di 'maxicondono'",
+          "summary": "FdI deposita emendamenti sul condono edilizio, con ipotesi di riapertura dei termini del 2003 e sanatoria per opere minori entro il 30 settembre 2025; la Lega chiede di riaprire la rottamazione e un +3 punti di Ires per le banche. Forza Italia propone una regolarizzazione degli abusi minori con multa fissa di mille euro. Salvini nega che il tema sia stato discusso al vertice con Meloni. Per le opposizioni è un 'maxicondono'. Il 23 novembre il primo verdetto sull'ammissibilità; ne resterebbero 500-600.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/economia/2026/11/18/manovra-dal-condono-al-superbonus-le-misure-che-potrebbero-cambiare_238c3a05-adc8-4cb5-aa9b-0c85bb2a6524.html",
+          "published": "2026-11-18",
+          "tags": [
+            "Manovra",
+            "Fisco"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Condoni e sanatorie in una manovra 'seria'? Domanda di riflessione su equità fiscale, legalità e zone sismiche, tema particolarmente sentito nelle Marche. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Pensioni e sanità in manovra: la Lega punta su Quota 64, Forza Italia sulle rivalutazioni e sulla card per gli anziani",
+          "summary": "Il fondo previdenziale da circa 850 milioni è conteso: Salvini lo vuole per Quota 64 e lo esclude per la sanità, mentre Forza Italia propone un emendamento da 1,47 miliardi per annullare nel 2027 il taglio alla rivalutazione e valuta una card anziani da 300 euro con soglia Isee di 15mila euro, liberando circa 800 milioni. Per la sanità si ipotizzano 500 milioni aggiuntivi, contro gli 1,9 miliardi chiesti da Anaao Assomed.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/economia/pmi/2026/11/18/manovra-spuntano-800-milioni-per-la-sanita-ipotesi-card-anziani-piu_92e99b6c-49d8-4f68-9bee-71fff3bdc40a.html",
+          "also": [
+            {
+              "source": "ANSA (altro articolo)",
+              "url": "https://www.ansa.it/sito/notizie/economia/2026/11/18/manovra-dal-condono-al-superbonus-le-misure-che-potrebbero-cambiare_238c3a05-adc8-4cb5-aa9b-0c85bb2a6524.html"
+            }
+          ],
+          "published": "2026-11-18",
+          "tags": [
+            "Pensioni",
+            "Sanità"
+          ],
+          "icon": "hourglass",
+          "spunto": {
+            "text": "Per i giovani il nodo è l'equità tra generazioni: Quota 64 e rivalutazioni pesano sul debito che pagheranno gli under 30. Domanda utile per un contenuto social. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Scuola, il governo ritira il taglio di quasi 7mila posti: resta incerto se sia cancellato o rinviato al 2029",
+          "summary": "Nell'incontro del 13 novembre a Palazzo Chigi il governo ha annunciato il ritiro del taglio di 6.974 posti (4.925 docenti e 2.049 Ata), che avrebbe fatto risparmiare 84 milioni nel 2027 e 252 milioni l'anno dal 2028. Secondo ANSA del 18 novembre non è chiaro se il taglio sia annullato o spostato al 2029. Uil e Cisl lo hanno definito un risultato; la Cgil giudica l'incontro politicamente inutile.",
+          "source": "Open",
+          "url": "https://www.open.online/2026/11/13/legge-bilancio-26-governo-sindacati/",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/sito/notizie/economia/2026/11/18/manovra-dal-condono-al-superbonus-le-misure-che-potrebbero-cambiare_238c3a05-adc8-4cb5-aa9b-0c85bb2a6524.html"
+            }
+          ],
+          "published": "2026-11-13",
+          "tags": [
+            "Scuola",
+            "Manovra"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Scuola e università sono il primo investimento sui giovani: la domanda è se il taglio sia davvero cancellato o solo rimandato. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Domani sciopero generale Cgil contro la manovra: nelle Marche cortei in cinque città e bus a rischio",
+          "summary": "La Cgil conferma lo sciopero generale di 24 ore del 20 novembre contro la legge di bilancio, per salari, pensioni, fisco più progressivo, sanità e scuola pubbliche e contro la spesa militare. Nelle Marche i cortei sono ad Ancona, Pesaro, Macerata, Fermo e Ascoli Piceno; il segretario regionale Santarelli parla di manovra che 'umilia' lavoratori e pensionati. Il trasporto locale garantisce solo alcune fasce orarie.",
+          "source": "Il Resto del Carlino",
+          "url": "https://www.ilrestodelcarlino.it/marche/economia/sciopero-20-novembre-c6tc3b95",
+          "also": [
+            {
+              "source": "Open",
+              "url": "https://www.open.online/2026/11/13/legge-bilancio-26-governo-sindacati/"
+            }
+          ],
+          "published": "2026-11-19",
+          "tags": [
+            "Sciopero",
+            "Lavoro"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Un'opposizione sociale che chiede più spesa e un'opposizione politica divisa: domanda su come tenere insieme salari, produttività e conti pubblici. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Aiuti militari all'Ucraina: scontro Salvini-Crosetto, il 13° pacchetto al Copasir e l'autorizzazione scade il 31 dicembre",
+          "summary": "Il ministro della Difesa Crosetto assicura che il governo continuerà a sostenere Kiev oltre la scadenza del 31 dicembre 2026 e proporrà di prorogare il meccanismo dei decreti interministeriali, voluto con il governo Draghi; Salvini aveva detto di voler portare il tema in Consiglio dei ministri. Per proseguire nel 2027 servirà una nuova norma. Calenda ha ricordato 12 decreti dall'invasione e nessuno nel 2026. Notizia del 5 novembre, vicenda in corso.",
+          "source": "Open",
+          "url": "https://www.open.online/2026/11/05/ucraina-crosetto-rilancia-aiuti-sfida-lega/",
+          "published": "2026-11-05",
+          "tags": [
+            "Ucraina",
+            "Governo"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Calenda ha chiesto conto dei decreti mai firmati nel 2026 e ha letto la risposta di Crosetto come conferma importante dopo le uscite di Salvini; più di recente ha detto che il centrodestra deve scegliere tra 'mollare l'Ucraina' o 'mollare Salvini'.",
+            "refs": [
+              {
+                "label": "Calenda su aiuti all'Ucraina e Crosetto – Open, 5 novembre 2026",
+                "url": "https://www.open.online/2026/11/05/ucraina-crosetto-rilancia-aiuti-sfida-lega/"
+              },
+              {
+                "label": "Calenda su Il Centro, Salvini e Ucraina – L'Espresso, 16 novembre 2026",
+                "url": "https://lespresso.it/c/politica/2026/11/16/carlo-calenda-elezioni-centro-polo-pareggio-sondaggi/65853"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta sisma, la minoranza chiede le dimissioni di Acquaroli dopo la registrazione del 1° dicembre 2025",
+          "summary": "Pd, M5s, Avs, Progetto Marche e Lista Ricci chiedono le dimissioni del presidente della Regione sostenendo che una registrazione intercettata nel suo ufficio dimostri che sapeva da tempo dei sospetti su Pistarelli, senza rivolgersi alla magistratura, e che contraddica quanto detto in Consiglio. Sono accuse politiche non accertate, basate su una registrazione descritta solo in parte; un assessore regionale ha dichiarato Acquaroli estraneo ai fatti.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/18/minoranza-marche-acquaroli-sapeva-e-non-ha-denunciato-si-dimetta_50c45dd1-270e-498e-a0c4-696f7f436c1b.html",
+          "published": "2026-11-18",
+          "tags": [
+            "Regione",
+            "Legalità"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Responsabilità politica e legalità nelle istituzioni: chi vigila sulla ricostruzione e sugli appalti? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Acquaroli respinge le richieste di Schlein e Conte: 'Male non fare, paura non avere'",
+          "summary": "Dopo la pubblicazione da parte de Il Fatto Quotidiano di stralci di intercettazioni dell'inchiesta, il presidente della Regione Francesco Acquaroli respinge le richieste di dimissioni di Schlein e Conte in un video: dice che le intercettazioni confermano quanto riferito in Consiglio a Muccia, accusa l'opposizione di strumentalizzare e di aver taciuto su infrastrutture, sisma e alluvioni, e annuncia che va avanti. L'articolo non riporta repliche di Pistarelli o dell'opposizione.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/18/acquaroli-schlein-e-conte-male-non-fare-paura-non-avere-vado_04d20f58-a154-4c4c-b4a3-9a2bfbe82382.html",
+          "published": "2026-11-18",
+          "tags": [
+            "Regione",
+            "Inchiesta"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "La vicenda ha ormai una dimensione nazionale: serve distinguere responsabilità giudiziarie, che spettano ai giudici, da quelle politiche, che spettano agli elettori. Domanda aperta, nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Comuni montani esclusi, i sindaci marchigiani a Roma: a rischio scuole, medici di base e agevolazioni",
+          "summary": "Delegazioni di 29 comuni marchigiani esclusi dalla nuova classificazione montana hanno partecipato alla manifestazione romana di circa 600 comuni insieme alla Cia Marche. Secondo i sindaci, le classi minime salgono a 12 alunni, finisce la deroga per i medici nelle aree montane e le imprese agricole perdono sostegni. Si attende il pronunciamento del Tar Lazio; il sindaco di Staffolo Ragni precisa che la protesta non è contro il governo.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/18/comuni-montani-esclusi-protestano-a-roma-a-rischio-un-patrimonio_4a417b3a-d193-46e2-a6bf-999c937bf07d.html",
+          "also": [
+            {
+              "source": "Il Resto del Carlino (9 novembre)",
+              "url": "https://www.ilrestodelcarlino.it/marche/politica/tagliola-sui-comuni-montani-290627b2"
+            },
+            {
+              "source": "Il Dolomiti",
+              "url": "https://www.ildolomiti.it/altra-montagna/attualita/2026/manifestazione-sindaci-roma-comuni-montani-legge-montagna"
+            }
+          ],
+          "published": "2026-11-18",
+          "tags": [
+            "Entroterra",
+            "Servizi"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Spopolamento e servizi nell'entroterra sono il tema dei giovani marchigiani: se chiude la scuola, chiude il paese. Domanda su criteri più ampi di quelli altimetrici. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sciopero generale del 20 novembre nelle Marche: cortei, bus a rischio e il nodo sanità",
+          "summary": "La Cgil Marche manifesta ad Ancona, Pesaro, Macerata, Fermo e Ascoli. Il segretario Santarelli sostiene che la manovra penalizzi quasi mezzo milione di lavoratori e 400mila pensionati marchigiani e critica un aumento del fondo sanitario dell'1,6% a fronte di un'inflazione del 5,4%. Conerobus, Adriabus, Steat, Apm, Contram e Start garantiscono solo fasce orarie; è previsto anche uno sciopero ferroviario di altri sindacati dalle 21 del 20 novembre.",
+          "source": "Il Resto del Carlino",
+          "url": "https://www.ilrestodelcarlino.it/marche/economia/sciopero-20-novembre-c6tc3b95",
+          "published": "2026-11-19",
+          "tags": [
+            "Lavoro",
+            "Sanità"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Sanità e potere d'acquisto toccano da vicino i giovani marchigiani: liste d'attesa, medici che mancano, stipendi bassi. Domanda per un contenuto locale: quali risposte concrete dalla Regione? Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Calo demografico, report Teha: per le Marche la sfida è attrarre e trattenere i giovani",
+          "summary": "Nel 2025 il 26,6% dei marchigiani ha almeno 65 anni (24,7% in Italia) e la popolazione potrebbe scendere del 7,5% al 2050. L'occupazione è al 67,5%, i Neet al 10,8% in lieve aumento, la spesa in ricerca all'1% del Pil. Le rinnovabili coprono il 27,3% dei consumi elettrici (41,7% in Italia). Positivi startup innovative e turismo. Notizia del 12 novembre.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/12/calo-demografico-report-teha-per-le-marche-sfida-e-su-attrazione-giovani_6d7e19c5-233c-4ad3-a8d3-a439ace59dc0.html",
+          "published": "2026-11-12",
+          "tags": [
+            "Giovani",
+            "Demografia"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Dati utili per un contenuto sui giovani: lavoro stabile, ricerca, casa e servizi sono le leve per non perdere una generazione. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Aree idonee per le rinnovabili: scontro Legambiente-Regione, la maggioranza difende il limite alle aree già urbanizzate",
+          "summary": "Legambiente accusa la Regione di ritardi sulle regole per le aree idonee, che potrebbero compromettere gli obiettivi Ue, ricordando che in sei anni non sono stati autorizzati impianti. Il vicepresidente dell'Assemblea Giacomo Rossi (Civici Marche) difende il progetto di legge, che concentrerebbe gli impianti in aree già urbanizzate. Notizia del 3 novembre, iter in corso in Consiglio.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/03/rossi-civici-marche-si-a-energia-pulita-ma-senza-distruggere-i-territori_f48ef952-3126-42ce-aa3e-b855207e49e0.html",
+          "published": "2026-11-03",
+          "tags": [
+            "Energia",
+            "Ambiente"
+          ],
+          "icon": "bolt",
+          "spunto": {
+            "text": "Transizione energetica e tutela del territorio possono stare insieme? Domanda su come non perdere gli obiettivi europei e i costi dell'energia per le imprese marchigiane. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Botteghe e locali storici: via libera della commissione alla proposta di legge, albo regionale e logo",
+          "summary": "La Seconda commissione del Consiglio regionale approva la proposta di legge 71/26 (prima firmataria Mirella Battistoni, FdI). Il testo istituisce un albo regionale collegato a quello nazionale, con requisiti di 40 anni di attività (70 per le eccellenze), il logo 'Attività Storica delle Marche' e contributi per conservare i locali e favorire i passaggi generazionali. Serve ancora il voto dell'Aula.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/18/battistoni-fdi-ok-commissione-a-proposta-di-legge-su-botteghe-e-locali-storici_75ed9165-2560-46ce-bf10-33730d98d202.html",
+          "published": "2026-11-18",
+          "tags": [
+            "Commercio",
+            "Regione"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Sostenere le botteghe storiche aiuta i centri e l'entroterra: domanda se bastino albi e loghi o servano misure su affitti, burocrazia e ricambio generazionale per chi vuole avviare un'attività. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Burqa e niqab: proposta di legge FdI per vietarli negli ospedali e nei centri per l'impiego",
+          "summary": "Il gruppo di Fratelli d'Italia ha depositato il 4 novembre la proposta di legge 75 (primo firmatario Andrea Cardilli), in calendario in commissione sanità: chi accede agli spazi per l'utenza di strutture sanitarie e centri per l'impiego dovrebbe tenere il volto riconoscibile, con verifica riservata e personale femminile su richiesta, senza sanzioni per gli utenti. Il testo cita il precedente lombardo del 2015. Notizia del 13 novembre.",
+          "source": "Il Resto del Carlino",
+          "url": "https://www.ilrestodelcarlino.it/marche/politica/burqa-e-niqab-spunta-la-a0a36de5",
+          "published": "2026-11-13",
+          "tags": [
+            "Diritti",
+            "Sanità"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Sicurezza, laicità e libertà individuali: domanda su dove finisca l'identificazione e inizi la discriminazione, e se una legge regionale sia lo strumento giusto. Nessuna posizione attribuita ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
