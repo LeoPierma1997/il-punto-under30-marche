@@ -1,0 +1,386 @@
+{
+  "date": "2026-11-20",
+  "label": "Venerdì 20 novembre 2026",
+  "intro": "Dopo il vertice di Shenzhen tra Trump, Xi e Putin l'Europa respinge a Berlino una 'Yalta 2.0' sull'Ucraina; in Italia sciopero generale Cgil e manovra tra quasi settemila emendamenti e pensioni; nelle Marche Acquaroli respinge le dimissioni e si accende lo scontro sulla sanità.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Shenzhen, il vertice Trump-Xi-Putin si chiude con una dichiarazione sul nucleare: nessun impegno su Ucraina e Iran",
+          "summary": "Al termine del vertice a tre i leader hanno firmato una dichiarazione secondo cui una guerra nucleare non può essere vinta e non va combattuta, con la promessa di un dialogo sul rischio nucleare senza date. Ucraina e Iran non compaiono nel testo e non ci sono impegni su cessate il fuoco o riduzione degli arsenali. Putin ha detto di aver parlato di Ucraina con Trump senza raggiungere intese. Fonte in inglese e di orientamento editoriale marcato: la ricostruzione va confrontata con le agenzie.",
+          "source": "The American Conservative",
+          "url": "https://www.theamericanconservative.com/trump-xi-and-putin-end-summit-with-joint-declaration-of-peace/",
+          "also": [
+            {
+              "source": "Southmatters",
+              "url": "https://www.southmatters.com/world-news/trump-xi-putin-peace-declaration-shenzhen-nuclear-2026/"
+            }
+          ],
+          "published": "2026-11-19",
+          "tags": [
+            "Shenzhen",
+            "Nucleare"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Tre potenze che parlano di sicurezza globale senza l'Europa al tavolo: quale peso può avere l'Ue in un mondo negoziato dai grandi? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Berlino, i leader europei respingono una 'Yalta 2.0' sull'Ucraina e annunciano una squadra negoziale a sette",
+          "summary": "Dopo il vertice di Shenzhen i leader riuniti a Berlino hanno rifiutato un accordo per sfere d'influenza: per Merz un formato 'Yalta' non porterà la pace, mentre Macron ha definito massimaliste le richieste russe. Viene annunciata una squadra negoziale europea di sette rappresentanti (tra cui Italia, istituzioni Ue e Nato). Gli inviati Usa Witkoff e Kushner avrebbero chiesto a Mosca di accettare la partecipazione europea ai colloqui.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/19/european-leaders-reject-yalta-20-deal-for-ukraine-after-trump-meets-putin-and-xi",
+          "also": [
+            {
+              "source": "Euronews",
+              "url": "https://www.euronews.com/2026/11/19/zelenskyy-says-he-expects-debrief-from-us-envoys-on-trumps-talks-with-xi-and-putin"
+            }
+          ],
+          "published": "2026-11-19",
+          "tags": [
+            "Ucraina",
+            "Europa"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Un tavolo europeo credibile richiede anche un impegno concreto nel sostegno a Kiev: Calenda ha sollecitato il governo sugli aiuti militari e ha annunciato il sostegno di Azione alla proroga.",
+            "refs": [
+              {
+                "label": "Calenda in Senato sugli aiuti all'Ucraina – Open, 5 novembre 2026",
+                "url": "https://www.open.online/2026/11/05/ucraina-crosetto-rilancia-aiuti-sfida-lega/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Von der Leyen a Berlino: pace solo con l'Ucraina in posizione di forza, in arrivo il 22° pacchetto di sanzioni",
+          "summary": "Intervenendo a Berlino, la presidente della Commissione ha collegato il sostegno a Kiev al prestito Ue da 45 miliardi, già proposto, e ha annunciato il 22° pacchetto di sanzioni contro la Russia. Il prestito coprirebbe circa due terzi del fabbisogno ucraino del 2027, stimato in 70 miliardi, e verrebbe restituito solo con le riparazioni russe. Un Consiglio europeo straordinario è atteso il 26-27 novembre.",
+          "source": "Sunday Guardian",
+          "url": "https://sundayguardianlive.com/world/coalition-of-the-willing-summit-berlin-ursula-von-der-leyen-says-peace-depends-on-putting-ukraine-in-position-of-strength-with-45-billion-eu-loan-russia-ukraine-war-live-europe-news-324763/",
+          "also": [
+            {
+              "source": "UNN",
+              "url": "https://unn.ua/en/news/von-der-leyen-announced-the-22nd-package-of-sanctions-against-the-russian-federation-and-a-proposal-to-cover-ukraines-deficit"
+            }
+          ],
+          "published": "2026-11-20",
+          "tags": [
+            "Sanzioni",
+            "Ucraina"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Debito comune per Kiev e nuove sanzioni: l'Europa sta costruendo davvero una politica estera e di difesa comune, o decide ancora caso per caso? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Dopo Shenzhen le reazioni occidentali: Merz parla di 'photo op', Tusk e Rutte prendono le distanze",
+          "summary": "Il cancelliere tedesco Merz ha definito il vertice una 'photo op', mentre la Commissione Ue ha ribadito il sostegno a Onu e Corte penale internazionale, criticate nella dichiarazione. Tusk ha respinto la logica per cui l'amico di un amico sia un alleato; il segretario Nato Rutte ha detto di non essere preoccupato. Alcuni senatori Usa hanno criticato Trump. Il sito riassume agenzie internazionali ed è una testata in esilio: alcuni dettagli non sono verificati altrove.",
+          "source": "Nasha Niva",
+          "url": "https://nashaniva.com/en/409674",
+          "published": "2026-11-19",
+          "tags": [
+            "Ue",
+            "Nato"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Quando Washington, Pechino e Mosca si parlano senza Bruxelles, qual è la risposta più forte: più difesa europea o più dialogo? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Stato di diritto, nel dialogo Ue l'Ungheria di Magyar è sotto esame ma in miglioramento",
+          "summary": "Il 19 novembre i ministri degli Affari europei hanno tenuto il dialogo annuale sullo stato di diritto. Il governo Magyar ha abrogato lo stato di emergenza per decreto, abolito l'Ufficio per la protezione della sovranità e aderito alla Procura europea. La procedura ex articolo 7 aperta nel 2018 resta formalmente in corso.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/19/euronews-verify-is-hungary-turning-the-page-on-its-rule-of-law-problems",
+          "published": "2026-11-19",
+          "tags": [
+            "Stato di diritto",
+            "Ungheria"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Lo stato di diritto come condizione per i fondi e per l'appartenenza all'Ue: uno strumento da difendere anche quando i governi cambiano. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Sciopero generale Cgil, oggi cortei in cento piazze e corteo nazionale a Roma con Landini",
+          "summary": "La Cgil ha indetto 24 ore di sciopero contro la manovra, il quinto di fila secondo l'ANSA, con manifestazioni in circa cento piazze e comizio finale di Landini a Roma; sono attesi Schlein, Conte e Fratoianni. Cisl e Uil non aderiscono. La ministra Calderone dice di rispettare lo sciopero ma sostiene che il governo abbia dato risposte. Aerei e treni nazionali sono esclusi, con fermi ferroviari separati di Sgb e Cub. Le fonti disponibili sono antecedenti ai cortei: partecipazione e adesione non sono ancora verificate.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/economia/2026/11/19/sciopero-generale-da-scuola-a-bus.-treni-dalla-sera-niente-stop-aerei_01d5c5ed-72b4-4546-acc1-472847a25848.html",
+          "also": [
+            {
+              "source": "Fanpage",
+              "url": "https://www.fanpage.it/live/sciopero-generale-20-novembre-cgil-manifestazioni-italia-diretta/"
+            }
+          ],
+          "published": "2026-11-20",
+          "tags": [
+            "Sciopero",
+            "Lavoro"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Salari e servizi pubblici sono questioni reali, ma lo sciopero è la risposta o servono proposte alternative misurabili? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Manovra, Azione presenta i suoi emendamenti: giovani, sanità, cybersicurezza e università",
+          "summary": "La presidente di Azione Elena Bonetti, capogruppo in commissione Bilancio alla Camera, ha illustrato le proposte del partito: esonero contributivo di 48 mesi per gli under 35 alla prima assunzione stabile, Irpef agevolata per gli under 36, circa 3,9 miliardi annui in più per la sanità finanziati con accise su tabacchi e alcol e 600 milioni per le borse di studio. Altre misure riguardano cybersicurezza, maternità e scuola. La fonte è una pubblicazione di comunicati, riferita al 17 novembre.",
+          "source": "Agenparl",
+          "url": "https://agenparl.eu/2026/11/17/manovra-gli-emendamenti-di-azione-focus-cybersicurezza-lavoro-sanita-e-giovani/",
+          "published": "2026-11-17",
+          "tags": [
+            "Azione",
+            "Giovani"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Un contenuto utile: cosa cambierebbe per un under 30 con l'esonero contributivo e le borse di studio proposti da Azione, rispetto al testo della manovra.",
+            "refs": [
+              {
+                "label": "Bonetti (Azione) sugli emendamenti alla manovra – Agenparl, 17 novembre 2026",
+                "url": "https://agenparl.eu/2026/11/17/manovra-gli-emendamenti-di-azione-focus-cybersicurezza-lavoro-sanita-e-giovani/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Pensioni, la Lega congela Quota 64 e la rinvia a un provvedimento separato dopo il vertice a Palazzo Chigi",
+          "summary": "Dal vertice tra Meloni e i leader della maggioranza è emerso che Quota 64 esce dagli emendamenti e viene rinviata a un provvedimento separato, finanziato con il fondo da 850 milioni l'anno fino al 2029. Il margine di intervento sul testo è stimato in circa 120 milioni su circa 26 miliardi. Sul tavolo anche Superbonus, exit tax e fondi per i medici. Il Pd critica il rinvio. Notizia del 17 novembre, ancora in corso.",
+          "source": "Teleborsa",
+          "url": "https://www.teleborsa.it/News/2026/11/17/vertice-a-palazzo-chigi-sulla-manovra-lega-congela-quota-64-17.html",
+          "also": [
+            {
+              "source": "QuiFinanza",
+              "url": "https://quifinanza.it/pensioni/pensioni-quota-64-manovra-2027/1024631/"
+            }
+          ],
+          "published": "2026-11-17",
+          "tags": [
+            "Pensioni",
+            "Manovra"
+          ],
+          "icon": "hourglass",
+          "spunto": {
+            "text": "Chi paga le pensioni anticipate di oggi? Azione chiede di eliminare gli 850 milioni destinati a Quota 64: un tema da spiegare con i costi per i giovani.",
+            "refs": [
+              {
+                "label": "Azione sugli 850 milioni per Quota 64 – Avvenire, 17 novembre 2026",
+                "url": "https://www.avvenire.it/politica/manovra-ce-la-sanatoria-dei-condoni-passati-emendamenti-a-pioggia-sono-quasi-settemila-i-conti-dellitalia_115939"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Manovra, quasi settemila emendamenti: il condono divide la maggioranza e la patrimoniale il campo largo",
+          "summary": "In commissione Bilancio sono state depositate tra 6.600 e 7.000 proposte di modifica, un record della legislatura, circa 2.000 dalla maggioranza. Il condono riguarderebbe solo abusi già coperti da sanatorie passate (1985, 1994, 2003), e FdI esclude nuove sanatorie. Nel centrosinistra Fratoianni (Avs) dice: 'Se non c'è la patrimoniale, non c'è la coalizione'; le proposte unitarie sono 17-18, dal salario minimo ai fondi per la sanità. Articolo del 17 novembre.",
+          "source": "Avvenire",
+          "url": "https://www.avvenire.it/politica/manovra-ce-la-sanatoria-dei-condoni-passati-emendamenti-a-pioggia-sono-quasi-settemila-i-conti-dellitalia_115939",
+          "also": [
+            {
+              "source": "Quotidiano.net",
+              "url": "https://www.quotidiano.net/politica/emendamenti-manovra-2027-fuqrrh8n"
+            }
+          ],
+          "published": "2026-11-17",
+          "tags": [
+            "Manovra",
+            "Emendamenti"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Settemila emendamenti sono il segno di una manovra senza una strategia: Azione parla di assenza di una visione di lungo periodo, a favore delle priorità su giovani e servizi.",
+            "refs": [
+              {
+                "label": "Bonetti (Azione) sulla manovra – Agenparl, 17 novembre 2026",
+                "url": "https://agenparl.eu/2026/11/17/manovra-gli-emendamenti-di-azione-focus-cybersicurezza-lavoro-sanita-e-giovani/"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Manovra, sanità e scuola: Fondo a 146,3 miliardi, le Regioni ne chiedono 5,5 in più e il personale sciopera il 5 dicembre",
+          "summary": "Il governo indica il Fondo sanitario a 146,3 miliardi, mentre le Regioni ne chiedono 5,5 in più e il personale sanitario annuncia uno sciopero a Roma il 5 dicembre. Il governo rinuncia al taglio di circa 7.000 posti tra docenti e Ata, con 85 milioni da recuperare altrove. Sull'exit tax (26% sulle plusvalenze latenti) Forza Italia chiede correttivi. Quadro del 15 novembre, ancora aperto in commissione.",
+          "source": "QuiFinanza",
+          "url": "https://quifinanza.it/economia/pensioni-exit-tax-emendamenti-manovra-2027/1024403/",
+          "published": "2026-11-15",
+          "tags": [
+            "Sanità",
+            "Scuola"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Liste d'attesa e stipendi del personale: Azione propone circa 3,9 miliardi annui in più per la sanità e un miliardo per le liste d'attesa, da raccontare con numeri chiari.",
+            "refs": [
+              {
+                "label": "Bonetti (Azione) sulla sanità in manovra – Agenparl, 17 novembre 2026",
+                "url": "https://agenparl.eu/2026/11/17/manovra-gli-emendamenti-di-azione-focus-cybersicurezza-lavoro-sanita-e-giovani/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta sisma, Acquaroli: 'Non mi risulta di essere indagato', respinte le dimissioni",
+          "summary": "Il presidente della Regione ha respinto le richieste di dimissioni delle opposizioni, definendole 'sciacallaggio'. Dice di essere stato sentito dalla Dda il 5 novembre come persona informata sui fatti e di non risultare indagato; l'ex capo di gabinetto Pistarelli è coinvolto nell'inchiesta. Le accuse politiche restano non accertate e l'esito è rimesso alla magistratura.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/19/inchiesta-sisma-acquaroli-non-mi-risulta-di-essere-tra-gli-indagati_53a8b26d-0405-45c9-b8a9-b3a2ab8b2cc1.html",
+          "also": [
+            {
+              "source": "Il Resto del Carlino",
+              "url": "https://www.ilrestodelcarlino.it/marche/cronaca/acquaroli-non-mi-risulta-di-essere-indagato-non-ho-parlato-dellinchiesta-con-la-premier-meloni-v5qoyonl"
+            }
+          ],
+          "published": "2026-11-19",
+          "tags": [
+            "Regione",
+            "Inchiesta"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Responsabilità politica e vigilanza sulla ricostruzione sono questioni distinte dall'esito giudiziario: quali regole di trasparenza servono sugli appalti? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sanità, la Regione introduce il ticket per chi salta una visita senza disdire entro 48 ore",
+          "summary": "In conferenza stampa ad Ancona la giunta ha presentato misure di efficienza: chi non disdice in tempo paga il ticket, con esenzioni per impedimenti documentati. Previsti anche una gara unica regionale per farmaci e dispositivi, criteri uniformi per protesica e prescrizioni e accordi con le farmacie. L'assessore Calcinaro difende il ticket come modo per non sprecare posti.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/19/pagamento-del-ticket-sanitario-se-non-si-comunica-entro-48-ore-la-disdetta-della-prestazione/2128157/",
+          "published": "2026-11-19",
+          "tags": [
+            "Sanità",
+            "Ticket"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Penalizzare chi non disdice può ridurre gli sprechi, ma il vero nodo restano le liste d'attesa: come si garantisce la disdetta facile? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ast Macerata, Cesetti (Pd): sale operatorie ferme per budget esaurito, la giunta 'fa cassa'",
+          "summary": "Il consigliere regionale Pd Fabrizio Cesetti sostiene che a Recanati le sale operatorie si siano fermate per esaurimento del budget 2026, con ripresa l'8 gennaio, e che a Macerata, Civitanova, Camerino e San Severino le sedute siano ridotte o sospese fino a fine anno. Sono affermazioni di parte non verificate in modo indipendente. Nei giorni scorsi la Regione aveva annunciato il ripristino del calendario; secondo articoli correlati l'Ast dice che nessun intervento è stato annullato.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/19/a-recanati-fermi-gli-interventi-di-cataratte-e-asportazione-di-nei/2128143/",
+          "also": [
+            {
+              "source": "Civitanova Live",
+              "url": "https://www.civitanovalive.it/2026/11/19/sale-operatorie-ferme-e-servizi-tagliati-a-rischio-la-salute-dei-cittadini-cesetti-pd-attacca-la-giunta/"
+            }
+          ],
+          "published": "2026-11-19",
+          "tags": [
+            "Sanità",
+            "Ast Macerata"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Budget a fine anno e interventi sospesi: come programmare la spesa sanitaria senza fermare le sale operatorie? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sanità nel Piceno, la Cgil: il sistema 'si sfalda' tra sette cambi di vertice e carenza di personale",
+          "summary": "La Cgil del Piceno contesta la lettura ottimista di Acquaroli sulle liste d'attesa. Cita dati dell'assessore Calcinaro secondo cui nel primo semestre 2026 l'Ast di Ascoli sarebbe l'unica in calo (-1,3% di prestazioni sul 2025) e critica i sette cambi di direzione dalla pandemia e la carenza di personale. Sono posizioni sindacali, collegate allo sciopero del 20 novembre.",
+          "source": "Riviera Oggi",
+          "url": "https://rivieraoggi.it/2026/11/19/446331/sanita-nelle-marche-acquaroli-rivendica-i-risultati-sulle-liste-dattesa-la-cgil-nel-piceno-il-sistema-si-sta-sfaldando",
+          "published": "2026-11-19",
+          "tags": [
+            "Sanità",
+            "Piceno"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Nelle aree interne la sanità è una questione di tenuta del territorio: quali standard minimi garantire a chi vive lontano dai grandi ospedali? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Dieci sindaci chiedono la convocazione urgente della Conferenza dei sindaci dell'Ast di Macerata",
+          "summary": "I sindaci di Caldarola, Colmurano, Mogliano, Montefano, Monte San Giusto, Montecassiano, Montecosaro, Pollenza, Porto Recanati e Treia hanno scritto al presidente della Conferenza, il sindaco di Civitanova Ciarapica, per discutere il blocco parziale delle sedute operatorie. Lamentano il ritardo nell'attivazione dell'organismo previsto dalla delibera regionale del 2024. Nessuna risposta riportata.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/19/ciarapica-convochi-subito-la-conferenza-dei-sindaci-dellast/2128227/",
+          "published": "2026-11-19",
+          "tags": [
+            "Comuni",
+            "Sanità"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Le conferenze dei sindaci servono se vengono convocate: quanto contano davvero gli enti locali nelle scelte sulla sanità? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ospedale di Camerino, guasto all'arco a C di Ortopedia: l'Ast replica, 'non è stato ignorato'",
+          "summary": "L'Ast di Macerata respinge l'idea di aver ignorato il guasto dell'apparecchio per radiografie intraoperatorie: dice di aver portato un arco a C identico per proseguire gli interventi, che la ditta ha dichiarato il 12 novembre l'apparecchio non riparabile e che l'acquisto definitivo dipende da due gare (Consip e Regione). È la ricostruzione dell'azienda sanitaria.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/19/macchinario-ko-allospedale-di-camerino-last-il-guasto-non-e-stato-ignorato-operazioni-e-controlli-proseguono/2128248/",
+          "published": "2026-11-19",
+          "tags": [
+            "Sanità",
+            "Camerino"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Un macchinario fermo in un ospedale dell'entroterra pesa più che altrove: tempi degli appalti e continuità del servizio vanno di pari passo. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Assestamento di bilancio 2026-2028: in commissione il calendario verso l'Aula del 27 novembre",
+          "summary": "La commissione Bilancio del Consiglio regionale ha avviato l'esame dell'assestamento 2026-2028, illustrato dall'assessora Pantaloni, con Marcozzi (FI) presidente e Vitri (Pd) vicepresidente. Dopo emendamenti e pareri, il 25 novembre sono attesi i pareri di Cal e Crel e il 27 l'ammissibilità e il voto in Aula. Notizia del 16 novembre, riportata per il calendario ancora in corso.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/16/assestamento-del-bilancio-della-regione-via-allesame-in-commissione_36a62b98-7641-472a-a2fa-32efbbaf7103.html",
+          "published": "2026-11-16",
+          "tags": [
+            "Bilancio",
+            "Regione"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "L'assestamento mostra dove la Regione sposta le risorse: quanto va a giovani, lavoro e sanità? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sciopero generale del 20 novembre nelle Marche: cortei ad Ancona, Ascoli, Fermo, Pesaro e Macerata",
+          "summary": "Per lo sciopero generale Cgil le piazze marchigiane sono Ancona (piazza Pertini, 9.30), Ascoli (piazza Matteotti, 10), Fermo (Terminal Dondero, 8.30), Pesaro (piazzale della Libertà, 9) e Macerata (piazza Annessione, 8.30). Il segretario regionale Santarelli critica la manovra e il fondo sanitario. Articolo del 18 novembre, aggiornato il 19: gli esiti non sono ancora verificati.",
+          "source": "CentroPagina",
+          "url": "https://www.centropagina.it/ancona/cgil-marche-tutto-pronto-sciopero-generale-piazze-coinvolte/",
+          "published": "2026-11-19",
+          "tags": [
+            "Sciopero",
+            "Lavoro"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Salari e occupazione giovanile nelle Marche: che risposte concrete può dare la Regione, oltre alla protesta? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
