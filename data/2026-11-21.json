@@ -1,0 +1,360 @@
+{
+  "date": "2026-11-21",
+  "label": "Sabato 21 novembre 2026",
+  "intro": "Dopo lo sciopero generale della Cgil, che rivendica oltre un milione in piazza, resta aperto il nodo della manovra su pensioni e sanità; sull'Ucraina Trump difende Putin mentre l'Europa cerca un posto al tavolo; nelle Marche l'inchiesta sul sisma segna ancora la politica regionale.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Trump, dopo l'Asia difende il rapporto con Putin: garanzie di sicurezza per Kiev solo dopo l'accordo",
+          "summary": "Rientrato dal viaggio in Asia, Trump ha tenuto una conferenza stampa alla Casa Bianca difendendo i rapporti con Xi e Putin e sostenendo che Putin vuole fermare la guerra per via diplomatica. Sulle garanzie di sicurezza per l'Ucraina ha detto che prima serve l'accordo. Sull'Iran ha parlato di scarsa buona fede nei negoziati e, rilanciando voci non confermate, di una possibile 'bomba sporca'. Sono dichiarazioni del presidente americano, non verificate in modo indipendente.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/20/trump-accuses-iran-of-dishonesty-while-defending-putin-ties",
+          "published": "2026-11-20",
+          "tags": [
+            "Usa",
+            "Ucraina"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Garanzie di sicurezza rinviate a dopo l'accordo: per Kiev e per l'Europa sono un dettaglio o la condizione della pace? Calenda indica il sostegno all'Ucraina tra i tre punti non negoziabili della lista Il Centro.",
+            "refs": [
+              {
+                "label": "Calenda sulla lista Il Centro – Il Foglio, 5 novembre 2026",
+                "url": "https://www.ilfoglio.it/en/politics/2026/11/05/news/the-leader-of-azione-announces-the-launch-of-the-il-centro-list-and-is-already-looking-ahead-to-the-post-election-period--412740"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Berlino, l'Europa respinge una 'Yalta 2.0': squadra negoziale a sette, Putin invita gli europei a Mosca",
+          "summary": "Al termine del vertice della Coalizione dei volenterosi, poche ore dopo il trilaterale di Shenzhen, Merz ha detto che un formato di tipo Yalta 'non porterà la pace'. La dichiarazione Trump-Xi-Putin non menzionava l'Ucraina; Macron ha escluso una 'riorganizzazione del mondo'. L'Europa schiera sette rappresentanti (Francia, Regno Unito, Germania, Polonia, Italia, istituzioni Ue e Nato), ma Putin propone che vadano a Mosca e il Cremlino non accetta un formato multilaterale. Sviluppo dell'edizione di ieri.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/19/european-leaders-reject-yalta-20-deal-for-ukraine-after-trump-meets-putin-and-xi",
+          "published": "2026-11-19",
+          "tags": [
+            "Ucraina",
+            "Europa"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Un tavolo europeo a sette è un passo avanti, ma Mosca ne rifiuta il formato: quali strumenti ha l'Ue per farsi ascoltare? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Colloqui online sull'Ucraina con inviati Usa ed europei: Mosca non allarga il tavolo, nessuna data per il prossimo round",
+          "summary": "Il 16 novembre Zelensky ha definito 'non facili' i colloqui con gli inviati Witkoff e Kushner e con rappresentanti europei; Kushner parla di sfide importanti e 'decisioni difficili'. Il consigliere del Cremlino Ushakov ha detto che Mosca non ha accettato di allargare i colloqui oltre Russia, Ucraina e Stati Uniti. Intanto, secondo il sindaco Klitschko, a Kiev sono stati colpiti due ponti sul Dnipro. Quadro del 17 novembre, utile come contesto.",
+          "source": "Al Jazeera",
+          "url": "https://aljazeera.com/news/2026/11/17/ukraine-holds-peace-talks-with-us-europe-as-conflict-escalates",
+          "published": "2026-11-17",
+          "tags": [
+            "Ucraina",
+            "Negoziati"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Mentre si tratta, i bombardamenti continuano: pace giusta o pace subita? Calenda ha criticato chi mette sullo stesso piano Putin e Zelensky.",
+            "refs": [
+              {
+                "label": "Calenda su Conte e l'equiparazione Putin-Zelensky – L'Espresso, 16 novembre 2026",
+                "url": "https://lespresso.it/c/politica/2026/11/16/carlo-calenda-elezioni-centro-polo-pareggio-sondaggi/65853"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mosca sposta la trattativa dalla pace in Ucraina a un patto di sicurezza con l'Europa",
+          "summary": "Dopo i colloqui di Abu Dhabi, che hanno prodotto un accordo di principio su uno scambio di prigionieri ma nessun progresso su cessate il fuoco e territori, il negoziatore russo Medinsky ha parlato di un sistema di sicurezza europeo come 'nuova Yalta e Potsdam'. Zelensky risponde che ogni passo viene dopo le garanzie per l'Ucraina; il premier estone Michal parla di 'trappola mentale'. Notizia del 13 novembre, che spiega il contesto del 'no a Yalta 2.0'.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/13/russia-sposta-i-negoziati-dalle-pace-in-ucraina-a-un-patto-di-sicurezza-con-leuropa",
+          "published": "2026-11-13",
+          "tags": [
+            "Russia",
+            "Sicurezza"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Parlare di architettura di sicurezza europea prima della pace significa trattare sopra la testa di Kiev: come evitarlo? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Witkoff e Kushner a Mosca: scambio di prigionieri e 'tregue localizzate', Putin esclude truppe straniere in Ucraina",
+          "summary": "Dopo oltre due ore di colloquio con Putin, gli inviati Usa hanno parlato di buona coordinazione con l'Europa e di un prossimo incontro trilaterale con rappresentanti Ue. Putin ha detto di volere una pace duratura e ha definito inaccettabile la presenza di truppe straniere in Ucraina. Confermato uno scambio di prigionieri annunciato come il più ampio dall'inizio della guerra; Zelensky denuncia un rallentamento di Starlink. Notizia del 12 novembre, riportata come contesto.",
+          "source": "Avvenire",
+          "url": "https://www.avvenire.it/mondo/gli-usa-sullucraina-nuovo-tavolo-con-leuropa-e-putin-apre-a-unaltra-tregua-localizzata_115700",
+          "published": "2026-11-12",
+          "tags": [
+            "Ucraina",
+            "Usa"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Il no di Putin a truppe straniere tocca il cuore delle garanzie di sicurezza: l'Europa è pronta a farsene carico? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Sciopero generale Cgil: Landini rivendica 'più di un milione' in cento piazze, Cisl e Uil non aderiscono",
+          "summary": "La Cgil ha scioperato 24 ore contro la manovra, con cortei in circa cento piazze; a Roma il corteo da piazza Vittorio ai Fori Imperiali, con Schlein, Conte e Fratoianni annunciati. Si sono fermati bus, metro, taxi e settore marittimo, mentre treni e aerei erano esclusi. Landini ha detto: 'Siamo ampiamente più di un milione di persone'; il dato è degli organizzatori e non è verificato in modo indipendente (sul palco romano la Cgil parla di 50 mila presenti).",
+          "source": "Quotidiano Nazionale",
+          "url": "https://www.quotidiano.net/cronaca/sciopero-generale-cgil-in-piazza-contro-la-manovra-si-fermano-bus-metro-e-taxi-treni-esclusi-dalla-protesta-fg4u09oj",
+          "also": [
+            {
+              "source": "Il Politico",
+              "url": "https://www.ilpoliticoweb.it/sciopero-generale-20-novembre-cgil-piazze-campo-largo/"
+            },
+            {
+              "source": "Cgil",
+              "url": "https://www.cgil.it/speciali/2026/sciopero-generale-cgil-20-novembre-2026/landini-oltre-un-milione-di-persone-in-100-piazze-lo-sciopero-unisce-tutte-le-generazioni-nelle-piazze-della-speranza-dfgoemo2"
+            }
+          ],
+          "published": "2026-11-20",
+          "tags": [
+            "Sciopero",
+            "Lavoro"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Le cifre di partecipazione sono quelle degli organizzatori: sul merito, salari e servizi pubblici chiedono proposte misurabili, non solo piazza. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Dopo lo sciopero la Cgil rilancia il contributo sui grandi patrimoni e fissa il 5 e il 12 dicembre; la Cisl: 'sproporzionato'",
+          "summary": "Dal palco di Roma Landini ha accusato il governo di tagliare risorse a sanità, istruzione e welfare mentre cresce la spesa militare, e la Cgil rilancia un contributo di solidarietà sui grandi patrimoni. Prossime tappe: manifestazione nazionale sulla sanità il 5 dicembre e quella sul Mezzogiorno a Cosenza il 12. La segretaria Cisl Fumarola ha definito lo sciopero 'sproporzionato e dal sapore ideologico'; la Cisl manifesterà senza sciopero il 28 novembre e il 12 dicembre.",
+          "source": "Cgil",
+          "url": "https://www.cgil.it/speciali/2026/sciopero-generale-cgil-20-novembre-2026/landini-oltre-un-milione-di-persone-in-100-piazze-lo-sciopero-unisce-tutte-le-generazioni-nelle-piazze-della-speranza-dfgoemo2",
+          "also": [
+            {
+              "source": "Il Politico",
+              "url": "https://www.ilpoliticoweb.it/sciopero-generale-20-novembre-cgil-piazze-campo-largo/"
+            }
+          ],
+          "published": "2026-11-20",
+          "tags": [
+            "Sindacati",
+            "Fisco"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Un contributo sui grandi patrimoni e un sindacato diviso: chi paga davvero le richieste, e cosa resta ai giovani in termini di salari e debito? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Manovra, record di emendamenti (circa 6.600) e nodi aperti nella maggioranza su pensioni e sanità",
+          "summary": "Alla Camera sono state depositate circa 6.600 proposte di modifica, contro 5.742 dell'anno scorso, di cui oltre 2.000 dal centrodestra. Per la sanità servono almeno altri 500 milioni; Forza Italia e Noi Moderati chiedono la piena rivalutazione delle pensioni fino a 3.000 euro, la Lega vuole Quota 64 con un provvedimento a parte. Giorgetti ha avvertito che le coperture vanno trovate dentro i saldi dati. Il totale varia tra le fonti (circa 7 mila secondo Open).",
+          "source": "L'Espresso",
+          "url": "https://lespresso.it/c/politica/2026/11/18/emendamento-legge-di-bilancio-2027-pensioni-sanita/65965",
+          "also": [
+            {
+              "source": "Open",
+              "url": "https://www.open.online/2026/11/17/manovra-record-emendamenti-7mila-proposte-centrosinistra/"
+            }
+          ],
+          "published": "2026-11-18",
+          "tags": [
+            "Manovra",
+            "Pensioni"
+          ],
+          "icon": "hourglass",
+          "spunto": {
+            "text": "Pensioni più generose e sanità da finanziare, ma con saldi fermi: la domanda per un under 30 è chi sostiene il conto nei prossimi anni. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Superbonus, lo 'spalma-crediti' vale 20,5 miliardi: Confindustria ne chiede la cancellazione, il governo apre a correttivi per le Pmi",
+          "summary": "Lo spalma-crediti in dieci anni riduce l'impatto sul 2027 a poco più di 2 miliardi, rinviando circa 18 miliardi ai nove anni successivi. Il presidente di Confindustria Orsini avverte del rischio di 'mettere in ginocchio le imprese'; il viceministro Leo apre a correttivi per le Pmi. Nel quadro della manovra restano in discussione circa 500 milioni in più per la sanità e la soglia di 100 mila euro per i forfettari. Articolo del 14 novembre, tema ancora aperto.",
+          "source": "Quotidiano Nazionale",
+          "url": "https://www.quotidiano.net/politica/superbonus-e-sanita-si-studiano-341bcca1",
+          "published": "2026-11-14",
+          "tags": [
+            "Superbonus",
+            "Imprese"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Spostare 18 miliardi sugli anni successivi alleggerisce il 2027 ma pesa sul futuro: è una scelta equa verso chi oggi ha meno di trent'anni? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Azione prepara la lista 'Il Centro' per le politiche: obiettivo essere decisivi in caso di pareggio",
+          "summary": "Azione lavora a una lista aperta a liberali, socialisti liberali, popolari e riformatori, con Spazio Pubblico di Pina Picierno e la Fondazione Einaudi, pensata per pesare in caso di Parlamento senza maggioranza chiara. Secondo L'Espresso Azione è poco sopra il 3% e Calenda punta all'8%; ha perso Marattin, orientato verso il centrodestra, e YouTrend segnala il rischio del 'voto utile'. Calenda indica tre valori non negoziabili: Europa federale, sostegno all'Ucraina, rilancio di industria ed energia.",
+          "source": "L'Espresso",
+          "url": "https://lespresso.it/c/politica/2026/11/16/carlo-calenda-elezioni-centro-polo-pareggio-sondaggi/65853",
+          "also": [
+            {
+              "source": "Il Foglio",
+              "url": "https://www.ilfoglio.it/en/politics/2026/11/05/news/the-leader-of-azione-announces-the-launch-of-the-il-centro-list-and-is-already-looking-ahead-to-the-post-election-period--412740"
+            }
+          ],
+          "published": "2026-11-16",
+          "tags": [
+            "Azione",
+            "Politiche"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Una lista centrista con tre punti fermi: Europa, Ucraina, industria ed energia. Un contenuto per spiegare agli under 30 cosa significa votare 'Il Centro'.",
+            "refs": [
+              {
+                "label": "Calenda sulla lista Il Centro – Il Foglio, 5 novembre 2026",
+                "url": "https://www.ilfoglio.it/en/politics/2026/11/05/news/the-leader-of-azione-announces-the-launch-of-the-il-centro-list-and-is-already-looking-ahead-to-the-post-election-period--412740"
+              },
+              {
+                "label": "Calenda su Azione e il centro – L'Espresso, 16 novembre 2026",
+                "url": "https://lespresso.it/c/politica/2026/11/16/carlo-calenda-elezioni-centro-polo-pareggio-sondaggi/65853"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta sisma, Putzu (FdI) si dice estraneo ma ammette di aver chiesto a Pistarelli di cancellare messaggi",
+          "summary": "Il capogruppo di Fratelli d'Italia in Consiglio regionale Andrea Putzu, che dice di non essere indagato né legato alla società Getec, ha spiegato che le conversazioni intercettate con Pistarelli risalgono al periodo in cui Acquaroli decise di allontanarlo. Ammette di avergli chiesto di cancellare messaggi e chiamate, sostenendo di non sapere di indagini in corso. Le opposizioni hanno chiesto chiarimenti con un'interrogazione. Le accuse dell'inchiesta non sono accertate.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/20/putzu-sulle-intercettazioni-estraneo-ai-fatti-oggetto-dellinchiesta-con-pistarelli-solo-rapporti-personali/2128654/",
+          "published": "2026-11-20",
+          "tags": [
+            "Regione",
+            "Inchiesta"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Chi ricopre ruoli istituzionali ha un dovere di trasparenza anche prima delle sentenze: quali regole di condotta servono sui rapporti con gli indagati? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta sisma, le carte del gip: l'accusa ricostruisce il tentativo di cancellare chat e documenti negli uffici regionali",
+          "summary": "Dalla seconda ordinanza del gip di Ancona (106 pagine) emerge, secondo la ricostruzione dell'accusa, che Pistarelli, ex capo di gabinetto di Acquaroli, avrebbe ordinato a un collaboratore di interrompere i rapporti con l'imprenditore Intermesoli e avrebbe tentato di eliminare documentazione dal suo ufficio a Palazzo Raffaello. Il Riesame ha respinto la scarcerazione per Pistarelli e Cervigni; il gip ha negato la misura cautelare per Intermesoli. Si tratta di ipotesi accusatorie non ancora accertate in giudizio.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/20/ex-monachette-la-paura-di-pistarelli-con-intermesoli-non-devi-parlare-piu-cosi-la-cricca-tento-di-cancellare-chat-e-file/2128536/",
+          "published": "2026-11-20",
+          "tags": [
+            "Inchiesta",
+            "Ricostruzione"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "La ricostruzione resta un'ipotesi dell'accusa, ma il tema politico è la vigilanza sugli appalti post sisma: quali controlli preventivi servono? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sciopero a Macerata: oltre 500 in piazza, la Cgil lega protesta salariale e rischio di blocco dei cantieri post inchiesta",
+          "summary": "In piazza Vittorio Veneto hanno sfilato oltre 500 persone tra lavoratori, pensionati e studenti. Il segretario Cgil Daniele Principi ha parlato di stipendi insufficienti e ha indicato il rischio di blocco di 450 cantieri, con effetti su 250 lavoratori diretti di Crucianelli Rest Edile e circa 1.500 dell'indotto (stime sindacali). Nei cori è stato preso di mira Acquaroli, descritto come non indagato.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/20/lo-sciopero-dei-500-foto-video-caro-vita-e-inchiesta-dda-nel-mirino-il-governo-ci-strozza-acquaroli-vattene/2128476/",
+          "published": "2026-11-20",
+          "tags": [
+            "Sciopero",
+            "Cantieri"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Se i cantieri della ricostruzione rischiano lo stop, a pagare sono lavoratori e giovani del cratere: come separare legalità e continuità del lavoro? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Macerata, in commissione l'elezione diretta dei Consigli di quartiere: voto unanime, costi da definire",
+          "summary": "La proposta del consigliere Andrea Blarasin è stata approvata all'unanimità dalla Commissione prima, presieduta da Pantanetti: tornerebbero consiglieri di quartiere eletti a suffragio universale, con budget e sede, senza indennità per ora. La Commissione chiede al Consiglio comunale di modificare lo statuto e indicare la copertura; i costi non sono stati quantificati e c'è chi ipotizza oltre centomila euro. Al prossimo Consiglio torna anche la proposta di adeguare il compenso dei consiglieri.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/20/lultima-mossa-bipartisan-della-politica-elezione-diretta-dei-consigli-di-quartiere-il-costo-stimato-e-di-centomila-euro/2128504/",
+          "published": "2026-11-20",
+          "tags": [
+            "Comuni",
+            "Macerata"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Quartieri con voce e budget possono riavvicinare i giovani alla politica locale, se i costi sono chiari: come renderli utili e non solo un'altra poltrona? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Comuni montani esclusi dalla legge sulla montagna: i sindaci marchigiani protestano e chiedono un incontro ad Acquaroli",
+          "summary": "Sono 346 i Comuni esclusi dalla nuova legge sulla montagna in vigore dal 22 luglio, 29 nelle Marche. Il sindaco di Urbino Gambini, che guida la protesta, cita la perdita di agevolazioni su classi, medici di base e tassazione dei terreni agricoli, e dice di non aver ricevuto risposta alla richiesta di incontro alla Regione. Era prevista una manifestazione a Palazzo Chigi il 18 novembre, di cui non è verificato lo svolgimento. Articolo del 9 novembre, questione ancora aperta.",
+          "source": "Il Resto del Carlino",
+          "url": "https://www.ilrestodelcarlino.it/marche/politica/tagliola-sui-comuni-montani-290627b2",
+          "published": "2026-11-09",
+          "tags": [
+            "Comuni",
+            "Montagna"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Meno incentivi ai paesi dell'entroterra significa meno servizi e meno giovani che restano: quali criteri per definire un territorio 'montano'? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Civitanova, 513 mila euro ai dipendenti comunali tra premi e arretrati contrattuali",
+          "summary": "Il Comune ha liquidato nelle buste paga di novembre circa 513.500 euro: oltre 272 mila per il ciclo della performance 2025 e più di 241 mila per gli aumenti del contratto nazionale 2025-2027. Gli arretrati contrattuali valgono 83.310 euro per il 2025 e 145.125 euro per il 2026 fino a ottobre. L'assessore Morresi parla di 'risposte concrete e puntuali'.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/20/oltre-513mila-euro-ai-dipendenti-tra-premi-e-arretrati/2128542/",
+          "published": "2026-11-20",
+          "tags": [
+            "Comuni",
+            "Personale"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Premi legati alla performance e contratti rinnovati: nella PA i risultati sono misurati e resi pubblici? Un tema per un contenuto sul merito. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta sisma, opposizioni in Consiglio: 'Acquaroli riferisca'; FdI propone un tavolo tecnico contro le infiltrazioni",
+          "summary": "Pd, M5S, Avs, Lista Ricci e Progetto Marche Vive hanno chiesto che Acquaroli riferisse in aula il 10 novembre sull'inchiesta, che conta otto arresti e 51 indagati. Fratelli d'Italia ha presentato una mozione per un tavolo tecnico permanente contro le infiltrazioni criminali. Il presidente del Consiglio Pasqui ha replicato che spetta a lui garantire lo svolgimento dei lavori. Notizia del 4 novembre, riportata come contesto dell'inchiesta ancora in corso.",
+          "source": "Il Resto del Carlino",
+          "url": "https://www.ilrestodelcarlino.it/marche/cronaca/maxi-inchiesta-sul-sisma-lopposizione-f38c3d7d",
+          "published": "2026-11-04",
+          "tags": [
+            "Regione",
+            "Consiglio"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Un tavolo tecnico permanente può servire, ma la trasparenza sugli appalti viene prima: quali strumenti concreti, oltre alle mozioni? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Acquaroli sull'inchiesta: 'Corruzione e mafia sono due parole che non conosco'; allontanai il capo di gabinetto",
+          "summary": "Intervenendo al Consiglio regionale aperto di Muccia, nel decennale del sisma, Acquaroli ha raccontato di aver chiesto a dicembre 2025 al capo di gabinetto (senza nominarlo) dimissioni o rimozione perché la sua presenza era incompatibile, e che andrebbe in Procura se convocato. L'inchiesta ha portato all'arresto di Pistarelli per accuse di corruzione, ancora da accertare. Notizia del 28-29 ottobre, utile per ricostruire la linea del presidente.",
+          "source": "Il Resto del Carlino",
+          "url": "https://www.ilrestodelcarlino.it/marche/politica/non-conosco-corruzione-d6fb617e",
+          "published": "2026-10-29",
+          "tags": [
+            "Regione",
+            "Acquaroli"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Allontanare un collaboratore non esaurisce la responsabilità politica: quando si chiarisce 'chi sapeva cosa'? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
