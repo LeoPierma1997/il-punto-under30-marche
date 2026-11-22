@@ -348,5 +348,7 @@
         }
       ]
     }
-  ]
+  ],
+  "audio": "audio/2026-11-22.mp3",
+  "audio_engine": "microsoft"
 }
