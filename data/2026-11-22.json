@@ -1,0 +1,352 @@
+{
+  "date": "2026-11-22",
+  "label": "Domenica 22 novembre 2026",
+  "intro": "L'Europa è sotto pressione sul fianco orientale, con Macron che parla di 'nuovo livello' di aggressione russa, e in Italia la manovra si gioca su exit tax, pensioni e flat tax giovani; nelle Marche l'inchiesta sul sisma porta le minoranze a chiedere una commissione d'inchiesta regionale.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Macron denuncia un 'nuovo livello' di aggressione russa in Europa: missili in Polonia, tentato omicidio in Danimarca",
+          "summary": "In un post social Macron scrive che nelle ultime 24 ore diversi partner europei hanno subito incidenti gravi che indicano un 'nuovo livello' di aggressione russa. L'articolo elenca due missili e un drone russi caduti in Polonia, l'accusa del servizio danese PET all'intelligence russa per un tentato omicidio vicino a Copenaghen e la chiusura dello spazio aereo moldavo dopo attacchi di droni. Von der Leyen definisce 'inaccettabile' l'azione in Danimarca e annuncia una nuova strategia europea per la sicurezza. Le attribuzioni alla Russia sono quelle dei governi e dei servizi citati.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/21/macron-denuncia-un-nuovo-livello-di-aggressione-russa-in-europa",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/sito/notizie/mondo/europa/2026/11/21/von-der-leyen-inaccettabile-lattacco-dellintelligence-russa-in-danimarca_ffef4874-9f64-4721-bb47-0d4f550b5f41.html"
+            }
+          ],
+          "published": "2026-11-21",
+          "tags": [
+            "Ue",
+            "Russia"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Se la minaccia ibrida è ormai quotidiana, l'Europa può continuare a rispondere in ordine sparso? Nell'intervista a Il Foglio del 5 novembre Calenda indica un'Europa federale tra i tre punti non negoziabili del Centro e ricorda un ddl di Azione contro la guerra ibrida.",
+            "refs": [
+              {
+                "label": "Calenda sulla lista Il Centro – Il Foglio, 5 novembre 2026",
+                "url": "https://www.ilfoglio.it/en/politics/2026/11/05/news/the-leader-of-azione-announces-the-launch-of-the-il-centro-list-and-is-already-looking-ahead-to-the-post-election-period--412740"
+              }
+            ]
+          }
+        },
+        {
+          "title": "L'Estonia chiude per sei mesi i valichi con la Russia dal 1° dicembre dopo il tentato incendio a un produttore di droni",
+          "summary": "Dal 1° dicembre l'Estonia sospenderà il transito stradale su tutti e cinque i valichi con la Russia, per sei mesi, poi il governo rivaluterà. La decisione segue il tentato incendio doloso del 14 novembre alla sede di Threod Systems, che il servizio di sicurezza estone attribuisce al GRU russo; Mosca nega e parla di accuse infondate. Il trasporto merci su rotaia continua e il sindaco di Narva chiede esenzioni umanitarie.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/21/lestonia-chiude-il-confine-con-la-russia-corsa-dei-residenti-prima-del-blocco",
+          "published": "2026-11-21",
+          "tags": [
+            "Estonia",
+            "Russia"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Chiudere un confine è una misura di sicurezza o un segnale politico? Per i Paesi baltici la linea con Mosca è anche la frontiera esterna dell'Ue: la risposta dovrebbe essere comune. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Rutte a Varsavia: 'La Nato difenderà ogni centimetro di territorio polacco', lunedì riunione del Consiglio Nord Atlantico",
+          "summary": "Il segretario generale della Nato, in visita non ufficiale a Varsavia, definisce 'pericolosa' la violazione dello spazio aereo polacco da parte di missili e drone russi di venerdì, in attesa dell'inchiesta. Non ci sono feriti né danni a infrastrutture critiche e i tre siti di caduta sono stati messi in sicurezza. Lunedì a Bruxelles è prevista una riunione del Consiglio Nord Atlantico.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/21/rutte-a-varsavia-la-nato-difendera-ogni-centimetro-del-territorio-polacco",
+          "published": "2026-11-21",
+          "tags": [
+            "Nato",
+            "Polonia"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Se l'articolo 5 resta una promessa, come si rende credibile la deterrenza europea di fronte a incidenti ripetuti ai confini orientali? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Iran, secondo i media di Teheran attacco a basi Usa in Bahrein; petroliere iraniane si preparano a forzare il blocco Usa",
+          "summary": "Secondo media iraniani, sabato sera l'Iran ha lanciato due ondate di droni e missili contro quattro basi americane in Bahrein; il Bahrein conferma di aver intercettato attacchi e un incendio in un sito industriale civile, senza feriti. I Pasdaran dicono di aver colpito due batterie Patriot e un radar, ma Bahrein e Usa non lo confermano. Oltre 14 petroliere iraniane si preparerebbero a rompere il blocco Usa dei porti iraniani, mentre prosegue la mediazione del Qatar e Trump dice di volere un accordo 'permanente'.",
+          "source": "Euronews",
+          "url": "https://www.euronews.com/2026/11/21/iran-attacks-us-bases-in-bahrain-as-its-tankers-get-ready-to-break-the-us-blockade",
+          "also": [
+            {
+              "source": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/2026/11/21/tankers-hit-in-strait-of-hormuz-as-iran-tightens-grip-on-shipping"
+            }
+          ],
+          "published": "2026-11-21",
+          "tags": [
+            "Iran",
+            "Golfo"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Con Hormuz sotto pressione, quanto pesa la dipendenza energetica europea e cosa può fare l'Ue oltre a seguire la mediazione altrui? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ue e Indonesia firmano l'accordo commerciale: eliminato il 98,5% dei dazi sulle merci europee",
+          "summary": "Dopo dieci anni di negoziati, Ue e Indonesia hanno approvato accordi commerciali e sugli investimenti che eliminano il 98,5% dei dazi sull'export europeo. Secondo la Commissione gli esportatori risparmieranno oltre 600 milioni di euro l'anno e le vendite verso l'Indonesia potrebbero crescere di quasi il 40% in 15 anni. Servono l'approvazione del Parlamento europeo e la ratifica indonesiana; l'applicazione potrebbe partire dall'inizio del prossimo anno.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/21/ue-e-indonesia-firmano-accordo-commerciale-via-il-985-dei-dazi-sulle-esportazioni-europee",
+          "published": "2026-11-21",
+          "tags": [
+            "Commercio",
+            "Ue"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Diversificare i mercati è anche una risposta ai dazi americani: quali altri accordi può chiudere l'Ue, e quanto contano per le imprese italiane? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, la maggioranza verso l'intesa sull'exit tax: soglia a 2 milioni, resta il nodo pensioni",
+          "summary": "Dopo il vertice di maggioranza si valutano modifiche limitate alla manovra, con un nuovo giro di leader la settimana prossima. Sulla exit tax va verso il compromesso un emendamento di FdI che alza a 2 milioni la soglia oltre cui scatta l'imposta del 26% e distingue i Paesi con scambio di informazioni dai paradisi fiscali. Sulle pensioni resta aperto il fondo da 850 milioni: la Lega lo vuole per quota 64, FdI in parte per Opzione Donna. Aperti anche sanità e condono.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/21/manovra-maggioranza-verso-lintesa-sulla-exit-tax-resta-il-nodo-pensioni_eaa34634-ed55-4417-82fe-031e30349e39.html",
+          "also": [
+            {
+              "source": "Il Foglio",
+              "url": "https://www.ilfoglio.it/economia/2026/11/21/news/a-parole-la-politica-pensa-ai-giovani-ma-nei-fatti-spende-per-le-pensioni--414432"
+            }
+          ],
+          "published": "2026-11-21",
+          "tags": [
+            "Manovra",
+            "Pensioni"
+          ],
+          "icon": "hourglass",
+          "spunto": {
+            "text": "Ogni euro per quota 64 è un euro in meno per chi oggi ha meno di 30 anni e finanzierà quelle pensioni: la manovra tutela chi esce dal lavoro o chi ci entra? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "FdI riscrive la flat tax all'1% per i giovani: detassazione al 50% per i neoassunti under 30",
+          "summary": "Un emendamento a prima firma Lucaselli cambia la misura prevista in manovra: detassazione del 50% dello stipendio fino a 50mila euro annui per i neoassunti under 30. Secondo Quotidiano Nazionale riguarderebbe gli under 30 assunti nel 2027 a tempo indeterminato nel privato, con circa 334mila beneficiari stimati citando Il Sole 24 Ore. La versione originaria era stata criticata dall'Ufficio parlamentare di bilancio.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/21/fdi-riscrive-la-flat-tax-1-per-giovani-arriva-la-detassazione-al-50-per-neoassunti_52823b5c-3d7e-40a3-ace3-e26417bc7cc1.html",
+          "also": [
+            {
+              "source": "Quotidiano Nazionale",
+              "url": "https://www.quotidiano.net/politica/flat-tax-giovani-fdi-cambia-rotta-sconto-irpef-piu-alto-ma-solo-per-i-neoassunti-0a6429a4"
+            }
+          ],
+          "published": "2026-11-21",
+          "tags": [
+            "Giovani",
+            "Fisco"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Un incentivo che vale solo per i neoassunti 2027 aiuta davvero i giovani o crea una platea di serie A e di serie B? Resta da capire cosa cambia per gli under 30 già al lavoro. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Decreto sicurezza, emendamenti FdI: via le borse di studio agli studenti indagati per reati nei cortei",
+          "summary": "Con emendamenti di Delmastro al decreto sicurezza, FdI propone di sospendere borse di studio e contributi a chi è anche solo indagato per reati commessi in cortei, proteste o occupazioni, con revoca in caso di condanna. Un altro emendamento rende promotori e organizzatori di occupazioni scolastiche responsabili in solido dei danni. Schlein parla di proposta 'delirante' e Conte di 'grottesco'.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/21/stretta-di-fdi-su-studenti-e-cortei-agli-indagati-via-le-borse-di-studio_f2ff1955-8465-47a7-a924-b8ab597b2323.html",
+          "published": "2026-11-21",
+          "tags": [
+            "Studenti",
+            "Sicurezza"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Sospendere un diritto allo studio a chi è solo indagato è compatibile con la presunzione di innocenza? Il confine tra ordine pubblico e diritto di protesta riguarda direttamente i giovani. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Centrosinistra, fumata nera sull'Ucraina al tavolo del programma; gelo Pd-Avs sulla patrimoniale",
+          "summary": "La riunione via zoom dei delegati non ha trovato un'intesa sull'Ucraina: il M5s chiede un passo esplicito verso lo stop all'invio di armi, il Pd cerca una formula più aperta. Il confronto è rinviato a martedì, in presenza, con probabile passaggio ai vertici delle forze coinvolte. Sulla patrimoniale il Pd propone un'imposta minima del 2% sui patrimoni oltre 100 milioni, Avs una soglia di 5,4 milioni, mentre M5s e centristi non la vogliono.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/21/fumata-nera-su-kiev-al-tavolo-progressista-gelo-pd-avs-sulla-tassa-ai-ricchi_7fd2846f-a82d-4d80-aee9-c5c5a5ed174f.html",
+          "published": "2026-11-21",
+          "tags": [
+            "Opposizioni",
+            "Ucraina"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Una coalizione che non sa dire se sostenere l'Ucraina può governare? Il 16 novembre Calenda ha definito 'ripugnante' mettere sullo stesso piano Putin e Zelensky e si è chiesto come si possa allearsi 'con questa gente'.",
+            "refs": [
+              {
+                "label": "Calenda su Conte e l'Ucraina – L'Espresso, 16 novembre 2026",
+                "url": "https://lespresso.it/c/politica/2026/11/16/carlo-calenda-elezioni-centro-polo-pareggio-sondaggi/65853"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Guerra ibrida, Crosetto in Parlamento: risorse da 126 a 557 milioni, quasi due miliardi nel triennio 2026-2028",
+          "summary": "Secondo l'editoriale del Foglio, nell'informativa in Parlamento di pochi giorni fa il ministro della Difesa ha indicato che i fondi contro la guerra ibrida sono saliti da circa 126 milioni a 557 milioni nel 2025. Per il 2026-2028 sono previsti quasi due miliardi e per i programmi futuri oltre sei miliardi. Crosetto chiede una 'arma cyber' civile e militare con 1.200-1.500 specialisti, obiettivo almeno 5.000. Il testo è un editoriale, non un resoconto della seduta.",
+          "source": "Il Foglio",
+          "url": "https://www.ilfoglio.it/politica/2026/11/22/news/litalia-alle-prese-sul-serio-con-la-guerra-ibrida--414306",
+          "published": "2026-11-22",
+          "tags": [
+            "Difesa",
+            "Cyber"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Nell'intervista del 5 novembre Calenda ricorda che Azione ha presentato un disegno di legge contro la guerra ibrida, ora in calendario in Parlamento. Dopo i numeri di Crosetto, la domanda è se bastino risorse e specialisti, e chi li formerà: un'occasione anche per i giovani con competenze cyber.",
+            "refs": [
+              {
+                "label": "Calenda sulla lista Il Centro – Il Foglio, 5 novembre 2026",
+                "url": "https://www.ilfoglio.it/en/politics/2026/11/05/news/the-leader-of-azione-announces-the-launch-of-the-il-centro-list-and-is-already-looking-ahead-to-the-post-election-period--412740"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta sisma, le minoranze regionali chiedono una commissione d'inchiesta sulla ricostruzione",
+          "summary": "I consiglieri regionali di Pd, M5S, Avs, Progetto Marche e Lista Ricci chiedono una commissione d'inchiesta regionale. Partono da nuove intercettazioni secondo cui due indagati avrebbero pagato pranzi e cene elettorali a candidati di FdI, Lega e Forza Italia; l'articolo precisa che nessuno dei politici citati è indagato. La richiesta include l'accertamento dei rapporti tra struttura commissariale, amministrazione regionale e appalti sanitari.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/21/la-cricca-ha-sostenuto-la-campagna-elettorale-del-centrodestra-serve-una-commissione-dinchiesta/2128813/",
+          "published": "2026-11-21",
+          "tags": [
+            "Sisma",
+            "Opposizioni"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Una commissione d'inchiesta è lo strumento giusto per ristabilire fiducia o rischia di diventare solo un terreno di scontro politico? Chi paga il prezzo di un'eventuale paralisi sono i cittadini ancora in attesa della ricostruzione. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Legnini a Tolentino: 'Occorre che non si fermi la ricostruzione, averla politicizzata non ha aiutato'",
+          "summary": "All'incontro '10 anni dopo' organizzato dai deputati Pd al Castello della Rancia, l'ex commissario Giovanni Legnini ha detto che la ricostruzione non deve fermarsi e che politicizzarla non ha aiutato. Ha rivendicato che il 90% delle risorse è stato stanziato da governi di centrosinistra e si è chiesto se i controlli successivi abbiano funzionato. Nel dibattito il deputato Curti ha chiesto le dimissioni della giunta regionale e il senatore Verducci ha attaccato Acquaroli.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/21/giovanni-legnini-tra-sisma-e-inchiesta-occorre-che-non-si-fermi-la-ricostruzione-averla-politicizzata-non-ha-aiutato-video/2128883/",
+          "published": "2026-11-21",
+          "tags": [
+            "Ricostruzione",
+            "Pd"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Come si rimettono in moto i cantieri senza coprire eventuali responsabilità? Controlli più efficaci e trasparenza sugli appalti sono la condizione per non fermare le case di chi aspetta da dieci anni. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Nuova ordinanza del gip: 350mila euro per le ex Monachette, intercettazioni sulle minacce a un imprenditore",
+          "summary": "Secondo l'ordinanza del gip di Ancona, la vendita delle ex Monachette all'Erdis per oltre 3 milioni sarebbe stata legata al pagamento di 350mila euro alla 'cricca' da parte dell'imprenditore Intermesoli. Si parla anche di 120mila euro promessi per l'assegnazione dei lavori, di cui 10mila destinati all'ex capo di gabinetto Pistarelli. Il gip ha respinto la custodia cautelare per Intermesoli, che si dichiara estraneo. Sono accuse non ancora accertate; l'ordinanza è la stessa già trattata il 20 novembre, qui con nuovi dettagli.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/21/i-350mila-euro-per-le-ex-monachette-se-intermesoli-non-paga-gli-spezzo-un-ginocchio/2128701/",
+          "published": "2026-11-21",
+          "tags": [
+            "Inchiesta",
+            "Legalità"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Quando risorse pubbliche e appalti entrano nelle accuse, la risposta della politica deve essere la trasparenza, a prescindere dall'esito giudiziario: quali regole nuove servono per i controlli? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "San Severino, la sindaca replica all'Ast: sale operatorie sospese, 'ridimensionare un reparto significa svuotare l'ospedale'",
+          "summary": "La sindaca Rosa Piermattei replica alla direttrice sanitaria dell'Ast Daniela Corsi sulla sospensione delle sedute operatorie al Bartolomeo Eustachio. Secondo la sindaca la week surgery è stata declassata e alcuni interventi programmati sono stati spostati in un altro presidio, senza dati sui pazienti rinviati. Ricorda che presidente e assessore regionali hanno chiesto di riaprire le sale e chiede gli investimenti promessi. Corsi aveva difeso le scelte come organizzative e cliniche.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/21/commovente-il-racconto-della-corsi-ridimensionare-un-reparto-significa-svuotare-lospedale/2128749/",
+          "published": "2026-11-21",
+          "tags": [
+            "Sanità",
+            "Entroterra"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Tra criteri clinici e presidi di prossimità, chi decide quanti interventi si fanno nell'entroterra e con quali dati pubblici? Liste d'attesa e mobilità sanitaria pesano su tutti, giovani compresi. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sisma, 'La terra trema noi no' annuncia un'azione collettiva per i proprietari che hanno affidato i lavori alle imprese dell'inchiesta",
+          "summary": "L'associazione presieduta da Diego Camillozzi prepara un'azione collettiva per i committenti che hanno affidato lavori alle imprese indagate dalla Dda di Ancona. Camillozzi segnala richieste di somme aggiuntive ritenute eccessive e chiede controlli sugli stati di avanzamento pagati, sui lavori eseguiti e sulla qualità delle opere. L'associazione invita i proprietari interessati ad aderire.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/21/unazione-collettiva-per-tutelare-chi-ha-affidato-i-lavori-alle-imprese-coinvolte-nellinchiesta/2128740/",
+          "published": "2026-11-21",
+          "tags": [
+            "Sisma",
+            "Cittadini"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Chi ha affidato i lavori in buona fede rischia di pagare per colpe altrui: quali tutele può garantire la Regione ai proprietari, oltre ai controlli sulle imprese? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Recanati, opposizione sulla rotatoria di Palazzo Bello: perché la gara è stata gestita dall'Ufficio speciale ricostruzione?",
+          "summary": "I consiglieri di opposizione Fiordomo, Lorenzetti e Miccini presentano un'interrogazione a risposta orale. Chiedono perché la gara per la nuova rotatoria sia stata seguita dall'Ufficio speciale per la ricostruzione e non dalla stazione appaltante del Comune. L'opera vale 500mila euro (354mila di lavori), affidati a Montedil di Loreto con ribasso del 17,6%; secondo i firmatari non ha legami con le procedure post-sisma.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/21/rotonda-di-palazzo-bello-perche-liter-e-stato-seguito-dallufficio-speciale-per-la-ricostruzione/2128792/",
+          "published": "2026-11-21",
+          "tags": [
+            "Appalti",
+            "Recanati"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Chi assegna un appalto e con quale procedura è una domanda di trasparenza, non di parte. Gare tracciabili e atti pubblici sono il modo più semplice per evitare sospetti. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Civici Marche avvia il tesseramento 2027 e annuncia novità sulle politiche",
+          "summary": "Civici Marche ha avviato il tesseramento 2027 nella terza assemblea plenaria ad Ancona Sud. Il presidente Matteo Pompei ha fatto il bilancio del percorso del movimento, mentre il vicepresidente del Consiglio regionale Giacomo Rossi ha rivendicato un metodo interno democratico e partecipativo. Si è parlato anche delle elezioni politiche 2027, su cui il movimento annuncia novità.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/21/via-a-tesseramento-2027-di-civici-marche-rossi-qui-tutti-hanno-un-peso_02fc6160-331d-4421-a2e4-d786c754386b.html",
+          "published": "2026-11-21",
+          "tags": [
+            "Civici",
+            "Politiche 2027"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Con le politiche 2027 all'orizzonte le liste civiche regionali scelgono da che parte stare: quale spazio resta a un'offerta liberale e riformista nelle Marche? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Corridonia, acqua non potabile: l'opposizione contesta la comunicazione del Comune, niente altoparlanti né Alert system",
+          "summary": "L'opposizione di Corridonia contesta come il Comune ha comunicato l'ordinanza di non potabilità: annuncio solo su Facebook la sera prima, altoparlanti dal mattino dopo e chiamate dell'Alert System non partite nonostante il servizio risulti attivo. Le minoranze denunciano anche un vocale attribuito a una consigliera di maggioranza su avvisi dati prima ad alcuni. Il Comune ha diffuso la mappa della zona interessata e la prima autobotte è arrivata in piazzale Germozzi.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/21/emergenza-acqua-non-potabile-niente-altoparlanti-ne-alert-system/2128799/",
+          "published": "2026-11-21",
+          "tags": [
+            "Comuni",
+            "Servizi"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "In un'emergenza la comunicazione ai cittadini è parte del servizio pubblico: quali canali devono essere garantiti da ogni Comune, anche ai non iscritti ai social? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
