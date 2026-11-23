@@ -1,0 +1,373 @@
+{
+  "date": "2026-11-23",
+  "label": "Lunedì 23 novembre 2026",
+  "intro": "Tra Polonia, Kiev e Iran il fronte esterno resta teso; in Italia la manovra si gioca su pensioni, sanità e fisco mentre il campo largo discute di legge elettorale; nelle Marche le intercettazioni dell'inchiesta sul sisma continuano a pesare, con lo striscione sulle ex Monachette.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Trump: senza accordo con l'Iran, nuovi attacchi all'inizio del 2027",
+          "summary": "In un'intervista a Fox News Trump ha detto di essere pronto a ordinare nuovi attacchi contro l'Iran a inizio anno se non si arriverà a un'intesa, liquidando i negoziati in corso come inutili. Il giorno prima il ministro degli Esteri iraniano Araghchi aveva ribadito le richieste di Teheran: stop alle ostilità, fine del blocco navale Usa e sblocco dei fondi.",
+          "source": "ANSA",
+          "url": "https://ansa.it/sito/notizie/topnews/2026/11/22/trump-ribadisce-senza-accordo-riprendo-gli-attacchi-contro-liran-a-inizio_d608824d-3be0-4859-a045-815284ca2ff8.html",
+          "also": [
+            {
+              "source": "Sky TG24 (diretta Iran-Usa)",
+              "url": "https://tg24.sky.it/mondo/2026/11/21/guerra-iran-usa-trump-news-diretta"
+            }
+          ],
+          "published": "2026-11-22",
+          "tags": [
+            "Iran",
+            "Usa"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Con il negoziato in stallo e la minaccia di nuove azioni militari, che ruolo può avere l'Europa nel Golfo, oltre a subire i rincari energetici? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Missili e un drone russi cadono in Polonia durante un'esercitazione; Tusk: 'attacco deliberato'",
+          "summary": "Dopo una notte di raid sull'Ucraina, due missili e un drone sono caduti a Nowy Lipowiec, vicino al confine, dove si svolgeva un'esercitazione della Coalizione dei volenterosi; non ci sono feriti e caccia Nato sono in volo. Il premier polacco esclude l'incidente, mentre il segretario Nato Rutte parla di fatto 'chiaramente pericoloso'. Sul fronte diplomatico, secondo la fonte, la Francia esclude nuovi round negoziali senza gli europei.",
+          "source": "Vatican News",
+          "url": "https://www.vaticannews.va/it/mondo/news/2026-11/ucraina-guerra-russia-trump-pace-negoziati.html",
+          "published": "2026-11-21",
+          "tags": [
+            "Polonia",
+            "Nato"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Se Mosca testa i confini Nato mentre tratta con Washington, l'Europa può permettersi di restare fuori dal tavolo? Calenda ha chiesto un nuovo pacchetto di aiuti a Kiev entro un mese, avvertendo che altrimenti sarebbe Salvini a dettare l'agenda.",
+            "refs": [
+              {
+                "label": "Calenda, intervista al Corriere della Sera ripresa da Adnkronos, 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              },
+              {
+                "label": "Calenda, sciopero della fame per Oleshky – Adnkronos, 21 ottobre 2026",
+                "url": "https://www.adnkronos.com/politica/calenda-sciopero-fame-picierno-protesta-oleshky_5rY6ffmXMJW434wFZzpJDF"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Ucraina, crolla un palazzo a Dymer dopo un attacco di droni: 14 dispersi. Zelensky chiede di sbloccare i Patriot",
+          "summary": "Un edificio di cinque piani a Dymer, nella regione di Kiev, è crollato dopo un attacco di droni russi: secondo Zelensky 14 persone sono sotto le macerie. Il presidente ucraino, citando dati di Kiev, parla di circa 2.700 droni, 1.460 bombe plananti e 165 missili in una settimana. Chiede a Washington di autorizzare la consegna dei Patriot già pagati dai partner.",
+          "source": "Italpress",
+          "url": "https://www.italpress.com/ucraina-guerra-notizie-aggiornamenti-oggi-22-novembre-2026/",
+          "published": "2026-11-22",
+          "tags": [
+            "Ucraina",
+            "Difesa aerea"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "La difesa aerea di Kiev dipende da consegne che passano da Washington: è il segno di quanto l'Europa debba costruire una propria capacità industriale e di difesa. Calenda ha chiesto un nuovo pacchetto di aiuti a Kiev e ha aderito allo sciopero della fame per Oleshky.",
+            "refs": [
+              {
+                "label": "Calenda, intervista al Corriere della Sera ripresa da Adnkronos, 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              },
+              {
+                "label": "Calenda, sciopero della fame per Oleshky – Adnkronos, 21 ottobre 2026",
+                "url": "https://www.adnkronos.com/politica/calenda-sciopero-fame-picierno-protesta-oleshky_5rY6ffmXMJW434wFZzpJDF"
+              }
+            ]
+          }
+        },
+        {
+          "title": "La Germania testa in Lituania droni kamikaze e puntamento con intelligenza artificiale",
+          "summary": "Nell'esercitazione Freedom Shield, con circa 3.800 militari di otto paesi Nato, la Bundeswehr ha provato vicino al confine bielorusso munizioni circuitanti e sistemi di puntamento basati su IA di aziende europee. Berlino punta alla brigata permanente in Lituania (circa 5.000 uomini entro il 2027). L'esercito ammette che i risultati reali potrebbero essere inferiori ai video promozionali.",
+          "source": "Euronews Italiano",
+          "url": "https://it.euronews.com/2026/11/23/la-germania-testa-droni-kamikaze-e-sistemi-di-puntamento-basati-sullintelligenza-artificia",
+          "published": "2026-11-23",
+          "tags": [
+            "Difesa",
+            "Germania"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Difesa europea comune o venticinque eserciti che comprano separatamente? Una domanda utile per un contenuto sulle priorità di spesa dell'Ue. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Cisgiordania, violenze di coloni estremisti: Sa'ar le condanna, Eisenkot parla di 'terrorismo ebraico'",
+          "summary": "Nella notte tra 21 e 22 novembre estremisti israeliani hanno incendiato auto e proprietà in cinque villaggi palestinesi vicino a Ramallah e Hebron, senza vittime. Il ministro degli Esteri Sa'ar ha condannato gli attacchi e l'esercito ha aperto un'inchiesta, finora senza arresti. L'ex capo di stato maggiore Eisenkot accusa i ministri Ben Gvir e Smotrich di aver frenato la detenzione amministrativa.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/mondo/mediooriente/2026/11/22/lira-di-eisenkot-e-saar-per-i-coloni-violenti-terrorismo-ebraico_eb3844ea-33e9-4eb6-b93c-7f70f616f8e2.html",
+          "also": [
+            {
+              "source": "Times of Israel (liveblog 22/11)",
+              "url": "https://www.timesofisrael.com/liveblog-november-22-2026/"
+            }
+          ],
+          "published": "2026-11-22",
+          "tags": [
+            "Israele",
+            "Cisgiordania"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Stato di diritto e violenza politica: come si può sostenere un processo di pace se chi attacca civili non viene fermato? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, vertice di maggioranza atteso: la Lega vuole l'uscita a 64 anni e più soldi dalle banche, sanità ancora senza risorse",
+          "summary": "La maggioranza cerca ancora fondi per la sanità nella legge di bilancio e prepara un nuovo vertice. La Lega punta a mantenere il fondo per l'uscita anticipata a 64 anni e a chiedere di più alle banche, mentre Forza Italia è contraria a nuovi aumenti fiscali. Salvini propone inoltre di dare ai Comuni 120-180 giorni per smaltire le pratiche di condono pendenti. Il ministro Schillaci conferma che risorse aggiuntive per la sanità sono in cerca ma non ancora quantificate.",
+          "source": "Adnkronos",
+          "url": "https://www.adnkronos.com/economia/manovra-sanita-salvini-condono_36rOPq7Pt5pgVOhIfEywAw",
+          "published": "2026-11-21",
+          "tags": [
+            "Manovra",
+            "Pensioni"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Una manovra che rincorre i veti dei partiti e rimanda la sanità a fine trattativa: Calenda l'ha definita la più debole degli ultimi anni. Spunto per un contenuto su cosa servirebbe davvero a giovani e sanità pubblica.",
+            "refs": [
+              {
+                "label": "Calenda, intervista al Corriere della Sera ripresa da Adnkronos, 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Legge elettorale, D'Alema: il centrosinistra non accetti la logica della legge, niente primarie ma un candidato condiviso",
+          "summary": "Ospite di Accordi&Disaccordi su Il Nove, Massimo D'Alema sostiene che la nuova legge elettorale, obbligando a indicare il candidato premier, svuoti il voto. Invita il campo largo a non adeguarsi con le primarie mentre pende il ricorso alla Consulta, e propone che i vertici scelgano insieme un unico candidato.",
+          "source": "Il Fatto Quotidiano",
+          "url": "https://www.ilfattoquotidiano.it/2026/11/22/legge-elettorale-dalema-campo-largo-notizie/8579895/",
+          "published": "2026-11-22",
+          "tags": [
+            "Legge elettorale",
+            "Opposizioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Calenda ha definito il bipolarismo 'immorale' e punta su un centro decisivo in un sistema a più poli; ha criticato anche le trattative nel campo largo sul Quirinale. Spunto: che cosa cambia per chi non sta in nessuna delle due coalizioni?",
+            "refs": [
+              {
+                "label": "Calenda, intervista al Corriere della Sera ripresa da Adnkronos, 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              },
+              {
+                "label": "Calenda, intervista AdnTalks – Adnkronos, 11 novembre 2026",
+                "url": "https://www.adnkronos.com/politica/calenda-adnkronos-intervista-adntalks_6ZjgjtOB4wmCGStGjUeNsn"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Manovra, emendamento FdI: sperimentare spray che marcano i manifestanti violenti. Avs: 'squallido regime'",
+          "summary": "Il deputato di FdI Alessandro Urzì propone nella legge di bilancio una sperimentazione dal 2027 di spray che segnano pelle o vestiti di chi partecipa a cortei violenti, per identificarli. Il leader di Avs Bonelli attacca la proposta. Nel pacchetto ordine pubblico ci sono anche 100 milioni per i negozi danneggiati e un prelievo del 5% sugli incassi dei biglietti del calcio per gli straordinari delle forze dell'ordine.",
+          "source": "Adnkronos",
+          "url": "https://www.adnkronos.com/economia/manovra-fdi-spray-colorati-manifestanti-marchiati-polemica-opposizioni_5Lmx7blbxoCzVrpbRNznle",
+          "published": "2026-11-22",
+          "tags": [
+            "Manovra",
+            "Sicurezza"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Calenda ha distinto tra proteste legittime dei giovani su scuola e salari e violenze: chi lancia sassi va processato per direttissima e chi danneggia paga. Spunto: servono misure efficaci e applicabili, non trovate simboliche inserite in manovra.",
+            "refs": [
+              {
+                "label": "Calenda a Ping Pong (Rai Radio 1) – alanews, 19 ottobre 2026",
+                "url": "https://www.alanews.it/2026/10/19/politica/carlo-calenda-direttissima-sassi-scontri-milano"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Patrimoniale, scontro Tajani-Schlein dopo il summit di Parigi con Zucman",
+          "summary": "Dopo la partecipazione di Schlein a un incontro a Parigi con l'economista Gabriel Zucman, Tajani la accusa di voler tassare i patrimoni. La segretaria Pd replica citando i dati Istat sulla pressione fiscale e il peso sul ceto medio. Nel centrosinistra restano distanze: Avs indica una soglia di 5,4 milioni, il Pd guarda a una tassa minima sopra i 100 milioni.",
+          "source": "Adnkronos",
+          "url": "https://www.adnkronos.com/politica/patrimoniale-scontro-tajani-schlein-tasse-summit-parigi_14soFXa3cTLafxQUavV98s",
+          "published": "2026-11-22",
+          "tags": [
+            "Fisco",
+            "Opposizioni"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Tassare i grandi patrimoni o ridurre la pressione sul lavoro: la discussione si ferma agli slogan senza dire a quali servizi andrebbero le risorse. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Caso Myrotvorets: Zakharova attacca Meloni dopo la vicenda Salvini sulla lista ucraina",
+          "summary": "La portavoce del ministero degli Esteri russo Maria Zakharova critica su Telegram Meloni per le obiezioni all'inserimento di italiani nella banca dati ucraina Myrotvorets, citando Salvini, il cui nome sarebbe comparso nella lista. Sostiene che l'Italia sia incoerente perché finanzia Kiev. Il tema si intreccia con le minacce di veto di Salvini sugli aiuti all'Ucraina.",
+          "source": "alanews",
+          "url": "https://www.alanews.it/2026/11/22/esteri/myrotvorets-zakharova-meloni",
+          "also": [
+            {
+              "source": "Il Fatto Quotidiano, 22/11 (Salvini rimosso dalla lista)",
+              "url": "https://www.ilfattoquotidiano.it/2026/11/22/blacklist-myrotvorets-salvini-rimosso-notizie/8579970/"
+            }
+          ],
+          "published": "2026-11-22",
+          "tags": [
+            "Ucraina",
+            "Governo"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Quando la propaganda di Mosca interviene nel dibattito interno italiano, il rischio è che gli aiuti a Kiev diventino ostaggio degli equilibri di maggioranza: è l'avvertenza di Calenda su Salvini.",
+            "refs": [
+              {
+                "label": "Calenda, intervista al Corriere della Sera ripresa da Adnkronos, 2 novembre 2026",
+                "url": "https://www.adnkronos.com/internazionale/esteri/elezioni-carlo-calenda-azione-campo-largo_3sjiJdWduugh1UrK9r5fSh"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta sul sisma, le intercettazioni: progetti a Dubai, caveau e Pistarelli che sperava nell'ufficio del commissario",
+          "summary": "Cronache Maceratesi riporta intercettazioni del Gico della Guardia di finanza tra gli imprenditori Antonio Ezechielli e Antonio Cervigni, arrestati nell'inchiesta della Dda di Ancona (otto arresti e 51 indagati secondo il giornale). Nei colloqui compaiono il piano di trasferirsi a Dubai, l'idea di un caveau e l'ambizione di Fabio Pistarelli di entrare nell'ufficio del commissario Castelli. Secondo l'articolo, Pistarelli è stato spinto alle dimissioni da Acquaroli dopo le segnalazioni del garante Giulianelli. Tutte le accuse sono da verificare e non accertate.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/22/i-progetti-di-trasferirsi-a-dubai-lidea-dei-caveau-e-il-sentore-dellindagine/2129037/",
+          "published": "2026-11-22",
+          "tags": [
+            "Sisma",
+            "Inchiesta"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "La fiducia nella ricostruzione si recupera con trasparenza e controlli sugli appalti, non con lo scontro tra maggioranza e minoranza, in attesa degli accertamenti giudiziari. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Macerata, striscione 'Mafia edile' sul cantiere delle ex Monachette, subito rimosso",
+          "summary": "Uno striscione con la scritta 'Mafia edile' è stato appeso sulla facciata dell'ex convento delle Monachette, in via Armaroli, edificio al centro dell'inchiesta sulla ricostruzione. È stato rimosso dai vigili del fuoco; sul posto polizia, polizia locale e l'assessore comunale Giuseppe Romano. Sono in corso accertamenti per individuare chi lo ha affisso. L'articolo non attribuisce il gesto a nessuno.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/22/striscione-con-la-scritta-mafia-edile-sul-cantiere-delle-ex-monachette/2129150/",
+          "published": "2026-11-22",
+          "tags": [
+            "Sisma",
+            "Macerata"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "La rabbia dei cittadini è comprensibile, ma etichette generalizzate rischiano di colpire anche chi lavora onestamente nei cantieri. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Castelraimondo, scontro sul campus Lanciano: la minoranza chiede una commissione ad hoc",
+          "summary": "A Castelraimondo la minoranza (Castelraimondo Insieme, capogruppo Costantino Mariani) contesta la mancata convocazione di commissioni sui rilievi amministrativi al progetto del campus Lanciano, scuola di alta formazione alberghiera. Secondo l'opposizione, a settembre l'ufficio del commissario per la ricostruzione aveva sollevato rilievi su alcuni incarichi professionali; Mariani annuncia il ricorso alla Prefettura. Il sindaco Patrizio Leonelli replica che il voto è stato regolare e che esistono commissioni permanenti. I rilievi sono quelli riferiti dalla minoranza e non accertati.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/22/scontro-sul-campus-lanciano-lopposizione-serviva-commissione-ad-hoc-il-sindaco-ci-sono-gia-quelle-permanenti/2129042/",
+          "published": "2026-11-22",
+          "tags": [
+            "Ricostruzione",
+            "Comuni"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Il ruolo dei consigli comunali nel controllo dei progetti finanziati con fondi della ricostruzione è un buon tema di trasparenza locale. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Acqua non potabile a Corridonia: autobotti h24 in tutto il territorio, divieto di consumo per i Pfas",
+          "summary": "Il Comune ha completato il posizionamento delle autobotti, disponibili tutto il giorno in sei punti. Il divieto di uso dell'acqua per consumo umano, richiesto dall'Ast di Macerata, riguarda tutto il territorio tranne San Claudio, Passo del Bidollo e Colbuccaro. Le analisi Arpam hanno rilevato la non conformità del parametro 'somma di 4 Pfas' in due punti di prelievo. L'articolo non riporta valori né posizioni politiche.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/22/acqua-non-potabile-a-corridonia-piazzate-tutte-le-autobotti/2129034/",
+          "published": "2026-11-22",
+          "tags": [
+            "Sanità",
+            "Ambiente"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Pfas, controlli e tempi di comunicazione ai cittadini: chi risponde delle reti idriche? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Consoli: oltre 22 milioni per la sicurezza idrica nel Pesarese; polemica con il sindaco di Pesaro",
+          "summary": "L'assessore regionale Tiziano Consoli rivendica 22,22 milioni del Piano nazionale del Mit: 13,55 milioni per la dorsale acquedottistica Marche Nord e 8,67 per l'invaso di Mercatale. Giudica inopportuna la reazione del sindaco di Pesaro Andrea Biancani. Per la diga del Furlo sono stati approvati il piano di gestione e il primo stralcio dello sfangamento.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/22/consoli-oltre-22-milioni-per-sicurezza-idrica-nel-pesarese_c2f4a227-1402-4dc9-89bd-035c58d0f0d5.html",
+          "published": "2026-11-22",
+          "tags": [
+            "Infrastrutture",
+            "Acqua"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Dighe, dorsali e invasi: finanziamenti annunciati contano se arrivano a cantiere in tempi certi. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "San Severino, Thermoimpianti sul cantiere dell'Itis Divini: 'lavorato il 60%, incassato meno del 10%'",
+          "summary": "Antonio Urbani, rappresentante di Thermoimpianti, subappaltatrice degli impianti dell'Itis Divini, replica alla Ca.Ri. Costruzioni, che aveva denunciato inadempimenti. Secondo l'azienda, a gennaio 2025 l'avanzamento era del 60% a fronte di circa il 15% fatturato; il contratto è stato revocato il 4 febbraio 2025. C'è un decreto ingiuntivo da circa 810mila euro e una causa a Roma. Le cifre sono quelle della società, da verificare.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/22/al-divini-abbiamo-svolto-il-60-delle-lavorazioni-di-competenza-e-incassato-meno-del-10/2128846/",
+          "published": "2026-11-22",
+          "tags": [
+            "Scuola",
+            "Appalti"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Una scuola ricostruita in ritardo è un costo per gli studenti: i contenziosi tra imprese rallentano un servizio pubblico. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Divieto di burqa in ospedali e centri per l'impiego: la proposta di FdI divide il Consiglio regionale",
+          "summary": "La proposta di legge di FdI, depositata il 4 novembre con primo firmatario Andrea Cardilli, vieta burqa e niqab nelle strutture sanitarie e nei Centri per l'impiego, senza negare le cure urgenti. Il presidente della commissione Sanità Baiocchi la difende per sicurezza e dignità delle donne; il capogruppo Avs Nobili la definisce inutile. L'iter è all'inizio e la compatibilità con le norme nazionali è da verificare. Articolo del 17 novembre, tema ancora aperto.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/17/divieto-burqa-in-ospedali-e-centri-impiego-marche-proposta-di-legge-fdi_88133c0f-6eff-4aa1-bc14-26fc28ed1b73.html",
+          "published": "2026-11-17",
+          "tags": [
+            "Sanità",
+            "Consiglio regionale"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Priorità di una Regione alle prese con liste d'attesa e carenza di personale: simboli o servizi? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Stati generali dell'Ambiente: differenziata al 72% nelle Marche, ma mancano gli impianti",
+          "summary": "A Pesaro la raccolta differenziata regionale è al 72,02%, ma mancano impianti di trattamento e recupero. L'assessore Consoli indica che il riciclo effettivo nel 2025 si è fermato al 48%, sotto il target Ue del 55%, e che la Regione ha un gruppo di lavoro sulla localizzazione di un termovalorizzatore. Articolo del 20 novembre, tema in corso.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/20/stati-generali-ambiente-marche-differenziata-al-72-ma-manca-rete-impianti_8c38dc9d-957d-4d96-92f0-3eb9f69cd49a.html",
+          "published": "2026-11-20",
+          "tags": [
+            "Ambiente",
+            "Rifiuti"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Chiudere il ciclo dei rifiuti significa decidere dove fare gli impianti. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,10 @@
 {
   "editions": [
     {
+      "date": "2026-11-23",
+      "label": "Lunedì 23 novembre 2026"
+    },
+    {
       "date": "2026-11-22",
       "label": "Domenica 22 novembre 2026"
     },
