@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../assets/fonts/fonts.css">
+<style>
+* { box-sizing:border-box; margin:0; padding:0; }
+html, body { background:transparent; } body { font-family:Montserrat, Arial, sans-serif; }
+.card { position:relative; overflow:hidden; display:none; }
+:target, .card.show { display:block; }
+/* banner grande 1200x400 (in mail si vede a 600x200) */
+#grande { width:1200px; height:400px; background:radial-gradient(120% 140% at 85% 0%, #3d32a0 0%, #312781 45%, #0C1467 100%); color:#fff; }
+#grande .foto { position:absolute; right:0; top:0; width:560px; height:400px; background:url(../../assets/foto/piazza-bandiere.jpg) center 40%/cover; opacity:.38; -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 55%); mask-image:linear-gradient(90deg, transparent 0%, #000 55%); }
+#grande .slash { position:absolute; width:900px; height:120px; background:rgba(255,255,255,.05); transform:rotate(-24deg); left:420px; top:250px; }
+#grande .logo { position:absolute; left:64px; top:64px; width:132px; height:132px; border-radius:50%; background:#fff; padding:5px; box-shadow:0 10px 30px rgba(0,0,0,.35); }
+#grande .kick { position:absolute; left:226px; top:74px; font-weight:800; font-size:24px; letter-spacing:.2em; color:#C9CCF5; }
+#grande h1 { position:absolute; left:224px; top:108px; font-weight:900; font-size:82px; line-height:.95; letter-spacing:-.05em; }
+#grande h1 em { font-style:normal; color:#FCCA00; }
+#grande p { position:absolute; left:66px; top:262px; font-weight:600; font-size:27px; color:#E4E6FF; letter-spacing:-.01em; }
+#grande .btn { position:absolute; right:64px; top:252px; background:#FCCA00; color:#0C1467; font-weight:900; font-size:32px; padding:20px 38px; border-radius:999px; letter-spacing:-.02em; box-shadow:0 10px 24px rgba(0,0,0,.3); }
+#grande .bar { position:absolute; left:0; bottom:0; width:100%; height:10px; background:#FCCA00; }
+/* pulsante compatto 800x200 (in mail 400x100) */
+#piccolo { width:800px; height:200px; border-radius:100px; background:#312781; color:#fff; }
+#piccolo .logo { position:absolute; left:22px; top:22px; width:156px; height:156px; border-radius:50%; background:#fff; padding:6px; }
+#piccolo .t1 { position:absolute; left:206px; top:44px; font-weight:800; font-size:26px; letter-spacing:.16em; color:#C9CCF5; }
+#piccolo .t2 { position:absolute; left:204px; top:82px; font-weight:900; font-size:62px; letter-spacing:-.045em; }
+#piccolo .t2 em { font-style:normal; color:#FCCA00; }
+</style></head>
+<body>
+<div class="card" id="grande">
+  <div class="foto"></div><div class="slash"></div>
+  <img class="logo" src="../../assets/logo.png" alt="">
+  <div class="kick">AZIONE UNDER 30 MARCHE</div>
+  <h1>Il nostro sito<br><em>è online.</em></h1>
+  <p>Il Punto ogni mattina, eventi e le voci degli under 30.</p>
+  <div class="btn">Visita il sito<svg viewBox="0 0 24 24" style="width:.9em;height:.9em;vertical-align:-.1em;margin-left:.15em" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5l7 7-7 7"/></svg></div>
+  <div class="bar"></div>
+</div>
+<div class="card" id="piccolo">
+  <img class="logo" src="../../assets/logo.png" alt="">
+  <div class="t1">AZIONE UNDER 30 MARCHE</div>
+  <div class="t2">Visita il sito <em><svg viewBox="0 0 24 24" style="width:.9em;height:.9em;vertical-align:-.1em;margin-left:.15em" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5l7 7-7 7"/></svg></em></div>
+</div>
+</body></html>
