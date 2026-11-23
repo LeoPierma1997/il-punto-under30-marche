@@ -23,6 +23,16 @@ html, body { background:transparent; } body { font-family:Montserrat, Arial, san
 #piccolo .t1 { position:absolute; left:206px; top:44px; font-weight:800; font-size:26px; letter-spacing:.16em; color:#C9CCF5; }
 #piccolo .t2 { position:absolute; left:204px; top:82px; font-weight:900; font-size:62px; letter-spacing:-.045em; }
 #piccolo .t2 em { font-style:normal; color:#FCCA00; }
+/* testata della newsletter 1200x300 (in mail 600x150) */
+#testata { width:1200px; height:300px; background:#0C1467; color:#fff; }
+#testata .foto { position:absolute; inset:0; background:url(../../assets/foto/evento-roma-gruppo.jpg) center 35%/cover; opacity:.28; }
+#testata .grad { position:absolute; inset:0; background:linear-gradient(90deg, rgba(12,20,103,.98) 0%, rgba(49,39,129,.9) 55%, rgba(49,39,129,.55) 100%); }
+#testata .logo { position:absolute; left:60px; top:60px; width:180px; height:180px; border-radius:50%; background:#fff; padding:6px; box-shadow:0 10px 30px rgba(0,0,0,.35); }
+#testata .k { position:absolute; left:276px; top:66px; font-weight:800; font-size:24px; letter-spacing:.22em; color:#FCCA00; }
+#testata .t { position:absolute; left:272px; top:100px; font-weight:900; font-size:96px; letter-spacing:-.055em; line-height:1; }
+#testata .s { position:absolute; left:276px; top:208px; font-weight:600; font-size:28px; color:#E4E6FF; }
+#testata .s b { color:#fff; }
+#testata .bar { position:absolute; left:0; bottom:0; width:100%; height:10px; background:#FCCA00; }
 </style></head>
 <body>
 <div class="card" id="grande">
@@ -38,5 +48,13 @@ html, body { background:transparent; } body { font-family:Montserrat, Arial, san
   <img class="logo" src="../../assets/logo.png" alt="">
   <div class="t1">AZIONE UNDER 30 MARCHE</div>
   <div class="t2">Visita il sito <em><svg viewBox="0 0 24 24" style="width:.9em;height:.9em;vertical-align:-.1em;margin-left:.15em" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5l7 7-7 7"/></svg></em></div>
+</div>
+<div class="card" id="testata">
+  <div class="foto"></div><div class="grad"></div>
+  <img class="logo" src="../../assets/logo.png" alt="">
+  <div class="k">LA NEWSLETTER DI</div>
+  <div class="t">Azione Under 30</div>
+  <div class="s"><b>Marche</b> · liberali, europeisti, mai noiosi</div>
+  <div class="bar"></div>
 </div>
 </body></html>
