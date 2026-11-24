@@ -1,0 +1,345 @@
+{
+  "date": "2026-11-24",
+  "label": "Martedì 24 novembre 2026",
+  "intro": "Sull'Ucraina si discute di chi scrive le garanzie di sicurezza, mentre l'Ue prepara il 22° pacchetto di sanzioni; in Italia la manovra si scalda sul condono e il campo largo cerca il programma; nelle Marche pesano terza corsia A14, ricostruzione e sanità di prossimità.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Kushner: garanzie all'Ucraina legate alla sicurezza europea; von der Leyen: prima il cessate il fuoco",
+          "summary": "L'inviato Usa Jared Kushner ha scritto che le garanzie di sicurezza per l'Ucraina non possono essere definite in isolamento dall'architettura di sicurezza europea del dopoguerra, evocando una clausola sul modello dell'articolo 5 Nato e un'intesa «nelle prossime settimane». La portavoce della Commissione Paula Pinho ha ribadito che la posizione Ue non cambia: se ne discute solo dopo un cessate il fuoco, con gli alleati Nato. Merz, alla riunione della Coalizione dei volenterosi a Berlino, ha detto: prima la pace, poi gli accordi di sicurezza. Secondo Euronews la Russia non ha accettato colloqui multilaterali.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/23/von-der-leyen-contro-kushner-sui-negoziati-di-pace-per-lucraina-prima-si-smette-di-sparare",
+          "published": "2026-11-23",
+          "tags": [
+            "Ucraina",
+            "Negoziati"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Chi decide la sicurezza europea se i negoziati restano a Washington e Mosca? Un possibile filo per un contenuto: l'Europa al tavolo come condizione, non come spettatrice. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ue, 22° pacchetto di sanzioni a Mosca: altre 60 banche fuori da Swift, criptovalute e flotta ombra",
+          "summary": "La Commissione ha proposto il 22° pacchetto di sanzioni dal 2022, che Bruxelles vuole approvare a dicembre. Prevede l'esclusione di altre 60 banche russe da Swift, misure sulle piattaforme di criptovalute, il divieto per le imprese Ue di riparare infrastrutture energetiche russe e nuove navi della «flotta ombra». Von der Leyen ripropone il divieto d'ingresso per i militari russi che hanno combattuto in Ucraina: la prima proposta di luglio era fallita per le obiezioni di Francia e Italia.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/23/lue-vuole-adottare-un-nuovo-pacchetto-di-sanzioni-contro-mosca-banche-criptovalute-soldati",
+          "published": "2026-11-23",
+          "tags": [
+            "Sanzioni",
+            "Russia"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Sanzioni e divieti d'ingresso funzionano se l'Unione decide in modo compatto: il tema è se l'unanimità debba restare un freno. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Zelensky rivendica l'attacco a navi russe in Libia; Tajani: guerra nel Mediterraneo da evitare",
+          "summary": "Zelensky ha definito «esemplare» l'operazione con sette droni navali contro due navi russe davanti alla Libia: secondo lui la corvetta Merkury è stata affondata e la cargo Angara colpita. Il governo libico dell'Est ha presentato reclamo all'Onu e chiesto un'indagine. Il ministro Antonio Tajani ha detto che una guerra nel Mediterraneo occidentale va evitata. Il Cremlino, con Peskov, ha dichiarato di aver «preso atto» delle parole di Zelensky. Si tratta di rivendicazioni di parte.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/mondo/2026/11/23/zelensky-rivendica-gli-attacchi-alle-navi-russe-in-libia-operazione-esemplare_819461b5-d139-49ae-9b7d-9d179e6481b3.html",
+          "published": "2026-11-23",
+          "tags": [
+            "Mediterraneo",
+            "Ucraina"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Se il conflitto si avvicina al Mediterraneo, l'Italia ha un interesse diretto alla stabilità della Libia e a una politica estera europea comune. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Bilancio Ue 2028-2034: Costa propone tagli per 39 miliardi e una digital tax da 5,2 miliardi",
+          "summary": "Il presidente del Consiglio europeo Antonio Costa ha presentato una nuova proposta sul quadro finanziario pluriennale: 1.582 miliardi a prezzi 2025, 39 miliardi in meno e 180 in meno rispetto alla proposta iniziale della Commissione. Prevede una tassa del 3% sul fatturato delle big tech, stimata in 5,2 miliardi l'anno. Il capitolo competitività, ricerca, difesa e sicurezza scende da 522,2 a 437,7 miliardi. Il relatore dell'Europarlamento Siegfried Muresan la giudica inaccettabile; Merz parla di «primo passo».",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/europa/notizie/rubriche/altrenews/2026/11/23/nuovi-tagli-al-bilancio-ue-ce-una-digital-tax-da-52-miliardi_8b151f9c-3f3f-46ed-9fe0-e9a3f281db29.html",
+          "published": "2026-11-23",
+          "tags": [
+            "Bilancio Ue",
+            "Tasse"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Tagliare proprio competitività, ricerca e difesa mentre si chiede più Europa: la domanda per i giovani è dove vanno i fondi del prossimo settennato. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Cyberattacco alla Commissione europea: sospetti su hacker legati alla Cina",
+          "summary": "Secondo due fonti citate da Euronews, la Commissione sospetta una rete sostenuta dalla Cina dietro un attacco informatico in corso da circa un mese, nome in codice «Panda». L'intrusione è stata individuata il 22 ottobre e non è ancora del tutto contenuta; il sito EU Academy è offline. È confermata la fuga di nomi e indirizzi email. Pechino nega di sostenere gruppi di hacker; la Commissione non ha attribuito formalmente l'attacco.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/23/commissione-europea-sotto-attacco-informatico-sospetti-su-hacker-legati-alla-cina",
+          "published": "2026-11-23",
+          "tags": [
+            "Cybersicurezza",
+            "Cina"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Un attacco alle istituzioni europee rende concreto il tema della difesa cyber comune. Calenda ha indicato la protezione da attacchi cyber tra le priorità di Azione per un governo; lo spunto può collegare sicurezza digitale e dimensione europea.",
+            "refs": [
+              {
+                "label": "Calenda a Mattino 5 – ANSA, 23 novembre 2026",
+                "url": "https://www.ansa.it/sito/notizie/politica/2026/11/23/calenda-destra-o-sinistra-non-mimporta-governero-con-volenterosi_412208ed-37bc-447f-8d26-2f5fd17dcf40.html"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Condono, la Lega spinge: 180 giorni ai Comuni per le domande del 1985, 1994 e 2003",
+          "summary": "L'ipotesi della Lega, da tradurre in un emendamento del governo alla manovra, dà ai Comuni sei mesi (fino a giugno 2027) per esaminare le vecchie domande di condono, con silenzio-assenso in assenza di risposta. Angelo Bonelli (Avs) lo definisce «il più grande condono della storia». Gli alleati restano prudenti e si parla di un vertice dei leader; sulla sanità si ragiona su almeno 500 milioni in più.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/22/proposta-della-lega-6-mesi-ai-comuni-per-evadere-le-vecchie-domande-o-scatta_81525291-a346-4208-98f7-5260a842ca06.html",
+          "published": "2026-11-22",
+          "tags": [
+            "Manovra",
+            "Condono"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Un silenzio-assenso su condoni di decenni fa premia chi ha violato le regole e carica di responsabilità i Comuni: il confronto è tra cassa immediata e legalità. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Mattarella ai magistrati tributari: «Per contribuire di meno bisogna contribuire tutti»",
+          "summary": "Parlando a Roma ai magistrati tributari in tirocinio, il presidente Sergio Mattarella ha collegato un fisco più leggero alla partecipazione di tutti e ha richiamato la progressività. Ha definito la violazione degli obblighi tributari un ostacolo alla coesione sociale e ha indicato nella digitalizzazione del processo uno strumento contro l'evasione.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/23/mattarella-per-un-fisco-piu-leggero-contribuiscano-tutti-serve-progressivita_b77f620d-611d-4e8e-b64a-0b31f44c9803.html",
+          "published": "2026-11-23",
+          "tags": [
+            "Fisco",
+            "Mattarella"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Il richiamo del Quirinale arriva mentre in manovra si discute di condoni: il tema social è il patto fiscale tra generazioni. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Commissione Covid, scontro Conte-FdI: «Plotone di esecuzione». Seduta sospesa",
+          "summary": "Nella seconda parte dell'audizione in commissione Covid, Giuseppe Conte ha definito la commissione un «plotone di esecuzione» e accusato la maggioranza di dare un indirizzo politico ai lavori. Il capogruppo FdI Galeazzo Bignami ha replicato con accuse pesanti all'ex premier; il presidente Marco Lisei ha sospeso la seduta e il dem Francesco Boccia ha parlato di «gravissima degenerazione istituzionale». I resoconti divergono sulla durata dell'audizione (circa sette ore secondo ANSA).",
+          "source": "Avvenire",
+          "url": "https://www.avvenire.it/politica/scontro-in-commissione-covid-conte-plotone-di-esecuzione_116185",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/sito/notizie/politica/2026/11/23/scontro-conte-fdi-in-commissione-covid-stop-and-go-dei-lavori_ced74e1b-8234-4514-86b9-7f526f0eb932.html"
+            }
+          ],
+          "published": "2026-11-23",
+          "tags": [
+            "Commissione Covid",
+            "Conte"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Una commissione d'inchiesta serve ai cittadini se accerta fatti e responsabilità, non se diventa un ring: il tema è la sanità e cosa imparare dalla pandemia. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Campo largo: il programma entro inizio dicembre, nodi su patrimoniale e Ucraina",
+          "summary": "Il capogruppo Pd al Senato Francesco Boccia prevede di chiudere il programma del centrosinistra al massimo a inizio dicembre. I punti più delicati sono la patrimoniale, dove c'è stallo, e la politica estera sull'Ucraina; sulla giustizia c'è un passo avanti con il ritorno del reato di abuso d'ufficio sotto il nome di «abuso di potere». Renzi chiede di abbassare le tasse e Ernesto Maria Ruffini (Più Uno) critica l'annuncio di nuove tasse a inizio campagna.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/23/il-campo-largo-tenta-lo-sprint-per-chiudere-il-programma-a-inizio-dicembre_d50ec302-74b7-4476-b255-25bdc25890b4.html",
+          "published": "2026-11-23",
+          "tags": [
+            "Centrosinistra",
+            "Programma"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Un programma che regge solo se si evitano i nodi su tasse e Ucraina rischia di non reggere al governo. Calenda ha dichiarato che Azione starà con chi vuole fare cose utili al Paese, indipendentemente dallo schieramento.",
+            "refs": [
+              {
+                "label": "Calenda a Mattino 5 – ANSA, 23 novembre 2026",
+                "url": "https://www.ansa.it/sito/notizie/politica/2026/11/23/calenda-destra-o-sinistra-non-mimporta-governero-con-volenterosi_412208ed-37bc-447f-8d26-2f5fd17dcf40.html"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Calenda: «Destra o sinistra non m'importa». Azione punta a una lista da 20 punti",
+          "summary": "Ospite di Mattino 5, Carlo Calenda ha detto che il Paese ha bisogno di un centro e che Azione presenterà una lista di 20 punti. Le priorità indicate sono sanità e scuola, difesa da attacchi cyber e missilistici e collocazione europea, «se come credo saremo indispensabili per formare un governo». Ha aggiunto che Azione starà con chi vuole fare cose utili all'Italia.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/23/calenda-destra-o-sinistra-non-mimporta-governero-con-volenterosi_412208ed-37bc-447f-8d26-2f5fd17dcf40.html",
+          "published": "2026-11-23",
+          "tags": [
+            "Azione",
+            "Centro"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Sanità, scuola e Europa sono temi su cui costruire contenuti concreti per i giovani marchigiani: cosa cambia per chi studia e lavora nelle Marche se il centro è decisivo.",
+            "refs": [
+              {
+                "label": "Calenda a Mattino 5 – ANSA, 23 novembre 2026",
+                "url": "https://www.ansa.it/sito/notizie/politica/2026/11/23/calenda-destra-o-sinistra-non-mimporta-governero-con-volenterosi_412208ed-37bc-447f-8d26-2f5fd17dcf40.html"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Terza corsia A14, Biancani protesta al casello: «Dove sono i soldi?»",
+          "summary": "Il sindaco di Pesaro Andrea Biancani ha guidato un presidio davanti al casello A14 per chiedere l'avvio delle opere compensative della terza corsia. Autostrade per l'Italia si era impegnata il 3 novembre a inviare il cronoprogramma entro due settimane, ma il termine è scaduto. La convenzione del 2013 lascia circa 40 milioni; tre opere condivise valgono circa 26,6 milioni e Biancani chiede anche i 100 milioni mancanti. Valuta un tavolo tecnico in Prefettura.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/23/protesta-di-biancani-su-opere-compensative-terza-corsia-una-vergogna_9f9d3e4d-be8a-4e57-8240-779803507841.html",
+          "published": "2026-11-23",
+          "tags": [
+            "Infrastrutture",
+            "A14"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Le opere compensative sono un impegno preso con il territorio: una domanda utile è quanto tempo possa attendere un'infrastruttura già finanziata sulla carta. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Civitanova, presidio contro l'evento FdI: «Via gli speculatori della ricostruzione»",
+          "summary": "Centri sociali, associazioni e comitati dei terremotati hanno annunciato un presidio il 29 novembre alle 16 davanti al Teatro Rossini di Civitanova, dove FdI organizza «A testa alta» per i sei anni del governo regionale di Francesco Acquaroli. Nel testo della protesta si accusa chi avrebbe trasformato la ricostruzione in un affare. L'articolo non riporta repliche di Fratelli d'Italia.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/23/via-gli-speculatori-della-ricostruzione-presidio-contro-evento-di-fdi_86345c6d-709c-4330-8261-f61ce86ec620.html",
+          "published": "2026-11-23",
+          "tags": [
+            "Ricostruzione",
+            "Protesta"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Sulla ricostruzione la fiducia si misura in tempi, trasparenza e controlli sugli appalti. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Futuro Nazionale a Civitanova, esposto in Procura sulle 603 tessere del comitato 356",
+          "summary": "Vincenzo Pizzicara, referente del comitato 154 di Futuro Nazionale a Civitanova, ha presentato in Procura un esposto di 21 pagine contro le 603 adesioni attribuite al comitato 356, riconducibile al sindaco Fabrizio Ciarapica, oggi coordinatore regionale. Chiede di verificare ipotesi come sostituzione di persona e trattamento illecito di dati. Sono accuse da accertare; l'articolo non riporta una replica di Ciarapica.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/23/tessere-di-vannacci-pizzicara-fa-denuncia-cosi-e-uscita-la-lista-e-autentica/2129592/",
+          "also": [
+            {
+              "source": "ANSA Marche",
+              "url": "https://www.ansa.it/marche/notizie/2026/11/23/prima-assemblea-provinciale-ad-ascoli-per-futuro-nazionale_f8756a1d-0d53-4b02-ae1f-db97cc63df5c.html"
+            }
+          ],
+          "published": "2026-11-23",
+          "tags": [
+            "Partiti",
+            "Esposto"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "La partecipazione politica si costruisce con adesioni reali e trasparenti: è un tema di qualità della democrazia, in attesa degli accertamenti. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Mangialardi (Pd): Jesi inaugura la Casa di Comunità, Senigallia resta al palo",
+          "summary": "In un comunicato il consigliere regionale Pd Maurizio Mangialardi segnala l'inaugurazione a Jesi di Casa e Ospedale di Comunità e attacca la giunta Acquaroli sulla programmazione: Corinaldo sarebbe ultima nelle Marche per avanzamento e a Senigallia l'intervento con fondi regionali non si sarebbe concretizzato. Ricorda la proposta di 20 posti in Ospedale di Comunità, poi saliti a 40, oggi non realizzati. È una posizione di parte, senza replica della Regione nel testo.",
+          "source": "Vivere Marche",
+          "url": "https://www.viveremarche.it/2026/11/23/mangialardi-jesi-inaugura-la-casa-di-comunit-senigallia-resta-al-palo-non-un-caso/215550/",
+          "published": "2026-11-23",
+          "tags": [
+            "Sanità",
+            "Territorio"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Case di Comunità e ospedali di comunità servono se aprono e funzionano in tutto il territorio, entroterra compreso. Calenda ha indicato la sanità tra le priorità di Azione. Spunto: dove sono i servizi per i giovani medici e per chi vive fuori dai centri maggiori?",
+            "refs": [
+              {
+                "label": "Calenda a Mattino 5 – ANSA, 23 novembre 2026",
+                "url": "https://www.ansa.it/sito/notizie/politica/2026/11/23/calenda-destra-o-sinistra-non-mimporta-governero-con-volenterosi_412208ed-37bc-447f-8d26-2f5fd17dcf40.html"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Regione e Invitalia firmano il protocollo per attrarre investimenti e sostenere le imprese",
+          "summary": "La giunta regionale ha approvato lo schema di protocollo d'intesa con Invitalia, valido fino al 31 dicembre 2028 e senza nuovi oneri per la Regione. Riguarda attrazione di investimenti, startup, filiere, innovazione, crisi d'impresa e uso dell'intelligenza artificiale nelle politiche di sviluppo. Per la Regione firma l'assessore Giacomo Bugaro; le prime iniziative saranno definite «nelle prossime settimane».",
+          "source": "Vivere Marche",
+          "url": "https://www.viveremarche.it/2026/11/23/attrarre-investimenti-e-sostenere-imprese-la-regione-rafforza-la-collaborazione-con-invitalia/215484/",
+          "published": "2026-11-23",
+          "tags": [
+            "Imprese",
+            "Regione"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Un protocollo vale per i risultati: quante startup e quanti posti di lavoro qualificati per i giovani marchigiani. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Violenza sulle donne, Cesetti (Pd): la Regione approvi il fondo per il Reddito di libertà",
+          "summary": "Il Consiglio regionale dedica il 24 novembre una seduta aperta al rapporto annuale sulla violenza contro le donne. Il consigliere Pd Fabrizio Cesetti ricorda che nel 2026 su 142 richieste di Reddito di libertà ne sono state finanziate 80 e 62 escluse per mancanza di fondi, e sollecita l'esame della sua proposta di legge, depositata nel 2023 e riproposta nel novembre 2025. Accusa il centrodestra di non aver stanziato risorse: è una posizione di opposizione.",
+          "source": "Vivere Marche",
+          "url": "https://www.viveremarche.it/2026/11/23/violenza-contro-le-donne-cesetti-pd-la-regione-approvi-la-mia-pdl-per-listituzione-di-un-fondo-per-il-reddito-di-libert-per-le-donne-vittime-di-violenza/215200/",
+          "published": "2026-11-23",
+          "tags": [
+            "Consiglio",
+            "Diritti"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Le misure di sostegno contano se i fondi coprono tutte le richieste: 62 su 142 escluse è un dato su cui interrogare la Regione. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Festa della Gioventù a Treia: Acquaroli e Castelli parlano a Gioventù Nazionale",
+          "summary": "La 18ª Festa della gioventù di Gioventù Nazionale Macerata si è svolta il 22 novembre a Chiesanuova di Treia, con il presidente della Regione Francesco Acquaroli, il commissario alla ricostruzione Guido Castelli e la senatrice Elena Leonardi. Si è parlato di ricostruzione post sisma, infrastrutture, lavoro e diritto di restare nelle Marche.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/23/festa-della-gioventu-acquaroli-e-castelli-a-confronto-con-le-nuove-generazioni/2129262/",
+          "published": "2026-11-23",
+          "tags": [
+            "Giovani",
+            "Lavoro"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Il «diritto di restare» passa da stipendi, casa e trasporti più che da convegni: quali strumenti concreti per chi ha meno di 30 anni? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ascoli, consiglio comunale: sosta a pagamento a San Pietro in Castello e caso Superbonus",
+          "summary": "Il consiglio comunale ha affidato a Multiservizi Piceni il parcheggio di San Pietro in Castello (1 euro all'ora dalle 8 alle 23, gratis per i residenti la sera) nonostante il voto contrario delle minoranze. In discussione anche il cantiere Superbonus incompiuto di via Arrigo Boito (sei palazzine, 125 famiglie): il sindaco Marco Fioravanti parla di contatti con Ast e Anci. Approvata la cessione di 16 alloggi all'Erap.",
+          "source": "CentroPagina",
+          "url": "https://www.centropagina.it/ascoli/ascoli-sosta-pagamento-superbonus-accendono-consiglio/",
+          "published": "2026-11-23",
+          "tags": [
+            "Comuni",
+            "Superbonus"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Le famiglie del cantiere Superbonus incompiuto attendono da quasi quattro anni: la domanda è chi risponde dei controlli sugli incentivi. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
