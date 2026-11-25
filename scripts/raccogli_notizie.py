@@ -89,7 +89,7 @@ def leggi_feed(urls):
 
 def leggi_un_feed(url):
     raw, _ = scarica(url)
-    root = ET.fromstring(raw)
+    root = ET.fromstring(raw.lstrip())
     out = []
     for el in list(root.iter("item")) + list(root.iter("{http://www.w3.org/2005/Atom}entry")):
         titolo = pulisci(el.findtext("title") or el.findtext("{http://www.w3.org/2005/Atom}title"))
@@ -107,7 +107,7 @@ def testo_articolo(url):
     raw, enc = scarica(url, timeout=20)
     pagina = raw.decode(enc, errors="replace")
     paragrafi = re.findall(r"(?is)<p[^>]*>(.*?)</p>", pagina)
-    rumore = ("cookie", "abbonamento", "consentless", "iscriviti", "newsletter", "Italiano English", "privacy", "Accedi", "Leggi anche")
+    rumore = ("cookie", "abbonamento", "consentless", "iscriviti", "newsletter", "Italiano English", "privacy", "Accedi", "Leggi anche", "Puoi leggere tutti", "servizi di ANSA", "domande più frequenti")
     testo = " ".join(p for p in (pulisci(x) for x in paragrafi) if len(p) > 60 and not any(r.lower() in p.lower() for r in rumore))
     return testo[:MAX_TESTO]
 
