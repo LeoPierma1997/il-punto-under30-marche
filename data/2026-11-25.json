@@ -1,0 +1,323 @@
+{
+  "date": "2026-11-25",
+  "label": "Mercoledì 25 novembre 2026",
+  "intro": "Il Cremlino smentisce documenti con garanzie di sicurezza per Kiev mentre Washington prepara nuovi dazi anche contro l'Ue; in Italia la manovra passa dalla tagliola sugli emendamenti, con Quota 64 e il via libera di Bruxelles ai conti; nelle Marche bagarre in Consiglio regionale, intercettazioni sull'inchiesta Ricostruzione e vertenza Giano.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Cremlino: Putin non ha consegnato a Trump né a Xi documenti con garanzie di sicurezza per l'Ucraina",
+          "summary": "Il portavoce del Cremlino Dmitry Peskov ha detto che a Shenzhen Putin non ha consegnato né a Xi Jinping né a Trump alcun documento con proposte per l'Ucraina o garanzie di sicurezza. Alla domanda se ne fosse previsto uno ha risposto «Non questa volta», secondo quanto riportato dalla Tass. Putin ha già discusso gli esiti dei colloqui trilaterali con i membri permanenti del Consiglio di sicurezza russo.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/mondo/europa/2026/11/24/cremlino-putin-non-ha-consegnato-garanzie-di-sicurezza-a-trump-o-a-xi-jinping_e1bc8a92-50d9-4e6f-9f08-f46e70aa63a1.html",
+          "published": "2026-11-24",
+          "tags": [
+            "Ucraina",
+            "Negoziati"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Mentre a Mosca non emergono documenti scritti, la domanda per l'Europa resta chi garantisce davvero la sicurezza dell'Ucraina. Calenda ha criticato chi mette sullo stesso piano Putin e Zelensky: un punto di partenza per un contenuto sul sostegno a Kiev.",
+            "refs": [
+              {
+                "label": "Calenda su Conte e Ucraina – L'Espresso, 16 novembre 2026",
+                "url": "https://lespresso.it/c/politica/2026/11/16/carlo-calenda-elezioni-centro-polo-pareggio-sondaggi/65853"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Wsj: Trump pronto a nuovi dazi contro Cina e Ue per i sussidi industriali",
+          "summary": "Secondo il Wall Street Journal, citato da ANSA, gli Stati Uniti si preparano ad alzare i dazi su Cina e su decine di altri Paesi accusati di sostenere la produzione industriale con sussidi. Le tariffe sarebbero legate a un'indagine che riguarda Cina, Ue e altri 14 Paesi. Non è chiaro quando scatteranno né di quanto; per Ue e Giappone si parla di dazi pari o inferiori al 15%.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/mondo/2026/11/24/wsj-trump-pronto-a-nuovi-dazi-contro-la-cina-e-lue_7ec78494-a461-41b7-8db7-63d73f2560aa.html",
+          "published": "2026-11-24",
+          "tags": [
+            "Dazi",
+            "Usa-Ue"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Nuovi dazi colpirebbero export e imprese manifatturiere, comprese quelle marchigiane. Quanto può contare l'Ue se si presenta divisa? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Stato di diritto, Ue: «progressi in Ungheria ma ancora molto lavoro da fare»",
+          "summary": "Il commissario alla Giustizia Michael McGrath ha riconosciuto in plenaria a Strasburgo progressi dell'Ungheria su anticorruzione, diritti fondamentali e libertà accademica. Restano criticità su trasparenza nell'assegnazione dei casi, sorveglianza di giornalisti e oppositori, pluralismo dei media, finanziamento dei partiti e lobbying. La Commissione ha accolto con favore l'adesione di Budapest alla Procura europea.",
+          "source": "ANSA Europa",
+          "url": "https://www.ansa.it/europa/notizie/rubriche/altrenews/2026/11/24/ue-progressi-in-ungheria-ma-ancora-molto-lavoro-da-fare-su-stato-di-diritto_8fdf4460-cda4-4cac-b8c0-622e257ea8f7.html",
+          "published": "2026-11-24",
+          "tags": [
+            "Stato di diritto",
+            "Ue"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "L'adesione alla Procura europea è un test concreto sulla tutela dei fondi Ue. Perché lo stato di diritto dovrebbe restare una condizione per accedere ai finanziamenti comuni? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "La Cedu consente di respingere migranti in caso di flussi strumentalizzati da uno Stato terzo",
+          "summary": "In tre sentenze su ricorsi contro Polonia, Lettonia e Lituania la Corte europea dei diritti umani ha stabilito che, se uno Stato terzo strumentalizza evidentemente i flussi migratori per destabilizzare un Paese membro, questo può respingere le persone entrate. Il riferimento è alle pressioni dalla Bielorussia del 2021-22. Lo Stato deve solo individuare chi è particolarmente vulnerabile o rischia gravi maltrattamenti.",
+          "source": "ANSA Europa",
+          "url": "https://www.ansa.it/europa/notizie/rubriche/altrenews/2026/11/24/-cedu-restringe-protezione-per-migranti-se-flussi-strumentalizzati-_d87fc424-b425-4b87-825d-ed42d2cae752.html",
+          "published": "2026-11-24",
+          "tags": [
+            "Migrazioni",
+            "Cedu"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "La sentenza apre un tema delicato: come tenere insieme difesa dei confini Ue e tutela dei diritti nei casi di pressione ibrida? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Dal 1° dicembre limiti Ue all'import di auto ibride da Cina e altri Paesi",
+          "summary": "Dal 1° dicembre al 18 giugno 2027 la Commissione europea limiterà l'ingresso di veicoli ibridi nuovi da alcuni Paesi extra-Ue, tra cui Cina, Giappone, Turchia e Regno Unito. Le misure di salvaguardia provvisorie, pubblicate nella Gazzetta ufficiale Ue, fissano un tetto massimo per i principali esportatori. Il provvedimento segue l'intesa commerciale con Pechino del mese scorso.",
+          "source": "ANSA Europa",
+          "url": "https://www.ansa.it/europa/notizie/rubriche/altrenews/2026/11/24/da-dicembre-scattano-limiti-ue-allimport-di-ibride-da-cina-e-altri-paesi_085a1864-918b-468a-9252-29f038587caf.html",
+          "published": "2026-11-24",
+          "tags": [
+            "Auto",
+            "Commercio"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Protezione dell'industria europea e apertura dei mercati vanno bilanciate. Quali garanzie servono perché la filiera dell'auto e dell'indotto, anche nelle Marche, non paghi il conto? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, tagliola su oltre 1.700 emendamenti: fuori anche l'Ires sulle banche proposta dalla Lega",
+          "summary": "La Commissione Bilancio della Camera ha dichiarato inammissibili oltre 1.700 emendamenti alla manovra, circa un quarto dei 6.558 depositati, per materia o per mancanza di copertura. Tra gli scartati l'aumento dell'Ires per le banche (Lega), la modifica alla diluizione in dieci anni dei crediti Superbonus (FdI) e interventi sulla exit tax. Sulle pensioni sono inammissibili proposte di maggioranza e opposizione sulla rivalutazione; la ministra Calderone ha ricordato che per un emendamento del governo «c'è sempre tempo».",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/24/manovra-tagliola-su-oltre-1.700-emendamenti-anche-la-proposta-della-lega-di-alzare_6fda15fa-62be-4fc8-9ee0-e23897a4997a.html",
+          "published": "2026-11-24",
+          "tags": [
+            "Manovra",
+            "Emendamenti"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Seimila emendamenti per scegliere pochi interventi: la manovra rischia di restare una somma di micro-misure. Quali priorità finanzieremmo davvero, con quali coperture? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Salvini: «Quota 64 già finanziata in manovra, pronti a partire nel 2027»",
+          "summary": "Il vicepremier Matteo Salvini ha detto, a margine di un forum sulle infrastrutture, che Quota 64 è già coperta dalla manovra con un budget iniziale di 850 milioni. Se la cifra potrà essere aumentata, ha aggiunto, meglio; altrimenti la Lega è pronta a partire nel 2027. Salvini ha precisato di lavorare insieme a Meloni e Tajani.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/24/salvini-quota-64-finanziata-in-manovra-pronti-a-partire-nel-2027_a510419e-fad8-4d0a-8817-71cf26f866c5.html",
+          "published": "2026-11-24",
+          "tags": [
+            "Pensioni",
+            "Lega"
+          ],
+          "icon": "hourglass",
+          "spunto": {
+            "text": "Con 850 milioni si finanzia un'uscita anticipata per una platea ristretta, mentre il peso del debito pensionistico resta sui più giovani. Quanto costa, in equità tra generazioni, anticipare l'età di pensionamento? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Conti pubblici: l'Ue promuove il Documento programmatico di bilancio italiano",
+          "summary": "Bruxelles ha dato il via libera al Documento programmatico di bilancio e ha ritenuto ammissibili tutte le 19 misure per la flessibilità sull'energia, per un impatto dello 0,3% del Pil nel 2027. Secondo l'ANSA l'Italia potrebbe uscire dalla procedura per deficit eccessivo in primavera. La spesa netta è stimata al 3,3% nel 2027 contro un tetto dell'1,9%, con deroghe per 15,3 miliardi; gli interessi salgono a 104,8 miliardi dai 96,9 del 2026. Un alto funzionario europeo ha detto «siamo al limite».",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/economia/2026/11/24/lue-promuove-il-documento-programmatico-di-bilancio-italiano-ok-a-tutte-le-misure-della-nec_2e3d1b80-5c76-4474-af33-e274f621afa9.html",
+          "published": "2026-11-24",
+          "tags": [
+            "Conti pubblici",
+            "Ue"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "104,8 miliardi di interessi sono risorse sottratte a scuole, sanità e lavoro: un dato forte per ragionare di debito come tema generazionale. Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Pisano (FdI): il gip chiede i domiciliari, ora decide la Camera",
+          "summary": "Il gip di Agrigento ha chiesto i domiciliari per il deputato di FdI Calogero Pisano, accusato di associazione per delinquere, peculato, truffa aggravata, falso ideologico e finanziamento illecito. L'inchiesta riguarda fondi della Regione Siciliana per eventi culturali: secondo la procura, spettacoli mai realizzati e spese gonfiate, con parte dei soldi usata per le campagne elettorali. Le accuse non sono accertate. Serve l'autorizzazione della Camera: la Giunta deve esprimersi entro 30 giorni ed è la prima richiesta di arresto di questa legislatura. Il Corriere, citato da Il Post, scrive che Pisano sarà espulso dal gruppo FdI.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/24/calogero-pisano-fratelli-ditalia-arresto-giunta-autorizzazioni-parlamento/",
+          "published": "2026-11-24",
+          "tags": [
+            "Giustizia",
+            "Fondi pubblici"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Un'inchiesta su fondi pubblici usati per eventi poi finanziatori di campagne elettorali: come si garantiscono controlli trasparenti sui contributi alla cultura? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Dl scuola, il governo pone la fiducia alla Camera",
+          "summary": "Il ministro per i Rapporti con il Parlamento Luca Ciriani ha posto la fiducia sul decreto scuola, già approvato dal Senato, che attende il via libera definitivo di Montecitorio. Sugli ebook, tema che ha diviso la maggioranza al Senato (FdI e Lega a favore, FI contro), gli alleati presenteranno un ordine del giorno. L'odg dovrà tenere conto delle esigenze didattiche dei diversi gradi e dei tempi dell'editoria.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/24/dl-scuola-ciriani-pone-la-fiducia-al-decreto-scuola-allesame-della-camera_64f5b9f9-17ef-43ba-bae4-14b382401885.html",
+          "published": "2026-11-24",
+          "tags": [
+            "Scuola",
+            "Fiducia"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Calenda ha indicato sanità e scuola tra i punti centrali della lista da 20 punti di Azione: la fiducia su un decreto scuola è l'occasione per chiedere un confronto di merito, non solo numeri.",
+            "refs": [
+              {
+                "label": "Calenda a Mattino 5 – ANSA, 23 novembre 2026",
+                "url": "https://www.ansa.it/sito/notizie/politica/2026/11/23/calenda-destra-o-sinistra-non-mimporta-governero-con-volenterosi_412208ed-37bc-447f-8d26-2f5fd17dcf40.html"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Consiglio regionale, bagarre sull'assestamento: Cesetti dice «marchette», seduta chiusa",
+          "summary": "Durante il dibattito sull'assestamento di bilancio il consigliere Pd Fabrizio Cesetti ha usato la parola «marchette» rispondendo all'assessora al Bilancio Francesca Pantaloni; il presidente Gianluca Pasqui ha sospeso e poi chiuso la seduta. I capigruppo di maggioranza dicono che così non è stato possibile discutere il Piano regionale dipendenze 2026-2028. Cesetti replica che proponeva di destinare le risorse della Tabella E alle Ast per abbattere le liste d'attesa.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/24/bagarre-in-consiglio-seduta-chiusa-cesetti-sul-bilancio-marchette-la-maggioranza-si-assuma-le-responsabilita/2129814/",
+          "published": "2026-11-24",
+          "tags": [
+            "Regione",
+            "Bilancio"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Tra scontri d'aula e sedute chiuse restano ferme le liste d'attesa e il piano sulle dipendenze. Come rendere più utile il lavoro del Consiglio? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta «Ricostruzione»: nelle intercettazioni gli appalti legati al sostegno elettorale",
+          "summary": "Nelle intercettazioni dell'inchiesta della Dda, captate il 2 agosto, l'imprenditore Antonio Cervigni lega il sostegno elettorale alla firma della proroga del contratto Getec con l'ospedale di Fermo. Per la Dda al vertice della presunta «cricca» ci sono Cervigni, Ezechielli e l'avvocato Fabio Pistarelli, ex capo di gabinetto di Acquaroli: arrestati il 22 ottobre, il Riesame ha respinto i ricorsi. Le accuse non sono accertate; i consiglieri regionali Marconi e Marinelli, citati nell'articolo, non risultano indagati.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/24/se-non-firmiamo-fermo-non-faccio-niente-cosi-gli-imprenditori-della-cricca-legavano-gli-appalti-alle-regionali/2129917/",
+          "published": "2026-11-24",
+          "tags": [
+            "Legalità",
+            "Sanità"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Se gli atti confermassero il nesso tra appalti sanitari e consenso, il problema sarebbe sistemico. Quali regole di trasparenza servono sugli appalti pubblici? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Cesetti: la maggioranza nega la discussione sulla Dia nelle Marche",
+          "summary": "Il consigliere Pd Fabrizio Cesetti denuncia che la maggioranza ha rifiutato di discutere la sua mozione, depositata a gennaio, che chiede alla Regione di sollecitare Presidenza del Consiglio e Viminale per un centro operativo della Dia nelle Marche. Secondo lui i controlli attuali, anche quelli dell'Ufficio speciale ricostruzione e delle prefetture, sarebbero «totalmente inefficaci». Richiama anche il porto di Ancona come snodo esposto ai traffici illeciti.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/24/istituire-la-dia-nelle-marche-cesetti-il-centrodestra-nega-la-discussione-duro-colpo-alla-loro-credibilita/2129760/",
+          "published": "2026-11-24",
+          "tags": [
+            "Legalità",
+            "Dia"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Un presidio antimafia stabile è una scelta di principio sulla ricostruzione e sul porto. Quali strumenti di prevenzione servono prima delle inchieste? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ricostruzione, Federcontribuenti chiede la proroga al 31 gennaio 2027",
+          "summary": "Federcontribuenti Marche, con la segretaria Maria Teresa Nori, chiede al commissario Guido Castelli di spostare dal 30 novembre al 31 gennaio 2027 la scadenza per firmare il contratto con il tecnico incaricato del progetto. Senza proroga, secondo l'associazione, proprietari e piccoli borghi rischiano di perdere i contributi. Nori segnala anche l'obbligo, non esplicitato, di costituire prima il consorzio per gli aggregati e incarichi concentrati su pochi tecnici, spesso da fuori regione.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/24/ricostruzione-federcontribuenti-chiede-una-proroga-al-2027/2129632/",
+          "published": "2026-11-24",
+          "tags": [
+            "Ricostruzione",
+            "Sisma"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "A dieci anni dal sisma, la burocrazia pesa ancora sui proprietari. Quali semplificazioni servono per non perdere i contributi? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Vertenza Giano: Fedrigoni verso il ritiro dei licenziamenti, un anno di Cigs per 23 lavoratori",
+          "summary": "Dopo l'incontro in Regione con l'assessore Tiziano Consoli, il gruppo Fedrigoni si è detto disponibile a ritirare il licenziamento collettivo per i 23 lavoratori ancora coinvolti dopo la chiusura della Giano di Fabriano. Propone un ulteriore anno di Cigs per cessazione fino al 31 dicembre 2027. Slc-Cgil, Fistel-Cisl e Uilfpc-Uil parlano di «importante passo avanti» e chiedono di usare il tempo per accompagnare alla pensione e ricollocare gli altri.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/23/vertenza-giano-verso-richiesta-di-un-anno-di-cassa-integrazione-per-23-lavoratori_9b963d85-642d-40cb-8a90-6ed8027685c2.html",
+          "published": "2026-11-23",
+          "tags": [
+            "Lavoro",
+            "Fabriano"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Un anno di cassa integrazione dà tempo, non un lavoro. Quali politiche attive e formazione servono per ricollocare davvero i lavoratori della carta? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Corridonia, acqua non potabile per Pfas: AVS chiede «massima trasparenza»",
+          "summary": "Sandro Bisonni, portavoce provinciale di AVS, chiede al Comune di Corridonia trasparenza sull'emergenza idrica. Venerdì sera il Comune ha vietato l'uso dell'acqua di rete, su richiesta dell'Ast di Macerata, dopo che le analisi hanno rilevato la non conformità del parametro «somma di 4 Pfas». AVS chiede di pubblicare le analisi, verificare pozzi e falde, una valutazione sanitaria e un incontro pubblico con Comune, Ast, Arpam, Apm e Regione.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/24/massima-trasparenza-sullemergenza-idrica-il-comune-faccia-chiarezza/2129650/",
+          "published": "2026-11-24",
+          "tags": [
+            "Sanità",
+            "Acqua"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Sui Pfas servono dati pubblici e controlli sistematici, non solo autobotti. Chi deve garantire monitoraggio e informazione ai cittadini? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Alta Val Metauro dopo le esondazioni: Provincia e Comuni chiedono lo stato di emergenza",
+          "summary": "Il prefetto Emanuela Saveria Greco e il presidente della Provincia di Pesaro e Urbino Alberto Alessandri hanno visitato Fermignano, Urbania, Peglio, Sant'Angelo in Vado, Mercatello sul Metauro e Borgo Pace. Provincia e Comuni hanno chiesto lo stato di emergenza e di calamità naturale. La Provincia stima circa quattro milioni di danni alle sole strade provinciali; la Regione quantificherà il totale.",
+          "source": "CentroPagina",
+          "url": "https://www.centropagina.it/pesaro/presidente-alessandri-prefetto-greco-visita-alta-val-metauro-flagellata-esondazioni-danni/",
+          "published": "2026-11-24",
+          "tags": [
+            "Entroterra",
+            "Maltempo"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Le aree interne pagano di più il dissesto idrogeologico. Perché la prevenzione resta meno finanziata dei ristori? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Provinciali a Macerata: voto il 20 dicembre, tensioni tra i meloniani sulle candidature",
+          "summary": "Il voto per il Consiglio provinciale di Macerata è fissato per il 20 dicembre, con liste da presentare il 29 e 30 novembre. Sono previste due liste di centrodestra, una dei partiti e una sostenuta dal presidente Alessandro Gentilucci, e una di centrosinistra. In FdI, che dovrebbe esprimere quattro dei dodici candidati, ci sono quattro disponibilità e tensioni sulla parità di genere. Nel centrosinistra si profilano Narciso Ricotta, Richard Dernowski e Mauro Romoli.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/24/elezioni-provinciali-si-preparano-le-liste-elettorali-tensione-tra-i-meloniani-per-le-candidature/2129723/",
+          "published": "2026-11-24",
+          "tags": [
+            "Province",
+            "Elezioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Il voto provinciale è di secondo livello: votano solo amministratori. Che ruolo deve avere un ente che gestisce scuole e strade senza elezione diretta? Domanda di riflessione, senza attribuire posizioni ad Azione.",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
