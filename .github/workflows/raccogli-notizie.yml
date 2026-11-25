@@ -1,0 +1,40 @@
+name: Raccolta notizie per la rassegna
+
+# Ogni mattina prima della rassegna scarica dai feed delle testate gli articoli
+# delle ultime 48 ore e li salva in bozze/AAAA-MM-GG.json, che la routine legge.
+# Si può lanciare a mano da Actions → «Run workflow».
+
+on:
+  schedule:
+    - cron: "15 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: raccolta-notizie
+  cancel-in-progress: false
+
+jobs:
+  raccogli:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Raccogli gli articoli
+        run: python scripts/raccogli_notizie.py
+
+      - name: Pubblica
+        run: |
+          git config user.name "il-punto-bot"
+          git config user.email "il-punto-bot@users.noreply.github.com"
+          git add bozze
+          if git diff --cached --quiet; then echo "Niente di nuovo"; exit 0; fi
+          git commit -m "Bozze notizie"
+          git pull --rebase origin main
+          git push origin HEAD:main
