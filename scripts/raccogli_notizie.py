@@ -25,17 +25,17 @@ MAX_TESTO = 2500
 
 FEEDS = [
     ("internazionale", "ANSA Mondo", "https://www.ansa.it/sito/notizie/mondo/mondo_rss.xml"),
-    ("internazionale", "ANSA Europa", "https://www.ansa.it/europa/notizie/rubriche/altrenews/altrenews_rss.xml"),
+    ("internazionale", "ANSA Europa", ["https://www.ansa.it/europa/notizie/europa_rss.xml", "https://www.ansa.it/europa/notizie/rubriche/altrenews/altrenews_rss.xml", "https://www.ansa.it/europa/notizie/rubriche/politica/politica_rss.xml"]),
     ("internazionale", "Euronews", "https://it.euronews.com/rss?level=theme&name=news"),
     ("internazionale", "Eunews", "https://www.eunews.it/feed/"),
     ("nazionale", "ANSA Politica", "https://www.ansa.it/sito/notizie/politica/politica_rss.xml"),
     ("nazionale", "ANSA Economia", "https://www.ansa.it/sito/notizie/economia/economia_rss.xml"),
-    ("nazionale", "Il Post", "https://www.ilpost.it/feed/"),
-    ("nazionale", "Avvenire", "https://www.avvenire.it/rss/politica.xml"),
-    ("nazionale", "Il Foglio", "https://www.ilfoglio.it/rss/politica.xml"),
+    ("nazionale", "Il Post", ["https://www.ilpost.it/politica/feed/", "https://www.ilpost.it/feed/", "https://www.ilpost.it/italia/feed/"]),
+    ("nazionale", "Avvenire", ["https://www.avvenire.it/rss/politica", "https://www.avvenire.it/feed", "https://www.avvenire.it/rss/politica.xml", "https://www.avvenire.it/rss/attualita.xml"]),
+    ("nazionale", "Il Foglio", ["https://www.ilfoglio.it/rss/politica", "https://www.ilfoglio.it/rss.xml", "https://www.ilfoglio.it/feed/", "https://www.ilfoglio.it/rss/politica.xml"]),
     ("marche", "ANSA Marche", "https://www.ansa.it/marche/notizie/marche_rss.xml"),
     ("marche", "Cronache Maceratesi", "https://www.cronachemaceratesi.it/feed/"),
-    ("marche", "Vivere Marche", "https://www.viveremarche.it/feed/"),
+    ("marche", "Vivere Marche", ["https://www.viveremarche.it/rss/", "https://www.viveremarche.it/rss.xml", "https://www.viveremarche.it/feed/rss/", "https://www.viveremarche.it/category/politica/feed/", "https://www.viveremarche.it/feed/"]),
     ("marche", "CentroPagina", "https://www.centropagina.it/feed/"),
     ("marche", "AnconaToday", "https://www.anconatoday.it/rss"),
     ("marche", "Corriere Adriatico", "https://www.corriereadriatico.it/rss/marche.xml"),
@@ -74,7 +74,20 @@ def data_item(el):
     return None
 
 
-def leggi_feed(url):
+def leggi_feed(urls):
+    errori = []
+    for url in ([urls] if isinstance(urls, str) else urls):
+        try:
+            voci = leggi_un_feed(url)
+            if voci:
+                return url, voci
+            errori.append(f"{url}: vuoto")
+        except Exception as e:
+            errori.append(f"{url}: {type(e).__name__}: {e}")
+    raise RuntimeError(" | ".join(errori))
+
+
+def leggi_un_feed(url):
     raw, _ = scarica(url)
     root = ET.fromstring(raw)
     out = []
@@ -94,7 +107,8 @@ def testo_articolo(url):
     raw, enc = scarica(url, timeout=20)
     pagina = raw.decode(enc, errors="replace")
     paragrafi = re.findall(r"(?is)<p[^>]*>(.*?)</p>", pagina)
-    testo = " ".join(p for p in (pulisci(x) for x in paragrafi) if len(p) > 60)
+    rumore = ("cookie", "abbonamento", "consentless", "iscriviti", "newsletter", "Italiano English", "privacy", "Accedi", "Leggi anche")
+    testo = " ".join(p for p in (pulisci(x) for x in paragrafi) if len(p) > 60 and not any(r.lower() in p.lower() for r in rumore))
     return testo[:MAX_TESTO]
 
 
@@ -105,9 +119,9 @@ def main():
     visti, articoli, stato = set(), [], []
     for sezione, testata, url in FEEDS:
         try:
-            voci = leggi_feed(url)
+            url, voci = leggi_feed(url)
         except Exception as e:
-            stato.append({"testata": testata, "feed": url, "ok": False, "errore": f"{type(e).__name__}: {e}"[:200]})
+            stato.append({"testata": testata, "feed": url, "ok": False, "errore": str(e)[:400]})
             continue
         recenti = [v for v in voci if v["data"] is None or v["data"] >= limite]
         recenti.sort(key=lambda v: v["data"] or adesso, reverse=True)
