@@ -1,0 +1,356 @@
+{
+  "date": "2026-11-26",
+  "label": "Giovedì 26 novembre 2026",
+  "intro": "Gli Usa invitano i cittadini a lasciare l'Iran mentre Kiev colpisce tre raffinerie russe e la Spagna va al voto con il vertice Ue sul bilancio; in Italia la manovra cambia ancora tra Superbonus, giovani e pensioni e il campo largo si divide sul fisco; nelle Marche restano al centro l'inchiesta sulla ricostruzione e le intercettazioni su Acquaroli.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Usa agli americani: lasciate subito l'Iran, timori di una rapida escalation",
+          "summary": "L'ambasciata virtuale degli Stati Uniti in Iran ha diffuso un'allerta in cui invita i cittadini americani a lasciare il Paese immediatamente, avvertendo che le ostilità possono intensificarsi in fretta. Secondo il testo, Teheran, gli Houthi e altri gruppi alleati potrebbero colpire interessi e cittadini Usa nella regione. Riad riferisce di una torre colpita da un attacco Houthi nel distretto finanziario (11 feriti) e il Bahrein di due feriti per attacchi iraniani di sabato.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/25/usa-invitano-i-cittadini-a-lasciare-liran-timori-di-rapida-escalation",
+          "published": "2026-11-25",
+          "tags": [
+            "Medio Oriente",
+            "Iran"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Il rischio di un'escalation nel Golfo tocca energia, rotte commerciali e sicurezza dell'Europa, che ha poca voce nella crisi. Una domanda per un contenuto: quale ruolo autonomo può avere l'Ue in Medio Oriente senza limitarsi a seguire gli eventi?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ucraina, 112 droni russi nella notte; Kiev risponde colpendo tre raffinerie",
+          "summary": "Dopo l'attacco notturno con 112 droni russi, che ha causato vittime in più regioni e danni a infrastrutture critiche, l'Ucraina ha colpito tre raffinerie in territorio russo. Tra gli obiettivi di Mosca anche un impianto di estrazione di gas di Naftogaz a Poltava, costretto a sospendere l'attività, e le reti elettriche: a Dnipropetrovsk sono stati introdotti blackout d'emergenza. Il vertice di Naftogaz accusa Mosca di voler lasciare la popolazione senza riscaldamento in inverno.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/25/ucraina-112-droni-russi-nella-notte-kiev-risponde-e-colpisce-tre-raffinerie",
+          "published": "2026-11-25",
+          "tags": [
+            "Ucraina",
+            "Energia"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Mentre i negoziati restano fermi, la guerra all'energia ucraina continua e l'inverno la rende una questione umanitaria oltre che militare. Calenda ha indicato il sostegno a Kiev come uno dei valori non negoziabili della lista Il Centro e ha criticato chi mette sullo stesso piano Putin e Zelensky: spunto per un contenuto sul perché l'aiuto europeo non può fermarsi.",
+            "refs": [
+              {
+                "label": "Calenda a Il Foglio, intervista sul lancio della lista Il Centro – Il Foglio (ed. inglese), 5 novembre 2026",
+                "url": "https://www.ilfoglio.it/en/politics/2026/11/05/news/the-leader-of-azione-announces-the-launch-of-the-il-centro-list-and-is-already-looking-ahead-to-the-post-election-period--412740"
+              },
+              {
+                "label": "Calenda su Conte e Ucraina – L'Espresso, 16 novembre 2026",
+                "url": "https://lespresso.it/c/politica/2026/11/16/carlo-calenda-elezioni-centro-polo-pareggio-sondaggi/65853"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Spagna al voto il 29 novembre: Sánchez diserta il vertice Ue sul bilancio",
+          "summary": "Il premier uscente Pedro Sánchez non sarà al vertice straordinario del Consiglio europeo del 26 e 27 novembre per restare in campagna elettorale; rappresentarlo sarà Macron. Gli ultimi sondaggi citati da Eunews danno il Pp al 31,8%, davanti al Psoe (30,9%) e a Vox, poco sotto il 18%. Il vertice affronta il bilancio pluriennale 2028-2034, con i Paesi divisi tra chi chiede più risorse e chi vuole tagli.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/25/spagna-al-voto-sanchez-diserta-il-vertice-straordinario-del-consiglio-europeo-dove-dopo-le-elezioni-potrebbe-sedere-la-destra/",
+          "published": "2026-11-25",
+          "tags": [
+            "Spagna",
+            "Ue"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Il voto spagnolo e la partita sul bilancio Ue mostrano quanto l'Europa dipenda dalle scelte dei singoli governi nazionali. Calenda ha detto che l'orizzonte irrinunciabile è un'Europa federale, gli «Stati Uniti d'Europa»: si può costruire un contenuto su cosa significa, in concreto, per un bilancio comune.",
+            "refs": [
+              {
+                "label": "Calenda a Il Foglio, intervista sul lancio della lista Il Centro – Il Foglio (ed. inglese), 5 novembre 2026",
+                "url": "https://www.ilfoglio.it/en/politics/2026/11/05/news/the-leader-of-azione-announces-the-launch-of-the-il-centro-list-and-is-already-looking-ahead-to-the-post-election-period--412740"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Dazi Usa sul Brasile: Lula parla di azione inaccettabile e non esclude misure di reciprocità",
+          "summary": "Brasilia ha definito «inaccettabile» la raccomandazione dell'Ustr statunitense di imporre un dazio del 10% sugli aerei brasiliani, finora esentati, e nuove tariffe sullo zucchero oltre le quote. Il governo Lula ricorda di trattare da oltre un anno nell'ambito della Sezione 301 e di non aver ricevuto i termini di riferimento per un accordo; non esclude il ricorso all'Omc né misure di reciprocità.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/mondo/americalatina/2026/11/25/il-brasile-indignato-per-le-nuove-tariffe-usa-non-cederemo-alle-minacce_d13879d5-9fa5-4c7e-995f-2bcbd4bfd0e1.html",
+          "published": "2026-11-25",
+          "tags": [
+            "Dazi",
+            "Brasile"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Dopo le minacce di nuovi dazi anche sull'Ue, il caso brasiliano mostra il metodo americano: tariffe durante i negoziati. Come dovrebbe rispondere l'Europa, con la reciprocità o con più integrazione del mercato interno e nuovi accordi commerciali?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Il Parlamento europeo approva la riforma del settore farmaceutico e il Critical Medicines Act",
+          "summary": "Via libera definitivo a un pacchetto che aggiorna regole ferme da oltre vent'anni e punta a ridurre la dipendenza da Paesi terzi. I governi potranno imporre alle aziende quantitativi sufficienti di medicinali e i produttori dovranno predisporre piani contro le carenze; per i nuovi farmaci la protezione normativa arriva fino a undici anni, con un voucher per i nuovi antibiotici prioritari.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/25/il-parlamento-ue-riscrive-le-regole-sui-farmaci-piu-produzione-interna-e-strumenti-contro-le-carenze/",
+          "published": "2026-11-25",
+          "tags": [
+            "Ue",
+            "Sanità"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Le carenze di farmaci sono un tema concreto per pazienti e ospedali, anche nelle Marche. Un'Europa che produce di più al proprio interno può essere un buon esempio di politica industriale comune: come spiegarlo ai giovani?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, verso la retromarcia sul Superbonus: via lo spalma crediti",
+          "summary": "Dopo il vertice di maggioranza, Maurizio Lupi (Noi Moderati) dice che si lavora per cancellare lo spalma crediti del Superbonus. La manovra cambia ancora: dopo il dietrofront sui tagli alla scuola, si profila la trasformazione della flat tax giovani in una detassazione per neo assunti e under 35. Ciriani ha chiesto ai ministri di ridurre gli emendamenti del governo, circa novanta, per rispettare i tempi.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/25/verso-la-retromarcia-sul-superbonus-via-lo-spalma-crediti_89646261-4185-4169-ae7b-46ca88eab534.html",
+          "published": "2026-11-25",
+          "also": [
+            {
+              "source": "ANSA Economia",
+              "url": "https://www.ansa.it/sito/notizie/economia/2026/11/25/lupi-si-lavora-a-cancellare-la-misura-sul-superbonus_6ac88a9b-28a5-49d7-9508-d5458686b386.html"
+            }
+          ],
+          "tags": [
+            "Manovra",
+            "Superbonus"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Un'altra correzione in corsa su una misura costosa come il Superbonus solleva il tema della coerenza dei conti. Per i giovani, la detassazione per under 35 è la parte da seguire: sarà strutturale o una misura una tantum?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Campo largo, scontro sul fisco: il tavolo si arena sulla tassazione delle grandi ricchezze",
+          "summary": "Conte parla di «un ritorno indietro incomprensibile» dopo i progressi della vigilia; Bonelli e Fratoianni replicano che a cambiare è stata la proposta del M5S. Al centro il prelievo sulle ricchezze finanziarie: i Cinque Stelle aprono ai patrimoni solo con lo scorporo degli asset produttivi, il Pd parla di uno «strumento unico» semplice, Avs insiste su un'imposta sulle grandissime ricchezze.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/25/nel-campo-largo-e-scontro-sul-fisco-scintille-tra-conte-e-leader_ed46750b-c566-44cb-90c2-dae03922a51b.html",
+          "published": "2026-11-25",
+          "tags": [
+            "Opposizioni",
+            "Fisco"
+          ],
+          "icon": "megaphone",
+          "spunto": {
+            "text": "Le divisioni sul fisco mostrano che il centrosinistra non ha ancora una ricetta su lavoro e crescita. Una domanda per i social: più tasse sui patrimoni o meno tasse su lavoro e imprese per chi produce?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Manovra, forse torna Opzione Donna: emendamenti trasversali",
+          "summary": "Diversi partiti hanno riproposto Opzione Donna con emendamenti ancora in esame. Oggi l'accesso è limitato a chi aveva maturato i requisiti entro il 31 dicembre 2024; le proposte abbassano i requisiti anagrafici a 60 anni con un figlio e 59 con due o più figli, o per lavoratrici di aziende in crisi. La pensione si calcola con il metodo contributivo, con riduzioni dal 15 al 30%.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/25/legge-di-bilancio-2027-opzione-donna-emendamenti/",
+          "published": "2026-11-25",
+          "tags": [
+            "Pensioni",
+            "Manovra"
+          ],
+          "icon": "hourglass",
+          "spunto": {
+            "text": "La spesa previdenziale pesa soprattutto su chi oggi ha meno di trent'anni. Una domanda: come tutelare equità e sostenibilità quando ogni anno si riaprono canali di uscita anticipata?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Anci, assemblea di Verona: «Riforma della finanza locale non più rinviabile»",
+          "summary": "Aprendo la 43ª assemblea davanti a Mattarella, il presidente Gaetano Manfredi avverte che la capacità fiscale dei Comuni è esaurita e che il saldo di parte corrente passerà da +1,4 miliardi nel 2024 a -700 milioni nel 2027. Denuncia che le dimissioni nei municipi superano i pensionamenti e chiede stipendi omogenei nel pubblico impiego. Intanto il Cdm ha approvato il ddl delega sul Testo unico degli enti locali, che ripristina l'elezione diretta delle Province.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/25/manfredi-anci-riforma-finanza-locale-o-non-potremo-garantire-i-servizi_23c58cbf-350f-4d97-816d-af7b57ba68be.html",
+          "published": "2026-11-25",
+          "tags": [
+            "Comuni",
+            "Finanza locale"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "I Comuni, il livello più vicino ai cittadini, faticano ad assumere giovani con stipendi poco attrattivi. Quale riforma per renderli più efficienti, e il ritorno dell'elezione diretta delle Province è la risposta giusta?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Sondaggio Youtrend: campo largo al 45,6%, centrodestra al 40,9%",
+          "summary": "Nel sondaggio Youtrend per Sky TG24 Fratelli d'Italia resta primo al 27,2%, davanti al Pd (20,6%) e al M5S (13,8%). Forza Italia 6,8%, Futuro Nazionale 6,7%, Avs 6,5%, Lega 5,1%; Azione è al 3,2% (-0,1), Italia Viva al 2,9%. Gli indecisi e gli astenuti salgono al 37%.",
+          "source": "ANSA",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/25/youtrend-campo-largo-al-456-centrodestra-al-409_202cd5f4-058c-4780-abe2-e1d47dacd62a.html",
+          "published": "2026-11-25",
+          "tags": [
+            "Sondaggi",
+            "Azione"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Con il 37% di indecisi e astenuti, lo spazio per una proposta riformista e centrista resta aperto. Calenda ha fissato l'obiettivo di circa l'8% per la lista Il Centro, in modo da essere decisiva in caso di pareggio: come far crescere quel consenso tra i giovani?",
+            "refs": [
+              {
+                "label": "Calenda su Conte e Ucraina – L'Espresso, 16 novembre 2026",
+                "url": "https://lespresso.it/c/politica/2026/11/16/carlo-calenda-elezioni-centro-polo-pareggio-sondaggi/65853"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta Ricostruzione, Castelli: «Nessuna comunicazione dalla Dia, basta strumentalizzazioni»",
+          "summary": "La Struttura commissariale replica alle minoranze regionali sulla segnalazione della Dia alla Prefettura di Macerata, precisando che le verifiche antimafia spettano alla Struttura di prevenzione antimafia del Viminale e che note e istruttorie non le vengono notificate. Ricorda che le interdittive vengono comunicate subito e che negli ultimi tre anni è accaduto 102 volte. Le opposizioni hanno chiesto di cambiare il commissario.",
+          "source": "Vivere Marche",
+          "url": "https://www.viveremarche.it/2026/11/25/inchiesta-ricostruzione-castelli-respinge-le-accuse-nessuna-comunicazione-della-dia-basta-strumentalizzazioni/217272",
+          "published": "2026-11-25",
+          "also": [
+            {
+              "source": "AnconaToday",
+              "url": "https://www.anconatoday.it/politica/terremoto-ricostruzione-intercettazioni-dia-antimafia-crucianelli-opposizione-castelli.html"
+            }
+          ],
+          "tags": [
+            "Ricostruzione",
+            "Legalità"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "La legalità nei cantieri del sisma è un test per la credibilità della Regione. Il nodo è come garantire controlli e scambio di informazioni tra Dia, prefetture e struttura commissariale, senza rallentare la ricostruzione.",
+            "refs": []
+          }
+        },
+        {
+          "title": "Inchiesta sisma, intercettazione dell'ex capo di gabinetto: «Acquaroli come Gollum»",
+          "summary": "Le frasi captate dalla Finanza il 31 dicembre 2025, anticipate dal Corriere Adriatico, sono di Fabio Pistarelli, ex capo di gabinetto del presidente Acquaroli, che parla del governatore con Antonio Ezechielli, dopo le sue dimissioni per voci su comportamenti inappropriati negli appalti. Agli atti ci sono molte conversazioni della presunta «cricca»; si tratta di indagini in corso e le responsabilità non sono accertate.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/25/ex-capo-di-gabinetto-intercettato-acquaroli-come-gollum-non-cha-una-vita_3cae5e0a-a28f-4acb-8a72-db3040fc5f43.html",
+          "published": "2026-11-25",
+          "also": [
+            {
+              "source": "Cronache Maceratesi",
+              "url": "https://www.cronachemaceratesi.it/2026/11/25/pistarelli-su-acquaroli-come-gollum-in-ufficio-dalle-730-alle-10-di-sera-fede-deve-lasciare-marche-zimbello/2130367/"
+            }
+          ],
+          "tags": [
+            "Inchiesta",
+            "Regione"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Al di là del tono delle frasi, il tema politico è la responsabilità di chi governa sugli appalti della ricostruzione. Una domanda: quali meccanismi di trasparenza servono perché una vicenda del genere non si ripeta?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Castelli smentisce un condono edilizio nel cratere: «Bufale e fake news»",
+          "summary": "Il commissario Guido Castelli respinge la ricostruzione di un quotidiano nazionale, secondo cui il presidente Acquaroli e il capogruppo FdI Bignami avrebbero parlato di un emendamento in manovra per un condono nelle zone terremotate. Castelli nega che lui o Acquaroli abbiano mai pensato o sollecitato emendamenti del genere; l'incontro a Roma c'è stato, ma su altri emendamenti per le Marche.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/25/un-condono-nelle-zone-del-cratere-castelli-bufale-e-fake-news-emendamento-inventato-di-sana-pianta/2130306/",
+          "published": "2026-11-25",
+          "tags": [
+            "Ricostruzione",
+            "Condono"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "Nel cratere la regolarità edilizia e la ricostruzione devono andare insieme. Una domanda per i social: come distinguere tra semplificazioni utili e sanatorie che indeboliscono le regole?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Alzheimer e Rsa: Seri e Caporossi chiedono la copertura integrale delle rette",
+          "summary": "Michele Caporossi e Massimo Seri hanno presentato un'interrogazione in Consiglio regionale sulla compartecipazione alle rette di Rsa, residenze protette e assistenza a domicilio per i pazienti Alzheimer. Citano l'ordinanza n. 16601 della Cassazione (maggio 2026), secondo cui le prestazioni sanitarie e socio-assistenziali congiunte sono a carico del servizio sanitario. Chiedono un censimento dei ricoverati e un percorso di valutazione uniforme.",
+          "source": "Vivere Marche",
+          "url": "https://www.viveremarche.it/2026/11/25/giustizia-e-dignit-seri-assicurare-la-copertura-integrale-delle-rette-rsa-e-assistenza-alzheimer/217583",
+          "published": "2026-11-25",
+          "also": [
+            {
+              "source": "Vivere Marche",
+              "url": "https://www.viveremarche.it/2026/11/25/alzheimer-in-fase-avanzata-e-demenza-grave-caporossi-progetto-marche-chiede-pi-risorse-per-le-famiglie-alla-regione/217100"
+            }
+          ],
+          "tags": [
+            "Sanità",
+            "Alzheimer"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Il costo dell'assistenza a lungo termine ricade spesso sulle famiglie, anche sui giovani caregiver. Una domanda: come garantire i Lea in modo uniforme in tutta la regione?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Zone franche doganali, la Regione avvia la ricognizione tra le imprese",
+          "summary": "La giunta ha approvato l'avviso pubblico per raccogliere le esigenze delle imprese sulle Zone franche doganali intercluse, nell'ambito della Zes. Gli obiettivi sono mappare le aree più idonee e i flussi di merci. L'assessore Giacomo Bugaro parla di uno strumento per sospendere l'Iva sulle merci e rendere più semplice e meno costosa la movimentazione verso i mercati internazionali.",
+          "source": "Corriere Adriatico",
+          "url": "https://www.corriereadriatico.it/marche/iva_sospesa_merci_mappa_delle_aree_idonee_bugaro_zes-9912982.html",
+          "published": "2026-11-26",
+          "tags": [
+            "Zes",
+            "Imprese"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "Strumenti come la Zes possono attirare investimenti e lavoro qualificato nelle Marche, ma contano tempi certi e meno burocrazia. Una domanda: le imprese marchigiane ne vedranno benefici concreti?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Aeroporto Sanzio, via libera della Regione a nuove rotte: 7,2 milioni nell'assestamento",
+          "summary": "La giunta ha approvato lo schema da inviare alla Commissione europea per attivare bandi di start up di nuovi collegamenti, con l'assestamento che destina 7,2 milioni per il triennio 2026-2028. Nelle motivazioni si indica che i turisti stranieri nelle Marche sono cresciuti del 45,6% rispetto al 2019. Si parla di rotte verso Grecia e Olanda.",
+          "source": "Corriere Adriatico",
+          "url": "https://www.corriereadriatico.it/marche/dalla_grecia_olanda_nuove_rotte_sanzio_aeroporto_marche_via_libera_dalla_regione-9912955.html",
+          "published": "2026-11-26",
+          "tags": [
+            "Infrastrutture",
+            "Aeroporto"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Le rotte aeree sono una leva per turismo e mobilità, soprattutto per i giovani che studiano e lavorano fuori. Una domanda: bastano i contributi alle compagnie per garantire collegamenti stabili?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Scuola, nelle Marche partono i percorsi 4+2 negli istituti tecnici",
+          "summary": "Per l'anno 2027-2028 la giunta ha confermato 208 autonomie scolastiche e premiato i percorsi coerenti con la filiera tecnico-professionale 4+2, rinviando quelli giudicati doppioni o incompleti. In provincia di Pesaro e Urbino vanno avanti, tra gli altri, un 4+2 a Pesaro e un percorso di sistemi informativi aziendali a Urbania; il Polo tecnologico-professionale slitta al 2028-2029.",
+          "source": "Corriere Adriatico",
+          "url": "https://www.corriereadriatico.it/marche/scuola_turismo_ai_logistica_istituti_tecnici_marche_partono_percorsi-9912946.html",
+          "published": "2026-11-26",
+          "tags": [
+            "Scuola",
+            "Giovani"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "L'offerta formativa legata alle imprese può ridurre il divario tra scuola e lavoro. Una domanda: i percorsi 4+2 offriranno ai ragazzi reali occasioni nelle Marche?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ciccioli: il porto di Ancona hub della Macroregione Adriatico-Ionica",
+          "summary": "L'europarlamentare di FdI Carlo Ciccioli afferma che il porto di Ancona è una porta di accesso all'Europa e ai mercati internazionali e che l'Ue deve riconoscerne il valore. Interverrà al convegno «Ancona, un porto che libera il futuro», in programma oggi nella sede dell'Autorità di sistema portuale, con rappresentanti di istituzioni europee, governo e Regione.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/25/ciccioli-porto-ancona-hub-macroregione-adriatico-ionica-europa-ne-riconosca-valore_2546d081-e773-4c6d-8c9d-ff21ca7def28.html",
+          "published": "2026-11-25",
+          "tags": [
+            "Porto",
+            "Ue"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "Il rapporto con i Balcani e l'Europa centrale può rafforzare il porto di Ancona. Una domanda: quali investimenti infrastrutturali servono perché lo scalo diventi davvero un nodo europeo?",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
