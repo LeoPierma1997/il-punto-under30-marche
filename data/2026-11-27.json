@@ -1,0 +1,393 @@
+{
+  "date": "2026-11-27",
+  "label": "Venerdì 27 novembre 2026",
+  "intro": "A Bruxelles il vertice sul bilancio Ue chiude senza intesa mentre la Bce va alla Spagna e due tecnici italiani muoiono in Kuwait; in Italia la manovra si arricchisce del condono edilizio, il campo largo cerca la sintesi su fisco e Ucraina e Meloni va allo scontro con i magistrati; nelle Marche restano al centro l'inchiesta Ricostruzione, il Plasmagate e l'assestamento regionale.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Bilancio Ue 2028-34, vertice di 15 ore senza intesa: frugali e Amici della Coesione divisi",
+          "summary": "Il Consiglio europeo straordinario sul quadro finanziario pluriennale si è chiuso dopo una maratona di 15 ore senza accordo. I sette frugali chiedono più tagli, mentre tra i 17 Amici della Coesione Giorgia Meloni è critica su ripartizione delle spese e risorse proprie e contraria a un meccanismo decisionale automatico di lungo termine voluto da Merz. Antonio Costa punta a un'intesa entro fine anno e potrebbe presentare una nuova proposta già la prossima settimana.",
+          "source": "ANSA Mondo",
+          "url": "https://www.ansa.it/sito/notizie/mondo/europa/2026/11/27/il-bilancio-spacca-leuropa-ma-costa-insiste-serve-unintesa-a-dicembre_29462849-8dd3-41b1-be83-b6aa6c47da24.html",
+          "published": "2026-11-27",
+          "tags": [
+            "Ue",
+            "Bilancio"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Il bilancio Ue decide quante risorse arrivano a coesione, giovani e ricerca: un tema concreto per chi ha meno di 30 anni. Domanda per un contenuto: un bilancio europeo bloccato dai veti nazionali è all'altezza delle sfide comuni?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ucraina, 24 Stati Ue sostengono il prestito supplementare. Decisione a dicembre",
+          "summary": "Al termine del vertice Antonio Costa ha riferito che 24 Stati membri hanno appoggiato la proposta della Commissione su un prestito supplementare per l'Ucraina. La Bulgaria parteciperà solo alla componente non militare. Il dossier tornerà sul tavolo a dicembre, insieme al negoziato sul bilancio pluriennale.",
+          "source": "ANSA Mondo",
+          "url": "https://www.ansa.it/sito/notizie/mondo/europa/2026/11/27/costa-24-paesi-ue-sostengono-lextra-prestito-per-lucraina_0d492a82-4667-4623-9a59-14284272fe50.html",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/sito/notizie/mondo/europa/2026/11/27/il-bilancio-spacca-leuropa-ma-costa-insiste-serve-unintesa-a-dicembre_29462849-8dd3-41b1-be83-b6aa6c47da24.html"
+            }
+          ],
+          "published": "2026-11-27",
+          "tags": [
+            "Ucraina",
+            "Ue"
+          ],
+          "icon": "talks",
+          "spunto": {
+            "text": "Il sostegno a Kiev è uno dei punti su cui Calenda insiste nel lancio della lista Il Centro: ha attaccato chi mette sullo stesso piano Putin e Zelensky e ha chiesto a Meloni e Tajani di scegliere tra «mollare l'Ucraina» o mollare Salvini. Spunto per un contenuto sul perché l'aiuto europeo non può dipendere da veti e ambiguità.",
+            "refs": [
+              {
+                "label": "Calenda a L'Espresso, intervista sul lancio della lista Il Centro – L'Espresso, 16 novembre 2026",
+                "url": "https://lespresso.it/c/politica/2026/11/16/carlo-calenda-elezioni-centro-polo-pareggio-sondaggi/65853"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Kuwait, morti due tecnici italiani di Rheinmetall in un attacco di droni. Teheran nega",
+          "summary": "Due tecnici italiani, impegnati nella manutenzione di antenne del sistema di difesa antiaerea Skyguard delle forze armate kuwaitiane, sono morti in un attacco di droni. Il ministro Tajani ha detto che probabilmente il drone era iraniano e che l'Italia protesterà con l'ambasciata di Teheran; le forze armate iraniane negano ogni coinvolgimento. Tajani invita alla prudenza e a non colpire Paesi arabi estranei alla guerra.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/26/kuwait-droni-iraniani-intercettati-voli-deviati-sulla-rotta-tra-europa-e-asia",
+          "also": [
+            {
+              "source": "ANSA",
+              "url": "https://www.ansa.it/sito/notizie/mondo/mediooriente/2026/11/27/trump-la-vittoria-e-a-portata-di-mano-in-iran_4a25bd9d-81e9-4fed-a86d-b4cf000c0ff1.html"
+            }
+          ],
+          "published": "2026-11-26",
+          "tags": [
+            "Medio Oriente",
+            "Italia"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "La crisi nel Golfo coinvolge ormai direttamente cittadini e imprese italiane. Domanda per un contenuto: quale deve essere il ruolo dell'Italia e dell'Ue per proteggere chi lavora all'estero e per evitare un allargamento del conflitto?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Missili russi caduti in Polonia: la Nato schiera un radar volante AWACS",
+          "summary": "Secondo la procura polacca, il 20 novembre tre missili da crociera russi H-101 sono caduti in territorio polacco. Tre giorni dopo la Nato ha confermato che il comandante alleato in Europa, il generale Grynkewich, ha autorizzato lo schieramento avanzato di un AWACS, il radar aerotrasportato che coordina la sorveglianza dello spazio aereo sul fianco orientale.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/26/bato-invia-radar-aereo-awacs-sopra-la-polonia-dopo-missili-russi-quando-e-perche-e-stato-i",
+          "published": "2026-11-26",
+          "tags": [
+            "Nato",
+            "Polonia"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Il fianco orientale è la frontiera dell'Europa: ogni incidente ricorda che la difesa comune non è più teoria. Domanda per un contenuto: l'Ue può permettersi di dipendere dagli strumenti Nato senza costruire una propria capacità di difesa?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Bce, la presidenza alla Spagna: Hernández de Cos succede a Lagarde dal 7 febbraio",
+          "summary": "Al vertice di Bruxelles i leader, dopo l'Eurosummit, hanno convogliato il sostegno sul candidato spagnolo Pablo Hernández de Cos per la presidenza della Bce. I Paesi Bassi hanno ritirato la candidatura di Klaas Knot, aprendo la strada a una successione a Christine Lagarde dal 7 febbraio. Pedro Sánchez parla di una Spagna leader in Europa, ricordando anche Calviño alla Bei e Ribera alla Commissione.",
+          "source": "Eunews",
+          "url": "https://www.eunews.it/2026/11/26/bce-spagna-leader-post-lagarde/",
+          "published": "2026-11-26",
+          "tags": [
+            "Bce",
+            "Nomine Ue"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Un pacchetto di nomine chiuso in poche ore mostra che l'Europa sa decidere quando c'è la volontà politica, mentre sul bilancio si divide. Domanda per un contenuto: perché le istituzioni europee riescono a risolvere le poltrone più in fretta delle politiche?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Campo largo, mediazione sul programma: sintesi ancora lontana su fisco e Ucraina",
+          "summary": "Dopo lo scontro tra M5s e Avs sulla tassazione delle grandi ricchezze, Elly Schlein parla di tavoli tematici che hanno fatto approfondimenti utili, ma la sintesi su fisco e Ucraina ancora non c'è e sarà affrontata al tavolo dei leader. Matteo Renzi rilancia con «Basta tasse», Iv dice di essere contraria alla patrimoniale. L'unico punto comune è un «fondo taglia tasse» per lavoratori, famiglie e ceto medio.",
+          "source": "ANSA Politica",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/26/mediazione-al-fotofinish-sul-programma-del-centrosinistra-leader-in-campo_8127ab70-ab5f-43cd-b66b-3061a850d17e.html",
+          "published": "2026-11-26",
+          "tags": [
+            "Campo largo",
+            "Fisco"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Calenda attacca il campo largo sul nodo Ucraina e definisce «ripugnante» mettere sullo stesso piano Putin e Zelensky: spunto per un contenuto su una coalizione che promette di governare ma non ha una linea comune su fisco ed estero.",
+            "refs": [
+              {
+                "label": "Calenda a L'Espresso, intervista sul lancio della lista Il Centro – L'Espresso, 16 novembre 2026",
+                "url": "https://lespresso.it/c/politica/2026/11/16/carlo-calenda-elezioni-centro-polo-pareggio-sondaggi/65853"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Manovra, la maggioranza blinda il condono edilizio ma salta la sanatoria nelle zone sismiche",
+          "summary": "Il condono edilizio della maggioranza prende forma tra gli emendamenti in commissione Bilancio alla Camera: Salvini promette di smaltire decine di migliaia di pratiche entro il 2027 con il silenzio-assenso. Non ha mai varcato la soglia parlamentare l'ipotesi di una «regolarizzazione postuma» degli interventi senza autorizzazione sismica, affiorata in una bozza di FdI. Sul Superbonus Meloni conferma che si lavora allo stralcio dello spalmacrediti, e Orsini parla di rassicurazioni da Giorgetti.",
+          "source": "ANSA Politica",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/26/salvini-in-manovra-una-norma-sul-condono-la-stiamo-costruendo-con-i-comuni_6c4a993a-9e13-463d-b930-9be3df31a000.html",
+          "published": "2026-11-26",
+          "tags": [
+            "Manovra",
+            "Condono"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Calenda ha definito la manovra «malfatta», fatta di aiuti da poche decine di euro a una platea più larga possibile. Spunto per un contenuto: un condono edilizio rilancia i problemi del Paese o li sana solo sulla carta, soprattutto nelle aree sismiche?",
+            "refs": [
+              {
+                "label": "Calenda sulla manovra, video-intervista Vista – Affaritaliani.it, 4 novembre 2026",
+                "url": "https://www.affaritaliani.it/coffee/video/vista/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente.html"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Dl scuola, la Camera dà il via libera con la fiducia: 142 sì, 112 no",
+          "summary": "L'Aula della Camera ha approvato il decreto scuola con 142 sì, 112 no e 4 astenuti, dopo che il governo aveva posto la fiducia. Sul tema degli ebook, su cui al Senato c'era stato uno strappo con FI contraria e FdI favorevole, la maggioranza si è ricompattata. Le opposizioni hanno mostrato cartelli di protesta; Elly Schlein ha criticato l'assenza di investimenti su edilizia scolastica e personale.",
+          "source": "ANSA Politica",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/26/la-camera-approva-il-decreto-scuola-142-i-si-112-i-no_4beb1e8e-8990-4b06-a469-8e026622062b.html",
+          "also": [
+            {
+              "source": "Il Post",
+              "url": "https://www.ilpost.it/2026/11/26/decreto-scuola-legge-libri-digitali-ebook/"
+            }
+          ],
+          "published": "2026-11-26",
+          "tags": [
+            "Scuola",
+            "Parlamento"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Per i giovani la scuola è il primo luogo in cui si misura il futuro del Paese. Domanda per un contenuto: edilizia, personale e supporto psicologico non dovrebbero venire prima di ogni altra misura?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Meloni non firma il Dpcm sugli arretrati dei magistrati, scontro con l'Anm",
+          "summary": "Giorgia Meloni ha detto che non firmerà il Dpcm per adeguare gli arretrati degli stipendi dei magistrati previsti da due sentenze della giustizia amministrativa e non andrà al congresso dell'Anm a Napoli. Il presidente Anm Giuseppe Tango ha replicato. In assenza dei decreti il Consiglio di Stato potrebbe nominare un commissario ad acta, mentre la manovra punta a una stretta sugli stipendi della categoria.",
+          "source": "ANSA Politica",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/26/anm-noi-siamo-per-il-dialogo-ma-meloni-ci-attacca-e-rinuncia-al-confronto_06616678-fee1-4b92-a1e5-782355d38f7e.html",
+          "published": "2026-11-26",
+          "tags": [
+            "Giustizia",
+            "Governo"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Lo scontro tra governo e toghe, a otto mesi dal referendum sulla giustizia, mette alla prova il rispetto delle sentenze. Domanda per un contenuto: in uno Stato di diritto una decisione dei giudici si applica o si negozia?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Ex Ilva, Jindal rilancia: investimenti a 7,5 miliardi e un secondo forno elettrico",
+          "summary": "Nella gara per l'ex Ilva il gruppo indiano Jindal porta il piano di investimenti da circa 1,5 a 7,5 miliardi, ipotizzando un secondo forno elettrico a Taranto. L'altra offerta, dell'italiana Arvedi, prevede circa 3 miliardi. La mossa è definita «irrituale» ma la valutazione dei commissari prosegue e una risposta potrebbe arrivare all'inizio della prossima settimana.",
+          "source": "ANSA Economia",
+          "url": "https://www.ansa.it/sito/notizie/economia/2026/11/26/jindal-rilancia-sullex-ilva-gli-investimenti-salgono-a-75-miliardi_788dba04-7995-40f9-8e2b-a59723e1bde1.html",
+          "published": "2026-11-26",
+          "tags": [
+            "Ex Ilva",
+            "Industria"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "L'acciaio di Taranto riguarda lavoro, ambiente e autonomia industriale. Domanda per un contenuto: dopo anni di crisi, quali garanzie occupazionali e ambientali devono pesare più dell'importo promesso?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta Ricostruzione, la minoranza attacca Castelli sulle segnalazioni Dia",
+          "summary": "Le opposizioni in Consiglio regionale (Pd, M5s, Avs, Progetto Marche, Lista Ricci) replicano al commissario Guido Castelli, che aveva parlato di strumentalizzazioni sostenendo di non aver ricevuto note dalla Dia. Ricordano che il 10 aprile la Dia segnalò alla Prefettura di Macerata la Crucianelli Rest Edile per contatti con subappaltatrici con personale con pregiudizi penali, e chiedono provvedimenti o un passo indietro. L'inchiesta di Dda e Guardia di finanza conta 8 arresti su 51 indagati; le accuse non sono accertate.",
+          "source": "Corriere Adriatico",
+          "url": "https://www.corriereadriatico.it/marche/segnalazioni_dia_castelli_scaricabarile_governo_meloni_chieda_provvedimenti_o_passo_indietro-9914509.html",
+          "also": [
+            {
+              "source": "AnconaToday",
+              "url": "https://www.anconatoday.it/politica/terremoto-ricostruzione-dia-antimafia-opposizione-castelli-crucianelli-inchiesta.html"
+            }
+          ],
+          "published": "2026-11-26",
+          "tags": [
+            "Ricostruzione",
+            "Legalità"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Nella ricostruzione post-sisma sono in gioco fondi pubblici e fiducia delle comunità terremotate. Domanda per un contenuto: quali controlli antimafia chiari e trasparenti servono perché le segnalazioni non si perdano tra Commissario e Prefettura?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Acquaroli sposta l'evento di FdI «A testa alta» dopo le proteste",
+          "summary": "Il presidente della Regione Francesco Acquaroli ha spostato da domenica a giovedì prossimo, ore 20,30, l'evento di FdI al teatro Rossini di Civitanova, per non pesare sui mercatini di Natale: i centri sociali avevano annunciato una contromanifestazione con circa 500 persone e la Prefettura valutava di chiudere piazza XX Settembre. L'iniziativa doveva raccontare sei anni di governo regionale, ma arriva nel pieno dell'inchiesta Ricostruzione.",
+          "source": "Corriere Adriatico",
+          "url": "https://www.corriereadriatico.it/marche/civitanova_proteste_piazza_da_chiudere_acquaroli_sposta_evento_fdi-9915245.html",
+          "also": [
+            {
+              "source": "CentroPagina",
+              "url": "https://www.corriereadriatico.it/marche/fratelli_ditalia_civitanova_evento_spostato_domenica_a_testa_alta_mercatini_natale_contestazione_video_acquaroli-9914730.html"
+            }
+          ],
+          "published": "2026-11-27",
+          "tags": [
+            "Regione",
+            "FdI"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Il racconto di sei anni di governo regionale arriva mentre un'inchiesta tocca i cantieri del sisma. Domanda per un contenuto: bastano eventi di partito, o servono atti e trasparenza amministrativa per riconquistare fiducia?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Plasmagate, 625 sacche ancora a Torrette: scontro Mastrovincenzo-Calcinaro",
+          "summary": "Delle oltre 900 sacche di plasma sottratte allo smaltimento e destinate alla ricerca, solo 305 sono state consegnate all'Istituto superiore di sanità e 625 sono ancora nei congelatori di Torrette, a otto mesi dall'esplosione del caso. Antonio Mastrovincenzo (Pd) accusa l'assessore Paolo Calcinaro di «mistificare i dati»; l'assessore annuncia consegne in tre tranche. I Nas non hanno rilevato profili penalmente rilevanti.",
+          "source": "Corriere Adriatico",
+          "url": "https://www.corriereadriatico.it/marche/plasmagate_sacche_torrette_scontro_totale_mastrovincenzo_calcinaro_mistifica_dati_assessore_saranno_consegnate_tre_tranche-9915088.html",
+          "also": [
+            {
+              "source": "Vivere Marche",
+              "url": "https://www.viveremarche.it/2026/11/26/plasmagate-mastrovincenzo-pd-calcinaro-mistifica-i-dati-alliss-solo-305-sacche-delle-932-non-gettate/218322"
+            }
+          ],
+          "published": "2026-11-27",
+          "tags": [
+            "Sanità",
+            "Plasmagate"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Il plasma è un bene donato dai cittadini: gestirlo bene è questione di rispetto verso i donatori. Domanda per un contenuto: quali tempi e quali dati pubblici deve dare la Regione dopo otto mesi?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Assestamento da 540 milioni, tabella E: 1,7 milioni di «mancette» ai consiglieri",
+          "summary": "L'assestamento di bilancio regionale da 540 milioni arriva oggi in Aula con gli emendamenti alla tabella E, il fondo di 75mila euro per ciascun consigliere che vale quasi 1,7 milioni complessivi. I contributi vanno a eventi culturali, impianti sportivi, mezzi comunali e manutenzioni. La tabella è da sempre contestata: nell'ultima seduta il dem Cesetti ha parlato di «marchette» e la seduta è stata sospesa.",
+          "source": "Corriere Adriatico",
+          "url": "https://www.corriereadriatico.it/marche/promozione_calcio_statue_pure_pesa_tabella_delle_mancette_piano_regione_marche-9915248.html",
+          "published": "2026-11-27",
+          "tags": [
+            "Bilancio",
+            "Regione"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Piccoli contributi sparsi sul territorio fanno discutere da sempre. Calenda ha criticato le misure a pioggia nella manovra nazionale: spunto per un contenuto sul perché i fondi pubblici vadano scelti con criteri e priorità trasparenti, non per bacino elettorale.",
+            "refs": [
+              {
+                "label": "Calenda sulla manovra, video-intervista Vista – Affaritaliani.it, 4 novembre 2026",
+                "url": "https://www.affaritaliani.it/coffee/video/vista/calenda-sulla-manovra-interventi-a-pioggia-per-accontentare-tutti-senza-risolvere-niente.html"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Porto di Ancona, piano operativo 2027-2029: 308,8 milioni di opere",
+          "summary": "L'Autorità di sistema portuale del Mare Adriatico centrale ha presentato il Piano operativo triennale 2027-2029 per i sette porti tra Marche e Abruzzo, con opere finanziate o in progettazione per 308,8 milioni. Il presidente Mirco Carloni punta a «rimuovere gli ostacoli» alle imprese e a una governance «gentile»; il piano si sviluppa su quattro direttrici, tra cui mitigazione degli impatti su territori e ambiente.",
+          "source": "AnconaToday",
+          "url": "https://www.anconatoday.it/attualita/porto-ancona-piano-operativo-triennale.html",
+          "also": [
+            {
+              "source": "ANSA Marche",
+              "url": "https://www.ansa.it/marche/notizie/2026/11/26/carloni-terminalizzazione-banchine-creera-sviluppo-per-il-porto_a7ddac6c-2198-4d54-a81c-f967569d804e.html"
+            }
+          ],
+          "published": "2026-11-26",
+          "tags": [
+            "Porto",
+            "Infrastrutture"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Il porto è uno dei motori economici della regione, tra lavoro e collegamenti. Domanda per un contenuto: come far crescere lo scalo senza trascurare ambiente, intermodalità e occupazione giovanile?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Fragili, la Regione presenta un pacchetto da 122,7 milioni per il triennio 2025-2027",
+          "summary": "L'assessore Paolo Calcinaro ha presentato misure per disabilità, anziani, famiglie e minori per 122,7 milioni nel triennio 2025-2027, tra risorse regionali, statali ed europee. Oltre 17,3 milioni vanno all'inclusione per la disabilità, con 11,2 milioni di fondi regionali confermati nel 2026 per assistenza domiciliare, integrazione scolastica e tirocini; interventi anche su Dopo di noi, Vita indipendente e centri per la famiglia, con un aiuto ai Comuni più piccoli.",
+          "source": "Corriere Adriatico",
+          "url": "https://www.corriereadriatico.it/marche/regione_marche_misura_minori_disabili_anziani_pacchetto_122_milioni-9915247.html",
+          "also": [
+            {
+              "source": "Vivere Marche",
+              "url": "https://www.viveremarche.it/2026/11/26/disabilit-anziani-famiglie-e-minori-1227-milioni-per-rafforzare-servizi-e-interventi-nelle-marche/218297"
+            }
+          ],
+          "published": "2026-11-27",
+          "tags": [
+            "Welfare",
+            "Disabilità"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Servizi sociali e sostegno alle famiglie decidono la qualità della vita nei piccoli comuni. Domanda per un contenuto: i fondi bastano e arrivano davvero a chi ne ha bisogno?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Macerata, inaugurata la Casa della Comunità nel padiglione Morselli",
+          "summary": "È stata inaugurata a Macerata la Casa della Comunità ricavata nell'ex manicomio, circa 900 metri quadri con ambulatori, guardia medica, ambulatorio per bisogni non differibili e consultorio. I lavori sono costati 1,87 milioni, di cui 1,8 dal Pnrr. Il servizio del fine settimana, dalle 8 alle 20, partirà dopo il 15 dicembre. Per l'assessore Calcinaro dovrà essere un'alternativa al pronto soccorso per i bisogni urgenti ma meno gravi.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/26/inaugurata-la-casa-di-comunita-di-macerata-alternativa-al-pronto-soccorso_6f9c3df1-7834-4e96-8582-47168ed6ba21.html",
+          "also": [
+            {
+              "source": "Cronache Maceratesi",
+              "url": "https://www.cronachemaceratesi.it/2026/11/26/al-padiglione-morselli-inaugurata-la-casa-della-comunita-calcinaro-alternativa-al-pronto-soccorso/2130793/"
+            }
+          ],
+          "published": "2026-11-26",
+          "tags": [
+            "Sanità",
+            "Pnrr"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "Le case di comunità sono una delle promesse più concrete del Pnrr sulla sanità territoriale. Domanda per un contenuto: con quali medici e orari funzioneranno davvero e alleggeriranno i pronto soccorso?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Pfas oltre i limiti a Corridonia: divieto di uso potabile e autobotti",
+          "summary": "L'Ast di Macerata ha rilevato il superamento dei limiti per la somma di quattro Pfas in due punti della rete idrica di Corridonia e ha chiesto l'ordinanza di non potabilità. Le analisi sono state eseguite da Arpam; i pozzi contaminati sono stati isolati e le autobotti posizionate. La sindaca Giuliana Giampaoli parla di grave disagio su un bene primario; i risultati dei nuovi campionamenti sono attesi.",
+          "source": "ANSA Marche",
+          "url": "https://www.ansa.it/marche/notizie/2026/11/26/sostanze-inquinanti-pfas-oltre-i-limiti-nellacqua-di-corridonia-scatta-il-divieto_15e5cf6c-c025-4238-9ef3-bbd60400e642.html",
+          "also": [
+            {
+              "source": "CentroPagina",
+              "url": "https://www.centropagina.it/macerata/attualita-corridonia-senza-acqua-potabile-sindaca-disattivati-pozzi-analisi-ordinanza/"
+            }
+          ],
+          "published": "2026-11-26",
+          "tags": [
+            "Ambiente",
+            "Acqua"
+          ],
+          "icon": "mountain",
+          "spunto": {
+            "text": "L'acqua è un bene primario: i Pfas pongono il tema di controlli e prevenzione. Domanda per un contenuto: quali investimenti su reti e monitoraggio servono perché non resti un'emergenza?",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
