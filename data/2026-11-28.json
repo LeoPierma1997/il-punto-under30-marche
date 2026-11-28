@@ -1,0 +1,341 @@
+{
+  "date": "2026-11-28",
+  "label": "Sabato 28 novembre 2026",
+  "intro": "Alla vigilia del voto in Spagna e con la guerra in Ucraina che colpisce le reti energetiche, in Italia la manovra e i decreti Sicurezza e Scuola dominano il Parlamento; nelle Marche il Consiglio regionale approva l'assestamento tra le polemiche sulla Tabella E mentre l'inchiesta Ricostruzione continua a pesare sulla politica regionale.",
+  "sections": [
+    {
+      "id": "internazionale",
+      "title": "Internazionale",
+      "items": [
+        {
+          "title": "Spagna al voto domenica: ultimo confronto tv, Sánchez attacca Pp e Vox",
+          "summary": "Nel dibattito tv a quattro prima delle politiche di domenica 29 novembre, il premier socialista Pedro Sánchez ha opposto la propria linea a quella delle destre, evocando i tagli di Trump e Milei con le immagini di «forbici» e «motosega». Ha rivendicato crescita e occupazione record e un aumento di salario minimo e pensioni senza frenare l'economia. Nel mirino anche il progetto di Vox di tagliare la spesa pubblica di 112 miliardi.",
+          "source": "ANSA Mondo",
+          "url": "https://www.ansa.it/sito/notizie/mondo/europa/2026/11/26/la-spagna-al-voto-ultima-sfida-in-tv-tra-il-blocco-progressista-e-le-destre_16e91653-bfa6-450d-8daf-d5d5b3b5ef9e.html",
+          "published": "2026-11-27",
+          "tags": [
+            "Spagna",
+            "Elezioni"
+          ],
+          "icon": "ballot",
+          "spunto": {
+            "text": "Il voto spagnolo mostra uno scontro tra blocchi in cui il centro liberale ha poco spazio: un tema per capire come costruire un'offerta riformista in un sistema bipolare. Domanda per un contenuto: si può difendere la crescita senza cadere né nella motosega né nella spesa a pioggia?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Russia colpisce energia e ferrovie in nove regioni ucraine, ci sono morti",
+          "summary": "Nella notte i raid russi hanno colpito, secondo le autorità di Kiev, ferrovia, settore energetico, imprese civili e abitazioni in nove regioni. Parte degli utenti è rimasta senza elettricità nelle regioni di Dnipropetrovsk, Zaporizhia, Kirovohrad, Sumy, Kharkiv e Kherson, con distacchi di emergenza a Dnipropetrovsk per i danni alla rete ad alta tensione.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/27/russia-colpisce-energia-logistica-e-infrastrutture-critiche-in-ucraina-ci-sono-morti",
+          "published": "2026-11-27",
+          "tags": [
+            "Ucraina",
+            "Guerra"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Con l'inverno gli attacchi alle infrastrutture energetiche rendono più urgente il sostegno europeo a Kiev. Calenda ha posto di recente a Meloni e Tajani l'alternativa tra «mollare l'Ucraina» e «mollare Salvini»: si può usare come spunto sulla coerenza della maggioranza.",
+            "refs": [
+              {
+                "label": "Calenda su Ucraina, Meloni e Salvini – L'Espresso, 16 novembre 2026",
+                "url": "https://lespresso.it/c/politica/2026/11/16/carlo-calenda-elezioni-centro-polo-pareggio-sondaggi/65853"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Drone non identificato in Lettonia: allerta arancione e caccia Nato in volo",
+          "summary": "Le forze armate lettoni hanno segnalato un drone entrato in territorio nazionale vicino al confine, nel comune di Ludza, dopo averlo individuato mentre sorvolava per un breve tratto il Paese. Alle 2.30 è scattato l'avviso arancione per i residenti, poi rientrato e declassato a giallo per Balvi. Sono decollati i caccia della missione di polizia aerea Nato nei Baltici.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/27/caccia-nato-decollano-dopo-lingresso-di-un-drone-non-identificato-nello-spazio-aereo-letto",
+          "published": "2026-11-27",
+          "tags": [
+            "Nato",
+            "Sicurezza"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Le incursioni di droni ai confini orientali sono minacce ibride che l'Europa non può affrontare in ordine sparso. Azione, secondo un'intervista recente di Calenda, ha presentato un disegno di legge sulle minacce ibride: un aggancio per un contenuto sulla difesa comune europea.",
+            "refs": [
+              {
+                "label": "Calenda, intervista su lista Il Centro, Europa e Ucraina – Il Foglio, 5 novembre 2026",
+                "url": "https://www.ilfoglio.it/en/politics/2026/11/05/news/the-leader-of-azione-announces-the-launch-of-the-il-centro-list-and-is-already-looking-ahead-to-the-post-election-period--412740"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Trump: «La vittoria è a portata di mano in Iran»",
+          "summary": "In collegamento con i soldati americani per il Giorno del Ringraziamento, Donald Trump ha detto che gli Usa stanno concedendo all'Iran «tutte le chance» per un accordo e per salvare vite, ma non è sicuro che Teheran ne approfitterà. Il presidente ha aggiunto che la vittoria è vicina.",
+          "source": "ANSA Mondo",
+          "url": "https://www.ansa.it/sito/notizie/mondo/mediooriente/2026/11/27/trump-la-vittoria-e-a-portata-di-mano-in-iran_4a25bd9d-81e9-4fed-a86d-b4cf000c0ff1.html",
+          "published": "2026-11-27",
+          "tags": [
+            "Iran",
+            "Usa"
+          ],
+          "icon": "globe",
+          "spunto": {
+            "text": "La crisi con l'Iran tocca l'Italia da vicino: pochi giorni fa sono morti due tecnici italiani in Kuwait. Domanda per un contenuto: che ruolo può avere l'Europa tra la logica della vittoria militare e quella del negoziato?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Mosca arresta il vicecomandante delle Forze aerospaziali Grekhov per una maxi tangente",
+          "summary": "Il generale Grekhov, 64 anni, che supervisionava gli acquisti di aerei, munizioni, missili e difese aeree, è stato arrestato per corruzione: rischia fino a 15 anni. È nella lista delle sanzioni Ue dal 2022 ed è tra gli ufficiali di più alto livello indagati mentre era ancora in servizio, nel quadro di una serie di arresti tra i vertici militari.",
+          "source": "Euronews",
+          "url": "https://it.euronews.com/2026/11/27/mosca-arresta-il-vicecomandante-delle-forze-aerospaziali-grekhov-per-maxi-tangente-purga-t",
+          "published": "2026-11-27",
+          "tags": [
+            "Russia",
+            "Corruzione"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "La corruzione nelle forniture militari è un limite strutturale dei regimi senza controlli indipendenti. Spunto: le democrazie si distinguono per trasparenza degli appalti e magistratura autonoma, un tema valido anche per casa nostra.",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "nazionale",
+      "title": "Nazionale",
+      "items": [
+        {
+          "title": "Manovra, la selezione tra quasi 6.600 emendamenti: l'«assalto alla diligenza»",
+          "summary": "Alla Camera la commissione Bilancio sta scremando gli emendamenti alla legge di bilancio, quasi 6.600, dei quali circa un terzo presentato dai partiti di governo. Il Senato si limiterà a un voto di ratifica dopo poche ore di discussione, una prassi usata per chiudere entro fine anno. La fase mostra le priorità dei partiti nella spartizione delle poche risorse disponibili.",
+          "source": "Il Post",
+          "url": "https://www.ilpost.it/2026/11/26/legge-di-bilancio-emendamenti-commissione-bilancio-ammissibili-segnalati/",
+          "published": "2026-11-26",
+          "tags": [
+            "Manovra",
+            "Parlamento"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Un Parlamento che discute davvero la manovra in una sola Camera è un problema di qualità democratica e di scelte per le nuove generazioni. Domanda per un contenuto: i fondi vanno a pioggia sulle categorie o a pochi interventi mirati, per esempio sui giovani?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Dl Sicurezza: ammessi gli emendamenti FdI su marcatori e borse di studio, opposizioni sul piede di guerra",
+          "summary": "In commissione Giustizia alla Camera sono stati giudicati inammissibili 34 emendamenti su 225. Passano la proposta di FdI sui marcatori per identificare i manifestanti violenti e quella firmata da Andrea Delmastro su revoca e sospensione delle borse di studio. Sulla seconda c'è apertura a una riformulazione, mentre le opposizioni promettono battaglia e hanno scritto al presidente della Camera Fontana.",
+          "source": "ANSA Politica",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/26/marcatori-e-sospensione-delle-borse-di-studio-i-nodi-del-dl-sicurezza_d59083af-2442-43e7-93e9-aee321e12d7d.html",
+          "published": "2026-11-26",
+          "tags": [
+            "Sicurezza",
+            "Diritti"
+          ],
+          "icon": "shield",
+          "spunto": {
+            "text": "Sicurezza e diritto allo studio vanno tenuti distinti: sospendere una borsa di studio come sanzione colpisce proprio i giovani. Domanda per un contenuto: quale equilibrio tra ordine pubblico e libertà di manifestare?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Superbonus, Orsini: da Giorgetti rassicurazioni sul ritorno alla norma precedente",
+          "summary": "Il presidente di Confindustria Emanuele Orsini, dopo un incontro al Mef con il ministro Giorgetti, ha detto di aver avuto rassicurazioni sul fatto che sul Superbonus si tornerà a quanto previsto prima. In discussione c'è lo «spalma crediti», norma della manovra che ripartisce in dieci anni le quote di alcuni crediti d'imposta utilizzabili in compensazione dal 2027.",
+          "source": "ANSA Economia",
+          "url": "https://www.ansa.it/sito/notizie/economia/2026/11/26/orsini-sul-superbonus-rassicurazioni-da-giorgetti-che-si-torna-a-quello-che-era_8ab951a9-3a97-41dd-834a-148819d03ba7.html",
+          "published": "2026-11-26",
+          "tags": [
+            "Superbonus",
+            "Imprese"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Cambiare le regole sui crediti a posteriori danneggia la certezza del diritto e chi ha anticipato i lavori. Domanda per un contenuto: quanto è costato al Paese il Superbonus e come si evita di ripetere errori simili?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Osservatorio sui libri di testo, ordine del giorno FdI: il Pd parla di «Minculpop»",
+          "summary": "Con la conversione del decreto Scuola (142 sì, 112 no), che introduce un tetto agli alunni stranieri che non conoscono l'italiano e il divieto di burqa a scuola, si accende lo scontro su un ordine del giorno di FdI. Il testo impegna il governo a valutare un Osservatorio indipendente sul pluralismo dei libri di testo, per segnalare i «contenuti non conformi». Il Pd parla di Minculpop, sindacati e studenti di «lista di proscrizione», i presidi dicono di non essere stati informati.",
+          "source": "ANSA Politica",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/26/ok-alla-proposta-di-fdi-sullosservatorio-sui-libri-il-pd-minculpop_3ac2f80e-b006-4c08-9aaa-8a16ecd965db.html",
+          "published": "2026-11-26",
+          "tags": [
+            "Scuola",
+            "Libertà"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Un organismo che segnala i libri «non conformi» solleva il tema della libertà di insegnamento. Domanda per un contenuto: come si difende il pluralismo a scuola senza controlli ideologici, in qualsiasi direzione?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Terzo mandato per i sindaci, Zangrillo apre: «Mi impegnerò per la modifica»",
+          "summary": "Il ministro della Pa Paolo Zangrillo (Forza Italia) rilancia il superamento del limite dei due mandati per i sindaci, oggi derogato solo nei Comuni fino a 15mila abitanti, definendo la differenza ingiusta: «I sindaci se li devono scegliere i cittadini». L'Anci sostiene la proposta da almeno quattro anni, con il vicepresidente Mattia Palazzi. Il percorso dipende dalla disponibilità della maggioranza.",
+          "source": "ANSA Politica",
+          "url": "https://www.ansa.it/sito/notizie/politica/2026/11/26/zangrillo-stop-al-terzo-mandato-per-i-sindaci-mi-impegnero-per-la-modifica_9b021854-2c1b-4c15-9ee7-0c18f1713db6.html",
+          "published": "2026-11-26",
+          "tags": [
+            "Istituzioni",
+            "Comuni"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "Il terzo mandato divide chi difende la sovranità degli elettori e chi teme rendite di potere locali. Domanda per un contenuto: la competizione politica si garantisce con i limiti di mandato o con più ricambio nelle candidature?",
+            "refs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "title": "Marche",
+      "items": [
+        {
+          "title": "Inchiesta Ricostruzione, 35 giorni dopo: FdI fa quadrato intorno ad Acquaroli",
+          "summary": "A 35 giorni dall'inchiesta sulla ricostruzione che ha portato all'arresto dell'ex capo di gabinetto Fabio Pistarelli, gli assessori di FdI Pantella, Renna e Tasso difendono il presidente Acquaroli, che non è indagato e che, a loro dire, chiese le dimissioni di Pistarelli appena sentite le voci su pressioni. Nelle intercettazioni sono emersi dialoghi accesi tra i due; le accuse restano da accertare.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/27/pantella-renna-e-tasso-in-coro-acquaroli-una-persona-integerrima-mai-avuto-dubbi-sulla-sua-estraneita/2130799/",
+          "published": "2026-11-27",
+          "tags": [
+            "Ricostruzione",
+            "Legalità"
+          ],
+          "icon": "scale",
+          "spunto": {
+            "text": "Estraneità penale e responsabilità politica sono piani diversi: i cittadini del cratere chiedono trasparenza su appalti e controlli. Domanda per un contenuto: quali garanzie servono perché la ricostruzione non diventi terreno di clientele?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Assestamento da 544 milioni approvato dal Consiglio regionale dopo cinque ore di scontro sulla Tabella E",
+          "summary": "Il Consiglio regionale ha approvato a maggioranza l'assestamento 2026-2028, una manovra da 544 milioni. Il dibattito è stato dominato dalla Tabella E, contributi a pioggia a Comuni e associazioni, con accuse reciproche di «marchette» tra centrodestra e centrosinistra. Tra le voci principali 54 milioni per l'aumento dei costi delle nuove strutture sanitarie, 2 milioni per il Salesi e 1,2 per l'ospedale di comunità di Montegiorgio.",
+          "source": "Corriere Adriatico",
+          "url": "https://www.corriereadriatico.it/marche/atim_sanzio_sanita_manovra_mezzo_miliardo_regione_marche_dove_vanno_tutti_soldi-9917371.html",
+          "also": [
+            {
+              "source": "Corriere Adriatico",
+              "url": "https://www.corriereadriatico.it/marche/marche_consiglio_regionale_guerra_marchette_soldi_campane_rondoni-9917370.html"
+            }
+          ],
+          "published": "2026-11-28",
+          "tags": [
+            "Bilancio",
+            "Regione"
+          ],
+          "icon": "columns",
+          "spunto": {
+            "text": "I contributi a pioggia cambiano nome con le maggioranze ma restano: anche gli stessi che li denunciavano li mantengono. Domanda per un contenuto: come si trasformano le mance locali in criteri pubblici e valutabili?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Rest Edile, i sindacati chiedono garanzie su stipendi e subappalti dopo l'inchiesta",
+          "summary": "Fillea Cgil, Filca Cisl e Feneal Uil chiedono un incontro alla Rest Edile di Tolentino: stato dei cantieri, stipendi di novembre dei 260 dipendenti e responsabilità sui lavoratori in subappalto. L'ex amministratore Crucianelli è stato arrestato il 22 ottobre; resta l'incognita dell'interdittiva antimafia, dopo la segnalazione della Dia dell'aprile scorso, che metterebbe a rischio i cantieri.",
+          "source": "Cronache Maceratesi",
+          "url": "https://www.cronachemaceratesi.it/2026/11/27/i-sindacati-chiedono-un-incontro-a-mira-garanzie-su-stipendi-cantieri-e-operai-dei-subappalti/2131225/",
+          "published": "2026-11-27",
+          "tags": [
+            "Lavoro",
+            "Ricostruzione"
+          ],
+          "icon": "helmet",
+          "spunto": {
+            "text": "Dietro l'inchiesta ci sono operai e piccole imprese dell'indotto che rischiano di pagare per colpe altrui. Domanda per un contenuto: come tutelare i lavoratori senza abbassare la guardia sui controlli antimafia negli appalti?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Plasmagate, 625 sacche ancora a Torrette: nuovo scontro Mastrovincenzo-Calcinaro",
+          "summary": "Delle oltre 900 sacche di plasma sottratte allo smaltimento, solo 305 sono state consegnate all'Istituto superiore di sanità, mentre 625 restano nei congelatori di Torrette. Il consigliere Pd Mastrovincenzo accusa l'assessore Calcinaro di aver travisato i dati; l'assessore risponde che saranno consegnate in tre tranche. Intanto, in un'altra polemica, il dg dell'Azienda ospedaliera Gozzini annuncia che la Pet/Tc è tornata in funzione e attacca la gestione precedente.",
+          "source": "Corriere Adriatico",
+          "url": "https://www.corriereadriatico.it/marche/plasmagate_sacche_torrette_scontro_totale_mastrovincenzo_calcinaro_mistifica_dati_assessore_saranno_consegnate_tre_tranche-9915088.html",
+          "also": [
+            {
+              "source": "AnconaToday",
+              "url": "https://www.anconatoday.it/politica/tac-funzionante-ospedale-torrette-polemica-gozzini-caporossi.html"
+            }
+          ],
+          "published": "2026-11-27",
+          "tags": [
+            "Sanità",
+            "Torrette"
+          ],
+          "icon": "health",
+          "spunto": {
+            "text": "La sanità marchigiana è ostaggio di polemiche tra maggioranza e opposizione, mentre pazienti e donatori aspettano risposte. Domanda per un contenuto: quali indicatori pubblici di funzionamento e manutenzione servirebbero per ospedali e macchinari?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Confindustria Ancona, Macerata e Fermo insieme il 3 dicembre a Civitanova; Acquaroli sposta l'evento FdI",
+          "summary": "Giovedì 3 dicembre le territoriali di Confindustria di Ancona, Macerata e Fermo terranno la prima assemblea unitaria all'Eurosuole Forum con il presidente nazionale Orsini, passo verso l'aggregazione. Lo stesso giorno, al teatro Rossini, Acquaroli e FdI tengono l'evento «A testa alta», rinviato dalla data iniziale per una contromanifestazione annunciata.",
+          "source": "Corriere Adriatico",
+          "url": "https://www.corriereadriatico.it/marche/confindustria_unisce_tre_province_acquaroli_cerca_rilancio_giovedi_succede_tutto_civitanova-9917365.html",
+          "published": "2026-11-28",
+          "tags": [
+            "Imprese",
+            "Confindustria"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "L'unione delle associazioni industriali tra province segue la logica di scala che serve anche alle istituzioni. Domanda per un contenuto: le Marche hanno bisogno di meno campanili e più massa critica per competere?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Accesso al credito, legge approvata all'unanimità: 9,3 milioni per micro e piccole imprese",
+          "summary": "Il Consiglio regionale ha approvato all'unanimità la proposta della giunta con tre misure per l'accesso al credito: 9,3 milioni di euro, 4,5 dei quali della Camera di commercio, che grazie all'effetto leva attiveranno circa 70 milioni di finanziamenti. L'assessore Bugaro prevede premialità per i lavoratori che rilevano l'attività del datore di lavoro, in assenza di ricambio generazionale.",
+          "source": "Corriere Adriatico",
+          "url": "https://www.corriereadriatico.it/marche/accesso_al_credito_ostacoli_misure_le_micro_imprese_legge_ok_bugaro-9917421.html",
+          "published": "2026-11-28",
+          "tags": [
+            "Credito",
+            "Imprese"
+          ],
+          "icon": "euro",
+          "spunto": {
+            "text": "Il passaggio generazionale nelle piccole imprese è una occasione per i giovani lavoratori. Domanda per un contenuto: come rendere questa premialità davvero accessibile ai ragazzi senza capitali?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Piano regionale dipendenze 2026-2028: 12,8 milioni, ma il Pd lamenta l'assenza di obiettivi misurabili",
+          "summary": "Il Consiglio regionale ha approvato il Piano dipendenze 2026-2028, da 12,8 milioni (7,5 per le sostanze, 5,3 per il gioco d'azzardo patologico), con peer education nelle scuole ed educativa di strada. Il relatore Canafoglia (FdI) cita dati Cnr: 78% degli studenti ha consumato alcol e un giovane su quattro cannabis. Mastrovincenzo (Pd) critica la mancanza di indicatori e ricorda i 4 miliardi giocati nel 2025.",
+          "source": "Vivere Marche",
+          "url": "https://www.viveremarche.it/2026/11/27/dipendenze-canafoglia-fdi-approvato-il-piano-regionale-26-28-128-milioni-per-prevenire-e-curare/219490",
+          "also": [
+            {
+              "source": "Vivere Marche",
+              "url": "https://www.viveremarche.it/2026/11/27/dipendenze-e-azzardo-mastrovincenzo-pd-un-piano-senza-obiettivi-misurabili-mentre-nelle-marche-si-giocano-oltre-4-miliardi/219464"
+            }
+          ],
+          "published": "2026-11-27",
+          "tags": [
+            "Giovani",
+            "Dipendenze"
+          ],
+          "icon": "youth",
+          "spunto": {
+            "text": "Un piano senza indicatori verificabili rischia di restare una dichiarazione d'intenti, soprattutto sul gioco online che raggiunge anche i minori. Domanda per un contenuto: cosa vorremmo misurare ogni anno per sapere se funziona?",
+            "refs": []
+          }
+        },
+        {
+          "title": "Via libera nazionale all'IGP «Calzatura Fermano-Maceratese»",
+          "summary": "L'Ufficio italiano brevetti e marchi del Mimit ha accolto la domanda del Consorzio calzaturiero fermano-maceratese per l'IGP, dopo il parere favorevole della Regione e senza opposizioni nei due mesi successivi alla pubblicazione. La pratica passa ora all'Euipo per la fase europea. Acquaroli e l'assessore Bugaro parlano di risultato atteso da anni.",
+          "source": "Vivere Marche",
+          "url": "https://www.viveremarche.it/2026/11/27/via-libera-alligp-calzatura-fermano-maceratese-acquaroli-risultato-atteso-da-anni/219479",
+          "published": "2026-11-27",
+          "tags": [
+            "Made in Italy",
+            "Calzature"
+          ],
+          "icon": "factory",
+          "spunto": {
+            "text": "La tutela europea del nome è un'arma contro l'imitazione e a favore del lavoro qualificato. Domanda per un contenuto: come si passa dal marchio protetto a nuove assunzioni di giovani nel distretto?",
+            "refs": []
+          }
+        }
+      ]
+    }
+  ]
+}
